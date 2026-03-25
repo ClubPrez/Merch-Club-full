@@ -4,17 +4,17 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4 md:p-8">
       <div className="w-full max-w-[1200px] bg-black rounded-[24px] overflow-hidden">
-        <header className="flex items-center justify-between px-6 py-4 border-b border-white/10">
+        <header className="flex items-center justify-between px-6 py-4 bg-white rounded-t-[24px]">
           <div className="flex items-center gap-3">
-            <img src={logoSrc} alt="Merch Club" className="h-8 object-contain invert" />
+            <img src={logoSrc} alt="Merch Club" className="h-8 object-contain" />
           </div>
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-400">
-            <a href="#" className="hover:text-white transition-colors">Products</a>
-            <a href="#" className="hover:text-white transition-colors">Features</a>
-            <a href="#" className="hover:text-white transition-colors">About</a>
-            <a href="#" className="hover:text-white transition-colors">Contact</a>
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-700">
+            <a href="#" className="hover:text-black transition-colors">Products</a>
+            <a href="#" className="hover:text-black transition-colors">Features</a>
+            <a href="#" className="hover:text-black transition-colors">About</a>
+            <a href="#" className="hover:text-black transition-colors">Contact</a>
           </nav>
-          <button className="bg-white text-black text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
+          <button className="bg-black text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-gray-800 transition-colors">
             Shop Now
           </button>
         </header>
