@@ -1,4 +1,5 @@
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1774446241907.png";
+import heroImg from "@assets/0I4A7792_1774446809972.jpg";
 
 export default function Home() {
   return (
@@ -64,23 +65,7 @@ export default function Home() {
             </div>
 
             <div className="col-span-12 md:col-span-7 rounded-[20px] overflow-hidden relative min-h-[280px] md:min-h-[340px]">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] via-[#2a2a2a] to-[#0a0a0a]" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <div className="absolute top-4 right-4 w-16 h-24">
-                    <div className="w-full h-full rounded-lg bg-gradient-to-b from-red-600 to-red-700 transform rotate-[-5deg]" />
-                    <div className="absolute top-[-8px] left-1/2 transform -translate-x-1/2">
-                      <div className="w-8 h-8 border-2 border-red-400 rounded-full" style={{ borderStyle: "solid", borderColor: "#c44", clipPath: "inset(50% 0 0 0)" }} />
-                    </div>
-                  </div>
-                  <div className="w-28 h-28 md:w-36 md:h-36 rounded-2xl bg-gradient-to-br from-[#e8e0d8] to-[#d0c8c0] flex items-center justify-center shadow-2xl transform rotate-[-8deg]">
-                    <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl bg-[#e63220] flex items-center justify-center">
-                      <span className="text-white text-xs font-bold tracking-wider">MODISK</span>
-                    </div>
-                  </div>
-                  <div className="absolute top-1/4 left-1/4 w-1 h-20 bg-gradient-to-b from-gray-500 to-transparent transform rotate-[15deg]" />
-                </div>
-              </div>
+              <img src={heroImg} alt="Merch Club products" className="absolute inset-0 w-full h-full object-cover" />
             </div>
 
             <div className="col-span-12 md:col-span-5 rounded-[20px] overflow-hidden relative min-h-[200px] md:min-h-[240px]">
