@@ -1,5 +1,6 @@
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1774446241907.png";
 import heroImg from "@assets/0I4A7792_1774446809972.jpg";
+import bottleImg from "@assets/0I4A7757_1774446952971.jpg";
 
 export default function Home() {
   return (
@@ -21,123 +22,98 @@ export default function Home() {
         </header>
 
         <div className="p-3 md:p-5">
-          <div className="grid grid-cols-12 gap-3 auto-rows-auto">
-            <div className="col-span-12 md:col-span-5 grid grid-rows-[auto_1fr] gap-3">
-              <div className="bg-white border border-gray-200 rounded-[20px] p-6 md:p-8 flex gap-4">
-                <div className="flex flex-col justify-center">
-                  <h1
-                    className="text-[64px] md:text-[80px] font-black leading-[0.85] tracking-[-0.04em] text-black"
-                    style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}
-                  >
-                    MODISK
-                  </h1>
-                </div>
-                <div className="flex flex-col justify-center gap-4 flex-1">
-                  <h2 className="text-xl md:text-2xl font-black leading-tight tracking-tight text-black">
-                    FORGED IN TECH.<br />READY FOR THE<br />UNKNOWN.
-                  </h2>
-                  <div className="flex flex-wrap gap-1.5">
-                    {["SHOCKPROOF", "IP68 RATING", "DUSTPROOF", "SMART SLEEP MODE", "THERMAL STABILITY"].map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[10px] font-bold uppercase px-2.5 py-1 bg-black text-white rounded-full tracking-wide"
+          <div className="grid grid-cols-12 gap-3">
+            <div className="col-span-12 md:col-span-8 grid gap-3">
+              <div className="grid grid-cols-12 gap-3">
+                <div className="col-span-12 md:col-span-5 grid gap-3">
+                  <div className="bg-white border border-gray-200 rounded-[20px] p-6 md:p-8 flex gap-4">
+                    <div className="flex flex-col justify-center">
+                      <h1
+                        className="text-[64px] md:text-[80px] font-black leading-[0.85] tracking-[-0.04em] text-black"
+                        style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}
                       >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white border border-gray-200 rounded-[20px] p-5 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-[#e63220]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                  <span className="text-sm font-bold text-black tracking-tight">UP TO 1050 MB/S</span>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center cursor-pointer hover:bg-gray-800 transition-colors">
-                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-span-12 md:col-span-7 rounded-[20px] overflow-hidden relative min-h-[280px] md:min-h-[340px]">
-              <img src={heroImg} alt="Merch Club products" className="absolute inset-0 w-full h-full object-cover" />
-            </div>
-
-            <div className="col-span-12 md:col-span-5 rounded-[20px] overflow-hidden relative min-h-[200px] md:min-h-[240px]">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a]" />
-              <div className="absolute inset-0 flex items-center justify-center p-6">
-                <div className="flex gap-3">
-                  <div className="w-16 h-24 rounded-lg bg-gradient-to-br from-gray-300 to-gray-400 transform rotate-[-5deg] shadow-lg">
-                    <div className="w-full h-full rounded-lg overflow-hidden flex items-end p-1.5">
-                      <div className="w-4 h-4 rounded-sm bg-[#e63220]" />
+                        MODISK
+                      </h1>
+                    </div>
+                    <div className="flex flex-col justify-center gap-4 flex-1">
+                      <h2 className="text-xl md:text-2xl font-black leading-tight tracking-tight text-black">
+                        FORGED IN TECH.<br />READY FOR THE<br />UNKNOWN.
+                      </h2>
+                      <div className="flex flex-wrap gap-1.5">
+                        {["SHOCKPROOF", "IP68 RATING", "DUSTPROOF", "SMART SLEEP MODE", "THERMAL STABILITY"].map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-[10px] font-bold uppercase px-2.5 py-1 bg-black text-white rounded-full tracking-wide"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                  <div className="w-16 h-24 rounded-lg bg-gradient-to-br from-gray-300 to-gray-400 transform rotate-[3deg] shadow-lg">
-                    <div className="w-full h-full rounded-lg overflow-hidden flex items-end p-1.5">
-                      <div className="w-4 h-4 rounded-sm bg-[#e63220]" />
+
+                  <div className="bg-white border border-gray-200 rounded-[20px] p-5 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-[#e63220]" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                      <span className="text-sm font-bold text-black tracking-tight">UP TO 1050 MB/S</span>
+                    </div>
+                    <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center cursor-pointer hover:bg-gray-800 transition-colors">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                      </svg>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            <div className="col-span-12 md:col-span-7 bg-[#e63220] rounded-[20px] p-6 md:p-8 flex flex-col justify-between min-h-[200px] md:min-h-[240px]">
-              <div className="flex items-start justify-between gap-4">
-                <h3 className="text-lg md:text-xl font-black text-white leading-tight tracking-tight max-w-[340px]">
-                  BUILT FOR THE FIELD. TRUSTED IN THE STUDIO. NEVER OUT OF POWER.
-                </h3>
-                <div className="text-right flex-shrink-0">
-                  <span className="text-[56px] md:text-[72px] font-black text-white leading-none">20</span>
-                  <span className="text-lg font-bold text-white/80 ml-1">hr</span>
+                <div className="col-span-12 md:col-span-7 rounded-[20px] overflow-hidden relative min-h-[280px] md:min-h-[340px]">
+                  <img src={heroImg} alt="Merch Club products" className="absolute inset-0 w-full h-full object-cover" />
                 </div>
               </div>
-              <div className="mt-4">
-                <p className="text-white/90 text-sm font-medium">
-                  &bull; Charging Time 90 minutes
-                </p>
-              </div>
-            </div>
 
-            <div className="col-span-12 grid grid-cols-12 gap-3">
-              <div className="col-span-12 md:col-span-7 bg-white border border-gray-200 rounded-[20px] p-6 md:p-8">
-                <ul className="space-y-2 text-sm text-gray-800 font-medium">
-                  <li className="flex items-start gap-2">
-                    <span className="text-black mt-0.5">&bull;</span>
-                    <span>Available in 1TB | 2TB | 4TB SSD</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-black mt-0.5">&bull;</span>
-                    <span>Ultra-fast read/write speeds up to 1050MB/s</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-black mt-0.5">&bull;</span>
-                    <span>Compatible with Windows, macOS, iOS, and Linux</span>
-                  </li>
-                </ul>
-                <button className="mt-6 border-2 border-black text-black text-sm font-bold px-6 py-2.5 rounded-full hover:bg-black hover:text-white transition-all duration-200 tracking-wide">
-                  EXPLORE NOW
-                </button>
-              </div>
-
-              <div className="col-span-12 md:col-span-5 rounded-[20px] overflow-hidden relative min-h-[180px]">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a]" />
-                <div className="absolute inset-0 flex items-center justify-center p-4">
-                  <div className="grid grid-cols-3 gap-2">
-                    {[...Array(6)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="w-12 h-12 md:w-14 md:h-14 rounded-lg bg-gradient-to-br from-gray-400 to-gray-500 shadow-md transform"
-                        style={{ rotate: `${(i % 3 - 1) * 5}deg` }}
-                      />
-                    ))}
+              <div className="grid grid-cols-12 gap-3">
+                <div className="col-span-12 md:col-span-7 bg-[#e63220] rounded-[20px] p-6 md:p-8 flex flex-col justify-between min-h-[200px] md:min-h-[240px]">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="text-lg md:text-xl font-black text-white leading-tight tracking-tight max-w-[340px]">
+                      BUILT FOR THE FIELD. TRUSTED IN THE STUDIO. NEVER OUT OF POWER.
+                    </h3>
+                    <div className="text-right flex-shrink-0">
+                      <span className="text-[56px] md:text-[72px] font-black text-white leading-none">20</span>
+                      <span className="text-lg font-bold text-white/80 ml-1">hr</span>
+                    </div>
+                  </div>
+                  <div className="mt-4">
+                    <p className="text-white/90 text-sm font-medium">
+                      &bull; Charging Time 90 minutes
+                    </p>
                   </div>
                 </div>
+
+                <div className="col-span-12 md:col-span-5 bg-white border border-gray-200 rounded-[20px] p-6 md:p-8">
+                  <ul className="space-y-2 text-sm text-gray-800 font-medium">
+                    <li className="flex items-start gap-2">
+                      <span className="text-black mt-0.5">&bull;</span>
+                      <span>Available in 1TB | 2TB | 4TB SSD</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-black mt-0.5">&bull;</span>
+                      <span>Ultra-fast read/write speeds up to 1050MB/s</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-black mt-0.5">&bull;</span>
+                      <span>Compatible with Windows, macOS, iOS, and Linux</span>
+                    </li>
+                  </ul>
+                  <button className="mt-6 border-2 border-black text-black text-sm font-bold px-6 py-2.5 rounded-full hover:bg-black hover:text-white transition-all duration-200 tracking-wide">
+                    EXPLORE NOW
+                  </button>
+                </div>
               </div>
+            </div>
+
+            <div className="col-span-12 md:col-span-4 rounded-[20px] overflow-hidden relative min-h-[400px]">
+              <img src={bottleImg} alt="Water bottle with stickers" className="absolute inset-0 w-full h-full object-cover" />
             </div>
           </div>
         </div>
