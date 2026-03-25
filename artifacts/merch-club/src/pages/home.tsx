@@ -2,19 +2,19 @@ import logoSrc from "@assets/Social_PostsArtboard_3@3x_1774446241907.png";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#f5f5f0] flex items-center justify-center p-4 md:p-8">
-      <div className="w-full max-w-[1200px] bg-white rounded-[24px] overflow-hidden shadow-2xl">
-        <header className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+    <div className="min-h-screen bg-black flex items-center justify-center p-4 md:p-8">
+      <div className="w-full max-w-[1200px] bg-black rounded-[24px] overflow-hidden">
+        <header className="flex items-center justify-between px-6 py-4 border-b border-white/10">
           <div className="flex items-center gap-3">
-            <img src={logoSrc} alt="Merch Club" className="h-8 object-contain" />
+            <img src={logoSrc} alt="Merch Club" className="h-8 object-contain invert" />
           </div>
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-700">
-            <a href="#" className="hover:text-black transition-colors">Products</a>
-            <a href="#" className="hover:text-black transition-colors">Features</a>
-            <a href="#" className="hover:text-black transition-colors">About</a>
-            <a href="#" className="hover:text-black transition-colors">Contact</a>
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-400">
+            <a href="#" className="hover:text-white transition-colors">Products</a>
+            <a href="#" className="hover:text-white transition-colors">Features</a>
+            <a href="#" className="hover:text-white transition-colors">About</a>
+            <a href="#" className="hover:text-white transition-colors">Contact</a>
           </nav>
-          <button className="bg-black text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-gray-800 transition-colors">
+          <button className="bg-white text-black text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
             Shop Now
           </button>
         </header>
