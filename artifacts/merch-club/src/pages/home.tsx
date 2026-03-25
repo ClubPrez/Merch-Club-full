@@ -4,116 +4,114 @@ import bottleImg from "@assets/0I4A7757_1774446952971.jpg";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black">
-      <div className="w-full bg-black">
-        <header className="flex items-center justify-between px-6 md:px-10 py-4 bg-white">
-          <div className="flex items-center gap-3">
-            <img src={logoSrc} alt="Merch Club" className="h-8 object-contain" />
-          </div>
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-700">
-            <a href="#" className="hover:text-black transition-colors">Products</a>
-            <a href="#" className="hover:text-black transition-colors">Features</a>
-            <a href="#" className="hover:text-black transition-colors">About</a>
-            <a href="#" className="hover:text-black transition-colors">Contact</a>
-          </nav>
-          <button className="bg-black text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-gray-800 transition-colors">
-            Shop Now
+    <div className="min-h-screen bg-black text-white">
+      <header className="flex items-center justify-between px-6 md:px-10 py-4 bg-[#111] border-b border-white/10">
+        <div className="flex items-center gap-6">
+          <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+            <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
           </button>
-        </header>
+          <nav className="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
+            <a href="#" className="text-white hover:text-gray-300 transition-colors">Home</a>
+            <a href="#" className="text-gray-400 hover:text-white transition-colors">Products</a>
+            <a href="#" className="text-gray-400 hover:text-white transition-colors flex items-center gap-1">
+              Collections
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </a>
+            <a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a>
+          </nav>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-2 bg-white/10 rounded-full px-4 py-2">
+            <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+            <span className="text-xs text-gray-400 font-medium tracking-wide">SEARCH</span>
+          </div>
+          <img src={logoSrc} alt="Merch Club" className="h-6 object-contain invert" />
+        </div>
+      </header>
 
-        <div className="p-3 md:p-5">
-          <div className="grid grid-cols-12 gap-3">
-            <div className="col-span-12 md:col-span-8 grid gap-3">
-              <div className="grid grid-cols-12 gap-3">
-                <div className="col-span-12 md:col-span-5 grid gap-3">
-                  <div className="bg-white border border-gray-200 rounded-[20px] p-6 md:p-8 flex gap-4">
-                    <div className="flex flex-col justify-center">
-                      <h1
-                        className="text-[64px] md:text-[80px] font-black leading-[0.85] tracking-[-0.04em] text-black"
-                        style={{ writingMode: "vertical-lr", textOrientation: "mixed" }}
-                      >
-                        MODISK
-                      </h1>
-                    </div>
-                    <div className="flex flex-col justify-center gap-4 flex-1">
-                      <h2 className="text-xl md:text-2xl font-black leading-tight tracking-tight text-black">
-                        FORGED IN TECH.<br />READY FOR THE<br />UNKNOWN.
-                      </h2>
-                      <div className="flex flex-wrap gap-1.5">
-                        {["SHOCKPROOF", "IP68 RATING", "DUSTPROOF", "SMART SLEEP MODE", "THERMAL STABILITY"].map((tag) => (
-                          <span
-                            key={tag}
-                            className="text-[10px] font-bold uppercase px-2.5 py-1 bg-black text-white rounded-full tracking-wide"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+      <div className="p-3 md:p-4">
+        <div className="grid grid-cols-12 gap-3 min-h-[calc(100vh-80px)]">
+          <div className="col-span-12 md:col-span-7 grid grid-rows-[1fr_auto] gap-3">
+            <div className="relative rounded-[16px] overflow-hidden min-h-[300px] md:min-h-[400px]">
+              <img src={heroImg} alt="Merch Club collection" className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
 
-                  <div className="bg-white border border-gray-200 rounded-[20px] p-5 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <svg className="w-5 h-5 text-[#e63220]" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                      <span className="text-sm font-bold text-black tracking-tight">UP TO 1050 MB/S</span>
-                    </div>
-                    <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center cursor-pointer hover:bg-gray-800 transition-colors">
-                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-span-12 md:col-span-7 rounded-[20px] overflow-hidden relative min-h-[280px] md:min-h-[340px]">
-                  <img src={heroImg} alt="Merch Club products" className="absolute inset-0 w-full h-full object-cover" />
-                </div>
+              <div className="absolute top-6 left-6 md:top-8 md:left-8">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight">
+                  MERCH<br />CLUB
+                </h1>
               </div>
 
-              <div className="grid grid-cols-12 gap-3">
-                <div className="col-span-12 md:col-span-7 bg-[#e63220] rounded-[20px] p-6 md:p-8 flex flex-col justify-between min-h-[200px] md:min-h-[240px]">
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-lg md:text-xl font-black text-white leading-tight tracking-tight max-w-[340px]">
-                      BUILT FOR THE FIELD. TRUSTED IN THE STUDIO. NEVER OUT OF POWER.
-                    </h3>
-                    <div className="text-right flex-shrink-0">
-                      <span className="text-[56px] md:text-[72px] font-black text-white leading-none">20</span>
-                      <span className="text-lg font-bold text-white/80 ml-1">hr</span>
-                    </div>
-                  </div>
-                  <div className="mt-4">
-                    <p className="text-white/90 text-sm font-medium">
-                      &bull; Charging Time 90 minutes
-                    </p>
-                  </div>
-                </div>
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:left-auto md:right-8 md:translate-x-0">
+                <span className="text-lg md:text-2xl font-black tracking-tight uppercase bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full">
+                  Water Bottle
+                </span>
+              </div>
 
-                <div className="col-span-12 md:col-span-5 bg-white border border-gray-200 rounded-[20px] p-6 md:p-8">
-                  <ul className="space-y-2 text-sm text-gray-800 font-medium">
-                    <li className="flex items-start gap-2">
-                      <span className="text-black mt-0.5">&bull;</span>
-                      <span>Available in 1TB | 2TB | 4TB SSD</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-black mt-0.5">&bull;</span>
-                      <span>Ultra-fast read/write speeds up to 1050MB/s</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-black mt-0.5">&bull;</span>
-                      <span>Compatible with Windows, macOS, iOS, and Linux</span>
-                    </li>
-                  </ul>
-                  <button className="mt-6 border-2 border-black text-black text-sm font-bold px-6 py-2.5 rounded-full hover:bg-black hover:text-white transition-all duration-200 tracking-wide">
-                    EXPLORE NOW
-                  </button>
-                </div>
+              <div className="absolute bottom-6 left-6 hidden md:block">
+                <button className="w-12 h-12 rounded-full border-2 border-white/40 flex items-center justify-center hover:bg-white/10 transition-colors">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
+                </button>
               </div>
             </div>
 
-            <div className="col-span-12 md:col-span-4 rounded-[20px] overflow-hidden relative min-h-[400px]">
-              <img src={bottleImg} alt="Water bottle with stickers" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="grid grid-cols-12 gap-3">
+              <div className="col-span-12 md:col-span-6 bg-[#111] border border-white/10 rounded-[16px] p-6 md:p-8 flex flex-col justify-between min-h-[180px]">
+                <div>
+                  <span className="text-5xl md:text-6xl font-black leading-none">20%</span>
+                  <span className="text-5xl md:text-6xl font-black leading-none ml-2">OFF</span>
+                </div>
+                <div className="mt-4">
+                  <p className="text-sm text-gray-400 font-medium">on all the products</p>
+                  <p className="text-sm text-gray-400 font-medium">shop it now</p>
+                </div>
+                <div className="mt-5 flex items-center gap-3">
+                  <a href="#" className="flex items-center gap-2 bg-white text-black text-[10px] font-bold uppercase tracking-widest px-4 py-2.5 rounded-md hover:bg-gray-200 transition-colors">
+                    <span className="leading-none">
+                      <span className="text-[8px] block">SHOP</span>
+                      ALL PRODUCTS
+                    </span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div className="col-span-12 md:col-span-6 relative rounded-[16px] overflow-hidden min-h-[180px]">
+                <div className="absolute inset-0 bg-[#1a1a1a]" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-16 h-16 rounded-full bg-white/5 border border-white/20 flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                      </svg>
+                    </div>
+                    <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Check Out The New Stuff</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-span-12 md:col-span-5 relative rounded-[16px] overflow-hidden min-h-[400px]">
+            <img src={bottleImg} alt="Water bottle with stickers" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+
+            <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 md:translate-x-[-30%]">
+              <button className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center hover:bg-white/20 transition-colors">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
