@@ -2,9 +2,9 @@ import logoSrc from "@assets/Social_PostsArtboard_3@3x_1774446241907.png";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4 md:p-8">
-      <div className="w-full max-w-[1200px] bg-black rounded-[24px] overflow-hidden">
-        <header className="flex items-center justify-between px-6 py-4 bg-white rounded-t-[24px]">
+    <div className="min-h-screen bg-black">
+      <div className="w-full bg-black">
+        <header className="flex items-center justify-between px-6 md:px-10 py-4 bg-white">
           <div className="flex items-center gap-3">
             <img src={logoSrc} alt="Merch Club" className="h-8 object-contain" />
           </div>
@@ -19,7 +19,7 @@ export default function Home() {
           </button>
         </header>
 
-        <div className="p-3 md:p-4">
+        <div className="p-3 md:p-5">
           <div className="grid grid-cols-12 gap-3 auto-rows-auto">
             <div className="col-span-12 md:col-span-5 grid grid-rows-[auto_1fr] gap-3">
               <div className="bg-white border border-gray-200 rounded-[20px] p-6 md:p-8 flex gap-4">
