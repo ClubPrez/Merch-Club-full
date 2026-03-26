@@ -35,6 +35,74 @@ export default function Home() {
         </div>
       </header>
 
+      <section className="relative overflow-hidden bg-[#0a0a0a] px-6 md:px-10 pt-16 pb-10">
+        <div className="absolute inset-0 pointer-events-none select-none">
+          <span className="absolute top-[10%] left-[-2%] text-[280px] md:text-[400px] font-black text-white/[0.03] leading-none tracking-tighter">M</span>
+          <span className="absolute top-[5%] right-[-2%] text-[280px] md:text-[400px] font-black text-white/[0.03] leading-none tracking-tighter">C</span>
+        </div>
+
+        <div className="relative flex flex-col items-center">
+          <div className="flex items-center justify-center gap-[-20px] mb-8">
+            <div className="relative flex items-center">
+              <div className="w-[140px] h-[140px] md:w-[260px] md:h-[260px] lg:w-[320px] lg:h-[320px] rounded-full bg-[#f59e0b] flex items-center justify-center relative z-10">
+                <div className="text-center px-4 md:px-8">
+                  <svg className="w-6 h-6 md:w-8 md:h-8 text-black mb-2 mx-auto" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                  </svg>
+                  <p className="text-[10px] md:text-sm font-semibold text-black leading-tight">
+                    The platform for creators<br className="hidden md:block" /> to bring their merch<br className="hidden md:block" /> to the audience
+                  </p>
+                </div>
+              </div>
+
+              <div className="w-[140px] h-[140px] md:w-[260px] md:h-[260px] lg:w-[320px] lg:h-[320px] rounded-full overflow-hidden -ml-8 md:-ml-14 relative z-20 border-4 border-[#0a0a0a]">
+                <img src={heroImg} alt="Merch Club collection" className="w-full h-full object-cover grayscale" />
+              </div>
+
+              <div className="w-[140px] h-[140px] md:w-[260px] md:h-[260px] lg:w-[320px] lg:h-[320px] rounded-full overflow-hidden -ml-8 md:-ml-14 relative z-30 border-4 border-[#0a0a0a]">
+                <img src={bottleImg} alt="Water bottle" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mb-8 relative z-40">
+            <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-none">
+              Merch Club
+            </h2>
+            <div className="mt-4 flex items-center justify-center gap-3">
+              <a href="#" className="bg-white text-black text-sm font-bold px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors inline-flex items-center gap-2">
+                Learn More
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full max-w-5xl">
+            {[
+              { title: "Curated merch drops from top creators", cta: "Explore" },
+              { title: "Community-driven designs and collabs", cta: "Explore" },
+              { title: "Exclusive drops you won't find anywhere else", cta: "Explore" },
+            ].map((card, i) => (
+              <div key={i} className="relative rounded-[16px] overflow-hidden bg-[#151515] border border-white/5 p-5 min-h-[140px] flex flex-col justify-between group hover:border-[#f59e0b]/30 transition-colors">
+                <div className="absolute top-3 right-3">
+                  <div className="w-7 h-7 rounded-full bg-[#f59e0b] flex items-center justify-center">
+                    <svg className="w-3.5 h-3.5 text-black" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                    </svg>
+                  </div>
+                </div>
+                <p className="text-sm font-semibold text-white/90 leading-snug max-w-[180px]">{card.title}</p>
+                <a href="#" className="mt-3 text-xs font-bold uppercase tracking-widest border border-white/20 text-white/70 px-4 py-1.5 rounded-full w-fit hover:bg-white/5 transition-colors">
+                  {card.cta}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <div className="p-3 md:p-4">
         <div className="grid grid-cols-12 gap-3 min-h-[calc(100vh-80px)]">
           <div className="col-span-12 md:col-span-7 grid grid-rows-[1fr_auto] gap-3">
