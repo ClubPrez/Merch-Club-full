@@ -123,13 +123,12 @@ function BetterWaySection() {
       <div className="absolute inset-0 bg-black/50 z-[1]" />
       <div className="max-w-6xl mx-auto relative z-10">
         <RevealItem delay={0}>
-          <h3 className="text-center text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            A better way to run branded merchandise programs.
+          <h3 className="text-center text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-[1.1]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            One partner. Total execution.
           </h3>
         </RevealItem>
 
         <div className="mt-16 max-w-2xl mx-auto">
-
           <div>
             {[
               { num: "01", title: "Strategy", desc: "Program planning, stakeholder alignment, and scope framing." },
@@ -149,9 +148,9 @@ function BetterWaySection() {
         </div>
 
         <RevealItem delay={900} className="mt-14 text-center max-w-2xl mx-auto">
-          <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-xs md:text-sm font-bold px-6 py-2.5 rounded-full hover:bg-white/10 transition-colors">
-            One partner. Total execution.
-          </a>
+          <p className="text-lg md:text-xl lg:text-2xl font-black tracking-tight text-white/70" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            A better way to run branded merchandise programs.
+          </p>
         </RevealItem>
       </div>
     </section>
