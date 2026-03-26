@@ -4,7 +4,7 @@ import heroImg from "@assets/0I4A7792_1774446809972.jpg";
 import golfImg from "@assets/image_1774554118628.png";
 import bottleImg from "@assets/0I4A7757_1774446952971.jpg";
 import modelImg from "@assets/image_1774553895766.png";
-import cloverImg from "@assets/Social_PostsArtboard_2@3x_1774554570868.png";
+import cloverImg from "@assets/clover_only.png";
 
 function useAnimateOnMount(delay = 0) {
   const ref = useRef<HTMLDivElement>(null);
