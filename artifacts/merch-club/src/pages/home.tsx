@@ -149,7 +149,7 @@ function BetterWaySection() {
           </div>
         </div>
 
-        <RevealItem delay={900} className="mt-14 text-center max-w-2xl mx-auto">
+        <RevealItem delay={900} className="mt-14 max-w-lg md:mr-auto md:ml-0">
           <p className="text-lg md:text-xl lg:text-2xl font-black tracking-tight text-white/70" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
             A better way to run branded merchandise programs.
           </p>
