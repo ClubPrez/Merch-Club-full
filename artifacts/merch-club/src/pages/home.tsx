@@ -58,6 +58,13 @@ export default function Home() {
               <div className="w-[140px] h-[140px] md:w-[260px] md:h-[260px] lg:w-[320px] lg:h-[320px] rounded-full overflow-hidden -ml-8 md:-ml-14 relative z-20 border-4 border-[#0a0a0a]">
                 <img src={heroImg} alt="Merch Club collection" className="w-full h-full object-cover grayscale" />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                  <img src={logoSrc} alt="Merch Club" className="h-6 md:h-10 lg:h-12 object-contain invert" />
+                </div>
+              </div>
+
+              <div className="w-[140px] h-[140px] md:w-[260px] md:h-[260px] lg:w-[320px] lg:h-[320px] rounded-full overflow-hidden -ml-8 md:-ml-14 relative z-30 border-4 border-[#0a0a0a]">
+                <img src={bottleImg} alt="Water bottle" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                   <a href="#" className="bg-white text-black text-xs md:text-sm font-bold px-4 md:px-6 py-2 md:py-2.5 rounded-full hover:bg-gray-200 transition-colors inline-flex items-center gap-2">
                     Learn More
                     <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -65,10 +72,6 @@ export default function Home() {
                     </svg>
                   </a>
                 </div>
-              </div>
-
-              <div className="w-[140px] h-[140px] md:w-[260px] md:h-[260px] lg:w-[320px] lg:h-[320px] rounded-full overflow-hidden -ml-8 md:-ml-14 relative z-30 border-4 border-[#0a0a0a]">
-                <img src={bottleImg} alt="Water bottle" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
