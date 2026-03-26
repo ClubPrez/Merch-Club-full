@@ -6,6 +6,30 @@ import bottleImg from "@assets/0I4A7757_1774446952971.jpg";
 import modelImg from "@assets/image_1774553895766.png";
 import cloverImg from "@assets/Social_PostsArtboard_2@3x_1774554960751.jpg";
 
+function useRevealOnScroll(delay = 0) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    el.style.opacity = "0";
+    el.style.transform = "translateY(30px)";
+    el.style.transition = `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms`;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [delay]);
+  return ref;
+}
+
 function useAnimateOnMount(delay = 0) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -83,6 +107,61 @@ function RotatingCards() {
         })}
       </div>
     </div>
+  );
+}
+
+function RevealItem({ delay, className, children }: { delay: number; className?: string; children: React.ReactNode }) {
+  const ref = useRevealOnScroll(delay);
+  return <div ref={ref} className={className}>{children}</div>;
+}
+
+function BetterWaySection() {
+  return (
+    <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
+      <div className="max-w-6xl mx-auto">
+        <RevealItem delay={0}>
+          <h3 className="text-center text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            A better way to run branded merchandise programs.
+          </h3>
+        </RevealItem>
+
+        <div className="mt-16 flex flex-col md:flex-row items-center gap-12 md:gap-16">
+          <RevealItem delay={200} className="flex-1 flex items-center justify-center">
+            <div className="relative">
+              <div className="w-[200px] h-[260px] md:w-[240px] md:h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative z-10">
+                <img src={golfImg} alt="Merch program" className="w-full h-full object-cover" />
+              </div>
+              <div className="w-[200px] h-[260px] md:w-[240px] md:h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl absolute top-6 left-24 md:top-8 md:left-28 z-20">
+                <img src={modelImg} alt="Team merch" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </RevealItem>
+
+          <div className="flex-1">
+            {[
+              { num: "01", title: "Strategy", desc: "Program planning, stakeholder alignment, and scope framing." },
+              { num: "02", title: "Brand-aligned design", desc: "Creative direction that protects consistency and elevates perception." },
+              { num: "03", title: "Controlled production", desc: "Sourcing, proofing, and quality oversight managed in one flow." },
+              { num: "04", title: "Coordinated fulfillment", desc: "Kitting, distribution, and multi-location execution." },
+            ].map((step, i) => (
+              <RevealItem key={step.num} delay={300 + i * 150} className={`flex items-start gap-5 py-5 ${i < 3 ? "border-b border-white/10" : ""}`}>
+                <span className="text-xs font-bold text-[#555] tracking-widest mt-1">{step.num}</span>
+                <div>
+                  <h4 className="text-xl md:text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.title}</h4>
+                  <p className="text-xs md:text-sm text-[#777] mt-1 leading-relaxed">{step.desc}</p>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+
+        <RevealItem delay={900} className="mt-14 text-center">
+          <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-xs md:text-sm font-bold px-6 py-2.5 rounded-full hover:bg-white/10 transition-colors">
+            One partner. Total execution.
+          </a>
+        </RevealItem>
+      </div>
+    </section>
   );
 }
 
@@ -278,49 +357,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-6xl mx-auto">
-          <h3 className="text-center text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            A better way to run branded merchandise programs.
-          </h3>
-
-          <div className="mt-16 flex flex-col md:flex-row items-center gap-12 md:gap-16">
-            <div className="flex-1 flex items-center justify-center">
-              <div className="relative">
-                <div className="w-[200px] h-[260px] md:w-[240px] md:h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative z-10">
-                  <img src={golfImg} alt="Merch program" className="w-full h-full object-cover" />
-                </div>
-                <div className="w-[200px] h-[260px] md:w-[240px] md:h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl absolute top-6 left-24 md:top-8 md:left-28 z-20">
-                  <img src={modelImg} alt="Team merch" className="w-full h-full object-cover" />
-                </div>
-              </div>
-            </div>
-
-            <div className="flex-1">
-              {[
-                { num: "01", title: "Strategy", desc: "Program planning, stakeholder alignment, and scope framing." },
-                { num: "02", title: "Brand-aligned design", desc: "Creative direction that protects consistency and elevates perception." },
-                { num: "03", title: "Controlled production", desc: "Sourcing, proofing, and quality oversight managed in one flow." },
-                { num: "04", title: "Coordinated fulfillment", desc: "Kitting, distribution, and multi-location execution." },
-              ].map((step, i) => (
-                <div key={step.num} className={`flex items-start gap-5 py-5 ${i < 3 ? "border-b border-white/10" : ""}`}>
-                  <span className="text-xs font-bold text-[#555] tracking-widest mt-1">{step.num}</span>
-                  <div>
-                    <h4 className="text-xl md:text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.title}</h4>
-                    <p className="text-xs md:text-sm text-[#777] mt-1 leading-relaxed">{step.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-14 text-center">
-            <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-xs md:text-sm font-bold px-6 py-2.5 rounded-full hover:bg-white/10 transition-colors">
-              One partner. Total execution.
-            </a>
-          </div>
-        </div>
-      </section>
+      <BetterWaySection />
     </div>
   );
 }
