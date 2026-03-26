@@ -249,7 +249,7 @@ export default function Home() {
         <div className="flex animate-[marquee-reverse_25s_linear_infinite] whitespace-nowrap">
           {[...Array(3)].map((_, i) => (
             <div key={i} className="flex shrink-0 items-center">
-              {["Execution Partner", "Construction", "Healthcare", "Real Estate", "Corporate"].map((text, j) => (
+              {["Your Executive Merch Partner In", "Construction", "Healthcare", "Real Estate", "Corporate"].map((text, j) => (
                 <span key={j} className="text-lg md:text-2xl lg:text-3xl font-black uppercase tracking-tight text-white mx-4 md:mx-6 flex items-center gap-4 md:gap-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                   {text}
                   <span className="text-white/30">&#x2022;</span>
