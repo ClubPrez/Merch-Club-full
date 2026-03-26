@@ -117,7 +117,7 @@ export default function Home() {
               <p className="mt-4 text-sm md:text-base text-[#a3a3a3] leading-relaxed max-w-[320px] mx-auto md:mx-0">
                 We design and execute structured branded merchandise programs for marketing and operations teams — from trade show kits to multi-location rollouts.
               </p>
-              <p className="mt-4 text-[11px] md:text-xs text-[#666] uppercase tracking-widest leading-relaxed max-w-[320px] mx-auto md:mx-0">
+              <p className="mt-4 text-[9px] md:text-[10px] text-[#555] uppercase tracking-widest leading-relaxed max-w-[320px] mx-auto md:mx-0">
                 Execution partner to healthcare systems, construction firms, corporate teams, and event-driven organizations.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-4">
