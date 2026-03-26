@@ -224,9 +224,12 @@ export default function Home() {
             Custom merch isn't complicated.<br />
             <span className="text-[#a3a3a3]">Coordinating it is.</span>
           </h3>
-          <p className="mt-6 md:mt-8 text-sm md:text-base text-[#888] leading-relaxed max-w-xl mx-auto">
-            Buying new software isn't just about features. It comes with questions, uncertainty, and operational friction — scattered data, unclear processes, and tools that don't quite work together. Before anything changes, teams often feel stuck managing this complexity while trying to move forward.
-          </p>
+          <div className="mt-6 md:mt-8 text-sm md:text-base text-[#888] leading-relaxed max-w-xl mx-auto space-y-4">
+            <p>Ordering branded merchandise usually means juggling emails, approvals, shipping timelines, and product quality.</p>
+            <p>Different vendors. Different deadlines. Different headaches.</p>
+            <p>Merch Club replaces that chaos with one organized system.</p>
+            <p>You get a dedicated team, clear timelines, and merch that actually reflects your brand.</p>
+          </div>
         </div>
       </section>
     </div>
