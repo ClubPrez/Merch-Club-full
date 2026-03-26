@@ -136,14 +136,28 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="overflow-hidden bg-[#0a0a0a] border-y border-white/10 py-5">
+      <div className="overflow-hidden bg-[#f59e0b] py-3 -rotate-1 scale-105 relative z-10">
         <div className="flex animate-[marquee_20s_linear_infinite] whitespace-nowrap">
-          {[...Array(2)].map((_, i) => (
-            <div key={i} className="flex shrink-0">
-              {["Onboarding kits.", "Client gifts.", "Team apparel.", "Event drops."].map((text, j) => (
-                <span key={j} className="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight mx-6 md:mx-10" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+          {[...Array(3)].map((_, i) => (
+            <div key={i} className="flex shrink-0 items-center">
+              {["Onboarding kits", "Client gifts", "Team apparel", "Event drops"].map((text, j) => (
+                <span key={j} className="text-lg md:text-2xl lg:text-3xl font-black uppercase tracking-tight text-black mx-4 md:mx-6 flex items-center gap-4 md:gap-6" style={{ fontFamily: "'League Spartan', sans-serif" }}>
                   {text}
-                  <span className="text-[#f59e0b] mx-6 md:mx-10">&#x2022;</span>
+                  <span className="text-black/40">&#x2022;</span>
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="overflow-hidden bg-[#0a0a0a] border-y border-white/10 py-3 rotate-1 scale-105 -mt-2 relative z-0">
+        <div className="flex animate-[marquee-reverse_25s_linear_infinite] whitespace-nowrap">
+          {[...Array(3)].map((_, i) => (
+            <div key={i} className="flex shrink-0 items-center">
+              {["Merch, handled", "Design to delivery", "Custom branded", "Built for creators"].map((text, j) => (
+                <span key={j} className="text-lg md:text-2xl lg:text-3xl font-black uppercase tracking-tight text-white mx-4 md:mx-6 flex items-center gap-4 md:gap-6" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+                  {text}
+                  <span className="text-white/30">&#x2022;</span>
                 </span>
               ))}
             </div>
