@@ -4,6 +4,7 @@ import heroImg from "@assets/0I4A7792_1774446809972.jpg";
 import golfImg from "@assets/image_1774554118628.png";
 import bottleImg from "@assets/0I4A7757_1774446952971.jpg";
 import modelImg from "@assets/image_1774553895766.png";
+import heroVideo from "@assets/Screen_Recording_2026-03-26_at_4.39.36_PM_1774561292379.mov";
 import cloverImg from "@assets/Social_PostsArtboard_2@3x_1774554960751.jpg";
 
 function useRevealOnScroll(delay = 0) {
@@ -132,7 +133,7 @@ function BetterWaySection() {
                 <img src={golfImg} alt="Merch program" className="w-full h-full object-cover" />
               </div>
               <div className="w-[200px] h-[260px] md:w-[240px] md:h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl absolute top-16 left-40 md:top-20 md:left-52 z-20">
-                <img src={modelImg} alt="Team merch" className="w-full h-full object-cover" />
+                <video src={heroVideo} autoPlay loop muted playsInline className="w-full h-full object-cover" />
               </div>
             </div>
           </RevealItem>
