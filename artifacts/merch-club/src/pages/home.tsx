@@ -109,6 +109,21 @@ export default function Home() {
 
         </div>
       </section>
+
+      <div className="overflow-hidden bg-[#0a0a0a] border-y border-white/10 py-5">
+        <div className="flex animate-[marquee_20s_linear_infinite] whitespace-nowrap">
+          {[...Array(2)].map((_, i) => (
+            <div key={i} className="flex shrink-0">
+              {["Onboarding kits.", "Client gifts.", "Team apparel.", "Event drops."].map((text, j) => (
+                <span key={j} className="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight mx-6 md:mx-10" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+                  {text}
+                  <span className="text-[#f59e0b] mx-6 md:mx-10">&#x2022;</span>
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
