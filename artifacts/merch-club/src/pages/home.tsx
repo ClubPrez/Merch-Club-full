@@ -117,11 +117,38 @@ function RevealItem({ delay, className, children }: { delay: number; className?:
 }
 
 function BetterWaySection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const video = videoRef.current;
+    const content = contentRef.current;
+    if (!section || !video || !content) return;
+
+    const handleScroll = () => {
+      const rect = section.getBoundingClientRect();
+      const sectionHeight = section.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const visible = rect.top < windowHeight && rect.bottom > 0;
+      if (!visible) return;
+
+      const progress = (windowHeight - rect.top) / (windowHeight + sectionHeight);
+      video.style.transform = `translateY(${(progress - 0.5) * -80}px) scale(1.15)`;
+      content.style.transform = `translateY(${(progress - 0.5) * 30}px)`;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="relative overflow-hidden py-24 md:py-32 px-8 md:px-16 lg:px-20">
-      <video src={heroVideo} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover z-0" />
+    <section ref={sectionRef} className="relative overflow-hidden py-24 md:py-32 px-8 md:px-16 lg:px-20">
+      <video ref={videoRef} src={heroVideo} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover z-0 will-change-transform" style={{ transform: "scale(1.15)" }} />
       <div className="absolute inset-0 bg-black/50 z-[1]" />
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div ref={contentRef} className="max-w-6xl mx-auto relative z-10 will-change-transform">
         <div className="max-w-lg md:mr-auto md:ml-0">
           <RevealItem delay={0}>
             <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-white/10 transition-colors">
