@@ -65,7 +65,7 @@ export default function Home() {
           <div className="flex items-center justify-center mb-10 gap-6 md:gap-10">
             <div ref={headlineRef} className="text-left shrink-0">
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'League Spartan', sans-serif" }}>
-                Custom<br />Merch.<br /><span className="text-[#f59e0b]">Handled.</span>
+                Merch,<br /><span className="text-[#f59e0b]">handled.</span>
               </h2>
             </div>
 
