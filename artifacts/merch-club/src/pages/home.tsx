@@ -262,7 +262,11 @@ export default function Home() {
 
       <section className="relative bg-[#111] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
-          <div className="flex-1 text-left">
+          <div className="flex-1 flex items-center justify-center order-2 md:order-1">
+            <RotatingCards />
+          </div>
+
+          <div className="flex-1 text-left order-1 md:order-2">
             <h3 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
               Custom merch isn't complicated.<br />
               <span className="text-[#a3a3a3]">Coordinating it is.</span>
@@ -270,10 +274,6 @@ export default function Home() {
             <p className="mt-6 md:mt-8 text-sm md:text-base text-[#888] leading-relaxed max-w-lg">
               Ordering branded merchandise usually means juggling emails, approvals, shipping timelines, and product quality. Different vendors. Different deadlines. Different headaches. Merch Club replaces that chaos with one organized system. You get a dedicated team, clear timelines, and merch that actually reflects your brand.
             </p>
-          </div>
-
-          <div className="flex-1 flex items-center justify-center">
-            <RotatingCards />
           </div>
         </div>
       </section>
