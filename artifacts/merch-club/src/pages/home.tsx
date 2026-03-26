@@ -7,11 +7,7 @@ export default function Home() {
     <div className="min-h-screen bg-black text-white">
       <header className="flex items-center justify-between px-6 md:px-10 py-4 bg-[#111] border-b border-white/10">
         <div className="flex items-center gap-6">
-          <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-            <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          </button>
+          <img src={logoSrc} alt="Merch Club" className="h-6 object-contain invert" />
           <nav className="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
             <a href="#" className="text-white hover:text-gray-300 transition-colors">Home</a>
             <a href="#" className="text-gray-400 hover:text-white transition-colors">Products</a>
@@ -31,14 +27,18 @@ export default function Home() {
             </svg>
             <span className="text-xs text-gray-400 font-medium tracking-wide">SEARCH</span>
           </div>
-          <img src={logoSrc} alt="Merch Club" className="h-6 object-contain invert" />
+          <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+            <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
         </div>
       </header>
 
       <section className="relative overflow-hidden bg-[#0a0a0a] px-6 md:px-10 pt-16 pb-10">
         <div className="absolute inset-0 pointer-events-none select-none">
-          <span className="absolute top-[10%] left-[-2%] text-[280px] md:text-[400px] font-black text-white/[0.08] leading-none tracking-tighter">M</span>
-          <span className="absolute top-[5%] right-[-2%] text-[280px] md:text-[400px] font-black text-white/[0.08] leading-none tracking-tighter">C</span>
+          <span className="absolute top-[15%] left-[5%] text-[280px] md:text-[400px] font-black text-white/[0.08] leading-none tracking-tighter">M</span>
+          <span className="absolute top-[10%] right-[5%] text-[280px] md:text-[400px] font-black text-white/[0.08] leading-none tracking-tighter">C</span>
         </div>
 
         <div className="relative flex flex-col items-center">
@@ -66,7 +66,6 @@ export default function Home() {
           </div>
 
           <div className="text-center mb-8 relative z-40">
-            <img src={logoSrc} alt="Merch Club" className="h-14 md:h-20 lg:h-24 object-contain mx-auto invert" />
             <div className="mt-4 flex items-center justify-center gap-3">
               <a href="#" className="bg-white text-black text-sm font-bold px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors inline-flex items-center gap-2">
                 Learn More
