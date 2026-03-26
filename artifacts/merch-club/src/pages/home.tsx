@@ -128,13 +128,8 @@ function BetterWaySection() {
 
         <div className="mt-16 flex flex-col md:flex-row items-center gap-16 md:gap-24">
           <RevealItem delay={200} className="flex-1 flex items-center justify-start md:pl-4">
-            <div className="relative">
-              <div className="w-[200px] h-[260px] md:w-[240px] md:h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative z-10">
-                <img src={golfImg} alt="Merch program" className="w-full h-full object-cover" />
-              </div>
-              <div className="w-[200px] h-[260px] md:w-[240px] md:h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl absolute top-16 left-40 md:top-20 md:left-52 z-20">
-                <video src={heroVideo} autoPlay loop muted playsInline className="w-full h-full object-cover" />
-              </div>
+            <div className="w-full max-w-[420px] aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+              <video src={heroVideo} autoPlay loop muted playsInline className="w-full h-full object-cover" />
             </div>
           </RevealItem>
 
