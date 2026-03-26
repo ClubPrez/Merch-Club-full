@@ -280,39 +280,44 @@ export default function Home() {
 
       <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-6xl mx-auto">
-          <h3 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            A better way to run branded<br />merchandise programs.
+          <h3 className="text-center text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            A better way to run branded merchandise programs.
           </h3>
-          <p className="mt-4 text-sm md:text-base text-[#888] max-w-2xl">
-            Merch Club replaces fragmented vendor relationships with a single coordinated program.
-          </p>
 
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative">
-            <div className="hidden lg:block absolute top-8 left-[12.5%] right-[12.5%] h-px bg-white/10" />
-
-            {[
-              { num: "01", title: "Strategy", desc: "Program planning, stakeholder alignment, and scope framing.", icon: "M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5" },
-              { num: "02", title: "Brand-aligned design", desc: "Creative direction that protects consistency and elevates perception.", icon: "M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.764m3.42 3.42a6.776 6.776 0 00-3.42-3.42" },
-              { num: "03", title: "Controlled production", desc: "Sourcing, proofing, and quality oversight managed in one flow.", icon: "M11.42 15.17l-5.384 5.383M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" },
-              { num: "04", title: "Coordinated fulfillment", desc: "Kitting, distribution, and multi-location execution.", icon: "M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" },
-            ].map((step) => (
-              <div key={step.num} className="relative text-center">
-                <div className="w-16 h-16 mx-auto rounded-full border border-white/15 bg-white/5 flex items-center justify-center mb-5 relative z-10">
-                  <svg className="w-7 h-7 text-white/70" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d={step.icon} />
-                  </svg>
+          <div className="mt-16 flex flex-col md:flex-row items-center gap-12 md:gap-16">
+            <div className="flex-1 flex items-center justify-center">
+              <div className="relative">
+                <div className="w-[200px] h-[260px] md:w-[240px] md:h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative z-10">
+                  <img src={golfImg} alt="Merch program" className="w-full h-full object-cover" />
                 </div>
-                <span className="text-[10px] font-bold text-[#555] tracking-widest uppercase">{step.num}</span>
-                <h4 className="text-base md:text-lg font-bold text-white mt-1 mb-2">{step.title}</h4>
-                <p className="text-xs md:text-sm text-[#777] leading-relaxed">{step.desc}</p>
+                <div className="w-[200px] h-[260px] md:w-[240px] md:h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl absolute top-6 left-24 md:top-8 md:left-28 z-20">
+                  <img src={modelImg} alt="Team merch" className="w-full h-full object-cover" />
+                </div>
               </div>
-            ))}
+            </div>
+
+            <div className="flex-1">
+              {[
+                { num: "01", title: "Strategy", desc: "Program planning, stakeholder alignment, and scope framing." },
+                { num: "02", title: "Brand-aligned design", desc: "Creative direction that protects consistency and elevates perception." },
+                { num: "03", title: "Controlled production", desc: "Sourcing, proofing, and quality oversight managed in one flow." },
+                { num: "04", title: "Coordinated fulfillment", desc: "Kitting, distribution, and multi-location execution." },
+              ].map((step, i) => (
+                <div key={step.num} className={`flex items-start gap-5 py-5 ${i < 3 ? "border-b border-white/10" : ""}`}>
+                  <span className="text-xs font-bold text-[#555] tracking-widest mt-1">{step.num}</span>
+                  <div>
+                    <h4 className="text-xl md:text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.title}</h4>
+                    <p className="text-xs md:text-sm text-[#777] mt-1 leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="mt-16 text-center">
-            <p className="text-2xl md:text-4xl lg:text-5xl font-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              One partner. <span className="text-[#a3a3a3]">Total execution.</span>
-            </p>
+          <div className="mt-14 text-center">
+            <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-xs md:text-sm font-bold px-6 py-2.5 rounded-full hover:bg-white/10 transition-colors">
+              One partner. Total execution.
+            </a>
           </div>
         </div>
       </section>
