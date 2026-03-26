@@ -124,7 +124,7 @@ export default function Home() {
                 <img src={modelImg} alt="Model wearing merch" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-100 hover:bg-black/40 transition-colors">
                   <a href="#" className="bg-white text-black text-xs md:text-sm font-bold px-4 md:px-6 py-2 md:py-2.5 rounded-full hover:bg-gray-200 transition-all hover:scale-105 inline-flex items-center gap-2">
-                    Learn More
+                    Healthcare Apparel
                     <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                     </svg>
