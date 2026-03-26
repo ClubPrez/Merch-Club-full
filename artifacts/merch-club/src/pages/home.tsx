@@ -44,7 +44,7 @@ export default function Home() {
         <div className="relative flex flex-col items-center">
           <div className="flex items-center justify-center gap-[-20px] mb-8">
             <div className="relative flex items-center">
-              <div className="w-[140px] h-[140px] md:w-[260px] md:h-[260px] lg:w-[320px] lg:h-[320px] rounded-full bg-[#f59e0b] flex items-center justify-center relative z-10">
+              <div className="w-[180px] h-[180px] md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px] rounded-full bg-[#f59e0b] flex items-center justify-center relative z-10">
                 <div className="text-center px-4 md:px-8">
                   <svg className="w-6 h-6 md:w-8 md:h-8 text-black mb-2 mx-auto" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
@@ -55,14 +55,11 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="w-[140px] h-[140px] md:w-[260px] md:h-[260px] lg:w-[320px] lg:h-[320px] rounded-full overflow-hidden -ml-8 md:-ml-14 relative z-20 border-4 border-[#0a0a0a]">
+              <div className="w-[180px] h-[180px] md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden -ml-8 md:-ml-16 relative z-20 border-4 border-[#0a0a0a]">
                 <img src={heroImg} alt="Merch Club collection" className="w-full h-full object-cover grayscale" />
-                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                  <img src={logoSrc} alt="Merch Club" className="h-6 md:h-10 lg:h-12 object-contain invert" />
-                </div>
               </div>
 
-              <div className="w-[140px] h-[140px] md:w-[260px] md:h-[260px] lg:w-[320px] lg:h-[320px] rounded-full overflow-hidden -ml-8 md:-ml-14 relative z-30 border-4 border-[#0a0a0a]">
+              <div className="w-[180px] h-[180px] md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden -ml-8 md:-ml-16 relative z-30 border-4 border-[#0a0a0a]">
                 <img src={bottleImg} alt="Water bottle" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                   <a href="#" className="bg-white text-black text-xs md:text-sm font-bold px-4 md:px-6 py-2 md:py-2.5 rounded-full hover:bg-gray-200 transition-colors inline-flex items-center gap-2">
