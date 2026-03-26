@@ -91,7 +91,7 @@ export default function Home() {
                   </span>
                 </span>
               </h2>
-              <p className="mt-4 text-sm md:text-base text-gray-400 leading-relaxed max-w-[280px]">
+              <p className="mt-4 text-sm md:text-base text-[#d4d4d4] leading-relaxed max-w-[280px]">
                 Your brand deserves more than a product catalog. From design to delivery, your merch is handled with intention.
               </p>
               <a href="#" className="mt-5 inline-flex items-center gap-2 bg-white text-black text-xs md:text-sm font-bold px-5 md:px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
