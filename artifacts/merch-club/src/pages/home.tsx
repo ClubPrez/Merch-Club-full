@@ -209,7 +209,7 @@ export default function Home() {
         ].map((tag, i) => (
           <span
             key={i}
-            className="absolute hidden md:block text-[10px] md:text-xs font-medium tracking-wider text-[#555] border border-white/10 bg-white/5 px-3 py-1.5 rounded"
+            className="absolute hidden md:block text-[10px] md:text-xs font-semibold tracking-wider text-[#999] border border-white/20 bg-white/10 px-4 py-2 rounded-md shadow-[0_0_15px_rgba(255,255,255,0.05)]"
             style={{
               top: tag.top, bottom: tag.bottom, left: tag.left, right: tag.right,
               animation: tag.anim,
