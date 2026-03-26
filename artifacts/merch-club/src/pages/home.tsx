@@ -60,10 +60,6 @@ export default function Home() {
       </header>
 
       <section className="relative overflow-hidden bg-[#0a0a0a] px-6 md:px-10 pt-16 pb-10">
-        <div className="absolute inset-0 pointer-events-none select-none">
-          <span className="absolute top-[15%] left-[5%] text-[280px] md:text-[400px] font-black text-white/[0.08] leading-none tracking-tighter animate-[float_6s_ease-in-out_infinite]">M</span>
-          <span className="absolute top-[10%] right-[5%] text-[280px] md:text-[400px] font-black text-white/[0.08] leading-none tracking-tighter animate-[float_6s_ease-in-out_infinite_1s]">C</span>
-        </div>
 
         <div className="relative flex flex-col items-center">
           <div ref={headlineRef} className="text-center mb-10">
@@ -74,7 +70,7 @@ export default function Home() {
 
           <div className="flex items-center justify-center mb-10">
             <div className="relative flex items-center">
-              <div ref={circle1Ref} className="w-[180px] h-[180px] md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px] rounded-full bg-[#f59e0b] flex items-center justify-center relative z-10 hover:scale-105 transition-transform duration-500">
+              <div ref={circle1Ref} className="w-[200px] h-[200px] md:w-[380px] md:h-[380px] lg:w-[480px] lg:h-[480px] rounded-full bg-[#f59e0b] flex items-center justify-center relative z-10 hover:scale-105 transition-transform duration-500">
                 <div className="text-center px-4 md:px-8">
                   <svg className="w-6 h-6 md:w-8 md:h-8 text-black mb-2 mx-auto" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
@@ -85,11 +81,11 @@ export default function Home() {
                 </div>
               </div>
 
-              <div ref={circle2Ref} className="w-[180px] h-[180px] md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden -ml-8 md:-ml-16 relative z-20 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
+              <div ref={circle2Ref} className="w-[200px] h-[200px] md:w-[380px] md:h-[380px] lg:w-[480px] lg:h-[480px] rounded-full overflow-hidden -ml-8 md:-ml-16 relative z-20 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
                 <img src={heroImg} alt="Merch Club collection" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
               </div>
 
-              <div ref={circle3Ref} className="w-[180px] h-[180px] md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden -ml-8 md:-ml-16 relative z-30 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
+              <div ref={circle3Ref} className="w-[200px] h-[200px] md:w-[380px] md:h-[380px] lg:w-[480px] lg:h-[480px] rounded-full overflow-hidden -ml-8 md:-ml-16 relative z-30 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
                 <img src={bottleImg} alt="Water bottle" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-100 hover:bg-black/40 transition-colors">
                   <a href="#" className="bg-white text-black text-xs md:text-sm font-bold px-4 md:px-6 py-2 md:py-2.5 rounded-full hover:bg-gray-200 transition-all hover:scale-105 inline-flex items-center gap-2">
