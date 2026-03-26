@@ -125,8 +125,8 @@ function BetterWaySection() {
           </h3>
         </RevealItem>
 
-        <div className="mt-16 flex flex-col md:flex-row items-center gap-12 md:gap-16">
-          <RevealItem delay={200} className="flex-1 flex items-center justify-center">
+        <div className="mt-16 flex flex-col md:flex-row items-center gap-16 md:gap-24">
+          <RevealItem delay={200} className="flex-1 flex items-center justify-start md:pl-4">
             <div className="relative">
               <div className="w-[200px] h-[260px] md:w-[240px] md:h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative z-10">
                 <img src={golfImg} alt="Merch program" className="w-full h-full object-cover" />
