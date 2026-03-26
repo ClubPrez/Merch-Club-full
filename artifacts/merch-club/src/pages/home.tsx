@@ -1,8 +1,32 @@
+import { useEffect, useRef } from "react";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1774446241907.png";
 import heroImg from "@assets/0I4A7792_1774446809972.jpg";
 import bottleImg from "@assets/0I4A7757_1774446952971.jpg";
 
+function useAnimateOnMount(delay = 0) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    el.style.opacity = "0";
+    el.style.transform = "translateY(40px) scale(0.95)";
+    const timeout = setTimeout(() => {
+      el.style.transition = "opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)";
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0) scale(1)";
+    }, delay);
+    return () => clearTimeout(timeout);
+  }, [delay]);
+  return ref;
+}
+
 export default function Home() {
+  const headlineRef = useAnimateOnMount(100);
+  const circle1Ref = useAnimateOnMount(300);
+  const circle2Ref = useAnimateOnMount(500);
+  const circle3Ref = useAnimateOnMount(700);
+  const cardsRef = useAnimateOnMount(900);
+
   return (
     <div className="min-h-screen bg-black text-white">
       <header className="flex items-center justify-between px-6 md:px-10 py-4 bg-[#111] border-b border-white/10">
@@ -37,14 +61,20 @@ export default function Home() {
 
       <section className="relative overflow-hidden bg-[#0a0a0a] px-6 md:px-10 pt-16 pb-10">
         <div className="absolute inset-0 pointer-events-none select-none">
-          <span className="absolute top-[15%] left-[5%] text-[280px] md:text-[400px] font-black text-white/[0.08] leading-none tracking-tighter">M</span>
-          <span className="absolute top-[10%] right-[5%] text-[280px] md:text-[400px] font-black text-white/[0.08] leading-none tracking-tighter">C</span>
+          <span className="absolute top-[15%] left-[5%] text-[280px] md:text-[400px] font-black text-white/[0.08] leading-none tracking-tighter animate-[float_6s_ease-in-out_infinite]">M</span>
+          <span className="absolute top-[10%] right-[5%] text-[280px] md:text-[400px] font-black text-white/[0.08] leading-none tracking-tighter animate-[float_6s_ease-in-out_infinite_1s]">C</span>
         </div>
 
         <div className="relative flex flex-col items-center">
-          <div className="flex items-center justify-center gap-[-20px] mb-8">
+          <div ref={headlineRef} className="text-center mb-10">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]">
+              Custom Merch. <span className="text-[#f59e0b]">Handled.</span>
+            </h2>
+          </div>
+
+          <div className="flex items-center justify-center mb-10">
             <div className="relative flex items-center">
-              <div className="w-[180px] h-[180px] md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px] rounded-full bg-[#f59e0b] flex items-center justify-center relative z-10">
+              <div ref={circle1Ref} className="w-[180px] h-[180px] md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px] rounded-full bg-[#f59e0b] flex items-center justify-center relative z-10 hover:scale-105 transition-transform duration-500">
                 <div className="text-center px-4 md:px-8">
                   <svg className="w-6 h-6 md:w-8 md:h-8 text-black mb-2 mx-auto" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
@@ -55,14 +85,14 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="w-[180px] h-[180px] md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden -ml-8 md:-ml-16 relative z-20 border-4 border-[#0a0a0a]">
-                <img src={heroImg} alt="Merch Club collection" className="w-full h-full object-cover grayscale" />
+              <div ref={circle2Ref} className="w-[180px] h-[180px] md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden -ml-8 md:-ml-16 relative z-20 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
+                <img src={heroImg} alt="Merch Club collection" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
               </div>
 
-              <div className="w-[180px] h-[180px] md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden -ml-8 md:-ml-16 relative z-30 border-4 border-[#0a0a0a]">
+              <div ref={circle3Ref} className="w-[180px] h-[180px] md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden -ml-8 md:-ml-16 relative z-30 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
                 <img src={bottleImg} alt="Water bottle" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                  <a href="#" className="bg-white text-black text-xs md:text-sm font-bold px-4 md:px-6 py-2 md:py-2.5 rounded-full hover:bg-gray-200 transition-colors inline-flex items-center gap-2">
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-100 hover:bg-black/40 transition-colors">
+                  <a href="#" className="bg-white text-black text-xs md:text-sm font-bold px-4 md:px-6 py-2 md:py-2.5 rounded-full hover:bg-gray-200 transition-all hover:scale-105 inline-flex items-center gap-2">
                     Learn More
                     <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
@@ -73,15 +103,15 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full max-w-5xl">
+          <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full max-w-5xl">
             {[
               { title: "Curated merch drops from top creators", cta: "Explore" },
               { title: "Community-driven designs and collabs", cta: "Explore" },
               { title: "Exclusive drops you won't find anywhere else", cta: "Explore" },
             ].map((card, i) => (
-              <div key={i} className="relative rounded-[16px] overflow-hidden bg-[#151515] border border-white/5 p-5 min-h-[140px] flex flex-col justify-between group hover:border-[#f59e0b]/30 transition-colors">
+              <div key={i} className="relative rounded-[16px] overflow-hidden bg-[#151515] border border-white/5 p-5 min-h-[140px] flex flex-col justify-between group hover:border-[#f59e0b]/30 hover:-translate-y-1 transition-all duration-300">
                 <div className="absolute top-3 right-3">
-                  <div className="w-7 h-7 rounded-full bg-[#f59e0b] flex items-center justify-center">
+                  <div className="w-7 h-7 rounded-full bg-[#f59e0b] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <svg className="w-3.5 h-3.5 text-black" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                     </svg>
