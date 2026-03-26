@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1774446241907.png";
 import heroImg from "@assets/0I4A7792_1774446809972.jpg";
 import bottleImg from "@assets/0I4A7757_1774446952971.jpg";
+import modelImg from "@assets/image_1774553895766.png";
 
 function useAnimateOnMount(delay = 0) {
   const ref = useRef<HTMLDivElement>(null);
@@ -120,7 +121,7 @@ export default function Home() {
               </div>
 
               <div ref={circle3Ref} className="w-[200px] h-[200px] md:w-[380px] md:h-[380px] lg:w-[480px] lg:h-[480px] rounded-full overflow-hidden -ml-8 md:-ml-16 relative z-30 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
-                <img src={bottleImg} alt="Water bottle" className="w-full h-full object-cover" />
+                <img src={modelImg} alt="Model wearing merch" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-100 hover:bg-black/40 transition-colors">
                   <a href="#" className="bg-white text-black text-xs md:text-sm font-bold px-4 md:px-6 py-2 md:py-2.5 rounded-full hover:bg-gray-200 transition-all hover:scale-105 inline-flex items-center gap-2">
                     Learn More
