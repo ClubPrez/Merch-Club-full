@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1774446241907.png";
 import heroImg from "@assets/0I4A7792_1774446809972.jpg";
 import bottleImg from "@assets/0I4A7757_1774446952971.jpg";
@@ -20,7 +20,22 @@ function useAnimateOnMount(delay = 0) {
   return ref;
 }
 
+const rotatingWords = ["handled.", "managed.", "organized.", "designed.", "delivered.", "packed.", "tracked.", "stocked.", "built.", "ready.", "solved.", "covered."];
+
 export default function Home() {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setWordIndex((prev) => (prev + 1) % rotatingWords.length);
+        setIsAnimating(false);
+      }, 400);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
   const headlineRef = useAnimateOnMount(100);
   const circle1Ref = useAnimateOnMount(300);
   const circle2Ref = useAnimateOnMount(500);
@@ -64,7 +79,14 @@ export default function Home() {
           <div className="flex items-center justify-center mb-10 gap-6 md:gap-10">
             <div ref={headlineRef} className="text-left shrink-0">
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'League Spartan', sans-serif" }}>
-                Merch,<br /><span className="text-[#f59e0b]">handled.</span>
+                Merch,<br />
+                <span className="inline-block overflow-hidden h-[1.1em] align-bottom">
+                  <span
+                    className={`inline-block text-[#f59e0b] transition-all duration-400 ${isAnimating ? "translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}
+                  >
+                    {rotatingWords[wordIndex]}
+                  </span>
+                </span>
               </h2>
               <p className="mt-4 text-sm md:text-base text-gray-400 leading-relaxed max-w-[280px]">
                 Your brand deserves more than a product catalog. From design to delivery, your merch is handled with intention.
