@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1774446241907.png";
 import heroImg from "@assets/0I4A7792_1774446809972.jpg";
+import golfImg from "@assets/image_1774554118628.png";
 import bottleImg from "@assets/0I4A7757_1774446952971.jpg";
 import modelImg from "@assets/image_1774553895766.png";
 
@@ -102,11 +103,15 @@ export default function Home() {
             </div>
 
             <div className="relative flex items-center">
-              <div ref={circle1Ref} className="w-[200px] h-[200px] md:w-[380px] md:h-[380px] lg:w-[480px] lg:h-[480px] rounded-full bg-[#f4713c] flex items-center justify-center relative z-10 hover:scale-105 transition-transform duration-500">
-                <div className="text-center px-4 md:px-8">
-                  <p className="text-[10px] md:text-sm font-bold text-black leading-tight">
-                    Onboarding kits. Client gifts.<br />Team apparel. Event drops.
-                  </p>
+              <div ref={circle1Ref} className="w-[200px] h-[200px] md:w-[380px] md:h-[380px] lg:w-[480px] lg:h-[480px] rounded-full overflow-hidden relative z-10 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
+                <img src={golfImg} alt="Golf apparel" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-100 hover:bg-black/40 transition-colors">
+                  <a href="#" className="bg-white text-black text-xs md:text-sm font-bold px-4 md:px-6 py-2 md:py-2.5 rounded-full hover:bg-gray-200 transition-all hover:scale-105 inline-flex items-center gap-2">
+                    Golf Apparel
+                    <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                    </svg>
+                  </a>
                 </div>
               </div>
 
