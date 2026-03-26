@@ -37,8 +37,8 @@ export default function Home() {
 
       <section className="relative overflow-hidden bg-[#0a0a0a] px-6 md:px-10 pt-16 pb-10">
         <div className="absolute inset-0 pointer-events-none select-none">
-          <span className="absolute top-[10%] left-[-2%] text-[280px] md:text-[400px] font-black text-white/[0.03] leading-none tracking-tighter">M</span>
-          <span className="absolute top-[5%] right-[-2%] text-[280px] md:text-[400px] font-black text-white/[0.03] leading-none tracking-tighter">C</span>
+          <span className="absolute top-[10%] left-[-2%] text-[280px] md:text-[400px] font-black text-white/[0.08] leading-none tracking-tighter">M</span>
+          <span className="absolute top-[5%] right-[-2%] text-[280px] md:text-[400px] font-black text-white/[0.08] leading-none tracking-tighter">C</span>
         </div>
 
         <div className="relative flex flex-col items-center">
@@ -66,9 +66,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mb-8 relative z-40">
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-none">
-              Merch Club
-            </h2>
+            <img src={logoSrc} alt="Merch Club" className="h-14 md:h-20 lg:h-24 object-contain mx-auto invert" />
             <div className="mt-4 flex items-center justify-center gap-3">
               <a href="#" className="bg-white text-black text-sm font-bold px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors inline-flex items-center gap-2">
                 Learn More
