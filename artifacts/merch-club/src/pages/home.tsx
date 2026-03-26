@@ -67,7 +67,7 @@ export default function Home() {
 
         <div className="relative flex flex-col items-center">
           <div ref={headlineRef} className="text-center mb-10">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]">
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'League Spartan', sans-serif" }}>
               Custom Merch. <span className="text-[#f59e0b]">Handled.</span>
             </h2>
           </div>
