@@ -46,7 +46,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <div className="hidden md:flex items-center justify-center gap-8 px-6 py-2 bg-[#050505] border-b border-white/5 text-[10px] font-bold uppercase tracking-[0.2em]">
+      <div className="hidden md:flex items-center justify-end gap-8 px-6 md:px-10 py-2 bg-[#1a1a1a] border-b border-white/5 text-[10px] font-bold uppercase tracking-[0.2em]">
         <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Brandini</a>
         <span className="text-white/20">|</span>
         <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">ScrubClub</a>
