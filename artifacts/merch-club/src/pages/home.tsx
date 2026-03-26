@@ -78,7 +78,7 @@ export default function Home() {
         <div className="relative flex flex-col items-center">
           <div className="flex items-center justify-center mb-10 gap-6 md:gap-10">
             <div ref={headlineRef} className="text-left shrink-0">
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 Merch,<br />
                 <span className="inline-block overflow-hidden h-[1.1em] align-bottom relative">
                   <span className="invisible">organized.</span>
@@ -141,7 +141,7 @@ export default function Home() {
           {[...Array(3)].map((_, i) => (
             <div key={i} className="flex shrink-0 items-center">
               {["Onboarding kits", "Client gifts", "Team apparel", "Event drops"].map((text, j) => (
-                <span key={j} className="text-lg md:text-2xl lg:text-3xl font-black uppercase tracking-tight text-black mx-4 md:mx-6 flex items-center gap-4 md:gap-6" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+                <span key={j} className="text-lg md:text-2xl lg:text-3xl font-black uppercase tracking-tight text-black mx-4 md:mx-6 flex items-center gap-4 md:gap-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                   {text}
                   <span className="text-black/40">&#x2022;</span>
                 </span>
@@ -155,7 +155,7 @@ export default function Home() {
           {[...Array(3)].map((_, i) => (
             <div key={i} className="flex shrink-0 items-center">
               {["Merch, handled", "Design to delivery", "Custom branded", "Built for creators"].map((text, j) => (
-                <span key={j} className="text-lg md:text-2xl lg:text-3xl font-black uppercase tracking-tight text-white mx-4 md:mx-6 flex items-center gap-4 md:gap-6" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+                <span key={j} className="text-lg md:text-2xl lg:text-3xl font-black uppercase tracking-tight text-white mx-4 md:mx-6 flex items-center gap-4 md:gap-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                   {text}
                   <span className="text-white/30">&#x2022;</span>
                 </span>
