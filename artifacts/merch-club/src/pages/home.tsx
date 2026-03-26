@@ -113,7 +113,13 @@ export default function Home() {
               </div>
 
               <div ref={circle2Ref} className="w-[200px] h-[200px] md:w-[380px] md:h-[380px] lg:w-[480px] lg:h-[480px] rounded-full overflow-hidden -ml-8 md:-ml-16 relative z-20 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
-                <img src={heroImg} alt="Merch Club collection" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                <iframe
+                  src="https://www.youtube.com/embed/gbLmku5QACM?autoplay=1&mute=1&loop=1&playlist=gbLmku5QACM&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] pointer-events-none"
+                  style={{ border: 0 }}
+                />
               </div>
 
               <div ref={circle3Ref} className="w-[200px] h-[200px] md:w-[380px] md:h-[380px] lg:w-[480px] lg:h-[480px] rounded-full overflow-hidden -ml-8 md:-ml-16 relative z-30 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
