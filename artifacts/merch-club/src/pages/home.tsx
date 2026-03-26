@@ -120,7 +120,7 @@ function BetterWaySection() {
   return (
     <section className="relative overflow-hidden py-24 md:py-32 px-8 md:px-16 lg:px-20">
       <video src={heroVideo} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover z-0" />
-      <div className="absolute inset-0 bg-black/75 z-[1]" />
+      <div className="absolute inset-0 bg-black/50 z-[1]" />
       <div className="max-w-6xl mx-auto relative z-10">
         <RevealItem delay={0}>
           <h3 className="text-center text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
@@ -128,9 +128,9 @@ function BetterWaySection() {
           </h3>
         </RevealItem>
 
-        <div className="mt-16 flex flex-col md:flex-row items-center gap-16 md:gap-24">
+        <div className="mt-16 max-w-2xl mx-auto">
 
-          <div className="flex-1">
+          <div>
             {[
               { num: "01", title: "Strategy", desc: "Program planning, stakeholder alignment, and scope framing." },
               { num: "02", title: "Brand-aligned design", desc: "Creative direction that protects consistency and elevates perception." },
@@ -148,7 +148,7 @@ function BetterWaySection() {
           </div>
         </div>
 
-        <RevealItem delay={900} className="mt-14 text-center">
+        <RevealItem delay={900} className="mt-14 text-center max-w-2xl mx-auto">
           <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-xs md:text-sm font-bold px-6 py-2.5 rounded-full hover:bg-white/10 transition-colors">
             One partner. Total execution.
           </a>
