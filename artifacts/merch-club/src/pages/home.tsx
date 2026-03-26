@@ -122,10 +122,10 @@ function BetterWaySection() {
       <video src={heroVideo} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover z-0" />
       <div className="absolute inset-0 bg-black/50 z-[1]" />
       <div className="max-w-6xl mx-auto relative z-10">
-        <RevealItem delay={0}>
-          <h3 className="text-center text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-[1.1]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+        <RevealItem delay={0} className="text-center">
+          <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-white/10 transition-colors">
             One partner. Total execution.
-          </h3>
+          </a>
         </RevealItem>
 
         <div className="mt-16 max-w-2xl mx-auto">
