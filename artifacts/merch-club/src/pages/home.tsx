@@ -62,13 +62,13 @@ export default function Home() {
       <section className="relative overflow-hidden bg-[#0a0a0a] px-6 md:px-10 pt-16 pb-10">
 
         <div className="relative flex flex-col items-center">
-          <div ref={headlineRef} className="text-center mb-10">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'League Spartan', sans-serif" }}>
-              Custom Merch. <span className="text-[#f59e0b]">Handled.</span>
-            </h2>
-          </div>
+          <div className="flex items-center justify-center mb-10 gap-6 md:gap-10">
+            <div ref={headlineRef} className="text-left shrink-0">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+                Custom<br />Merch.<br /><span className="text-[#f59e0b]">Handled.</span>
+              </h2>
+            </div>
 
-          <div className="flex items-center justify-center mb-10">
             <div className="relative flex items-center">
               <div ref={circle1Ref} className="w-[200px] h-[200px] md:w-[380px] md:h-[380px] lg:w-[480px] lg:h-[480px] rounded-full bg-[#f59e0b] flex items-center justify-center relative z-10 hover:scale-105 transition-transform duration-500">
                 <div className="text-center px-4 md:px-8">
