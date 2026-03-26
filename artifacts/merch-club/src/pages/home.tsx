@@ -25,7 +25,6 @@ export default function Home() {
   const circle1Ref = useAnimateOnMount(300);
   const circle2Ref = useAnimateOnMount(500);
   const circle3Ref = useAnimateOnMount(700);
-  const cardsRef = useAnimateOnMount(900);
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -108,111 +107,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full max-w-5xl">
-            {[
-              { title: "Curated merch drops from top creators", cta: "Explore" },
-              { title: "Community-driven designs and collabs", cta: "Explore" },
-              { title: "Exclusive drops you won't find anywhere else", cta: "Explore" },
-            ].map((card, i) => (
-              <div key={i} className="relative rounded-[16px] overflow-hidden bg-[#151515] border border-white/5 p-5 min-h-[140px] flex flex-col justify-between group hover:border-[#f59e0b]/30 hover:-translate-y-1 transition-all duration-300">
-                <div className="absolute top-3 right-3">
-                  <div className="w-7 h-7 rounded-full bg-[#f59e0b] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <svg className="w-3.5 h-3.5 text-black" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                    </svg>
-                  </div>
-                </div>
-                <p className="text-sm font-semibold text-white/90 leading-snug max-w-[180px]">{card.title}</p>
-                <a href="#" className="mt-3 text-xs font-bold uppercase tracking-widest border border-white/20 text-white/70 px-4 py-1.5 rounded-full w-fit hover:bg-white/5 transition-colors">
-                  {card.cta}
-                </a>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
-
-      <div className="p-3 md:p-4">
-        <div className="grid grid-cols-12 gap-3 min-h-[calc(100vh-80px)]">
-          <div className="col-span-12 md:col-span-7 grid grid-rows-[1fr_auto] gap-3">
-            <div className="relative rounded-[16px] overflow-hidden min-h-[300px] md:min-h-[400px]">
-              <img src={heroImg} alt="Merch Club collection" className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-
-              <div className="absolute top-6 left-6 md:top-8 md:left-8">
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight">
-                  MERCH<br />CLUB
-                </h1>
-              </div>
-
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:left-auto md:right-8 md:translate-x-0">
-                <span className="text-lg md:text-2xl font-black tracking-tight uppercase bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full">
-                  Water Bottle
-                </span>
-              </div>
-
-              <div className="absolute bottom-6 left-6 hidden md:block">
-                <button className="w-12 h-12 rounded-full border-2 border-white/40 flex items-center justify-center hover:bg-white/10 transition-colors">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-12 gap-3">
-              <div className="col-span-12 md:col-span-6 bg-[#111] border border-white/10 rounded-[16px] p-6 md:p-8 flex flex-col justify-between min-h-[180px]">
-                <div>
-                  <span className="text-5xl md:text-6xl font-black leading-none">20%</span>
-                  <span className="text-5xl md:text-6xl font-black leading-none ml-2">OFF</span>
-                </div>
-                <div className="mt-4">
-                  <p className="text-sm text-gray-400 font-medium">on all the products</p>
-                  <p className="text-sm text-gray-400 font-medium">shop it now</p>
-                </div>
-                <div className="mt-5 flex items-center gap-3">
-                  <a href="#" className="flex items-center gap-2 bg-white text-black text-[10px] font-bold uppercase tracking-widest px-4 py-2.5 rounded-md hover:bg-gray-200 transition-colors">
-                    <span className="leading-none">
-                      <span className="text-[8px] block">SHOP</span>
-                      ALL PRODUCTS
-                    </span>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-              <div className="col-span-12 md:col-span-6 relative rounded-[16px] overflow-hidden min-h-[180px]">
-                <div className="absolute inset-0 bg-[#1a1a1a]" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 rounded-full bg-white/5 border border-white/20 flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                      </svg>
-                    </div>
-                    <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Check Out The New Stuff</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-span-12 md:col-span-5 relative rounded-[16px] overflow-hidden min-h-[400px]">
-            <img src={bottleImg} alt="Water bottle with stickers" className="absolute inset-0 w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-
-            <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 md:translate-x-[-30%]">
-              <button className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/30 flex items-center justify-center hover:bg-white/20 transition-colors">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
