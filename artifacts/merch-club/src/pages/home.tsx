@@ -50,14 +50,14 @@ export default function Home() {
           <img src={logoSrc} alt="Merch Club" className="h-6 object-contain invert" />
           <nav className="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
             <a href="#" className="text-white hover:text-gray-300 transition-colors">Home</a>
-            <a href="#" className="text-[#d4d4d4] hover:text-white transition-colors">Products</a>
-            <a href="#" className="text-[#d4d4d4] hover:text-white transition-colors flex items-center gap-1">
+            <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Products</a>
+            <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors flex items-center gap-1">
               Collections
               <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>
             </a>
-            <a href="#" className="text-[#d4d4d4] hover:text-white transition-colors">Contact</a>
+            <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
           </nav>
         </div>
         <div className="flex items-center gap-4">
@@ -85,13 +85,13 @@ export default function Home() {
                 <span className="inline-block overflow-hidden h-[1.1em] align-bottom relative">
                   <span className="invisible">organized.</span>
                   <span
-                    className={`absolute left-0 top-0 text-[#d4d4d4] transition-all duration-400 ${isAnimating ? "translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}
+                    className={`absolute left-0 top-0 text-[#a3a3a3] transition-all duration-400 ${isAnimating ? "translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}
                   >
                     {rotatingWords[wordIndex]}
                   </span>
                 </span>
               </h2>
-              <p className="mt-4 text-sm md:text-base text-[#d4d4d4] leading-relaxed max-w-[280px]">
+              <p className="mt-4 text-sm md:text-base text-[#a3a3a3] leading-relaxed max-w-[280px]">
                 Your brand deserves more than a product catalog. From design to delivery, your merch is handled with intention.
               </p>
               <a href="#" className="mt-5 inline-flex items-center gap-2 bg-white text-black text-xs md:text-sm font-bold px-5 md:px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
