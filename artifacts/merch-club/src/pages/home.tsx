@@ -201,18 +201,18 @@ export default function Home() {
 
       <section className="relative bg-[#111] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
         {[
-          { text: "Proof approvals", top: "8%", left: "5%", rotate: "-12deg" },
-          { text: "Brand consistency", top: "10%", right: "4%", rotate: "10deg" },
-          { text: "Shifting deadlines", bottom: "12%", left: "6%", rotate: "-8deg" },
-          { text: "Multiple vendors", bottom: "10%", left: "38%", rotate: "2deg" },
-          { text: "Inventory management", bottom: "14%", right: "3%", rotate: "9deg" },
+          { text: "Proof approvals", top: "15%", left: "12%", anim: "tag-float-1 4s ease-in-out infinite" },
+          { text: "Brand consistency", top: "18%", right: "10%", anim: "tag-float-2 4.5s ease-in-out infinite 0.5s" },
+          { text: "Shifting deadlines", bottom: "18%", left: "10%", anim: "tag-float-3 3.8s ease-in-out infinite 1s" },
+          { text: "Multiple vendors", bottom: "15%", left: "40%", anim: "tag-float-4 4.2s ease-in-out infinite 0.3s" },
+          { text: "Inventory management", bottom: "20%", right: "8%", anim: "tag-float-5 4s ease-in-out infinite 0.8s" },
         ].map((tag, i) => (
           <span
             key={i}
             className="absolute hidden md:block text-[10px] md:text-xs font-medium tracking-wider text-[#555] border border-white/10 bg-white/5 px-3 py-1.5 rounded"
             style={{
               top: tag.top, bottom: tag.bottom, left: tag.left, right: tag.right,
-              transform: `rotate(${tag.rotate})`,
+              animation: tag.anim,
             }}
           >
             {tag.text}

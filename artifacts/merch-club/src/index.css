@@ -163,6 +163,27 @@
   50% { transform: translateY(-15px); }
 }
 
+@keyframes tag-float-1 {
+  0%, 100% { transform: rotate(-12deg) translate(0, 0); }
+  50% { transform: rotate(-12deg) translate(4px, -8px); }
+}
+@keyframes tag-float-2 {
+  0%, 100% { transform: rotate(10deg) translate(0, 0); }
+  50% { transform: rotate(10deg) translate(-5px, -6px); }
+}
+@keyframes tag-float-3 {
+  0%, 100% { transform: rotate(-8deg) translate(0, 0); }
+  50% { transform: rotate(-8deg) translate(6px, -7px); }
+}
+@keyframes tag-float-4 {
+  0%, 100% { transform: rotate(2deg) translate(0, 0); }
+  50% { transform: rotate(2deg) translate(-3px, -9px); }
+}
+@keyframes tag-float-5 {
+  0%, 100% { transform: rotate(9deg) translate(0, 0); }
+  50% { transform: rotate(9deg) translate(5px, -6px); }
+}
+
 @font-face {
   font-family: 'Inter';
   font-style: normal;
