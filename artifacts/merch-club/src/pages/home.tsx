@@ -131,7 +131,7 @@ function BetterWaySection() {
               <div className="w-[200px] h-[260px] md:w-[240px] md:h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative z-10">
                 <img src={golfImg} alt="Merch program" className="w-full h-full object-cover" />
               </div>
-              <div className="w-[200px] h-[260px] md:w-[240px] md:h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl absolute top-6 left-24 md:top-8 md:left-28 z-20">
+              <div className="w-[200px] h-[260px] md:w-[240px] md:h-[300px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl absolute top-10 left-32 md:top-12 md:left-40 z-20">
                 <img src={modelImg} alt="Team merch" className="w-full h-full object-cover" />
               </div>
             </div>
