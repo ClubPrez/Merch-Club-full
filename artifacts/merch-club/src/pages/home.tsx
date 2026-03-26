@@ -83,7 +83,7 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="relative overflow-hidden bg-[#0a0a0a] px-6 md:px-10 pt-16 pb-10">
+      <section className="relative overflow-hidden bg-[#0a0a0a] px-8 md:px-16 lg:px-20 pt-16 pb-10">
 
         <div className="relative flex flex-col items-center">
           <div className="flex flex-col md:flex-row items-center md:items-center justify-center mb-10 gap-8 md:gap-10 w-full max-w-7xl mx-auto">
