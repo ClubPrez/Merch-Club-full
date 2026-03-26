@@ -81,7 +81,9 @@ export default function Home() {
         <div className="relative flex flex-col items-center">
           <div className="flex items-center justify-center mb-10 gap-6 md:gap-10">
             <div ref={headlineRef} className="text-left shrink-0">
-              <img src={cloverImg} alt="Merch Club clover" className="h-12 md:h-16 lg:h-20 object-contain mb-4 mx-auto" />
+              <div className="relative">
+                <img src={cloverImg} alt="Merch Club clover" className="h-12 md:h-16 lg:h-20 object-contain mb-4 ml-[0.5em]" style={{ display: 'block', maxWidth: 'fit-content' }} />
+              </div>
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 Merch,<br />
                 <span className="inline-block overflow-hidden h-[1.1em] align-bottom relative">
