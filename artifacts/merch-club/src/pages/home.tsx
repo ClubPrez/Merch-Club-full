@@ -20,7 +20,7 @@ function useAnimateOnMount(delay = 0) {
   return ref;
 }
 
-const rotatingWords = ["handled.", "managed.", "organized.", "designed.", "delivered.", "packed.", "tracked.", "stocked.", "built.", "ready.", "solved.", "covered."];
+const rotatingWords = ["handled.", "managed.", "organized.", "designed.", "packed.", "shipped.", "tracked.", "worn."];
 
 export default function Home() {
   const [wordIndex, setWordIndex] = useState(0);
