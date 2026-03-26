@@ -106,9 +106,6 @@ export default function Home() {
                   <p className="text-[10px] md:text-sm font-bold text-black leading-tight">
                     Onboarding kits. Client gifts.<br />Team apparel. Event drops.
                   </p>
-                  <p className="mt-2 text-[9px] md:text-xs text-black/70 leading-snug">
-                    We coordinate everything<br />so you don't have to.
-                  </p>
                 </div>
               </div>
 
