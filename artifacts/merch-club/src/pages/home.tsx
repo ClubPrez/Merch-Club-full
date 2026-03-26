@@ -198,6 +198,37 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      <section className="relative bg-[#111] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
+        {[
+          { text: "Proof approvals", top: "8%", left: "5%", rotate: "-12deg" },
+          { text: "Brand consistency", top: "10%", right: "4%", rotate: "10deg" },
+          { text: "Shifting deadlines", bottom: "12%", left: "6%", rotate: "-8deg" },
+          { text: "Multiple vendors", bottom: "10%", left: "38%", rotate: "2deg" },
+          { text: "Inventory management", bottom: "14%", right: "3%", rotate: "9deg" },
+        ].map((tag, i) => (
+          <span
+            key={i}
+            className="absolute hidden md:block text-[10px] md:text-xs font-medium tracking-wider text-[#555] border border-white/10 bg-white/5 px-3 py-1.5 rounded"
+            style={{
+              top: tag.top, bottom: tag.bottom, left: tag.left, right: tag.right,
+              transform: `rotate(${tag.rotate})`,
+            }}
+          >
+            {tag.text}
+          </span>
+        ))}
+
+        <div className="max-w-3xl mx-auto text-center relative z-10">
+          <h3 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            Custom merch isn't complicated.<br />
+            <span className="text-[#a3a3a3]">Coordinating it is.</span>
+          </h3>
+          <p className="mt-6 md:mt-8 text-sm md:text-base text-[#888] leading-relaxed max-w-xl mx-auto">
+            Buying new software isn't just about features. It comes with questions, uncertainty, and operational friction — scattered data, unclear processes, and tools that don't quite work together. Before anything changes, teams often feel stuck managing this complexity while trying to move forward.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }
