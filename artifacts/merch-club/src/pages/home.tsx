@@ -80,9 +80,10 @@ export default function Home() {
             <div ref={headlineRef} className="text-left shrink-0">
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'League Spartan', sans-serif" }}>
                 Merch,<br />
-                <span className="inline-block overflow-hidden h-[1.1em] align-bottom">
+                <span className="inline-block overflow-hidden h-[1.1em] align-bottom relative">
+                  <span className="invisible">organized.</span>
                   <span
-                    className={`inline-block text-[#f59e0b] transition-all duration-400 ${isAnimating ? "translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}
+                    className={`absolute left-0 top-0 text-[#f59e0b] transition-all duration-400 ${isAnimating ? "translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}
                   >
                     {rotatingWords[wordIndex]}
                   </span>
