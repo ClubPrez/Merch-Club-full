@@ -103,11 +103,11 @@ export default function Home() {
             <div className="relative flex items-center">
               <div ref={circle1Ref} className="w-[200px] h-[200px] md:w-[380px] md:h-[380px] lg:w-[480px] lg:h-[480px] rounded-full bg-[#f59e0b] flex items-center justify-center relative z-10 hover:scale-105 transition-transform duration-500">
                 <div className="text-center px-4 md:px-8">
-                  <svg className="w-6 h-6 md:w-8 md:h-8 text-black mb-2 mx-auto" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                  </svg>
-                  <p className="text-[10px] md:text-sm font-semibold text-black leading-tight">
-                    The platform for creators<br className="hidden md:block" /> to bring their merch<br className="hidden md:block" /> to the audience
+                  <p className="text-[10px] md:text-sm font-bold text-black leading-tight">
+                    Onboarding kits. Client gifts.<br />Team apparel. Event drops.
+                  </p>
+                  <p className="mt-2 text-[9px] md:text-xs text-black/70 leading-snug">
+                    We coordinate everything<br />so you don't have to.
                   </p>
                 </div>
               </div>
