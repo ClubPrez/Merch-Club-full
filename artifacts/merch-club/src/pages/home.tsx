@@ -118,8 +118,10 @@ function RevealItem({ delay, className, children }: { delay: number; className?:
 
 function BetterWaySection() {
   return (
-    <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative overflow-hidden py-24 md:py-32 px-8 md:px-16 lg:px-20">
+      <video src={heroVideo} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover z-0" />
+      <div className="absolute inset-0 bg-black/75 z-[1]" />
+      <div className="max-w-6xl mx-auto relative z-10">
         <RevealItem delay={0}>
           <h3 className="text-center text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
             A better way to run branded merchandise programs.
@@ -127,11 +129,6 @@ function BetterWaySection() {
         </RevealItem>
 
         <div className="mt-16 flex flex-col md:flex-row items-center gap-16 md:gap-24">
-          <RevealItem delay={200} className="flex-1 flex items-center justify-start md:pl-4">
-            <div className="w-full max-w-[420px] aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-              <video src={heroVideo} autoPlay loop muted playsInline className="w-full h-full object-cover" />
-            </div>
-          </RevealItem>
 
           <div className="flex-1">
             {[
