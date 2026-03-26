@@ -4,6 +4,7 @@ import heroImg from "@assets/0I4A7792_1774446809972.jpg";
 import golfImg from "@assets/image_1774554118628.png";
 import bottleImg from "@assets/0I4A7757_1774446952971.jpg";
 import modelImg from "@assets/image_1774553895766.png";
+import cloverImg from "@assets/clover_no_bg.png";
 
 function useAnimateOnMount(delay = 0) {
   const ref = useRef<HTMLDivElement>(null);
@@ -80,6 +81,7 @@ export default function Home() {
         <div className="relative flex flex-col items-center">
           <div className="flex items-center justify-center mb-10 gap-6 md:gap-10">
             <div ref={headlineRef} className="text-left shrink-0">
+              <img src={cloverImg} alt="Merch Club clover" className="h-12 md:h-16 lg:h-20 object-contain mb-4" />
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 Merch,<br />
                 <span className="inline-block overflow-hidden h-[1.1em] align-bottom relative">
