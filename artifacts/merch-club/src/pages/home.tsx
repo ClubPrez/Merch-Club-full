@@ -117,10 +117,7 @@ export default function Home() {
               <p className="mt-4 text-sm md:text-base text-[#a3a3a3] leading-relaxed max-w-[320px] mx-auto md:mx-0">
                 We design and execute structured branded merchandise programs for marketing and operations teams — from trade show kits to multi-location rollouts.
               </p>
-              <p className="mt-4 text-[9px] md:text-[10px] text-[#555] tracking-wide leading-relaxed max-w-[320px] mx-auto md:mx-0">
-                Execution partner to healthcare systems, construction firms, corporate teams, and event-driven organizations.
-              </p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-4">
+              <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-5">
                 <a href="#" className="inline-flex items-center gap-2 bg-white text-black text-xs md:text-sm font-bold px-5 md:px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
                   Start a Project
                   <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -191,7 +188,7 @@ export default function Home() {
         <div className="flex animate-[marquee-reverse_25s_linear_infinite] whitespace-nowrap">
           {[...Array(3)].map((_, i) => (
             <div key={i} className="flex shrink-0 items-center">
-              {["Construction", "Healthcare", "Real Estate", "Corporate"].map((text, j) => (
+              {["Execution Partner", "Construction", "Healthcare", "Real Estate", "Corporate"].map((text, j) => (
                 <span key={j} className="text-lg md:text-2xl lg:text-3xl font-black uppercase tracking-tight text-white mx-4 md:mx-6 flex items-center gap-4 md:gap-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                   {text}
                   <span className="text-white/30">&#x2022;</span>
