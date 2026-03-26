@@ -163,25 +163,13 @@
   50% { transform: translateY(-15px); }
 }
 
-@keyframes tag-float-1 {
-  0%, 100% { transform: rotate(-12deg) translate(0, 0); }
-  50% { transform: rotate(-12deg) translate(4px, -8px); }
+@keyframes card-enter {
+  0% { opacity: 0; transform: translateY(20px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
-@keyframes tag-float-2 {
-  0%, 100% { transform: rotate(10deg) translate(0, 0); }
-  50% { transform: rotate(10deg) translate(-5px, -6px); }
-}
-@keyframes tag-float-3 {
-  0%, 100% { transform: rotate(-8deg) translate(0, 0); }
-  50% { transform: rotate(-8deg) translate(6px, -7px); }
-}
-@keyframes tag-float-4 {
-  0%, 100% { transform: rotate(2deg) translate(0, 0); }
-  50% { transform: rotate(2deg) translate(-3px, -9px); }
-}
-@keyframes tag-float-5 {
-  0%, 100% { transform: rotate(9deg) translate(0, 0); }
-  50% { transform: rotate(9deg) translate(5px, -6px); }
+@keyframes card-exit {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-20px) scale(0.95); }
 }
 
 @font-face {
