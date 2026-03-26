@@ -83,7 +83,7 @@ export default function Home() {
                 <span className="inline-block overflow-hidden h-[1.1em] align-bottom relative">
                   <span className="invisible">organized.</span>
                   <span
-                    className={`absolute left-0 top-0 text-[#c2410c] transition-all duration-400 ${isAnimating ? "translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}
+                    className={`absolute left-0 top-0 text-[#e8461e] transition-all duration-400 ${isAnimating ? "translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}
                   >
                     {rotatingWords[wordIndex]}
                   </span>
@@ -92,7 +92,7 @@ export default function Home() {
               <p className="mt-4 text-sm md:text-base text-gray-400 leading-relaxed max-w-[280px]">
                 Your brand deserves more than a product catalog. From design to delivery, your merch is handled with intention.
               </p>
-              <a href="#" className="mt-5 inline-flex items-center gap-2 bg-[#c2410c] text-black text-xs md:text-sm font-bold px-5 md:px-6 py-2.5 rounded-full hover:bg-[#9a3412] transition-colors">
+              <a href="#" className="mt-5 inline-flex items-center gap-2 bg-[#e8461e] text-black text-xs md:text-sm font-bold px-5 md:px-6 py-2.5 rounded-full hover:bg-[#c73a15] transition-colors">
                 Start a Merch Project
                 <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
@@ -101,7 +101,7 @@ export default function Home() {
             </div>
 
             <div className="relative flex items-center">
-              <div ref={circle1Ref} className="w-[200px] h-[200px] md:w-[380px] md:h-[380px] lg:w-[480px] lg:h-[480px] rounded-full bg-[#c2410c] flex items-center justify-center relative z-10 hover:scale-105 transition-transform duration-500">
+              <div ref={circle1Ref} className="w-[200px] h-[200px] md:w-[380px] md:h-[380px] lg:w-[480px] lg:h-[480px] rounded-full bg-[#e8461e] flex items-center justify-center relative z-10 hover:scale-105 transition-transform duration-500">
                 <div className="text-center px-4 md:px-8">
                   <p className="text-[10px] md:text-sm font-bold text-black leading-tight">
                     Onboarding kits. Client gifts.<br />Team apparel. Event drops.
@@ -136,7 +136,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="overflow-hidden bg-[#c2410c] py-3 -rotate-1 scale-105 relative z-10">
+      <div className="overflow-hidden bg-[#e8461e] py-3 -rotate-1 scale-105 relative z-10">
         <div className="flex animate-[marquee_20s_linear_infinite] whitespace-nowrap">
           {[...Array(3)].map((_, i) => (
             <div key={i} className="flex shrink-0 items-center">
