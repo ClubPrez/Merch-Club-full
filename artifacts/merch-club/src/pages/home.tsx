@@ -94,7 +94,7 @@ export default function Home() {
               <p className="mt-4 text-sm md:text-base text-gray-400 leading-relaxed max-w-[280px]">
                 Your brand deserves more than a product catalog. From design to delivery, your merch is handled with intention.
               </p>
-              <a href="#" className="mt-5 inline-flex items-center gap-2 bg-[#d4d4d4] text-black text-xs md:text-sm font-bold px-5 md:px-6 py-2.5 rounded-full hover:bg-[#b0b0b0] transition-colors">
+              <a href="#" className="mt-5 inline-flex items-center gap-2 bg-white text-black text-xs md:text-sm font-bold px-5 md:px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
                 Start a Merch Project
                 <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
@@ -142,7 +142,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="overflow-hidden bg-[#d4d4d4] py-3 -rotate-1 scale-105 relative z-10">
+      <div className="overflow-hidden bg-white py-3 -rotate-1 scale-105 relative z-10">
         <div className="flex animate-[marquee_20s_linear_infinite] whitespace-nowrap">
           {[...Array(3)].map((_, i) => (
             <div key={i} className="flex shrink-0 items-center">
