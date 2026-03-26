@@ -219,9 +219,9 @@ export default function Home() {
           </span>
         ))}
 
-        <div className="max-w-3xl mx-auto text-center relative z-10">
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <h3 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            Custom merch isn't complicated.{" "}
+            Custom merch isn't complicated.<br />
             <span className="text-[#a3a3a3]">Coordinating it is.</span>
           </h3>
           <p className="mt-6 md:mt-8 text-sm md:text-base text-[#888] leading-relaxed max-w-xl mx-auto">
