@@ -264,7 +264,7 @@ export default function Home() {
   const circle3Ref = useAnimateOnMount(700);
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <div className="hidden md:flex items-center justify-end gap-8 px-6 md:px-10 py-2 bg-[#222] border-b border-white/5 text-[10px] font-bold uppercase tracking-[0.2em]">
         <a href="#" className="text-white transition-colors">MerchClub</a>
         <span className="text-white/20">|</span>
