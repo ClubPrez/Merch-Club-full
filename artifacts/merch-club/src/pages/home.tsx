@@ -282,7 +282,7 @@ function StickyTimeline() {
   const current = timelineSteps[activeIndex];
 
   return (
-    <div ref={sectionRef} style={{ height: `${timelineSteps.length * 100}vh` }} className="relative bg-[#0a0a0a]">
+    <div ref={sectionRef} style={{ height: `${timelineSteps.length * 60 + 100}vh` }} className="relative bg-[#0a0a0a]">
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-8">
         <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-center mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
           From concept to delivery.
