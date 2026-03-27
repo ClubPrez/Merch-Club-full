@@ -246,10 +246,29 @@ function BetterWaySection() {
 
 function StickyTimeline() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const markerRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    markerRefs.current.forEach((el, i) => {
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveIndex(i); },
+        { threshold: 0.5 }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+    return () => observers.forEach(o => o.disconnect());
+  }, []);
 
   return (
     <div className="relative bg-[#0a0a0a]">
-      <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-8 z-10 pointer-events-none">
+      {timelineSteps.map((_, i) => (
+        <div key={i} className="h-[60vh]" ref={el => { markerRefs.current[i] = el; }} />
+      ))}
+
+      <div className="sticky bottom-0 top-0 h-screen flex flex-col items-center justify-center px-8 pointer-events-none" style={{ position: "sticky", top: 0, marginTop: `-${timelineSteps.length * 60}vh` }}>
         <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-center mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
           From concept to delivery.
         </h3>
@@ -294,35 +313,8 @@ function StickyTimeline() {
           ))}
         </div>
       </div>
-
-      <div className="relative z-0">
-        {timelineSteps.map((_, i) => (
-          <TimelineTrigger key={i} index={i} onActivate={setActiveIndex} />
-        ))}
-      </div>
     </div>
   );
-}
-
-function TimelineTrigger({ index, onActivate }: { index: number; onActivate: (i: number) => void }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          onActivate(index);
-        }
-      },
-      { threshold: 0.5, rootMargin: "-40% 0px -40% 0px" }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [index, onActivate]);
-
-  return <div ref={ref} className="h-screen" />;
 }
 
 const timelineSteps = [
