@@ -4,6 +4,7 @@ import heroImg from "@assets/0I4A7792_1774446809972.jpg";
 import golfImg from "@assets/image_1774554118628.png";
 import bottleImg from "@assets/0I4A7757_1774446952971.jpg";
 import corporateImg from "@assets/image_1774625538266.png";
+import constructionImg from "@assets/image_1774625624335.png";
 import modelImg from "@assets/image_1774553895766.png";
 import heroVideo from "@assets/Screen_Recording_2026-03-26_at_4.39.36_PM_1774561292379.mov";
 import cloverImg from "@assets/Social_PostsArtboard_2@3x_1774554960751.jpg";
@@ -405,7 +406,7 @@ export default function Home() {
           <div className="mt-16 flex items-center justify-center">
             <div className="flex items-center justify-center">
               {[
-                { label: "Construction", img: golfImg },
+                { label: "Construction", img: constructionImg },
                 { label: "Healthcare", img: modelImg },
                 { label: "Corporate", img: corporateImg },
                 { label: "Events", img: heroImg },
