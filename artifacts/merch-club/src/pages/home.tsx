@@ -255,29 +255,34 @@ function StickyTimeline() {
       if (!el) return;
       const rect = el.getBoundingClientRect();
       const sectionH = el.offsetHeight;
-      const scrolled = -rect.top;
-      const scrollableH = sectionH - window.innerHeight;
+      const windowH = window.innerHeight;
+      const scrolled = Math.max(0, -rect.top);
+      const scrollableH = sectionH - windowH;
+      if (scrollableH <= 0) return;
       const progress = Math.max(0, Math.min(1, scrolled / scrollableH));
       const totalSteps = timelineSteps.length;
-      const raw = progress * totalSteps;
+      const raw = progress * (totalSteps - 1 + 0.01);
       const idx = Math.min(Math.floor(raw), totalSteps - 1);
       setActiveIndex(idx);
-      setStepProgress(raw - idx);
+      setStepProgress(Math.min(1, raw - idx));
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    const raf = () => { handleScroll(); requestAnimationFrame(raf); };
+    const rafId = requestAnimationFrame(raf);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const current = timelineSteps[activeIndex];
-  const entering = stepProgress < 0.3;
-  const leaving = stepProgress > 0.7;
-  const opacity = entering ? stepProgress / 0.3 : leaving ? (1 - stepProgress) / 0.3 : 1;
-  const translateY = entering ? (1 - stepProgress / 0.3) * 40 : leaving ? -(stepProgress - 0.7) / 0.3 * 40 : 0;
-  const scale = entering ? 0.9 + (stepProgress / 0.3) * 0.1 : leaving ? 1 - ((stepProgress - 0.7) / 0.3) * 0.1 : 1;
 
   return (
-    <div ref={sectionRef} style={{ height: `${timelineSteps.length * 80 + 100}vh` }} className="relative">
+    <div ref={sectionRef} style={{ height: `${timelineSteps.length * 100}vh` }} className="relative bg-[#0a0a0a]">
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-8">
         <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-center mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
           From concept to delivery.
@@ -300,23 +305,41 @@ function StickyTimeline() {
           </div>
         </div>
 
-        <div
-          className="text-center max-w-lg"
-          style={{
-            opacity: Math.max(0.05, opacity),
-            transform: `scale(${scale}) translateY(${translateY}px)`,
-            transition: "transform 0.08s linear, opacity 0.08s linear",
-          }}
-        >
-          <span className="text-7xl md:text-9xl font-black text-[#a3a3a3] tracking-tight leading-none block" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            {current.num}
-          </span>
-          <h4 className="text-2xl md:text-3xl font-black text-white tracking-tight mt-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            {current.title}
-          </h4>
-          <p className="text-sm md:text-base text-[#666] mt-2 leading-relaxed">
-            {current.desc}
-          </p>
+        <div className="relative h-[200px] flex items-center justify-center">
+          {timelineSteps.map((step, i) => {
+            let opacity = 0;
+            let y = 40;
+            let s = 0.9;
+            if (i === activeIndex) {
+              const entering = stepProgress < 0.15;
+              const leaving = stepProgress > 0.85;
+              opacity = entering ? stepProgress / 0.15 : leaving ? (1 - stepProgress) / 0.15 : 1;
+              y = entering ? (1 - stepProgress / 0.15) * 40 : leaving ? -(stepProgress - 0.85) / 0.15 * 40 : 0;
+              s = entering ? 0.9 + (stepProgress / 0.15) * 0.1 : leaving ? 1 - ((stepProgress - 0.85) / 0.15) * 0.1 : 1;
+              if (i === 0 && stepProgress < 0.01) { opacity = 1; y = 0; s = 1; }
+            }
+            return (
+              <div
+                key={step.num}
+                className="absolute text-center max-w-lg"
+                style={{
+                  opacity: Math.max(0, opacity),
+                  transform: `scale(${s}) translateY(${y}px)`,
+                  pointerEvents: i === activeIndex ? "auto" : "none",
+                }}
+              >
+                <span className="text-7xl md:text-9xl font-black text-[#a3a3a3] tracking-tight leading-none block" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  {step.num}
+                </span>
+                <h4 className="text-2xl md:text-3xl font-black text-white tracking-tight mt-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  {step.title}
+                </h4>
+                <p className="text-sm md:text-base text-[#666] mt-2 leading-relaxed">
+                  {step.desc}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
