@@ -261,14 +261,20 @@ function StickyTimeline() {
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
+    let wasVisible = false;
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && entry.intersectionRatio > 0.8) {
-          setDone(false);
-          setLocked(true);
+          if (!wasVisible) {
+            wasVisible = true;
+            setDone(false);
+            setLocked(true);
+          }
+        } else {
+          wasVisible = false;
         }
       },
-      { threshold: 0.8 }
+      { threshold: [0.2, 0.8] }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -346,7 +352,7 @@ function StickyTimeline() {
           </div>
         </div>
 
-        <div className="relative h-[280px] md:h-[320px] flex items-center justify-center w-full">
+        <div className="relative h-[300px] md:h-[380px] flex items-center justify-center w-full">
           {timelineSteps.map((step, i) => (
             <div
               key={step.num}
@@ -357,7 +363,7 @@ function StickyTimeline() {
                 pointerEvents: i === activeIndex ? "auto" : "none",
               }}
             >
-              <div className="w-[160px] h-[200px] md:w-[240px] md:h-[280px] rounded-2xl overflow-hidden border border-white/10 shrink-0">
+              <div className="w-[200px] h-[250px] md:w-[300px] md:h-[350px] rounded-2xl overflow-hidden border border-white/10 shrink-0">
                 <img src={step.img} alt={step.title} className="w-full h-full object-cover" />
               </div>
               <div className="text-left w-[200px] md:w-[280px] shrink-0">
