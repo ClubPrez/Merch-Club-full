@@ -245,45 +245,11 @@ function BetterWaySection() {
 }
 
 function StickyTimeline() {
-  const sectionRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [stepProgress, setStepProgress] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const el = sectionRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const sectionH = el.offsetHeight;
-      const windowH = window.innerHeight;
-      const scrolled = Math.max(0, -rect.top);
-      const scrollableH = sectionH - windowH;
-      if (scrollableH <= 0) return;
-      const progress = Math.max(0, Math.min(1, scrolled / scrollableH));
-      const totalSteps = timelineSteps.length;
-      const raw = progress * (totalSteps - 1 + 0.01);
-      const idx = Math.min(Math.floor(raw), totalSteps - 1);
-      setActiveIndex(idx);
-      setStepProgress(Math.min(1, raw - idx));
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-
-    const raf = () => { handleScroll(); requestAnimationFrame(raf); };
-    const rafId = requestAnimationFrame(raf);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      cancelAnimationFrame(rafId);
-    };
-  }, []);
-
-  const current = timelineSteps[activeIndex];
 
   return (
-    <div ref={sectionRef} style={{ height: `${timelineSteps.length * 60 + 100}vh` }} className="relative bg-[#0a0a0a]">
-      <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-8">
+    <div className="relative bg-[#0a0a0a]">
+      <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-8 z-10 pointer-events-none">
         <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-center mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
           From concept to delivery.
         </h3>
@@ -305,45 +271,58 @@ function StickyTimeline() {
           </div>
         </div>
 
-        <div className="relative h-[200px] flex items-center justify-center">
-          {timelineSteps.map((step, i) => {
-            let opacity = 0;
-            let y = 40;
-            let s = 0.9;
-            if (i === activeIndex) {
-              const entering = stepProgress < 0.15;
-              const leaving = stepProgress > 0.85;
-              opacity = entering ? stepProgress / 0.15 : leaving ? (1 - stepProgress) / 0.15 : 1;
-              y = entering ? (1 - stepProgress / 0.15) * 40 : leaving ? -(stepProgress - 0.85) / 0.15 * 40 : 0;
-              s = entering ? 0.9 + (stepProgress / 0.15) * 0.1 : leaving ? 1 - ((stepProgress - 0.85) / 0.15) * 0.1 : 1;
-              if (i === 0 && stepProgress < 0.01) { opacity = 1; y = 0; s = 1; }
-            }
-            return (
-              <div
-                key={step.num}
-                className="absolute text-center max-w-lg"
-                style={{
-                  opacity: Math.max(0, opacity),
-                  transform: `scale(${s}) translateY(${y}px)`,
-                  pointerEvents: i === activeIndex ? "auto" : "none",
-                }}
-              >
-                <span className="text-7xl md:text-9xl font-black text-[#a3a3a3] tracking-tight leading-none block" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  {step.num}
-                </span>
-                <h4 className="text-2xl md:text-3xl font-black text-white tracking-tight mt-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  {step.title}
-                </h4>
-                <p className="text-sm md:text-base text-[#666] mt-2 leading-relaxed">
-                  {step.desc}
-                </p>
-              </div>
-            );
-          })}
+        <div className="relative h-[200px] flex items-center justify-center w-full">
+          {timelineSteps.map((step, i) => (
+            <div
+              key={step.num}
+              className="absolute text-center max-w-lg transition-all duration-500 ease-out"
+              style={{
+                opacity: i === activeIndex ? 1 : 0,
+                transform: i === activeIndex ? "translateY(0) scale(1)" : i < activeIndex ? "translateY(-40px) scale(0.9)" : "translateY(40px) scale(0.9)",
+              }}
+            >
+              <span className="text-7xl md:text-9xl font-black text-[#a3a3a3] tracking-tight leading-none block" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                {step.num}
+              </span>
+              <h4 className="text-2xl md:text-3xl font-black text-white tracking-tight mt-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                {step.title}
+              </h4>
+              <p className="text-sm md:text-base text-[#666] mt-2 leading-relaxed">
+                {step.desc}
+              </p>
+            </div>
+          ))}
         </div>
+      </div>
+
+      <div className="relative z-0">
+        {timelineSteps.map((_, i) => (
+          <TimelineTrigger key={i} index={i} onActivate={setActiveIndex} />
+        ))}
       </div>
     </div>
   );
+}
+
+function TimelineTrigger({ index, onActivate }: { index: number; onActivate: (i: number) => void }) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          onActivate(index);
+        }
+      },
+      { threshold: 0.5, rootMargin: "-40% 0px -40% 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [index, onActivate]);
+
+  return <div ref={ref} className="h-screen" />;
 }
 
 const timelineSteps = [
