@@ -244,51 +244,81 @@ function BetterWaySection() {
   );
 }
 
-function ParallaxStep({ step }: { step: { num: string; title: string; desc: string } }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visibility, setVisibility] = useState(0);
+function StickyTimeline() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [stepProgress, setStepProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const el = ref.current;
+      const el = sectionRef.current;
       if (!el) return;
       const rect = el.getBoundingClientRect();
-      const windowH = window.innerHeight;
-      const center = rect.top + rect.height / 2;
-      const viewCenter = windowH / 2;
-      const distance = Math.abs(center - viewCenter);
-      const maxDist = windowH * 0.55;
-      const v = Math.max(0, 1 - distance / maxDist);
-      setVisibility(v);
+      const sectionH = el.offsetHeight;
+      const scrolled = -rect.top;
+      const scrollableH = sectionH - window.innerHeight;
+      const progress = Math.max(0, Math.min(1, scrolled / scrollableH));
+      const totalSteps = timelineSteps.length;
+      const raw = progress * totalSteps;
+      const idx = Math.min(Math.floor(raw), totalSteps - 1);
+      setActiveIndex(idx);
+      setStepProgress(raw - idx);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const opacity = Math.min(visibility * 2, 1);
-  const scale = 0.85 + visibility * 0.15;
-  const translateY = (1 - visibility) * 30;
+  const current = timelineSteps[activeIndex];
+  const entering = stepProgress < 0.3;
+  const leaving = stepProgress > 0.7;
+  const opacity = entering ? stepProgress / 0.3 : leaving ? (1 - stepProgress) / 0.3 : 1;
+  const translateY = entering ? (1 - stepProgress / 0.3) * 40 : leaving ? -(stepProgress - 0.7) / 0.3 * 40 : 0;
+  const scale = entering ? 0.9 + (stepProgress / 0.3) * 0.1 : leaving ? 1 - ((stepProgress - 0.7) / 0.3) * 0.1 : 1;
 
   return (
-    <div
-      ref={ref}
-      className="text-center max-w-md py-8 md:py-10"
-      style={{
-        opacity,
-        transform: `scale(${scale}) translateY(${translateY}px)`,
-        transition: "transform 0.1s linear, opacity 0.1s linear",
-      }}
-    >
-      <span className="text-5xl md:text-7xl font-black text-[#a3a3a3] tracking-tight leading-none block" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-        {step.num}
-      </span>
-      <h4 className="text-xl md:text-2xl font-black text-white tracking-tight mt-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-        {step.title}
-      </h4>
-      <p className="text-xs md:text-sm text-[#666] mt-1 leading-relaxed">
-        {step.desc}
-      </p>
+    <div ref={sectionRef} style={{ height: `${timelineSteps.length * 80 + 100}vh` }} className="relative">
+      <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-8">
+        <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-center mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+          From concept to delivery.
+        </h3>
+        <p className="text-sm md:text-base text-[#888] leading-relaxed max-w-2xl mx-auto text-center mb-10">
+          A compact process that demonstrates operational maturity. Every step is managed under one roof so nothing falls through the cracks.
+        </p>
+        <div className="mb-8">
+          <div className="flex items-center gap-2">
+            {timelineSteps.map((_, i) => (
+              <div
+                key={i}
+                className="h-1 rounded-full transition-all duration-300"
+                style={{
+                  width: i === activeIndex ? "32px" : "8px",
+                  backgroundColor: i === activeIndex ? "#ffffff" : i < activeIndex ? "#666" : "#333",
+                }}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div
+          className="text-center max-w-lg"
+          style={{
+            opacity: Math.max(0.05, opacity),
+            transform: `scale(${scale}) translateY(${translateY}px)`,
+            transition: "transform 0.08s linear, opacity 0.08s linear",
+          }}
+        >
+          <span className="text-7xl md:text-9xl font-black text-[#a3a3a3] tracking-tight leading-none block" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            {current.num}
+          </span>
+          <h4 className="text-2xl md:text-3xl font-black text-white tracking-tight mt-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            {current.title}
+          </h4>
+          <p className="text-sm md:text-base text-[#666] mt-2 leading-relaxed">
+            {current.desc}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
@@ -715,25 +745,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] py-20 md:py-28 px-8 md:px-16 lg:px-20">
-        <div className="max-w-6xl mx-auto">
-          <RevealItem delay={0}>
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-center" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              From concept to delivery.
-            </h3>
-          </RevealItem>
-          <RevealItem delay={100}>
-            <p className="mt-4 text-sm md:text-base text-[#888] leading-relaxed max-w-2xl mx-auto text-center">
-              A compact process that demonstrates operational maturity. Every step is managed under one roof so nothing falls through the cracks.
-            </p>
-          </RevealItem>
-
-          <div className="mt-16 flex flex-col items-center gap-6 md:gap-8">
-            {timelineSteps.map((step) => (
-              <ParallaxStep key={step.num} step={step} />
-            ))}
-          </div>
-        </div>
+      <section className="bg-[#0a0a0a] relative">
+        <StickyTimeline />
       </section>
     </div>
   );
