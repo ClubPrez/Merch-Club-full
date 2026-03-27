@@ -244,6 +244,119 @@ function BetterWaySection() {
   );
 }
 
+const timelineSteps = [
+  { num: "01", title: "Strategy", desc: "Define goals, audience, scope, and timing." },
+  { num: "02", title: "Design", desc: "Create brand-aligned concepts and system direction." },
+  { num: "03", title: "Proofing", desc: "Manage approvals with live proofs and better control." },
+  { num: "04", title: "Production", desc: "Coordinate vendors, quality, and timeline management." },
+  { num: "05", title: "Kitting", desc: "Assemble packages, bundles, and event-ready configurations." },
+  { num: "06", title: "Distribution", desc: "Ship direct, multi-location, or campaign-based deliveries." },
+];
+
+function TimelineSteps() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeCount, setActiveCount] = useState(0);
+  const [hasTriggered, setHasTriggered] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasTriggered) {
+          setHasTriggered(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [hasTriggered]);
+
+  useEffect(() => {
+    if (!hasTriggered) return;
+    let current = 0;
+    const interval = setInterval(() => {
+      current++;
+      setActiveCount(current);
+      if (current >= timelineSteps.length) clearInterval(interval);
+    }, 400);
+    return () => clearInterval(interval);
+  }, [hasTriggered]);
+
+  const lineProgress = hasTriggered ? `${(activeCount / timelineSteps.length) * 100}%` : "0%";
+
+  return (
+    <div ref={containerRef} className="mt-14 relative">
+      <div className="absolute top-[28px] left-0 right-0 h-px bg-white/10 hidden md:block" />
+      <div
+        className="absolute top-[28px] left-0 h-px bg-white hidden md:block transition-all duration-700 ease-out"
+        style={{ width: lineProgress }}
+      />
+
+      <div className="grid grid-cols-2 md:grid-cols-6 gap-8 md:gap-0">
+        {timelineSteps.map((step, i) => {
+          const isActive = i < activeCount;
+          return (
+            <div key={step.num} className="relative md:pr-6 group">
+              <div className="flex items-center gap-3 mb-4">
+                <span
+                  className="text-3xl md:text-5xl font-black tracking-tight leading-none transition-colors duration-500"
+                  style={{
+                    fontFamily: "'Bebas Neue', sans-serif",
+                    color: isActive ? "#ffffff" : "#333",
+                  }}
+                >
+                  {step.num}
+                </span>
+                <div className="relative hidden md:block">
+                  <div
+                    className="w-3.5 h-3.5 rounded-full border-2 transition-all duration-500 relative z-10"
+                    style={{
+                      borderColor: isActive ? "#ffffff" : "#555",
+                      backgroundColor: isActive ? "#ffffff" : "#0a0a0a",
+                      transform: isActive ? "scale(1.3)" : "scale(1)",
+                    }}
+                  />
+                  <div
+                    className="absolute -inset-1 rounded-full transition-all duration-700"
+                    style={{
+                      backgroundColor: isActive ? "rgba(255,255,255,0.15)" : "transparent",
+                      transform: isActive ? "scale(2.5)" : "scale(0)",
+                      opacity: isActive ? 1 : 0,
+                    }}
+                  />
+                </div>
+              </div>
+              <h4
+                className="text-lg md:text-xl font-black tracking-tight transition-all duration-500"
+                style={{
+                  fontFamily: "'Bebas Neue', sans-serif",
+                  color: isActive ? "#ffffff" : "#555",
+                  transform: isActive ? "translateX(4px)" : "translateX(0)",
+                }}
+              >
+                {step.title}
+              </h4>
+              <p
+                className="text-xs mt-1 leading-relaxed transition-all duration-500"
+                style={{
+                  color: isActive ? "#888" : "#444",
+                  opacity: isActive ? 1 : 0,
+                  transform: isActive ? "translateY(0)" : "translateY(8px)",
+                }}
+              >
+                {step.desc}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   const [wordIndex, setWordIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -545,36 +658,7 @@ export default function Home() {
             </p>
           </RevealItem>
 
-          <div className="mt-14 relative">
-            <div className="absolute top-[28px] left-0 right-0 h-px bg-white/10 hidden md:block" />
-
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-8 md:gap-0">
-              {[
-                { num: "01", title: "Strategy", desc: "Define goals, audience, scope, and timing." },
-                { num: "02", title: "Design", desc: "Create brand-aligned concepts and system direction." },
-                { num: "03", title: "Proofing", desc: "Manage approvals with live proofs and better control." },
-                { num: "04", title: "Production", desc: "Coordinate vendors, quality, and timeline management." },
-                { num: "05", title: "Kitting", desc: "Assemble packages, bundles, and event-ready configurations." },
-                { num: "06", title: "Distribution", desc: "Ship direct, multi-location, or campaign-based deliveries." },
-              ].map((step, i) => (
-                <RevealItem key={step.num} delay={200 + i * 120} className="relative md:pr-6 group">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-3xl md:text-5xl font-black text-[#a3a3a3] tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>
-                    <div className="relative hidden md:block">
-                      <div className="w-3 h-3 rounded-full border-2 border-[#555] bg-[#0a0a0a] group-hover:border-white group-hover:bg-white transition-all duration-500 relative z-10" />
-                      <div className="absolute inset-0 w-3 h-3 rounded-full bg-white/0 group-hover:bg-white/20 group-hover:scale-[3] transition-all duration-700" />
-                    </div>
-                  </div>
-                  <h4 className="text-lg md:text-xl font-black text-white tracking-tight group-hover:translate-x-1 transition-transform duration-300" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                    {step.title}
-                  </h4>
-                  <p className="text-xs text-[#666] mt-1 leading-relaxed md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 transition-all duration-500">
-                    {step.desc}
-                  </p>
-                </RevealItem>
-              ))}
-            </div>
-          </div>
+          <TimelineSteps />
         </div>
       </section>
     </div>
