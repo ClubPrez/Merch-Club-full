@@ -559,7 +559,7 @@ export default function Home() {
               ].map((step, i) => (
                 <RevealItem key={step.num} delay={200 + i * 120} className="relative md:pr-6 group">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="text-xs font-bold text-[#555] tracking-widest">{step.num}</span>
+                    <span className="text-3xl md:text-5xl font-black text-[#a3a3a3] tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>
                     <div className="relative hidden md:block">
                       <div className="w-3 h-3 rounded-full border-2 border-[#555] bg-[#0a0a0a] group-hover:border-white group-hover:bg-white transition-all duration-500 relative z-10" />
                       <div className="absolute inset-0 w-3 h-3 rounded-full bg-white/0 group-hover:bg-white/20 group-hover:scale-[3] transition-all duration-700" />
