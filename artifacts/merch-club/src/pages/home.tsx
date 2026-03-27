@@ -389,6 +389,41 @@ export default function Home() {
       </section>
 
       <BetterWaySection />
+
+      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
+        <div className="max-w-6xl mx-auto">
+          <RevealItem delay={0}>
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] text-center" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Industry-Specific Execution
+            </h3>
+            <p className="mt-4 text-sm md:text-base text-[#888] leading-relaxed max-w-3xl mx-auto text-center">
+              We support healthcare systems, construction firms, corporate teams, and event-driven organizations with structured merchandise programs.
+            </p>
+          </RevealItem>
+
+          <div className="mt-16 flex items-center justify-center">
+            <div className="flex items-center justify-center">
+              {[
+                { label: "Construction", img: golfImg },
+                { label: "Healthcare", img: modelImg },
+                { label: "Corporate Programs", img: bottleImg },
+                { label: "Events", img: heroImg },
+              ].map((item, i) => (
+                <RevealItem key={item.label} delay={200 + i * 150} className={`${i > 0 ? "-ml-6 sm:-ml-8 md:-ml-12 lg:-ml-16" : ""} relative`} style={undefined}>
+                  <div className={`w-[100px] h-[100px] sm:w-[140px] sm:h-[140px] md:w-[220px] md:h-[220px] lg:w-[280px] lg:h-[280px] xl:w-[300px] xl:h-[300px] aspect-square rounded-full overflow-hidden border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500 relative`} style={{ zIndex: i + 10 }}>
+                    <img src={item.img} alt={item.label} className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center hover:bg-black/50 transition-colors">
+                      <span className="bg-white text-black text-[9px] sm:text-[10px] md:text-sm font-bold px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-2.5 rounded-full" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.05em" }}>
+                        {item.label}
+                      </span>
+                    </div>
+                  </div>
+                </RevealItem>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
