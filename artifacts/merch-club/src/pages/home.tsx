@@ -529,6 +529,7 @@ export default function Home() {
             <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Services</a>
             <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Industries</a>
             <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Process</a>
+            <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Catalog</a>
             <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
           </nav>
         </div>
