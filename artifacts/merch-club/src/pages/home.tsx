@@ -489,7 +489,7 @@ export default function Home() {
 
                 <RevealItem delay={200}>
                   <p className="mt-6 text-sm md:text-base text-[#888] leading-relaxed max-w-md">
-                    A full-scale branded merchandise program built for Access Bank's executive gifting, employee onboarding kits, and multi-location event activations across three regions.
+                    A full-scale branded merchandise program built for Access Bank's executive gifting, employee onboarding kits, and multi-location event activations across three regions. The initiative ensured every gift reflected the brand's quality while reaching recipients smoothly and on time. The result was a coordinated experience that strengthened relationships and elevated the impact of the campaign.
                   </p>
                 </RevealItem>
 
