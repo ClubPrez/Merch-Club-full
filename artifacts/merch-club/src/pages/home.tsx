@@ -669,17 +669,31 @@ export default function Home() {
       <section className="bg-[#0a0a0a] py-20 md:py-28 px-8 md:px-16 lg:px-20">
         <div className="max-w-6xl mx-auto">
           <RevealItem delay={0}>
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-center" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
               From concept to delivery.
             </h3>
           </RevealItem>
           <RevealItem delay={100}>
-            <p className="mt-4 text-sm md:text-base text-[#888] leading-relaxed max-w-2xl">
+            <p className="mt-4 text-sm md:text-base text-[#888] leading-relaxed max-w-2xl mx-auto text-center">
               A compact process that demonstrates operational maturity. Every step is managed under one roof so nothing falls through the cracks.
             </p>
           </RevealItem>
 
-          <TimelineSteps />
+          <div className="mt-16 flex flex-col items-center gap-10 md:gap-14">
+            {timelineSteps.map((step, i) => (
+              <RevealItem key={step.num} delay={200 + i * 150} className="text-center max-w-md">
+                <span className="text-5xl md:text-7xl font-black text-[#a3a3a3] tracking-tight leading-none block" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  {step.num}
+                </span>
+                <h4 className="text-xl md:text-2xl font-black text-white tracking-tight mt-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  {step.title}
+                </h4>
+                <p className="text-xs md:text-sm text-[#666] mt-1 leading-relaxed">
+                  {step.desc}
+                </p>
+              </RevealItem>
+            ))}
+          </div>
         </div>
       </section>
     </div>
