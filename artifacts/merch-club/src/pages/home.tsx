@@ -431,7 +431,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#111] py-24 md:py-32 px-8 md:px-16 lg:px-20">
+      <section className="bg-[#111] py-16 md:py-24 px-8 md:px-16 lg:px-20">
         <div className="max-w-6xl mx-auto">
           <RevealItem delay={0}>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#a3a3a3]">Featured Brand Program</span>
@@ -462,7 +462,7 @@ export default function Home() {
                 </RevealItem>
               </div>
 
-              <RevealItem delay={400} className="mt-12 grid grid-cols-2 gap-8">
+              <RevealItem delay={400} className="mt-6 grid grid-cols-2 gap-8">
                 <div>
                   <span className="text-4xl md:text-5xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>+2,500</span>
                   <p className="text-xs text-[#666] mt-1 leading-relaxed">Units produced across three product categories and delivered on schedule.</p>
