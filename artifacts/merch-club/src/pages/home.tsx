@@ -430,6 +430,66 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="bg-[#111] py-24 md:py-32 px-8 md:px-16 lg:px-20">
+        <div className="max-w-6xl mx-auto">
+          <RevealItem delay={0}>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#a3a3a3]">Featured Brand Program</span>
+          </RevealItem>
+
+          <div className="mt-10 flex flex-col md:flex-row gap-12 md:gap-16 items-stretch">
+            <div className="flex-1 flex flex-col justify-between">
+              <div>
+                <RevealItem delay={100}>
+                  <h3 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                    Access<br />Bank
+                  </h3>
+                </RevealItem>
+
+                <RevealItem delay={200}>
+                  <p className="mt-6 text-sm md:text-base text-[#888] leading-relaxed max-w-md">
+                    A full-scale branded merchandise program built for Access Bank's executive gifting, employee onboarding kits, and multi-location event activations across three regions.
+                  </p>
+                </RevealItem>
+
+                <RevealItem delay={300} className="flex gap-3 mt-6">
+                  <a href="#" className="inline-flex items-center gap-2 bg-white text-black text-xs md:text-sm font-bold px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
+                    View Case Study
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                    </svg>
+                  </a>
+                </RevealItem>
+              </div>
+
+              <RevealItem delay={400} className="mt-12 grid grid-cols-2 gap-8">
+                <div>
+                  <span className="text-4xl md:text-5xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>+2,500</span>
+                  <p className="text-xs text-[#666] mt-1 leading-relaxed">Units produced across three product categories and delivered on schedule.</p>
+                </div>
+                <div>
+                  <span className="text-4xl md:text-5xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>12</span>
+                  <p className="text-xs text-[#666] mt-1 leading-relaxed">Locations serviced with coordinated fulfillment and kitting.</p>
+                </div>
+                <div>
+                  <span className="text-4xl md:text-5xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>98%</span>
+                  <p className="text-xs text-[#666] mt-1 leading-relaxed">On-time delivery rate across all shipments and events.</p>
+                </div>
+                <div>
+                  <span className="text-4xl md:text-5xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>3</span>
+                  <p className="text-xs text-[#666] mt-1 leading-relaxed">Regions covered with brand-consistent merchandise programs.</p>
+                </div>
+              </RevealItem>
+            </div>
+
+            <RevealItem delay={200} className="flex-1 flex items-stretch">
+              <div className="w-full rounded-2xl overflow-hidden border border-white/10 bg-[#1a1a1a] min-h-[400px] md:min-h-[500px]">
+                <img src={corporateImg} alt="Access Bank program" className="w-full h-full object-cover" />
+              </div>
+            </RevealItem>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
