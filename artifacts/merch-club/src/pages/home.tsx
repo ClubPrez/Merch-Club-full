@@ -14,6 +14,7 @@ import distributionImg from "@assets/image_1774638910753.png";
 import productionImg from "@assets/image_1774638950602.png";
 import strategyImg from "@assets/image_1774639001333.png";
 import designImg from "@assets/image_1774639099780.png";
+import proofingImg from "@assets/image_1774639328557.png";
 
 function CountUp({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -381,7 +382,7 @@ function StickyTimeline() {
 const timelineSteps = [
   { num: "01", title: "Strategy", desc: "Define goals, audience, scope, and timing.", img: strategyImg },
   { num: "02", title: "Design", desc: "Create brand-aligned concepts and system direction.", img: designImg },
-  { num: "03", title: "Proofing", desc: "Manage approvals with live proofs and better control.", img: modelImg },
+  { num: "03", title: "Proofing", desc: "Manage approvals with live proofs and better control.", img: proofingImg },
   { num: "04", title: "Production", desc: "Coordinate vendors, quality, and timeline management.", img: productionImg },
   { num: "05", title: "Kitting", desc: "Assemble packages, bundles, and event-ready configurations.", img: kittingImg },
   { num: "06", title: "Distribution", desc: "Ship direct, multi-location, or campaign-based deliveries.", img: distributionImg },
