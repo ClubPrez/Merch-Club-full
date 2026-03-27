@@ -263,8 +263,8 @@ function TimelineSteps() {
       if (!el) return;
       const rect = el.getBoundingClientRect();
       const windowH = window.innerHeight;
-      const start = windowH * 0.85;
-      const end = -rect.height + windowH * 0.4;
+      const start = windowH * 0.8;
+      const end = windowH * 0.2;
       const raw = (start - rect.top) / (start - end);
       setProgress(Math.max(0, Math.min(1, raw)));
     };
@@ -277,77 +277,73 @@ function TimelineSteps() {
   const lineProgress = `${Math.min(progress * 100, 100)}%`;
 
   return (
-    <div ref={containerRef} className="mt-14 relative flex">
-      <div className="relative w-[2px] mr-8 md:mr-12 shrink-0">
-        <div className="absolute top-0 bottom-0 w-full bg-white/10" />
-        <div
-          className="absolute top-0 w-full bg-white"
-          style={{ height: lineProgress, transition: "height 0.15s linear" }}
-        />
-      </div>
+    <div ref={containerRef} className="mt-14 relative">
+      <div className="absolute top-[28px] left-0 right-0 h-px bg-white/10 hidden md:block" />
+      <div
+        className="absolute top-[28px] left-0 h-px bg-white hidden md:block"
+        style={{ width: lineProgress, transition: "width 0.15s linear" }}
+      />
 
-      <div className="flex flex-col gap-12 md:gap-16 flex-1">
+      <div className="grid grid-cols-2 md:grid-cols-6 gap-8 md:gap-0">
         {timelineSteps.map((step, i) => {
           const isActive = i < activeCount;
           const stepProgress = Math.max(0, Math.min(1, (progress * timelineSteps.length - i)));
           return (
-            <div key={step.num} className="relative flex items-start gap-5">
-              <div className="absolute -left-[calc(1rem+2px+0.5rem)] md:-left-[calc(1.5rem+2px+0.5rem)] top-3 -translate-x-1/2">
-                <div
-                  className="w-3.5 h-3.5 rounded-full border-2 relative z-10"
-                  style={{
-                    borderColor: isActive ? "#ffffff" : "#555",
-                    backgroundColor: isActive ? "#ffffff" : "#0a0a0a",
-                    transform: `scale(${isActive ? 1.3 : 1})`,
-                    transition: "all 0.4s ease",
-                  }}
-                />
-                <div
-                  className="absolute -inset-1 rounded-full"
-                  style={{
-                    backgroundColor: isActive ? "rgba(255,255,255,0.15)" : "transparent",
-                    transform: `scale(${isActive ? 2.5 : 0})`,
-                    opacity: isActive ? 1 : 0,
-                    transition: "all 0.6s ease",
-                  }}
-                />
-              </div>
-
-              <span
-                className="text-4xl md:text-6xl font-black tracking-tight leading-none shrink-0"
-                style={{
-                  fontFamily: "'Bebas Neue', sans-serif",
-                  color: isActive ? "#ffffff" : "#333",
-                  transition: "color 0.4s ease",
-                }}
-              >
-                {step.num}
-              </span>
-
-              <div className="pt-1">
-                <h4
-                  className="text-xl md:text-2xl font-black tracking-tight"
+            <div key={step.num} className="relative md:pr-6 group">
+              <div className="flex items-center gap-3 mb-4">
+                <span
+                  className="text-3xl md:text-5xl font-black tracking-tight leading-none"
                   style={{
                     fontFamily: "'Bebas Neue', sans-serif",
-                    color: isActive ? "#ffffff" : "#555",
-                    transform: `translateX(${stepProgress * 6}px)`,
-                    transition: "color 0.4s ease, transform 0.4s ease",
-                  }}
-                >
-                  {step.title}
-                </h4>
-                <p
-                  className="text-xs md:text-sm mt-1 leading-relaxed max-w-sm"
-                  style={{
-                    color: isActive ? "#888" : "#444",
-                    opacity: stepProgress,
-                    transform: `translateY(${(1 - stepProgress) * 10}px)`,
+                    color: isActive ? "#ffffff" : "#333",
                     transition: "color 0.4s ease",
                   }}
                 >
-                  {step.desc}
-                </p>
+                  {step.num}
+                </span>
+                <div className="relative hidden md:block">
+                  <div
+                    className="w-3.5 h-3.5 rounded-full border-2 relative z-10"
+                    style={{
+                      borderColor: isActive ? "#ffffff" : "#555",
+                      backgroundColor: isActive ? "#ffffff" : "#0a0a0a",
+                      transform: `scale(${isActive ? 1.3 : 1})`,
+                      transition: "all 0.4s ease",
+                    }}
+                  />
+                  <div
+                    className="absolute -inset-1 rounded-full"
+                    style={{
+                      backgroundColor: isActive ? "rgba(255,255,255,0.15)" : "transparent",
+                      transform: `scale(${isActive ? 2.5 : 0})`,
+                      opacity: isActive ? 1 : 0,
+                      transition: "all 0.6s ease",
+                    }}
+                  />
+                </div>
               </div>
+              <h4
+                className="text-lg md:text-xl font-black tracking-tight"
+                style={{
+                  fontFamily: "'Bebas Neue', sans-serif",
+                  color: isActive ? "#ffffff" : "#555",
+                  transform: `translateX(${stepProgress * 4}px)`,
+                  transition: "color 0.4s ease, transform 0.4s ease",
+                }}
+              >
+                {step.title}
+              </h4>
+              <p
+                className="text-xs mt-1 leading-relaxed"
+                style={{
+                  color: isActive ? "#888" : "#444",
+                  opacity: stepProgress,
+                  transform: `translateY(${(1 - stepProgress) * 8}px)`,
+                  transition: "color 0.4s ease",
+                }}
+              >
+                {step.desc}
+              </p>
             </div>
           );
         })}
