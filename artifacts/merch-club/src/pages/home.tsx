@@ -344,16 +344,17 @@ function StickyTimeline() {
           {timelineSteps.map((step, i) => (
             <div
               key={step.num}
-              className="absolute inset-0 flex items-center justify-center gap-8 md:gap-12 transition-all duration-500 ease-out"
+              className="absolute left-0 right-0 top-0 bottom-0 flex items-center justify-center gap-8 md:gap-12 transition-all duration-500 ease-out px-4"
               style={{
                 opacity: i === activeIndex ? 1 : 0,
                 transform: i === activeIndex ? "translateY(0) scale(1)" : i < activeIndex ? "translateY(-40px) scale(0.9)" : "translateY(40px) scale(0.9)",
+                pointerEvents: i === activeIndex ? "auto" : "none",
               }}
             >
-              <div className="w-[160px] h-[160px] md:w-[240px] md:h-[240px] rounded-2xl overflow-hidden border border-white/10 shrink-0">
+              <div className="w-[160px] h-[200px] md:w-[240px] md:h-[280px] rounded-2xl overflow-hidden border border-white/10 shrink-0">
                 <img src={step.img} alt={step.title} className="w-full h-full object-cover" />
               </div>
-              <div className="text-left max-w-sm">
+              <div className="text-left w-[200px] md:w-[280px] shrink-0">
                 <span className="text-6xl md:text-8xl font-black text-[#a3a3a3] tracking-tight leading-none block" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                   {step.num}
                 </span>
