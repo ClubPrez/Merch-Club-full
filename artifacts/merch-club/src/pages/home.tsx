@@ -246,29 +246,31 @@ function BetterWaySection() {
 
 function StickyTimeline() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const markerRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [started, setStarted] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observers: IntersectionObserver[] = [];
-    markerRefs.current.forEach((el, i) => {
-      if (!el) return;
-      const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActiveIndex(i); },
-        { threshold: 0.5 }
-      );
-      obs.observe(el);
-      observers.push(obs);
-    });
-    return () => observers.forEach(o => o.disconnect());
+    const el = sectionRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setStarted(true); },
+      { threshold: 0.3 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
   }, []);
 
-  return (
-    <div className="relative bg-[#0a0a0a]">
-      {timelineSteps.map((_, i) => (
-        <div key={i} className="h-[60vh]" ref={el => { markerRefs.current[i] = el; }} />
-      ))}
+  useEffect(() => {
+    if (!started) return;
+    const interval = setInterval(() => {
+      setActiveIndex(prev => (prev + 1) % timelineSteps.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [started]);
 
-      <div className="sticky bottom-0 top-0 h-screen flex flex-col items-center justify-center px-8 pointer-events-none" style={{ position: "sticky", top: 0, marginTop: `-${timelineSteps.length * 60}vh` }}>
+  return (
+    <div ref={sectionRef} className="bg-[#0a0a0a] py-20 md:py-24 px-8 md:px-16 lg:px-20">
+      <div className="max-w-6xl mx-auto flex flex-col items-center">
         <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-center mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
           From concept to delivery.
         </h3>
@@ -280,7 +282,8 @@ function StickyTimeline() {
             {timelineSteps.map((_, i) => (
               <div
                 key={i}
-                className="h-1 rounded-full transition-all duration-300"
+                className="h-1 rounded-full transition-all duration-300 cursor-pointer"
+                onClick={() => setActiveIndex(i)}
                 style={{
                   width: i === activeIndex ? "32px" : "8px",
                   backgroundColor: i === activeIndex ? "#ffffff" : i < activeIndex ? "#666" : "#333",
@@ -290,7 +293,7 @@ function StickyTimeline() {
           </div>
         </div>
 
-        <div className="relative h-[200px] flex items-center justify-center w-full">
+        <div className="relative h-[180px] md:h-[200px] flex items-center justify-center w-full">
           {timelineSteps.map((step, i) => (
             <div
               key={step.num}
@@ -739,9 +742,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] relative">
-        <StickyTimeline />
-      </section>
+      <StickyTimeline />
     </div>
   );
 }
