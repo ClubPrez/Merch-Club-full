@@ -809,6 +809,40 @@ export default function Home() {
 
       <StickyTimeline />
 
+      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
+        <div className="max-w-4xl mx-auto text-center">
+          <RevealItem delay={0}>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#a3a3a3]">Ready to elevate your brand?</span>
+          </RevealItem>
+          <RevealItem delay={100}>
+            <h3 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] mt-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Let's build something<br />worth wearing.
+            </h3>
+          </RevealItem>
+          <RevealItem delay={200}>
+            <p className="text-sm md:text-base text-[#888] leading-relaxed max-w-xl mx-auto mt-6">
+              Whether you're launching a merch line, outfitting a team, or planning a branded campaign — we're ready when you are.
+            </p>
+          </RevealItem>
+          <RevealItem delay={300}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+              <a href="#" className="inline-flex items-center gap-2 bg-white text-black text-sm font-bold px-8 py-3.5 rounded-full hover:bg-gray-200 transition-colors">
+                Start a Project
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </a>
+              <a href="#" className="inline-flex items-center gap-2 border border-white/20 text-white text-sm font-bold px-8 py-3.5 rounded-full hover:border-white/50 hover:bg-white/5 transition-all">
+                Book a Call
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+              </a>
+            </div>
+          </RevealItem>
+        </div>
+      </section>
+
       <footer className="bg-[#0a0a0a] border-t border-white/10">
         <div className="max-w-6xl mx-auto px-8 md:px-16 lg:px-20 pt-20 pb-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
