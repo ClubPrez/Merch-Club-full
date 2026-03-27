@@ -194,7 +194,7 @@ function BetterWaySection() {
       <div className="absolute inset-0 bg-black/60 z-[1]" />
       <div ref={contentRef} className="max-w-6xl mx-auto relative z-10 will-change-transform">
         <RevealItem delay={0}>
-          <p className="text-lg md:text-xl lg:text-2xl font-black tracking-tight text-white/70 whitespace-nowrap" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+          <p className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-white/70 whitespace-nowrap" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
             A better way to run branded merchandise programs.
           </p>
         </RevealItem>
@@ -318,7 +318,7 @@ export default function Home() {
               <div className="relative flex justify-center md:justify-start">
                 <img src={cloverImg} alt="Merch Club clover" className="h-12 md:h-16 lg:h-20 object-contain mb-4" style={{ display: 'block', maxWidth: 'fit-content' }} />
               </div>
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 Merch,<br />
                 <span className="inline-block overflow-hidden h-[1.1em] align-bottom relative">
                   <span className="invisible">organized.</span>
@@ -421,7 +421,7 @@ export default function Home() {
           </div>
 
           <div className="flex-1 text-left order-1 md:order-2">
-            <h3 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
               Custom merch<br />isn't complicated.<br />
               <span className="text-[#a3a3a3]">Coordinating it is.</span>
             </h3>
@@ -437,7 +437,7 @@ export default function Home() {
       <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-6xl mx-auto">
           <RevealItem delay={0}>
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] text-center" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-center" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
               Industry-Specific Execution
             </h3>
             <p className="mt-4 text-sm md:text-base text-[#888] leading-relaxed max-w-3xl mx-auto text-center">
