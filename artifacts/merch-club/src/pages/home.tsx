@@ -155,15 +155,27 @@ function BetterWaySection() {
           </p>
         </RevealItem>
 
-        <div className="mt-16 max-w-lg md:mr-auto md:ml-0">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-16">
           <div>
             {[
               { num: "01", title: "Strategy", desc: "Program planning, stakeholder alignment, and scope framing." },
               { num: "02", title: "Brand-aligned design", desc: "Creative direction that protects consistency and elevates perception." },
+            ].map((step, i) => (
+              <RevealItem key={step.num} delay={300 + i * 150} className={`flex items-start gap-5 py-5 ${i < 1 ? "border-b border-white/10" : ""}`}>
+                <span className="text-xs font-bold text-[#555] tracking-widest mt-1">{step.num}</span>
+                <div>
+                  <h4 className="text-xl md:text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.title}</h4>
+                  <p className="text-xs md:text-sm text-[#777] mt-1 leading-relaxed">{step.desc}</p>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+          <div>
+            {[
               { num: "03", title: "Controlled production", desc: "Sourcing, proofing, and quality oversight managed in one flow." },
               { num: "04", title: "Coordinated fulfillment", desc: "Kitting, distribution, and multi-location execution." },
             ].map((step, i) => (
-              <RevealItem key={step.num} delay={300 + i * 150} className={`flex items-start gap-5 py-5 ${i < 3 ? "border-b border-white/10" : ""}`}>
+              <RevealItem key={step.num} delay={600 + i * 150} className={`flex items-start gap-5 py-5 ${i < 1 ? "border-b border-white/10" : ""}`}>
                 <span className="text-xs font-bold text-[#555] tracking-widest mt-1">{step.num}</span>
                 <div>
                   <h4 className="text-xl md:text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.title}</h4>
