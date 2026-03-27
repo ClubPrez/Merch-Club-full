@@ -406,7 +406,7 @@ export default function Home() {
               {[
                 { label: "Construction", img: golfImg },
                 { label: "Healthcare", img: modelImg },
-                { label: "Corporate Programs", img: bottleImg },
+                { label: "Corporate", img: bottleImg },
                 { label: "Events", img: heroImg },
               ].map((item, i) => (
                 <RevealItem key={item.label} delay={200 + i * 150} className={`${i > 0 ? "-ml-6 sm:-ml-8 md:-ml-12 lg:-ml-16" : ""} relative`} style={undefined}>
