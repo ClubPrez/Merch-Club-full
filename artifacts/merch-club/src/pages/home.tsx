@@ -483,7 +483,7 @@ export default function Home() {
             </div>
 
             <RevealItem delay={200} className="flex-1 flex items-stretch">
-              <div className="w-full rounded-2xl overflow-hidden border border-white/10 bg-[#1a1a1a] min-h-[400px] md:min-h-[500px]">
+              <div className="w-full rounded-2xl overflow-hidden border border-white/10 bg-[#1a1a1a] min-h-[300px] md:min-h-[380px]">
                 <img src={corporateImg} alt="Access Bank program" className="w-full h-full object-cover" />
               </div>
             </RevealItem>
