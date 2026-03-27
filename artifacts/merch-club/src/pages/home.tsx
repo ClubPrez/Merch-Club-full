@@ -257,7 +257,8 @@ function StickyTimeline() {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && entry.intersectionRatio > 0.8 && !done) {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.8) {
+          setDone(false);
           setLocked(true);
         }
       },
@@ -265,7 +266,7 @@ function StickyTimeline() {
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, [done]);
+  }, []);
 
   useEffect(() => {
     if (!locked) return;
