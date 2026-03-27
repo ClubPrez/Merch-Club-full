@@ -149,8 +149,8 @@ function BetterWaySection() {
       <video ref={videoRef} src={heroVideo} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover z-0 will-change-transform" style={{ transform: "scale(1.15)" }} />
       <div className="absolute inset-0 bg-black/50 z-[1]" />
       <div ref={contentRef} className="max-w-6xl mx-auto relative z-10 will-change-transform">
-        <RevealItem delay={0} className="max-w-lg md:mr-auto md:ml-0">
-          <p className="text-lg md:text-xl lg:text-2xl font-black tracking-tight text-white/70" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+        <RevealItem delay={0}>
+          <p className="text-lg md:text-xl lg:text-2xl font-black tracking-tight text-white/70 whitespace-nowrap" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
             A better way to run branded merchandise programs.
           </p>
         </RevealItem>
