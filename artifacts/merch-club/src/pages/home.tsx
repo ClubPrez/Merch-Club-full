@@ -580,7 +580,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] py-16 md:py-20 overflow-hidden">
+      <section className="bg-[#0a0a0a] py-8 md:py-12 overflow-hidden -mt-[75px]">
         <RevealItem delay={0}>
           <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-[#555] mb-10">Brands We Work With</p>
         </RevealItem>
