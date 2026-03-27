@@ -10,6 +10,47 @@ import modelImg from "@assets/image_1774553895766.png";
 import heroVideo from "@assets/Screen_Recording_2026-03-26_at_4.39.36_PM_1774561292379.mov";
 import cloverImg from "@assets/Social_PostsArtboard_2@3x_1774554960751.jpg";
 
+function CountUp({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [value, setValue] = useState(0);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started) {
+          setStarted(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [started]);
+
+  useEffect(() => {
+    if (!started) return;
+    const startTime = performance.now();
+    const animate = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(Math.round(eased * end));
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, [started, end, duration]);
+
+  return (
+    <span ref={ref}>
+      {prefix}{value.toLocaleString()}{suffix}
+    </span>
+  );
+}
+
 function useRevealOnScroll(delay = 0) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -462,24 +503,24 @@ export default function Home() {
                 </RevealItem>
               </div>
 
-              <RevealItem delay={400} className="mt-6 grid grid-cols-2 gap-8">
-                <div>
-                  <span className="text-4xl md:text-5xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>+2,500</span>
+              <div className="mt-6 grid grid-cols-2 gap-8">
+                <RevealItem delay={400}>
+                  <span className="text-4xl md:text-5xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={2500} prefix="+" /></span>
                   <p className="text-xs text-[#666] mt-1 leading-relaxed">Units produced across three product categories and delivered on schedule.</p>
-                </div>
-                <div>
-                  <span className="text-4xl md:text-5xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>12</span>
+                </RevealItem>
+                <RevealItem delay={500}>
+                  <span className="text-4xl md:text-5xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={12} /></span>
                   <p className="text-xs text-[#666] mt-1 leading-relaxed">Locations serviced with coordinated fulfillment and kitting.</p>
-                </div>
-                <div>
-                  <span className="text-4xl md:text-5xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>98%</span>
+                </RevealItem>
+                <RevealItem delay={600}>
+                  <span className="text-4xl md:text-5xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={98} suffix="%" /></span>
                   <p className="text-xs text-[#666] mt-1 leading-relaxed">On-time delivery rate across all shipments and events.</p>
-                </div>
-                <div>
-                  <span className="text-4xl md:text-5xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>3</span>
+                </RevealItem>
+                <RevealItem delay={700}>
+                  <span className="text-4xl md:text-5xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={3} /></span>
                   <p className="text-xs text-[#666] mt-1 leading-relaxed">Regions covered with brand-consistent merchandise programs.</p>
-                </div>
-              </RevealItem>
+                </RevealItem>
+              </div>
             </div>
 
             <RevealItem delay={200} className="flex-1 flex items-stretch">
