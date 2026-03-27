@@ -452,7 +452,7 @@ export default function Home() {
                   </p>
                 </RevealItem>
 
-                <RevealItem delay={300} className="flex gap-3 mt-6">
+                <RevealItem delay={300} className="flex gap-3 mt-6 md:mb-[50px]">
                   <a href="#" className="inline-flex items-center gap-2 bg-white text-black text-xs md:text-sm font-bold px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
                     View Case Study
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
