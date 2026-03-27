@@ -340,25 +340,30 @@ function StickyTimeline() {
           </div>
         </div>
 
-        <div className="relative h-[180px] md:h-[200px] flex items-center justify-center w-full">
+        <div className="relative h-[280px] md:h-[320px] flex items-center justify-center w-full">
           {timelineSteps.map((step, i) => (
             <div
               key={step.num}
-              className="absolute text-center max-w-lg transition-all duration-500 ease-out"
+              className="absolute inset-0 flex items-center justify-center gap-8 md:gap-12 transition-all duration-500 ease-out"
               style={{
                 opacity: i === activeIndex ? 1 : 0,
                 transform: i === activeIndex ? "translateY(0) scale(1)" : i < activeIndex ? "translateY(-40px) scale(0.9)" : "translateY(40px) scale(0.9)",
               }}
             >
-              <span className="text-7xl md:text-9xl font-black text-[#a3a3a3] tracking-tight leading-none block" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                {step.num}
-              </span>
-              <h4 className="text-2xl md:text-3xl font-black text-white tracking-tight mt-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                {step.title}
-              </h4>
-              <p className="text-sm md:text-base text-[#666] mt-2 leading-relaxed">
-                {step.desc}
-              </p>
+              <div className="w-[160px] h-[160px] md:w-[240px] md:h-[240px] rounded-2xl overflow-hidden border border-white/10 shrink-0">
+                <img src={step.img} alt={step.title} className="w-full h-full object-cover" />
+              </div>
+              <div className="text-left max-w-sm">
+                <span className="text-6xl md:text-8xl font-black text-[#a3a3a3] tracking-tight leading-none block" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  {step.num}
+                </span>
+                <h4 className="text-2xl md:text-3xl font-black text-white tracking-tight mt-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  {step.title}
+                </h4>
+                <p className="text-sm md:text-base text-[#666] mt-1 leading-relaxed">
+                  {step.desc}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -368,12 +373,12 @@ function StickyTimeline() {
 }
 
 const timelineSteps = [
-  { num: "01", title: "Strategy", desc: "Define goals, audience, scope, and timing." },
-  { num: "02", title: "Design", desc: "Create brand-aligned concepts and system direction." },
-  { num: "03", title: "Proofing", desc: "Manage approvals with live proofs and better control." },
-  { num: "04", title: "Production", desc: "Coordinate vendors, quality, and timeline management." },
-  { num: "05", title: "Kitting", desc: "Assemble packages, bundles, and event-ready configurations." },
-  { num: "06", title: "Distribution", desc: "Ship direct, multi-location, or campaign-based deliveries." },
+  { num: "01", title: "Strategy", desc: "Define goals, audience, scope, and timing.", img: corporateImg },
+  { num: "02", title: "Design", desc: "Create brand-aligned concepts and system direction.", img: golfImg },
+  { num: "03", title: "Proofing", desc: "Manage approvals with live proofs and better control.", img: modelImg },
+  { num: "04", title: "Production", desc: "Coordinate vendors, quality, and timeline management.", img: constructionImg },
+  { num: "05", title: "Kitting", desc: "Assemble packages, bundles, and event-ready configurations.", img: eventsImg },
+  { num: "06", title: "Distribution", desc: "Ship direct, multi-location, or campaign-based deliveries.", img: bottleImg },
 ];
 
 function TimelineSteps() {
