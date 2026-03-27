@@ -149,13 +149,11 @@ function BetterWaySection() {
       <video ref={videoRef} src={heroVideo} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover z-0 will-change-transform" style={{ transform: "scale(1.15)" }} />
       <div className="absolute inset-0 bg-black/50 z-[1]" />
       <div ref={contentRef} className="max-w-6xl mx-auto relative z-10 will-change-transform">
-        <div className="max-w-lg md:mr-auto md:ml-0">
-          <RevealItem delay={0}>
-            <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-white/10 transition-colors">
-              One partner. Total execution.
-            </a>
-          </RevealItem>
-        </div>
+        <RevealItem delay={0} className="max-w-lg md:mr-auto md:ml-0">
+          <p className="text-lg md:text-xl lg:text-2xl font-black tracking-tight text-white/70" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            A better way to run branded merchandise programs.
+          </p>
+        </RevealItem>
 
         <div className="mt-16 max-w-lg md:mr-auto md:ml-0">
           <div>
@@ -177,9 +175,9 @@ function BetterWaySection() {
         </div>
 
         <RevealItem delay={900} className="mt-14 max-w-lg md:mr-auto md:ml-0">
-          <p className="text-lg md:text-xl lg:text-2xl font-black tracking-tight text-white/70" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            A better way to run branded merchandise programs.
-          </p>
+          <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-white/10 transition-colors">
+            One partner. Total execution.
+          </a>
         </RevealItem>
       </div>
     </section>
