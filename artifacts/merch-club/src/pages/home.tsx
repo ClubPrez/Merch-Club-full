@@ -165,7 +165,7 @@ function BetterWaySection() {
               { num: "02", title: "Brand-aligned design", desc: "Creative direction that protects consistency and elevates perception." },
             ].map((step, i) => (
               <RevealItem key={step.num} delay={300 + i * 150} className={`flex items-start gap-5 py-5 ${i < 1 ? "border-b border-white/10" : ""}`}>
-                <span className="text-3xl md:text-5xl font-black text-[#333] tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>
+                <span className="text-3xl md:text-5xl font-black text-[#a3a3a3] tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>
                 <div>
                   <h4 className="text-xl md:text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.title}</h4>
                   <p className="text-xs md:text-sm text-[#777] mt-1 leading-relaxed">{step.desc}</p>
@@ -179,7 +179,7 @@ function BetterWaySection() {
               { num: "04", title: "Coordinated fulfillment", desc: "Kitting, distribution, and multi-location execution." },
             ].map((step, i) => (
               <RevealItem key={step.num} delay={600 + i * 150} className={`flex items-start gap-5 py-5 ${i < 1 ? "border-b border-white/10" : ""}`}>
-                <span className="text-3xl md:text-5xl font-black text-[#333] tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>
+                <span className="text-3xl md:text-5xl font-black text-[#a3a3a3] tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>
                 <div>
                   <h4 className="text-xl md:text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.title}</h4>
                   <p className="text-xs md:text-sm text-[#777] mt-1 leading-relaxed">{step.desc}</p>
