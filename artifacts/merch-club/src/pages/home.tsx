@@ -5,6 +5,7 @@ import golfImg from "@assets/image_1774554118628.png";
 import bottleImg from "@assets/0I4A7757_1774446952971.jpg";
 import corporateImg from "@assets/image_1774625538266.png";
 import constructionImg from "@assets/image_1774625624335.png";
+import eventsImg from "@assets/image_1774625754502.png";
 import modelImg from "@assets/image_1774553895766.png";
 import heroVideo from "@assets/Screen_Recording_2026-03-26_at_4.39.36_PM_1774561292379.mov";
 import cloverImg from "@assets/Social_PostsArtboard_2@3x_1774554960751.jpg";
@@ -409,7 +410,7 @@ export default function Home() {
                 { label: "Construction", img: constructionImg },
                 { label: "Healthcare", img: modelImg },
                 { label: "Corporate", img: corporateImg },
-                { label: "Events", img: heroImg },
+                { label: "Events", img: eventsImg },
               ].map((item, i) => (
                 <RevealItem key={item.label} delay={200 + i * 150} className={`${i > 0 ? "-ml-6 sm:-ml-8 md:-ml-12 lg:-ml-16" : ""} relative`} style={undefined}>
                   <div className={`w-[100px] h-[100px] sm:w-[140px] sm:h-[140px] md:w-[220px] md:h-[220px] lg:w-[280px] lg:h-[280px] xl:w-[300px] xl:h-[300px] aspect-square rounded-full overflow-hidden border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500 relative`} style={{ zIndex: i + 10 }}>
