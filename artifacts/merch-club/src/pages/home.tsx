@@ -246,27 +246,74 @@ function BetterWaySection() {
 
 function StickyTimeline() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [started, setStarted] = useState(false);
+  const [locked, setLocked] = useState(false);
+  const [done, setDone] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const scrollAccum = useRef(0);
+  const lastChange = useRef(0);
 
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setStarted(true); },
-      { threshold: 0.3 }
+      ([entry]) => {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.8 && !done) {
+          setLocked(true);
+        }
+      },
+      { threshold: 0.8 }
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, []);
+  }, [done]);
 
   useEffect(() => {
-    if (!started) return;
-    const interval = setInterval(() => {
-      setActiveIndex(prev => (prev + 1) % timelineSteps.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, [started]);
+    if (!locked) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      const now = Date.now();
+      if (now - lastChange.current < 600) {
+        e.preventDefault();
+        return;
+      }
+
+      scrollAccum.current += e.deltaY;
+      const threshold = 80;
+
+      if (scrollAccum.current > threshold) {
+        scrollAccum.current = 0;
+        lastChange.current = now;
+        setActiveIndex(prev => {
+          if (prev >= timelineSteps.length - 1) {
+            setLocked(false);
+            setDone(true);
+            return prev;
+          }
+          e.preventDefault();
+          return prev + 1;
+        });
+        e.preventDefault();
+      } else if (scrollAccum.current < -threshold) {
+        scrollAccum.current = 0;
+        lastChange.current = now;
+        setActiveIndex(prev => {
+          if (prev <= 0) {
+            setLocked(false);
+            setDone(true);
+            return prev;
+          }
+          e.preventDefault();
+          return prev - 1;
+        });
+        e.preventDefault();
+      } else {
+        e.preventDefault();
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    return () => window.removeEventListener("wheel", handleWheel);
+  }, [locked]);
 
   return (
     <div ref={sectionRef} className="bg-[#0a0a0a] py-20 md:py-24 px-8 md:px-16 lg:px-20">
@@ -282,8 +329,7 @@ function StickyTimeline() {
             {timelineSteps.map((_, i) => (
               <div
                 key={i}
-                className="h-1 rounded-full transition-all duration-300 cursor-pointer"
-                onClick={() => setActiveIndex(i)}
+                className="h-1 rounded-full transition-all duration-300"
                 style={{
                   width: i === activeIndex ? "32px" : "8px",
                   backgroundColor: i === activeIndex ? "#ffffff" : i < activeIndex ? "#666" : "#333",
