@@ -10,6 +10,7 @@ import modelImg from "@assets/image_1774553895766.png";
 import heroVideo from "@assets/Screen_Recording_2026-03-26_at_4.39.36_PM_1774561292379.mov";
 import cloverImg from "@assets/Social_PostsArtboard_2@3x_1774554960751.jpg";
 import kittingImg from "@assets/image_1774638885691.png";
+import distributionImg from "@assets/image_1774638910753.png";
 
 function CountUp({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -380,7 +381,7 @@ const timelineSteps = [
   { num: "03", title: "Proofing", desc: "Manage approvals with live proofs and better control.", img: modelImg },
   { num: "04", title: "Production", desc: "Coordinate vendors, quality, and timeline management.", img: constructionImg },
   { num: "05", title: "Kitting", desc: "Assemble packages, bundles, and event-ready configurations.", img: kittingImg },
-  { num: "06", title: "Distribution", desc: "Ship direct, multi-location, or campaign-based deliveries.", img: bottleImg },
+  { num: "06", title: "Distribution", desc: "Ship direct, multi-location, or campaign-based deliveries.", img: distributionImg },
 ];
 
 function TimelineSteps() {
