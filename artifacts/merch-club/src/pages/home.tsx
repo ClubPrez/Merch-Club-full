@@ -378,7 +378,7 @@ export default function Home() {
 
           <div className="flex-1 text-left order-1 md:order-2">
             <h3 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Custom merch isn't complicated.<br />
+              Custom merch<br />isn't complicated.<br />
               <span className="text-[#a3a3a3]">Coordinating it is.</span>
             </h3>
             <p className="mt-6 md:mt-8 text-sm md:text-base text-[#888] leading-relaxed max-w-lg">
