@@ -438,7 +438,7 @@ export default function Home() {
           </RevealItem>
 
           <div className="mt-10 flex flex-col md:flex-row gap-12 md:gap-16 items-stretch">
-            <div className="flex-1 flex flex-col justify-between">
+            <div className="flex-1 flex flex-col">
               <div>
                 <RevealItem delay={100}>
                   <h3 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
