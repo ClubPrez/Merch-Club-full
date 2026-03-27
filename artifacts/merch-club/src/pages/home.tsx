@@ -217,13 +217,9 @@ export default function Home() {
           <img src={logoSrc} alt="Merch Club" className="h-6 object-contain invert" />
           <nav className="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
             <a href="#" className="text-white hover:text-gray-300 transition-colors">Home</a>
-            <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Products</a>
-            <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors flex items-center gap-1">
-              Collections
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-              </svg>
-            </a>
+            <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Services</a>
+            <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Industries</a>
+            <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Process</a>
             <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
           </nav>
         </div>
