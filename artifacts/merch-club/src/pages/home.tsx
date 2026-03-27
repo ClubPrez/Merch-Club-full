@@ -175,12 +175,12 @@ function BetterWaySection() {
         </div>
 
         <RevealItem delay={900} className="mt-14 max-w-6xl md:mr-auto md:ml-0 flex items-center justify-between gap-4">
+          <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-white/10 transition-colors">
+            One partner. Total execution.
+          </a>
           <a href="#" className="inline-flex items-center gap-2 bg-white text-black text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-gray-200 transition-colors">
             Start Planning Your Project
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-          </a>
-          <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-white/10 transition-colors">
-            One partner. Total execution.
           </a>
         </RevealItem>
       </div>
