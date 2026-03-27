@@ -12,7 +12,8 @@ import cloverImg from "@assets/Social_PostsArtboard_2@3x_1774554960751.jpg";
 import kittingImg from "@assets/image_1774638885691.png";
 import distributionImg from "@assets/image_1774638910753.png";
 import productionImg from "@assets/image_1774638950602.png";
-import designImg from "@assets/image_1774639001333.png";
+import strategyImg from "@assets/image_1774639001333.png";
+import designImg from "@assets/image_1774639099780.png";
 
 function CountUp({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -378,7 +379,7 @@ function StickyTimeline() {
 }
 
 const timelineSteps = [
-  { num: "01", title: "Strategy", desc: "Define goals, audience, scope, and timing.", img: corporateImg },
+  { num: "01", title: "Strategy", desc: "Define goals, audience, scope, and timing.", img: strategyImg },
   { num: "02", title: "Design", desc: "Create brand-aligned concepts and system direction.", img: designImg },
   { num: "03", title: "Proofing", desc: "Manage approvals with live proofs and better control.", img: modelImg },
   { num: "04", title: "Production", desc: "Coordinate vendors, quality, and timeline management.", img: productionImg },
