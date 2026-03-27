@@ -531,6 +531,52 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="bg-[#0a0a0a] py-20 md:py-28 px-8 md:px-16 lg:px-20">
+        <div className="max-w-6xl mx-auto">
+          <RevealItem delay={0}>
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              From concept to delivery.
+            </h3>
+          </RevealItem>
+          <RevealItem delay={100}>
+            <p className="mt-4 text-sm md:text-base text-[#888] leading-relaxed max-w-2xl">
+              A compact process that demonstrates operational maturity. Every step is managed under one roof so nothing falls through the cracks.
+            </p>
+          </RevealItem>
+
+          <div className="mt-14 relative">
+            <div className="absolute top-[28px] left-0 right-0 h-px bg-white/10 hidden md:block" />
+
+            <div className="grid grid-cols-2 md:grid-cols-6 gap-8 md:gap-0">
+              {[
+                { num: "01", title: "Strategy", desc: "Define goals, audience, scope, and timing." },
+                { num: "02", title: "Design", desc: "Create brand-aligned concepts and system direction." },
+                { num: "03", title: "Proofing", desc: "Manage approvals with live proofs and better control." },
+                { num: "04", title: "Production", desc: "Coordinate vendors, quality, and timeline management." },
+                { num: "05", title: "Kitting", desc: "Assemble packages, bundles, and event-ready configurations." },
+                { num: "06", title: "Distribution", desc: "Ship direct, multi-location, or campaign-based deliveries." },
+              ].map((step, i) => (
+                <RevealItem key={step.num} delay={200 + i * 120} className="relative md:pr-6 group">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-xs font-bold text-[#555] tracking-widest">{step.num}</span>
+                    <div className="relative hidden md:block">
+                      <div className="w-3 h-3 rounded-full border-2 border-[#555] bg-[#0a0a0a] group-hover:border-white group-hover:bg-white transition-all duration-500 relative z-10" />
+                      <div className="absolute inset-0 w-3 h-3 rounded-full bg-white/0 group-hover:bg-white/20 group-hover:scale-[3] transition-all duration-700" />
+                    </div>
+                  </div>
+                  <h4 className="text-lg md:text-xl font-black text-white tracking-tight group-hover:translate-x-1 transition-transform duration-300" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                    {step.title}
+                  </h4>
+                  <p className="text-xs text-[#666] mt-1 leading-relaxed md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 transition-all duration-500">
+                    {step.desc}
+                  </p>
+                </RevealItem>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
