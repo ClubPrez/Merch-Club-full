@@ -244,6 +244,55 @@ function BetterWaySection() {
   );
 }
 
+function ParallaxStep({ step }: { step: { num: string; title: string; desc: string } }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visibility, setVisibility] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const el = ref.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const windowH = window.innerHeight;
+      const center = rect.top + rect.height / 2;
+      const viewCenter = windowH / 2;
+      const distance = Math.abs(center - viewCenter);
+      const maxDist = windowH * 0.55;
+      const v = Math.max(0, 1 - distance / maxDist);
+      setVisibility(v);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const opacity = Math.min(visibility * 2, 1);
+  const scale = 0.85 + visibility * 0.15;
+  const translateY = (1 - visibility) * 30;
+
+  return (
+    <div
+      ref={ref}
+      className="text-center max-w-md py-8 md:py-10"
+      style={{
+        opacity,
+        transform: `scale(${scale}) translateY(${translateY}px)`,
+        transition: "transform 0.1s linear, opacity 0.1s linear",
+      }}
+    >
+      <span className="text-5xl md:text-7xl font-black text-[#a3a3a3] tracking-tight leading-none block" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+        {step.num}
+      </span>
+      <h4 className="text-xl md:text-2xl font-black text-white tracking-tight mt-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+        {step.title}
+      </h4>
+      <p className="text-xs md:text-sm text-[#666] mt-1 leading-relaxed">
+        {step.desc}
+      </p>
+    </div>
+  );
+}
+
 const timelineSteps = [
   { num: "01", title: "Strategy", desc: "Define goals, audience, scope, and timing." },
   { num: "02", title: "Design", desc: "Create brand-aligned concepts and system direction." },
@@ -679,19 +728,9 @@ export default function Home() {
             </p>
           </RevealItem>
 
-          <div className="mt-16 flex flex-col items-center gap-10 md:gap-14">
-            {timelineSteps.map((step, i) => (
-              <RevealItem key={step.num} delay={200 + i * 150} className="text-center max-w-md">
-                <span className="text-5xl md:text-7xl font-black text-[#a3a3a3] tracking-tight leading-none block" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  {step.num}
-                </span>
-                <h4 className="text-xl md:text-2xl font-black text-white tracking-tight mt-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  {step.title}
-                </h4>
-                <p className="text-xs md:text-sm text-[#666] mt-1 leading-relaxed">
-                  {step.desc}
-                </p>
-              </RevealItem>
+          <div className="mt-16 flex flex-col items-center gap-6 md:gap-8">
+            {timelineSteps.map((step) => (
+              <ParallaxStep key={step.num} step={step} />
             ))}
           </div>
         </div>
