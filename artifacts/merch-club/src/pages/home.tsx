@@ -22,6 +22,8 @@ import team4Img from "@assets/image_1774708314312.png";
 import accessBankImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_13_49_PM_1774718377455.png";
 import merchClubProductionImg from "@assets/ChatGPT_Image_Mar_24,_2026,_11_18_55_AM_1774718494043.png";
 import merchClubDistributionImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_20_10_PM_1774718529581.png";
+import industryCorporateImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_13_49_PM_1774718584149.png";
+import industryEventsImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_21_48_PM_1774718584150.png";
 
 function CountUp({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -792,8 +794,8 @@ export default function Home() {
               {[
                 { label: "Construction", img: constructionImg },
                 { label: "Healthcare", img: modelImg },
-                { label: "Corporate", img: corporateImg },
-                { label: "Events", img: eventsImg },
+                { label: "Corporate", img: industryCorporateImg },
+                { label: "Events", img: industryEventsImg },
               ].map((item, i) => (
                 <RevealItem key={item.label} delay={200 + i * 150} className={`${i > 0 ? "-ml-6 sm:-ml-8 md:-ml-12 lg:-ml-16" : ""} relative`} style={undefined}>
                   <div className={`w-[120px] h-[120px] sm:w-[160px] sm:h-[160px] md:w-[250px] md:h-[250px] lg:w-[320px] lg:h-[320px] xl:w-[350px] xl:h-[350px] aspect-square rounded-full overflow-hidden border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500 relative`} style={{ zIndex: i + 10 }}>
