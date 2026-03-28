@@ -19,6 +19,7 @@ import team1Img from "@assets/image_1774708266750.png";
 import team2Img from "@assets/image_1774708280501.png";
 import team3Img from "@assets/image_1774708297766.png";
 import team4Img from "@assets/image_1774708314312.png";
+import accessBankImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_13_49_PM_1774718377455.png";
 
 function CountUp({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -890,7 +891,7 @@ export default function Home() {
 
             <RevealItem delay={200} className="flex-1 flex items-start">
               <div className="w-full rounded-2xl overflow-hidden border border-white/10 bg-[#1a1a1a] max-h-[650px] md:max-h-[750px]">
-                <img src={corporateImg} alt="Access Bank program" className="w-full h-full object-cover" />
+                <img src={accessBankImg} alt="Access Bank branded puffer vests - custom corporate merchandise program by Merch Club" className="w-full h-full object-cover" />
               </div>
             </RevealItem>
           </div>
