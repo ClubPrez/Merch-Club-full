@@ -15,6 +15,10 @@ import productionImg from "@assets/image_1774638950602.png";
 import strategyImg from "@assets/image_1774639001333.png";
 import designImg from "@assets/image_1774639099780.png";
 import proofingImg from "@assets/image_1774639328557.png";
+import team1Img from "@assets/image_1774708266750.png";
+import team2Img from "@assets/image_1774708280501.png";
+import team3Img from "@assets/image_1774708297766.png";
+import team4Img from "@assets/image_1774708314312.png";
 
 function CountUp({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -704,55 +708,26 @@ export default function Home() {
             </RevealItem>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
             {[
-              { name: "Jordan Ellis", role: "Founder & CEO", offset: "mt-0" },
-              { name: "Maya Chen", role: "Creative Director", offset: "mt-8 md:mt-12" },
-              { name: "Dante Brooks", role: "Head of Production", offset: "mt-2 md:mt-4" },
-              { name: "Sierra James", role: "Logistics Lead", offset: "mt-10 md:mt-16" },
-              { name: "Alex Rivera", role: "Account Manager", offset: "mt-0" },
-              { name: "Priya Nair", role: "Brand Strategist", offset: "mt-6 md:mt-10" },
-              { name: "Marcus Cole", role: "Quality Assurance", offset: "mt-2 md:mt-4" },
-              { name: "Leah Ortiz", role: "Client Success", offset: "mt-8 md:mt-14" },
+              { name: "Jordan Ellis", role: "Founder & CEO", img: team1Img, offset: "mt-0" },
+              { name: "Maya Chen", role: "Creative Director", img: team2Img, offset: "mt-8 md:mt-12" },
+              { name: "Dante Brooks", role: "Head of Production", img: team3Img, offset: "mt-2 md:mt-4" },
+              { name: "Marcus Cole", role: "Operations Lead", img: team4Img, offset: "mt-6 md:mt-10" },
             ].map((member, i) => (
-              <RevealItem key={member.name} delay={i * 80}>
+              <RevealItem key={member.name} delay={i * 100}>
                 <div className={`group ${member.offset}`}>
-                  <div className="relative aspect-square rounded-full overflow-hidden bg-[#1a1a1a] border border-white/5 group-hover:border-white/20 transition-all duration-500">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-3xl md:text-4xl font-black text-[#333] group-hover:text-[#555] transition-colors" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                        {member.name.split(" ").map(n => n[0]).join("")}
-                      </span>
-                    </div>
+                  <div className="relative aspect-square rounded-full overflow-hidden bg-[#1a1a1a] border-2 border-white/5 group-hover:border-white/20 transition-all duration-500">
+                    <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" />
                   </div>
-                  <div className="mt-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h4 className="text-sm font-bold text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{member.name}</h4>
+                  <div className="mt-5 text-center">
+                    <h4 className="text-base font-bold text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{member.name}</h4>
                     <p className="text-xs text-[#666] mt-0.5">{member.role}</p>
                   </div>
                 </div>
               </RevealItem>
             ))}
           </div>
-
-          <RevealItem delay={400}>
-            <div className="flex items-center justify-between mt-16 pt-8 border-t border-white/5">
-              <div className="flex items-center gap-8">
-                <div>
-                  <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>8</span>
-                  <p className="text-xs text-[#666] mt-1">Team Members</p>
-                </div>
-                <div>
-                  <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>12+</span>
-                  <p className="text-xs text-[#666] mt-1">Years Combined</p>
-                </div>
-              </div>
-              <a href="#" className="inline-flex items-center gap-2 text-xs font-bold text-[#a3a3a3] hover:text-white transition-colors uppercase tracking-widest">
-                Join the team
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                </svg>
-              </a>
-            </div>
-          </RevealItem>
         </div>
       </section>
 
