@@ -867,7 +867,7 @@ export default function Home() {
           </RevealItem>
           <RevealItem delay={100}>
             <h3 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] mt-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Let's build something<br />worth wearing.
+              Ready to simplify branded<br />merchandise?
             </h3>
           </RevealItem>
           <RevealItem delay={200}>
