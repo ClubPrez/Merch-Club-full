@@ -836,14 +836,17 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
             {[
-              { name: "Jordan Ellis", role: "Founder & CEO", img: team1Img, offset: "mt-0" },
-              { name: "Maya Chen", role: "Creative Director", img: team2Img, offset: "mt-8 md:mt-12" },
-              { name: "Dante Brooks", role: "Head of Production", img: team3Img, offset: "mt-2 md:mt-4" },
-              { name: "Marcus Cole", role: "Operations Lead", img: team4Img, offset: "mt-6 md:mt-10" },
+              { name: "Jordan Ellis", role: "Founder & CEO", img: team1Img, offset: "mt-0", delay: "0s", dur: "4s" },
+              { name: "Maya Chen", role: "Creative Director", img: team2Img, offset: "mt-8 md:mt-12", delay: "1s", dur: "4.5s" },
+              { name: "Dante Brooks", role: "Head of Production", img: team3Img, offset: "mt-2 md:mt-4", delay: "0.5s", dur: "5s" },
+              { name: "Marcus Cole", role: "Operations Lead", img: team4Img, offset: "mt-6 md:mt-10", delay: "1.5s", dur: "4.2s" },
             ].map((member, i) => (
               <RevealItem key={member.name} delay={i * 100}>
                 <div className={`group ${member.offset}`}>
-                  <div className="relative aspect-square rounded-full overflow-hidden bg-[#1a1a1a] border-2 border-white/5 group-hover:border-white/20 transition-all duration-500">
+                  <div
+                    className="relative aspect-square rounded-full overflow-hidden bg-[#1a1a1a] border-2 border-white/5 group-hover:border-white/20 transition-all duration-500"
+                    style={{ animation: `float ${member.dur} ease-in-out infinite`, animationDelay: member.delay }}
+                  >
                     <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" />
                   </div>
                   <div className="mt-5 text-center">
