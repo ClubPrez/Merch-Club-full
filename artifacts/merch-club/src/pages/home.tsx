@@ -497,9 +497,82 @@ function TimelineSteps() {
   );
 }
 
+function StartProjectModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+      setSubmitted(false);
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
+  if (!open) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center px-4" onClick={onClose}>
+      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+      <div
+        className="relative w-full max-w-lg bg-[#111] border border-white/10 rounded-2xl p-8 md:p-10"
+        onClick={e => e.stopPropagation()}
+        style={{ animation: "card-enter 0.3s ease-out forwards" }}
+      >
+        <button onClick={onClose} className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-[#666] hover:text-white transition-colors">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        {submitted ? (
+          <div className="text-center py-8">
+            <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+            </div>
+            <h4 className="text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>We'll be in touch.</h4>
+            <p className="text-sm text-[#888] mt-2">Our team will reach out within 24 hours to get things started.</p>
+          </div>
+        ) : (
+          <>
+            <h4 className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>Start a Project</h4>
+            <p className="text-sm text-[#888] mt-2 mb-8">Tell us a bit about what you need — we'll handle the rest.</p>
+
+            <form onSubmit={e => { e.preventDefault(); setSubmitted(true); }} className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <input type="text" placeholder="First name" required className="bg-[#1a1a1a] border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-[#555] focus:outline-none focus:border-white/30 transition-colors" />
+                <input type="text" placeholder="Last name" required className="bg-[#1a1a1a] border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-[#555] focus:outline-none focus:border-white/30 transition-colors" />
+              </div>
+              <input type="email" placeholder="Work email" required className="w-full bg-[#1a1a1a] border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-[#555] focus:outline-none focus:border-white/30 transition-colors" />
+              <input type="text" placeholder="Company name" className="w-full bg-[#1a1a1a] border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-[#555] focus:outline-none focus:border-white/30 transition-colors" />
+              <select className="w-full bg-[#1a1a1a] border border-white/10 rounded-lg px-4 py-3 text-sm text-[#555] focus:outline-none focus:border-white/30 transition-colors appearance-none">
+                <option value="">What do you need?</option>
+                <option value="merch-program">Full Merch Program</option>
+                <option value="event-merch">Event Merchandise</option>
+                <option value="employee-kits">Employee Kits</option>
+                <option value="branded-apparel">Branded Apparel</option>
+                <option value="corporate-gifts">Corporate Gifts</option>
+                <option value="other">Other</option>
+              </select>
+              <textarea placeholder="Tell us more about your project..." rows={3} className="w-full bg-[#1a1a1a] border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-[#555] focus:outline-none focus:border-white/30 transition-colors resize-none" />
+              <button type="submit" className="w-full bg-white text-black text-sm font-bold py-3.5 rounded-full hover:bg-gray-200 transition-colors">
+                Submit Request
+              </button>
+            </form>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   const [wordIndex, setWordIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [projectModalOpen, setProjectModalOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -587,12 +660,12 @@ export default function Home() {
                 We design and execute structured branded merchandise programs for marketing and operations teams — from trade show kits to multi-location rollouts.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-5">
-                <a href="#" className="inline-flex items-center gap-2 bg-white text-black text-xs md:text-sm font-bold px-5 md:px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
+                <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-white text-black text-xs md:text-sm font-bold px-5 md:px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
                   Start a Project
                   <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                   </svg>
-                </a>
+                </button>
                 <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-xs md:text-sm font-bold px-5 md:px-6 py-2.5 rounded-full hover:bg-white/10 transition-colors">
                   Book a Call
                 </a>
@@ -877,12 +950,12 @@ export default function Home() {
           </RevealItem>
           <RevealItem delay={300}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-              <a href="#" className="inline-flex items-center gap-2 bg-white text-black text-sm font-bold px-8 py-3.5 rounded-full hover:bg-gray-200 transition-colors">
+              <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-white text-black text-sm font-bold px-8 py-3.5 rounded-full hover:bg-gray-200 transition-colors">
                 Start a Project
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                 </svg>
-              </a>
+              </button>
               <a href="#" className="inline-flex items-center gap-2 border border-white/20 text-white text-sm font-bold px-8 py-3.5 rounded-full hover:border-white/50 hover:bg-white/5 transition-all">
                 Book a Call
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -960,6 +1033,8 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      <StartProjectModal open={projectModalOpen} onClose={() => setProjectModalOpen(false)} />
     </div>
   );
 }
