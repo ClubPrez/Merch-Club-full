@@ -688,49 +688,6 @@ export default function Home() {
 
       <BetterWaySection />
 
-      <section className="bg-[#111] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-            <div>
-              <RevealItem delay={0}>
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#a3a3a3]">The People Behind the Product</span>
-              </RevealItem>
-              <RevealItem delay={100}>
-                <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] mt-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  Meet the team.
-                </h3>
-              </RevealItem>
-            </div>
-            <RevealItem delay={200}>
-              <p className="text-sm text-[#888] leading-relaxed max-w-md">
-                A crew of strategists, designers, and logistics operators who live and breathe branded merch.
-              </p>
-            </RevealItem>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
-            {[
-              { name: "Jordan Ellis", role: "Founder & CEO", img: team1Img, offset: "mt-0" },
-              { name: "Maya Chen", role: "Creative Director", img: team2Img, offset: "mt-8 md:mt-12" },
-              { name: "Dante Brooks", role: "Head of Production", img: team3Img, offset: "mt-2 md:mt-4" },
-              { name: "Marcus Cole", role: "Operations Lead", img: team4Img, offset: "mt-6 md:mt-10" },
-            ].map((member, i) => (
-              <RevealItem key={member.name} delay={i * 100}>
-                <div className={`group ${member.offset}`}>
-                  <div className="relative aspect-square rounded-full overflow-hidden bg-[#1a1a1a] border-2 border-white/5 group-hover:border-white/20 transition-all duration-500">
-                    <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" />
-                  </div>
-                  <div className="mt-5 text-center">
-                    <h4 className="text-base font-bold text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{member.name}</h4>
-                    <p className="text-xs text-[#666] mt-0.5">{member.role}</p>
-                  </div>
-                </div>
-              </RevealItem>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-6xl mx-auto">
           <RevealItem delay={0}>
@@ -856,6 +813,49 @@ export default function Home() {
       </section>
 
       <StickyTimeline />
+
+      <section className="bg-[#111] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+            <div>
+              <RevealItem delay={0}>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#a3a3a3]">The People Behind the Product</span>
+              </RevealItem>
+              <RevealItem delay={100}>
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] mt-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  Meet the team.
+                </h3>
+              </RevealItem>
+            </div>
+            <RevealItem delay={200}>
+              <p className="text-sm text-[#888] leading-relaxed max-w-md">
+                A crew of strategists, designers, and logistics operators who live and breathe branded merch.
+              </p>
+            </RevealItem>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
+            {[
+              { name: "Jordan Ellis", role: "Founder & CEO", img: team1Img, offset: "mt-0" },
+              { name: "Maya Chen", role: "Creative Director", img: team2Img, offset: "mt-8 md:mt-12" },
+              { name: "Dante Brooks", role: "Head of Production", img: team3Img, offset: "mt-2 md:mt-4" },
+              { name: "Marcus Cole", role: "Operations Lead", img: team4Img, offset: "mt-6 md:mt-10" },
+            ].map((member, i) => (
+              <RevealItem key={member.name} delay={i * 100}>
+                <div className={`group ${member.offset}`}>
+                  <div className="relative aspect-square rounded-full overflow-hidden bg-[#1a1a1a] border-2 border-white/5 group-hover:border-white/20 transition-all duration-500">
+                    <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" />
+                  </div>
+                  <div className="mt-5 text-center">
+                    <h4 className="text-base font-bold text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{member.name}</h4>
+                    <p className="text-xs text-[#666] mt-0.5">{member.role}</p>
+                  </div>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-4xl mx-auto text-center">
