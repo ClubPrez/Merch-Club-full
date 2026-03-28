@@ -21,6 +21,7 @@ import team3Img from "@assets/image_1774708297766.png";
 import team4Img from "@assets/image_1774708314312.png";
 import accessBankImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_13_49_PM_1774718377455.png";
 import merchClubProductionImg from "@assets/ChatGPT_Image_Mar_24,_2026,_11_18_55_AM_1774718494043.png";
+import merchClubDistributionImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_20_10_PM_1774718529581.png";
 
 function CountUp({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -397,7 +398,7 @@ const timelineSteps = [
   { num: "03", title: "Proofing", desc: "Manage approvals with live proofs and better control.", img: proofingImg },
   { num: "04", title: "Production", desc: "Coordinate vendors, quality, and timeline management.", img: merchClubProductionImg },
   { num: "05", title: "Kitting", desc: "Assemble packages, bundles, and event-ready configurations.", img: kittingImg },
-  { num: "06", title: "Distribution", desc: "Ship direct, multi-location, or campaign-based deliveries.", img: distributionImg },
+  { num: "06", title: "Distribution", desc: "Ship direct, multi-location, or campaign-based deliveries.", img: merchClubDistributionImg },
 ];
 
 function TimelineSteps() {
