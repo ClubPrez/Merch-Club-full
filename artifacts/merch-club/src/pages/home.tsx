@@ -819,7 +819,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
             <div>
               <RevealItem delay={0}>
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#a3a3a3]">The People Behind the Product</span>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#a3a3a3]">The People Behind Merch Club</span>
               </RevealItem>
               <RevealItem delay={100}>
                 <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] mt-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
