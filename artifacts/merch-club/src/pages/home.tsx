@@ -24,6 +24,7 @@ import merchClubProductionImg from "@assets/ChatGPT_Image_Mar_24,_2026,_11_18_55
 import merchClubDistributionImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_20_10_PM_1774718529581.png";
 import industryCorporateImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_13_49_PM_1774718584149.png";
 import industryEventsImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_21_48_PM_1774718584150.png";
+import newProofingImg from "@assets/image_1774719180184.png";
 
 function CountUp({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -397,8 +398,8 @@ function StickyTimeline() {
 const timelineSteps = [
   { num: "01", title: "Strategy", desc: "Define goals, audience, scope, and timing.", img: strategyImg },
   { num: "02", title: "Design", desc: "Create brand-aligned concepts and system direction.", img: designImg },
-  { num: "03", title: "Proofing", desc: "Manage approvals with live proofs and better control.", img: proofingImg },
-  { num: "04", title: "Production", desc: "Coordinate vendors, quality, and timeline management.", img: merchClubProductionImg },
+  { num: "03", title: "Proofing", desc: "Manage approvals with live proofs and better control.", img: newProofingImg },
+  { num: "04", title: "Production", desc: "Coordinate vendors, quality, and timeline management.", img: proofingImg },
   { num: "05", title: "Kitting", desc: "Assemble packages, bundles, and event-ready configurations.", img: kittingImg },
   { num: "06", title: "Distribution", desc: "Ship direct, multi-location, or campaign-based deliveries.", img: merchClubDistributionImg },
 ];
