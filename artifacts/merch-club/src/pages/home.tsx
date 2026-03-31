@@ -7,7 +7,7 @@ import corporateImg from "@assets/image_1774625538266.png";
 import constructionImg from "@assets/image_1774625624335.png";
 import eventsImg from "@assets/image_1774625754502.png";
 import modelImg from "@assets/image_1774553895766.png";
-import heroVideo from "@assets/Screen_Recording_2026-03-26_at_4.39.36_PM_1774561292379.mov";
+const heroVideo = `${import.meta.env.BASE_URL}hero-video.mov`;
 import cloverImg from "@assets/Social_PostsArtboard_2@3x_1774554960751.jpg";
 import kittingImg from "@assets/image_1774638885691.png";
 import distributionImg from "@assets/image_1774638910753.png";
