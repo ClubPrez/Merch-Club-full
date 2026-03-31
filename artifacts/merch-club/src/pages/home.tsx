@@ -7,7 +7,6 @@ import corporateImg from "@assets/image_1774625538266.png";
 import constructionImg from "@assets/image_1774625624335.png";
 import eventsImg from "@assets/image_1774625754502.png";
 import modelImg from "@assets/image_1774553895766.png";
-const heroVideo = `${import.meta.env.BASE_URL}hero-video.mov`;
 import cloverImg from "@assets/Social_PostsArtboard_2@3x_1774554960751.jpg";
 import kittingImg from "@assets/image_1774638885691.png";
 import distributionImg from "@assets/image_1774638910753.png";
@@ -179,14 +178,14 @@ function RevealItem({ delay, className, children }: { delay: number; className?:
 
 function BetterWaySection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const iframeWrapRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
-    const video = videoRef.current;
+    const iframeWrap = iframeWrapRef.current;
     const content = contentRef.current;
-    if (!section || !video || !content) return;
+    if (!section || !iframeWrap || !content) return;
 
     const handleScroll = () => {
       const rect = section.getBoundingClientRect();
@@ -196,7 +195,7 @@ function BetterWaySection() {
       if (!visible) return;
 
       const progress = (windowHeight - rect.top) / (windowHeight + sectionHeight);
-      video.style.transform = `translateY(${(progress - 0.5) * -80}px) scale(1.15)`;
+      iframeWrap.style.transform = `translateY(${(progress - 0.5) * -80}px) scale(1.15)`;
       content.style.transform = `translateY(${(progress - 0.5) * 30}px)`;
     };
 
@@ -207,7 +206,15 @@ function BetterWaySection() {
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden py-24 md:py-32 px-8 md:px-16 lg:px-20">
-      <video ref={videoRef} src={heroVideo} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover z-0 will-change-transform" style={{ transform: "scale(1.15)" }} />
+      <div ref={iframeWrapRef} className="absolute inset-0 z-0 will-change-transform pointer-events-none" style={{ transform: "scale(1.15)" }}>
+        <iframe
+          src="https://www.youtube.com/embed/_NvgNaTBcL8?autoplay=1&mute=1&loop=1&playlist=_NvgNaTBcL8&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1"
+          allow="autoplay; encrypted-media"
+          className="absolute top-1/2 left-1/2 min-w-[177.78vh] min-h-[56.25vw] w-auto h-auto -translate-x-1/2 -translate-y-1/2"
+          style={{ border: "none" }}
+          title="Merch Club showcase"
+        />
+      </div>
       <div className="absolute inset-0 bg-black/60 z-[1]" />
       <div ref={contentRef} className="max-w-6xl mx-auto relative z-10 will-change-transform">
         <RevealItem delay={0}>
