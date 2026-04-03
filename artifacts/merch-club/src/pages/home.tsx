@@ -528,7 +528,16 @@ export default function Home() {
             </svg>
             <span className="text-xs text-gray-400 font-medium tracking-wide">SEARCH</span>
           </div>
-          <button className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+          <button
+            onClick={() => setProjectModalOpen(true)}
+            className="hidden md:inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors"
+          >
+            Start a Project
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </button>
+          <button className="md:hidden w-10 h-10 rounded-full bg-white flex items-center justify-center">
             <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
