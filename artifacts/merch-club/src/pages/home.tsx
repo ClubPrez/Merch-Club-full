@@ -305,11 +305,6 @@ function StickyTimeline() {
         </RevealItem>
 
         <div ref={containerRef} className="relative">
-          <div className="absolute top-[100px] left-0 right-0 h-px bg-white/10 hidden lg:block" />
-          <div
-            className="absolute top-[100px] left-0 h-px bg-white hidden lg:block transition-all duration-700 ease-out"
-            style={{ width: `${Math.min(progress * 110, 100)}%` }}
-          />
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-4">
             {timelineSteps.map((step, i) => {
@@ -348,21 +343,6 @@ function StickyTimeline() {
                     </div>
                   </div>
 
-                  <div className="hidden lg:flex items-center justify-center mb-4">
-                    <div
-                      className="w-3 h-3 rounded-full border-2 relative z-10 transition-all duration-500"
-                      style={{
-                        borderColor: isActive ? "#fff" : "#444",
-                        backgroundColor: isActive ? "#fff" : "transparent",
-                        boxShadow: isActive ? "0 0 12px rgba(255,255,255,0.4)" : "none",
-                      }}
-                    />
-                    {i < timelineSteps.length - 1 && (
-                      <svg className="absolute right-0 top-[100px] translate-x-1/2 -translate-y-1/2 z-20 transition-all duration-500" width="16" height="16" viewBox="0 0 16 16" style={{ opacity: isActive ? 1 : 0.2 }}>
-                        <path d="M4 2 L12 8 L4 14" fill="none" stroke={isActive ? "#fff" : "#555"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    )}
-                  </div>
 
                   <h4
                     className="text-lg md:text-xl font-black tracking-tight transition-all duration-500"
