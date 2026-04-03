@@ -811,61 +811,158 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <RevealItem delay={200}>
-              <div className="relative group border border-white/10 rounded-2xl p-8 md:p-10 bg-[#111] hover:border-red-500/30 transition-all duration-700 overflow-hidden h-full">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-full blur-3xl group-hover:bg-red-500/10 transition-all duration-700" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-red-400/70 mb-6 block">Your Current Process</span>
-                <h4 className="text-xl md:text-2xl font-black tracking-tight text-white mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  Scattered ownership across vendors and timelines.
-                </h4>
-                <p className="text-sm text-[#777] leading-relaxed mb-8">
-                  Too many handoffs. Too many moving parts. Too much babysitting.
-                </p>
-                <div className="space-y-3">
-                  {[
-                    { icon: "M6 18L18 6M6 6l12 12", label: "Different vendors for every product" },
-                    { icon: "M6 18L18 6M6 6l12 12", label: "No single point of accountability" },
-                    { icon: "M6 18L18 6M6 6l12 12", label: "Inconsistent quality and timelines" },
-                    { icon: "M6 18L18 6M6 6l12 12", label: "Endless email chains and follow-ups" },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 group/item">
-                      <div className="w-6 h-6 rounded-full bg-red-500/10 flex items-center justify-center shrink-0">
-                        <svg className="w-3 h-3 text-red-400/60" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
-                        </svg>
-                      </div>
-                      <span className="text-xs text-[#666]">{item.label}</span>
+              <div className="relative group border border-white/10 rounded-2xl bg-[#111] hover:border-red-500/30 transition-all duration-700 overflow-hidden h-full">
+                <div className="relative h-[220px] md:h-[260px] bg-[#0d0d0d] overflow-hidden rounded-t-2xl">
+                  <div className="absolute top-0 right-0 w-40 h-40 bg-red-500/8 rounded-full blur-3xl group-hover:bg-red-500/15 transition-all duration-700" />
+
+                  <div className="absolute top-6 left-8 flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-red-500/15 border border-red-500/20 flex items-center justify-center">
+                      <span className="text-[9px] font-bold text-red-400">V1</span>
                     </div>
-                  ))}
+                    <div className="w-[60px] h-1 bg-red-500/15 rounded-full" />
+                    <div className="w-8 h-8 rounded-full bg-red-500/15 border border-red-500/20 flex items-center justify-center">
+                      <span className="text-[9px] font-bold text-red-400">V2</span>
+                    </div>
+                    <div className="w-[60px] h-1 bg-red-500/15 rounded-full" />
+                    <div className="w-8 h-8 rounded-full bg-red-500/15 border border-red-500/20 flex items-center justify-center">
+                      <span className="text-[9px] font-bold text-red-400">V3</span>
+                    </div>
+                  </div>
+
+                  <div className="absolute top-[70px] left-6 right-6 space-y-2">
+                    <div className="flex gap-2">
+                      <div className="bg-[#1a1a1a] border border-red-500/10 rounded-lg px-3 py-2 flex-1">
+                        <div className="flex items-center gap-2 mb-1.5">
+                          <div className="w-4 h-4 rounded bg-red-500/20" />
+                          <span className="text-[9px] text-red-400/60 font-medium">Vendor A — Apparel</span>
+                        </div>
+                        <div className="h-1 bg-red-500/10 rounded-full w-3/4" />
+                      </div>
+                      <div className="bg-[#1a1a1a] border border-red-500/10 rounded-lg px-3 py-2 flex-1">
+                        <div className="flex items-center gap-2 mb-1.5">
+                          <div className="w-4 h-4 rounded bg-red-500/20" />
+                          <span className="text-[9px] text-red-400/60 font-medium">Vendor B — Bags</span>
+                        </div>
+                        <div className="h-1 bg-red-500/10 rounded-full w-1/2" />
+                      </div>
+                    </div>
+                    <div className="flex gap-2">
+                      <div className="bg-[#1a1a1a] border border-red-500/10 rounded-lg px-3 py-2 flex-1">
+                        <div className="flex items-center gap-2 mb-1.5">
+                          <div className="w-4 h-4 rounded bg-red-500/20" />
+                          <span className="text-[9px] text-red-400/60 font-medium">Vendor C — Drinkware</span>
+                        </div>
+                        <div className="h-1 bg-red-500/10 rounded-full w-2/3" />
+                      </div>
+                      <div className="bg-[#1a1a1a] border border-red-500/10 rounded-lg px-3 py-2 flex-1">
+                        <div className="flex items-center gap-2 mb-1.5">
+                          <div className="w-4 h-4 rounded bg-red-500/20" />
+                          <span className="text-[9px] text-red-400/60 font-medium">Vendor D — Print</span>
+                        </div>
+                        <div className="h-1 bg-red-500/10 rounded-full w-1/3" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <svg className="absolute bottom-4 right-6" width="100" height="50" viewBox="0 0 100 50" fill="none">
+                    <path d="M10 40 Q 25 10, 50 25 T 90 15" stroke="rgba(239,68,68,0.25)" strokeWidth="1.5" strokeDasharray="4 3" fill="none" />
+                    <path d="M15 35 Q 30 45, 55 30 T 85 40" stroke="rgba(239,68,68,0.15)" strokeWidth="1" strokeDasharray="3 4" fill="none" />
+                    <circle cx="50" cy="25" r="3" fill="rgba(239,68,68,0.3)" />
+                    <text x="54" y="23" fill="rgba(239,68,68,0.4)" fontSize="7" fontWeight="bold">?</text>
+                  </svg>
+
+                  <div className="absolute bottom-3 left-6 flex items-center gap-1.5" style={{ animation: "float 3s ease-in-out infinite" }}>
+                    <div className="bg-red-500/20 border border-red-500/30 rounded-full px-2.5 py-1 flex items-center gap-1">
+                      <div className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
+                      <span className="text-[8px] text-red-400 font-bold">3 DELAYS</span>
+                    </div>
+                    <div className="bg-red-500/10 border border-red-500/20 rounded-full px-2.5 py-1">
+                      <span className="text-[8px] text-red-400/60 font-medium">12 emails</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-8 md:p-10">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-red-400/70 mb-4 block">Your Current Process</span>
+                  <h4 className="text-xl md:text-2xl font-black tracking-tight text-white mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                    Scattered ownership across vendors and timelines.
+                  </h4>
+                  <p className="text-sm text-[#666] leading-relaxed">
+                    Too many handoffs. Too many moving parts. Too much babysitting.
+                  </p>
                 </div>
               </div>
             </RevealItem>
 
             <RevealItem delay={350}>
-              <div className="relative group border border-white/10 rounded-2xl p-8 md:p-10 bg-[#111] hover:border-white/30 transition-all duration-700 overflow-hidden h-full">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition-all duration-700" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/50 mb-6 block">With Merch Club</span>
-                <h4 className="text-xl md:text-2xl font-black tracking-tight text-white mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  One clean system with coordinated execution.
-                </h4>
-                <p className="text-sm text-[#777] leading-relaxed mb-8">
-                  A structured flow that keeps brand, production, and fulfillment aligned.
-                </p>
-                <div className="space-y-3">
-                  {[
-                    { icon: "M5 13l4 4L19 7", label: "Single dedicated team from start to finish" },
-                    { icon: "M5 13l4 4L19 7", label: "Clear timelines with built-in accountability" },
-                    { icon: "M5 13l4 4L19 7", label: "Consistent quality across every product" },
-                    { icon: "M5 13l4 4L19 7", label: "One point of contact, zero chaos" },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 group/item">
-                      <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                        <svg className="w-3 h-3 text-white/70" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
-                        </svg>
-                      </div>
-                      <span className="text-xs text-[#999]">{item.label}</span>
+              <div className="relative group border border-white/10 rounded-2xl bg-[#111] hover:border-white/30 transition-all duration-700 overflow-hidden h-full">
+                <div className="relative h-[220px] md:h-[260px] bg-[#0d0d0d] overflow-hidden rounded-t-2xl">
+                  <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition-all duration-700" />
+
+                  <div className="absolute top-6 left-1/2 -translate-x-1/2 flex flex-col items-center">
+                    <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center mb-2">
+                      <span className="text-[10px] font-black text-white tracking-wider" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>MC</span>
                     </div>
-                  ))}
+                    <div className="flex items-center gap-1">
+                      <div className="w-1 h-1 rounded-full bg-white/40" />
+                      <div className="w-1 h-1 rounded-full bg-white/40" />
+                      <div className="w-1 h-1 rounded-full bg-white/40" />
+                    </div>
+                  </div>
+
+                  <div className="absolute top-[90px] left-6 right-6">
+                    <div className="flex items-center justify-between mb-3">
+                      {["Strategy", "Design", "Production", "Kitting", "Delivery"].map((label, idx) => (
+                        <div key={label} className="flex flex-col items-center gap-1">
+                          <div
+                            className="w-6 h-6 rounded-full border border-white/20 flex items-center justify-center"
+                            style={{ backgroundColor: idx <= 3 ? "rgba(255,255,255,0.15)" : "transparent" }}
+                          >
+                            {idx <= 3 ? (
+                              <svg className="w-3 h-3 text-white/80" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                              </svg>
+                            ) : (
+                              <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
+                            )}
+                          </div>
+                          <span className="text-[7px] text-white/40 font-medium">{label}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="relative h-1.5 bg-white/5 rounded-full overflow-hidden">
+                      <div className="absolute inset-y-0 left-0 bg-white/30 rounded-full" style={{ width: "75%" }} />
+                    </div>
+                  </div>
+
+                  <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="bg-white/10 border border-white/15 rounded-full px-2.5 py-1 flex items-center gap-1.5">
+                        <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                        <span className="text-[8px] text-white/70 font-bold">ON TRACK</span>
+                      </div>
+                      <div className="bg-white/5 border border-white/10 rounded-full px-2.5 py-1">
+                        <span className="text-[8px] text-white/40 font-medium">1 contact</span>
+                      </div>
+                    </div>
+                    <div className="flex -space-x-1.5">
+                      {[0,1,2].map((j) => (
+                        <div key={j} className="w-5 h-5 rounded-full bg-white/15 border border-[#0d0d0d] flex items-center justify-center">
+                          <span className="text-[6px] text-white/60 font-bold">{["JE","MC","DB"][j]}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-8 md:p-10">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/50 mb-4 block">With Merch Club</span>
+                  <h4 className="text-xl md:text-2xl font-black tracking-tight text-white mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                    One clean system with coordinated execution.
+                  </h4>
+                  <p className="text-sm text-[#666] leading-relaxed">
+                    A structured flow that keeps brand, production, and fulfillment aligned.
+                  </p>
                 </div>
               </div>
             </RevealItem>
