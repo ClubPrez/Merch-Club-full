@@ -305,67 +305,65 @@ function StickyTimeline() {
         </RevealItem>
 
         <div ref={containerRef} className="relative">
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-            {timelineSteps.map((step, i) => {
-              const isActive = i < activeCount;
-              return (
-                <div key={step.num} className="group relative">
-                  <div className="relative mb-4">
-                    <div
-                      className="aspect-[4/5] rounded-xl overflow-hidden border transition-all duration-700 ease-out"
-                      style={{
-                        borderColor: isActive ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.05)",
-                        opacity: isActive ? 1 : 0.4,
-                        transform: isActive ? "translateY(0) scale(1)" : "translateY(16px) scale(0.97)",
-                      }}
-                    >
-                      <img
-                        src={step.img}
-                        alt={`Merch Club ${step.title.toLowerCase()} - branded merchandise ${step.desc.toLowerCase()}`}
-                        className="w-full h-full object-cover transition-all duration-700"
-                        style={{ filter: isActive ? "grayscale(0)" : "grayscale(1)" }}
-                      />
-                    </div>
-                    <div
-                      className="absolute top-3 left-3 backdrop-blur-sm border rounded-md px-2.5 py-1 transition-all duration-500"
-                      style={{
-                        backgroundColor: isActive ? "rgba(255,255,255,0.95)" : "rgba(0,0,0,0.7)",
-                        borderColor: isActive ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.15)",
-                      }}
-                    >
-                      <span
-                        className="text-xs font-bold tracking-wider transition-colors duration-500"
-                        style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#000" : "#fff" }}
+          <div className="space-y-6">
+            {[0, 1].map((row) => (
+              <div key={row}>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {timelineSteps.slice(row * 3, row * 3 + 3).map((step, idx) => {
+                    const i = row * 3 + idx;
+                    const isActive = i < activeCount;
+                    return (
+                      <div
+                        key={step.num}
+                        className="group flex gap-4 items-start transition-all duration-700 ease-out"
+                        style={{
+                          opacity: isActive ? 1 : 0.4,
+                          transform: isActive ? "translateY(0)" : "translateY(12px)",
+                        }}
                       >
-                        {step.num}
-                      </span>
-                    </div>
-                  </div>
-
-
-                  <h4
-                    className="text-lg md:text-xl font-black tracking-tight transition-all duration-500"
-                    style={{
-                      fontFamily: "'Bebas Neue', sans-serif",
-                      color: isActive ? "#fff" : "#444",
-                    }}
-                  >
-                    {step.title}
-                  </h4>
-                  <p
-                    className="text-xs mt-1 leading-relaxed transition-all duration-500"
-                    style={{
-                      color: isActive ? "#999" : "#333",
-                      opacity: isActive ? 1 : 0.5,
-                      transform: isActive ? "translateY(0)" : "translateY(6px)",
-                    }}
-                  >
-                    {step.desc}
-                  </p>
+                        <div className="w-[100px] h-[120px] md:w-[120px] md:h-[150px] rounded-lg overflow-hidden border border-white/10 group-hover:border-white/25 shrink-0 transition-all duration-500">
+                          <img
+                            src={step.img}
+                            alt={`Merch Club ${step.title.toLowerCase()} - branded merchandise ${step.desc.toLowerCase()}`}
+                            className="w-full h-full object-cover transition-all duration-700"
+                            style={{ filter: isActive ? "grayscale(0)" : "grayscale(1)" }}
+                          />
+                        </div>
+                        <div className="pt-1">
+                          <span
+                            className="text-3xl font-black tracking-tight leading-none block mb-1 transition-colors duration-500"
+                            style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#fff" : "#333" }}
+                          >
+                            {step.num}
+                          </span>
+                          <h4
+                            className="text-lg font-black tracking-tight transition-colors duration-500"
+                            style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#fff" : "#444" }}
+                          >
+                            {step.title}
+                          </h4>
+                          <p
+                            className="text-xs mt-1 leading-relaxed transition-all duration-500"
+                            style={{ color: isActive ? "#999" : "#333" }}
+                          >
+                            {step.desc}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-              );
-            })}
+                {row === 0 && (
+                  <div className="hidden md:flex items-center justify-center my-6">
+                    <div className="flex-1 h-px bg-white/10" />
+                    <svg className="mx-4 text-white/30" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <path d="M10 4 L10 16 M6 12 L10 16 L14 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <div className="flex-1 h-px bg-white/10" />
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
