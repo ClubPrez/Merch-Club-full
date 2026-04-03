@@ -308,60 +308,63 @@ function StickyTimeline() {
           <div className="space-y-6">
             {[0, 1].map((row) => (
               <div key={row}>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="flex flex-col md:flex-row items-stretch gap-4 md:gap-0">
                   {timelineSteps.slice(row * 3, row * 3 + 3).map((step, idx) => {
                     const i = row * 3 + idx;
                     const isActive = i < activeCount;
                     return (
-                      <div
-                        key={step.num}
-                        className="group flex gap-4 items-start transition-all duration-700 ease-out"
-                        style={{
-                          opacity: isActive ? 1 : 0.4,
-                          transform: isActive ? "translateY(0)" : "translateY(12px)",
-                        }}
-                      >
-                        <div className="w-[100px] h-[120px] md:w-[120px] md:h-[150px] rounded-lg overflow-hidden border border-white/10 group-hover:border-white/25 shrink-0 transition-all duration-500">
-                          <img
-                            src={step.img}
-                            alt={`Merch Club ${step.title.toLowerCase()} - branded merchandise ${step.desc.toLowerCase()}`}
-                            className="w-full h-full object-cover transition-all duration-700"
-                            style={{ filter: isActive ? "grayscale(0)" : "grayscale(1)" }}
-                          />
+                      <div key={step.num} className="flex items-center flex-1 min-w-0">
+                        <div
+                          className="group flex gap-4 items-start transition-all duration-700 ease-out flex-1 min-w-0"
+                          style={{
+                            opacity: isActive ? 1 : 0.4,
+                            transform: isActive ? "translateY(0)" : "translateY(12px)",
+                          }}
+                        >
+                          <div className="w-[100px] h-[120px] md:w-[120px] md:h-[150px] rounded-lg overflow-hidden border border-white/10 group-hover:border-white/25 shrink-0 transition-all duration-500">
+                            <img
+                              src={step.img}
+                              alt={`Merch Club ${step.title.toLowerCase()} - branded merchandise ${step.desc.toLowerCase()}`}
+                              className="w-full h-full object-cover transition-all duration-700"
+                              style={{ filter: isActive ? "grayscale(0)" : "grayscale(1)" }}
+                            />
+                          </div>
+                          <div className="pt-1 min-w-0">
+                            <span
+                              className="text-3xl font-black tracking-tight leading-none block mb-1 transition-colors duration-500"
+                              style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#fff" : "#333" }}
+                            >
+                              {step.num}
+                            </span>
+                            <h4
+                              className="text-lg font-black tracking-tight transition-colors duration-500"
+                              style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#fff" : "#444" }}
+                            >
+                              {step.title}
+                            </h4>
+                            <p
+                              className="text-xs mt-1 leading-relaxed transition-all duration-500"
+                              style={{ color: isActive ? "#999" : "#333" }}
+                            >
+                              {step.desc}
+                            </p>
+                          </div>
                         </div>
-                        <div className="pt-1">
-                          <span
-                            className="text-3xl font-black tracking-tight leading-none block mb-1 transition-colors duration-500"
-                            style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#fff" : "#333" }}
-                          >
-                            {step.num}
-                          </span>
-                          <h4
-                            className="text-lg font-black tracking-tight transition-colors duration-500"
-                            style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#fff" : "#444" }}
-                          >
-                            {step.title}
-                          </h4>
-                          <p
-                            className="text-xs mt-1 leading-relaxed transition-all duration-500"
-                            style={{ color: isActive ? "#999" : "#333" }}
-                          >
-                            {step.desc}
-                          </p>
-                        </div>
+                        {idx < 2 && (
+                          <div className="hidden md:flex items-center px-3 shrink-0">
+                            <svg
+                              width="24" height="24" viewBox="0 0 24 24" fill="none"
+                              className="transition-all duration-500"
+                              style={{ opacity: isActive ? 0.6 : 0.15 }}
+                            >
+                              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </div>
+                        )}
                       </div>
                     );
                   })}
                 </div>
-                {row === 0 && (
-                  <div className="hidden md:flex items-center justify-center my-6">
-                    <div className="flex-1 h-px bg-white/10" />
-                    <svg className="mx-4 text-white/30" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <path d="M10 4 L10 16 M6 12 L10 16 L14 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                    <div className="flex-1 h-px bg-white/10" />
-                  </div>
-                )}
               </div>
             ))}
           </div>
