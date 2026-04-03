@@ -269,133 +269,44 @@ function BetterWaySection() {
 }
 
 function StickyTimeline() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [locked, setLocked] = useState(false);
-  const [done, setDone] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const scrollAccum = useRef(0);
-  const lastChange = useRef(0);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    let wasVisible = false;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && entry.intersectionRatio > 0.8) {
-          if (!wasVisible) {
-            wasVisible = true;
-            setDone(false);
-            setLocked(true);
-          }
-        } else {
-          wasVisible = false;
-        }
-      },
-      { threshold: [0.2, 0.8] }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!locked) return;
-
-    const handleWheel = (e: WheelEvent) => {
-      const now = Date.now();
-      if (now - lastChange.current < 600) {
-        e.preventDefault();
-        return;
-      }
-
-      scrollAccum.current += e.deltaY;
-      const threshold = 80;
-
-      if (scrollAccum.current > threshold) {
-        scrollAccum.current = 0;
-        lastChange.current = now;
-        setActiveIndex(prev => {
-          if (prev >= timelineSteps.length - 1) {
-            setLocked(false);
-            setDone(true);
-            return prev;
-          }
-          e.preventDefault();
-          return prev + 1;
-        });
-        e.preventDefault();
-      } else if (scrollAccum.current < -threshold) {
-        scrollAccum.current = 0;
-        lastChange.current = now;
-        setActiveIndex(prev => {
-          if (prev <= 0) {
-            setLocked(false);
-            setDone(true);
-            return prev;
-          }
-          e.preventDefault();
-          return prev - 1;
-        });
-        e.preventDefault();
-      } else {
-        e.preventDefault();
-      }
-    };
-
-    window.addEventListener("wheel", handleWheel, { passive: false });
-    return () => window.removeEventListener("wheel", handleWheel);
-  }, [locked]);
-
   return (
-    <div ref={sectionRef} className="bg-[#0a0a0a] py-20 md:py-24 px-8 md:px-16 lg:px-20">
-      <div className="max-w-6xl mx-auto flex flex-col items-center">
-        <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-center mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-          From concept to delivery.
-        </h3>
-        <p className="text-sm md:text-base text-[#888] leading-relaxed max-w-2xl mx-auto text-center mb-10">
-          A compact process that demonstrates operational maturity. Every step is managed under one roof so nothing falls through the cracks.
-        </p>
-        <div className="mb-8">
-          <div className="flex items-center gap-2">
-            {timelineSteps.map((_, i) => (
-              <div
-                key={i}
-                className="h-1 rounded-full transition-all duration-300"
-                style={{
-                  width: i === activeIndex ? "32px" : "8px",
-                  backgroundColor: i === activeIndex ? "#ffffff" : i < activeIndex ? "#666" : "#333",
-                }}
-              />
-            ))}
-          </div>
-        </div>
+    <div className="bg-[#0a0a0a] py-20 md:py-28 px-8 md:px-16 lg:px-20">
+      <div className="max-w-7xl mx-auto">
+        <RevealItem delay={0}>
+          <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            From concept to delivery.
+          </h3>
+        </RevealItem>
+        <RevealItem delay={100}>
+          <p className="text-sm md:text-base text-[#888] leading-relaxed max-w-2xl mb-14">
+            A compact process signal that demonstrates operational maturity. Descriptions can be hover-revealed on desktop and visible by default on mobile.
+          </p>
+        </RevealItem>
 
-        <div className="relative h-[300px] md:h-[380px] flex items-center justify-center w-full">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-4">
           {timelineSteps.map((step, i) => (
-            <div
-              key={step.num}
-              className="absolute left-0 right-0 top-0 bottom-0 flex items-center justify-center gap-8 md:gap-12 transition-all duration-500 ease-out px-4"
-              style={{
-                opacity: i === activeIndex ? 1 : 0,
-                transform: i === activeIndex ? "translateY(0) scale(1)" : i < activeIndex ? "translateY(-40px) scale(0.9)" : "translateY(40px) scale(0.9)",
-                pointerEvents: i === activeIndex ? "auto" : "none",
-              }}
-            >
-              <div className="w-[200px] h-[250px] md:w-[300px] md:h-[350px] rounded-2xl overflow-hidden border border-white/10 shrink-0">
-                <img src={step.img} alt={`Merch Club ${step.title.toLowerCase()} - branded merchandise ${step.desc.toLowerCase()}`} className="w-full h-full object-cover" />
-              </div>
-              <div className="text-left w-[200px] md:w-[280px] shrink-0">
-                <span className="text-6xl md:text-8xl font-black text-[#a3a3a3] tracking-tight leading-none block" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  {step.num}
-                </span>
-                <h4 className="text-2xl md:text-3xl font-black text-white tracking-tight mt-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            <RevealItem key={step.num} delay={150 + i * 100}>
+              <div className="group">
+                <div className="relative mb-4">
+                  <div className="aspect-[4/5] rounded-xl overflow-hidden border border-white/10 group-hover:border-white/25 transition-all duration-500">
+                    <img
+                      src={step.img}
+                      alt={`Merch Club ${step.title.toLowerCase()} - branded merchandise ${step.desc.toLowerCase()}`}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    />
+                  </div>
+                  <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-sm border border-white/15 rounded-md px-2.5 py-1">
+                    <span className="text-xs font-bold text-white tracking-wider" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>
+                  </div>
+                </div>
+                <h4 className="text-lg md:text-xl font-black tracking-tight text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                   {step.title}
                 </h4>
-                <p className="text-sm md:text-base text-[#666] mt-1 leading-relaxed">
+                <p className="text-xs text-[#666] mt-1 leading-relaxed group-hover:text-[#999] transition-colors duration-300">
                   {step.desc}
                 </p>
               </div>
-            </div>
+            </RevealItem>
           ))}
         </div>
       </div>
