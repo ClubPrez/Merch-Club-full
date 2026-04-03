@@ -946,7 +946,7 @@ export default function Home() {
                     className="relative aspect-square rounded-full overflow-hidden bg-[#1a1a1a] border-2 border-white/5 group-hover:border-white/20 transition-all duration-500"
                     style={{ animation: `float ${member.dur} ease-in-out infinite`, animationDelay: member.delay }}
                   >
-                    <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" />
+                    <img src={member.img} alt={member.name} className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500" style={{ transform: "scale(1.08)" }} />
                   </div>
                   <div className="mt-5 text-center">
                     <h4 className="text-base font-bold text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{member.name}</h4>
