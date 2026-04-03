@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import logoSrc from "@assets/Social_PostsArtboard_3@3x_1774446241907.png";
+import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import heroImg from "@assets/0I4A7792_1774446809972.jpg";
 import golfImg from "@assets/image_1774554118628.png";
 import bottleImg from "@assets/0I4A7757_1774446952971.jpg";
@@ -626,7 +626,7 @@ export default function Home() {
       </div>
       <header className="flex items-center justify-between px-6 md:px-10 py-4 bg-[#111] border-b border-white/10">
         <div className="flex items-center gap-6">
-          <span className="text-white text-lg font-black tracking-wide" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.08em" }}>MERCH CLUB</span>
+          <img src={logoSrc} alt="Merch Club" className="h-6 object-contain invert" />
           <nav className="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
             <a href="#" className="text-white hover:text-gray-300 transition-colors">Home</a>
             <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Services</a>
