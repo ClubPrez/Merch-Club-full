@@ -786,6 +786,84 @@ export default function Home() {
 
       <StickyTimeline />
 
+      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden border-t border-white/5">
+        <div className="max-w-7xl mx-auto">
+          <RevealItem delay={0}>
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Less coordination. More control.
+            </h3>
+          </RevealItem>
+          <RevealItem delay={100}>
+            <p className="text-sm md:text-base text-[#888] leading-relaxed max-w-3xl mb-16">
+              Managing multiple vendors means juggling timelines, chasing updates, and dealing with inconsistent results.
+              With one trusted execution partner, everything is aligned — one process, one standard of quality, and far less coordination on your side.
+            </p>
+          </RevealItem>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <RevealItem delay={200}>
+              <div className="relative group border border-white/10 rounded-2xl p-8 md:p-10 bg-[#111] hover:border-red-500/30 transition-all duration-700 overflow-hidden h-full">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-full blur-3xl group-hover:bg-red-500/10 transition-all duration-700" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-red-400/70 mb-6 block">Your Current Process</span>
+                <h4 className="text-xl md:text-2xl font-black tracking-tight text-white mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  Scattered ownership across vendors and timelines.
+                </h4>
+                <p className="text-sm text-[#777] leading-relaxed mb-8">
+                  Too many handoffs. Too many moving parts. Too much babysitting.
+                </p>
+                <div className="space-y-3">
+                  {[
+                    { icon: "M6 18L18 6M6 6l12 12", label: "Different vendors for every product" },
+                    { icon: "M6 18L18 6M6 6l12 12", label: "No single point of accountability" },
+                    { icon: "M6 18L18 6M6 6l12 12", label: "Inconsistent quality and timelines" },
+                    { icon: "M6 18L18 6M6 6l12 12", label: "Endless email chains and follow-ups" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3 group/item">
+                      <div className="w-6 h-6 rounded-full bg-red-500/10 flex items-center justify-center shrink-0">
+                        <svg className="w-3 h-3 text-red-400/60" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
+                        </svg>
+                      </div>
+                      <span className="text-xs text-[#666]">{item.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </RevealItem>
+
+            <RevealItem delay={350}>
+              <div className="relative group border border-white/10 rounded-2xl p-8 md:p-10 bg-[#111] hover:border-white/30 transition-all duration-700 overflow-hidden h-full">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition-all duration-700" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/50 mb-6 block">With Merch Club</span>
+                <h4 className="text-xl md:text-2xl font-black tracking-tight text-white mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  One clean system with coordinated execution.
+                </h4>
+                <p className="text-sm text-[#777] leading-relaxed mb-8">
+                  A structured flow that keeps brand, production, and fulfillment aligned.
+                </p>
+                <div className="space-y-3">
+                  {[
+                    { icon: "M5 13l4 4L19 7", label: "Single dedicated team from start to finish" },
+                    { icon: "M5 13l4 4L19 7", label: "Clear timelines with built-in accountability" },
+                    { icon: "M5 13l4 4L19 7", label: "Consistent quality across every product" },
+                    { icon: "M5 13l4 4L19 7", label: "One point of contact, zero chaos" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3 group/item">
+                      <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                        <svg className="w-3 h-3 text-white/70" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
+                        </svg>
+                      </div>
+                      <span className="text-xs text-[#999]">{item.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </RevealItem>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-[#111] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
