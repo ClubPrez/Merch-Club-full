@@ -269,6 +269,27 @@ function BetterWaySection() {
 }
 
 function StickyTimeline() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const el = containerRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const windowH = window.innerHeight;
+      const start = windowH * 0.85;
+      const end = windowH * 0.15;
+      const raw = (start - rect.top) / (start - end);
+      setProgress(Math.max(0, Math.min(1, raw)));
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const activeCount = Math.floor(progress * (timelineSteps.length + 0.5));
+
   return (
     <div className="bg-[#0a0a0a] py-20 md:py-28 px-8 md:px-16 lg:px-20">
       <div className="max-w-7xl mx-auto">
@@ -283,31 +304,89 @@ function StickyTimeline() {
           </p>
         </RevealItem>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-4">
-          {timelineSteps.map((step, i) => (
-            <RevealItem key={step.num} delay={150 + i * 100}>
-              <div className="group">
-                <div className="relative mb-4">
-                  <div className="aspect-[4/5] rounded-xl overflow-hidden border border-white/10 group-hover:border-white/25 transition-all duration-500">
-                    <img
-                      src={step.img}
-                      alt={`Merch Club ${step.title.toLowerCase()} - branded merchandise ${step.desc.toLowerCase()}`}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+        <div ref={containerRef} className="relative">
+          <div className="absolute top-[100px] left-0 right-0 h-px bg-white/10 hidden lg:block" />
+          <div
+            className="absolute top-[100px] left-0 h-px bg-white hidden lg:block transition-all duration-700 ease-out"
+            style={{ width: `${Math.min(progress * 110, 100)}%` }}
+          />
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-4">
+            {timelineSteps.map((step, i) => {
+              const isActive = i < activeCount;
+              return (
+                <div key={step.num} className="group relative">
+                  <div className="relative mb-4">
+                    <div
+                      className="aspect-[4/5] rounded-xl overflow-hidden border transition-all duration-700 ease-out"
+                      style={{
+                        borderColor: isActive ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.05)",
+                        opacity: isActive ? 1 : 0.4,
+                        transform: isActive ? "translateY(0) scale(1)" : "translateY(16px) scale(0.97)",
+                      }}
+                    >
+                      <img
+                        src={step.img}
+                        alt={`Merch Club ${step.title.toLowerCase()} - branded merchandise ${step.desc.toLowerCase()}`}
+                        className="w-full h-full object-cover transition-all duration-700"
+                        style={{ filter: isActive ? "grayscale(0)" : "grayscale(1)" }}
+                      />
+                    </div>
+                    <div
+                      className="absolute top-3 left-3 backdrop-blur-sm border rounded-md px-2.5 py-1 transition-all duration-500"
+                      style={{
+                        backgroundColor: isActive ? "rgba(255,255,255,0.95)" : "rgba(0,0,0,0.7)",
+                        borderColor: isActive ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.15)",
+                      }}
+                    >
+                      <span
+                        className="text-xs font-bold tracking-wider transition-colors duration-500"
+                        style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#000" : "#fff" }}
+                      >
+                        {step.num}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="hidden lg:flex items-center justify-center mb-4">
+                    <div
+                      className="w-3 h-3 rounded-full border-2 relative z-10 transition-all duration-500"
+                      style={{
+                        borderColor: isActive ? "#fff" : "#444",
+                        backgroundColor: isActive ? "#fff" : "transparent",
+                        boxShadow: isActive ? "0 0 12px rgba(255,255,255,0.4)" : "none",
+                      }}
                     />
+                    {i < timelineSteps.length - 1 && (
+                      <svg className="absolute right-0 top-[100px] translate-x-1/2 -translate-y-1/2 z-20 transition-all duration-500" width="16" height="16" viewBox="0 0 16 16" style={{ opacity: isActive ? 1 : 0.2 }}>
+                        <path d="M4 2 L12 8 L4 14" fill="none" stroke={isActive ? "#fff" : "#555"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    )}
                   </div>
-                  <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-sm border border-white/15 rounded-md px-2.5 py-1">
-                    <span className="text-xs font-bold text-white tracking-wider" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>
-                  </div>
+
+                  <h4
+                    className="text-lg md:text-xl font-black tracking-tight transition-all duration-500"
+                    style={{
+                      fontFamily: "'Bebas Neue', sans-serif",
+                      color: isActive ? "#fff" : "#444",
+                    }}
+                  >
+                    {step.title}
+                  </h4>
+                  <p
+                    className="text-xs mt-1 leading-relaxed transition-all duration-500"
+                    style={{
+                      color: isActive ? "#999" : "#333",
+                      opacity: isActive ? 1 : 0.5,
+                      transform: isActive ? "translateY(0)" : "translateY(6px)",
+                    }}
+                  >
+                    {step.desc}
+                  </p>
                 </div>
-                <h4 className="text-lg md:text-xl font-black tracking-tight text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  {step.title}
-                </h4>
-                <p className="text-xs text-[#666] mt-1 leading-relaxed group-hover:text-[#999] transition-colors duration-300">
-                  {step.desc}
-                </p>
-              </div>
-            </RevealItem>
-          ))}
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
