@@ -795,6 +795,198 @@ export default function Home() {
 
       <StickyTimeline />
 
+      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden border-t border-white/5">
+        <div className="max-w-7xl mx-auto">
+          <RevealItem delay={0}>
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Less coordination. More control.
+            </h3>
+          </RevealItem>
+          <RevealItem delay={100}>
+            <p className="text-sm md:text-base text-[#888] leading-relaxed max-w-3xl mb-6">
+              Instead of managing multiple vendors, you work with one partner who oversees the entire program.
+              That's how branded merchandise stays consistent, scalable, and aligned with the brand.
+            </p>
+          </RevealItem>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mt-14">
+            <RevealItem delay={200}>
+              <div className="relative group border border-white/10 rounded-2xl bg-[#111] hover:border-red-500/20 transition-all duration-700 overflow-hidden h-full">
+                <div className="px-5 py-3 border-b border-white/5 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-red-400/70">The Old Way</span>
+                  </div>
+                  <div className="flex gap-1">
+                    <div className="w-2 h-2 rounded-full bg-white/10" />
+                    <div className="w-2 h-2 rounded-full bg-white/10" />
+                    <div className="w-2 h-2 rounded-full bg-white/10" />
+                  </div>
+                </div>
+
+                <div className="p-5 space-y-3">
+                  <div className="bg-[#1a1a1a] border border-red-500/10 rounded-lg p-3">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[10px] font-bold text-red-400/60">ORDER #4821</span>
+                      <span className="text-[8px] bg-red-500/15 text-red-400 px-2 py-0.5 rounded-full font-bold">DELAYED</span>
+                    </div>
+                    <div className="flex gap-1.5 mb-2">
+                      {["Ordered", "???", "???", "???"].map((s, i) => (
+                        <div key={i} className="flex-1">
+                          <div className={`h-1 rounded-full ${i === 0 ? "bg-red-500/30" : "bg-white/5"}`} />
+                          <span className="text-[7px] text-[#444] mt-0.5 block">{s}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-[9px] text-[#555] italic">Last update: 12 days ago via email</p>
+                  </div>
+
+                  <div className="bg-[#1a1a1a] border border-red-500/10 rounded-lg p-3">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[10px] font-bold text-red-400/60">ORDER #4819</span>
+                      <span className="text-[8px] bg-yellow-500/15 text-yellow-500 px-2 py-0.5 rounded-full font-bold">UNKNOWN</span>
+                    </div>
+                    <div className="flex gap-1.5 mb-2">
+                      {["Ordered", "Sent to vendor", "???", "???"].map((s, i) => (
+                        <div key={i} className="flex-1">
+                          <div className={`h-1 rounded-full ${i <= 1 ? "bg-yellow-500/30" : "bg-white/5"}`} />
+                          <span className="text-[7px] text-[#444] mt-0.5 block">{s}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-[9px] text-[#555] italic">Vendor B hasn't responded</p>
+                  </div>
+
+                  <div className="bg-[#1a1a1a] border border-red-500/10 rounded-lg p-3">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[10px] font-bold text-red-400/60">ORDER #4815</span>
+                      <span className="text-[8px] bg-red-500/15 text-red-400 px-2 py-0.5 rounded-full font-bold">WRONG ITEMS</span>
+                    </div>
+                    <div className="flex gap-1.5">
+                      {["Ordered", "Produced", "Shipped", "Issue"].map((s, i) => (
+                        <div key={i} className="flex-1">
+                          <div className={`h-1 rounded-full ${i <= 2 ? "bg-red-500/30" : "bg-red-500/50"}`} />
+                          <span className="text-[7px] text-[#444] mt-0.5 block">{s}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-2">
+                    <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1 bg-red-500/10 rounded-full px-2 py-0.5">
+                        <div className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
+                        <span className="text-[8px] text-red-400 font-bold">3 issues</span>
+                      </div>
+                      <span className="text-[8px] text-[#444]">4 vendors</span>
+                    </div>
+                    <span className="text-[8px] text-[#444]">47 emails this month</span>
+                  </div>
+                </div>
+              </div>
+            </RevealItem>
+
+            <RevealItem delay={350}>
+              <div className="relative group border border-white/10 rounded-2xl bg-[#111] hover:border-white/25 transition-all duration-700 overflow-hidden h-full">
+                <div className="px-5 py-3 border-b border-white/5 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">Merch Club Dashboard</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[8px] text-white/30 font-medium">Live</span>
+                    <div className="flex gap-1">
+                      <div className="w-2 h-2 rounded-full bg-white/10" />
+                      <div className="w-2 h-2 rounded-full bg-white/10" />
+                      <div className="w-2 h-2 rounded-full bg-white/20" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-5 space-y-3">
+                  <div className="bg-[#0d0d0d] border border-white/10 rounded-lg p-3">
+                    <div className="flex items-center justify-between mb-3">
+                      <div>
+                        <span className="text-[10px] font-bold text-white/80 block">Corporate Polo — Q2 Batch</span>
+                        <span className="text-[8px] text-white/30">Order #MC-2847 · 500 units</span>
+                      </div>
+                      <span className="text-[8px] bg-white/10 text-white/70 px-2 py-0.5 rounded-full font-bold">IN PRODUCTION</span>
+                    </div>
+                    <div className="flex gap-1 mb-1">
+                      {["Idea", "Design", "Source", "Produce", "Pack", "Ship", "Track"].map((s, i) => (
+                        <div key={i} className="flex-1">
+                          <div className={`h-1.5 rounded-full transition-all ${i <= 3 ? "bg-white/40" : "bg-white/8"}`} />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex justify-between">
+                      {["Idea", "Design", "Source", "Produce", "Pack", "Ship", "Track"].map((s, i) => (
+                        <span key={i} className={`text-[6px] ${i <= 3 ? "text-white/50" : "text-white/20"} font-medium`}>{s}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="bg-[#0d0d0d] border border-white/10 rounded-lg p-3">
+                    <div className="flex items-center justify-between mb-3">
+                      <div>
+                        <span className="text-[10px] font-bold text-white/80 block">Event Tote Bags — Conference</span>
+                        <span className="text-[8px] text-white/30">Order #MC-2851 · 1,200 units</span>
+                      </div>
+                      <span className="text-[8px] bg-green-500/15 text-green-400 px-2 py-0.5 rounded-full font-bold">SHIPPED</span>
+                    </div>
+                    <div className="flex gap-1 mb-1">
+                      {["Idea", "Design", "Source", "Produce", "Pack", "Ship", "Track"].map((s, i) => (
+                        <div key={i} className="flex-1">
+                          <div className="h-1.5 rounded-full bg-green-400/30" />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex items-center justify-between mt-1">
+                      <span className="text-[8px] text-green-400/60">Delivered May 2 — FedEx</span>
+                      <span className="text-[8px] text-white/30 underline cursor-pointer">Track #7284910</span>
+                    </div>
+                  </div>
+
+                  <div className="bg-[#0d0d0d] border border-white/10 rounded-lg p-3">
+                    <div className="flex items-center justify-between mb-3">
+                      <div>
+                        <span className="text-[10px] font-bold text-white/80 block">Onboarding Kits — New Hires</span>
+                        <span className="text-[8px] text-white/30">Order #MC-2853 · 75 units</span>
+                      </div>
+                      <span className="text-[8px] bg-blue-500/15 text-blue-400 px-2 py-0.5 rounded-full font-bold">DESIGN</span>
+                    </div>
+                    <div className="flex gap-1 mb-1">
+                      {["Idea", "Design", "Source", "Produce", "Pack", "Ship", "Track"].map((s, i) => (
+                        <div key={i} className="flex-1">
+                          <div className={`h-1.5 rounded-full ${i <= 1 ? "bg-blue-400/30" : "bg-white/8"}`} />
+                        </div>
+                      ))}
+                    </div>
+                    <span className="text-[8px] text-blue-400/50">Proof review scheduled — May 5</span>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-2">
+                    <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-1 bg-white/5 rounded-full px-2 py-0.5">
+                        <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                        <span className="text-[8px] text-white/50 font-bold">All on track</span>
+                      </div>
+                      <span className="text-[8px] text-white/30">1 partner</span>
+                    </div>
+                    <div className="flex items-center gap-1 bg-white/5 rounded-full px-2.5 py-1 cursor-pointer hover:bg-white/10 transition-colors">
+                      <svg className="w-2.5 h-2.5 text-white/50" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182" />
+                      </svg>
+                      <span className="text-[8px] text-white/50 font-bold">Quick Reorder</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </RevealItem>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-[#111] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
