@@ -25,6 +25,7 @@ import industryCorporateImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_13_49_P
 import industryEventsImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_21_48_PM_1774718584150.png";
 import newProofingImg from "@assets/image_1774719180184.png";
 import newDesignImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_35_49_PM_1774719367008.png";
+import dashboardScreenImg from "@assets/Screenshot_2026-04-07_at_2.39.24_PM_1775590775089.png";
 
 function CountUp({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -887,97 +888,27 @@ export default function Home() {
             </RevealItem>
 
             <RevealItem delay={350}>
-              <div className="relative group border border-white/10 rounded-2xl bg-[#111] hover:border-white/25 transition-all duration-700 overflow-hidden h-full">
-                <div className="px-5 py-3 border-b border-white/5 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">Merch Club Dashboard</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[8px] text-white/30 font-medium">Live</span>
-                    <div className="flex gap-1">
-                      <div className="w-2 h-2 rounded-full bg-white/10" />
-                      <div className="w-2 h-2 rounded-full bg-white/10" />
-                      <div className="w-2 h-2 rounded-full bg-white/20" />
-                    </div>
-                  </div>
-                </div>
+              <div className="flex items-center justify-center h-full">
+                <div className="relative mx-auto" style={{ width: "280px" }}>
+                  <div className="relative rounded-[40px] border-[3px] border-white/20 bg-[#1a1a1a] p-2 shadow-2xl shadow-white/5">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100px] h-[22px] bg-[#1a1a1a] rounded-b-2xl border-b-[3px] border-x-[3px] border-white/20 z-10" />
 
-                <div className="p-5 space-y-3">
-                  <div className="bg-[#0d0d0d] border border-white/10 rounded-lg p-3">
-                    <div className="flex items-center justify-between mb-3">
-                      <div>
-                        <span className="text-[10px] font-bold text-white/80 block">Corporate Polo — Q2 Batch</span>
-                        <span className="text-[8px] text-white/30">Order #MC-2847 · 500 units</span>
-                      </div>
-                      <span className="text-[8px] bg-white/10 text-white/70 px-2 py-0.5 rounded-full font-bold">IN PRODUCTION</span>
+                    <div className="rounded-[32px] overflow-hidden bg-white">
+                      <img
+                        src={dashboardScreenImg}
+                        alt="Merch Club Client Portal Dashboard"
+                        className="w-full h-auto block"
+                      />
                     </div>
-                    <div className="flex gap-1 mb-1">
-                      {["Idea", "Design", "Source", "Produce", "Pack", "Ship", "Track"].map((s, i) => (
-                        <div key={i} className="flex-1">
-                          <div className={`h-1.5 rounded-full transition-all ${i <= 3 ? "bg-white/40" : "bg-white/8"}`} />
-                        </div>
-                      ))}
-                    </div>
-                    <div className="flex justify-between">
-                      {["Idea", "Design", "Source", "Produce", "Pack", "Ship", "Track"].map((s, i) => (
-                        <span key={i} className={`text-[6px] ${i <= 3 ? "text-white/50" : "text-white/20"} font-medium`}>{s}</span>
-                      ))}
-                    </div>
+
+                    <div className="absolute bottom-[6px] left-1/2 -translate-x-1/2 w-[100px] h-[4px] bg-white/20 rounded-full" />
                   </div>
 
-                  <div className="bg-[#0d0d0d] border border-white/10 rounded-lg p-3">
-                    <div className="flex items-center justify-between mb-3">
-                      <div>
-                        <span className="text-[10px] font-bold text-white/80 block">Event Tote Bags — Conference</span>
-                        <span className="text-[8px] text-white/30">Order #MC-2851 · 1,200 units</span>
-                      </div>
-                      <span className="text-[8px] bg-green-500/15 text-green-400 px-2 py-0.5 rounded-full font-bold">SHIPPED</span>
-                    </div>
-                    <div className="flex gap-1 mb-1">
-                      {["Idea", "Design", "Source", "Produce", "Pack", "Ship", "Track"].map((s, i) => (
-                        <div key={i} className="flex-1">
-                          <div className="h-1.5 rounded-full bg-green-400/30" />
-                        </div>
-                      ))}
-                    </div>
-                    <div className="flex items-center justify-between mt-1">
-                      <span className="text-[8px] text-green-400/60">Delivered May 2 — FedEx</span>
-                      <span className="text-[8px] text-white/30 underline cursor-pointer">Track #7284910</span>
-                    </div>
-                  </div>
-
-                  <div className="bg-[#0d0d0d] border border-white/10 rounded-lg p-3">
-                    <div className="flex items-center justify-between mb-3">
-                      <div>
-                        <span className="text-[10px] font-bold text-white/80 block">Onboarding Kits — New Hires</span>
-                        <span className="text-[8px] text-white/30">Order #MC-2853 · 75 units</span>
-                      </div>
-                      <span className="text-[8px] bg-blue-500/15 text-blue-400 px-2 py-0.5 rounded-full font-bold">DESIGN</span>
-                    </div>
-                    <div className="flex gap-1 mb-1">
-                      {["Idea", "Design", "Source", "Produce", "Pack", "Ship", "Track"].map((s, i) => (
-                        <div key={i} className="flex-1">
-                          <div className={`h-1.5 rounded-full ${i <= 1 ? "bg-blue-400/30" : "bg-white/8"}`} />
-                        </div>
-                      ))}
-                    </div>
-                    <span className="text-[8px] text-blue-400/50">Proof review scheduled — May 5</span>
-                  </div>
-
-                  <div className="flex items-center justify-between pt-2">
-                    <div className="flex items-center gap-3">
-                      <div className="flex items-center gap-1 bg-white/5 rounded-full px-2 py-0.5">
-                        <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                        <span className="text-[8px] text-white/50 font-bold">All on track</span>
-                      </div>
-                      <span className="text-[8px] text-white/30">1 partner</span>
-                    </div>
-                    <div className="flex items-center gap-1 bg-white/5 rounded-full px-2.5 py-1 cursor-pointer hover:bg-white/10 transition-colors">
-                      <svg className="w-2.5 h-2.5 text-white/50" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182" />
-                      </svg>
-                      <span className="text-[8px] text-white/50 font-bold">Quick Reorder</span>
+                  <div className="text-center mt-6">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">Merch Club Client Portal</span>
+                    <div className="flex items-center justify-center gap-2 mt-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                      <span className="text-[9px] text-white/30 font-medium">Live · Real-time tracking</span>
                     </div>
                   </div>
                 </div>
