@@ -921,6 +921,60 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="bg-[#0a0a0a] py-24 md:py-32 overflow-hidden border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-20 mb-16">
+          <RevealItem delay={0}>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#a3a3a3] block mb-4">Different Tools. Same Oversight.</span>
+          </RevealItem>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <RevealItem delay={100}>
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] max-w-2xl" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                Flexible models. Same execution standard.
+              </h3>
+            </RevealItem>
+            <RevealItem delay={200}>
+              <p className="text-sm text-[#888] leading-relaxed max-w-md">
+                Whether it's bulk sourcing for large-quantity needs or on-demand merch stores for distributed teams — the operational oversight stays the same.
+              </p>
+            </RevealItem>
+          </div>
+        </div>
+
+        {(() => {
+          const flexCards = [
+            { img: corporateImg, label: "MERCH CLUB", title: "Bulk product sourcing", desc: "Large-quantity orders with coordinated production, quality checks, and delivery timelines." },
+            { img: modelImg, label: "BRANDINI", title: "On-demand merch stores", desc: "Branded storefronts for distributed teams — individual orders, centrally managed." },
+            { img: golfImg, label: "MERCH CLUB", title: "Kitting & fulfillment", desc: "Custom kits assembled and shipped to any number of locations on your schedule." },
+            { img: eventsImg, label: "MERCH CLUB", title: "Event merchandise", desc: "Trade show kits, conference swag, and event drops — sourced, branded, and delivered on time." },
+            { img: constructionImg, label: "SCRUB CLUB", title: "Industry-specific programs", desc: "Uniforms, safety gear, and branded workwear managed under one structured program." },
+            { img: bottleImg, label: "BRANDINI", title: "Client & employee gifts", desc: "Premium branded gifts curated, packaged, and shipped directly to recipients." },
+          ];
+          return (
+            <div className="relative">
+              <div className="flex gap-6 animate-[flexScroll_30s_linear_infinite] hover:[animation-play-state:paused] w-max">
+                {[...flexCards, ...flexCards].map((card, idx) => (
+                  <div key={idx} className="flex-shrink-0 w-[320px] group">
+                    <div className="relative rounded-2xl overflow-hidden bg-[#161616] border border-white/10 hover:border-white/20 transition-all duration-500 h-full">
+                      <div className="relative h-[220px] overflow-hidden">
+                        <img src={card.img} alt={card.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#161616] via-transparent to-transparent" />
+                      </div>
+                      <div className="p-6">
+                        <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#a3a3a3] mb-3 block">{card.label}</span>
+                        <h4 className="text-lg font-black text-white mb-2 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em" }}>
+                          {card.title}
+                        </h4>
+                        <p className="text-sm text-[#666] leading-relaxed">{card.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
+      </section>
+
       <section className="bg-[#111] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">

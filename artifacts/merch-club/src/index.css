@@ -188,6 +188,11 @@
   src: url('https://fonts.gstatic.com/s/leaguespartan/v11/kJEnBuEW6A0lliaV_m88ja5Twtx8BWhtkDVmjZvM_oXpBMdcFguczA.woff2') format('woff2');
 }
 
+@keyframes flexScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 @keyframes dashPulse {
   0%, 100% { opacity: 0; transform: translateY(8px) scale(0.95); }
   15%, 85% { opacity: 1; transform: translateY(0) scale(1); }
