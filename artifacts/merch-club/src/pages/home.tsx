@@ -25,7 +25,7 @@ import industryCorporateImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_13_49_P
 import industryEventsImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_21_48_PM_1774718584150.png";
 import newProofingImg from "@assets/image_1774719180184.png";
 import newDesignImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_35_49_PM_1774719367008.png";
-import dashboardScreenImg from "@assets/ChatGPT_Image_Apr_7,_2026,_02_48_11_PM_1775591303789.png";
+import dashboardScreenImg from "@assets/Client_portal_dashboard_UI_design_1775591808887.png";
 
 function CountUp({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -798,120 +798,73 @@ export default function Home() {
 
       <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden border-t border-white/5">
         <div className="max-w-7xl mx-auto">
-          <RevealItem delay={0}>
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Less coordination. More control.
-            </h3>
-          </RevealItem>
-          <RevealItem delay={100}>
-            <p className="text-sm md:text-base text-[#888] leading-relaxed max-w-3xl mb-6">
-              Instead of managing multiple vendors, you work with one partner who oversees the entire program.
-              That's how branded merchandise stays consistent, scalable, and aligned with the brand.
-            </p>
-          </RevealItem>
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 md:gap-16 mb-16">
+            <RevealItem delay={0}>
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] max-w-xl" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                Less coordination. More control.
+              </h3>
+            </RevealItem>
+            <RevealItem delay={100}>
+              <p className="text-sm md:text-base text-[#888] leading-relaxed max-w-md md:pt-2">
+                Instead of managing multiple vendors, you work with one partner who oversees the entire program. That's how branded merchandise stays consistent, scalable, and aligned with the brand.
+              </p>
+            </RevealItem>
+          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mt-14">
-            <RevealItem delay={200}>
-              <div className="relative group border border-white/10 rounded-2xl bg-[#111] hover:border-red-500/20 transition-all duration-700 overflow-hidden h-full">
-                <div className="px-5 py-3 border-b border-white/5 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-red-400/70">The Old Way</span>
-                  </div>
-                  <div className="flex gap-1">
-                    <div className="w-2 h-2 rounded-full bg-white/10" />
-                    <div className="w-2 h-2 rounded-full bg-white/10" />
-                    <div className="w-2 h-2 rounded-full bg-white/10" />
-                  </div>
+          <RevealItem delay={200}>
+            <div className="relative rounded-2xl border border-white/10 bg-[#161616] overflow-hidden shadow-2xl shadow-black/50">
+              <div className="px-4 py-2.5 border-b border-white/5 flex items-center gap-2">
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
                 </div>
-
-                <div className="p-5 space-y-3">
-                  <div className="bg-[#1a1a1a] border border-red-500/10 rounded-lg p-3">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-[10px] font-bold text-red-400/60">ORDER #4821</span>
-                      <span className="text-[8px] bg-red-500/15 text-red-400 px-2 py-0.5 rounded-full font-bold">DELAYED</span>
-                    </div>
-                    <div className="flex gap-1.5 mb-2">
-                      {["Ordered", "???", "???", "???"].map((s, i) => (
-                        <div key={i} className="flex-1">
-                          <div className={`h-1 rounded-full ${i === 0 ? "bg-red-500/30" : "bg-white/5"}`} />
-                          <span className="text-[7px] text-[#444] mt-0.5 block">{s}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <p className="text-[9px] text-[#555] italic">Last update: 12 days ago via email</p>
-                  </div>
-
-                  <div className="bg-[#1a1a1a] border border-red-500/10 rounded-lg p-3">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-[10px] font-bold text-red-400/60">ORDER #4819</span>
-                      <span className="text-[8px] bg-yellow-500/15 text-yellow-500 px-2 py-0.5 rounded-full font-bold">UNKNOWN</span>
-                    </div>
-                    <div className="flex gap-1.5 mb-2">
-                      {["Ordered", "Sent to vendor", "???", "???"].map((s, i) => (
-                        <div key={i} className="flex-1">
-                          <div className={`h-1 rounded-full ${i <= 1 ? "bg-yellow-500/30" : "bg-white/5"}`} />
-                          <span className="text-[7px] text-[#444] mt-0.5 block">{s}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <p className="text-[9px] text-[#555] italic">Vendor B hasn't responded</p>
-                  </div>
-
-                  <div className="bg-[#1a1a1a] border border-red-500/10 rounded-lg p-3">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-[10px] font-bold text-red-400/60">ORDER #4815</span>
-                      <span className="text-[8px] bg-red-500/15 text-red-400 px-2 py-0.5 rounded-full font-bold">WRONG ITEMS</span>
-                    </div>
-                    <div className="flex gap-1.5">
-                      {["Ordered", "Produced", "Shipped", "Issue"].map((s, i) => (
-                        <div key={i} className="flex-1">
-                          <div className={`h-1 rounded-full ${i <= 2 ? "bg-red-500/30" : "bg-red-500/50"}`} />
-                          <span className="text-[7px] text-[#444] mt-0.5 block">{s}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between pt-2">
-                    <div className="flex items-center gap-2">
-                      <div className="flex items-center gap-1 bg-red-500/10 rounded-full px-2 py-0.5">
-                        <div className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
-                        <span className="text-[8px] text-red-400 font-bold">3 issues</span>
-                      </div>
-                      <span className="text-[8px] text-[#444]">4 vendors</span>
-                    </div>
-                    <span className="text-[8px] text-[#444]">47 emails this month</span>
+                <div className="flex-1 flex justify-center">
+                  <div className="bg-white/5 rounded-md px-4 py-1">
+                    <span className="text-[10px] text-white/30 font-medium">portal.merchclub.com</span>
                   </div>
                 </div>
               </div>
+              <img
+                src={dashboardScreenImg}
+                alt="Merch Club Client Portal Dashboard"
+                className="w-full h-auto block"
+              />
+            </div>
+          </RevealItem>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mt-16 pt-16 border-t border-white/5">
+            <RevealItem delay={300}>
+              <div>
+                <div className="w-8 h-[2px] bg-white/30 mb-5" />
+                <h4 className="text-base md:text-lg font-bold text-white mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.25rem", letterSpacing: "0.02em" }}>
+                  Real-time order visibility
+                </h4>
+                <p className="text-sm text-[#666] leading-relaxed">
+                  Track every project from production through delivery. No more chasing vendors for updates or wondering where things stand.
+                </p>
+              </div>
             </RevealItem>
-
-            <RevealItem delay={350}>
-              <div className="flex items-center justify-center h-full">
-                <div className="relative mx-auto" style={{ width: "280px" }}>
-                  <div className="relative rounded-[40px] border-[3px] border-white/20 bg-[#1a1a1a] p-2 shadow-2xl shadow-white/5">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100px] h-[22px] bg-[#1a1a1a] rounded-b-2xl border-b-[3px] border-x-[3px] border-white/20 z-10" />
-
-                    <div className="rounded-[32px] overflow-hidden bg-white">
-                      <img
-                        src={dashboardScreenImg}
-                        alt="Merch Club Client Portal Dashboard"
-                        className="w-full h-auto block"
-                      />
-                    </div>
-
-                    <div className="absolute bottom-[6px] left-1/2 -translate-x-1/2 w-[100px] h-[4px] bg-white/20 rounded-full" />
-                  </div>
-
-                  <div className="text-center mt-6">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">Merch Club Client Portal</span>
-                    <div className="flex items-center justify-center gap-2 mt-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                      <span className="text-[9px] text-white/30 font-medium">Live · Real-time tracking</span>
-                    </div>
-                  </div>
-                </div>
+            <RevealItem delay={400}>
+              <div>
+                <div className="w-8 h-[2px] bg-white/30 mb-5" />
+                <h4 className="text-base md:text-lg font-bold text-white mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.25rem", letterSpacing: "0.02em" }}>
+                  One dashboard for everything
+                </h4>
+                <p className="text-sm text-[#666] leading-relaxed">
+                  Active projects, confirmed shipments, pending items, and delivery history — all in one place. Open it once and you're caught up.
+                </p>
+              </div>
+            </RevealItem>
+            <RevealItem delay={500}>
+              <div>
+                <div className="w-8 h-[2px] bg-white/30 mb-5" />
+                <h4 className="text-base md:text-lg font-bold text-white mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.25rem", letterSpacing: "0.02em" }}>
+                  Confirmed timelines you can count on
+                </h4>
+                <p className="text-sm text-[#666] leading-relaxed">
+                  Projected ship dates, carrier tracking, and expected arrivals — locked in and visible before you have to ask.
+                </p>
               </div>
             </RevealItem>
           </div>
