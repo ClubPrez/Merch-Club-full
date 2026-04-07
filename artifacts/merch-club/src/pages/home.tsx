@@ -890,14 +890,14 @@ export default function Home() {
             <RevealItem delay={350}>
               <div className="flex items-center justify-center h-full">
                 <div className="relative mx-auto" style={{ width: "280px" }}>
-                  <div className="relative rounded-[40px] border-[3px] border-white/20 bg-[#1a1a1a] p-2 shadow-2xl shadow-white/5">
+                  <div className="relative rounded-[40px] border-[3px] border-white/20 bg-[#1a1a1a] p-2 shadow-2xl shadow-white/5" style={{ height: "580px" }}>
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100px] h-[22px] bg-[#1a1a1a] rounded-b-2xl border-b-[3px] border-x-[3px] border-white/20 z-10" />
 
-                    <div className="rounded-[32px] overflow-hidden bg-white">
+                    <div className="rounded-[32px] overflow-hidden bg-white h-full">
                       <img
                         src={dashboardScreenImg}
                         alt="Merch Club Client Portal Dashboard"
-                        className="w-full h-auto block"
+                        className="w-full h-full object-cover object-top block"
                       />
                     </div>
 
