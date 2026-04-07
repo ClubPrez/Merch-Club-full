@@ -796,7 +796,7 @@ export default function Home() {
 
       <StickyTimeline />
 
-      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden border-t border-white/5">
+      <section className="bg-[#141414] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden border-t border-white/5">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 md:gap-16 mb-16">
             <RevealItem delay={0}>
