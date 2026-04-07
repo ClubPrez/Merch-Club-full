@@ -25,7 +25,7 @@ import industryCorporateImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_13_49_P
 import industryEventsImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_21_48_PM_1774718584150.png";
 import newProofingImg from "@assets/image_1774719180184.png";
 import newDesignImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_35_49_PM_1774719367008.png";
-import dashboardScreenImg from "@assets/Screenshot_2026-04-07_at_2.39.24_PM_1775590775089.png";
+import dashboardScreenImg from "@assets/ChatGPT_Image_Apr_7,_2026,_02_48_11_PM_1775591303789.png";
 
 function CountUp({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
