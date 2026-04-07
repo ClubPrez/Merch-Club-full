@@ -734,60 +734,92 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="bg-[#111] py-16 md:py-24 px-8 md:px-16 lg:px-20">
-        <div className="max-w-6xl mx-auto">
-          <RevealItem delay={0}>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#a3a3a3]">Featured Brand Program</span>
-          </RevealItem>
-
-          <div className="mt-10 flex flex-col md:flex-row gap-12 md:gap-16 items-stretch">
-            <div className="flex-1 flex flex-col">
+      <section className="bg-[#0f1614] py-16 md:py-24 px-8 md:px-16 lg:px-20 border-t border-white/5">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-stretch">
+            <div className="lg:w-[45%] flex flex-col justify-between">
               <div>
-                <RevealItem delay={100}>
-                  <h3 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                    Access<br />Bank
+                <RevealItem delay={0}>
+                  <h3 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black tracking-tight leading-[0.95] mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                    Meet the brands putting our process to work.
                   </h3>
                 </RevealItem>
 
+                <RevealItem delay={100}>
+                  <div className="flex items-center gap-4 mb-10">
+                    <span className="text-xs font-bold text-white border border-white/30 rounded-full px-4 py-1.5">ACCESS BANK</span>
+                  </div>
+                </RevealItem>
+
                 <RevealItem delay={200}>
-                  <p className="mt-6 text-sm md:text-base text-[#888] leading-relaxed max-w-md">
-                    A full-scale branded merchandise program built for Access Bank's executive gifting, employee onboarding kits, and multi-location event activations across three regions. The initiative ensured every gift reflected the brand's quality while reaching recipients smoothly and on time. The result was a coordinated experience that strengthened relationships and elevated the impact of the campaign.
-                  </p>
+                  <div className="mb-8">
+                    <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#a3a3a3] block mb-4">Services delivered</span>
+                    <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+                      {["Executive gifting", "Event activations", "Onboarding kits", "Multi-location fulfillment"].map((tool) => (
+                        <div key={tool} className="flex items-center gap-2">
+                          <svg className="w-3.5 h-3.5 text-[#a3a3a3] flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          <span className="text-sm text-[#888]">{tool}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </RevealItem>
 
-                <RevealItem delay={300} className="flex gap-3 mt-6 md:mb-[50px]">
-                  <a href="#" className="inline-flex items-center gap-2 bg-white text-black text-xs md:text-sm font-bold px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
-                    View Case Study
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                    </svg>
-                  </a>
+                <RevealItem delay={300}>
+                  <blockquote className="border-l-2 border-white/20 pl-5 mb-8">
+                    <p className="text-base md:text-lg text-white/90 leading-relaxed font-medium italic">
+                      "The coordination was seamless — every gift reflected our brand's quality and reached recipients on time across all three regions."
+                    </p>
+                    <footer className="mt-4">
+                      <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#a3a3a3]">Access Bank</span>
+                      <span className="text-xs text-[#555] ml-2">— Brand & Marketing Team</span>
+                    </footer>
+                  </blockquote>
                 </RevealItem>
               </div>
 
-              <div className="mt-6 grid grid-cols-2 gap-8">
-                <RevealItem delay={400}>
-                  <span className="text-4xl md:text-5xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={2500} prefix="+" /></span>
-                  <p className="text-xs text-[#666] mt-1 leading-relaxed">Units produced across three product categories and delivered on schedule.</p>
-                </RevealItem>
-                <RevealItem delay={500}>
-                  <span className="text-4xl md:text-5xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={12} /></span>
-                  <p className="text-xs text-[#666] mt-1 leading-relaxed">Locations serviced with coordinated fulfillment and kitting.</p>
-                </RevealItem>
-                <RevealItem delay={600}>
-                  <span className="text-4xl md:text-5xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={98} suffix="%" /></span>
-                  <p className="text-xs text-[#666] mt-1 leading-relaxed">On-time delivery rate across all shipments and events.</p>
-                </RevealItem>
-                <RevealItem delay={700}>
-                  <span className="text-4xl md:text-5xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={3} /></span>
-                  <p className="text-xs text-[#666] mt-1 leading-relaxed">Regions covered with brand-consistent merchandise programs.</p>
-                </RevealItem>
-              </div>
+              <RevealItem delay={400}>
+                <div className="grid grid-cols-4 gap-6 mt-4">
+                  <div>
+                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={2500} prefix="+" /></span>
+                    <p className="text-[10px] text-[#555] mt-1 leading-relaxed">Units delivered</p>
+                  </div>
+                  <div>
+                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={12} /></span>
+                    <p className="text-[10px] text-[#555] mt-1 leading-relaxed">Locations</p>
+                  </div>
+                  <div>
+                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={98} suffix="%" /></span>
+                    <p className="text-[10px] text-[#555] mt-1 leading-relaxed">On-time rate</p>
+                  </div>
+                  <div>
+                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={3} /></span>
+                    <p className="text-[10px] text-[#555] mt-1 leading-relaxed">Regions</p>
+                  </div>
+                </div>
+              </RevealItem>
             </div>
 
-            <RevealItem delay={200} className="flex-1 flex items-start">
-              <div className="w-full rounded-2xl overflow-hidden border border-white/10 bg-[#1a1a1a] max-h-[650px] md:max-h-[750px]">
-                <img src={accessBankImg} alt="Access Bank branded puffer vests - custom corporate merchandise program by Merch Club" className="w-full h-full object-cover" />
+            <RevealItem delay={200} className="lg:w-[55%] relative">
+              <div className="relative">
+                <div className="rounded-2xl overflow-hidden border border-white/10">
+                  <img src={accessBankImg} alt="Access Bank branded puffer vests" className="w-full h-[500px] md:h-[600px] object-cover" />
+                </div>
+
+                <div className="absolute bottom-6 right-6 bg-[#1a1a1a]/95 backdrop-blur-md rounded-xl border border-white/10 p-5 max-w-[280px] shadow-2xl shadow-black/40">
+                  <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#a3a3a3] block mb-2">Case Study</span>
+                  <h4 className="text-sm font-black text-white leading-snug mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.1rem", letterSpacing: "0.01em" }}>
+                    Access Bank Scales Branded Gifting With Merch Club
+                  </h4>
+                  <p className="text-[11px] text-[#666] leading-relaxed mb-3">
+                    How a coordinated merch program elevated executive gifting across 3 regions.
+                  </p>
+                  <a href="#" className="text-[11px] font-bold text-white underline underline-offset-2 hover:text-[#a3a3a3] transition-colors">
+                    Read the case study
+                  </a>
+                </div>
               </div>
             </RevealItem>
           </div>
