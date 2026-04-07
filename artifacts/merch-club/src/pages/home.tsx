@@ -825,11 +825,61 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <img
-                src={dashboardScreenImg}
-                alt="Merch Club Client Portal Dashboard"
-                className="w-full h-auto block"
-              />
+              <div className="relative">
+                <img
+                  src={dashboardScreenImg}
+                  alt="Merch Club Client Portal Dashboard"
+                  className="w-full h-auto block"
+                />
+
+                <div className="absolute top-[16%] right-[8%] animate-[dashPulse_3s_ease-in-out_infinite]">
+                  <div className="bg-white rounded-xl shadow-lg shadow-black/20 px-3 py-2 flex items-center gap-2 border border-black/5">
+                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                    <span className="text-[10px] font-bold text-gray-800">Shipment Confirmed</span>
+                    <span className="text-[9px] text-gray-400">Just now</span>
+                  </div>
+                </div>
+
+                <div className="absolute top-[42%] left-[5%] animate-[dashFloat_4s_ease-in-out_infinite_1s]">
+                  <div className="bg-white rounded-xl shadow-lg shadow-black/20 px-3 py-2 border border-black/5">
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <svg className="w-3 h-3 text-blue-500" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                      </svg>
+                      <span className="text-[10px] font-bold text-gray-800">On-time rate</span>
+                    </div>
+                    <span className="text-lg font-black text-gray-900">98.4%</span>
+                  </div>
+                </div>
+
+                <div className="absolute bottom-[18%] right-[12%] animate-[dashFloat_5s_ease-in-out_infinite_2s]">
+                  <div className="bg-white rounded-xl shadow-lg shadow-black/20 px-3 py-2 border border-black/5 flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
+                      <svg className="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold text-gray-800 block">12 Delivered</span>
+                      <span className="text-[8px] text-gray-400">This quarter</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="absolute top-[60%] right-[3%] animate-[dashCursor_6s_ease-in-out_infinite_0.5s] pointer-events-none">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 3l14 8-6 2-4 6-4-16z" fill="white" stroke="black" strokeWidth="1.5" strokeLinejoin="round" />
+                  </svg>
+                  <div className="absolute top-5 left-4 bg-black/80 rounded-md px-2 py-0.5 whitespace-nowrap">
+                    <span className="text-[8px] text-white font-medium">View tracking</span>
+                  </div>
+                </div>
+
+                <div className="absolute inset-0 pointer-events-none">
+                  <div className="absolute top-[15%] left-[15%] w-32 h-32 bg-blue-400/10 rounded-full blur-3xl animate-[dashGlow_4s_ease-in-out_infinite]" />
+                  <div className="absolute bottom-[25%] right-[20%] w-24 h-24 bg-green-400/10 rounded-full blur-3xl animate-[dashGlow_5s_ease-in-out_infinite_2s]" />
+                </div>
+              </div>
             </div>
           </RevealItem>
 
