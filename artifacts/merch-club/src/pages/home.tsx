@@ -956,7 +956,7 @@ export default function Home() {
       <section className="bg-[#0a0a0a] py-24 md:py-32 overflow-hidden border-t border-white/5">
         <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-20 mb-16">
           <RevealItem delay={0}>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#a3a3a3] block mb-4">Different Tools. Same Oversight.</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#a3a3a3] block mb-4">Built For Every Size</span>
           </RevealItem>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <RevealItem delay={100}>
@@ -966,7 +966,7 @@ export default function Home() {
             </RevealItem>
             <RevealItem delay={200}>
               <p className="text-sm text-[#888] leading-relaxed max-w-md">
-                Whether it's bulk sourcing for large-quantity needs or on-demand merch stores for distributed teams — the operational oversight stays the same.
+                Whether you're a small business ordering your first batch of branded gear or a large corporation running multi-location programs — we have a merch solution built for you. Different scale, same operational excellence.
               </p>
             </RevealItem>
           </div>
