@@ -817,7 +817,7 @@ export default function Home() {
                   <img src={onestaffImg} alt="OneStaff Medical Nurses Week gift boxes" className="w-full h-[500px] md:h-[600px] object-cover" />
                 </div>
 
-                <div className="absolute bottom-6 right-6 bg-[#1a1a1a]/95 backdrop-blur-md rounded-xl border border-white/10 p-5 max-w-[280px] shadow-2xl shadow-black/40">
+                <div className="absolute bottom-6 left-6 bg-[#1a1a1a]/95 backdrop-blur-md rounded-xl border border-white/10 p-5 max-w-[280px] shadow-2xl shadow-black/40">
                   <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#a3a3a3] block mb-2">Case Study</span>
                   <h4 className="text-sm font-black text-white leading-snug mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.1rem", letterSpacing: "0.01em" }}>
                     OneStaff Medical Celebrates Nurses Week With Merch Club
