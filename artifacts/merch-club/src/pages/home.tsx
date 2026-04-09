@@ -560,7 +560,7 @@ function FAQAccordion() {
           className="w-full flex items-center justify-between py-5 text-left group"
           onClick={() => setOpenIndex(isOpen ? null : index)}
         >
-          <span className="text-sm md:text-base font-medium text-black pr-4">{item.q}</span>
+          <span className="text-base md:text-lg font-medium text-black pr-4">{item.q}</span>
           <span className={`text-xl text-black/50 transition-transform duration-300 shrink-0 ${isOpen ? "rotate-45" : ""}`}>+</span>
         </button>
         <div
