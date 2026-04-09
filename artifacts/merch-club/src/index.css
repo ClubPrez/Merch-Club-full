@@ -193,6 +193,16 @@
   100% { transform: translateX(-50%); }
 }
 
+@keyframes testimonialScrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes testimonialScrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
 @keyframes dashPulse {
   0%, 100% { opacity: 0; transform: translateY(8px) scale(0.95); }
   15%, 85% { opacity: 1; transform: translateY(0) scale(1); }
