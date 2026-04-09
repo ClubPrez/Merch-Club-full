@@ -209,7 +209,7 @@ function BetterWaySection() {
     <section ref={sectionRef} className="relative overflow-hidden py-24 md:py-32 px-8 md:px-16 lg:px-20">
       <div ref={iframeWrapRef} className="absolute inset-0 z-0 will-change-transform pointer-events-none" style={{ transform: "scale(1.15)" }}>
         <iframe
-          src="https://www.youtube.com/embed/_NvgNaTBcL8?autoplay=1&mute=1&loop=1&playlist=_NvgNaTBcL8&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1"
+          src="https://www.youtube.com/embed/h1doMoNeEJU?autoplay=1&mute=1&loop=1&playlist=h1doMoNeEJU&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1"
           allow="autoplay; encrypted-media"
           className="absolute top-1/2 left-1/2 min-w-[177.78vh] min-h-[56.25vw] w-auto h-auto -translate-x-1/2 -translate-y-1/2"
           style={{ border: "none" }}
