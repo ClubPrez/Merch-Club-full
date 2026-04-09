@@ -701,13 +701,13 @@ export default function Home() {
                 We design and execute structured branded merchandise programs for marketing and operations teams — from trade show kits to multi-location rollouts.
               </p>
               <div className="flex flex-row justify-center md:justify-start gap-3 mt-5">
-                <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-white text-black text-xs md:text-sm font-bold px-5 md:px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
+                <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-white text-black text-xs md:text-sm font-bold px-5 md:px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors whitespace-nowrap">
                   Start a Project
                   <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                   </svg>
                 </button>
-                <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-xs md:text-sm font-bold px-5 md:px-6 py-2.5 rounded-full hover:bg-white/10 transition-colors">
+                <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-xs md:text-sm font-bold px-5 md:px-6 py-2.5 rounded-full hover:bg-white/10 transition-colors whitespace-nowrap">
                   Book a Call
                 </a>
               </div>
