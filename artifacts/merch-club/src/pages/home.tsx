@@ -6,6 +6,7 @@ import constructionApparelImg from "@assets/Smiling_man_in_work_jacket_177576954
 import healthcareApparelImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1775769560213.png";
 import kittingNewImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_08_AM_1775772571862.png";
 import onDemandStoreImg from "@assets/Club_logo_hoodie_with_bold_text_1775772595094.png";
+import industrySpecificImg from "@assets/Smiling_man_in_work_jacket_1775772678827.png";
 import bottleImg from "@assets/0I4A7757_1774446952971.jpg";
 import corporateImg from "@assets/image_1774625538266.png";
 import constructionImg from "@assets/image_1774625624335.png";
@@ -982,7 +983,7 @@ export default function Home() {
             { img: onDemandStoreImg, label: "BRANDINI", title: "On-demand merch stores", desc: "Branded storefronts for distributed teams — individual orders, centrally managed." },
             { img: kittingNewImg, label: "MERCH CLUB", title: "Kitting & fulfillment", desc: "Custom kits assembled and shipped to any number of locations on your schedule." },
             { img: eventsImg, label: "MERCH CLUB", title: "Event merchandise", desc: "Trade show kits, conference swag, and event drops — sourced, branded, and delivered on time." },
-            { img: constructionImg, label: "SCRUB CLUB", title: "Industry-specific programs", desc: "Uniforms, safety gear, and branded workwear managed under one structured program." },
+            { img: industrySpecificImg, label: "SCRUB CLUB", title: "Industry-specific programs", desc: "Uniforms, safety gear, and branded workwear managed under one structured program." },
             { img: bottleImg, label: "BRANDINI", title: "Client & employee gifts", desc: "Premium branded gifts curated, packaged, and shipped directly to recipients." },
           ];
           return (
