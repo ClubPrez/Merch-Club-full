@@ -3,6 +3,7 @@ import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import heroImg from "@assets/0I4A7792_1774446809972.jpg";
 import golfImg from "@assets/image_1774554118628.png";
 import constructionApparelImg from "@assets/Smiling_man_in_work_jacket_1775769546765.png";
+import healthcareApparelImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1775769560213.png";
 import bottleImg from "@assets/0I4A7757_1774446952971.jpg";
 import corporateImg from "@assets/image_1774625538266.png";
 import constructionImg from "@assets/image_1774625624335.png";
@@ -606,7 +607,7 @@ export default function Home() {
               </div>
 
               <div ref={circle3Ref} className="w-[120px] h-[120px] sm:w-[160px] sm:h-[160px] md:w-[240px] md:h-[240px] lg:w-[340px] lg:h-[340px] xl:w-[380px] xl:h-[380px] aspect-square rounded-full overflow-hidden -ml-6 sm:-ml-8 md:-ml-12 lg:-ml-16 relative z-30 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
-                <img src={modelImg} alt="Model wearing merch" className="w-full h-full object-cover" />
+                <img src={healthcareApparelImg} alt="Healthcare apparel" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-100 hover:bg-black/40 transition-colors">
                   <a href="#" className="bg-white text-black text-[10px] sm:text-xs md:text-sm font-bold px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-2.5 rounded-full hover:bg-gray-200 transition-all hover:scale-105 inline-flex items-center gap-1 sm:gap-2">
                     Healthcare Apparel
