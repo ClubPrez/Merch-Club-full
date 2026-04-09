@@ -472,6 +472,70 @@ function StartProjectModal({ open, onClose }: { open: boolean; onClose: () => vo
   );
 }
 
+const testimonials = [
+  { name: "Bailey Sullivan", text: "The Merch Club has been SUCH an amazing addition to our small business over these past 2 years! They've created custom hats, tees, safety vests, sunglasses, and more — making our apparel buying process SO much easier!" },
+  { name: "Bill Corriston", text: "Chris and his team at Merch Club have been fantastic to work with. Launching a company and developing brand awareness has been made so much easier having Merch Club in our corner! Pricing, communication, design support are all 10/10!" },
+  { name: "Matt Beck", text: "If you want the absolute best when it comes to your company logo, your apparel and your brand in general, there's no other choice than Merch Club. They took the time to design a logo that was literally perfect for my business." },
+  { name: "Andrew George", text: "Working with Chris and Jason has been absolutely awesome. Merch Club offers tons of products, a great user experience, and it's an awesome solution for any business owner looking for branded merchandise." },
+  { name: "Lane Hickenbottom", text: "Merch Club goes above and beyond — offering exciting products that elevate your brand and get people talking. Chris is an amazing idea guy who comes up with the coolest ways to get your brand out there. Five stars all the way!" },
+  { name: "John Hardy", text: "Jason helped us get the logo prepped for embroidery and set up a store for us to use for fundraising. We have access to well over 1,000 items including apparel, lifestyle products, and more. Incredible service!" },
+  { name: "Nickole Duker", text: "Merch Club is the best! For years Chris has helped get our company great promotional items at great prices. They are super responsive and great with a deadline. We've tried many others — none compare." },
+  { name: "Joe DiMinico", text: "Excellent quality products, great service, and attention to detail." },
+  { name: "Matt Conley", text: "They made it easy to create exactly what we were looking for!" },
+  { name: "David Slobotski", text: "Came in clutch to save the day when I was behind schedule with an event." },
+];
+
+function RotatingTestimonials() {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setActiveIdx((prev) => (prev + 1) % testimonials.length);
+        setFade(true);
+      }, 400);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const t = testimonials[activeIdx];
+  return (
+    <div className="max-w-4xl mx-auto px-8 md:px-16 text-center min-h-[280px] flex flex-col items-center justify-center">
+      <div className={`transition-all duration-500 ${fade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+        <p className="text-2xl md:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
+          "{t.text}"
+        </p>
+        <div className="flex items-center justify-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center text-sm font-bold text-white">
+            {t.name.split(" ").map(n => n[0]).join("")}
+          </div>
+          <div className="text-left">
+            <span className="text-sm font-bold text-white block">{t.name}</span>
+            <div className="flex gap-0.5 mt-0.5">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex gap-2 mt-8">
+        {testimonials.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => { setFade(false); setTimeout(() => { setActiveIdx(i); setFade(true); }, 300); }}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${i === activeIdx ? "bg-white w-6" : "bg-white/20 hover:bg-white/40"}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   const [wordIndex, setWordIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -850,72 +914,22 @@ export default function Home() {
           </RevealItem>
         </div>
 
-        {(() => {
-          const row1 = [
-            { name: "Bailey Sullivan", text: "The Merch Club has been SUCH an amazing addition to our small business over these past 2 years! They've created custom hats, tees, safety vests, sunglasses, and more — making our apparel buying process SO much easier!" },
-            { name: "Bill Corriston", text: "Chris and his team at Merch Club have been fantastic to work with. Launching a company and developing brand awareness has been made so much easier having Merch Club in our corner! Pricing, communication, design support are all 10/10!" },
-            { name: "Matt Beck", text: "If you want the absolute best when it comes to your company logo, your apparel and your brand in general, there's no other choice than Merch Club. They took the time to design a logo that was literally perfect for my business." },
-            { name: "Andrew George", text: "Working with Chris and Jason has been absolutely awesome. Merch Club offers tons of products, a great user experience, and it's an awesome solution for any business owner looking for branded merchandise." },
-            { name: "Lane Hickenbottom", text: "When I think about merch or swag, I think logoed pens or embroidered hats. Merch Club goes above and beyond — offering exciting products that elevate your brand and get people talking. Five stars all the way!" },
-          ];
-          const row2 = [
-            { name: "John Hardy", text: "Jason helped us get the logo prepped for embroidery and set up a store for us to use for fundraising. We have access to well over 1,000 items including apparel, lifestyle products, and more. Incredible service!" },
-            { name: "Nickole Duker", text: "Merch Club is the best! For years Chris has helped get our company great promotional items at great prices. They are super responsive and great with a deadline. We are located in WA state and have tried many others — none compare." },
-            { name: "Joe DiMinico", text: "Excellent quality products, great service, and attention to detail." },
-            { name: "Matt Conley", text: "They made it easy to create exactly what we were looking for!" },
-            { name: "David Slobotski", text: "Came in clutch to save the day when I was behind schedule with an event." },
-          ];
-          const StarRow = () => (
-            <div className="flex gap-0.5">
-              {[...Array(5)].map((_, i) => (
-                <svg key={i} className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-            </div>
-          );
-          const TestimonialCard = ({ item }: { item: { name: string; text: string } }) => (
-            <div className="flex-shrink-0 flex items-center gap-4 bg-[#1a1a1a] rounded-full pl-1.5 pr-6 py-1.5 mx-2 border border-white/10">
-              <div className="w-12 h-12 rounded-full bg-white/15 flex items-center justify-center text-sm font-bold text-white flex-shrink-0 grayscale">
-                {item.name.split(" ").map(n => n[0]).join("")}
-              </div>
-              <div className="min-w-0">
-                <div className="flex items-center gap-3 mb-0.5">
-                  <span className="text-[11px] font-extrabold text-white tracking-wide">{item.name}</span>
-                  <StarRow />
-                </div>
-                <p className="text-[11px] text-[#888] leading-snug line-clamp-2 max-w-[280px]">{item.text}</p>
-              </div>
-            </div>
-          );
-          return (
-            <>
-              <div className="space-y-4">
-                <div className="flex items-center w-max animate-[testimonialScrollLeft_50s_linear_infinite] hover:[animation-play-state:paused]">
-                  {[...row1, ...row1].map((item, i) => <TestimonialCard key={i} item={item} />)}
-                </div>
-                <div className="flex items-center w-max animate-[testimonialScrollRight_55s_linear_infinite] hover:[animation-play-state:paused]">
-                  {[...row2, ...row2].map((item, i) => <TestimonialCard key={i} item={item} />)}
-                </div>
-              </div>
+        <RotatingTestimonials />
 
-              <div className="mt-16 pt-12 border-t border-white/5">
-                <p className="text-center text-[10px] font-bold uppercase tracking-[0.3em] text-[#555] mb-8">Trusted by brands like</p>
-                <div className="overflow-hidden">
-                  <div className="flex items-center w-max animate-[testimonialScrollLeft_25s_linear_infinite]">
-                    {[...Array(2)].flatMap((_, setIdx) =>
-                      [logoOnestaff, logoAccessBank, logoPaylocity, logoFraserStryker, logoCHI, logoKomen].map((logo, i) => (
-                        <div key={`${setIdx}-${i}`} className="flex-shrink-0 mx-10 grayscale brightness-200 opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-500">
-                          <img src={logo} alt="Brand logo" className="h-10 w-auto object-contain" />
-                        </div>
-                      ))
-                    )}
+        <div className="mt-16 pt-12 border-t border-white/5">
+          <p className="text-center text-[10px] font-bold uppercase tracking-[0.3em] text-[#555] mb-8">Trusted by brands like</p>
+          <div className="overflow-hidden">
+            <div className="flex items-center w-max animate-[testimonialScrollLeft_25s_linear_infinite]">
+              {[...Array(2)].flatMap((_, setIdx) =>
+                [logoOnestaff, logoAccessBank, logoPaylocity, logoFraserStryker, logoCHI, logoKomen].map((logo, i) => (
+                  <div key={`${setIdx}-${i}`} className="flex-shrink-0 mx-10 grayscale brightness-200 opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-500">
+                    <img src={logo} alt="Brand logo" className="h-10 w-auto object-contain" />
                   </div>
-                </div>
-              </div>
-            </>
-          );
-        })()}
+                ))
+              )}
+            </div>
+          </div>
+        </div>
       </section>
 
       <StickyTimeline />
