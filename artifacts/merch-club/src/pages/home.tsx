@@ -1013,6 +1013,33 @@ export default function Home() {
             </div>
           );
         })()}
+
+        <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-20 mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <RevealItem delay={300}>
+            <button
+              onClick={() => setProjectModalOpen(true)}
+              className="bg-white text-black text-sm font-bold px-8 py-3.5 rounded-full hover:bg-gray-200 transition-all hover:scale-105 inline-flex items-center gap-2"
+            >
+              Start a Bulk Order Project
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+              </svg>
+            </button>
+          </RevealItem>
+          <RevealItem delay={400}>
+            <a
+              href="https://www.brandini.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-white/20 text-white text-sm font-bold px-8 py-3.5 rounded-full hover:bg-white/10 transition-all hover:scale-105 inline-flex items-center gap-2"
+            >
+              Build Your On-Demand Store
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+              </svg>
+            </a>
+          </RevealItem>
+        </div>
       </section>
 
       <section className="bg-[#111] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
