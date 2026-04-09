@@ -756,7 +756,7 @@ export default function Home() {
 
                 <RevealItem delay={100}>
                   <div className="flex items-center gap-4 mb-10">
-                    <span className="text-xs font-bold text-white border border-white/30 rounded-full px-4 py-1.5">ACCESS BANK</span>
+                    <span className="text-xs font-bold text-white border border-white/30 rounded-full px-4 py-1.5">ONESTAFF MEDICAL</span>
                   </div>
                 </RevealItem>
 
@@ -764,7 +764,7 @@ export default function Home() {
                   <div className="mb-8">
                     <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#a3a3a3] block mb-4">Services delivered</span>
                     <div className="grid grid-cols-2 gap-x-8 gap-y-3">
-                      {["Executive gifting", "Event activations", "Onboarding kits", "Multi-location fulfillment"].map((tool) => (
+                      {["Nurses Week gifting", "Custom kitting", "Nationwide fulfillment", "Contract employee appreciation"].map((tool) => (
                         <div key={tool} className="flex items-center gap-2">
                           <svg className="w-3.5 h-3.5 text-[#a3a3a3] flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
