@@ -906,14 +906,6 @@ export default function Home() {
       </section>
 
       <section className="bg-[#0a0a0a] py-24 md:py-32 overflow-hidden border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-20 mb-16 text-center">
-          <RevealItem delay={0}>
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              What Business Owners Are Saying
-            </h3>
-          </RevealItem>
-        </div>
-
         <RotatingTestimonials />
 
         <div className="mt-16 pt-12 border-t border-white/5">
