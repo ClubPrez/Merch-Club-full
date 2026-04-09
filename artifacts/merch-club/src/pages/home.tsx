@@ -307,15 +307,15 @@ function StickyTimeline() {
   const activeCount = Math.floor(progress * (timelineSteps.length + 0.5));
 
   return (
-    <div className="bg-[#0a0a0a] py-20 md:py-28 px-8 md:px-16 lg:px-20">
+    <div className="bg-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
       <div className="max-w-7xl mx-auto">
         <RevealItem delay={0}>
-          <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+          <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] mb-3 text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
             From concept to delivery.
           </h3>
         </RevealItem>
         <RevealItem delay={100}>
-          <p className="text-sm md:text-base text-[#888] leading-relaxed max-w-2xl mb-14">
+          <p className="text-sm md:text-base text-[#666] leading-relaxed max-w-2xl mb-14">
             A compact process signal that demonstrates operational maturity. Descriptions can be hover-revealed on desktop and visible by default on mobile.
           </p>
         </RevealItem>
@@ -337,7 +337,7 @@ function StickyTimeline() {
                             transform: isActive ? "translateY(0)" : "translateY(12px)",
                           }}
                         >
-                          <div className="w-[100px] h-[120px] md:w-[120px] md:h-[150px] rounded-lg overflow-hidden border border-white/10 group-hover:border-white/25 shrink-0 transition-all duration-500">
+                          <div className="w-[100px] h-[120px] md:w-[120px] md:h-[150px] rounded-lg overflow-hidden border border-black/10 group-hover:border-black/25 shrink-0 transition-all duration-500">
                             <img
                               src={step.img}
                               alt={`Merch Club ${step.title.toLowerCase()} - branded merchandise ${step.desc.toLowerCase()}`}
@@ -348,19 +348,19 @@ function StickyTimeline() {
                           <div className="pt-1 min-w-0">
                             <span
                               className="text-3xl font-black tracking-tight leading-none block mb-1 transition-colors duration-500"
-                              style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#fff" : "#333" }}
+                              style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#000" : "#ccc" }}
                             >
                               {step.num}
                             </span>
                             <h4
                               className="text-lg font-black tracking-tight transition-colors duration-500"
-                              style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#fff" : "#444" }}
+                              style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#111" : "#bbb" }}
                             >
                               {step.title}
                             </h4>
                             <p
                               className="text-xs mt-1 leading-relaxed transition-all duration-500"
-                              style={{ color: isActive ? "#999" : "#333" }}
+                              style={{ color: isActive ? "#666" : "#ccc" }}
                             >
                               {step.desc}
                             </p>
@@ -373,7 +373,7 @@ function StickyTimeline() {
                               className="transition-all duration-500"
                               style={{ opacity: isActive ? 0.6 : 0.15 }}
                             >
-                              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                           </div>
                         )}
@@ -504,18 +504,18 @@ function RotatingTestimonials() {
   return (
     <div className="max-w-4xl mx-auto px-8 md:px-16 text-center min-h-[280px] flex flex-col items-center justify-center">
       <div className={`transition-all duration-500 ${fade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-        <p className="text-2xl md:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
+        <p className="text-2xl md:text-4xl lg:text-5xl font-black text-black leading-tight tracking-tight mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
           "{t.text}"
         </p>
         <div className="flex items-center justify-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center text-sm font-bold text-white">
+          <div className="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center text-sm font-bold text-black">
             {t.name.split(" ").map(n => n[0]).join("")}
           </div>
           <div className="text-left">
-            <span className="text-sm font-bold text-white block">{t.name}</span>
+            <span className="text-sm font-bold text-black block">{t.name}</span>
             <div className="flex gap-0.5 mt-0.5">
               {[...Array(5)].map((_, i) => (
-                <svg key={i} className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <svg key={i} className="w-3 h-3 text-black" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
               ))}
@@ -528,7 +528,7 @@ function RotatingTestimonials() {
           <button
             key={i}
             onClick={() => { setFade(false); setTimeout(() => { setActiveIdx(i); setFade(true); }, 300); }}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${i === activeIdx ? "bg-white w-6" : "bg-white/20 hover:bg-white/40"}`}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${i === activeIdx ? "bg-black w-6" : "bg-black/15 hover:bg-black/30"}`}
           />
         ))}
       </div>
@@ -905,7 +905,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] py-24 md:py-32 overflow-hidden border-t border-white/5">
+      <section className="bg-white py-24 md:py-32 overflow-hidden">
         <RotatingTestimonials />
 
       </section>
@@ -1037,19 +1037,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] py-24 md:py-32 overflow-hidden border-t border-white/5">
+      <section className="bg-white py-24 md:py-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-20 mb-16">
           <RevealItem delay={0}>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#a3a3a3] block mb-4">Built For Every Size</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Built For Every Size</span>
           </RevealItem>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <RevealItem delay={100}>
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] max-w-2xl" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] max-w-2xl text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 Flexible models. Same execution standard.
               </h3>
             </RevealItem>
             <RevealItem delay={200}>
-              <p className="text-sm text-[#888] leading-relaxed max-w-md">
+              <p className="text-sm text-[#666] leading-relaxed max-w-md">
                 Whether you're a small business ordering your first batch of branded gear or a large corporation running multi-location programs — we have a merch solution built for you. Different scale, same operational excellence.
               </p>
             </RevealItem>
@@ -1070,17 +1070,17 @@ export default function Home() {
               <div className="flex gap-6 animate-[flexScroll_30s_linear_infinite] hover:[animation-play-state:paused] w-max">
                 {[...flexCards, ...flexCards].map((card, idx) => (
                   <div key={idx} className="flex-shrink-0 w-[320px] group">
-                    <div className="relative rounded-2xl overflow-hidden bg-[#161616] border border-white/10 hover:border-white/20 transition-all duration-500 h-full">
+                    <div className="relative rounded-2xl overflow-hidden bg-[#f5f5f5] border border-black/5 hover:border-black/15 transition-all duration-500 h-full">
                       <div className="relative h-[220px] overflow-hidden">
                         <img src={card.img} alt={card.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#161616] via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#f5f5f5] via-transparent to-transparent" />
                       </div>
                       <div className="p-6">
-                        <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#a3a3a3] mb-3 block">{card.label}</span>
-                        <h4 className="text-lg font-black text-white mb-2 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em" }}>
+                        <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#888] mb-3 block">{card.label}</span>
+                        <h4 className="text-lg font-black text-black mb-2 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em" }}>
                           {card.title}
                         </h4>
-                        <p className="text-sm text-[#666] leading-relaxed">{card.desc}</p>
+                        <p className="text-sm text-[#888] leading-relaxed">{card.desc}</p>
                       </div>
                     </div>
                   </div>
@@ -1094,7 +1094,7 @@ export default function Home() {
           <RevealItem delay={300}>
             <button
               onClick={() => setProjectModalOpen(true)}
-              className="bg-white text-black text-sm font-bold px-8 py-3.5 rounded-full hover:bg-gray-200 transition-all hover:scale-105 inline-flex items-center gap-2"
+              className="bg-black text-white text-sm font-bold px-8 py-3.5 rounded-full hover:bg-gray-800 transition-all hover:scale-105 inline-flex items-center gap-2"
             >
               Start a Bulk Order Project
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -1107,7 +1107,7 @@ export default function Home() {
               href="https://www.brandini.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-white/20 text-white text-sm font-bold px-8 py-3.5 rounded-full hover:bg-white/10 transition-all hover:scale-105 inline-flex items-center gap-2"
+              className="border border-black/20 text-black text-sm font-bold px-8 py-3.5 rounded-full hover:bg-black/5 transition-all hover:scale-105 inline-flex items-center gap-2"
             >
               Build Your On-Demand Store
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
