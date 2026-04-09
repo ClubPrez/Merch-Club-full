@@ -19,7 +19,7 @@ import cloverImg from "@assets/Social_PostsArtboard_2@3x_1774554960751.jpg";
 import kittingImg from "@assets/image_1774638885691.png";
 import distributionImg from "@assets/image_1774638910753.png";
 import productionImg from "@assets/image_1774638950602.png";
-import strategyImg from "@assets/image_1774639001333.png";
+import strategyImg from "@assets/Product_demo_in_modern_office_setting_1775773725225.png";
 import designImg from "@assets/image_1774639099780.png";
 import proofingImg from "@assets/image_1774639328557.png";
 import team1Img from "@assets/1_1775229252465.png";
