@@ -10,6 +10,12 @@ import industrySpecificImg from "@assets/Smiling_man_in_work_jacket_177577267882
 import employeeGiftsImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_55_44_PM_1775772702220.png";
 import bulkSourcingImg from "@assets/ChatGPT_Image_Apr_9,_2026,_04_16_06_PM_1775772750326.png";
 import eventMerchImg from "@assets/Monochrome_merch_flat_lay_arrangement_1775772900084.png";
+import logoOnestaff from "@assets/image_1775774470912.png";
+import logoAccessBank from "@assets/image_1775774490745.png";
+import logoPaylocity from "@assets/image_1775774503055.png";
+import logoFraserStryker from "@assets/image_1775774520936.png";
+import logoCHI from "@assets/image_1775774561514.png";
+import logoKomen from "@assets/image_1775774581662.png";
 import bottleImg from "@assets/0I4A7757_1774446952971.jpg";
 import corporateImg from "@assets/image_1774625538266.png";
 import constructionImg from "@assets/image_1774625624335.png";
@@ -889,6 +895,21 @@ export default function Home() {
               </div>
               <div className="flex items-center w-max animate-[testimonialScrollRight_55s_linear_infinite] hover:[animation-play-state:paused]">
                 {[...row2, ...row2].map((item, i) => <TestimonialCard key={i} item={item} />)}
+              </div>
+            </div>
+
+            <div className="mt-16 pt-12 border-t border-white/5">
+              <p className="text-center text-[10px] font-bold uppercase tracking-[0.3em] text-[#555] mb-8">Trusted by brands like</p>
+              <div className="overflow-hidden">
+                <div className="flex items-center w-max animate-[testimonialScrollLeft_25s_linear_infinite]">
+                  {[...Array(2)].flatMap((_, setIdx) =>
+                    [logoOnestaff, logoAccessBank, logoPaylocity, logoFraserStryker, logoCHI, logoKomen].map((logo, i) => (
+                      <div key={`${setIdx}-${i}`} className="flex-shrink-0 mx-10 grayscale brightness-200 opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-500">
+                        <img src={logo} alt="Brand logo" className="h-10 w-auto object-contain" />
+                      </div>
+                    ))
+                  )}
+                </div>
               </div>
             </div>
           );
