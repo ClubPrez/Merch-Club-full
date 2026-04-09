@@ -27,6 +27,7 @@ import team2Img from "@assets/2_1775229252466.png";
 import team3Img from "@assets/3_1775229252466.png";
 import team4Img from "@assets/4_1775229252466.png";
 import accessBankImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_13_49_PM_1774718377455.png";
+import onestaffImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_08_AM_1775773287575.png";
 import merchClubProductionImg from "@assets/ChatGPT_Image_Mar_24,_2026,_11_18_55_AM_1774718494043.png";
 import merchClubDistributionImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_20_10_PM_1774718529581.png";
 import industryCorporateImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_13_49_PM_1774718584149.png";
@@ -778,11 +779,11 @@ export default function Home() {
                 <RevealItem delay={300}>
                   <blockquote className="border-l-2 border-white/20 pl-5 mb-8">
                     <p className="text-base md:text-lg text-white/90 leading-relaxed font-medium italic">
-                      "The coordination was seamless — every gift reflected our brand's quality and reached recipients on time across all three regions."
+                      "Merch Club nailed it — every Nurses Week box was on-brand, beautifully packaged, and delivered on time to travelers across the country."
                     </p>
                     <footer className="mt-4">
-                      <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#a3a3a3]">Access Bank</span>
-                      <span className="text-xs text-[#555] ml-2">— Brand & Marketing Team</span>
+                      <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#a3a3a3]">OneStaff Medical</span>
+                      <span className="text-xs text-[#555] ml-2">— Marketing Team</span>
                     </footer>
                   </blockquote>
                 </RevealItem>
@@ -791,20 +792,20 @@ export default function Home() {
               <RevealItem delay={400}>
                 <div className="grid grid-cols-4 gap-6 mt-4">
                   <div>
-                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={2500} prefix="+" /></span>
-                    <p className="text-[10px] text-[#555] mt-1 leading-relaxed">Units delivered</p>
+                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={1200} prefix="+" /></span>
+                    <p className="text-[10px] text-[#555] mt-1 leading-relaxed">Gift boxes shipped</p>
                   </div>
                   <div>
-                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={12} /></span>
-                    <p className="text-[10px] text-[#555] mt-1 leading-relaxed">Locations</p>
+                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={48} /></span>
+                    <p className="text-[10px] text-[#555] mt-1 leading-relaxed">States reached</p>
                   </div>
                   <div>
-                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={98} suffix="%" /></span>
-                    <p className="text-[10px] text-[#555] mt-1 leading-relaxed">On-time rate</p>
+                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={100} suffix="%" /></span>
+                    <p className="text-[10px] text-[#555] mt-1 leading-relaxed">On-time delivery</p>
                   </div>
                   <div>
-                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={3} /></span>
-                    <p className="text-[10px] text-[#555] mt-1 leading-relaxed">Regions</p>
+                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={5} /></span>
+                    <p className="text-[10px] text-[#555] mt-1 leading-relaxed">Custom items per kit</p>
                   </div>
                 </div>
               </RevealItem>
@@ -813,16 +814,16 @@ export default function Home() {
             <RevealItem delay={200} className="lg:w-[55%] relative">
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden border border-white/10">
-                  <img src={accessBankImg} alt="Access Bank branded puffer vests" className="w-full h-[500px] md:h-[600px] object-cover" />
+                  <img src={onestaffImg} alt="OneStaff Medical Nurses Week gift boxes" className="w-full h-[500px] md:h-[600px] object-cover" />
                 </div>
 
                 <div className="absolute bottom-6 right-6 bg-[#1a1a1a]/95 backdrop-blur-md rounded-xl border border-white/10 p-5 max-w-[280px] shadow-2xl shadow-black/40">
                   <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#a3a3a3] block mb-2">Case Study</span>
                   <h4 className="text-sm font-black text-white leading-snug mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.1rem", letterSpacing: "0.01em" }}>
-                    Access Bank Scales Branded Gifting With Merch Club
+                    OneStaff Medical Celebrates Nurses Week With Merch Club
                   </h4>
                   <p className="text-[11px] text-[#666] leading-relaxed mb-3">
-                    How a coordinated merch program elevated executive gifting across 3 regions.
+                    How a custom kitting program delivered branded gift boxes to traveling nurses nationwide.
                   </p>
                   <a href="#" className="text-[11px] font-bold text-white underline underline-offset-2 hover:text-[#a3a3a3] transition-colors">
                     Read the case study
