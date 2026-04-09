@@ -536,6 +536,59 @@ function RotatingTestimonials() {
   );
 }
 
+const faqItems = [
+  { q: "What is Merch Club and how does it work?", a: "Merch Club is a full-service branded merchandise partner. We handle everything from product sourcing and design to warehousing, kitting, and fulfillment — so your team doesn't have to." },
+  { q: "How much time can I save with Merch Club?", a: "Most clients save 10–20 hours per month by eliminating vendor coordination, order tracking, and inventory management. We handle the logistics so you can focus on your brand." },
+  { q: "Do you handle warehousing and fulfillment?", a: "Yes. We store your inventory in our warehouse and fulfill orders on demand — whether it's individual shipments, bulk drops, or kitted gift boxes shipped nationwide." },
+  { q: "Will the merch match my brand style and guidelines?", a: "Absolutely. Every project starts with a brand review. We match your colors, logos, fonts, and tone to ensure every piece of merch feels on-brand." },
+  { q: "Which industries does Merch Club work with?", a: "We work across healthcare, construction, finance, staffing, nonprofits, and more. Our process adapts to industry-specific needs like compliance, safety gear, and event timelines." },
+  { q: "How do I get started with Merch Club?", a: "Just fill out our project form or book a call. We'll learn about your goals, recommend products, and build a custom plan — no minimums, no pressure." },
+  { q: "Do I need to provide my own designs?", a: "Not at all. Our in-house design team creates custom artwork, mockups, and product layouts. If you have existing assets, we'll work with those too." },
+  { q: "What types of products can you source?", a: "Everything from premium apparel and headwear to drinkware, tech accessories, gift boxes, and trade show kits. If it can be branded, we can source it." },
+];
+
+function FAQAccordion() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const leftItems = faqItems.filter((_, i) => i % 2 === 0);
+  const rightItems = faqItems.filter((_, i) => i % 2 === 1);
+
+  const FAQItem = ({ item, index }: { item: typeof faqItems[0]; index: number }) => {
+    const isOpen = openIndex === index;
+    return (
+      <div className="border-t border-black/10">
+        <button
+          className="w-full flex items-center justify-between py-5 text-left group"
+          onClick={() => setOpenIndex(isOpen ? null : index)}
+        >
+          <span className="text-sm md:text-base font-medium text-black pr-4">{item.q}</span>
+          <span className={`text-xl text-black/50 transition-transform duration-300 shrink-0 ${isOpen ? "rotate-45" : ""}`}>+</span>
+        </button>
+        <div
+          className="overflow-hidden transition-all duration-300"
+          style={{ maxHeight: isOpen ? "200px" : "0", opacity: isOpen ? 1 : 0 }}
+        >
+          <p className="text-sm text-[#666] pb-5 leading-relaxed">{item.a}</p>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
+      <div>
+        {leftItems.map((item, i) => (
+          <FAQItem key={i} item={item} index={i * 2} />
+        ))}
+      </div>
+      <div>
+        {rightItems.map((item, i) => (
+          <FAQItem key={i} item={item} index={i * 2 + 1} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   const [wordIndex, setWordIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -1161,6 +1214,20 @@ export default function Home() {
               </RevealItem>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
+        <div className="max-w-5xl mx-auto">
+          <RevealItem delay={0}>
+            <div className="text-center mb-16">
+              <span className="inline-block text-xs font-semibold uppercase tracking-[0.15em] text-[#888] border border-black/15 rounded-full px-4 py-1.5 mb-5">FAQ's</span>
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                Frequently Asked Questions
+              </h3>
+            </div>
+          </RevealItem>
+          <FAQAccordion />
         </div>
       </section>
 
