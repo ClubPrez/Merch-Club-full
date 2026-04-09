@@ -862,29 +862,32 @@ export default function Home() {
           const StarRow = () => (
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
-                <svg key={i} className="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                <svg key={i} className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
               ))}
             </div>
           );
           const TestimonialCard = ({ item }: { item: { name: string; text: string } }) => (
-            <div className="flex-shrink-0 max-w-[300px] bg-white rounded-2xl px-4 py-3 mx-2 shadow-lg shadow-black/20 relative">
-              <div className="absolute -bottom-1.5 left-6 w-3 h-3 bg-white rotate-45" />
-              <div className="flex items-center justify-between gap-3 mb-1.5">
-                <span className="text-[11px] font-extrabold text-black uppercase tracking-wide">{item.name}</span>
-                <span className="text-[9px] text-gray-400">{'>>'}</span>
+            <div className="flex-shrink-0 flex items-center gap-4 bg-[#1a1a1a] rounded-full pl-1.5 pr-6 py-1.5 mx-2 border border-white/10">
+              <div className="w-12 h-12 rounded-full bg-white/15 flex items-center justify-center text-sm font-bold text-white flex-shrink-0 grayscale">
+                {item.name.split(" ").map(n => n[0]).join("")}
               </div>
-              <StarRow />
-              <p className="text-[11px] text-gray-600 leading-snug mt-1.5 line-clamp-3">{item.text}</p>
+              <div className="min-w-0">
+                <div className="flex items-center gap-3 mb-0.5">
+                  <span className="text-[11px] font-extrabold text-white tracking-wide">{item.name}</span>
+                  <StarRow />
+                </div>
+                <p className="text-[11px] text-[#888] leading-snug line-clamp-2 max-w-[280px]">{item.text}</p>
+              </div>
             </div>
           );
           return (
-            <div className="space-y-8">
-              <div className="flex items-center w-max animate-[testimonialScrollLeft_40s_linear_infinite] hover:[animation-play-state:paused]">
+            <div className="space-y-4">
+              <div className="flex items-center w-max animate-[testimonialScrollLeft_50s_linear_infinite] hover:[animation-play-state:paused]">
                 {[...row1, ...row1].map((item, i) => <TestimonialCard key={i} item={item} />)}
               </div>
-              <div className="flex items-center w-max animate-[testimonialScrollRight_45s_linear_infinite] hover:[animation-play-state:paused]">
+              <div className="flex items-center w-max animate-[testimonialScrollRight_55s_linear_infinite] hover:[animation-play-state:paused]">
                 {[...row2, ...row2].map((item, i) => <TestimonialCard key={i} item={item} />)}
               </div>
             </div>
