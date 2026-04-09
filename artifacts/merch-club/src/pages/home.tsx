@@ -1173,7 +1173,7 @@ export default function Home() {
 
       {/* Team section hidden — will move to separate page */}
 
-      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
+      <section className="bg-white py-16 md:py-20 px-8 md:px-16 lg:px-20">
         <div className="max-w-5xl mx-auto">
           <RevealItem delay={0}>
             <div className="text-center mb-16">
