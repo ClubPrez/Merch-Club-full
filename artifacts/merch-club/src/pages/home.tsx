@@ -753,7 +753,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="overflow-hidden bg-white py-3 -rotate-1 scale-105 relative z-10">
+      <div className="overflow-hidden bg-white py-3 -rotate-1 scale-105 relative z-10 -mt-5">
         <div className="flex animate-[marquee_20s_linear_infinite] whitespace-nowrap">
           {[...Array(3)].map((_, i) => (
             <div key={i} className="flex shrink-0 items-center">
