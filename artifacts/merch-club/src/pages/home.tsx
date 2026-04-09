@@ -161,20 +161,20 @@ function RotatingCards() {
               key={point.label}
               className={`flex items-center gap-4 rounded-2xl px-5 py-4 transition-all duration-500 ${
                 isActive
-                  ? "bg-white/10 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.05)] scale-[1.02]"
+                  ? "bg-black/5 border border-black/10 shadow-[0_0_20px_rgba(0,0,0,0.05)] scale-[1.02]"
                   : "bg-transparent border border-transparent opacity-40 scale-100"
               }`}
               style={{
                 animation: isActive && !isExiting ? "card-enter 0.4s ease-out forwards" : undefined,
               }}
             >
-              <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-500 ${isActive ? "bg-white/15" : "bg-white/5"}`}>
-                <svg className={`w-5 h-5 transition-colors duration-500 ${isActive ? "text-white" : "text-[#555]"}`} fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+              <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-500 ${isActive ? "bg-black/10" : "bg-black/5"}`}>
+                <svg className={`w-5 h-5 transition-colors duration-500 ${isActive ? "text-black" : "text-[#aaa]"}`} fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d={point.icon} />
                 </svg>
               </div>
               <div>
-                <span className={`text-sm font-bold tracking-wide transition-colors duration-500 ${isActive ? "text-white" : "text-[#666]"}`}>{point.label}</span>
+                <span className={`text-sm font-bold tracking-wide transition-colors duration-500 ${isActive ? "text-black" : "text-[#999]"}`}>{point.label}</span>
                 {isActive && (
                   <p className="text-xs text-[#888] mt-0.5">{point.desc}</p>
                 )}
@@ -307,15 +307,15 @@ function StickyTimeline() {
   const activeCount = Math.floor(progress * (timelineSteps.length + 0.5));
 
   return (
-    <div className="bg-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
+    <div className="bg-[#0a0a0a] py-20 md:py-28 px-8 md:px-16 lg:px-20">
       <div className="max-w-7xl mx-auto">
         <RevealItem delay={0}>
-          <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] mb-3 text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+          <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
             From concept to delivery.
           </h3>
         </RevealItem>
         <RevealItem delay={100}>
-          <p className="text-sm md:text-base text-[#666] leading-relaxed max-w-2xl mb-14">
+          <p className="text-sm md:text-base text-[#888] leading-relaxed max-w-2xl mb-14">
             A compact process signal that demonstrates operational maturity. Descriptions can be hover-revealed on desktop and visible by default on mobile.
           </p>
         </RevealItem>
@@ -337,7 +337,7 @@ function StickyTimeline() {
                             transform: isActive ? "translateY(0)" : "translateY(12px)",
                           }}
                         >
-                          <div className="w-[100px] h-[120px] md:w-[120px] md:h-[150px] rounded-lg overflow-hidden border border-black/10 group-hover:border-black/25 shrink-0 transition-all duration-500">
+                          <div className="w-[100px] h-[120px] md:w-[120px] md:h-[150px] rounded-lg overflow-hidden border border-white/10 group-hover:border-white/25 shrink-0 transition-all duration-500">
                             <img
                               src={step.img}
                               alt={`Merch Club ${step.title.toLowerCase()} - branded merchandise ${step.desc.toLowerCase()}`}
@@ -348,19 +348,19 @@ function StickyTimeline() {
                           <div className="pt-1 min-w-0">
                             <span
                               className="text-3xl font-black tracking-tight leading-none block mb-1 transition-colors duration-500"
-                              style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#000" : "#ccc" }}
+                              style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#fff" : "#333" }}
                             >
                               {step.num}
                             </span>
                             <h4
                               className="text-lg font-black tracking-tight transition-colors duration-500"
-                              style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#111" : "#bbb" }}
+                              style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#fff" : "#444" }}
                             >
                               {step.title}
                             </h4>
                             <p
                               className="text-xs mt-1 leading-relaxed transition-all duration-500"
-                              style={{ color: isActive ? "#666" : "#ccc" }}
+                              style={{ color: isActive ? "#999" : "#333" }}
                             >
                               {step.desc}
                             </p>
@@ -373,7 +373,7 @@ function StickyTimeline() {
                               className="transition-all duration-500"
                               style={{ opacity: isActive ? 0.6 : 0.15 }}
                             >
-                              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                           </div>
                         )}
@@ -729,18 +729,18 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="relative bg-[#111] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
+      <section className="relative bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
           <div className="flex-1 flex items-center justify-center order-2 md:order-1">
             <RotatingCards />
           </div>
 
           <div className="flex-1 text-left order-1 md:order-2">
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
               Custom merch<br />isn't complicated.<br />
-              <span className="text-[#a3a3a3]">Coordinating it is.</span>
+              <span className="text-[#888]">Coordinating it is.</span>
             </h3>
-            <p className="mt-6 md:mt-8 text-sm md:text-base text-[#888] leading-relaxed max-w-lg">
+            <p className="mt-6 md:mt-8 text-sm md:text-base text-[#666] leading-relaxed max-w-lg">
               Ordering branded merchandise usually means juggling emails, approvals, shipping timelines, and product quality. Different vendors. Different deadlines. Different headaches. Merch Club replaces that chaos with one organized system. You get a dedicated team, clear timelines, and merch that actually reflects your brand.
             </p>
           </div>
