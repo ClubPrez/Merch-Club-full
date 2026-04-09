@@ -908,20 +908,6 @@ export default function Home() {
       <section className="bg-[#0a0a0a] py-24 md:py-32 overflow-hidden border-t border-white/5">
         <RotatingTestimonials />
 
-        <div className="mt-16 pt-12 border-t border-white/5">
-          <p className="text-center text-[10px] font-bold uppercase tracking-[0.3em] text-[#555] mb-8">Trusted by brands like</p>
-          <div className="overflow-hidden">
-            <div className="flex items-center w-max animate-[testimonialScrollLeft_25s_linear_infinite]">
-              {[...Array(2)].flatMap((_, setIdx) =>
-                [logoOnestaff, logoAccessBank, logoPaylocity, logoFraserStryker, logoCHI, logoKomen].map((logo, i) => (
-                  <div key={`${setIdx}-${i}`} className="flex-shrink-0 mx-10 opacity-50 hover:opacity-80 transition-all duration-500">
-                    <img src={logo} alt="Brand logo" className="h-10 w-auto object-contain invert brightness-200" />
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-        </div>
       </section>
 
       <StickyTimeline />
