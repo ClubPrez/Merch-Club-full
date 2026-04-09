@@ -889,29 +889,31 @@ export default function Home() {
             </div>
           );
           return (
-            <div className="space-y-4">
-              <div className="flex items-center w-max animate-[testimonialScrollLeft_50s_linear_infinite] hover:[animation-play-state:paused]">
-                {[...row1, ...row1].map((item, i) => <TestimonialCard key={i} item={item} />)}
-              </div>
-              <div className="flex items-center w-max animate-[testimonialScrollRight_55s_linear_infinite] hover:[animation-play-state:paused]">
-                {[...row2, ...row2].map((item, i) => <TestimonialCard key={i} item={item} />)}
-              </div>
-            </div>
-
-            <div className="mt-16 pt-12 border-t border-white/5">
-              <p className="text-center text-[10px] font-bold uppercase tracking-[0.3em] text-[#555] mb-8">Trusted by brands like</p>
-              <div className="overflow-hidden">
-                <div className="flex items-center w-max animate-[testimonialScrollLeft_25s_linear_infinite]">
-                  {[...Array(2)].flatMap((_, setIdx) =>
-                    [logoOnestaff, logoAccessBank, logoPaylocity, logoFraserStryker, logoCHI, logoKomen].map((logo, i) => (
-                      <div key={`${setIdx}-${i}`} className="flex-shrink-0 mx-10 grayscale brightness-200 opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-500">
-                        <img src={logo} alt="Brand logo" className="h-10 w-auto object-contain" />
-                      </div>
-                    ))
-                  )}
+            <>
+              <div className="space-y-4">
+                <div className="flex items-center w-max animate-[testimonialScrollLeft_50s_linear_infinite] hover:[animation-play-state:paused]">
+                  {[...row1, ...row1].map((item, i) => <TestimonialCard key={i} item={item} />)}
+                </div>
+                <div className="flex items-center w-max animate-[testimonialScrollRight_55s_linear_infinite] hover:[animation-play-state:paused]">
+                  {[...row2, ...row2].map((item, i) => <TestimonialCard key={i} item={item} />)}
                 </div>
               </div>
-            </div>
+
+              <div className="mt-16 pt-12 border-t border-white/5">
+                <p className="text-center text-[10px] font-bold uppercase tracking-[0.3em] text-[#555] mb-8">Trusted by brands like</p>
+                <div className="overflow-hidden">
+                  <div className="flex items-center w-max animate-[testimonialScrollLeft_25s_linear_infinite]">
+                    {[...Array(2)].flatMap((_, setIdx) =>
+                      [logoOnestaff, logoAccessBank, logoPaylocity, logoFraserStryker, logoCHI, logoKomen].map((logo, i) => (
+                        <div key={`${setIdx}-${i}`} className="flex-shrink-0 mx-10 grayscale brightness-200 opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-500">
+                          <img src={logo} alt="Brand logo" className="h-10 w-auto object-contain" />
+                        </div>
+                      ))
+                    )}
+                  </div>
+                </div>
+              </div>
+            </>
           );
         })()}
       </section>
