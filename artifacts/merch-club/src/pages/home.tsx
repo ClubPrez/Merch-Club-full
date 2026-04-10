@@ -817,7 +817,7 @@ export default function Home() {
             <div className="flex items-center justify-center">
               {[
                 { label: "Construction", img: constructionImg },
-                { label: "Healthcare", img: modelImg },
+                { label: "Healthcare", img: healthcareApparelImg },
                 { label: "Corporate", img: industryCorporateImg },
                 { label: "Events", img: industryEventsImg },
               ].map((item, i) => (
