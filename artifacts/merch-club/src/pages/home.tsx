@@ -840,22 +840,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] py-8 md:py-12 overflow-hidden -mt-[75px]">
+      <section className="bg-white py-8 md:py-12 overflow-hidden -mt-[75px]">
         <RevealItem delay={0}>
-          <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-[#555] mb-10">Brands We Work With</p>
+          <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-[#999] mb-10">Brands We Work With</p>
         </RevealItem>
         {[
           { brands: ["Carhartt", "Nike", "Adidas", "Yeti", "Solo Stove", "Patagonia", "The North Face"], direction: "marquee", duration: "35s" },
           { brands: ["Under Armour", "Columbia", "Stanley", "TravisMathew", "Callaway", "Peter Millar", "OGIO"], direction: "marquee-reverse", duration: "40s" },
           { brands: ["Titleist", "Vineyard Vines", "Hanes", "Champion", "Bella+Canvas", "Next Level"], direction: "marquee", duration: "32s" },
         ].map((row, rowIdx) => (
-          <div key={rowIdx} className="overflow-hidden py-4 border-t border-white/5" style={{ animationDelay: `${rowIdx * 200}ms` }}>
+          <div key={rowIdx} className="overflow-hidden py-4 border-t border-black/5" style={{ animationDelay: `${rowIdx * 200}ms` }}>
             <div className="flex whitespace-nowrap" style={{ animation: `${row.direction} ${row.duration} linear infinite` }}>
               {[...Array(4)].map((_, rep) => (
                 <div key={rep} className="flex items-center shrink-0">
                   {row.brands.map((brand, j) => (
-                    <span key={`${rep}-${j}`} className="text-lg md:text-xl lg:text-2xl font-black uppercase tracking-tight text-[#666] hover:text-[#999] transition-colors duration-300 mx-6 md:mx-10 flex items-center gap-3 md:gap-4 shrink-0" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#444] shrink-0" />
+                    <span key={`${rep}-${j}`} className="text-lg md:text-xl lg:text-2xl font-black uppercase tracking-tight text-[#999] hover:text-[#666] transition-colors duration-300 mx-6 md:mx-10 flex items-center gap-3 md:gap-4 shrink-0" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#ccc] shrink-0" />
                       {brand}
                     </span>
                   ))}
