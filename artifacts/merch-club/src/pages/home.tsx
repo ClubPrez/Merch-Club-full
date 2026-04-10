@@ -521,7 +521,7 @@ function TrustedBrandsSection() {
   }, []);
 
   return (
-    <section className="bg-[#f7f7f7] py-16 md:py-20 px-8 md:px-16 lg:px-20 border-t border-black/5">
+    <section className="bg-white py-16 md:py-20 px-8 md:px-16 lg:px-20">
       <div className="max-w-6xl mx-auto">
         <p className="text-center text-[11px] font-bold uppercase tracking-[0.25em] text-[#999] mb-10 md:mb-14">
           Brands that trust us
@@ -540,7 +540,7 @@ function TrustedBrandsSection() {
               <img
                 src={brand.logo}
                 alt={brand.name}
-                className="h-8 md:h-10 lg:h-12 w-auto object-contain"
+                className="h-12 md:h-16 lg:h-20 w-auto object-contain"
               />
             </div>
           ))}
