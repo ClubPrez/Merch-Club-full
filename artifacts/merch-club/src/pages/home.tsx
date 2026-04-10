@@ -1256,7 +1256,7 @@ export default function Home() {
       <section id="flexible-models" className="bg-white py-24 md:py-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-20 mb-16">
           <RevealItem delay={0}>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Built For Every Size</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Built For Every Size Business</span>
           </RevealItem>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <RevealItem delay={100}>
