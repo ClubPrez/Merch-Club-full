@@ -444,7 +444,7 @@ function StartProjectModal({ open, onClose }: { open: boolean; onClose: () => vo
             <img src={logoSrc} alt="Merch Club" className="h-8 object-contain mb-4" />
             <h4 className="text-3xl md:text-4xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>Start a Project</h4>
             <p className="text-sm text-[#888] mt-1">Tell us what you're thinking. We'll handle the rest.</p>
-            <p className="text-xs text-[#999] mt-3 mb-6 leading-relaxed">
+            <p className="text-sm text-[#888] mt-3 mb-6 leading-relaxed">
               You don't need it all figured out. Give us the basics.
             </p>
 
