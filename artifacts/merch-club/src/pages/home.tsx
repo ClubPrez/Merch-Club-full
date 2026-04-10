@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "wouter";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import heroImg from "@assets/0I4A7792_1774446809972.jpg";
 import golfImg from "@assets/image_1774554118628.png";
@@ -1345,15 +1346,16 @@ export default function Home() {
               </h3>
             </RevealItem>
             <RevealItem delay={100}>
-              <a href="#" className="text-sm font-bold text-black underline underline-offset-4 hover:text-[#666] transition-colors">
+              <Link href="/blog" className="text-sm font-bold text-black underline underline-offset-4 hover:text-[#666] transition-colors">
                 View all posts
-              </a>
+              </Link>
             </RevealItem>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
+                slug: "merch-program-strategy",
                 img: blogKittingImg,
                 tag: "Strategy",
                 title: "Why Your Merch Program Needs a Strategy — Not Just a Vendor",
@@ -1361,6 +1363,7 @@ export default function Home() {
                 date: "Apr 2, 2026",
               },
               {
+                slug: "custom-kitting-brand-experience",
                 img: blogPackagingImg,
                 tag: "Kitting",
                 title: "The Hidden Cost of Unboxing: How Custom Kitting Elevates Brand Experience",
@@ -1368,6 +1371,7 @@ export default function Home() {
                 date: "Mar 18, 2026",
               },
               {
+                slug: "branded-merchandise-mistakes",
                 img: blogCityImg,
                 tag: "Corporate",
                 title: "5 Branded Merchandise Mistakes That Make Your Company Look Amateur",
@@ -1376,7 +1380,7 @@ export default function Home() {
               },
             ].map((post, i) => (
               <RevealItem key={i} delay={200 + i * 150}>
-                <a href="#" className="group block">
+                <Link href={`/blog/${post.slug}`} className="group block">
                   <div className="rounded-2xl overflow-hidden border border-black/10 mb-5">
                     <img
                       src={post.img}
@@ -1392,7 +1396,7 @@ export default function Home() {
                     {post.excerpt}
                   </p>
                   <span className="text-[11px] text-[#aaa] font-medium">{post.date}</span>
-                </a>
+                </Link>
               </RevealItem>
             ))}
           </div>
