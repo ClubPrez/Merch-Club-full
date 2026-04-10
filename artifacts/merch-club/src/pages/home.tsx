@@ -192,7 +192,7 @@ function RevealItem({ delay, className, children }: { delay: number; className?:
   return <div ref={ref} className={className}>{children}</div>;
 }
 
-function BetterWaySection() {
+function BetterWaySection({ onStartProject }: { onStartProject: () => void }) {
   const sectionRef = useRef<HTMLElement>(null);
   const iframeWrapRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -274,10 +274,10 @@ function BetterWaySection() {
           <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-white/10 transition-colors">
             One partner. Total execution.
           </a>
-          <a href="#" className="inline-flex items-center gap-2 bg-white text-black text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-gray-200 transition-colors">
+          <button onClick={onStartProject} className="inline-flex items-center gap-2 bg-white text-black text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-gray-200 transition-colors">
             Start Planning Your Project
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-          </a>
+          </button>
         </RevealItem>
       </div>
     </section>
@@ -801,7 +801,7 @@ export default function Home() {
         </div>
       </section>
 
-      <BetterWaySection />
+      <BetterWaySection onStartProject={() => setProjectModalOpen(true)} />
 
       <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-6xl mx-auto">
