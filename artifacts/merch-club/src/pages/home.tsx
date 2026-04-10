@@ -1102,12 +1102,12 @@ export default function Home() {
         </div>
       </section>
 
-      <TrustedBrandsSection />
-
       <section id="testimonials" className="bg-white py-24 md:py-32 overflow-hidden">
         <RotatingTestimonials />
 
       </section>
+
+      <TrustedBrandsSection />
 
       <StickyTimeline />
 
