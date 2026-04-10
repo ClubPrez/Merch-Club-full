@@ -626,7 +626,7 @@ export default function Home() {
       <div className="hidden md:flex items-center justify-end gap-8 px-6 md:px-10 py-2 bg-[#222] border-b border-white/5 text-[10px] font-bold uppercase tracking-[0.2em]">
         <a href="#" className="text-white transition-colors">MerchClub</a>
         <span className="text-white/20">|</span>
-        <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Brandini</a>
+        <a href="https://trybrandini.com/" target="_blank" rel="noopener noreferrer" className="text-[#a3a3a3] hover:text-white transition-colors">Brandini</a>
         <span className="text-white/20">|</span>
         <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">ScrubClub</a>
       </div>
@@ -1157,7 +1157,7 @@ export default function Home() {
           </RevealItem>
           <RevealItem delay={400}>
             <a
-              href="https://www.brandini.com"
+              href="https://trybrandini.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-black/20 text-black text-sm font-bold px-8 py-3.5 rounded-full hover:bg-black/5 transition-all hover:scale-105 inline-flex items-center gap-2"
