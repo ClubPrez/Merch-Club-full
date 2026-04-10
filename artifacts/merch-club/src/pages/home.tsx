@@ -41,6 +41,11 @@ import industryEventsImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_21_48_PM_1
 import newProofingImg from "@assets/image_1774719180184.png";
 import newDesignImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_35_49_PM_1774719367008.png";
 import dashboardScreenImg from "@assets/Client_portal_dashboard_UI_design_1775591808887.png";
+import brandAccessBank from "@assets/brand_accessbank_nobg.png";
+import brandPaylocity from "@assets/brand_paylocity_nobg.png";
+import brandFraserStryker from "@assets/brand_fraserstryker_nobg.png";
+import brandKomen from "@assets/brand_komen_nobg.png";
+import brandOnestaff from "@assets/brand_onestaff_nobg.png";
 
 function CountUp({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -496,6 +501,54 @@ const testimonials = [
   { name: "Matt Conley", text: "They made it easy to create exactly what we were looking for!" },
   { name: "David Slobotski", text: "Came in clutch to save the day when I was behind schedule with an event." },
 ];
+
+const trustedBrands = [
+  { name: "OneStaff Medical", logo: brandOnestaff },
+  { name: "Access Bank", logo: brandAccessBank },
+  { name: "Paylocity", logo: brandPaylocity },
+  { name: "Fraser Stryker", logo: brandFraserStryker },
+  { name: "Susan G. Komen", logo: brandKomen },
+];
+
+function TrustedBrandsSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % trustedBrands.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="bg-[#f7f7f7] py-16 md:py-20 px-8 md:px-16 lg:px-20 border-t border-black/5">
+      <div className="max-w-6xl mx-auto">
+        <p className="text-center text-[11px] font-bold uppercase tracking-[0.25em] text-[#999] mb-10 md:mb-14">
+          Brands that trust us
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16 lg:gap-20">
+          {trustedBrands.map((brand, i) => (
+            <div
+              key={brand.name}
+              className="transition-all duration-700 ease-in-out"
+              style={{
+                opacity: i === activeIndex ? 1 : 0.25,
+                transform: i === activeIndex ? "scale(1.12)" : "scale(1)",
+                filter: i === activeIndex ? "none" : "grayscale(100%)",
+              }}
+            >
+              <img
+                src={brand.logo}
+                alt={brand.name}
+                className="h-8 md:h-10 lg:h-12 w-auto object-contain"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function RotatingTestimonials() {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -1048,6 +1101,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <TrustedBrandsSection />
 
       <section id="testimonials" className="bg-white py-24 md:py-32 overflow-hidden">
         <RotatingTestimonials />
