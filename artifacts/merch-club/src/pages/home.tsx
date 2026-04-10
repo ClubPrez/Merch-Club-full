@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import heroImg from "@assets/0I4A7792_1774446809972.jpg";
 import golfImg from "@assets/image_1774554118628.png";
-import constructionApparelImg from "@assets/Smiling_man_in_work_jacket_1775769546765.png";
+import constructionApparelImg from "@assets/Casual_style_with_Carhartt_jacket_1775780782278.png";
 import healthcareApparelImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1775769560213.png";
 import kittingNewImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_08_AM_1775772571862.png";
 import onDemandStoreImg from "@assets/Club_logo_hoodie_with_bold_text_1775772595094.png";
