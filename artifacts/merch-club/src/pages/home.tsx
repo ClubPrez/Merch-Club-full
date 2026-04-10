@@ -931,6 +931,8 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="h-24 md:h-32 bg-gradient-to-b from-white to-[#0a0a0a]" />
+
       <BetterWaySection onStartProject={() => setProjectModalOpen(true)} />
 
       <section id="industries" className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
@@ -997,7 +999,9 @@ export default function Home() {
         ))}
       </section>
 
-      <section id="case-study" className="bg-white py-16 md:py-24 px-8 md:px-16 lg:px-20 border-t border-black/5">
+      <div className="h-24 md:h-32 bg-gradient-to-b from-[#0a0a0a] to-white" />
+
+      <section id="case-study" className="bg-white py-16 md:py-24 px-8 md:px-16 lg:px-20">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-stretch">
             <div className="lg:w-[45%] flex flex-col justify-between">
@@ -1108,6 +1112,8 @@ export default function Home() {
       </section>
 
       <TrustedBrandsSection />
+
+      <div className="h-24 md:h-32 bg-gradient-to-b from-white to-[#0a0a0a]" />
 
       <StickyTimeline />
 
@@ -1236,6 +1242,8 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="h-24 md:h-32 bg-gradient-to-b from-[#141414] to-white" />
+
       <section id="flexible-models" className="bg-white py-24 md:py-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-20 mb-16">
           <RevealItem delay={0}>
@@ -1332,6 +1340,8 @@ export default function Home() {
           <FAQAccordion />
         </div>
       </section>
+
+      <div className="h-24 md:h-32 bg-gradient-to-b from-white to-[#0a0a0a]" />
 
       <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-4xl mx-auto text-center">
