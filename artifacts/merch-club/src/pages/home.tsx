@@ -1054,7 +1054,7 @@ export default function Home() {
             <RevealItem delay={200} className="lg:w-[55%] relative">
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden border border-black/10">
-                  <img src={onestaffImg} alt="OneStaff Medical Nurses Week gift boxes" className="w-full h-[280px] sm:h-[340px] md:h-[420px] object-cover" />
+                  <img src={onestaffImg} alt="OneStaff Medical Nurses Week gift boxes" className="w-full h-[300px] sm:h-[380px] md:h-[500px] object-cover" />
                 </div>
 
                 <div className="hidden md:block absolute bottom-6 left-6 bg-white/95 backdrop-blur-md rounded-xl border border-black/10 p-5 max-w-[280px] shadow-2xl shadow-black/10">
