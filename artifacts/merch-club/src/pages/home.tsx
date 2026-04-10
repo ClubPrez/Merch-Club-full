@@ -21,7 +21,7 @@ import corporateImg from "@assets/image_1774625538266.png";
 import constructionImg from "@assets/image_1774625624335.png";
 import eventsImg from "@assets/image_1774625754502.png";
 import modelImg from "@assets/image_1774553895766.png";
-import cloverImg from "@assets/Social_PostsArtboard_2@3x_1774554960751.jpg";
+import cloverImg from "@assets/Social_PostsArtboard_2@3x_copy_1775827336093.png";
 import kittingImg from "@assets/image_1774638885691.png";
 import distributionImg from "@assets/ChatGPT_Image_Apr_9,_2026,_04_16_06_PM_1775773754055.png";
 import productionImg from "@assets/image_1774638950602.png";
