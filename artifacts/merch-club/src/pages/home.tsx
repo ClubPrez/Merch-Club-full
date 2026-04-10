@@ -869,11 +869,11 @@ export default function Home() {
       <section className="bg-white py-16 md:py-24 px-8 md:px-16 lg:px-20 border-t border-black/5">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-stretch">
-            <div className="lg:w-[45%] flex flex-col justify-between">
+            <div className="lg:w-[50%] flex flex-col justify-between">
               <div>
                 <RevealItem delay={0}>
                   <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] mb-6 text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                    Meet the brands putting<br />our process to work.
+                    Meet the brands putting our process to work.
                   </h3>
                 </RevealItem>
 
@@ -934,7 +934,7 @@ export default function Home() {
               </RevealItem>
             </div>
 
-            <RevealItem delay={200} className="lg:w-[55%] relative">
+            <RevealItem delay={200} className="lg:w-[50%] relative">
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden border border-black/10">
                   <img src={onestaffImg} alt="OneStaff Medical Nurses Week gift boxes" className="w-full h-[500px] md:h-[600px] object-cover" />
