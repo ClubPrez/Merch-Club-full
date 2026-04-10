@@ -221,8 +221,8 @@ function BetterWaySection({ onStartProject }: { onStartProject: () => void }) {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden py-24 md:py-32 px-8 md:px-16 lg:px-20">
-      <div ref={iframeWrapRef} className="absolute inset-0 z-0 will-change-transform pointer-events-none" style={{ transform: "scale(1.15)" }}>
+    <section ref={sectionRef} className="relative overflow-hidden py-16 md:py-32 px-8 md:px-16 lg:px-20 bg-[#0a0a0a]">
+      <div ref={iframeWrapRef} className="hidden md:block absolute inset-0 z-0 will-change-transform pointer-events-none" style={{ transform: "scale(1.15)" }}>
         <iframe
           src="https://www.youtube.com/embed/_NvgNaTBcL8?autoplay=1&mute=1&loop=1&playlist=_NvgNaTBcL8&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1"
           allow="autoplay; encrypted-media"
@@ -231,7 +231,18 @@ function BetterWaySection({ onStartProject }: { onStartProject: () => void }) {
           title="Merch Club showcase"
         />
       </div>
-      <div className="absolute inset-0 bg-black/60 z-[1]" />
+      <div className="hidden md:block absolute inset-0 bg-black/60 z-[1]" />
+
+      <div className="md:hidden mb-8 rounded-2xl overflow-hidden relative" style={{ aspectRatio: "16/9" }}>
+        <iframe
+          src="https://www.youtube.com/embed/_NvgNaTBcL8?autoplay=1&mute=1&loop=1&playlist=_NvgNaTBcL8&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1"
+          allow="autoplay; encrypted-media"
+          className="absolute inset-0 w-full h-full"
+          style={{ border: "none" }}
+          title="Merch Club showcase"
+        />
+      </div>
+
       <div ref={contentRef} className="max-w-6xl mx-auto relative z-10 will-change-transform">
         <RevealItem delay={0}>
           <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-white/70" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
