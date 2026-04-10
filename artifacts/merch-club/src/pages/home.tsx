@@ -1018,7 +1018,7 @@ export default function Home() {
                   <img src={onestaffImg} alt="OneStaff Medical Nurses Week gift boxes" className="w-full h-[300px] sm:h-[400px] md:h-[600px] object-cover" />
                 </div>
 
-                <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 bg-white/95 backdrop-blur-md rounded-xl border border-black/10 p-4 sm:p-5 max-w-[240px] sm:max-w-[280px] shadow-2xl shadow-black/10">
+                <div className="hidden md:block absolute bottom-6 left-6 bg-white/95 backdrop-blur-md rounded-xl border border-black/10 p-5 max-w-[280px] shadow-2xl shadow-black/10">
                   <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#888] block mb-2">Case Study</span>
                   <h4 className="text-sm font-black text-black leading-snug mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.1rem", letterSpacing: "0.01em" }}>
                     OneStaff Medical Celebrates Nurses Week With Merch Club
@@ -1030,6 +1030,19 @@ export default function Home() {
                     Read the case study
                   </a>
                 </div>
+              </div>
+
+              <div className="md:hidden mt-4 bg-[#f5f5f5] rounded-xl border border-black/10 p-5">
+                <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#888] block mb-2">Case Study</span>
+                <h4 className="text-sm font-black text-black leading-snug mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.1rem", letterSpacing: "0.01em" }}>
+                  OneStaff Medical Celebrates Nurses Week With Merch Club
+                </h4>
+                <p className="text-[11px] text-[#888] leading-relaxed mb-3">
+                  How a custom kitting program delivered branded gift boxes to traveling nurses nationwide.
+                </p>
+                <a href="#" className="text-[11px] font-bold text-black underline underline-offset-2 hover:text-[#666] transition-colors">
+                  Read the case study
+                </a>
               </div>
             </RevealItem>
           </div>
