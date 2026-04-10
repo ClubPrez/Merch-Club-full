@@ -234,7 +234,7 @@ function BetterWaySection({ onStartProject }: { onStartProject: () => void }) {
       <div className="absolute inset-0 bg-black/60 z-[1]" />
       <div ref={contentRef} className="max-w-6xl mx-auto relative z-10 will-change-transform">
         <RevealItem delay={0}>
-          <p className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-white/70 whitespace-nowrap" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-white/70" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
             A better way to run branded merchandise programs.
           </p>
         </RevealItem>
@@ -270,11 +270,11 @@ function BetterWaySection({ onStartProject }: { onStartProject: () => void }) {
           </div>
         </div>
 
-        <RevealItem delay={900} className="mt-14 max-w-6xl md:mr-auto md:ml-0 flex items-center justify-between gap-4">
-          <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-white/10 transition-colors">
+        <RevealItem delay={900} className="mt-14 max-w-6xl md:mr-auto md:ml-0 flex flex-col sm:flex-row items-center sm:justify-between gap-4">
+          <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-xs sm:text-sm md:text-base font-bold px-5 sm:px-7 py-3 rounded-full hover:bg-white/10 transition-colors">
             One partner. Total execution.
           </a>
-          <button onClick={onStartProject} className="inline-flex items-center gap-2 bg-white text-black text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-gray-200 transition-colors">
+          <button onClick={onStartProject} className="inline-flex items-center gap-2 bg-white text-black text-xs sm:text-sm md:text-base font-bold px-5 sm:px-7 py-3 rounded-full hover:bg-gray-200 transition-colors">
             Start Planning Your Project
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
           </button>
@@ -416,14 +416,14 @@ function StartProjectModal({ open, onClose }: { open: boolean; onClose: () => vo
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center px-4" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center px-0 sm:px-4" onClick={onClose}>
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
       <div
-        className="relative w-full max-w-lg bg-white border border-black/10 rounded-2xl p-8 md:p-10"
+        className="relative w-full max-w-lg bg-white border border-black/10 sm:rounded-2xl rounded-none p-6 sm:p-8 md:p-10 max-h-[100dvh] sm:max-h-[90vh] overflow-y-auto"
         onClick={e => e.stopPropagation()}
         style={{ animation: "card-enter 0.3s ease-out forwards" }}
       >
-        <button onClick={onClose} className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-[#aaa] hover:text-black transition-colors">
+        <button onClick={onClose} className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-[#aaa] hover:text-black transition-colors z-10">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
@@ -600,6 +600,7 @@ export default function Home() {
     { from: "bot", text: "Hey! 👋 How can we help you today?" }
   ]);
   const [chatInput, setChatInput] = useState("");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -662,7 +663,7 @@ export default function Home() {
       <header className="flex items-center justify-between px-6 md:px-10 py-4 bg-[#111] border-b border-white/10">
         <div className="flex items-center gap-6">
           <a href="/"><img src={logoSrc} alt="Merch Club" className="h-8 object-contain invert" /></a>
-          <nav className="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
+          <nav className="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
             <a href="#" className="text-white hover:text-gray-300 transition-colors">Home</a>
             <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Services</a>
             <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Industries</a>
@@ -684,7 +685,7 @@ export default function Home() {
             </svg>
             +1 531-777-0347
           </a>
-          <button onClick={() => { setSearchOpen(true); setSearchQuery(""); }} className="hidden md:flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 hover:bg-white/15 transition-colors cursor-pointer">
+          <button onClick={() => { setSearchOpen(true); setSearchQuery(""); }} className="hidden lg:flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 hover:bg-white/15 transition-colors cursor-pointer">
             <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
             </svg>
@@ -692,27 +693,64 @@ export default function Home() {
           </button>
           <button
             onClick={() => setProjectModalOpen(true)}
-            className="hidden md:inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors"
+            className="hidden lg:inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors"
           >
             Start a Project
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
             </svg>
           </button>
-          <button className="md:hidden w-10 h-10 rounded-full bg-white flex items-center justify-center">
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden w-10 h-10 rounded-full bg-white flex items-center justify-center">
             <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              {mobileMenuOpen
+                ? <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                : <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />}
             </svg>
           </button>
         </div>
       </header>
 
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-[#111] border-b border-white/10 px-6 py-6 flex flex-col gap-4" style={{ animation: "card-enter 0.2s ease-out forwards" }}>
+          <nav className="flex flex-col gap-4">
+            {[
+              { label: "Home", href: "#" },
+              { label: "Services", href: "#services" },
+              { label: "Industries", href: "#industries" },
+              { label: "Process", href: "#process" },
+              { label: "FAQ", href: "#faq" },
+            ].map(link => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm font-bold uppercase tracking-widest text-[#a3a3a3] hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <div className="flex flex-col gap-3 pt-4 border-t border-white/10">
+            <button
+              onClick={() => { setMobileMenuOpen(false); setProjectModalOpen(true); }}
+              className="w-full bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-3 rounded-full hover:bg-gray-200 transition-colors inline-flex items-center justify-center gap-2"
+            >
+              Start a Project
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+              </svg>
+            </button>
+            <a href="tel:+15317770347" className="text-xs text-[#a3a3a3] text-center font-medium tracking-wide">+1 531-777-0347</a>
+          </div>
+        </div>
+      )}
+
       <section className="relative overflow-hidden bg-[#0a0a0a] px-8 md:px-16 lg:px-20 pt-16 pb-10">
 
         <div className="relative flex flex-col items-center">
-          <div className="flex flex-col md:flex-row items-center md:items-center justify-center mb-10 gap-8 md:gap-10 w-full max-w-7xl mx-auto">
-            <div ref={headlineRef} className="text-center md:text-left shrink-0 md:max-w-[280px] lg:max-w-[320px]">
-              <div className="relative flex justify-center md:justify-start">
+          <div className="flex flex-col lg:flex-row items-center lg:items-center justify-center mb-10 gap-8 lg:gap-10 w-full max-w-7xl mx-auto">
+            <div ref={headlineRef} className="text-center lg:text-left shrink-0 lg:max-w-[320px]">
+              <div className="relative flex justify-center lg:justify-start">
                 <img src={cloverImg} alt="Merch Club clover" className="h-12 md:h-16 lg:h-20 object-contain mb-4" style={{ display: 'block', maxWidth: 'fit-content' }} />
               </div>
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
@@ -726,10 +764,10 @@ export default function Home() {
                   </span>
                 </span>
               </h2>
-              <p className="mt-4 text-sm md:text-base text-[#a3a3a3] leading-relaxed max-w-[320px] mx-auto md:mx-0">
+              <p className="mt-4 text-sm md:text-base text-[#a3a3a3] leading-relaxed max-w-[320px] mx-auto lg:mx-0">
                 We design and execute structured branded merchandise programs for marketing and operations teams — from trade show kits to multi-location rollouts.
               </p>
-              <div className="flex flex-row justify-center md:justify-start gap-3 mt-5">
+              <div className="flex flex-row justify-center lg:justify-start gap-3 mt-5">
                 <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-white text-black text-xs md:text-sm font-bold px-5 md:px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors whitespace-nowrap">
                   Start a Project
                   <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -843,15 +881,15 @@ export default function Home() {
           </RevealItem>
 
           <div className="mt-16 flex items-center justify-center">
-            <div className="flex items-center justify-center">
+            <div className="grid grid-cols-2 gap-4 sm:flex sm:items-center sm:justify-center sm:gap-0">
               {[
                 { label: "Construction", img: constructionImg },
                 { label: "Healthcare", img: healthcareApparelImg },
                 { label: "Corporate", img: industryCorporateImg },
                 { label: "Events", img: industryEventsImg },
               ].map((item, i) => (
-                <RevealItem key={item.label} delay={200 + i * 150} className={`${i > 0 ? "-ml-6 sm:-ml-8 md:-ml-12 lg:-ml-16" : ""} relative`} style={undefined}>
-                  <div className={`w-[120px] h-[120px] sm:w-[160px] sm:h-[160px] md:w-[250px] md:h-[250px] lg:w-[320px] lg:h-[320px] xl:w-[350px] xl:h-[350px] aspect-square rounded-full overflow-hidden border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500 relative`} style={{ zIndex: i + 10 }}>
+                <RevealItem key={item.label} delay={200 + i * 150} className={`${i > 0 ? "sm:-ml-8 md:-ml-12 lg:-ml-16" : ""} relative`} style={undefined}>
+                  <div className={`w-[140px] h-[140px] sm:w-[160px] sm:h-[160px] md:w-[250px] md:h-[250px] lg:w-[320px] lg:h-[320px] xl:w-[350px] xl:h-[350px] aspect-square rounded-full overflow-hidden border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500 relative mx-auto`} style={{ zIndex: i + 10 }}>
                     <img src={item.img} alt={item.label} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center hover:bg-black/50 transition-colors">
                       <a href="#" className="bg-white text-black text-[9px] sm:text-[10px] md:text-sm font-bold px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-2.5 rounded-full inline-flex items-center gap-1 sm:gap-2 hover:bg-gray-200 transition-all hover:scale-105" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.05em" }}>
@@ -942,7 +980,7 @@ export default function Home() {
               </div>
 
               <RevealItem delay={400}>
-                <div className="grid grid-cols-4 gap-6 mt-4">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-4">
                   <div>
                     <span className="text-3xl md:text-4xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={1200} prefix="+" /></span>
                     <p className="text-[10px] text-[#999] mt-1 leading-relaxed">Gift boxes shipped</p>
@@ -966,10 +1004,10 @@ export default function Home() {
             <RevealItem delay={200} className="lg:w-[55%] relative">
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden border border-black/10">
-                  <img src={onestaffImg} alt="OneStaff Medical Nurses Week gift boxes" className="w-full h-[500px] md:h-[600px] object-cover" />
+                  <img src={onestaffImg} alt="OneStaff Medical Nurses Week gift boxes" className="w-full h-[300px] sm:h-[400px] md:h-[600px] object-cover" />
                 </div>
 
-                <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-md rounded-xl border border-black/10 p-5 max-w-[280px] shadow-2xl shadow-black/10">
+                <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 bg-white/95 backdrop-blur-md rounded-xl border border-black/10 p-4 sm:p-5 max-w-[240px] sm:max-w-[280px] shadow-2xl shadow-black/10">
                   <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#888] block mb-2">Case Study</span>
                   <h4 className="text-sm font-black text-black leading-snug mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.1rem", letterSpacing: "0.01em" }}>
                     OneStaff Medical Celebrates Nurses Week With Merch Club
@@ -1030,7 +1068,7 @@ export default function Home() {
                   className="w-full h-auto block"
                 />
 
-                <div className="absolute top-[16%] right-[8%] animate-[dashPulse_3s_ease-in-out_infinite]">
+                <div className="hidden sm:block absolute top-[16%] right-[8%] animate-[dashPulse_3s_ease-in-out_infinite]">
                   <div className="bg-white rounded-xl shadow-lg shadow-black/20 px-3 py-2 flex items-center gap-2 border border-black/5">
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                     <span className="text-[10px] font-bold text-gray-800">Shipment Confirmed</span>
@@ -1038,7 +1076,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="absolute top-[42%] left-[5%] animate-[dashFloat_4s_ease-in-out_infinite_1s]">
+                <div className="hidden sm:block absolute top-[42%] left-[5%] animate-[dashFloat_4s_ease-in-out_infinite_1s]">
                   <div className="bg-white rounded-xl shadow-lg shadow-black/20 px-3 py-2 border border-black/5">
                     <div className="flex items-center gap-1.5 mb-1">
                       <svg className="w-3 h-3 text-blue-500" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -1050,7 +1088,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="absolute bottom-[18%] right-[12%] animate-[dashFloat_5s_ease-in-out_infinite_2s]">
+                <div className="hidden sm:block absolute bottom-[18%] right-[12%] animate-[dashFloat_5s_ease-in-out_infinite_2s]">
                   <div className="bg-white rounded-xl shadow-lg shadow-black/20 px-3 py-2 border border-black/5 flex items-center gap-2">
                     <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
                       <svg className="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -1064,7 +1102,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="absolute top-[60%] right-[3%] animate-[dashCursor_6s_ease-in-out_infinite_0.5s] pointer-events-none">
+                <div className="hidden sm:block absolute top-[60%] right-[3%] animate-[dashCursor_6s_ease-in-out_infinite_0.5s] pointer-events-none">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <path d="M5 3l14 8-6 2-4 6-4-16z" fill="white" stroke="black" strokeWidth="1.5" strokeLinejoin="round" />
                   </svg>
@@ -1320,10 +1358,10 @@ export default function Home() {
       <StartProjectModal open={projectModalOpen} onClose={() => setProjectModalOpen(false)} />
 
       {searchOpen && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center pt-24 px-4" onClick={() => setSearchOpen(false)}>
+        <div className="fixed inset-0 z-50 flex items-start justify-center pt-12 sm:pt-24 px-2 sm:px-4" onClick={() => setSearchOpen(false)}>
           <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
           <div
-            className="relative w-full max-w-2xl bg-white rounded-2xl overflow-hidden shadow-2xl"
+            className="relative w-full max-w-2xl bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl"
             onClick={e => e.stopPropagation()}
             style={{ animation: "card-enter 0.25s ease-out forwards" }}
           >
