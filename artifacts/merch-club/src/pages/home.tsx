@@ -465,9 +465,6 @@ function StartProjectModal({ open, onClose }: { open: boolean; onClose: () => vo
                 Start My Project
               </button>
               <p className="text-[11px] text-[#999] text-center">No pressure. No fluff. Just a smart next step.</p>
-              <button type="button" className="w-full border border-black/15 text-black text-sm font-bold py-3 rounded-full hover:bg-black/5 transition-colors">
-                Get a Quick Quote
-              </button>
               <p className="text-[10px] text-[#bbb] text-center mt-2">Trusted by teams who care what their merch says about them.</p>
             </form>
           </>
