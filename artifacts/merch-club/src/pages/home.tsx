@@ -445,8 +445,7 @@ function StartProjectModal({ open, onClose }: { open: boolean; onClose: () => vo
             <h4 className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>Start a Project</h4>
             <p className="text-sm text-[#888] mt-1">Tell us what you're thinking. We'll handle the rest.</p>
             <p className="text-xs text-[#666] mt-3 mb-6 leading-relaxed">
-              You don't need it all figured out. Give us the basics. We'll turn your idea into merch people actually want.<br />
-              Design. Sourcing. Production. Kitting. Shipping. Done.
+              You don't need it all figured out. Give us the basics.
             </p>
 
             <form onSubmit={e => { e.preventDefault(); setSubmitted(true); }} className="space-y-4">
