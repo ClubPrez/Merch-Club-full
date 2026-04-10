@@ -1049,32 +1049,12 @@ export default function Home() {
                 </RevealItem>
               </div>
 
-              <RevealItem delay={400}>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-4">
-                  <div>
-                    <span className="text-3xl md:text-4xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={1200} prefix="+" /></span>
-                    <p className="text-[10px] text-[#999] mt-1 leading-relaxed">Gift boxes shipped</p>
-                  </div>
-                  <div>
-                    <span className="text-3xl md:text-4xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={48} /></span>
-                    <p className="text-[10px] text-[#999] mt-1 leading-relaxed">States reached</p>
-                  </div>
-                  <div>
-                    <span className="text-3xl md:text-4xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={100} suffix="%" /></span>
-                    <p className="text-[10px] text-[#999] mt-1 leading-relaxed">On-time delivery</p>
-                  </div>
-                  <div>
-                    <span className="text-3xl md:text-4xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={5} /></span>
-                    <p className="text-[10px] text-[#999] mt-1 leading-relaxed">Custom items per kit</p>
-                  </div>
-                </div>
-              </RevealItem>
             </div>
 
             <RevealItem delay={200} className="lg:w-[55%] relative">
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden border border-black/10">
-                  <img src={onestaffImg} alt="OneStaff Medical Nurses Week gift boxes" className="w-full h-[300px] sm:h-[400px] md:h-[600px] object-cover" />
+                  <img src={onestaffImg} alt="OneStaff Medical Nurses Week gift boxes" className="w-full h-[280px] sm:h-[340px] md:h-[420px] object-cover" />
                 </div>
 
                 <div className="hidden md:block absolute bottom-6 left-6 bg-white/95 backdrop-blur-md rounded-xl border border-black/10 p-5 max-w-[280px] shadow-2xl shadow-black/10">
@@ -1088,6 +1068,25 @@ export default function Home() {
                   <a href="#" className="text-[11px] font-bold text-black underline underline-offset-2 hover:text-[#666] transition-colors">
                     Read the case study
                   </a>
+                </div>
+              </div>
+
+              <div className="hidden md:grid grid-cols-4 gap-6 mt-8">
+                <div>
+                  <span className="text-3xl md:text-4xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={1200} prefix="+" /></span>
+                  <p className="text-[10px] text-[#999] mt-1 leading-relaxed">Gift boxes shipped</p>
+                </div>
+                <div>
+                  <span className="text-3xl md:text-4xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={48} /></span>
+                  <p className="text-[10px] text-[#999] mt-1 leading-relaxed">States reached</p>
+                </div>
+                <div>
+                  <span className="text-3xl md:text-4xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={100} suffix="%" /></span>
+                  <p className="text-[10px] text-[#999] mt-1 leading-relaxed">On-time delivery</p>
+                </div>
+                <div>
+                  <span className="text-3xl md:text-4xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={5} /></span>
+                  <p className="text-[10px] text-[#999] mt-1 leading-relaxed">Custom items per kit</p>
                 </div>
               </div>
 
