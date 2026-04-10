@@ -873,7 +873,7 @@ export default function Home() {
               <div>
                 <RevealItem delay={0}>
                   <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] mb-6 text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                    Meet the brands putting our process to work.
+                    Meet the brands putting our <span className="text-[#888]">process to work.</span>
                   </h3>
                 </RevealItem>
 
