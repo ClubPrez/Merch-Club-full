@@ -84,6 +84,60 @@ export default function BlogPost() {
                   </h2>
                 );
               }
+              if (block.type === "quote") {
+                return (
+                  <blockquote key={i} className="my-12 border-l-4 border-[#2bbcb3] pl-6 md:pl-8 py-2">
+                    <p className="text-lg md:text-xl font-semibold italic text-[#222] leading-relaxed mb-3">
+                      "{block.text}"
+                    </p>
+                    <footer className="text-sm text-[#666]">
+                      <span className="font-bold text-[#333]">{block.author},</span>{" "}
+                      <span className="italic">{block.role}</span>
+                    </footer>
+                  </blockquote>
+                );
+              }
+              if (block.type === "stats") {
+                return (
+                  <div key={i} className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-12">
+                    {block.items.map((stat, j) => (
+                      <div key={j} className="text-center py-6 px-4 rounded-xl border border-black/10">
+                        <span className="block text-3xl md:text-4xl font-black text-[#2bbcb3] mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                          {stat.value}
+                        </span>
+                        <span className="text-xs text-[#777] leading-snug">{stat.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                );
+              }
+              if (block.type === "callout") {
+                return (
+                  <div key={i} className="my-12 bg-[#f7fafa] border border-[#2bbcb3]/20 rounded-xl p-6 md:p-8">
+                    <div className="flex gap-3 items-start">
+                      <svg className="w-5 h-5 text-[#2bbcb3] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                      </svg>
+                      <p className="text-base md:text-lg text-[#333] leading-relaxed font-medium">{block.text}</p>
+                    </div>
+                  </div>
+                );
+              }
+              if (block.type === "list") {
+                return (
+                  <div key={i} className="my-10">
+                    <p className="text-base font-bold text-[#222] mb-4">{block.heading}</p>
+                    <ul className="space-y-3">
+                      {block.items.map((item, j) => (
+                        <li key={j} className="flex items-start gap-3 text-base text-[#444] leading-relaxed">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#2bbcb3] mt-2.5 flex-shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              }
               return (
                 <p key={i} className="text-base md:text-lg text-[#444] leading-[1.8]">
                   {block.text}

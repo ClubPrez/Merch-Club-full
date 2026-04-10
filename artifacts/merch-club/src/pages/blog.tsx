@@ -4,7 +4,24 @@ import blogKittingImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_17758
 import blogPackagingImg from "@assets/Professional_promotional_packaging_shot_1775835373158.png";
 import blogCityImg from "@assets/Merch_club_in_the_city_plaza_1775835373159.png";
 
-export const blogPosts = [
+type ContentBlock =
+  | { type: "paragraph"; text: string }
+  | { type: "heading"; text: string }
+  | { type: "quote"; text: string; author: string; role: string }
+  | { type: "stats"; items: { value: string; label: string }[] }
+  | { type: "callout"; text: string }
+  | { type: "list"; heading: string; items: string[] };
+
+export const blogPosts: {
+  slug: string;
+  tag: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  img: string;
+  content: ContentBlock[];
+}[] = [
   {
     slug: "merch-program-strategy",
     tag: "Strategy",
@@ -15,43 +32,61 @@ export const blogPosts = [
     img: blogKittingImg,
     content: [
       {
-        type: "paragraph" as const,
+        type: "paragraph",
         text: "Branded merchandise is one of the most underutilized tools in a company's marketing arsenal. Most organizations treat it like an afterthought — a last-minute order of logo'd pens before a trade show, or a rushed batch of t-shirts for a company event. But the brands that get merch right? They treat it like a strategic asset."
       },
       {
-        type: "heading" as const,
+        type: "heading",
         text: "The Vendor Trap"
       },
       {
-        type: "paragraph" as const,
+        type: "paragraph",
         text: "When you approach branded merchandise with a vendor mindset, you're essentially buying commodities. You're comparing prices on polo shirts, haggling over minimum order quantities, and hoping the logo placement looks decent when it arrives. There's no creative direction, no brand alignment, and no long-term thinking."
       },
       {
-        type: "paragraph" as const,
+        type: "paragraph",
         text: "The result? A closet full of forgettable swag that nobody wants to wear. Employees shove the company hoodie to the back of their drawer. Clients politely accept the branded mug and leave it at the office. The investment is wasted — not because the products were bad, but because there was no strategy behind them."
       },
       {
-        type: "heading" as const,
+        type: "quote",
+        text: "The difference between merch that people wear proudly and merch that ends up in a donation bin comes down to one thing: strategic intent behind every decision.",
+        author: "Merch Club Team",
+        role: "Brand Strategy"
+      },
+      {
+        type: "heading",
         text: "What a Strategic Approach Looks Like"
       },
       {
-        type: "paragraph" as const,
+        type: "paragraph",
         text: "A merch strategy starts with understanding your brand's visual identity, your audience, and your goals. Are you trying to boost employee morale? Impress prospects at a conference? Reward loyal customers? Each of these scenarios calls for different products, different packaging, and different delivery methods."
       },
       {
-        type: "paragraph" as const,
+        type: "stats",
+        items: [
+          { value: "73%", label: "of employees say branded gear boosts morale" },
+          { value: "2.5x", label: "higher recall vs. digital-only campaigns" },
+          { value: "89%", label: "of recipients keep merch for over a year" }
+        ]
+      },
+      {
+        type: "paragraph",
         text: "Strategic merch programs consider the full lifecycle: from concept and design through production, kitting, and distribution. They ensure every touchpoint — from the box it arrives in to the insert card inside — reinforces your brand story."
       },
       {
-        type: "heading" as const,
+        type: "heading",
         text: "The ROI of Getting It Right"
       },
       {
-        type: "paragraph" as const,
+        type: "paragraph",
         text: "Companies that invest in strategic merchandise programs see measurable returns. Employee engagement scores improve when people actually want to wear the gear. Brand recall increases when prospects receive a thoughtfully curated gift box instead of a generic stress ball. And repeat orders go up because the merch program becomes a reliable, scalable part of the marketing mix."
       },
       {
-        type: "paragraph" as const,
+        type: "callout",
+        text: "A strategic merch program doesn't cost more — it wastes less. Every dollar is intentional, every product is on-brand, and every delivery reinforces your story."
+      },
+      {
+        type: "paragraph",
         text: "The difference between a vendor and a partner is the difference between ordering products and building a program. One is transactional. The other is transformational."
       },
     ]
@@ -66,43 +101,68 @@ export const blogPosts = [
     img: blogPackagingImg,
     content: [
       {
-        type: "paragraph" as const,
+        type: "paragraph",
         text: "You've invested in premium branded products. The quality is there. The design is sharp. But then it arrives in a plain brown box with crumpled paper stuffing and a packing slip that looks like it was printed in 1997. That's the hidden cost of ignoring the unboxing experience."
       },
       {
-        type: "heading" as const,
+        type: "heading",
         text: "First Impressions Are Physical"
       },
       {
-        type: "paragraph" as const,
+        type: "paragraph",
         text: "In a world saturated with digital touchpoints, a physical package is a rare opportunity to create a tangible brand moment. The way something is packaged communicates just as much as the product itself. A custom-branded box with tissue paper, a printed insert card, and carefully arranged items tells the recipient: we thought about you."
       },
       {
-        type: "paragraph" as const,
+        type: "quote",
+        text: "Unboxing is the last mile of marketing. It's where your brand promise becomes a physical experience — and it's the moment most companies completely miss.",
+        author: "Merch Club Creative",
+        role: "Design & Kitting"
+      },
+      {
+        type: "paragraph",
         text: "Compare that to a plastic bag with a shipping label. Same products inside. Completely different emotional response."
       },
       {
-        type: "heading" as const,
+        type: "heading",
         text: "What Goes Into a Great Kit"
       },
       {
-        type: "paragraph" as const,
+        type: "paragraph",
         text: "Custom kitting is more than just putting things in a box. It's a design exercise. Every element should be intentional — from the order items are revealed when the box is opened, to the materials used for padding, to the messaging on the insert. A well-kitted package creates a sequence: anticipation, discovery, delight."
       },
       {
-        type: "paragraph" as const,
+        type: "list",
+        heading: "Elements of a great kit:",
+        items: [
+          "Custom-printed outer box with brand colors",
+          "Tissue paper or crinkle cut in brand palette",
+          "Branded insert card with personal message",
+          "Items arranged in a deliberate reveal order",
+          "Premium padding — no styrofoam or generic fillers"
+        ]
+      },
+      {
+        type: "paragraph",
         text: "The best kitting programs also consider logistics. How does the kit hold up in shipping? Is it designed for easy assembly at scale? Can it accommodate different product combinations for different recipients? These operational details are what separate a polished program from a pile of products stuffed in a mailer."
       },
       {
-        type: "heading" as const,
+        type: "heading",
         text: "The Business Case for Better Packaging"
       },
       {
-        type: "paragraph" as const,
+        type: "stats",
+        items: [
+          { value: "4x", label: "more social shares from custom kits" },
+          { value: "92%", label: "of recipients say packaging impacts perception" },
+          { value: "$3-5", label: "average added cost per kit" }
+        ]
+      },
+      {
+        type: "paragraph",
         text: "Kitting isn't just a nice-to-have — it's a revenue driver. Recipients of well-packaged gifts are significantly more likely to share their experience on social media, generating organic brand impressions. They're more likely to keep and use the products. And they're more likely to associate your brand with quality and attention to detail."
       },
       {
-        type: "paragraph" as const,
+        type: "paragraph",
         text: "The cost difference between a generic shipment and a custom-kitted experience is often marginal. But the impact on brand perception? That's where the real ROI lives."
       },
     ]
@@ -117,48 +177,66 @@ export const blogPosts = [
     img: blogCityImg,
     content: [
       {
-        type: "paragraph" as const,
+        type: "paragraph",
         text: "Your branded merchandise is an extension of your brand. When it's done well, it builds loyalty, sparks conversations, and keeps your company top of mind. When it's done poorly, it does the opposite — it signals that you don't care about the details. Here are five mistakes we see companies make over and over."
       },
       {
-        type: "heading" as const,
+        type: "heading",
         text: "1. Using the Wrong Logo File"
       },
       {
-        type: "paragraph" as const,
+        type: "paragraph",
         text: "This might sound basic, but it's shockingly common. Companies send a low-resolution JPEG pulled from their website, and the vendor prints it as-is. The result is a pixelated, fuzzy logo on an otherwise decent product. Always use vector files (AI, EPS, or SVG) for print production. If your team doesn't have these on hand, that's a brand management problem worth fixing."
       },
       {
-        type: "heading" as const,
+        type: "heading",
         text: "2. Choosing Products Based on Price Alone"
       },
       {
-        type: "paragraph" as const,
+        type: "paragraph",
         text: "The cheapest option is almost never the best option. A flimsy tote bag or a pen that runs out of ink in a week doesn't just fail to impress — it actively damages your brand. Recipients associate the quality of the product with the quality of your company. Invest in fewer, better items rather than flooding events with disposable junk."
       },
       {
-        type: "heading" as const,
+        type: "quote",
+        text: "Cheap merch doesn't save money — it costs credibility. When your logo is on something people throw away, that's the brand association you've created.",
+        author: "Merch Club Team",
+        role: "Client Strategy"
+      },
+      {
+        type: "heading",
         text: "3. Ignoring Your Audience"
       },
       {
-        type: "paragraph" as const,
+        type: "paragraph",
         text: "A construction company giving out silk scarves. A tech startup distributing leather-bound journals. These are real examples we've seen. Branded merch should reflect who's receiving it. Think about their lifestyle, their work environment, and what they'd actually use. When you nail the audience fit, people don't just accept the merch — they seek it out."
       },
       {
-        type: "heading" as const,
+        type: "heading",
         text: "4. Inconsistent Branding Across Items"
       },
       {
-        type: "paragraph" as const,
+        type: "paragraph",
         text: "Different logo versions on different products. Colors that don't match. Fonts that vary from item to item. This kind of inconsistency makes your brand look disorganized. Every piece of merchandise should look like it came from the same family — same colors, same logo treatment, same level of quality."
       },
       {
-        type: "heading" as const,
+        type: "stats",
+        items: [
+          { value: "67%", label: "of consumers notice brand inconsistencies" },
+          { value: "23%", label: "lower trust when branding varies" },
+          { value: "3-5", label: "touchpoints to build brand recognition" }
+        ]
+      },
+      {
+        type: "heading",
         text: "5. No Plan for Distribution"
       },
       {
-        type: "paragraph" as const,
+        type: "paragraph",
         text: "You ordered 500 branded jackets. They arrive at HQ in 20 boxes. Now what? Without a distribution plan, those jackets sit in a storage room collecting dust. Smart merch programs plan distribution from the start — whether that's direct-to-recipient shipping, event-day handouts, or integration with an online store. The best product in the world is worthless if it never reaches the right person."
+      },
+      {
+        type: "callout",
+        text: "The fix for all five mistakes? Work with a partner who thinks strategically — not just a vendor who takes orders. Every merch decision should be intentional."
       },
     ]
   },
