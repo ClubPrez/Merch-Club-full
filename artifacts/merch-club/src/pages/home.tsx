@@ -872,7 +872,7 @@ export default function Home() {
             <div className="lg:w-[45%] flex flex-col justify-between">
               <div>
                 <RevealItem delay={0}>
-                  <h3 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black tracking-tight leading-[1.1] mb-6 text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] mb-6 text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                     Meet the brands putting our process to work.
                   </h3>
                 </RevealItem>
