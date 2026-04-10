@@ -46,6 +46,9 @@ import brandPaylocity from "@assets/brand_paylocity_nobg.png";
 import brandFraserStryker from "@assets/brand_fraserstryker_nobg.png";
 import brandKomen from "@assets/brand_komen_nobg.png";
 import brandOnestaff from "@assets/brand_onestaff_nobg.png";
+import blogKittingImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_1775835373159.png";
+import blogPackagingImg from "@assets/Professional_promotional_packaging_shot_1775835373158.png";
+import blogCityImg from "@assets/Merch_club_in_the_city_plaza_1775835373159.png";
 
 function CountUp({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -1351,21 +1354,21 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                img: eventMerchImg,
+                img: blogKittingImg,
                 tag: "Strategy",
                 title: "Why Your Merch Program Needs a Strategy — Not Just a Vendor",
                 excerpt: "Most companies treat branded merchandise like an afterthought. Here's why a strategic approach changes everything — from employee retention to brand perception.",
                 date: "Apr 2, 2026",
               },
               {
-                img: kittingNewImg,
+                img: blogPackagingImg,
                 tag: "Kitting",
                 title: "The Hidden Cost of Unboxing: How Custom Kitting Elevates Brand Experience",
                 excerpt: "A great product means nothing if the unboxing falls flat. We break down how thoughtful kitting turns a delivery into a brand moment.",
                 date: "Mar 18, 2026",
               },
               {
-                img: corporateImg,
+                img: blogCityImg,
                 tag: "Corporate",
                 title: "5 Branded Merchandise Mistakes That Make Your Company Look Amateur",
                 excerpt: "From inconsistent logos to cheap materials, these common missteps undermine your brand. Learn what separates forgettable swag from strategic merch.",
