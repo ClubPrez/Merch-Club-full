@@ -624,7 +624,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <div className="hidden md:flex items-center justify-end gap-8 px-6 md:px-10 py-2 bg-[#222] border-b border-white/5 text-[10px] font-bold uppercase tracking-[0.2em]">
-        <a href="#" className="text-white transition-colors">MerchClub</a>
+        <a href="/" className="text-white transition-colors">MerchClub</a>
         <span className="text-white/20">|</span>
         <a href="https://trybrandini.com/" target="_blank" rel="noopener noreferrer" className="text-[#a3a3a3] hover:text-white transition-colors">Brandini</a>
         <span className="text-white/20">|</span>
@@ -632,7 +632,7 @@ export default function Home() {
       </div>
       <header className="flex items-center justify-between px-6 md:px-10 py-4 bg-[#111] border-b border-white/10">
         <div className="flex items-center gap-6">
-          <img src={logoSrc} alt="Merch Club" className="h-8 object-contain invert" />
+          <a href="/"><img src={logoSrc} alt="Merch Club" className="h-8 object-contain invert" /></a>
           <nav className="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
             <a href="#" className="text-white hover:text-gray-300 transition-colors">Home</a>
             <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Services</a>
