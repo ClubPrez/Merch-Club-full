@@ -35,7 +35,7 @@ import team4Img from "@assets/4_1775229252466.png";
 import accessBankImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_13_49_PM_1774718377455.png";
 import onestaffImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_08_AM_1775773287575.png";
 import merchClubProductionImg from "@assets/ChatGPT_Image_Mar_24,_2026,_11_18_55_AM_1774718494043.png";
-import merchClubDistributionImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_20_10_PM_1774718529581.png";
+import merchClubDistributionImg from "@assets/ChatGPT_Image_Apr_9,_2026,_04_16_06_PM_1775831640229.png";
 import industryCorporateImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_13_49_PM_1774718584149.png";
 import industryEventsImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_21_48_PM_1774718584150.png";
 import newProofingImg from "@assets/image_1774719180184.png";
