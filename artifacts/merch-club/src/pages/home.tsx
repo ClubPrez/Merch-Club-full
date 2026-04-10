@@ -307,7 +307,7 @@ function StickyTimeline() {
   const activeCount = Math.floor(progress * (timelineSteps.length + 0.5));
 
   return (
-    <div className="bg-[#0a0a0a] py-20 md:py-28 px-8 md:px-16 lg:px-20">
+    <div id="process" className="bg-[#0a0a0a] py-20 md:py-28 px-8 md:px-16 lg:px-20">
       <div className="max-w-7xl mx-auto">
         <RevealItem delay={0}>
           <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
@@ -600,6 +600,34 @@ export default function Home() {
     { from: "bot", text: "Hey! 👋 How can we help you today?" }
   ]);
   const [chatInput, setChatInput] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (searchOpen && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, [searchOpen]);
+
+  const searchableItems = [
+    { label: "Services", desc: "Full merch programs, kitting, fulfillment, branded apparel", section: "services" },
+    { label: "Industries", desc: "Construction, healthcare, corporate, events", section: "industries" },
+    { label: "Process", desc: "Strategy, design, production, fulfillment — from concept to delivery", section: "process" },
+    { label: "Case Study", desc: "OneStaff Medical — Nurses Week gift boxes shipped to 48 states", section: "case-study" },
+    { label: "Flexible Models", desc: "Bulk sourcing, on-demand stores, kitting, event merch, client gifts", section: "flexible-models" },
+    { label: "FAQ", desc: "Common questions about Merch Club services and process", section: "faq" },
+    { label: "Contact", desc: "Start a project, book a call, get in touch", section: "contact" },
+    { label: "Brands", desc: "Carhartt, Nike, Patagonia, Yeti, and more", section: "brands" },
+    { label: "Testimonials", desc: "Real reviews from Merch Club clients", section: "testimonials" },
+  ];
+
+  const filteredResults = searchQuery.trim()
+    ? searchableItems.filter(item =>
+        item.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.desc.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : searchableItems;
 
   useEffect(() => {
     const onScroll = () => setShowBackToTop(window.scrollY > 600);
@@ -656,12 +684,12 @@ export default function Home() {
             </svg>
             +1 531-777-0347
           </a>
-          <div className="hidden md:flex items-center gap-2 bg-white/10 rounded-full px-4 py-2">
+          <button onClick={() => { setSearchOpen(true); setSearchQuery(""); }} className="hidden md:flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 hover:bg-white/15 transition-colors cursor-pointer">
             <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
             </svg>
             <span className="text-xs text-gray-400 font-medium tracking-wide">SEARCH</span>
-          </div>
+          </button>
           <button
             onClick={() => setProjectModalOpen(true)}
             className="hidden md:inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors"
@@ -783,7 +811,7 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="relative bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
+      <section id="services" className="relative bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
           <div className="flex-1 flex items-center justify-center order-2 md:order-1">
             <RotatingCards />
@@ -803,7 +831,7 @@ export default function Home() {
 
       <BetterWaySection onStartProject={() => setProjectModalOpen(true)} />
 
-      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
+      <section id="industries" className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-6xl mx-auto">
           <RevealItem delay={0}>
             <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-center" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
@@ -841,7 +869,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] py-8 md:py-12 overflow-hidden -mt-[75px]">
+      <section id="brands" className="bg-[#0a0a0a] py-8 md:py-12 overflow-hidden -mt-[75px]">
         <RevealItem delay={0}>
           <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-[#555] mb-10">Brands We Work With</p>
         </RevealItem>
@@ -867,7 +895,7 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="bg-white py-16 md:py-24 px-8 md:px-16 lg:px-20 border-t border-black/5">
+      <section id="case-study" className="bg-white py-16 md:py-24 px-8 md:px-16 lg:px-20 border-t border-black/5">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-stretch">
             <div className="lg:w-[45%] flex flex-col justify-between">
@@ -959,7 +987,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white py-24 md:py-32 overflow-hidden">
+      <section id="testimonials" className="bg-white py-24 md:py-32 overflow-hidden">
         <RotatingTestimonials />
 
       </section>
@@ -1091,7 +1119,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white py-24 md:py-32 overflow-hidden">
+      <section id="flexible-models" className="bg-white py-24 md:py-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-20 mb-16">
           <RevealItem delay={0}>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Built For Every Size</span>
@@ -1174,7 +1202,7 @@ export default function Home() {
 
       {/* Team section hidden — will move to separate page */}
 
-      <section className="bg-white py-16 md:py-20 px-8 md:px-16 lg:px-20">
+      <section id="faq" className="bg-white py-16 md:py-20 px-8 md:px-16 lg:px-20">
         <div className="max-w-5xl mx-auto">
           <RevealItem delay={0}>
             <div className="text-center mb-16">
@@ -1290,6 +1318,65 @@ export default function Home() {
       </footer>
 
       <StartProjectModal open={projectModalOpen} onClose={() => setProjectModalOpen(false)} />
+
+      {searchOpen && (
+        <div className="fixed inset-0 z-50 flex items-start justify-center pt-24 px-4" onClick={() => setSearchOpen(false)}>
+          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+          <div
+            className="relative w-full max-w-2xl bg-white rounded-2xl overflow-hidden shadow-2xl"
+            onClick={e => e.stopPropagation()}
+            style={{ animation: "card-enter 0.25s ease-out forwards" }}
+          >
+            <div className="flex items-center gap-3 px-6 py-4 border-b border-black/10">
+              <svg className="w-5 h-5 text-[#999] shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+              </svg>
+              <input
+                ref={searchInputRef}
+                type="text"
+                placeholder="Search Merch Club..."
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                className="flex-1 text-base text-black placeholder-[#bbb] bg-transparent outline-none"
+              />
+              <button onClick={() => setSearchOpen(false)} className="text-[#aaa] hover:text-black transition-colors">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="max-h-[400px] overflow-y-auto">
+              {filteredResults.length > 0 ? (
+                filteredResults.map((item) => (
+                  <button
+                    key={item.section}
+                    className="w-full flex items-start gap-4 px-6 py-4 hover:bg-[#f5f5f5] transition-colors text-left border-b border-black/5 last:border-0"
+                    onClick={() => {
+                      setSearchOpen(false);
+                      const el = document.getElementById(item.section);
+                      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                      else if (item.section === "contact") setProjectModalOpen(true);
+                    }}
+                  >
+                    <div>
+                      <span className="text-sm font-bold text-black">{item.label}</span>
+                      <p className="text-xs text-[#888] mt-0.5">{item.desc}</p>
+                    </div>
+                    <svg className="w-4 h-4 text-[#ccc] shrink-0 mt-1" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                  </button>
+                ))
+              ) : (
+                <div className="px-6 py-10 text-center">
+                  <p className="text-sm text-[#888]">No results found for "{searchQuery}"</p>
+                  <p className="text-xs text-[#bbb] mt-1">Try searching for services, industries, or FAQ</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {chatOpen && (
         <div className="fixed bottom-24 right-6 z-50 w-[340px] bg-[#111] border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden" style={{ animation: "card-enter 0.25s ease-out forwards", height: "420px" }}>
