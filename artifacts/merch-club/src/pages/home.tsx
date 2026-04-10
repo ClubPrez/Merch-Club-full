@@ -464,7 +464,6 @@ function StartProjectModal({ open, onClose }: { open: boolean; onClose: () => vo
               <button type="submit" className="w-full bg-black text-white text-sm font-bold py-3.5 rounded-full hover:bg-black/80 transition-colors">
                 Start My Project
               </button>
-              <p className="text-[11px] text-[#999] text-center">No pressure. No fluff. Just a smart next step.</p>
               <p className="text-[10px] text-[#bbb] text-center mt-2">Trusted by teams who care what their merch says about them.</p>
             </form>
           </>
