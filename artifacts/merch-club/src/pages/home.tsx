@@ -248,6 +248,8 @@ function BetterWaySection({ onStartProject }: { onStartProject: () => void }) {
         />
       </div>
 
+      <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 bg-gradient-to-b from-transparent to-[#0a0a0a] z-[2] pointer-events-none" />
+
       <div ref={contentRef} className="max-w-6xl mx-auto relative z-10 will-change-transform">
         <RevealItem delay={0}>
           <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-white/70" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
