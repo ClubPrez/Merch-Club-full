@@ -1321,6 +1321,70 @@ export default function Home() {
 
       {/* Team section hidden — will move to separate page */}
 
+      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16">
+            <RevealItem delay={0}>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">From the Blog</span>
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                Insights & Ideas
+              </h3>
+            </RevealItem>
+            <RevealItem delay={100}>
+              <a href="#" className="text-sm font-bold text-black underline underline-offset-4 hover:text-[#666] transition-colors">
+                View all posts
+              </a>
+            </RevealItem>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                img: eventMerchImg,
+                tag: "Strategy",
+                title: "Why Your Merch Program Needs a Strategy — Not Just a Vendor",
+                excerpt: "Most companies treat branded merchandise like an afterthought. Here's why a strategic approach changes everything — from employee retention to brand perception.",
+                date: "Apr 2, 2026",
+              },
+              {
+                img: kittingNewImg,
+                tag: "Kitting",
+                title: "The Hidden Cost of Unboxing: How Custom Kitting Elevates Brand Experience",
+                excerpt: "A great product means nothing if the unboxing falls flat. We break down how thoughtful kitting turns a delivery into a brand moment.",
+                date: "Mar 18, 2026",
+              },
+              {
+                img: corporateImg,
+                tag: "Corporate",
+                title: "5 Branded Merchandise Mistakes That Make Your Company Look Amateur",
+                excerpt: "From inconsistent logos to cheap materials, these common missteps undermine your brand. Learn what separates forgettable swag from strategic merch.",
+                date: "Mar 5, 2026",
+              },
+            ].map((post, i) => (
+              <RevealItem key={i} delay={200 + i * 150}>
+                <a href="#" className="group block">
+                  <div className="rounded-2xl overflow-hidden border border-black/10 mb-5">
+                    <img
+                      src={post.img}
+                      alt={post.title}
+                      className="w-full h-[220px] md:h-[260px] object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#888]">{post.tag}</span>
+                  <h4 className="text-lg md:text-xl font-black text-black leading-snug mt-2 mb-3 group-hover:text-[#555] transition-colors" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
+                    {post.title}
+                  </h4>
+                  <p className="text-sm text-[#777] leading-relaxed mb-4">
+                    {post.excerpt}
+                  </p>
+                  <span className="text-[11px] text-[#aaa] font-medium">{post.date}</span>
+                </a>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="faq" className="bg-white py-16 md:py-20 px-8 md:px-16 lg:px-20">
         <div className="max-w-5xl mx-auto">
           <RevealItem delay={0}>
