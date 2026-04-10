@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, useParams } from "wouter";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import { blogPosts } from "./blog";
@@ -5,6 +6,8 @@ import { blogPosts } from "./blog";
 export default function BlogPost() {
   const params = useParams<{ slug: string }>();
   const post = blogPosts.find(p => p.slug === params.slug);
+
+  useEffect(() => { window.scrollTo(0, 0); }, [params.slug]);
 
   if (!post) {
     return (
