@@ -818,7 +818,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-[#0a0a0a] px-8 md:px-16 lg:px-20 pt-16 pb-10">
 
         <div className="relative flex flex-col items-center">
-          <div className="flex flex-col lg:flex-row items-center lg:items-center justify-center mb-10 gap-8 lg:gap-10 w-full max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center lg:items-center justify-center mb-10 gap-8 lg:gap-16 w-full max-w-7xl mx-auto">
             <div ref={headlineRef} className="text-center lg:text-left shrink-0 lg:max-w-[320px]">
               <div className="relative flex justify-center lg:justify-start">
                 <img src={cloverImg} alt="Merch Club clover" className="h-12 md:h-16 lg:h-20 object-contain mb-4" style={{ display: 'block', maxWidth: 'fit-content' }} />
