@@ -234,7 +234,7 @@ function BetterWaySection() {
       <div className="absolute inset-0 bg-black/60 z-[1]" />
       <div ref={contentRef} className="max-w-6xl mx-auto relative z-10 will-change-transform">
         <RevealItem delay={0}>
-          <p className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-white/70 whitespace-nowrap" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+          <p className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-white/70 whitespace-nowrap" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
             A better way to run branded merchandise programs.
           </p>
         </RevealItem>
@@ -246,9 +246,9 @@ function BetterWaySection() {
               { num: "02", title: "Brand-aligned design", desc: "Creative direction that protects consistency and elevates perception." },
             ].map((step, i) => (
               <RevealItem key={step.num} delay={300 + i * 150} className={`flex items-start gap-5 py-5 ${i < 1 ? "border-b border-white/10" : ""}`}>
-                <span className="text-3xl md:text-5xl font-black text-[#a3a3a3] tracking-tight leading-none" style={{ fontFamily: "'League Spartan', sans-serif" }}>{step.num}</span>
+                <span className="text-3xl md:text-5xl font-black text-[#a3a3a3] tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>
                 <div>
-                  <h4 className="text-xl md:text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'League Spartan', sans-serif" }}>{step.title}</h4>
+                  <h4 className="text-xl md:text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.title}</h4>
                   <p className="text-xs md:text-sm text-[#777] mt-1 leading-relaxed">{step.desc}</p>
                 </div>
               </RevealItem>
@@ -260,9 +260,9 @@ function BetterWaySection() {
               { num: "04", title: "Coordinated fulfillment", desc: "Kitting, distribution, and multi-location execution." },
             ].map((step, i) => (
               <RevealItem key={step.num} delay={600 + i * 150} className={`flex items-start gap-5 py-5 ${i < 1 ? "border-b border-white/10" : ""}`}>
-                <span className="text-3xl md:text-5xl font-black text-[#a3a3a3] tracking-tight leading-none" style={{ fontFamily: "'League Spartan', sans-serif" }}>{step.num}</span>
+                <span className="text-3xl md:text-5xl font-black text-[#a3a3a3] tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>
                 <div>
-                  <h4 className="text-xl md:text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'League Spartan', sans-serif" }}>{step.title}</h4>
+                  <h4 className="text-xl md:text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.title}</h4>
                   <p className="text-xs md:text-sm text-[#777] mt-1 leading-relaxed">{step.desc}</p>
                 </div>
               </RevealItem>
@@ -310,7 +310,7 @@ function StickyTimeline() {
     <div className="bg-[#0a0a0a] py-20 md:py-28 px-8 md:px-16 lg:px-20">
       <div className="max-w-7xl mx-auto">
         <RevealItem delay={0}>
-          <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] mb-3" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+          <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
             From concept to delivery.
           </h3>
         </RevealItem>
@@ -348,13 +348,13 @@ function StickyTimeline() {
                           <div className="pt-1 min-w-0">
                             <span
                               className="text-3xl font-black tracking-tight leading-none block mb-1 transition-colors duration-500"
-                              style={{ fontFamily: "'League Spartan', sans-serif", color: isActive ? "#fff" : "#333" }}
+                              style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#fff" : "#333" }}
                             >
                               {step.num}
                             </span>
                             <h4
                               className="text-lg font-black tracking-tight transition-colors duration-500"
-                              style={{ fontFamily: "'League Spartan', sans-serif", color: isActive ? "#fff" : "#444" }}
+                              style={{ fontFamily: "'Bebas Neue', sans-serif", color: isActive ? "#fff" : "#444" }}
                             >
                               {step.title}
                             </h4>
@@ -436,12 +436,12 @@ function StartProjectModal({ open, onClose }: { open: boolean; onClose: () => vo
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
             </div>
-            <h4 className="text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'League Spartan', sans-serif" }}>We'll be in touch.</h4>
+            <h4 className="text-2xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>We'll be in touch.</h4>
             <p className="text-sm text-[#888] mt-2">Our team will reach out within 24 hours to get things started.</p>
           </div>
         ) : (
           <>
-            <h4 className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'League Spartan', sans-serif" }}>Start a Project</h4>
+            <h4 className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>Start a Project</h4>
             <p className="text-sm text-[#888] mt-2 mb-8">Tell us a bit about what you need — we'll handle the rest.</p>
 
             <form onSubmit={e => { e.preventDefault(); setSubmitted(true); }} className="space-y-4">
@@ -504,7 +504,7 @@ function RotatingTestimonials() {
   return (
     <div className="max-w-4xl mx-auto px-8 md:px-16 text-center min-h-[280px] flex flex-col items-center justify-center">
       <div className={`transition-all duration-500 ${fade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-        <p className="text-2xl md:text-4xl lg:text-5xl font-black text-black leading-tight tracking-tight mb-8" style={{ fontFamily: "'League Spartan', sans-serif", letterSpacing: "0.01em" }}>
+        <p className="text-2xl md:text-4xl lg:text-5xl font-black text-black leading-tight tracking-tight mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
           "{t.text}"
         </p>
         <div className="flex items-center justify-center gap-3">
@@ -686,7 +686,7 @@ export default function Home() {
               <div className="relative flex justify-center md:justify-start">
                 <img src={cloverImg} alt="Merch Club clover" className="h-12 md:h-16 lg:h-20 object-contain mb-4" style={{ display: 'block', maxWidth: 'fit-content' }} />
               </div>
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 Merch,<br />
                 <span className="inline-block overflow-hidden h-[1.1em] align-bottom relative">
                   <span className="invisible">organized.</span>
@@ -758,7 +758,7 @@ export default function Home() {
           {[...Array(3)].map((_, i) => (
             <div key={i} className="flex shrink-0 items-center">
               {["Onboarding kits", "Client gifts", "Team apparel", "Event drops"].map((text, j) => (
-                <span key={j} className="text-lg md:text-2xl lg:text-3xl font-black uppercase tracking-tight text-black mx-4 md:mx-6 flex items-center gap-4 md:gap-6" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+                <span key={j} className="text-lg md:text-2xl lg:text-3xl font-black uppercase tracking-tight text-black mx-4 md:mx-6 flex items-center gap-4 md:gap-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                   {text}
                   <span className="text-black/40">&#x2022;</span>
                 </span>
@@ -772,7 +772,7 @@ export default function Home() {
           {[...Array(3)].map((_, i) => (
             <div key={i} className="flex shrink-0 items-center">
               {["Your Executive Merch Partner In", "Construction", "Healthcare", "Real Estate", "Corporate"].map((text, j) => (
-                <span key={j} className="text-lg md:text-2xl lg:text-3xl font-black uppercase tracking-tight text-white mx-4 md:mx-6 flex items-center gap-4 md:gap-6" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+                <span key={j} className="text-lg md:text-2xl lg:text-3xl font-black uppercase tracking-tight text-white mx-4 md:mx-6 flex items-center gap-4 md:gap-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                   {text}
                   <span className="text-white/30">&#x2022;</span>
                 </span>
@@ -789,7 +789,7 @@ export default function Home() {
           </div>
 
           <div className="flex-1 text-left order-1 md:order-2">
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] text-black" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
               Custom merch<br />isn't complicated.<br />
               <span className="text-[#888]">Coordinating it is.</span>
             </h3>
@@ -805,7 +805,7 @@ export default function Home() {
       <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-6xl mx-auto">
           <RevealItem delay={0}>
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-center" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-center" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
               Industry-Specific Execution
             </h3>
             <p className="mt-4 text-sm md:text-base text-[#888] leading-relaxed max-w-3xl mx-auto text-center">
@@ -825,7 +825,7 @@ export default function Home() {
                   <div className={`w-[120px] h-[120px] sm:w-[160px] sm:h-[160px] md:w-[250px] md:h-[250px] lg:w-[320px] lg:h-[320px] xl:w-[350px] xl:h-[350px] aspect-square rounded-full overflow-hidden border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500 relative`} style={{ zIndex: i + 10 }}>
                     <img src={item.img} alt={item.label} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center hover:bg-black/50 transition-colors">
-                      <a href="#" className="bg-white text-black text-[9px] sm:text-[10px] md:text-sm font-bold px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-2.5 rounded-full inline-flex items-center gap-1 sm:gap-2 hover:bg-gray-200 transition-all hover:scale-105" style={{ fontFamily: "'League Spartan', sans-serif", letterSpacing: "0.05em" }}>
+                      <a href="#" className="bg-white text-black text-[9px] sm:text-[10px] md:text-sm font-bold px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-2.5 rounded-full inline-flex items-center gap-1 sm:gap-2 hover:bg-gray-200 transition-all hover:scale-105" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.05em" }}>
                         {item.label}
                         <svg className="w-3 h-3 md:w-4 md:h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
@@ -854,7 +854,7 @@ export default function Home() {
               {[...Array(4)].map((_, rep) => (
                 <div key={rep} className="flex items-center shrink-0">
                   {row.brands.map((brand, j) => (
-                    <span key={`${rep}-${j}`} className="text-lg md:text-xl lg:text-2xl font-black uppercase tracking-tight text-[#666] hover:text-[#999] transition-colors duration-300 mx-6 md:mx-10 flex items-center gap-3 md:gap-4 shrink-0" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+                    <span key={`${rep}-${j}`} className="text-lg md:text-xl lg:text-2xl font-black uppercase tracking-tight text-[#666] hover:text-[#999] transition-colors duration-300 mx-6 md:mx-10 flex items-center gap-3 md:gap-4 shrink-0" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                       <span className="w-1.5 h-1.5 rounded-full bg-[#444] shrink-0" />
                       {brand}
                     </span>
@@ -872,7 +872,7 @@ export default function Home() {
             <div className="lg:w-[45%] flex flex-col justify-between">
               <div>
                 <RevealItem delay={0}>
-                  <h3 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black tracking-tight leading-[0.95] mb-6" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+                  <h3 className="text-4xl md:text-5xl lg:text-[3.5rem] font-black tracking-tight leading-[0.95] mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                     Meet the brands putting our process to work.
                   </h3>
                 </RevealItem>
@@ -915,19 +915,19 @@ export default function Home() {
               <RevealItem delay={400}>
                 <div className="grid grid-cols-4 gap-6 mt-4">
                   <div>
-                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'League Spartan', sans-serif" }}><CountUp end={1200} prefix="+" /></span>
+                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={1200} prefix="+" /></span>
                     <p className="text-[10px] text-[#555] mt-1 leading-relaxed">Gift boxes shipped</p>
                   </div>
                   <div>
-                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'League Spartan', sans-serif" }}><CountUp end={48} /></span>
+                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={48} /></span>
                     <p className="text-[10px] text-[#555] mt-1 leading-relaxed">States reached</p>
                   </div>
                   <div>
-                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'League Spartan', sans-serif" }}><CountUp end={100} suffix="%" /></span>
+                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={100} suffix="%" /></span>
                     <p className="text-[10px] text-[#555] mt-1 leading-relaxed">On-time delivery</p>
                   </div>
                   <div>
-                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'League Spartan', sans-serif" }}><CountUp end={5} /></span>
+                    <span className="text-3xl md:text-4xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={5} /></span>
                     <p className="text-[10px] text-[#555] mt-1 leading-relaxed">Custom items per kit</p>
                   </div>
                 </div>
@@ -942,7 +942,7 @@ export default function Home() {
 
                 <div className="absolute bottom-6 left-6 bg-[#1a1a1a]/95 backdrop-blur-md rounded-xl border border-white/10 p-5 max-w-[280px] shadow-2xl shadow-black/40">
                   <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#a3a3a3] block mb-2">Case Study</span>
-                  <h4 className="text-sm font-black text-white leading-snug mb-2" style={{ fontFamily: "'League Spartan', sans-serif", fontSize: "1.1rem", letterSpacing: "0.01em" }}>
+                  <h4 className="text-sm font-black text-white leading-snug mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.1rem", letterSpacing: "0.01em" }}>
                     OneStaff Medical Celebrates Nurses Week With Merch Club
                   </h4>
                   <p className="text-[11px] text-[#666] leading-relaxed mb-3">
@@ -969,7 +969,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 md:gap-16 mb-16">
             <RevealItem delay={0}>
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] max-w-xl" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] max-w-xl" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 Less coordination. More control.
               </h3>
             </RevealItem>
@@ -1056,7 +1056,7 @@ export default function Home() {
             <RevealItem delay={300}>
               <div>
                 <div className="w-8 h-[2px] bg-white/30 mb-5" />
-                <h4 className="text-base md:text-lg font-bold text-white mb-2" style={{ fontFamily: "'League Spartan', sans-serif", fontSize: "1.25rem", letterSpacing: "0.02em" }}>
+                <h4 className="text-base md:text-lg font-bold text-white mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.25rem", letterSpacing: "0.02em" }}>
                   Real-time order visibility
                 </h4>
                 <p className="text-sm text-[#666] leading-relaxed">
@@ -1067,7 +1067,7 @@ export default function Home() {
             <RevealItem delay={400}>
               <div>
                 <div className="w-8 h-[2px] bg-white/30 mb-5" />
-                <h4 className="text-base md:text-lg font-bold text-white mb-2" style={{ fontFamily: "'League Spartan', sans-serif", fontSize: "1.25rem", letterSpacing: "0.02em" }}>
+                <h4 className="text-base md:text-lg font-bold text-white mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.25rem", letterSpacing: "0.02em" }}>
                   One dashboard for everything
                 </h4>
                 <p className="text-sm text-[#666] leading-relaxed">
@@ -1078,7 +1078,7 @@ export default function Home() {
             <RevealItem delay={500}>
               <div>
                 <div className="w-8 h-[2px] bg-white/30 mb-5" />
-                <h4 className="text-base md:text-lg font-bold text-white mb-2" style={{ fontFamily: "'League Spartan', sans-serif", fontSize: "1.25rem", letterSpacing: "0.02em" }}>
+                <h4 className="text-base md:text-lg font-bold text-white mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.25rem", letterSpacing: "0.02em" }}>
                   Confirmed timelines you can count on
                 </h4>
                 <p className="text-sm text-[#666] leading-relaxed">
@@ -1097,7 +1097,7 @@ export default function Home() {
           </RevealItem>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <RevealItem delay={100}>
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] max-w-2xl text-black" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] max-w-2xl text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 Flexible models. Same execution standard.
               </h3>
             </RevealItem>
@@ -1130,7 +1130,7 @@ export default function Home() {
                       </div>
                       <div className="p-6">
                         <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#888] mb-3 block">{card.label}</span>
-                        <h4 className="text-lg font-black text-black mb-2 tracking-tight" style={{ fontFamily: "'League Spartan', sans-serif", letterSpacing: "0.02em" }}>
+                        <h4 className="text-lg font-black text-black mb-2 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.02em" }}>
                           {card.title}
                         </h4>
                         <p className="text-sm text-[#888] leading-relaxed">{card.desc}</p>
@@ -1178,7 +1178,7 @@ export default function Home() {
           <RevealItem delay={0}>
             <div className="text-center mb-16">
               <span className="inline-block text-xs font-semibold uppercase tracking-[0.15em] text-[#888] border border-black/15 rounded-full px-4 py-1.5 mb-5">FAQ's</span>
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 Frequently Asked Questions
               </h3>
             </div>
@@ -1193,7 +1193,7 @@ export default function Home() {
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#a3a3a3]">Ready to elevate your brand?</span>
           </RevealItem>
           <RevealItem delay={100}>
-            <h3 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] mt-6" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+            <h3 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] mt-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
               Ready to simplify branded<br />merchandise?
             </h3>
           </RevealItem>
@@ -1240,7 +1240,7 @@ export default function Home() {
             </div>
 
             <div className="md:col-span-2">
-              <h4 className="text-sm font-bold text-white uppercase tracking-[0.15em] mb-5" style={{ fontFamily: "'League Spartan', sans-serif", fontSize: "1rem" }}>Services</h4>
+              <h4 className="text-sm font-bold text-white uppercase tracking-[0.15em] mb-5" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1rem" }}>Services</h4>
               <ul className="space-y-3">
                 {["Strategy", "Design", "Proofing", "Production", "Kitting", "Distribution"].map(item => (
                   <li key={item}><a href="#" className="text-sm text-[#666] hover:text-white transition-colors">{item}</a></li>
@@ -1249,7 +1249,7 @@ export default function Home() {
             </div>
 
             <div className="md:col-span-2">
-              <h4 className="text-sm font-bold text-white uppercase tracking-[0.15em] mb-5" style={{ fontFamily: "'League Spartan', sans-serif", fontSize: "1rem" }}>Company</h4>
+              <h4 className="text-sm font-bold text-white uppercase tracking-[0.15em] mb-5" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1rem" }}>Company</h4>
               <ul className="space-y-3">
                 {["About", "Case Studies", "Industries", "Process", "Contact", "Careers"].map(item => (
                   <li key={item}><a href="#" className="text-sm text-[#666] hover:text-white transition-colors">{item}</a></li>
@@ -1258,7 +1258,7 @@ export default function Home() {
             </div>
 
             <div className="md:col-span-3">
-              <h4 className="text-sm font-bold text-white uppercase tracking-[0.15em] mb-3" style={{ fontFamily: "'League Spartan', sans-serif", fontSize: "1rem" }}>Get 10% Off Your First Order</h4>
+              <h4 className="text-sm font-bold text-white uppercase tracking-[0.15em] mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1rem" }}>Get 10% Off Your First Order</h4>
               <p className="text-xs text-[#666] mb-4 leading-relaxed">Join our newsletter for exclusive offers, new product drops, and merch inspiration.</p>
               <form onSubmit={e => e.preventDefault()} className="flex gap-2">
                 <input
@@ -1301,7 +1301,7 @@ export default function Home() {
                 </svg>
               </div>
               <div>
-                <h5 className="text-sm font-bold text-white" style={{ fontFamily: "'League Spartan', sans-serif" }}>Merch Club</h5>
+                <h5 className="text-sm font-bold text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>Merch Club</h5>
                 <span className="text-[10px] text-green-400 flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />Online</span>
               </div>
             </div>
