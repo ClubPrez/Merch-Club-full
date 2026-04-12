@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
+import SEO from "@/components/seo";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import heroImg from "@assets/0I4A7792_1774446809972.jpg";
 import golfImg from "@assets/image_1774554118628.png";
@@ -723,6 +724,11 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
+      <SEO
+        title="Full-Service Branded Merchandise"
+        description="Full-service branded merchandise programs. From strategy and design to production, kitting, and distribution — Merch Club handles every detail so your brand shows up right."
+        path="/"
+      />
       <div className="hidden md:flex items-center justify-end gap-8 px-6 md:px-10 py-2 bg-[#222] border-b border-white/5 text-[10px] font-bold uppercase tracking-[0.2em]">
         <a href="/" className="text-white transition-colors">MerchClub</a>
         <span className="text-white/20">|</span>

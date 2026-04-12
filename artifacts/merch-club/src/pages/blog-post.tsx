@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link, useParams } from "wouter";
+import SEO from "@/components/seo";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import { blogPosts } from "./blog";
 
@@ -24,6 +25,12 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen bg-white text-black">
+      <SEO
+        title={post.title}
+        description={post.excerpt}
+        path={`/blog/${post.slug}`}
+        type="article"
+      />
       <div className="hidden md:flex items-center justify-end gap-8 px-6 md:px-10 py-2 bg-[#222] border-b border-white/5 text-[10px] font-bold uppercase tracking-[0.2em]">
         <a href="/" className="text-white transition-colors">MerchClub</a>
         <span className="text-white/20">|</span>
