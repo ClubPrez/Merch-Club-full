@@ -254,53 +254,24 @@ export default function Healthcare() {
 
       <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            <div>
-              <RevealItem>
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Visual Story</span>
-              </RevealItem>
-              <div className="grid grid-cols-2 gap-4">
-                <RevealItem delay={100} className="col-span-2">
-                  <div className="rounded-2xl overflow-hidden border border-black/10">
-                    <img src={kittingImg} alt="OneStaff branded packaging" className="w-full h-[300px] md:h-[380px] object-cover" />
+          <RevealItem>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Case Studies</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-16" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Featured Healthcare<br /><span className="text-[#888]">Work.</span>
+            </h2>
+          </RevealItem>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {caseStudies.map((study, i) => (
+              <RevealItem key={i} delay={i * 150}>
+                <div className="group cursor-pointer">
+                  <div className="rounded-2xl overflow-hidden border border-black/10 mb-6">
+                    <img src={study.img} alt={study.name} className="w-full h-[280px] md:h-[320px] object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
-                </RevealItem>
-                <RevealItem delay={200}>
-                  <div className="rounded-2xl overflow-hidden border border-black/10">
-                    <img src={bagImg} alt="Branded gym bag" className="w-full h-[200px] md:h-[260px] object-cover" />
-                  </div>
-                </RevealItem>
-                <RevealItem delay={300}>
-                  <div className="rounded-2xl overflow-hidden border border-black/10">
-                    <img src={packagingImg} alt="Prime Time Healthcare packaging" className="w-full h-[200px] md:h-[260px] object-cover" />
-                  </div>
-                </RevealItem>
-              </div>
-            </div>
-            <div className="lg:sticky lg:top-32">
-              <RevealItem>
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">The Video</span>
-                <h3 className="text-3xl md:text-4xl font-black tracking-tight leading-[0.95] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  See It in Action.
-                </h3>
-              </RevealItem>
-              <RevealItem delay={150}>
-                <div className="rounded-2xl overflow-hidden border border-black/10 aspect-video">
-                  <iframe
-                    src="https://www.youtube.com/embed/nkQ50axsMxg"
-                    title="Merch Club Healthcare"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  />
+                  <h3 className="text-xl md:text-2xl font-black text-black tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{study.name}</h3>
+                  <p className="text-sm text-[#888] leading-relaxed">{study.desc}</p>
                 </div>
               </RevealItem>
-              <RevealItem delay={250}>
-                <p className="text-sm text-[#888] mt-6 leading-relaxed">
-                  From internal apparel systems to patient-facing awareness campaigns, we manage the entire lifecycle — strategy through delivery — so your team doesn't have to coordinate it alone.
-                </p>
-              </RevealItem>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -373,30 +344,6 @@ export default function Healthcare() {
                 <img src={heroImg} alt="OneStaff branded scrubs" className="w-full h-[500px] md:h-[700px] object-cover object-top" />
               </div>
             </RevealItem>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-7xl mx-auto">
-          <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Case Studies</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-16" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Featured Healthcare<br /><span className="text-[#888]">Work.</span>
-            </h2>
-          </RevealItem>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {caseStudies.map((study, i) => (
-              <RevealItem key={i} delay={i * 150}>
-                <div className="group cursor-pointer">
-                  <div className="rounded-2xl overflow-hidden border border-black/10 mb-6">
-                    <img src={study.img} alt={study.name} className="w-full h-[280px] md:h-[320px] object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-black text-black tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{study.name}</h3>
-                  <p className="text-sm text-[#888] leading-relaxed">{study.desc}</p>
-                </div>
-              </RevealItem>
-            ))}
           </div>
         </div>
       </section>
