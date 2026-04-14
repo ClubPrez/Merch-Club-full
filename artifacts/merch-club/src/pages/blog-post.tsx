@@ -43,6 +43,7 @@ export default function BlogPost() {
           <Link href="/"><img src={logoSrc} alt="Merch Club" className="h-8 object-contain invert" /></Link>
           <nav className="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
             <Link href="/" className="text-[#a3a3a3] hover:text-white transition-colors">Home</Link>
+            <Link href="/about" className="text-[#a3a3a3] hover:text-white transition-colors">About</Link>
             <Link href="/blog" className="text-[#a3a3a3] hover:text-white transition-colors">Blog</Link>
           </nav>
         </div>

@@ -91,6 +91,19 @@ Generated Zod schemas from the OpenAPI spec (e.g. `HealthCheckResponse`). Used b
 
 Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHealthCheck`, `healthCheck`).
 
+### `artifacts/merch-club` (`@workspace/merch-club`)
+
+Dark, editorial-style merch store landing page for Merch Club. React + Vite + Tailwind CSS + wouter for routing.
+
+- **Pages**: Home (`/`), About (`/about`), Blog listing (`/blog`), Blog post (`/blog/:slug`)
+- **Key files**: `src/pages/home.tsx`, `src/pages/about.tsx`, `src/pages/blog.tsx`, `src/pages/blog-post.tsx`
+- **SEO**: Reusable `src/components/seo.tsx` component with dynamic title/description/OG/Twitter tags per page. `public/robots.txt` and `public/sitemap.xml` (6 URLs).
+- **Design**: Dark (#0a0a0a / #111) backgrounds with white/gray text, Bebas Neue for headlines, reveal-on-scroll animations via IntersectionObserver
+- **Navigation**: Consistent header across all pages with Home/About/Blog links (desktop + mobile on homepage)
+- **Assets**: `@assets` alias → `attached_assets/` directory. Team photos: `1_*.png` (Chris), `2_*.png` (Jason), `3_*.png` (Sarah), `4_*.png` (Amir)
+- **About page sections**: Hero, Mission, Why Us (4-value grid), Team (4 members, grayscale hover), Testimonials carousel (auto-rotate), Stats bar, CTA, Footer
+- **Blog**: 3 articles with rich content blocks (paragraph, heading, quote, stats, list, callout)
+
 ### `scripts` (`@workspace/scripts`)
 
 Utility scripts package. Each script is a `.ts` file in `src/` with a corresponding npm script in `package.json`. Run scripts via `pnpm --filter @workspace/scripts run <script>`. Scripts can import any workspace package (e.g., `@workspace/db`) by adding it as a dependency in `scripts/package.json`.

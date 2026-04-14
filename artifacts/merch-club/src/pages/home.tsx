@@ -740,11 +740,11 @@ export default function Home() {
         <div className="flex items-center gap-6">
           <a href="/"><img src={logoSrc} alt="Merch Club" className="h-8 object-contain invert" /></a>
           <nav className="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
-            <a href="#" className="text-white hover:text-gray-300 transition-colors">Home</a>
+            <span className="text-white">Home</span>
+            <Link href="/about" className="text-[#a3a3a3] hover:text-white transition-colors">About</Link>
+            <Link href="/blog" className="text-[#a3a3a3] hover:text-white transition-colors">Blog</Link>
             <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Services</a>
             <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Industries</a>
-            <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Process</a>
-            <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Catalog</a>
             <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
           </nav>
         </div>
@@ -791,19 +791,32 @@ export default function Home() {
           <nav className="flex flex-col gap-4">
             {[
               { label: "Home", href: "#" },
+              { label: "About", href: "/about", isRoute: true },
+              { label: "Blog", href: "/blog", isRoute: true },
               { label: "Services", href: "#services" },
               { label: "Industries", href: "#industries" },
               { label: "Process", href: "#process" },
               { label: "FAQ", href: "#faq" },
             ].map(link => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-bold uppercase tracking-widest text-[#a3a3a3] hover:text-white transition-colors"
-              >
-                {link.label}
-              </a>
+              link.isRoute ? (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-sm font-bold uppercase tracking-widest text-[#a3a3a3] hover:text-white transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-sm font-bold uppercase tracking-widest text-[#a3a3a3] hover:text-white transition-colors"
+                >
+                  {link.label}
+                </a>
+              )
             ))}
           </nav>
           <div className="flex flex-col gap-3 pt-4 border-t border-white/10">
