@@ -161,52 +161,48 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-[#e8e8e4] py-20 md:py-28 px-8 md:px-16 lg:px-20 overflow-hidden">
-        <div className="max-w-5xl mx-auto flex flex-col items-center justify-center text-center">
-          <RevealItem delay={0}>
-            <div className="flex flex-col items-center gap-3 md:gap-4">
-              <span className="inline-block bg-black text-white text-2xl md:text-4xl lg:text-5xl font-black px-4 md:px-6 py-1 md:py-2 rotate-[-2deg]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                No Vendor Chaos.
-              </span>
-              <span className="inline-block bg-black text-white text-2xl md:text-4xl lg:text-5xl font-black px-4 md:px-6 py-1 md:py-2 rotate-[1deg]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                No Missed Details.
-              </span>
-              <span className="inline-block bg-black text-white text-2xl md:text-4xl lg:text-5xl font-black px-4 md:px-6 py-1 md:py-2 rotate-[-1deg]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                No Wasted Spend.
-              </span>
-            </div>
-          </RevealItem>
-        </div>
-      </section>
-
       <section className="bg-[#f5f5f5] py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-3xl mx-auto">
-          <RevealItem delay={0}>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Our Mission</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-10" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              One Partner. <span className="text-[#888]">Total Execution.</span>
-            </h2>
-          </RevealItem>
-          <RevealItem delay={100}>
-            <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-6">
-              Our mission is to turn branded merchandise into a system that works and a tool that builds real brand presence. We partner with marketing and operations teams to plan, design, produce, and deliver merch that is consistent, scalable, and aligned from start to finish.
-            </p>
-          </RevealItem>
-          <RevealItem delay={150}>
-            <p className="text-base md:text-lg text-black font-semibold leading-[1.8] mb-6">
-              No vendor chaos. No missed details. No wasted spend.
-            </p>
-          </RevealItem>
-          <RevealItem delay={200}>
-            <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-6">
-              Every product we source, every kit we build, every shipment we send is designed to make your brand look like it knows exactly what it's doing.
-            </p>
-          </RevealItem>
-          <RevealItem delay={250}>
-            <p className="text-base md:text-lg text-[#555] leading-[1.8]">
-              Based in Omaha. Built to serve teams everywhere.
-            </p>
-          </RevealItem>
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+            <div className="lg:w-1/2">
+              <RevealItem delay={0}>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Our Mission</span>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-10" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  One Partner. <span className="text-[#888]">Total Execution.</span>
+                </h2>
+              </RevealItem>
+              <RevealItem delay={100}>
+                <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-6">
+                  Our mission is to turn branded merchandise into a system that works and a tool that builds real brand presence. We partner with marketing and operations teams to plan, design, produce, and deliver merch that is consistent, scalable, and aligned from start to finish.
+                </p>
+              </RevealItem>
+              <RevealItem delay={150}>
+                <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-6">
+                  Every product we source, every kit we build, every shipment we send is designed to make your brand look like it knows exactly what it's doing.
+                </p>
+              </RevealItem>
+              <RevealItem delay={200}>
+                <p className="text-base md:text-lg text-[#555] leading-[1.8]">
+                  Based in Omaha. Built to serve teams everywhere.
+                </p>
+              </RevealItem>
+            </div>
+            <RevealItem delay={200} className="lg:w-1/2">
+              <div className="bg-[#e8e8e4] rounded-2xl py-16 md:py-20 px-8 md:px-12 flex flex-col items-center justify-center">
+                <div className="flex flex-col items-center gap-3 md:gap-4">
+                  <span className="inline-block bg-black text-white text-2xl md:text-3xl lg:text-4xl font-black px-4 md:px-6 py-1 md:py-2 rotate-[-2deg]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                    No Vendor Chaos.
+                  </span>
+                  <span className="inline-block bg-black text-white text-2xl md:text-3xl lg:text-4xl font-black px-4 md:px-6 py-1 md:py-2 rotate-[1deg]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                    No Missed Details.
+                  </span>
+                  <span className="inline-block bg-black text-white text-2xl md:text-3xl lg:text-4xl font-black px-4 md:px-6 py-1 md:py-2 rotate-[-1deg]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                    No Wasted Spend.
+                  </span>
+                </div>
+              </div>
+            </RevealItem>
+          </div>
         </div>
       </section>
 
