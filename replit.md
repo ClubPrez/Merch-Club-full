@@ -95,9 +95,10 @@ Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHea
 
 Dark, editorial-style merch store landing page for Merch Club. React + Vite + Tailwind CSS + wouter for routing.
 
-- **Pages**: Home (`/`), About (`/about`), Blog listing (`/blog`), Blog post (`/blog/:slug`)
-- **Key files**: `src/pages/home.tsx`, `src/pages/about.tsx`, `src/pages/blog.tsx`, `src/pages/blog-post.tsx`
-- **SEO**: Reusable `src/components/seo.tsx` component with dynamic title/description/OG/Twitter tags per page. `public/robots.txt` and `public/sitemap.xml` (6 URLs).
+- **Pages**: Home (`/`), About (`/about`), Blog listing (`/blog`), Blog post (`/blog/:slug`), Healthcare (`/industries/healthcare`)
+- **Key files**: `src/pages/home.tsx`, `src/pages/about.tsx`, `src/pages/blog.tsx`, `src/pages/blog-post.tsx`, `src/pages/healthcare.tsx`
+- **Shared components**: `src/components/start-project-modal.tsx` (project form modal used on every page), `src/components/seo.tsx`
+- **SEO**: Reusable `src/components/seo.tsx` component with dynamic title/description/OG/Twitter tags per page. `public/robots.txt` and `public/sitemap.xml` (7 URLs).
 - **Design**: Dark (#0a0a0a / #111) backgrounds with white/gray text, Bebas Neue for headlines, reveal-on-scroll animations via IntersectionObserver
 - **Navigation**: Consistent header across all pages with Home/About/Blog links (desktop + mobile on homepage)
 - **Assets**: `@assets` alias → `attached_assets/` directory. Team photos: `1_*.png` (Chris), `2_*.png` (Jason), `3_*.png` (Sarah), `4_*.png` (Amir)
