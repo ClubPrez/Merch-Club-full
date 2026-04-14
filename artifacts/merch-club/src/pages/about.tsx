@@ -161,6 +161,24 @@ export default function About() {
         </div>
       </section>
 
+      <section className="bg-[#e8e8e4] py-20 md:py-28 px-8 md:px-16 lg:px-20 overflow-hidden">
+        <div className="max-w-5xl mx-auto flex flex-col items-center justify-center text-center">
+          <RevealItem delay={0}>
+            <div className="flex flex-col items-center gap-3 md:gap-4">
+              <span className="inline-block bg-black text-white text-2xl md:text-4xl lg:text-5xl font-black px-4 md:px-6 py-1 md:py-2 rotate-[-2deg]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                No Vendor Chaos.
+              </span>
+              <span className="inline-block bg-black text-white text-2xl md:text-4xl lg:text-5xl font-black px-4 md:px-6 py-1 md:py-2 rotate-[1deg]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                No Missed Details.
+              </span>
+              <span className="inline-block bg-black text-white text-2xl md:text-4xl lg:text-5xl font-black px-4 md:px-6 py-1 md:py-2 rotate-[-1deg]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                No Wasted Spend.
+              </span>
+            </div>
+          </RevealItem>
+        </div>
+      </section>
+
       <section className="bg-[#f5f5f5] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-3xl mx-auto">
           <RevealItem delay={0}>
