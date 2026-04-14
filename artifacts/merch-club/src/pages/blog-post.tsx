@@ -1,12 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "wouter";
 import SEO from "@/components/seo";
+import { StartProjectModal } from "@/components/start-project-modal";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import { blogPosts } from "./blog";
 
 export default function BlogPost() {
   const params = useParams<{ slug: string }>();
   const post = blogPosts.find(p => p.slug === params.slug);
+  const [projectModalOpen, setProjectModalOpen] = useState(false);
 
   useEffect(() => { window.scrollTo(0, 0); }, [params.slug]);
 
@@ -48,12 +50,12 @@ export default function BlogPost() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="/?contact=true" className="hidden lg:inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
+          <button onClick={() => setProjectModalOpen(true)} className="hidden lg:inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
             Start a Project
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
             </svg>
-          </Link>
+          </button>
         </div>
       </header>
 
@@ -166,12 +168,12 @@ export default function BlogPost() {
               <p className="text-sm text-[#777] max-w-md mx-auto mb-6 leading-relaxed">
                 Whether you need a full merch program or a single project, we're ready to help.
               </p>
-              <Link href="/?contact=true" className="inline-flex items-center gap-2 bg-black text-white text-sm font-bold px-8 py-3.5 rounded-full hover:bg-[#333] transition-colors">
+              <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-black text-white text-sm font-bold px-8 py-3.5 rounded-full hover:bg-[#333] transition-colors">
                 Start a Project
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                 </svg>
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -268,6 +270,7 @@ export default function BlogPost() {
           </div>
         </div>
       </footer>
+      <StartProjectModal open={projectModalOpen} onClose={() => setProjectModalOpen(false)} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import { Link } from "wouter";
 import SEO from "@/components/seo";
+import { StartProjectModal } from "@/components/start-project-modal";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import cloverImg from "@assets/Social_PostsArtboard_2@3x_copy_1775827336093.png";
 import team1Img from "@assets/1_1775229252465.png";
@@ -108,6 +109,7 @@ const testimonials = [
 export default function About() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [projectModalOpen, setProjectModalOpen] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -141,12 +143,12 @@ export default function About() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="/?contact=true" className="hidden lg:inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
+          <button onClick={() => setProjectModalOpen(true)} className="hidden lg:inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
             Start a Project
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
             </svg>
-          </Link>
+          </button>
         </div>
       </header>
 
@@ -393,12 +395,12 @@ export default function About() {
             </p>
           </RevealItem>
           <RevealItem delay={200}>
-            <Link href="/?contact=true" className="inline-flex items-center gap-2 bg-black text-white text-sm md:text-base font-bold px-8 py-3.5 rounded-full hover:bg-[#333] transition-colors">
+            <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-black text-white text-sm md:text-base font-bold px-8 py-3.5 rounded-full hover:bg-[#333] transition-colors">
               Start a Project
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
               </svg>
-            </Link>
+            </button>
           </RevealItem>
         </div>
       </section>
@@ -465,6 +467,7 @@ export default function About() {
           </div>
         </div>
       </footer>
+      <StartProjectModal open={projectModalOpen} onClose={() => setProjectModalOpen(false)} />
     </div>
   );
 }

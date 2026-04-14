@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import SEO from "@/components/seo";
+import { StartProjectModal } from "@/components/start-project-modal";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import blogKittingImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_1775835373159.png";
 import blogPackagingImg from "@assets/Professional_promotional_packaging_shot_1775835373158.png";
@@ -246,6 +247,7 @@ export const blogPosts: {
 
 export default function Blog() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  const [projectModalOpen, setProjectModalOpen] = useState(false);
   return (
     <div className="min-h-screen bg-white text-black">
       <SEO
@@ -270,12 +272,12 @@ export default function Blog() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="/?contact=true" className="hidden lg:inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
+          <button onClick={() => setProjectModalOpen(true)} className="hidden lg:inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
             Start a Project
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
             </svg>
-          </Link>
+          </button>
         </div>
       </header>
 
@@ -361,12 +363,12 @@ export default function Blog() {
           <p className="text-sm md:text-base text-[#888] leading-relaxed mb-8 max-w-md mx-auto">
             Let's build a branded merchandise program that actually moves the needle.
           </p>
-          <Link href="/?contact=true" className="inline-flex items-center gap-2 bg-white text-black text-sm md:text-base font-bold px-8 py-3.5 rounded-full hover:bg-gray-200 transition-colors">
+          <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-white text-black text-sm md:text-base font-bold px-8 py-3.5 rounded-full hover:bg-gray-200 transition-colors">
             Start a Project
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
             </svg>
-          </Link>
+          </button>
         </div>
       </section>
 
@@ -432,6 +434,7 @@ export default function Blog() {
           </div>
         </div>
       </footer>
+      <StartProjectModal open={projectModalOpen} onClose={() => setProjectModalOpen(false)} />
     </div>
   );
 }
