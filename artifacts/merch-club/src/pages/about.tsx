@@ -32,10 +32,10 @@ function RevealItem({ children, delay = 0, className = "" }: { children: React.R
 }
 
 const teamMembers = [
-  { img: team1Img, name: "Chris", role: "Co-Founder & CEO" },
-  { img: team2Img, name: "Jason", role: "Co-Founder & COO" },
-  { img: team3Img, name: "Sarah", role: "Creative Director" },
-  { img: team4Img, name: "Amir", role: "Operations Manager" },
+  { img: team1Img, name: "Jason Olsen", role: "Sales", email: "jason@merchclub.com" },
+  { img: team2Img, name: "Chris Harwood", role: "CEO", email: "chris@merchclub.com" },
+  { img: team3Img, name: "Chelsea Vogel", role: "Vice President of Sales", email: "chelsea@merchclub.com" },
+  { img: team4Img, name: "Jay Collins", role: "Production Manager", email: "jay@merchclub.com" },
 ];
 
 const values = [
@@ -249,7 +249,7 @@ export default function About() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {teamMembers.map((member, i) => (
               <RevealItem key={i} delay={i * 100}>
-                <div className="text-center group">
+                <a href={`mailto:${member.email}`} className="text-center group block">
                   <div className="relative mb-6 mx-auto w-[160px] h-[160px] md:w-[200px] md:h-[200px]">
                     <img
                       src={member.img}
@@ -261,7 +261,7 @@ export default function About() {
                     {member.name}
                   </h3>
                   <p className="text-xs text-[#888] mt-1 uppercase tracking-[0.1em] font-medium">{member.role}</p>
-                </div>
+                </a>
               </RevealItem>
             ))}
           </div>
