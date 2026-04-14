@@ -7,7 +7,7 @@ import team1Img from "@assets/1_1775229252465.png";
 import team2Img from "@assets/2_1775229252466.png";
 import team3Img from "@assets/3_1775229252466.png";
 import team4Img from "@assets/4_1775229252466.png";
-import onestaffImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_08_AM_1775773287575.png";
+import missionImg from "@assets/0e8baef1-5aa2-4e3d-9acc-6eedba43547b_1776173642639.png";
 
 function useRevealOnScroll(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -154,7 +154,7 @@ export default function About() {
             </div>
             <RevealItem delay={200} className="lg:w-1/2">
               <div className="rounded-2xl overflow-hidden border border-black/10">
-                <img src={onestaffImg} alt="Merch Club branded packaging" className="w-full h-[350px] md:h-[480px] object-cover" />
+                <img src={missionImg} alt="OneStaff branded water bottle" className="w-full h-[350px] md:h-[480px] object-cover" />
               </div>
             </RevealItem>
           </div>
