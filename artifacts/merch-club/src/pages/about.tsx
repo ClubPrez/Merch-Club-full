@@ -133,22 +133,47 @@ export default function About() {
               </RevealItem>
               <RevealItem delay={100}>
                 <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-6">
-                  We started Merch Club because we were tired of seeing great brands represented by terrible merchandise. Cheap pens. Faded prints. Products that communicated the exact opposite of what a company stood for.
+                  Merch Club exists because too many great brands are represented by forgettable merchandise.
                 </p>
               </RevealItem>
-              <RevealItem delay={150}>
+              <RevealItem delay={120}>
                 <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-6">
-                  And the teams behind those brands? They were struggling too. Juggling spreadsheets, chasing vendors, approving proofs over email threads that never ended. The merch process was broken — eating up time, creating frustration, and delivering inconsistent results.
+                  Cheap pens. Faded prints. Products that say the opposite of what a company stands for.
+                </p>
+              </RevealItem>
+              <RevealItem delay={140}>
+                <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-6">
+                  Behind the scenes, it's just as broken. Teams stuck juggling vendors, chasing timelines, buried in proof approvals and spreadsheets. Too much effort for results that don't hold up.
+                </p>
+              </RevealItem>
+              <RevealItem delay={160}>
+                <p className="text-base md:text-lg text-black font-semibold leading-[1.8] mb-6">
+                  We built Merch Club to fix that.
+                </p>
+              </RevealItem>
+              <RevealItem delay={180}>
+                <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-6">
+                  Our mission is to turn branded merchandise into a system that works and a tool that builds real brand presence. We partner with marketing and operations teams to plan, design, produce, and deliver merch that is consistent, scalable, and aligned from start to finish.
                 </p>
               </RevealItem>
               <RevealItem delay={200}>
-                <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-6">
-                  Our mission is simple: make branded merchandise a strategic asset, not an afterthought. Every product we source, every kit we assemble, every shipment we send — it's designed to make your brand look and feel like the real deal.
+                <p className="text-base md:text-lg text-black font-semibold leading-[1.8] mb-6">
+                  No vendor chaos. No missed details. No wasted spend.
                 </p>
               </RevealItem>
-              <RevealItem delay={300}>
-                <p className="text-base md:text-lg text-[#555] leading-[1.8]">
-                  Based in Omaha and serving clients nationwide, we've shipped thousands of kits to 48 states and worked with brands across healthcare, construction, tech, finance, and beyond.
+              <RevealItem delay={220}>
+                <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-6">
+                  Every product we source, every kit we build, every shipment we send is designed to make your brand look like it knows exactly what it's doing.
+                </p>
+              </RevealItem>
+              <RevealItem delay={240}>
+                <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-2">
+                  Based in Omaha. Built to serve teams everywhere.
+                </p>
+              </RevealItem>
+              <RevealItem delay={260}>
+                <p className="text-base md:text-lg text-black font-semibold leading-[1.8]">
+                  One partner. Total execution.
                 </p>
               </RevealItem>
             </div>
