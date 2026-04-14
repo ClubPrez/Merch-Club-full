@@ -48,7 +48,7 @@ export default function BlogPost() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="/" className="hidden lg:inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
+          <Link href="/?contact=true" className="hidden lg:inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
             Start a Project
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
@@ -166,7 +166,7 @@ export default function BlogPost() {
               <p className="text-sm text-[#777] max-w-md mx-auto mb-6 leading-relaxed">
                 Whether you need a full merch program or a single project, we're ready to help.
               </p>
-              <Link href="/" className="inline-flex items-center gap-2 bg-black text-white text-sm font-bold px-8 py-3.5 rounded-full hover:bg-[#333] transition-colors">
+              <Link href="/?contact=true" className="inline-flex items-center gap-2 bg-black text-white text-sm font-bold px-8 py-3.5 rounded-full hover:bg-[#333] transition-colors">
                 Start a Project
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />

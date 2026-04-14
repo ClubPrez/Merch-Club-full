@@ -665,6 +665,13 @@ export default function Home() {
   const [wordIndex, setWordIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [projectModalOpen, setProjectModalOpen] = useState(false);
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("contact") === "true") {
+      setProjectModalOpen(true);
+      window.history.replaceState({}, "", window.location.pathname);
+    }
+  }, []);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState<{from: "user"|"bot", text: string}[]>([
