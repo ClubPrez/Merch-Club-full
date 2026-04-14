@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { Link } from "wouter";
 import SEO from "@/components/seo";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
@@ -22,11 +22,62 @@ function useRevealOnScroll(threshold = 0.15) {
   return { ref, visible };
 }
 
-function RevealItem({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
+function RevealItem({ children, delay = 0, className = "", direction = "up" }: { children: React.ReactNode; delay?: number; className?: string; direction?: "up" | "left" | "right" | "scale" }) {
   const { ref, visible } = useRevealOnScroll();
+  const transforms: Record<string, string> = {
+    up: "translateY(40px)",
+    left: "translateX(-60px)",
+    right: "translateX(60px)",
+    scale: "scale(0.85)",
+  };
   return (
-    <div ref={ref} className={className} style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(32px)", transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms` }}>
+    <div ref={ref} className={className} style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0) translateX(0) scale(1)" : transforms[direction], transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms` }}>
       {children}
+    </div>
+  );
+}
+
+function CountUp({ target, suffix = "", duration = 2000 }: { target: number; suffix?: string; duration?: number }) {
+  const { ref, visible } = useRevealOnScroll(0.3);
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!visible) return;
+    let start = 0;
+    const startTime = performance.now();
+    const step = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      start = Math.round(eased * target);
+      setCount(start);
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [visible, target, duration]);
+  return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
+}
+
+function useParallax(speed = 0.15) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [offset, setOffset] = useState(0);
+  const handleScroll = useCallback(() => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+    setOffset(center * speed * -1);
+  }, [speed]);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+  return { ref, offset };
+}
+
+function ParallaxImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
+  const { ref, offset } = useParallax(0.1);
+  return (
+    <div ref={ref} className={`overflow-hidden ${className || ""}`}>
+      <img src={src} alt={alt} className="w-full h-[120%] object-cover object-center" style={{ transform: `translateY(${offset}px)`, transition: "transform 0.1s linear" }} />
     </div>
   );
 }
@@ -102,8 +153,8 @@ export default function About() {
       <section className="relative bg-[#0a0a0a] py-16 md:py-24 px-8 md:px-16 lg:px-20 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
         <div className="relative max-w-5xl mx-auto text-center">
-          <RevealItem delay={0}>
-            <img src={cloverImg} alt="Merch Club" className="h-16 md:h-20 mx-auto mb-6" />
+          <RevealItem delay={0} direction="scale">
+            <img src={cloverImg} alt="Merch Club" className="h-16 md:h-20 mx-auto mb-6 animate-[float_3s_ease-in-out_infinite]" />
           </RevealItem>
           <RevealItem delay={100}>
             <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#666] block mb-4">About Merch Club</span>
@@ -152,9 +203,9 @@ export default function About() {
                 </p>
               </RevealItem>
             </div>
-            <RevealItem delay={200} className="lg:w-1/2">
+            <RevealItem delay={200} className="lg:w-1/2" direction="right">
               <div className="rounded-2xl overflow-hidden border border-black/10">
-                <img src={missionImg} alt="OneStaff branded water bottle" className="w-full h-[500px] md:h-[650px] object-cover object-center" />
+                <ParallaxImage src={missionImg} alt="OneStaff branded water bottle" className="w-full h-[500px] md:h-[650px]" />
               </div>
             </RevealItem>
           </div>
@@ -165,7 +216,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
             <div className="lg:w-1/2">
-              <RevealItem delay={0}>
+              <RevealItem delay={0} direction="left">
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Our Mission</span>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-10" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                   One Partner. <span className="text-[#888]">Total Execution.</span>
@@ -187,21 +238,27 @@ export default function About() {
                 </p>
               </RevealItem>
             </div>
-            <RevealItem delay={200} className="lg:w-1/2">
+            <div className="lg:w-1/2">
               <div className="py-16 md:py-20 px-8 md:px-12 flex flex-col items-center justify-center">
                 <div className="flex flex-col items-center gap-3 md:gap-4">
-                  <span className="inline-block bg-black text-white text-2xl md:text-3xl lg:text-4xl font-black px-4 md:px-6 py-1 md:py-2 rotate-[-2deg]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                    No Vendor Chaos.
-                  </span>
-                  <span className="inline-block bg-black text-white text-2xl md:text-3xl lg:text-4xl font-black px-4 md:px-6 py-1 md:py-2 rotate-[1deg]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                    No Missed Details.
-                  </span>
-                  <span className="inline-block bg-black text-white text-2xl md:text-3xl lg:text-4xl font-black px-4 md:px-6 py-1 md:py-2 rotate-[-1deg]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                    No Wasted Spend.
-                  </span>
+                  <RevealItem delay={100} direction="right">
+                    <span className="inline-block bg-black text-white text-2xl md:text-3xl lg:text-4xl font-black px-4 md:px-6 py-1 md:py-2 rotate-[-2deg] hover:rotate-0 transition-transform duration-300" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                      No Vendor Chaos.
+                    </span>
+                  </RevealItem>
+                  <RevealItem delay={250} direction="left">
+                    <span className="inline-block bg-black text-white text-2xl md:text-3xl lg:text-4xl font-black px-4 md:px-6 py-1 md:py-2 rotate-[1deg] hover:rotate-0 transition-transform duration-300" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                      No Missed Details.
+                    </span>
+                  </RevealItem>
+                  <RevealItem delay={400} direction="right">
+                    <span className="inline-block bg-black text-white text-2xl md:text-3xl lg:text-4xl font-black px-4 md:px-6 py-1 md:py-2 rotate-[-1deg] hover:rotate-0 transition-transform duration-300" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                      No Wasted Spend.
+                    </span>
+                  </RevealItem>
                 </div>
               </div>
-            </RevealItem>
+            </div>
           </div>
         </div>
       </section>
@@ -218,8 +275,8 @@ export default function About() {
           </RevealItem>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {values.map((v, i) => (
-              <RevealItem key={i} delay={i * 100}>
-                <div className="border border-white/10 rounded-2xl p-8 md:p-10 hover:border-white/20 transition-colors">
+              <RevealItem key={i} delay={i * 150}>
+                <div className="border border-white/10 rounded-2xl p-8 md:p-10 hover:border-white/20 hover:-translate-y-1 transition-all duration-300">
                   <div className="w-12 h-12 rounded-full border border-white/15 flex items-center justify-center mb-6">
                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d={v.icon} />
@@ -248,13 +305,13 @@ export default function About() {
           </RevealItem>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {teamMembers.map((member, i) => (
-              <RevealItem key={i} delay={i * 100}>
+              <RevealItem key={i} delay={i * 150} direction="scale">
                 <a href={`mailto:${member.email}`} className="text-center group block">
                   <div className="relative mb-6 mx-auto w-[160px] h-[160px] md:w-[200px] md:h-[200px]">
                     <img
                       src={member.img}
                       alt={member.name}
-                      className="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500"
+                      className="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                     />
                   </div>
                   <h3 className="text-lg md:text-xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
@@ -315,14 +372,14 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
             {[
-              { value: "1,200+", label: "Kits Shipped" },
-              { value: "48", label: "States Reached" },
-              { value: "500+", label: "Brands Served" },
-              { value: "100%", label: "On-Time Delivery" },
+              { target: 1200, suffix: "+", label: "Kits Shipped" },
+              { target: 48, suffix: "", label: "States Reached" },
+              { target: 500, suffix: "+", label: "Brands Served" },
+              { target: 100, suffix: "%", label: "On-Time Delivery" },
             ].map((stat, i) => (
-              <RevealItem key={i} delay={i * 100}>
+              <RevealItem key={i} delay={i * 150}>
                 <span className="block text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  {stat.value}
+                  <CountUp target={stat.target} suffix={stat.suffix} duration={2000 + i * 300} />
                 </span>
                 <p className="text-xs text-[#666] mt-2 uppercase tracking-[0.15em] font-medium">{stat.label}</p>
               </RevealItem>
