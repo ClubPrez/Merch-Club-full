@@ -153,22 +153,14 @@ export default function About() {
       <section className="relative bg-[#0a0a0a] py-16 md:py-24 px-8 md:px-16 lg:px-20 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
         <div className="relative max-w-5xl mx-auto text-center">
-          <RevealItem delay={0} direction="scale">
-            <img src={cloverImg} alt="Merch Club" className="h-16 md:h-20 mx-auto mb-6 animate-[float_3s_ease-in-out_infinite]" />
-          </RevealItem>
-          <RevealItem delay={100}>
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#666] block mb-4">About Merch Club</span>
-          </RevealItem>
-          <RevealItem delay={200}>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.9] text-white mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              We Make Brands<br /><span className="text-[#888]">Look Their Best.</span>
-            </h1>
-          </RevealItem>
-          <RevealItem delay={300}>
-            <p className="text-base md:text-lg text-[#888] leading-relaxed max-w-2xl mx-auto">
-              Merch Club is a full-service branded merchandise company built for teams that care about quality, consistency, and getting things done right. From strategy to delivery, we handle every detail.
-            </p>
-          </RevealItem>
+          <img src={cloverImg} alt="Merch Club" className="h-16 md:h-20 mx-auto mb-6" />
+          <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#666] block mb-4">About Merch Club</span>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.9] text-white mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            We Make Brands<br /><span className="text-[#888]">Look Their Best.</span>
+          </h1>
+          <p className="text-base md:text-lg text-[#888] leading-relaxed max-w-2xl mx-auto">
+            Merch Club is a full-service branded merchandise company built for teams that care about quality, consistency, and getting things done right. From strategy to delivery, we handle every detail.
+          </p>
         </div>
       </section>
 
