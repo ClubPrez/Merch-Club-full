@@ -136,6 +136,11 @@ export default function About() {
                   We started Merch Club because we were tired of seeing great brands represented by terrible merchandise. Cheap pens. Faded prints. Products that communicated the exact opposite of what a company stood for.
                 </p>
               </RevealItem>
+              <RevealItem delay={150}>
+                <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-6">
+                  And the teams behind those brands? They were struggling too. Juggling spreadsheets, chasing vendors, approving proofs over email threads that never ended. The merch process was broken — eating up time, creating frustration, and delivering inconsistent results.
+                </p>
+              </RevealItem>
               <RevealItem delay={200}>
                 <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-6">
                   Our mission is simple: make branded merchandise a strategic asset, not an afterthought. Every product we source, every kit we assemble, every shipment we send — it's designed to make your brand look and feel like the real deal.
