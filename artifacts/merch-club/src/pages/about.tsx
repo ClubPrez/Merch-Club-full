@@ -188,7 +188,7 @@ export default function About() {
               </RevealItem>
             </div>
             <RevealItem delay={200} className="lg:w-1/2">
-              <div className="bg-[#e8e8e4] rounded-2xl py-16 md:py-20 px-8 md:px-12 flex flex-col items-center justify-center">
+              <div className="py-16 md:py-20 px-8 md:px-12 flex flex-col items-center justify-center">
                 <div className="flex flex-col items-center gap-3 md:gap-4">
                   <span className="inline-block bg-black text-white text-2xl md:text-3xl lg:text-4xl font-black px-4 md:px-6 py-1 md:py-2 rotate-[-2deg]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                     No Vendor Chaos.
