@@ -154,7 +154,7 @@ export default function About() {
             </div>
             <RevealItem delay={200} className="lg:w-1/2">
               <div className="rounded-2xl overflow-hidden border border-black/10">
-                <img src={missionImg} alt="OneStaff branded water bottle" className="w-full h-[350px] md:h-[480px] object-cover" />
+                <img src={missionImg} alt="OneStaff branded water bottle" className="w-full h-[500px] md:h-[650px] object-cover object-center" />
               </div>
             </RevealItem>
           </div>
