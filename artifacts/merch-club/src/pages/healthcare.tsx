@@ -9,6 +9,7 @@ import bagImg from "@assets/Sporty_style_by_the_door_1776180821016.png";
 import packagingImg from "@assets/Professional_promotional_packaging_shot_1776180821018.png";
 import kittingImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_1776180821018.png";
 import nursesWeekImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_08_AM_1776180821018.png";
+import scrubsModelImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1776181322914.png";
 
 function useRevealOnScroll(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -202,7 +203,7 @@ export default function Healthcare() {
             </div>
             <RevealItem delay={200} className="lg:w-1/2" direction="right">
               <div className="rounded-2xl overflow-hidden border border-black/10">
-                <img src={nursesWeekImg} alt="OneStaff Nurses Week gift boxes" className="w-full h-[400px] md:h-[550px] object-cover" />
+                <img src={scrubsModelImg} alt="OneStaff branded scrubs" className="w-full h-[400px] md:h-[550px] object-cover object-top" />
               </div>
             </RevealItem>
           </div>
