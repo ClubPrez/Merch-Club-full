@@ -77,6 +77,8 @@ const challenges = [
   "Avoiding low-quality promotional products that undermine trust.",
 ];
 
+const healthcareLogos: { name: string; src: string }[] = [];
+
 const caseStudies = [
   { name: "CHI", desc: "Structured apparel and branded materials executed across departments to maintain consistency and durability in clinical environments.", img: packagingImg },
   { name: "OneStaff Medical", desc: "Large-scale apparel and event-driven merchandise programs built to support distributed healthcare staffing teams.", img: nursesWeekImg },
@@ -154,11 +156,30 @@ export default function Healthcare() {
         </div>
       )}
 
-      <section className="relative bg-[#0a0a0a] overflow-hidden">
-        <div className="relative max-w-7xl mx-auto px-8 md:px-16 lg:px-20 py-20 md:py-28">
+      <section className="relative bg-white overflow-hidden border-b border-black/10">
+        <div className="relative max-w-7xl mx-auto px-8 md:px-16 lg:px-20 pt-20 md:pt-28 pb-12 md:pb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="relative order-2 lg:order-1">
-              <div className="relative rounded-3xl overflow-hidden border border-white/10 aspect-[4/5] md:aspect-[5/6] bg-black">
+            <div className="order-2 lg:order-1">
+              <div className="inline-flex items-center gap-2 bg-black/5 border border-black/10 rounded-full px-4 py-1.5 mb-6">
+                <span className="w-2 h-2 rounded-full bg-black" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-black">Industry — Healthcare</span>
+              </div>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.9] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                We Build Branded<br />Merch Programs<br /><span className="text-[#888]">for Healthcare.</span>
+              </h1>
+              <p className="text-base md:text-lg text-[#555] leading-relaxed max-w-xl mb-10">
+                Structured merchandise programs for hospitals, healthcare networks, specialty clinics, and medical organizations — strategy through delivery.
+              </p>
+              <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-black text-white text-sm font-bold px-8 py-3.5 rounded-full hover:bg-[#222] transition-colors">
+                Start a Healthcare Project
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="relative order-1 lg:order-2">
+              <div className="relative rounded-3xl overflow-hidden border border-black/10 aspect-[4/5] md:aspect-[5/6] bg-black">
                 {videoPlaying ? (
                   <iframe
                     src="https://www.youtube.com/embed/nkQ50axsMxg?autoplay=1"
@@ -185,29 +206,24 @@ export default function Healthcare() {
                   </button>
                 )}
               </div>
-              <div className="hidden md:flex absolute -top-4 -right-4 w-24 h-24 lg:w-28 lg:h-28 rounded-full bg-white text-black items-center justify-center text-[10px] font-bold uppercase tracking-[0.15em] text-center leading-tight p-3 rotate-[8deg] shadow-xl">
+              <div className="hidden md:flex absolute -top-4 -left-4 w-24 h-24 lg:w-28 lg:h-28 rounded-full bg-black text-white items-center justify-center text-[10px] font-bold uppercase tracking-[0.15em] text-center leading-tight p-3 -rotate-[8deg] shadow-xl">
                 200+ Healthcare<br />Clients
               </div>
             </div>
+          </div>
+        </div>
 
-            <div className="order-1 lg:order-2">
-              <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-6">
-                <span className="w-2 h-2 rounded-full bg-white" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white">Industry — Healthcare</span>
+        <div className="relative border-t border-black/10 py-8 overflow-hidden">
+          <div className="flex items-center gap-16 animate-marquee whitespace-nowrap">
+            {[...Array(2)].map((_, loop) => (
+              <div key={loop} className="flex items-center gap-16 shrink-0">
+                {healthcareLogos.map((logo, i) => (
+                  <div key={`${loop}-${i}`} className="flex items-center h-12 shrink-0">
+                    <img src={logo.src} alt={logo.name} className="h-full w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale" />
+                  </div>
+                ))}
               </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.9] text-white mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                We Build Branded<br />Merch Programs<br /><span className="text-[#888]">for Healthcare.</span>
-              </h1>
-              <p className="text-base md:text-lg text-[#999] leading-relaxed max-w-xl mb-10">
-                Structured merchandise programs for hospitals, healthcare networks, specialty clinics, and medical organizations — strategy through delivery.
-              </p>
-              <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-white text-black text-sm font-bold px-8 py-3.5 rounded-full hover:bg-gray-200 transition-colors">
-                Start a Healthcare Project
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                </svg>
-              </button>
-            </div>
+            ))}
           </div>
         </div>
       </section>
