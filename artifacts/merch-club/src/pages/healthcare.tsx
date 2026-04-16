@@ -407,7 +407,7 @@ export default function Healthcare() {
             ))}
           </div>
           <RevealItem delay={500}>
-            <p className="text-sm font-semibold text-white mt-16 border-t border-white/10 pt-8">Execution is structured from start to finish.</p>
+            <p className="text-2xl md:text-3xl lg:text-4xl font-black text-white mt-16 border-t border-white/10 pt-8 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>Execution is structured from start to finish.</p>
           </RevealItem>
         </div>
       </section>
