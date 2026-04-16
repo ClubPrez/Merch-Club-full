@@ -78,7 +78,19 @@ const challenges = [
   "Avoiding low-quality promotional products that undermine trust.",
 ];
 
-const healthcareLogos: { name: string; src: string }[] = [];
+const scrubBrands = [
+  "FIGS",
+  "Cherokee",
+  "Grey's Anatomy",
+  "WonderWink",
+  "Dickies Medical",
+  "Healing Hands",
+  "Koi",
+  "Jaanuu",
+  "Barco",
+  "Landau",
+  "Med Couture",
+];
 
 const caseStudies = [
   { name: "CHI", desc: "Structured apparel and branded materials executed across departments to maintain consistency and durability in clinical environments.", img: packagingImg },
@@ -218,12 +230,17 @@ export default function Healthcare() {
         </div>
 
         <div className="relative border-t border-black/10 py-8 overflow-hidden">
+          <div className="text-center mb-6">
+            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#888]">Top Scrub Brands We Source &amp; Decorate</span>
+          </div>
           <div className="flex items-center gap-16 animate-marquee whitespace-nowrap">
             {[...Array(2)].map((_, loop) => (
               <div key={loop} className="flex items-center gap-16 shrink-0">
-                {healthcareLogos.map((logo, i) => (
-                  <div key={`${loop}-${i}`} className="flex items-center h-12 shrink-0">
-                    <img src={logo.src} alt={logo.name} className="h-full w-auto object-contain opacity-70 hover:opacity-100 transition-opacity grayscale" />
+                {scrubBrands.map((brand, i) => (
+                  <div key={`${loop}-${i}`} className="flex items-center h-10 shrink-0">
+                    <span className="text-2xl md:text-3xl font-black uppercase tracking-[0.05em] text-black/60 hover:text-black transition-colors" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                      {brand}
+                    </span>
                   </div>
                 ))}
               </div>
