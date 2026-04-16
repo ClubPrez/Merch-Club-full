@@ -231,7 +231,7 @@ export default function Healthcare() {
 
         <div className="relative border-t border-black/10 py-8 overflow-hidden">
           <div className="text-center mb-6">
-            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#888]">Top Scrub Brands We Source &amp; Decorate</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#888]">Top Brands We Source</span>
           </div>
           <div className="flex items-center gap-16 animate-[marquee_40s_linear_infinite] whitespace-nowrap">
             {[...Array(3)].map((_, loop) => (
