@@ -19,6 +19,7 @@ function Router() {
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/industries/healthcare" component={Healthcare} />
+      <Route path="/healthcare" component={Healthcare} />
       <Route component={NotFound} />
     </Switch>
   );
