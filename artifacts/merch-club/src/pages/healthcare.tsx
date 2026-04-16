@@ -229,8 +229,8 @@ export default function Healthcare() {
           </div>
         </div>
 
-        <div className="relative border-t border-black/10 py-8 overflow-hidden">
-          <div className="text-center mb-6">
+        <div className="relative pt-2 pb-8 overflow-hidden">
+          <div className="text-center mb-4">
             <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#888]">Top Brands We Source</span>
           </div>
           <div className="flex items-center gap-16 animate-[marquee_40s_linear_infinite] whitespace-nowrap">
