@@ -242,18 +242,22 @@ export default function Healthcare() {
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
             <div className="lg:w-1/2">
               <RevealItem delay={100}>
-                <p className="text-base md:text-lg text-[#aaa] leading-[1.8] mb-6">
-                  In healthcare environments, details matter. Apparel needs to look professional. Materials need to hold up. Brand standards need to stay consistent across departments and locations.
+                <p className="text-base md:text-lg text-[#aaa] leading-[1.8] mb-8">
+                  <span className="float-left text-6xl md:text-7xl font-black text-white leading-[0.85] mr-3 mt-1" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>I</span>
+                  n healthcare environments, <span className="text-white font-semibold">details matter</span>. Apparel needs to look professional. Materials need to hold up. Brand standards need to stay <span className="text-white font-semibold">consistent</span> across departments and locations.
                 </p>
               </RevealItem>
               <RevealItem delay={150}>
-                <p className="text-base md:text-lg text-[#aaa] leading-[1.8] mb-6">
-                  You're not ordering swag. You're reinforcing trust.
-                </p>
+                <div className="relative border-l-2 border-white/30 pl-6 py-2 my-8">
+                  <p className="text-2xl md:text-3xl text-white font-black leading-[1.2] tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                    You're not ordering swag.<br />
+                    <span className="text-[#888]">You're reinforcing trust.</span>
+                  </p>
+                </div>
               </RevealItem>
               <RevealItem delay={200}>
-                <p className="text-base md:text-lg text-white font-semibold leading-[1.8]">
-                  Whether it's staff apparel, awareness initiatives, or donor gifting, branded merchandise in healthcare has to feel intentional and well-managed.
+                <p className="text-base md:text-lg text-[#ccc] leading-[1.8]">
+                  Whether it's <span className="text-white font-semibold">staff apparel</span>, <span className="text-white font-semibold">awareness initiatives</span>, or <span className="text-white font-semibold">donor gifting</span>, branded merchandise in healthcare has to feel intentional and well-managed.
                 </p>
               </RevealItem>
             </div>
