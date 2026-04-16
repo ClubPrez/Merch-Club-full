@@ -319,12 +319,12 @@ export default function Healthcare() {
 
       <section className="relative bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-25"
+          className="absolute inset-0 bg-cover bg-center opacity-70"
           style={{ backgroundImage: `url(${whatWeBuildBg})` }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-[#0a0a0a]/40" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/60" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/90 via-[#0a0a0a]/50 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-[#0a0a0a]/20" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto">
           <RevealItem>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">What We Build</span>
