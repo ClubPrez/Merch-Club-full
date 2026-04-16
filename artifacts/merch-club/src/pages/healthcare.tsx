@@ -12,6 +12,7 @@ import nursesWeekImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_08_AM_177618
 import scrubsModelImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1776181322914.png";
 import tumblerImg from "@assets/ChatGPT_Image_Apr_16,_2026,_02_19_38_PM_1776376559711.png";
 import whatWeBuildBg from "@assets/Sporty_style_by_the_door_1776378504187.png";
+import heroVideo from "@assets/0416_1776378782818.mp4";
 
 function useRevealOnScroll(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -209,21 +210,20 @@ export default function Healthcare() {
 
             <div className="relative order-1 lg:order-2 lg:col-span-2 flex justify-center lg:justify-end">
               <div className="relative rounded-full overflow-hidden border border-black/10 aspect-square w-full max-w-[440px] bg-black shadow-2xl">
-                {videoPlaying ? (
-                  <iframe
-                    src="https://www.youtube.com/embed/nkQ50axsMxg?autoplay=1"
-                    title="Merch Club Healthcare"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  />
-                ) : (
+                <video
+                  src={heroVideo}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+                {!videoPlaying && (
                   <button
                     onClick={() => setVideoPlaying(true)}
                     className="group absolute inset-0 w-full h-full"
                     aria-label="Play video"
                   >
-                    <img src={scrubsModelImg} alt="Healthcare branded apparel" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-20 h-20 md:w-28 md:h-28 rounded-full bg-white/95 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
