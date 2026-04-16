@@ -161,8 +161,8 @@ export default function Healthcare() {
 
       <section className="relative bg-white overflow-hidden border-b border-black/10">
         <div className="relative max-w-7xl mx-auto px-8 md:px-16 lg:px-20 pt-20 md:pt-28 pb-12 md:pb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
-            <div className="order-2 lg:order-1 lg:col-span-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="order-2 lg:order-1">
               <div className="inline-flex items-center gap-2 bg-black/5 border border-black/10 rounded-full px-4 py-1.5 mb-6">
                 <span className="w-2 h-2 rounded-full bg-black" />
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-black">Industry — Healthcare</span>
@@ -181,8 +181,8 @@ export default function Healthcare() {
               </button>
             </div>
 
-            <div className="relative order-1 lg:order-2 lg:col-span-2">
-              <div className="relative rounded-3xl overflow-hidden border border-black/10 aspect-video bg-black">
+            <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
+              <div className="relative rounded-full overflow-hidden border border-black/10 aspect-square w-full max-w-[560px] bg-black shadow-2xl">
                 {videoPlaying ? (
                   <iframe
                     src="https://www.youtube.com/embed/nkQ50axsMxg?autoplay=1"
