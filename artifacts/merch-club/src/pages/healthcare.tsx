@@ -96,6 +96,7 @@ export default function Healthcare() {
   const [projectModalOpen, setProjectModalOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [videoPlaying, setVideoPlaying] = useState(false);
 
   return (
     <div className="min-h-screen bg-white text-black">
@@ -154,24 +155,60 @@ export default function Healthcare() {
       )}
 
       <section className="relative bg-[#0a0a0a] overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={heroImg} alt="Healthcare branded apparel" className="w-full h-full object-cover object-top opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/60 via-[#0a0a0a]/40 to-[#0a0a0a]" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-8 md:px-16 lg:px-20 py-32 md:py-44">
-          <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#888] block mb-4">Industry — Healthcare</span>
-          <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-black tracking-tight leading-[0.9] text-white mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            Branded Merchandise<br />Programs for<br /><span className="text-[#888]">Healthcare Systems.</span>
-          </h1>
-          <p className="text-base md:text-lg text-[#999] leading-relaxed max-w-2xl mb-10">
-            We design and execute structured branded merchandise programs for hospitals, healthcare networks, specialty clinics, and medical organizations.
-          </p>
-          <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-white text-black text-sm font-bold px-8 py-3.5 rounded-full hover:bg-gray-200 transition-colors">
-            Start a Healthcare Project
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-            </svg>
-          </button>
+        <div className="relative max-w-7xl mx-auto px-8 md:px-16 lg:px-20 py-20 md:py-28">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="relative order-2 lg:order-1">
+              <div className="relative rounded-3xl overflow-hidden border border-white/10 aspect-[4/5] md:aspect-[5/6] bg-black">
+                {videoPlaying ? (
+                  <iframe
+                    src="https://www.youtube.com/embed/nkQ50axsMxg?autoplay=1"
+                    title="Merch Club Healthcare"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                ) : (
+                  <button
+                    onClick={() => setVideoPlaying(true)}
+                    className="group absolute inset-0 w-full h-full"
+                    aria-label="Play video"
+                  >
+                    <img src={scrubsModelImg} alt="Healthcare branded apparel" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-20 h-20 md:w-28 md:h-28 rounded-full bg-white/95 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                        <svg className="w-8 h-8 md:w-12 md:h-12 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </button>
+                )}
+              </div>
+              <div className="hidden md:flex absolute -top-4 -right-4 w-24 h-24 lg:w-28 lg:h-28 rounded-full bg-white text-black items-center justify-center text-[10px] font-bold uppercase tracking-[0.15em] text-center leading-tight p-3 rotate-[8deg] shadow-xl">
+                200+ Healthcare<br />Clients
+              </div>
+            </div>
+
+            <div className="order-1 lg:order-2">
+              <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-6">
+                <span className="w-2 h-2 rounded-full bg-white" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white">Industry — Healthcare</span>
+              </div>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.9] text-white mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                We Build Branded<br />Merch Programs<br /><span className="text-[#888]">for Healthcare.</span>
+              </h1>
+              <p className="text-base md:text-lg text-[#999] leading-relaxed max-w-xl mb-10">
+                Structured merchandise programs for hospitals, healthcare networks, specialty clinics, and medical organizations — strategy through delivery.
+              </p>
+              <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-white text-black text-sm font-bold px-8 py-3.5 rounded-full hover:bg-gray-200 transition-colors">
+                Start a Healthcare Project
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
