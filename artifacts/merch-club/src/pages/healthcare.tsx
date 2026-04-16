@@ -229,7 +229,7 @@ export default function Healthcare() {
           </div>
         </div>
 
-        <div className="relative pb-10 overflow-hidden">
+        <div className="relative pt-[10px] pb-10 overflow-hidden">
           <div className="flex items-center gap-16 animate-[marquee_40s_linear_infinite] whitespace-nowrap">
             {[...Array(3)].map((_, loop) => (
               <div key={loop} className="flex items-center gap-16 shrink-0">
