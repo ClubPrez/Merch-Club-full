@@ -383,20 +383,20 @@ export default function Healthcare() {
             </h2>
             <p className="text-base text-[#888] mb-16 max-w-xl">You shouldn't have to manage five vendors to execute one initiative. Here's how we structure it.</p>
           </RevealItem>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-12 lg:gap-y-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-12">
             {processSteps.map((step, i) => (
               <RevealItem key={i} delay={i * 120}>
-                <div className="relative flex items-start gap-5 group">
-                  <div className="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden border border-white/10 bg-black">
+                <div className="relative flex items-start gap-6 group">
+                  <div className="shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-xl overflow-hidden border border-white/10 bg-black">
                     <img src={step.img} alt={step.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <span className="block text-xl md:text-2xl font-black text-white/90 mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>
-                    <h3 className="text-lg md:text-xl font-black text-white tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{step.title}</h3>
-                    <p className="text-[13px] text-[#888] leading-relaxed">{step.desc}</p>
+                    <span className="block text-2xl md:text-3xl font-black text-white/90 mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>
+                    <h3 className="text-xl md:text-2xl font-black text-white tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{step.title}</h3>
+                    <p className="text-sm text-[#888] leading-relaxed">{step.desc}</p>
                   </div>
-                  {i < processSteps.length - 1 && (
-                    <div className="hidden lg:flex absolute -right-3 top-8 text-white/30">
+                  {i % 2 === 0 && (
+                    <div className="hidden md:flex absolute -right-6 top-10 text-white/30">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                       </svg>
