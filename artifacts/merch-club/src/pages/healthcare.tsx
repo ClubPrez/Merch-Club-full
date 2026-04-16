@@ -231,34 +231,34 @@ export default function Healthcare() {
         </div>
       </section>
 
-      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
+      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-7xl mx-auto">
+          <RevealItem>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4 text-center">The Standard</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-16 text-center max-w-5xl mx-auto" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Healthcare Isn't Casual.<br /><span className="text-[#888]">Your Brand Presence Shouldn't Be Either.</span>
+            </h2>
+          </RevealItem>
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
             <div className="lg:w-1/2">
-              <RevealItem>
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">The Standard</span>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  Healthcare Isn't Casual.<br /><span className="text-[#888]">Your Brand Presence Shouldn't Be Either.</span>
-                </h2>
-              </RevealItem>
               <RevealItem delay={100}>
-                <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-6">
+                <p className="text-base md:text-lg text-[#aaa] leading-[1.8] mb-6">
                   In healthcare environments, details matter. Apparel needs to look professional. Materials need to hold up. Brand standards need to stay consistent across departments and locations.
                 </p>
               </RevealItem>
               <RevealItem delay={150}>
-                <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-6">
+                <p className="text-base md:text-lg text-[#aaa] leading-[1.8] mb-6">
                   You're not ordering swag. You're reinforcing trust.
                 </p>
               </RevealItem>
               <RevealItem delay={200}>
-                <p className="text-base md:text-lg text-black font-semibold leading-[1.8]">
+                <p className="text-base md:text-lg text-white font-semibold leading-[1.8]">
                   Whether it's staff apparel, awareness initiatives, or donor gifting, branded merchandise in healthcare has to feel intentional and well-managed.
                 </p>
               </RevealItem>
             </div>
             <RevealItem delay={200} className="lg:w-1/2" direction="right">
-              <div className="rounded-2xl overflow-hidden border border-black/10">
+              <div className="rounded-2xl overflow-hidden border border-white/10">
                 <img src={scrubsModelImg} alt="OneStaff branded scrubs" className="w-full h-[400px] md:h-[550px] object-cover object-top" />
               </div>
             </RevealItem>
