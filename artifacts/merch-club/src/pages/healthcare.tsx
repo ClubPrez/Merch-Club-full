@@ -121,10 +121,13 @@ export default function Healthcare() {
           <Link href="/">
             <img src={logoSrc} alt="Merch Club" className="h-8 object-contain invert" />
           </Link>
-          <nav className="hidden md:flex items-center gap-6 text-xs font-bold uppercase tracking-[0.15em]">
+          <nav className="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
             <Link href="/" className="text-[#a3a3a3] hover:text-white transition-colors">Home</Link>
             <Link href="/about" className="text-[#a3a3a3] hover:text-white transition-colors">About</Link>
             <Link href="/blog" className="text-[#a3a3a3] hover:text-white transition-colors">Blog</Link>
+            <a href="/#services" className="text-[#a3a3a3] hover:text-white transition-colors">Services</a>
+            <span className="text-white">Industries</span>
+            <a href="/#contact" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
           </nav>
         </div>
         <div className="flex items-center gap-4">

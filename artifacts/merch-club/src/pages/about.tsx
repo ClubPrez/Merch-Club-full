@@ -140,6 +140,9 @@ export default function About() {
             <Link href="/" className="text-[#a3a3a3] hover:text-white transition-colors">Home</Link>
             <span className="text-white">About</span>
             <Link href="/blog" className="text-[#a3a3a3] hover:text-white transition-colors">Blog</Link>
+            <a href="/#services" className="text-[#a3a3a3] hover:text-white transition-colors">Services</a>
+            <Link href="/industries/healthcare" className="text-[#a3a3a3] hover:text-white transition-colors">Industries</Link>
+            <a href="/#contact" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
           </nav>
         </div>
         <div className="flex items-center gap-4">

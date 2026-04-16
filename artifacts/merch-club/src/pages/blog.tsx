@@ -269,6 +269,9 @@ export default function Blog() {
             <Link href="/" className="text-[#a3a3a3] hover:text-white transition-colors">Home</Link>
             <Link href="/about" className="text-[#a3a3a3] hover:text-white transition-colors">About</Link>
             <span className="text-white">Blog</span>
+            <a href="/#services" className="text-[#a3a3a3] hover:text-white transition-colors">Services</a>
+            <Link href="/industries/healthcare" className="text-[#a3a3a3] hover:text-white transition-colors">Industries</Link>
+            <a href="/#contact" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
           </nav>
         </div>
         <div className="flex items-center gap-4">
