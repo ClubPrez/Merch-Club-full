@@ -173,7 +173,7 @@ export default function Healthcare() {
       )}
 
       <section className="relative bg-white overflow-hidden border-b border-black/10">
-        <div className="relative max-w-7xl mx-auto px-8 md:px-16 lg:px-20 pt-20 md:pt-28 pb-12 md:pb-16">
+        <div className="relative max-w-7xl mx-auto px-8 md:px-16 lg:px-20 pt-20 md:pt-28 pb-4 md:pb-6">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1 lg:col-span-3">
               <div className="inline-flex items-center gap-2 bg-black/5 border border-black/10 rounded-full px-4 py-1.5 mb-6">
@@ -229,10 +229,7 @@ export default function Healthcare() {
           </div>
         </div>
 
-        <div className="relative pt-2 pb-8 overflow-hidden">
-          <div className="text-center mb-4">
-            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#888]">Top Brands We Source</span>
-          </div>
+        <div className="relative pb-10 overflow-hidden">
           <div className="flex items-center gap-16 animate-[marquee_40s_linear_infinite] whitespace-nowrap">
             {[...Array(3)].map((_, loop) => (
               <div key={loop} className="flex items-center gap-16 shrink-0">
