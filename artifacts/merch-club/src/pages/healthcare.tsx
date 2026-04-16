@@ -390,45 +390,6 @@ export default function Healthcare() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-7xl mx-auto">
-          <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">In the Field</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              A Look at the<br /><span className="text-[#888]">Work.</span>
-            </h2>
-            <p className="text-base text-[#888] mb-16 max-w-xl">Packaging, apparel, onboarding kits, and gifting programs built for healthcare teams.</p>
-          </RevealItem>
-          <div className="grid grid-cols-12 gap-4 md:gap-6">
-            <RevealItem delay={0} className="col-span-12 md:col-span-7">
-              <div className="rounded-2xl overflow-hidden border border-white/10 h-[320px] md:h-[460px]">
-                <img src={packagingImg} alt="Prime Time Healthcare packaging" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-              </div>
-            </RevealItem>
-            <RevealItem delay={100} className="col-span-12 md:col-span-5">
-              <div className="rounded-2xl overflow-hidden border border-white/10 h-[320px] md:h-[460px]">
-                <img src={tumblerImg} alt="Merch Club branded tumbler" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-              </div>
-            </RevealItem>
-            <RevealItem delay={150} className="col-span-12 md:col-span-4">
-              <div className="rounded-2xl overflow-hidden border border-white/10 h-[280px] md:h-[400px]">
-                <img src={bagImg} alt="OneStaff duffle bag" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-              </div>
-            </RevealItem>
-            <RevealItem delay={200} className="col-span-12 md:col-span-4">
-              <div className="rounded-2xl overflow-hidden border border-white/10 h-[280px] md:h-[400px]">
-                <img src={kittingImg} alt="OneStaff branded kitting" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-              </div>
-            </RevealItem>
-            <RevealItem delay={250} className="col-span-12 md:col-span-4">
-              <div className="rounded-2xl overflow-hidden border border-white/10 h-[280px] md:h-[400px]">
-                <img src={nursesWeekImg} alt="OneStaff Nurses Week kits" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-              </div>
-            </RevealItem>
-          </div>
-        </div>
-      </section>
-
       <section className="bg-[#f5f5f5] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-7xl mx-auto">
           <RevealItem>
