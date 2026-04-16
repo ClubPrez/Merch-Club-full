@@ -218,22 +218,6 @@ export default function Healthcare() {
                   playsInline
                   className="w-full h-full object-cover"
                 />
-                {!videoPlaying && (
-                  <button
-                    onClick={() => setVideoPlaying(true)}
-                    className="group absolute inset-0 w-full h-full"
-                    aria-label="Play video"
-                  >
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-20 h-20 md:w-28 md:h-28 rounded-full bg-white/95 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
-                        <svg className="w-8 h-8 md:w-12 md:h-12 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </div>
-                    </div>
-                  </button>
-                )}
               </div>
               <div className="hidden md:flex absolute -top-4 -left-4 w-24 h-24 lg:w-28 lg:h-28 rounded-full bg-black text-white items-center justify-center text-[10px] font-bold uppercase tracking-[0.15em] text-center leading-tight p-3 -rotate-[8deg] shadow-xl">
                 200+ Healthcare<br />Clients
