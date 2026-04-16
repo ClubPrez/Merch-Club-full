@@ -11,6 +11,7 @@ import kittingImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_177618082
 import nursesWeekImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_08_AM_1776180821018.png";
 import scrubsModelImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1776181322914.png";
 import tumblerImg from "@assets/ChatGPT_Image_Apr_16,_2026,_02_19_38_PM_1776376559711.png";
+import whatWeBuildBg from "@assets/Sporty_style_by_the_door_1776378504187.png";
 
 function useRevealOnScroll(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -316,14 +317,21 @@ export default function Healthcare() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-25"
+          style={{ backgroundImage: `url(${whatWeBuildBg})` }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-[#0a0a0a]/40" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/60" aria-hidden="true" />
+        <div className="relative max-w-7xl mx-auto">
           <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#666] block mb-4">What We Build</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">What We Build</span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              What We Build for<br /><span className="text-[#888]">Healthcare Teams.</span>
+              What We Build for<br /><span className="text-[#aaa]">Healthcare Teams.</span>
             </h2>
-            <p className="text-base text-[#666] mb-16 max-w-xl">Every healthcare organization is different. The common thread is structure.</p>
+            <p className="text-base text-[#aaa] mb-16 max-w-xl">Every healthcare organization is different. The common thread is structure.</p>
           </RevealItem>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((s, i) => (
