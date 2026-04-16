@@ -233,8 +233,8 @@ export default function Healthcare() {
           <div className="text-center mb-6">
             <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#888]">Top Scrub Brands We Source &amp; Decorate</span>
           </div>
-          <div className="flex items-center gap-16 animate-marquee whitespace-nowrap">
-            {[...Array(2)].map((_, loop) => (
+          <div className="flex items-center gap-16 animate-[marquee_40s_linear_infinite] whitespace-nowrap">
+            {[...Array(3)].map((_, loop) => (
               <div key={loop} className="flex items-center gap-16 shrink-0">
                 {scrubBrands.map((brand, i) => (
                   <div key={`${loop}-${i}`} className="flex items-center h-10 shrink-0">
