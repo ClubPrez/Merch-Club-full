@@ -475,6 +475,44 @@ export default function Healthcare() {
         </div>
       </section>
 
+      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
+        <div className="max-w-7xl mx-auto">
+          <RevealItem>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Our Process</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              How We Run Healthcare<br /><span className="text-[#888]">Merchandise Programs.</span>
+            </h2>
+            <p className="text-base text-[#888] mb-16 max-w-xl">You shouldn't have to manage five vendors to execute one initiative. Here's how we structure it.</p>
+          </RevealItem>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-12">
+            {processSteps.map((step, i) => (
+              <RevealItem key={i} delay={i * 120}>
+                <div className="relative flex items-start gap-6 group">
+                  <div className="shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-xl overflow-hidden border border-white/10 bg-black">
+                    <img src={step.img} alt={step.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <span className="block text-2xl md:text-3xl font-black text-white/90 mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>
+                    <h3 className="text-xl md:text-2xl font-black text-white tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{step.title}</h3>
+                    <p className="text-sm text-[#888] leading-relaxed">{step.desc}</p>
+                  </div>
+                  {i % 2 === 0 && (
+                    <div className="hidden md:flex absolute -right-6 top-10 text-white/30">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+          <RevealItem delay={500}>
+            <p className="text-2xl md:text-3xl lg:text-4xl font-black text-white mt-16 border-t border-white/10 pt-8 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>Execution is structured from start to finish.</p>
+          </RevealItem>
+        </div>
+      </section>
+
       <section className="relative bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-70"
@@ -589,44 +627,6 @@ export default function Healthcare() {
               </RevealItem>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-7xl mx-auto">
-          <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Our Process</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              How We Run Healthcare<br /><span className="text-[#888]">Merchandise Programs.</span>
-            </h2>
-            <p className="text-base text-[#888] mb-16 max-w-xl">You shouldn't have to manage five vendors to execute one initiative. Here's how we structure it.</p>
-          </RevealItem>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-12">
-            {processSteps.map((step, i) => (
-              <RevealItem key={i} delay={i * 120}>
-                <div className="relative flex items-start gap-6 group">
-                  <div className="shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-xl overflow-hidden border border-white/10 bg-black">
-                    <img src={step.img} alt={step.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <span className="block text-2xl md:text-3xl font-black text-white/90 mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>
-                    <h3 className="text-xl md:text-2xl font-black text-white tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{step.title}</h3>
-                    <p className="text-sm text-[#888] leading-relaxed">{step.desc}</p>
-                  </div>
-                  {i % 2 === 0 && (
-                    <div className="hidden md:flex absolute -right-6 top-10 text-white/30">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-              </RevealItem>
-            ))}
-          </div>
-          <RevealItem delay={500}>
-            <p className="text-2xl md:text-3xl lg:text-4xl font-black text-white mt-16 border-t border-white/10 pt-8 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>Execution is structured from start to finish.</p>
-          </RevealItem>
         </div>
       </section>
 
