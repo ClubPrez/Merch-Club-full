@@ -392,6 +392,49 @@ export default function Healthcare() {
         </div>
       </section>
 
+      <section className="bg-[#f5f5f5] py-24 md:py-32 px-8 md:px-16 lg:px-20">
+        <div className="max-w-7xl mx-auto">
+          <RevealItem>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Use Cases</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-10" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              When Healthcare Teams<br /><span className="text-[#888]">Call Us.</span>
+            </h2>
+          </RevealItem>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-16 items-start">
+            <RevealItem delay={100} className="lg:col-span-7">
+              <p className="text-base md:text-lg text-[#444] leading-[1.8]">
+                <span className="float-left text-6xl md:text-7xl font-black text-black leading-[0.85] mr-3 mt-1" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>I</span>
+                n healthcare environments, <span className="text-black font-semibold">details matter</span>. Apparel needs to look professional. Materials need to hold up. Brand standards need to stay <span className="text-black font-semibold">consistent</span> across departments and locations.
+              </p>
+              <p className="text-base md:text-lg text-[#666] leading-relaxed mt-6">
+                Whether it's <span className="text-black font-semibold">staff apparel</span>, <span className="text-black font-semibold">awareness initiatives</span>, or <span className="text-black font-semibold">donor gifting</span>, branded merchandise in healthcare has to feel intentional and well-managed.
+              </p>
+            </RevealItem>
+            <RevealItem delay={200} className="lg:col-span-5">
+              <div className="relative border-l-2 border-black/30 pl-6 py-2">
+                <p className="text-2xl md:text-3xl text-black font-black leading-[1.2] tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  You're not ordering swag.<br />
+                  <span className="text-[#888]">You're reinforcing trust.</span>
+                </p>
+              </div>
+            </RevealItem>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {useCases.map((uc, i) => (
+              <RevealItem key={i} delay={i * 80}>
+                <div className="bg-white border border-black/10 rounded-2xl p-7 h-full hover:border-black/40 hover:shadow-lg transition-all">
+                  <div className="w-11 h-11 rounded-xl bg-black flex items-center justify-center mb-5">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d={uc.icon} /></svg>
+                  </div>
+                  <h3 className="text-xl font-black text-black mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{uc.title}</h3>
+                  <p className="text-sm text-[#666] leading-relaxed">{uc.desc}</p>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="relative bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-70"
@@ -441,49 +484,6 @@ export default function Healthcare() {
                 <div className="border-l-2 border-black/10 pl-5 py-1 hover:border-black transition-colors">
                   <h3 className="text-lg font-black text-black mb-1" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{industry.name}</h3>
                   <p className="text-sm text-[#666] leading-relaxed">{industry.desc}</p>
-                </div>
-              </RevealItem>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#f5f5f5] py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-7xl mx-auto">
-          <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Use Cases</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-10" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              When Healthcare Teams<br /><span className="text-[#888]">Call Us.</span>
-            </h2>
-          </RevealItem>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-16 items-start">
-            <RevealItem delay={100} className="lg:col-span-7">
-              <p className="text-base md:text-lg text-[#444] leading-[1.8]">
-                <span className="float-left text-6xl md:text-7xl font-black text-black leading-[0.85] mr-3 mt-1" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>I</span>
-                n healthcare environments, <span className="text-black font-semibold">details matter</span>. Apparel needs to look professional. Materials need to hold up. Brand standards need to stay <span className="text-black font-semibold">consistent</span> across departments and locations.
-              </p>
-              <p className="text-base md:text-lg text-[#666] leading-relaxed mt-6">
-                Whether it's <span className="text-black font-semibold">staff apparel</span>, <span className="text-black font-semibold">awareness initiatives</span>, or <span className="text-black font-semibold">donor gifting</span>, branded merchandise in healthcare has to feel intentional and well-managed.
-              </p>
-            </RevealItem>
-            <RevealItem delay={200} className="lg:col-span-5">
-              <div className="relative border-l-2 border-black/30 pl-6 py-2">
-                <p className="text-2xl md:text-3xl text-black font-black leading-[1.2] tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  You're not ordering swag.<br />
-                  <span className="text-[#888]">You're reinforcing trust.</span>
-                </p>
-              </div>
-            </RevealItem>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {useCases.map((uc, i) => (
-              <RevealItem key={i} delay={i * 80}>
-                <div className="bg-white border border-black/10 rounded-2xl p-7 h-full hover:border-black/40 hover:shadow-lg transition-all">
-                  <div className="w-11 h-11 rounded-xl bg-black flex items-center justify-center mb-5">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d={uc.icon} /></svg>
-                  </div>
-                  <h3 className="text-xl font-black text-black mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{uc.title}</h3>
-                  <p className="text-sm text-[#666] leading-relaxed">{uc.desc}</p>
                 </div>
               </RevealItem>
             ))}
