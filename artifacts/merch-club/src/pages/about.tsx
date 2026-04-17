@@ -605,7 +605,7 @@ export default function About() {
 
       <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 text-center">
             {[
               { target: 1200, suffix: "+", label: "Kits Shipped" },
               { target: 48, suffix: "", label: "States Reached" },
@@ -613,10 +613,10 @@ export default function About() {
               { target: 100, suffix: "%", label: "On-Time Delivery" },
             ].map((stat, i) => (
               <RevealItem key={i} delay={i * 150}>
-                <span className="block text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                <span className="block text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white tracking-tight leading-[0.9]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                   <CountUp target={stat.target} suffix={stat.suffix} duration={2000 + i * 300} />
                 </span>
-                <p className="text-xs text-[#666] mt-2 uppercase tracking-[0.15em] font-medium">{stat.label}</p>
+                <p className="text-sm md:text-base text-[#888] mt-4 uppercase tracking-[0.18em] font-medium">{stat.label}</p>
               </RevealItem>
             ))}
           </div>
