@@ -844,54 +844,6 @@ export default function Healthcare() {
         </div>
       </section>
 
-      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 border-y border-black/10">
-        <div className="max-w-7xl mx-auto">
-          <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Continue Exploring</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-12" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Related Industries<br /><span className="text-[#888]">& Reading.</span>
-            </h2>
-          </RevealItem>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2">
-              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#888] mb-6">Other Industry Programs</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {relatedLinks.map((link, i) => (
-                  <RevealItem key={i} delay={i * 60}>
-                    <Link href={link.path} className="group block border border-black/10 rounded-2xl p-6 hover:border-black hover:shadow-lg transition-all">
-                      <div className="flex items-start justify-between mb-2">
-                        <h4 className="text-lg font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{link.title}</h4>
-                        <svg className="w-5 h-5 text-[#888] group-hover:text-black group-hover:translate-x-1 transition-all flex-shrink-0 ml-3 mt-1" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-                      </div>
-                      <p className="text-sm text-[#666] leading-relaxed">{link.desc}</p>
-                    </Link>
-                  </RevealItem>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#888] mb-6">From the Journal</h3>
-              <ul className="space-y-4">
-                {blogLinks.map((b, i) => (
-                  <RevealItem key={i} delay={i * 60}>
-                    <li className="border-b border-black/10 pb-4">
-                      <Link href={b.path} className="group flex items-start justify-between gap-3 text-black hover:text-[#888] transition-colors">
-                        <span className="text-base font-medium leading-snug">{b.title}</span>
-                        <svg className="w-4 h-4 text-[#888] group-hover:translate-x-1 transition-transform flex-shrink-0 mt-1.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-                      </Link>
-                    </li>
-                  </RevealItem>
-                ))}
-              </ul>
-              <Link href="/blog" className="inline-flex items-center gap-2 mt-6 text-xs font-bold uppercase tracking-[0.2em] text-black hover:text-[#888] transition-colors">
-                View All Articles
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-3xl mx-auto text-center">
           <RevealItem>
