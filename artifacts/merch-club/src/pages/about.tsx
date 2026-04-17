@@ -625,7 +625,7 @@ export default function About() {
       <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-3xl mx-auto text-center">
           <RevealItem delay={0}>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.9] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
               Ready to Work Together?
             </h2>
           </RevealItem>

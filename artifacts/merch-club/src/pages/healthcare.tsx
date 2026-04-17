@@ -1028,7 +1028,7 @@ export default function Healthcare() {
         <div className="max-w-3xl mx-auto text-center">
           <RevealItem>
             <img src={cloverImg} alt="" className="h-12 mx-auto mb-6 opacity-40" />
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] text-white mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
               Ready to Build a Structured<br /><span className="text-[#888]">Healthcare Merchandise Program?</span>
             </h2>
             <p className="text-base text-[#888] leading-relaxed mb-8 max-w-lg mx-auto">
