@@ -247,6 +247,9 @@ export default function Healthcare() {
     setTimeout(() => { setTestimonialIndex(i); setTestimonialFade(true); }, 300);
   };
 
+  const PAGE_URL = "https://merchclub.replit.app/industries/healthcare";
+  const PAGE_IMG = "https://merchclub.replit.app/opengraph.jpg";
+
   const jsonLd = [
     {
       "@context": "https://schema.org",
@@ -255,6 +258,8 @@ export default function Healthcare() {
       "url": "https://merchclub.replit.app",
       "logo": "https://merchclub.replit.app/opengraph.jpg",
       "telephone": "+1-531-777-0347",
+      "email": "hello@merchclub.com",
+      "address": { "@type": "PostalAddress", "addressCountry": "US" },
       "sameAs": [
         "https://www.facebook.com/MerchClubPro",
         "https://www.instagram.com/merchclub_ig/"
@@ -262,12 +267,35 @@ export default function Healthcare() {
     },
     {
       "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Healthcare Branded Merchandise Programs",
-      "provider": { "@type": "Organization", "name": "Merch Club", "url": "https://merchclub.replit.app" },
-      "areaServed": "United States",
-      "audience": { "@type": "Audience", "audienceType": "Hospitals, Healthcare Networks, Specialty Clinics" },
+      "@type": "WebPage",
+      "@id": PAGE_URL,
+      "url": PAGE_URL,
+      "name": "Healthcare Branded Merchandise Programs | Merch Club",
       "description": "Structured branded merchandise programs for hospitals, healthcare networks, specialty clinics, and medical organizations — strategy through delivery.",
+      "inLanguage": "en-US",
+      "isPartOf": { "@type": "WebSite", "name": "Merch Club", "url": "https://merchclub.replit.app" },
+      "primaryImageOfPage": { "@type": "ImageObject", "url": PAGE_IMG },
+      "datePublished": "2026-04-01",
+      "dateModified": "2026-04-17"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Healthcare Branded Merchandise Programs",
+      "serviceType": "Healthcare Branded Merchandise Programs",
+      "provider": { "@type": "Organization", "name": "Merch Club", "url": "https://merchclub.replit.app", "telephone": "+1-531-777-0347" },
+      "areaServed": { "@type": "Country", "name": "United States" },
+      "audience": { "@type": "Audience", "audienceType": "Hospitals, Healthcare Networks, Specialty Clinics, Medical Staffing Agencies" },
+      "description": "Structured branded merchandise programs for hospitals, healthcare networks, specialty clinics, and medical organizations — strategy, design, sourcing, kitting, and multi-site distribution.",
+      "url": PAGE_URL,
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Healthcare Merch Programs",
+        "itemListElement": useCases.map((u) => ({
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": u.title, "description": u.desc }
+        }))
+      },
       "offers": {
         "@type": "AggregateOffer",
         "priceCurrency": "USD",
@@ -294,11 +322,22 @@ export default function Healthcare() {
     },
     {
       "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Healthcare Industries Served",
+      "itemListElement": industriesServed.map((it, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": it.name,
+        "description": it.desc
+      }))
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.replit.app/" },
         { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://merchclub.replit.app/industries" },
-        { "@type": "ListItem", "position": 3, "name": "Healthcare", "item": "https://merchclub.replit.app/industries/healthcare" }
+        { "@type": "ListItem", "position": 3, "name": "Healthcare", "item": PAGE_URL }
       ]
     }
   ];
@@ -307,10 +346,61 @@ export default function Healthcare() {
     <div className="min-h-screen bg-white text-black pb-20 lg:pb-0">
       <SEO
         title="Healthcare Branded Merchandise Programs"
-        description="We design and execute structured branded merchandise programs for hospitals, healthcare networks, specialty clinics, and medical organizations. Strategy through delivery."
+        description="Structured branded merchandise programs for hospitals, healthcare networks, specialty clinics, and medical organizations. Strategy, design, sourcing, kitting, and multi-site distribution — handled by one team."
         path="/industries/healthcare"
+        image={PAGE_IMG}
+        imageAlt="Branded healthcare merchandise programs by Merch Club"
+        keywords="healthcare branded merchandise, hospital apparel programs, medical scrubs program, nurses week kits, hospital onboarding kits, multi-site healthcare merch, clinical brand consistency, healthcare promotional products, breast cancer awareness apparel, donor appreciation gifting"
         jsonLd={jsonLd}
       />
+
+      <noscript>
+        <div style={{ padding: "2rem", maxWidth: "900px", margin: "0 auto", fontFamily: "sans-serif" }}>
+          <h1>Healthcare Branded Merchandise Programs</h1>
+          <p>
+            Merch Club designs and executes structured branded merchandise programs for hospitals,
+            healthcare networks, specialty clinics, urgent care, surgery centers, dental practices,
+            behavioral health, home health, hospice, medical staffing agencies, healthcare nonprofits,
+            and medical device & pharma organizations across the United States.
+          </p>
+          <p>
+            From strategy and design through controlled proofing, production oversight, kitting, and
+            multi-site distribution, our team manages every step so internal marketing and operations
+            teams aren't chasing vendors.
+          </p>
+          <h2>Healthcare Programs We Build</h2>
+          <ul>
+            {useCases.map((u) => (
+              <li key={u.title}><strong>{u.title}:</strong> {u.desc}</li>
+            ))}
+          </ul>
+          <h2>Industries Served</h2>
+          <ul>
+            {industriesServed.map((it) => (
+              <li key={it.name}><strong>{it.name}:</strong> {it.desc}</li>
+            ))}
+          </ul>
+          <h2>Featured Healthcare Projects</h2>
+          <ul>
+            {caseStudies.map((c) => (
+              <li key={c.name}><strong>{c.name}:</strong> {c.desc}</li>
+            ))}
+          </ul>
+          <h2>Frequently Asked Questions</h2>
+          {faqs.map((f) => (
+            <div key={f.q}>
+              <h3>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
+          <h2>Contact</h2>
+          <p>Phone: <a href="tel:+15317770347">+1 531-777-0347</a></p>
+          <p>
+            <a href="/">Home</a> · <a href="/about">About</a> · <a href="/blog">Blog</a> ·{" "}
+            <a href="/industries/healthcare">Healthcare</a>
+          </p>
+        </div>
+      </noscript>
 
       <div className="hidden md:flex items-center justify-end gap-8 px-6 md:px-10 py-2 bg-[#222] border-b border-white/5 text-[10px] font-bold uppercase tracking-[0.2em]">
         <a href="/" className="text-[#888] hover:text-white transition-colors">MerchClub</a>
