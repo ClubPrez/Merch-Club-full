@@ -152,13 +152,6 @@ const trustItems = [
   { label: "Insured & Bonded", desc: "Liability coverage on production, kitting, and freight." },
 ];
 
-const outcomes = [
-  { stat: "40%", label: "Avg reduction in rollout time", desc: "vs. self-managed multi-vendor programs" },
-  { stat: "22 Sites", label: "Largest single-week distribution", desc: "Branded kits delivered in 6 days" },
-  { stat: "6 Days", label: "Avg proof-to-production turn", desc: "From approved artwork to in-production" },
-  { stat: "98%", label: "On-time delivery rate", desc: "Across the last 200+ healthcare programs" },
-];
-
 const relatedLinks = [
   { title: "Education & Universities", path: "/industries", desc: "Branded merchandise for higher-ed and K–12 systems." },
   { title: "Hospitality & Events", path: "/industries", desc: "Hotel, venue, and event activation merchandise." },
@@ -621,28 +614,6 @@ export default function Healthcare() {
               </div>
             </div>
           </RevealItem>
-        </div>
-      </section>
-
-      <section className="bg-[#0a0a0a] py-20 md:py-28 px-8 md:px-16 lg:px-20 border-t border-white/5">
-        <div className="max-w-7xl mx-auto">
-          <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Measurable Outcomes</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-white mb-12 max-w-3xl" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Numbers That Matter to <span className="text-[#888]">Operations & Marketing.</span>
-            </h2>
-          </RevealItem>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {outcomes.map((o, i) => (
-              <RevealItem key={i} delay={i * 100}>
-                <div className="border-l-2 border-white/20 pl-6 py-2">
-                  <div className="text-5xl md:text-6xl font-black text-white mb-2 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{o.stat}</div>
-                  <div className="text-sm font-bold text-white mb-1 uppercase tracking-wide">{o.label}</div>
-                  <div className="text-xs text-[#888] leading-relaxed">{o.desc}</div>
-                </div>
-              </RevealItem>
-            ))}
-          </div>
         </div>
       </section>
 
