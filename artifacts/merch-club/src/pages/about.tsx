@@ -582,7 +582,7 @@ export default function About() {
               return (
                 <RevealItem key={i} delay={i * 100} direction="scale">
                   <a href={`mailto:${member.email}`} className="text-center group block">
-                    <div className="relative mb-5 mx-auto w-[220px] h-[220px] md:w-[260px] md:h-[260px] rounded-full overflow-hidden bg-[#f5f5f5]">
+                    <div className="relative mb-5 mx-auto w-[260px] h-[260px] md:w-[320px] md:h-[320px] rounded-full overflow-hidden bg-[#f5f5f5]">
                       <img
                         src={member.img}
                         alt={member.name}
