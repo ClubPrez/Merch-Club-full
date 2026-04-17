@@ -42,6 +42,33 @@ function RevealItem({ children, delay = 0, className = "", direction = "up" }: {
   );
 }
 
+function CountUp({ end, suffix = "", duration = 1800, className = "" }: { end: number; suffix?: string; duration?: number; className?: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [value, setValue] = useState(0);
+  const started = useRef(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !started.current) {
+        started.current = true;
+        const startTime = performance.now();
+        const tick = (now: number) => {
+          const t = Math.min((now - startTime) / duration, 1);
+          const eased = 1 - Math.pow(1 - t, 3);
+          setValue(Math.round(end * eased));
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        obs.disconnect();
+      }
+    }, { threshold: 0.4 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [end, duration]);
+  return <span ref={ref} className={className}>{value}{suffix}</span>;
+}
+
 const processSteps = [
   { num: "01", title: "Strategic Alignment", desc: "We align with marketing and operations leadership to define scope, timelines, brand standards, and distribution needs.", img: scrubsModelImg },
   { num: "02", title: "Controlled Design & Proofing", desc: "Brand accuracy matters in healthcare. We manage the proofing process to maintain consistency across apparel, print, and packaging.", img: packagingImg },
@@ -665,20 +692,24 @@ export default function Healthcare() {
             </div>
           </RevealItem>
           <RevealItem delay={400}>
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mt-16 pt-10 border-t border-black/10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 items-center mt-20 pt-12 border-t border-black/10">
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>200+</div>
-                <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#888] mt-1">Healthcare Clients</div>
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black text-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  <CountUp end={200} suffix="+" />
+                </div>
+                <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-[#888] mt-3">Healthcare Clients</div>
               </div>
-              <div className="hidden md:block w-px h-10 bg-black/10" />
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>50+</div>
-                <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#888] mt-1">Hospitals Served</div>
+              <div className="text-center md:border-x md:border-black/10">
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black text-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  <CountUp end={50} suffix="+" />
+                </div>
+                <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-[#888] mt-3">Hospitals Served</div>
               </div>
-              <div className="hidden md:block w-px h-10 bg-black/10" />
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>100%</div>
-                <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#888] mt-1">On-Brand Delivery</div>
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black text-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  <CountUp end={100} suffix="%" />
+                </div>
+                <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-[#888] mt-3">On-Brand Delivery</div>
               </div>
             </div>
           </RevealItem>
