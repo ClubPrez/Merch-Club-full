@@ -750,6 +750,21 @@ export default function Healthcare() {
         </div>
       </section>
 
+      <section className="bg-white py-4 px-0 overflow-hidden">
+        <div className="flex animate-[marquee_30s_linear_infinite] whitespace-nowrap">
+          {[...Array(3)].map((_, i) => (
+            <div key={i} className="flex items-center gap-6 mx-6">
+              {["Apparel", "Kitting", "Onboarding", "Awareness", "Gifting", "Distribution", "Proofing", "Production"].map((word, j) => (
+                <span key={j} className="flex items-center gap-6">
+                  <span className="text-sm md:text-base font-black uppercase tracking-[0.15em] text-black/80" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.1rem" }}>{word}</span>
+                  <img src={cloverImg} alt="" className="h-4 w-4 opacity-30" />
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 border-b border-black/10">
         <div className="max-w-7xl mx-auto">
           <RevealItem>
@@ -769,21 +784,6 @@ export default function Healthcare() {
               </RevealItem>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-4 px-0 overflow-hidden">
-        <div className="flex animate-[marquee_30s_linear_infinite] whitespace-nowrap">
-          {[...Array(3)].map((_, i) => (
-            <div key={i} className="flex items-center gap-6 mx-6">
-              {["Apparel", "Kitting", "Onboarding", "Awareness", "Gifting", "Distribution", "Proofing", "Production"].map((word, j) => (
-                <span key={j} className="flex items-center gap-6">
-                  <span className="text-sm md:text-base font-black uppercase tracking-[0.15em] text-black/80" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.1rem" }}>{word}</span>
-                  <img src={cloverImg} alt="" className="h-4 w-4 opacity-30" />
-                </span>
-              ))}
-            </div>
-          ))}
         </div>
       </section>
 
