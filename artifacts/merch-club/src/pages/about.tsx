@@ -243,7 +243,7 @@ export default function About() {
         </div>
       </header>
 
-      <section className="relative bg-[#0a0a0a] py-16 md:py-24 px-8 md:px-16 lg:px-20 overflow-hidden">
+      <section className="relative bg-[#0a0a0a] pt-16 md:pt-20 pb-10 md:pb-14 px-8 md:px-16 lg:px-20 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
         <div className="relative max-w-5xl mx-auto text-center">
           <img src={cloverImg} alt="Merch Club" className="h-16 md:h-20 mx-auto mb-6" />
@@ -277,18 +277,18 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] border-t border-white/5 py-10 md:py-12 px-8 md:px-16 lg:px-20">
+      <section className="bg-[#0a0a0a] border-t border-white/5 py-8 md:py-10 px-8 md:px-16 lg:px-20">
         <div className="max-w-6xl mx-auto">
-          <p className="text-center text-[10px] font-bold uppercase tracking-[0.25em] text-[#555] mb-8">
+          <p className="text-center text-sm md:text-base font-bold uppercase tracking-[0.25em] text-[#888] mb-8">
             Brands that trust us
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 md:gap-x-20 gap-y-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-12 md:gap-x-20 gap-y-8">
             {trustedBrands.map((brand) => (
               <img
                 key={brand.name}
                 src={brand.logo}
                 alt={brand.name}
-                className="h-8 md:h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity"
+                className="h-12 md:h-16 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
                 style={{ filter: "brightness(0) invert(1)" }}
               />
             ))}
