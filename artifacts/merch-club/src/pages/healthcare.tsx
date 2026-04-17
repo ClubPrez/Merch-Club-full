@@ -522,7 +522,7 @@ export default function Healthcare() {
           <RevealItem>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Case Studies</span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-16" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Featured Healthcare<br /><span className="text-[#888]">Work.</span>
+              Featured Healthcare<br /><span className="text-[#888]">Projects.</span>
             </h2>
           </RevealItem>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -538,6 +538,25 @@ export default function Healthcare() {
               </RevealItem>
             ))}
           </div>
+          <RevealItem delay={300}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16 pt-12 border-t border-black/10">
+              <button
+                onClick={() => setProjectModalOpen(true)}
+                className="inline-flex items-center justify-center gap-2 bg-black text-white text-xs font-bold uppercase tracking-widest px-7 py-4 rounded-full hover:bg-[#222] transition-colors w-full sm:w-auto"
+              >
+                Start Your Healthcare Project
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </button>
+              <a
+                href="/#work"
+                className="inline-flex items-center justify-center gap-2 border border-black/20 text-black text-xs font-bold uppercase tracking-widest px-7 py-4 rounded-full hover:bg-black hover:text-white transition-colors w-full sm:w-auto"
+              >
+                View All Work
+              </a>
+            </div>
+          </RevealItem>
         </div>
       </section>
 
