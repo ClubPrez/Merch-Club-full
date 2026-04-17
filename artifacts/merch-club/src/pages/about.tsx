@@ -565,7 +565,7 @@ export default function About() {
       </section>
 
       <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <RevealItem delay={0}>
             <div className="text-center mb-20">
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">The Crew</span>
@@ -582,7 +582,7 @@ export default function About() {
               return (
                 <RevealItem key={i} delay={i * 100} direction="scale">
                   <a href={`mailto:${member.email}`} className="text-center group block">
-                    <div className="relative mb-5 mx-auto w-[260px] h-[260px] md:w-[320px] md:h-[320px] rounded-full overflow-hidden bg-[#f5f5f5]">
+                    <div className="relative mb-5 mx-auto w-full max-w-[300px] aspect-square rounded-full overflow-hidden bg-[#f5f5f5]">
                       <img
                         src={member.img}
                         alt={member.name}
