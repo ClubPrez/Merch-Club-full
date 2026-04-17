@@ -574,28 +574,30 @@ export default function About() {
               </h2>
             </div>
           </RevealItem>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 rounded-2xl overflow-hidden border border-black/10">
-            {teamMembers.map((member, i) => (
-              <RevealItem key={i} delay={i * 100}>
-                <a href={`mailto:${member.email}`} className="group block bg-black h-full">
-                  <div className="bg-black px-5 py-5 md:px-6 md:py-6 border-b border-white/10">
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-[0.9] tracking-tight uppercase" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
-                      {member.name}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12">
+            {teamMembers.map((member, i) => {
+              const parts = member.name.split(" ");
+              const first = parts[0];
+              const last = parts.slice(1).join(" ");
+              return (
+                <RevealItem key={i} delay={i * 100} direction="scale">
+                  <a href={`mailto:${member.email}`} className="text-center group block">
+                    <div className="relative mb-5 mx-auto w-[180px] h-[180px] md:w-[210px] md:h-[210px] rounded-full overflow-hidden bg-[#f5f5f5]">
+                      <img
+                        src={member.img}
+                        alt={member.name}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                      />
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-black text-black leading-[0.95] tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
+                      <span className="block">{first}</span>
+                      {last && <span className="block text-[#888]">{last}</span>}
                     </h3>
-                    <p className="text-[10px] md:text-xs text-white/60 mt-2 uppercase tracking-[0.15em] font-medium">
-                      {member.role}
-                    </p>
-                  </div>
-                  <div className="relative aspect-[3/4] overflow-hidden">
-                    <img
-                      src={member.img}
-                      alt={member.name}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                    />
-                  </div>
-                </a>
-              </RevealItem>
-            ))}
+                    <p className="text-[11px] text-[#888] mt-2 uppercase tracking-[0.15em] font-medium">{member.role}</p>
+                  </a>
+                </RevealItem>
+              );
+            })}
           </div>
         </div>
       </section>
