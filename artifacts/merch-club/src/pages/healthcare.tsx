@@ -456,6 +456,74 @@ export default function Healthcare() {
         </div>
       </section>
 
+      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 border-y border-black/10">
+        <div className="max-w-7xl mx-auto">
+          <RevealItem>
+            <div className="text-center mb-16">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">What Clients Say</span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                Trusted by Healthcare<br /><span className="text-[#888]">Marketing &amp; Operations Teams.</span>
+              </h2>
+            </div>
+          </RevealItem>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {[
+              {
+                quote: "Merch Club took the chaos out of our nurses week rollout. One vendor, every facility, on time — and the apparel actually looked like our brand.",
+                name: "Director of Marketing",
+                org: "Regional Hospital Network",
+              },
+              {
+                quote: "We've worked with promotional companies before. This is the first time it felt like a real program. The proofing process and quality control made the difference.",
+                name: "VP, Brand &amp; Communications",
+                org: "Specialty Healthcare Group",
+              },
+              {
+                quote: "Kitting and multi-site distribution used to eat a week of our operations time. Now we approve a proof and the boxes show up where they need to be.",
+                name: "Operations Manager",
+                org: "Multi-Location Clinic Group",
+              },
+            ].map((t, i) => (
+              <RevealItem key={i} delay={i * 120}>
+                <div className="border border-black/10 rounded-2xl p-8 md:p-10 h-full bg-[#fafafa] hover:border-black/20 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                  <svg className="w-8 h-8 text-black/20 mb-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                  <p className="text-base text-black leading-relaxed mb-8 flex-1">"{t.quote}"</p>
+                  <div className="border-t border-black/10 pt-5">
+                    <div className="text-sm font-bold text-black" dangerouslySetInnerHTML={{ __html: t.name }} />
+                    <div className="text-xs text-[#888] uppercase tracking-wider mt-1">{t.org}</div>
+                  </div>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+          <RevealItem delay={400}>
+            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mt-16 pt-10 border-t border-black/10">
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>200+</div>
+                <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#888] mt-1">Healthcare Clients</div>
+              </div>
+              <div className="hidden md:block w-px h-10 bg-black/10" />
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>50+</div>
+                <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#888] mt-1">Hospitals Served</div>
+              </div>
+              <div className="hidden md:block w-px h-10 bg-black/10" />
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>15+</div>
+                <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#888] mt-1">Years Experience</div>
+              </div>
+              <div className="hidden md:block w-px h-10 bg-black/10" />
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>100%</div>
+                <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#888] mt-1">On-Brand Delivery</div>
+              </div>
+            </div>
+          </RevealItem>
+        </div>
+      </section>
+
       <section className="bg-[#f5f5f5] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-3xl mx-auto">
           <RevealItem>
