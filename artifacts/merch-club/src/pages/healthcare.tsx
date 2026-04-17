@@ -370,29 +370,6 @@ export default function Healthcare() {
               Healthcare Isn't Casual.<br /><span className="text-[#888]">Your Brand Presence Shouldn't Be Either.</span>
             </h2>
           </RevealItem>
-          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
-            <div className="lg:w-1/2">
-              <RevealItem delay={100}>
-                <p className="text-base md:text-lg text-[#aaa] leading-[1.8] mb-8">
-                  <span className="float-left text-6xl md:text-7xl font-black text-white leading-[0.85] mr-3 mt-1" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>I</span>
-                  n healthcare environments, <span className="text-white font-semibold">details matter</span>. Apparel needs to look professional. Materials need to hold up. Brand standards need to stay <span className="text-white font-semibold">consistent</span> across departments and locations.
-                </p>
-              </RevealItem>
-              <RevealItem delay={150}>
-                <div className="relative border-l-2 border-white/30 pl-6 py-2 my-8">
-                  <p className="text-2xl md:text-3xl text-white font-black leading-[1.2] tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                    You're not ordering swag.<br />
-                    <span className="text-[#888]">You're reinforcing trust.</span>
-                  </p>
-                </div>
-              </RevealItem>
-            </div>
-            <RevealItem delay={200} className="lg:w-1/2" direction="right">
-              <div className="rounded-2xl overflow-hidden border border-white/10">
-                <img src={scrubsModelImg} alt="OneStaff branded scrubs" className="w-full h-[400px] md:h-[550px] object-cover object-top" />
-              </div>
-            </RevealItem>
-          </div>
           <RevealItem delay={250}>
             <div className="flex flex-wrap lg:flex-nowrap items-center justify-center gap-2 lg:gap-3 mt-16 lg:mt-20">
               {[
@@ -475,13 +452,29 @@ export default function Healthcare() {
         <div className="max-w-7xl mx-auto">
           <RevealItem>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Use Cases</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-10" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
               When Healthcare Teams<br /><span className="text-[#888]">Call Us.</span>
             </h2>
-            <p className="text-base md:text-lg text-[#666] max-w-2xl mb-16 leading-relaxed">
-              Whether it's <span className="text-black font-semibold">staff apparel</span>, <span className="text-black font-semibold">awareness initiatives</span>, or <span className="text-black font-semibold">donor gifting</span>, branded merchandise in healthcare has to feel intentional and well-managed.
-            </p>
           </RevealItem>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-16 items-start">
+            <RevealItem delay={100} className="lg:col-span-7">
+              <p className="text-base md:text-lg text-[#444] leading-[1.8]">
+                <span className="float-left text-6xl md:text-7xl font-black text-black leading-[0.85] mr-3 mt-1" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>I</span>
+                n healthcare environments, <span className="text-black font-semibold">details matter</span>. Apparel needs to look professional. Materials need to hold up. Brand standards need to stay <span className="text-black font-semibold">consistent</span> across departments and locations.
+              </p>
+              <p className="text-base md:text-lg text-[#666] leading-relaxed mt-6">
+                Whether it's <span className="text-black font-semibold">staff apparel</span>, <span className="text-black font-semibold">awareness initiatives</span>, or <span className="text-black font-semibold">donor gifting</span>, branded merchandise in healthcare has to feel intentional and well-managed.
+              </p>
+            </RevealItem>
+            <RevealItem delay={200} className="lg:col-span-5">
+              <div className="relative border-l-2 border-black/30 pl-6 py-2">
+                <p className="text-2xl md:text-3xl text-black font-black leading-[1.2] tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  You're not ordering swag.<br />
+                  <span className="text-[#888]">You're reinforcing trust.</span>
+                </p>
+              </div>
+            </RevealItem>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {useCases.map((uc, i) => (
               <RevealItem key={i} delay={i * 80}>
