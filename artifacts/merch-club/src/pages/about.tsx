@@ -613,7 +613,7 @@ export default function About() {
               { target: 100, suffix: "%", label: "On-Time Delivery" },
             ].map((stat, i) => (
               <RevealItem key={i} delay={i * 150}>
-                <span className="block text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white tracking-tight leading-[0.9]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                <span className="block text-7xl md:text-8xl lg:text-9xl font-black text-white tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                   <CountUp target={stat.target} suffix={stat.suffix} duration={2000 + i * 300} />
                 </span>
                 <p className="text-sm md:text-base text-[#888] mt-4 uppercase tracking-[0.18em] font-medium">{stat.label}</p>
