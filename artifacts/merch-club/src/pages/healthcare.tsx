@@ -477,161 +477,6 @@ export default function Healthcare() {
 
       <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-7xl mx-auto">
-          <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Our Process</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              How We Run Healthcare<br /><span className="text-[#888]">Merchandise Programs.</span>
-            </h2>
-            <p className="text-base text-[#888] mb-16 max-w-xl">You shouldn't have to manage five vendors to execute one initiative. Here's how we structure it.</p>
-          </RevealItem>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-12">
-            {processSteps.map((step, i) => (
-              <RevealItem key={i} delay={i * 120}>
-                <div className="relative flex items-start gap-6 group">
-                  <div className="shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-xl overflow-hidden border border-white/10 bg-black">
-                    <img src={step.img} alt={step.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <span className="block text-2xl md:text-3xl font-black text-white/90 mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>
-                    <h3 className="text-xl md:text-2xl font-black text-white tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{step.title}</h3>
-                    <p className="text-sm text-[#888] leading-relaxed">{step.desc}</p>
-                  </div>
-                  {i % 2 === 0 && (
-                    <div className="hidden md:flex absolute -right-6 top-10 text-white/30">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-              </RevealItem>
-            ))}
-          </div>
-          <RevealItem delay={500}>
-            <p className="text-2xl md:text-3xl lg:text-4xl font-black text-white mt-16 border-t border-white/10 pt-8 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>Execution is structured from start to finish.</p>
-          </RevealItem>
-        </div>
-      </section>
-
-      <section className="relative bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-70"
-          style={{ backgroundImage: `url(${whatWeBuildBg})` }}
-          aria-hidden="true"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/90 via-[#0a0a0a]/50 to-transparent" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-[#0a0a0a]/20" aria-hidden="true" />
-        <div className="relative max-w-7xl mx-auto">
-          <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">What We Build</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              What We Build for<br /><span className="text-[#aaa]">Healthcare Teams.</span>
-            </h2>
-            <p className="text-base text-[#aaa] mb-16 max-w-xl">Every healthcare organization is different. The common thread is structure.</p>
-          </RevealItem>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((s, i) => (
-              <RevealItem key={i} delay={i * 120}>
-                <div className="border border-white/10 rounded-2xl p-8 md:p-10 hover:border-white/20 hover:-translate-y-1 transition-all duration-300 h-full">
-                  <div className="w-12 h-12 rounded-full border border-white/15 flex items-center justify-center mb-6">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d={s.icon} />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-black text-white tracking-tight mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{s.title}</h3>
-                  <p className="text-sm text-[#888] leading-relaxed">{s.desc}</p>
-                </div>
-              </RevealItem>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 border-y border-black/10">
-        <div className="max-w-7xl mx-auto">
-          <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Case Studies</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-16" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Featured Healthcare<br /><span className="text-[#888]">Work.</span>
-            </h2>
-          </RevealItem>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {caseStudies.map((study, i) => (
-              <RevealItem key={i} delay={i * 150}>
-                <div className="group cursor-pointer">
-                  <div className="rounded-2xl overflow-hidden border border-black/10 mb-6">
-                    <img src={study.img} alt={study.name} className="w-full h-[280px] md:h-[320px] object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-black text-black tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{study.name}</h3>
-                  <p className="text-sm text-[#888] leading-relaxed">{study.desc}</p>
-                </div>
-              </RevealItem>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-4 px-0 overflow-hidden">
-        <div className="flex animate-[marquee_30s_linear_infinite] whitespace-nowrap">
-          {[...Array(3)].map((_, i) => (
-            <div key={i} className="flex items-center gap-6 mx-6">
-              {["Apparel", "Kitting", "Onboarding", "Awareness", "Gifting", "Distribution", "Proofing", "Production"].map((word, j) => (
-                <span key={j} className="flex items-center gap-6">
-                  <span className="text-sm md:text-base font-black uppercase tracking-[0.15em] text-black/80" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.1rem" }}>{word}</span>
-                  <img src={cloverImg} alt="" className="h-4 w-4 opacity-30" />
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 border-b border-black/10">
-        <div className="max-w-7xl mx-auto">
-          <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Industries Served</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Healthcare,<br /><span className="text-[#888]">In Every Form.</span>
-            </h2>
-            <p className="text-base md:text-lg text-[#666] max-w-2xl mb-16 leading-relaxed">From multi-hospital health systems to single-location specialty clinics, we build merchandise programs that work across the full healthcare landscape.</p>
-          </RevealItem>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
-            {industriesServed.map((industry, i) => (
-              <RevealItem key={i} delay={i * 50}>
-                <div className="border-l-2 border-black/10 pl-5 py-1 hover:border-black transition-colors">
-                  <h3 className="text-lg font-black text-black mb-1" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{industry.name}</h3>
-                  <p className="text-sm text-[#666] leading-relaxed">{industry.desc}</p>
-                </div>
-              </RevealItem>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#0a0a0a] py-20 md:py-28 px-8 md:px-16 lg:px-20 border-t border-white/5">
-        <div className="max-w-7xl mx-auto">
-          <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Measurable Outcomes</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-white mb-12 max-w-3xl" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Numbers That Matter to <span className="text-[#888]">Operations & Marketing.</span>
-            </h2>
-          </RevealItem>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {outcomes.map((o, i) => (
-              <RevealItem key={i} delay={i * 100}>
-                <div className="border-l-2 border-white/20 pl-6 py-2">
-                  <div className="text-5xl md:text-6xl font-black text-white mb-2 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{o.stat}</div>
-                  <div className="text-sm font-bold text-white mb-1 uppercase tracking-wide">{o.label}</div>
-                  <div className="text-xs text-[#888] leading-relaxed">{o.desc}</div>
-                </div>
-              </RevealItem>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
             <div className="lg:w-1/2">
               <RevealItem>
@@ -674,53 +519,27 @@ export default function Healthcare() {
         </div>
       </section>
 
-      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-6xl mx-auto">
+      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 border-y border-black/10">
+        <div className="max-w-7xl mx-auto">
           <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Merch Club vs. Typical Promo Vendors</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Why Healthcare Teams<br /><span className="text-[#888]">Switch to Merch Club.</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Case Studies</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-16" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Featured Healthcare<br /><span className="text-[#888]">Work.</span>
             </h2>
-            <p className="text-base md:text-lg text-[#666] max-w-2xl mb-12 leading-relaxed">A traditional promo distributor sells you a product. We run a program. The difference shows up in every facility, every reorder, every audit.</p>
           </RevealItem>
-          <RevealItem delay={150}>
-            <div className="overflow-x-auto rounded-2xl border border-black/10">
-              <table className="w-full text-left">
-                <thead>
-                  <tr className="bg-[#f5f5f5] border-b border-black/10">
-                    <th className="py-5 px-6 text-xs font-black uppercase tracking-[0.15em] text-black">Capability</th>
-                    <th className="py-5 px-6 text-xs font-black uppercase tracking-[0.15em] text-black text-center">Merch Club</th>
-                    <th className="py-5 px-6 text-xs font-black uppercase tracking-[0.15em] text-[#888] text-center">Typical Promo Vendor</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparison.map((row, i) => (
-                    <tr key={i} className={`border-b border-black/5 ${i % 2 === 1 ? "bg-white" : "bg-[#fafafa]"}`}>
-                      <td className="py-4 px-6 text-sm text-black font-medium">{row.capability}</td>
-                      <td className="py-4 px-6 text-center">
-                        {row.us ? (
-                          <span className="inline-flex w-7 h-7 items-center justify-center rounded-full bg-black text-white">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                          </span>
-                        ) : (
-                          <span className="text-[#ccc] text-lg">—</span>
-                        )}
-                      </td>
-                      <td className="py-4 px-6 text-center">
-                        {row.them ? (
-                          <span className="inline-flex w-7 h-7 items-center justify-center rounded-full border border-[#ccc] text-[#888]">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                          </span>
-                        ) : (
-                          <span className="text-[#ccc] text-lg">—</span>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </RevealItem>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {caseStudies.map((study, i) => (
+              <RevealItem key={i} delay={i * 150}>
+                <div className="group cursor-pointer">
+                  <div className="rounded-2xl overflow-hidden border border-black/10 mb-6">
+                    <img src={study.img} alt={study.name} className="w-full h-[280px] md:h-[320px] object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-black text-black tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{study.name}</h3>
+                  <p className="text-sm text-[#888] leading-relaxed">{study.desc}</p>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -784,6 +603,187 @@ export default function Healthcare() {
               </div>
             </div>
           </RevealItem>
+        </div>
+      </section>
+
+      <section className="bg-[#0a0a0a] py-20 md:py-28 px-8 md:px-16 lg:px-20 border-t border-white/5">
+        <div className="max-w-7xl mx-auto">
+          <RevealItem>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Measurable Outcomes</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-white mb-12 max-w-3xl" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Numbers That Matter to <span className="text-[#888]">Operations & Marketing.</span>
+            </h2>
+          </RevealItem>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {outcomes.map((o, i) => (
+              <RevealItem key={i} delay={i * 100}>
+                <div className="border-l-2 border-white/20 pl-6 py-2">
+                  <div className="text-5xl md:text-6xl font-black text-white mb-2 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{o.stat}</div>
+                  <div className="text-sm font-bold text-white mb-1 uppercase tracking-wide">{o.label}</div>
+                  <div className="text-xs text-[#888] leading-relaxed">{o.desc}</div>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-70"
+          style={{ backgroundImage: `url(${whatWeBuildBg})` }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/90 via-[#0a0a0a]/50 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-[#0a0a0a]/20" aria-hidden="true" />
+        <div className="relative max-w-7xl mx-auto">
+          <RevealItem>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">What We Build</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              What We Build for<br /><span className="text-[#aaa]">Healthcare Teams.</span>
+            </h2>
+            <p className="text-base text-[#aaa] mb-16 max-w-xl">Every healthcare organization is different. The common thread is structure.</p>
+          </RevealItem>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {services.map((s, i) => (
+              <RevealItem key={i} delay={i * 120}>
+                <div className="border border-white/10 rounded-2xl p-8 md:p-10 hover:border-white/20 hover:-translate-y-1 transition-all duration-300 h-full">
+                  <div className="w-12 h-12 rounded-full border border-white/15 flex items-center justify-center mb-6">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d={s.icon} />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-black text-white tracking-tight mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{s.title}</h3>
+                  <p className="text-sm text-[#888] leading-relaxed">{s.desc}</p>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
+        <div className="max-w-7xl mx-auto">
+          <RevealItem>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Our Process</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              How We Run Healthcare<br /><span className="text-[#888]">Merchandise Programs.</span>
+            </h2>
+            <p className="text-base text-[#888] mb-16 max-w-xl">You shouldn't have to manage five vendors to execute one initiative. Here's how we structure it.</p>
+          </RevealItem>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-12">
+            {processSteps.map((step, i) => (
+              <RevealItem key={i} delay={i * 120}>
+                <div className="relative flex items-start gap-6 group">
+                  <div className="shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-xl overflow-hidden border border-white/10 bg-black">
+                    <img src={step.img} alt={step.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <span className="block text-2xl md:text-3xl font-black text-white/90 mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>
+                    <h3 className="text-xl md:text-2xl font-black text-white tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{step.title}</h3>
+                    <p className="text-sm text-[#888] leading-relaxed">{step.desc}</p>
+                  </div>
+                  {i % 2 === 0 && (
+                    <div className="hidden md:flex absolute -right-6 top-10 text-white/30">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                    </div>
+                  )}
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+          <RevealItem delay={500}>
+            <p className="text-2xl md:text-3xl lg:text-4xl font-black text-white mt-16 border-t border-white/10 pt-8 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>Execution is structured from start to finish.</p>
+          </RevealItem>
+        </div>
+      </section>
+
+      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
+        <div className="max-w-6xl mx-auto">
+          <RevealItem>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Merch Club vs. Typical Promo Vendors</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Why Healthcare Teams<br /><span className="text-[#888]">Switch to Merch Club.</span>
+            </h2>
+            <p className="text-base md:text-lg text-[#666] max-w-2xl mb-12 leading-relaxed">A traditional promo distributor sells you a product. We run a program. The difference shows up in every facility, every reorder, every audit.</p>
+          </RevealItem>
+          <RevealItem delay={150}>
+            <div className="overflow-x-auto rounded-2xl border border-black/10">
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="bg-[#f5f5f5] border-b border-black/10">
+                    <th className="py-5 px-6 text-xs font-black uppercase tracking-[0.15em] text-black">Capability</th>
+                    <th className="py-5 px-6 text-xs font-black uppercase tracking-[0.15em] text-black text-center">Merch Club</th>
+                    <th className="py-5 px-6 text-xs font-black uppercase tracking-[0.15em] text-[#888] text-center">Typical Promo Vendor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparison.map((row, i) => (
+                    <tr key={i} className={`border-b border-black/5 ${i % 2 === 1 ? "bg-white" : "bg-[#fafafa]"}`}>
+                      <td className="py-4 px-6 text-sm text-black font-medium">{row.capability}</td>
+                      <td className="py-4 px-6 text-center">
+                        {row.us ? (
+                          <span className="inline-flex w-7 h-7 items-center justify-center rounded-full bg-black text-white">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                          </span>
+                        ) : (
+                          <span className="text-[#ccc] text-lg">—</span>
+                        )}
+                      </td>
+                      <td className="py-4 px-6 text-center">
+                        {row.them ? (
+                          <span className="inline-flex w-7 h-7 items-center justify-center rounded-full border border-[#ccc] text-[#888]">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                          </span>
+                        ) : (
+                          <span className="text-[#ccc] text-lg">—</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </RevealItem>
+        </div>
+      </section>
+
+      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 border-b border-black/10">
+        <div className="max-w-7xl mx-auto">
+          <RevealItem>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Industries Served</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Healthcare,<br /><span className="text-[#888]">In Every Form.</span>
+            </h2>
+            <p className="text-base md:text-lg text-[#666] max-w-2xl mb-16 leading-relaxed">From multi-hospital health systems to single-location specialty clinics, we build merchandise programs that work across the full healthcare landscape.</p>
+          </RevealItem>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+            {industriesServed.map((industry, i) => (
+              <RevealItem key={i} delay={i * 50}>
+                <div className="border-l-2 border-black/10 pl-5 py-1 hover:border-black transition-colors">
+                  <h3 className="text-lg font-black text-black mb-1" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{industry.name}</h3>
+                  <p className="text-sm text-[#666] leading-relaxed">{industry.desc}</p>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-4 px-0 overflow-hidden">
+        <div className="flex animate-[marquee_30s_linear_infinite] whitespace-nowrap">
+          {[...Array(3)].map((_, i) => (
+            <div key={i} className="flex items-center gap-6 mx-6">
+              {["Apparel", "Kitting", "Onboarding", "Awareness", "Gifting", "Distribution", "Proofing", "Production"].map((word, j) => (
+                <span key={j} className="flex items-center gap-6">
+                  <span className="text-sm md:text-base font-black uppercase tracking-[0.15em] text-black/80" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.1rem" }}>{word}</span>
+                  <img src={cloverImg} alt="" className="h-4 w-4 opacity-30" />
+                </span>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -913,6 +913,7 @@ export default function Healthcare() {
           </RevealItem>
         </div>
       </section>
+
 
       <footer className="bg-[#0a0a0a] border-t border-white/10">
         <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-20 py-16 md:py-20">
