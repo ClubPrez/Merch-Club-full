@@ -512,18 +512,20 @@ export default function Healthcare() {
       <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 border-y border-black/10">
         <div className="max-w-7xl mx-auto">
           <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Industries Served</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Healthcare,<br /><span className="text-[#888]">In Every Form.</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Case Studies</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-16" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Featured Healthcare<br /><span className="text-[#888]">Work.</span>
             </h2>
-            <p className="text-base md:text-lg text-[#666] max-w-2xl mb-16 leading-relaxed">From multi-hospital health systems to single-location specialty clinics, we build merchandise programs that work across the full healthcare landscape.</p>
           </RevealItem>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
-            {industriesServed.map((industry, i) => (
-              <RevealItem key={i} delay={i * 50}>
-                <div className="border-l-2 border-black/10 pl-5 py-1 hover:border-black transition-colors">
-                  <h3 className="text-lg font-black text-black mb-1" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{industry.name}</h3>
-                  <p className="text-sm text-[#666] leading-relaxed">{industry.desc}</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {caseStudies.map((study, i) => (
+              <RevealItem key={i} delay={i * 150}>
+                <div className="group cursor-pointer">
+                  <div className="rounded-2xl overflow-hidden border border-black/10 mb-6">
+                    <img src={study.img} alt={study.name} className="w-full h-[280px] md:h-[320px] object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-black text-black tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{study.name}</h3>
+                  <p className="text-sm text-[#888] leading-relaxed">{study.desc}</p>
                 </div>
               </RevealItem>
             ))}
@@ -546,23 +548,21 @@ export default function Healthcare() {
         </div>
       </section>
 
-      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
+      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 border-b border-black/10">
         <div className="max-w-7xl mx-auto">
           <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Case Studies</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-16" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Featured Healthcare<br /><span className="text-[#888]">Work.</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Industries Served</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Healthcare,<br /><span className="text-[#888]">In Every Form.</span>
             </h2>
+            <p className="text-base md:text-lg text-[#666] max-w-2xl mb-16 leading-relaxed">From multi-hospital health systems to single-location specialty clinics, we build merchandise programs that work across the full healthcare landscape.</p>
           </RevealItem>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {caseStudies.map((study, i) => (
-              <RevealItem key={i} delay={i * 150}>
-                <div className="group cursor-pointer">
-                  <div className="rounded-2xl overflow-hidden border border-black/10 mb-6">
-                    <img src={study.img} alt={study.name} className="w-full h-[280px] md:h-[320px] object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-black text-black tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{study.name}</h3>
-                  <p className="text-sm text-[#888] leading-relaxed">{study.desc}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+            {industriesServed.map((industry, i) => (
+              <RevealItem key={i} delay={i * 50}>
+                <div className="border-l-2 border-black/10 pl-5 py-1 hover:border-black transition-colors">
+                  <h3 className="text-lg font-black text-black mb-1" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{industry.name}</h3>
+                  <p className="text-sm text-[#666] leading-relaxed">{industry.desc}</p>
                 </div>
               </RevealItem>
             ))}
