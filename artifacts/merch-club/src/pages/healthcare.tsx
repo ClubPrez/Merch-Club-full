@@ -588,15 +588,16 @@ export default function Healthcare() {
                 org: "Multi-Location Clinic Group",
               },
             ].map((t, i) => (
-              <RevealItem key={i} delay={i * 120}>
-                <div className="border border-black/10 rounded-2xl p-8 md:p-10 h-full bg-[#fafafa] hover:border-black/20 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                  <svg className="w-8 h-8 text-black/20 mb-6" fill="currentColor" viewBox="0 0 24 24">
+              <RevealItem key={i} delay={i * 150}>
+                <div className="group relative border border-black/10 rounded-2xl p-8 md:p-10 h-full bg-[#fafafa] hover:border-black/30 hover:bg-white hover:-translate-y-2 hover:shadow-xl hover:shadow-black/5 transition-all duration-500 ease-out flex flex-col overflow-hidden">
+                  <div className="absolute top-0 left-0 h-[2px] w-0 bg-black group-hover:w-full transition-all duration-700 ease-out" aria-hidden="true" />
+                  <svg className="w-8 h-8 text-black/20 mb-6 group-hover:text-black/60 group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-500 ease-out" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                   </svg>
                   <p className="text-base text-black leading-relaxed mb-8 flex-1">"{t.quote}"</p>
-                  <div className="border-t border-black/10 pt-5">
+                  <div className="border-t border-black/10 group-hover:border-black/30 pt-5 transition-colors duration-500">
                     <div className="text-sm font-bold text-black" dangerouslySetInnerHTML={{ __html: t.name }} />
-                    <div className="text-xs text-[#888] uppercase tracking-wider mt-1">{t.org}</div>
+                    <div className="text-xs text-[#888] uppercase tracking-wider mt-1 group-hover:text-black/60 transition-colors duration-500">{t.org}</div>
                   </div>
                 </div>
               </RevealItem>
