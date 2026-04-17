@@ -790,33 +790,63 @@ export default function Healthcare() {
         </div>
       </section>
 
-      <section className="bg-[#f5f5f5] py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-3xl mx-auto">
-          <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4 text-center">FAQ</span>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-[0.95] text-black mb-16 text-center" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Frequently Asked<br /><span className="text-[#888]">Questions.</span>
-            </h2>
+      <section id="faq" className="bg-white py-16 md:py-20 px-8 md:px-16 lg:px-20">
+        <div className="max-w-5xl mx-auto">
+          <RevealItem delay={0}>
+            <div className="text-center mb-16">
+              <span className="inline-block text-xs font-semibold uppercase tracking-[0.15em] text-[#888] border border-black/15 rounded-full px-4 py-1.5 mb-5">FAQ's</span>
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                Frequently Asked Questions
+              </h3>
+            </div>
           </RevealItem>
-          <div className="space-y-4">
-            {faqs.map((faq, i) => (
-              <RevealItem key={i} delay={i * 80}>
-                <div className="border border-black/10 rounded-xl overflow-hidden bg-white">
-                  <button
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    className="w-full flex items-center justify-between gap-4 p-6 text-left"
-                  >
-                    <span className="text-sm md:text-base font-bold text-black leading-snug">{faq.q}</span>
-                    <svg className={`w-5 h-5 text-[#888] shrink-0 transition-transform duration-300 ${openFaq === i ? "rotate-45" : ""}`} fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                    </svg>
-                  </button>
-                  <div className={`overflow-hidden transition-all duration-300 ${openFaq === i ? "max-h-40 pb-6" : "max-h-0"}`}>
-                    <p className="text-sm text-[#888] leading-relaxed px-6">{faq.a}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
+            <div>
+              {faqs.filter((_, i) => i % 2 === 0).map((faq, i) => {
+                const idx = i * 2;
+                const isOpen = openFaq === idx;
+                return (
+                  <div key={idx} className="border-t border-black/10">
+                    <button
+                      className="w-full flex items-center justify-between py-5 text-left group"
+                      onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    >
+                      <span className="text-base md:text-lg font-medium text-black pr-4">{faq.q}</span>
+                      <span className={`text-xl text-black/50 transition-transform duration-300 shrink-0 ${isOpen ? "rotate-45" : ""}`}>+</span>
+                    </button>
+                    <div
+                      className="overflow-hidden transition-all duration-300"
+                      style={{ maxHeight: isOpen ? "200px" : "0", opacity: isOpen ? 1 : 0 }}
+                    >
+                      <p className="text-sm text-[#666] pb-5 leading-relaxed">{faq.a}</p>
+                    </div>
                   </div>
-                </div>
-              </RevealItem>
-            ))}
+                );
+              })}
+            </div>
+            <div>
+              {faqs.filter((_, i) => i % 2 === 1).map((faq, i) => {
+                const idx = i * 2 + 1;
+                const isOpen = openFaq === idx;
+                return (
+                  <div key={idx} className="border-t border-black/10">
+                    <button
+                      className="w-full flex items-center justify-between py-5 text-left group"
+                      onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    >
+                      <span className="text-base md:text-lg font-medium text-black pr-4">{faq.q}</span>
+                      <span className={`text-xl text-black/50 transition-transform duration-300 shrink-0 ${isOpen ? "rotate-45" : ""}`}>+</span>
+                    </button>
+                    <div
+                      className="overflow-hidden transition-all duration-300"
+                      style={{ maxHeight: isOpen ? "200px" : "0", opacity: isOpen ? 1 : 0 }}
+                    >
+                      <p className="text-sm text-[#666] pb-5 leading-relaxed">{faq.a}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
