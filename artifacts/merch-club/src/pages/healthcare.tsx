@@ -395,8 +395,8 @@ export default function Healthcare() {
                 Start a Project
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
               </button>
-              <Link href="/blog" className="inline-flex items-center gap-2 border border-black text-black text-sm font-bold px-6 py-3 rounded-full hover:bg-black hover:text-white transition-colors">
-                Healthcare Playbook
+              <Link href="/#work" className="inline-flex items-center gap-2 border border-black text-black text-sm font-bold px-6 py-3 rounded-full hover:bg-black hover:text-white transition-colors">
+                Our Work
               </Link>
             </div>
           </RevealItem>
