@@ -483,7 +483,7 @@ export default function Healthcare() {
           style={{ backgroundImage: `url(${challengesBg})` }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-[#0a0a0a]/35" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[#0a0a0a]/30" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/80 via-[#0a0a0a]/30 to-transparent" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/70 via-transparent to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto">
@@ -497,7 +497,7 @@ export default function Healthcare() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {challenges.map((c, i) => (
               <RevealItem key={i} delay={i * 120}>
-                <div className="border border-white/10 rounded-2xl p-8 md:p-10 hover:border-white/20 hover:-translate-y-1 transition-all duration-300 h-full">
+                <div className="border border-white/10 bg-[#0a0a0a]/75 backdrop-blur-sm rounded-2xl p-8 md:p-10 hover:border-white/20 hover:bg-[#0a0a0a]/85 hover:-translate-y-1 transition-all duration-300 h-full">
                   <div className="w-12 h-12 rounded-full border border-white/15 flex items-center justify-center mb-6">
                     <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d={c.icon} />
