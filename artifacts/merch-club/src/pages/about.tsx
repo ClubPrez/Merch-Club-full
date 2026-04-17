@@ -9,6 +9,21 @@ import team2Img from "@assets/2_1775229252466.png";
 import team3Img from "@assets/3_1775229252466.png";
 import team4Img from "@assets/4_1775229252466.png";
 import missionImg from "@assets/0e8baef1-5aa2-4e3d-9acc-6eedba43547b_1776173642639.png";
+import featuredCrewImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1776180821018.png";
+import wideTeamImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_1776180821018.png";
+import brandAccessBank from "@assets/brand_accessbank_nobg.png";
+import brandPaylocity from "@assets/brand_paylocity_nobg.png";
+import brandFraserStryker from "@assets/brand_fraserstryker_nobg.png";
+import brandKomen from "@assets/brand_komen_nobg.png";
+import brandOnestaff from "@assets/brand_onestaff_nobg.png";
+
+const trustedBrands = [
+  { name: "OneStaff Medical", logo: brandOnestaff },
+  { name: "Access Bank", logo: brandAccessBank },
+  { name: "Paylocity", logo: brandPaylocity },
+  { name: "Fraser Stryker", logo: brandFraserStryker },
+  { name: "Susan G. Komen", logo: brandKomen },
+];
 
 function useRevealOnScroll(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
