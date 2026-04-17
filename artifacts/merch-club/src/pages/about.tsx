@@ -574,21 +574,25 @@ export default function About() {
               </h2>
             </div>
           </RevealItem>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 rounded-2xl overflow-hidden border border-black/10">
             {teamMembers.map((member, i) => (
-              <RevealItem key={i} delay={i * 150} direction="scale">
-                <a href={`mailto:${member.email}`} className="text-center group block">
-                  <div className="relative mb-6 mx-auto w-[160px] h-[160px] md:w-[200px] md:h-[200px]">
+              <RevealItem key={i} delay={i * 100}>
+                <a href={`mailto:${member.email}`} className="group block bg-black h-full">
+                  <div className="bg-black px-5 py-5 md:px-6 md:py-6 border-b border-white/10">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-[0.9] tracking-tight uppercase" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
+                      {member.name}
+                    </h3>
+                    <p className="text-[10px] md:text-xs text-white/60 mt-2 uppercase tracking-[0.15em] font-medium">
+                      {member.role}
+                    </p>
+                  </div>
+                  <div className="relative aspect-[3/4] overflow-hidden">
                     <img
                       src={member.img}
                       alt={member.name}
-                      className="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                     />
                   </div>
-                  <h3 className="text-lg md:text-xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
-                    {member.name}
-                  </h3>
-                  <p className="text-xs text-[#888] mt-1 uppercase tracking-[0.1em] font-medium">{member.role}</p>
                 </a>
               </RevealItem>
             ))}
