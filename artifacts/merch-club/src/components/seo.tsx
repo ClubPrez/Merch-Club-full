@@ -6,12 +6,14 @@ interface SEOProps {
   path: string;
   image?: string;
   type?: string;
+  jsonLd?: object | object[];
 }
 
 const SITE_NAME = "Merch Club";
 const BASE_URL = "https://merchclub.replit.app";
+const JSON_LD_ID = "page-jsonld";
 
-export default function SEO({ title, description, path, image, type = "website" }: SEOProps) {
+export default function SEO({ title, description, path, image, type = "website", jsonLd }: SEOProps) {
   useEffect(() => {
     const fullTitle = path === "/" ? `${SITE_NAME} — Full-Service Branded Merchandise` : `${title} | ${SITE_NAME}`;
     const canonicalUrl = `${BASE_URL}${path}`;
@@ -50,7 +52,22 @@ export default function SEO({ title, description, path, image, type = "website" 
       document.head.appendChild(canonical);
     }
     canonical.setAttribute("href", canonicalUrl);
-  }, [title, description, path, image, type]);
+
+    const existing = document.getElementById(JSON_LD_ID);
+    if (existing) existing.remove();
+    if (jsonLd) {
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.id = JSON_LD_ID;
+      script.text = JSON.stringify(jsonLd);
+      document.head.appendChild(script);
+    }
+
+    return () => {
+      const el = document.getElementById(JSON_LD_ID);
+      if (el) el.remove();
+    };
+  }, [title, description, path, image, type, jsonLd]);
 
   return null;
 }

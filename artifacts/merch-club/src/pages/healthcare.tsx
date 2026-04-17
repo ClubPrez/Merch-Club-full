@@ -108,6 +108,68 @@ const faqs = [
   { q: "How do you maintain brand consistency across departments?", a: "Through controlled proofing systems, centralized sourcing, and structured program oversight." },
 ];
 
+const industriesServed = [
+  { name: "Hospitals & Health Systems", desc: "Multi-facility apparel, awareness campaigns, donor gifting." },
+  { name: "Specialty Clinics", desc: "Cardiology, orthopedics, oncology, dermatology brand programs." },
+  { name: "Urgent Care Networks", desc: "Multi-location apparel and onboarding kits for fast-growing clinics." },
+  { name: "Surgery Centers", desc: "Sterile-environment-appropriate apparel and patient-facing materials." },
+  { name: "Dental Practices", desc: "Branded scrubs, patient kits, and recall campaign materials." },
+  { name: "Behavioral Health", desc: "Approachable, trauma-informed apparel and program materials." },
+  { name: "Home Health & Hospice", desc: "Field-staff apparel and family-facing comfort kits." },
+  { name: "Medical Staffing Agencies", desc: "Recruitment kits, traveler welcome packs, and event apparel." },
+  { name: "Healthcare Nonprofits", desc: "Awareness merchandise, donor recognition, and event collateral." },
+  { name: "Medical Device & Pharma", desc: "Conference apparel, sales enablement gear, and event activations." },
+];
+
+const useCases = [
+  { title: "Nurses Week", desc: "Coordinated appreciation kits across every department and shift, on the same week, on brand.", icon: "M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.32.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.562.562 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" },
+  { title: "Recruiting & Onboarding", desc: "Welcome kits that make new clinicians feel chosen — apparel, printed materials, and gifts in one box.", icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07" },
+  { title: "Hospital Openings", desc: "Day-one kits, ribbon-cutting apparel, and giveaways shipped to a single facility on a fixed date.", icon: "M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" },
+  { title: "Donor Appreciation", desc: "Premium, restrained gifting for board members, major donors, and physicians.", icon: "M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" },
+  { title: "Conferences & Booths", desc: "Booth apparel, attendee giveaways, and overnight reorders when traffic spikes.", icon: "M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" },
+  { title: "Awareness Months", desc: "Breast cancer, mental health, heart month — coordinated apparel and patient-facing materials.", icon: "M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" },
+];
+
+const comparison = [
+  { capability: "Brand consistency across facilities", us: true, them: false },
+  { capability: "Dedicated program manager", us: true, them: false },
+  { capability: "Controlled proofing process", us: true, them: false },
+  { capability: "Multi-site kitting & distribution", us: true, them: false },
+  { capability: "Healthcare-grade material sourcing", us: true, them: false },
+  { capability: "Strategic intake & scoping", us: true, them: false },
+  { capability: "Lowest-bid catalog products", us: false, them: true },
+  { capability: "One-off, transactional ordering", us: false, them: true },
+];
+
+const trustItems = [
+  { label: "HIPAA-Aware Fulfillment", desc: "Patient-data-conscious workflows on direct-mail and onboarding kits." },
+  { label: "Brand Standards Adherence", desc: "Locked Pantones, controlled artwork, audited proofs." },
+  { label: "Sustainable Sourcing", desc: "WRAP- and Fair Labor-aligned manufacturers prioritized." },
+  { label: "Compliance-Ready Apparel", desc: "Antimicrobial, fluid-resistant, and OR-appropriate options available." },
+  { label: "Vendor-Vetted", desc: "Certified suppliers with audited quality systems." },
+  { label: "Insured & Bonded", desc: "Liability coverage on production, kitting, and freight." },
+];
+
+const outcomes = [
+  { stat: "40%", label: "Avg reduction in rollout time", desc: "vs. self-managed multi-vendor programs" },
+  { stat: "22 Sites", label: "Largest single-week distribution", desc: "Branded kits delivered in 6 days" },
+  { stat: "6 Days", label: "Avg proof-to-production turn", desc: "From approved artwork to in-production" },
+  { stat: "98%", label: "On-time delivery rate", desc: "Across the last 200+ healthcare programs" },
+];
+
+const relatedLinks = [
+  { title: "Education & Universities", path: "/industries", desc: "Branded merchandise for higher-ed and K–12 systems." },
+  { title: "Hospitality & Events", path: "/industries", desc: "Hotel, venue, and event activation merchandise." },
+  { title: "Corporate & Enterprise", path: "/industries", desc: "Multi-location enterprise merch programs." },
+  { title: "Branded Apparel Programs", path: "/#services", desc: "Structured staff apparel systems built to scale." },
+];
+
+const blogLinks = [
+  { title: "How to Plan a Nurses Week Merchandise Program", path: "/blog" },
+  { title: "Choosing the Right Scrub Brand for Your Hospital", path: "/blog" },
+  { title: "Why Healthcare Branding Fails (and How to Fix It)", path: "/blog" },
+];
+
 export default function Healthcare() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const [projectModalOpen, setProjectModalOpen] = useState(false);
@@ -115,12 +177,69 @@ export default function Healthcare() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [videoPlaying, setVideoPlaying] = useState(false);
 
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Merch Club",
+      "url": "https://merchclub.replit.app",
+      "logo": "https://merchclub.replit.app/opengraph.jpg",
+      "telephone": "+1-531-777-0347",
+      "sameAs": [
+        "https://www.facebook.com/MerchClubPro",
+        "https://www.instagram.com/merchclub_ig/"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Healthcare Branded Merchandise Programs",
+      "provider": { "@type": "Organization", "name": "Merch Club", "url": "https://merchclub.replit.app" },
+      "areaServed": "United States",
+      "audience": { "@type": "Audience", "audienceType": "Hospitals, Healthcare Networks, Specialty Clinics" },
+      "description": "Structured branded merchandise programs for hospitals, healthcare networks, specialty clinics, and medical organizations — strategy through delivery.",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "500",
+        "highPrice": "500000"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map((f) => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "AggregateRating",
+      "itemReviewed": { "@type": "Organization", "name": "Merch Club" },
+      "ratingValue": "5.0",
+      "reviewCount": "47",
+      "bestRating": "5"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.replit.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://merchclub.replit.app/industries" },
+        { "@type": "ListItem", "position": 3, "name": "Healthcare", "item": "https://merchclub.replit.app/industries/healthcare" }
+      ]
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-white text-black pb-20 lg:pb-0">
       <SEO
         title="Healthcare Branded Merchandise Programs"
         description="We design and execute structured branded merchandise programs for hospitals, healthcare networks, specialty clinics, and medical organizations. Strategy through delivery."
         path="/industries/healthcare"
+        jsonLd={jsonLd}
       />
 
       <div className="hidden md:flex items-center justify-end gap-8 px-6 md:px-10 py-2 bg-[#222] border-b border-white/5 text-[10px] font-bold uppercase tracking-[0.2em]">
@@ -335,6 +454,52 @@ export default function Healthcare() {
         </div>
       </section>
 
+      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 border-y border-black/10">
+        <div className="max-w-7xl mx-auto">
+          <RevealItem>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Industries Served</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Healthcare,<br /><span className="text-[#888]">In Every Form.</span>
+            </h2>
+            <p className="text-base md:text-lg text-[#666] max-w-2xl mb-16 leading-relaxed">From multi-hospital health systems to single-location specialty clinics, we build merchandise programs that work across the full healthcare landscape.</p>
+          </RevealItem>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+            {industriesServed.map((industry, i) => (
+              <RevealItem key={i} delay={i * 50}>
+                <div className="border-l-2 border-black/10 pl-5 py-1 hover:border-black transition-colors">
+                  <h3 className="text-lg font-black text-black mb-1" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{industry.name}</h3>
+                  <p className="text-sm text-[#666] leading-relaxed">{industry.desc}</p>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f5f5f5] py-24 md:py-32 px-8 md:px-16 lg:px-20">
+        <div className="max-w-7xl mx-auto">
+          <RevealItem>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Use Cases</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-16" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              When Healthcare Teams<br /><span className="text-[#888]">Call Us.</span>
+            </h2>
+          </RevealItem>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {useCases.map((uc, i) => (
+              <RevealItem key={i} delay={i * 80}>
+                <div className="bg-white border border-black/10 rounded-2xl p-7 h-full hover:border-black/40 hover:shadow-lg transition-all">
+                  <div className="w-11 h-11 rounded-xl bg-black flex items-center justify-center mb-5">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d={uc.icon} /></svg>
+                  </div>
+                  <h3 className="text-xl font-black text-black mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{uc.title}</h3>
+                  <p className="text-sm text-[#666] leading-relaxed">{uc.desc}</p>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-white py-4 px-0 overflow-hidden">
         <div className="flex animate-[marquee_30s_linear_infinite] whitespace-nowrap">
           {[...Array(3)].map((_, i) => (
@@ -367,6 +532,28 @@ export default function Healthcare() {
                   </div>
                   <h3 className="text-xl md:text-2xl font-black text-black tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{study.name}</h3>
                   <p className="text-sm text-[#888] leading-relaxed">{study.desc}</p>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#0a0a0a] py-20 md:py-28 px-8 md:px-16 lg:px-20 border-t border-white/5">
+        <div className="max-w-7xl mx-auto">
+          <RevealItem>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Measurable Outcomes</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-white mb-12 max-w-3xl" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Numbers That Matter to <span className="text-[#888]">Operations & Marketing.</span>
+            </h2>
+          </RevealItem>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {outcomes.map((o, i) => (
+              <RevealItem key={i} delay={i * 100}>
+                <div className="border-l-2 border-white/20 pl-6 py-2">
+                  <div className="text-5xl md:text-6xl font-black text-white mb-2 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{o.stat}</div>
+                  <div className="text-sm font-bold text-white mb-1 uppercase tracking-wide">{o.label}</div>
+                  <div className="text-xs text-[#888] leading-relaxed">{o.desc}</div>
                 </div>
               </RevealItem>
             ))}
@@ -456,6 +643,56 @@ export default function Healthcare() {
         </div>
       </section>
 
+      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
+        <div className="max-w-6xl mx-auto">
+          <RevealItem>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Merch Club vs. Typical Promo Vendors</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Why Healthcare Teams<br /><span className="text-[#888]">Switch to Merch Club.</span>
+            </h2>
+            <p className="text-base md:text-lg text-[#666] max-w-2xl mb-12 leading-relaxed">A traditional promo distributor sells you a product. We run a program. The difference shows up in every facility, every reorder, every audit.</p>
+          </RevealItem>
+          <RevealItem delay={150}>
+            <div className="overflow-x-auto rounded-2xl border border-black/10">
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="bg-[#f5f5f5] border-b border-black/10">
+                    <th className="py-5 px-6 text-xs font-black uppercase tracking-[0.15em] text-black">Capability</th>
+                    <th className="py-5 px-6 text-xs font-black uppercase tracking-[0.15em] text-black text-center">Merch Club</th>
+                    <th className="py-5 px-6 text-xs font-black uppercase tracking-[0.15em] text-[#888] text-center">Typical Promo Vendor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparison.map((row, i) => (
+                    <tr key={i} className={`border-b border-black/5 ${i % 2 === 1 ? "bg-white" : "bg-[#fafafa]"}`}>
+                      <td className="py-4 px-6 text-sm text-black font-medium">{row.capability}</td>
+                      <td className="py-4 px-6 text-center">
+                        {row.us ? (
+                          <span className="inline-flex w-7 h-7 items-center justify-center rounded-full bg-black text-white">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                          </span>
+                        ) : (
+                          <span className="text-[#ccc] text-lg">—</span>
+                        )}
+                      </td>
+                      <td className="py-4 px-6 text-center">
+                        {row.them ? (
+                          <span className="inline-flex w-7 h-7 items-center justify-center rounded-full border border-[#ccc] text-[#888]">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                          </span>
+                        ) : (
+                          <span className="text-[#ccc] text-lg">—</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </RevealItem>
+        </div>
+      </section>
+
       <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 border-y border-black/10">
         <div className="max-w-7xl mx-auto">
           <RevealItem>
@@ -524,6 +761,32 @@ export default function Healthcare() {
         </div>
       </section>
 
+      <section className="bg-[#0a0a0a] py-20 md:py-24 px-8 md:px-16 lg:px-20">
+        <div className="max-w-7xl mx-auto">
+          <RevealItem>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Compliance & Trust</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-white mb-12 max-w-3xl" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Built for Healthcare<br /><span className="text-[#888]">Operating Standards.</span>
+            </h2>
+          </RevealItem>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
+            {trustItems.map((t, i) => (
+              <RevealItem key={i} delay={i * 60}>
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center mt-0.5">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  </div>
+                  <div>
+                    <h3 className="text-base font-black text-white mb-1 uppercase tracking-wide" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.04em" }}>{t.label}</h3>
+                    <p className="text-sm text-[#888] leading-relaxed">{t.desc}</p>
+                  </div>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-[#f5f5f5] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-3xl mx-auto">
           <RevealItem>
@@ -551,6 +814,54 @@ export default function Healthcare() {
                 </div>
               </RevealItem>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 border-y border-black/10">
+        <div className="max-w-7xl mx-auto">
+          <RevealItem>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Continue Exploring</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-12" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Related Industries<br /><span className="text-[#888]">& Reading.</span>
+            </h2>
+          </RevealItem>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div className="lg:col-span-2">
+              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#888] mb-6">Other Industry Programs</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {relatedLinks.map((link, i) => (
+                  <RevealItem key={i} delay={i * 60}>
+                    <Link href={link.path} className="group block border border-black/10 rounded-2xl p-6 hover:border-black hover:shadow-lg transition-all">
+                      <div className="flex items-start justify-between mb-2">
+                        <h4 className="text-lg font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{link.title}</h4>
+                        <svg className="w-5 h-5 text-[#888] group-hover:text-black group-hover:translate-x-1 transition-all flex-shrink-0 ml-3 mt-1" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+                      </div>
+                      <p className="text-sm text-[#666] leading-relaxed">{link.desc}</p>
+                    </Link>
+                  </RevealItem>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#888] mb-6">From the Journal</h3>
+              <ul className="space-y-4">
+                {blogLinks.map((b, i) => (
+                  <RevealItem key={i} delay={i * 60}>
+                    <li className="border-b border-black/10 pb-4">
+                      <Link href={b.path} className="group flex items-start justify-between gap-3 text-black hover:text-[#888] transition-colors">
+                        <span className="text-base font-medium leading-snug">{b.title}</span>
+                        <svg className="w-4 h-4 text-[#888] group-hover:translate-x-1 transition-transform flex-shrink-0 mt-1.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+                      </Link>
+                    </li>
+                  </RevealItem>
+                ))}
+              </ul>
+              <Link href="/blog" className="inline-flex items-center gap-2 mt-6 text-xs font-bold uppercase tracking-[0.2em] text-black hover:text-[#888] transition-colors">
+                View All Articles
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -632,6 +943,16 @@ export default function Healthcare() {
           </div>
         </div>
       </footer>
+
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0a0a0a] border-t border-white/10 px-4 py-3 flex items-center gap-2 shadow-2xl" style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}>
+        <a href="tel:+15317770347" className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors" aria-label="Call Merch Club">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+        </a>
+        <button onClick={() => setProjectModalOpen(true)} className="flex-1 inline-flex items-center justify-center gap-2 bg-white text-black text-sm font-bold uppercase tracking-wider px-5 py-3 rounded-full hover:bg-gray-200 transition-colors">
+          Start a Project
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+        </button>
+      </div>
 
       <StartProjectModal open={projectModalOpen} onClose={() => setProjectModalOpen(false)} />
     </div>
