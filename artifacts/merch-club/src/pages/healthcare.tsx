@@ -748,11 +748,6 @@ export default function Healthcare() {
               </div>
               <div className="hidden md:block w-px h-10 bg-black/10" />
               <div className="text-center">
-                <div className="text-4xl md:text-5xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>15+</div>
-                <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#888] mt-1">Years Experience</div>
-              </div>
-              <div className="hidden md:block w-px h-10 bg-black/10" />
-              <div className="text-center">
                 <div className="text-4xl md:text-5xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>100%</div>
                 <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#888] mt-1">On-Brand Delivery</div>
               </div>
