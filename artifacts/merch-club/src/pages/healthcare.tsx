@@ -228,14 +228,24 @@ export default function Healthcare() {
   const [videoPlaying, setVideoPlaying] = useState(false);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [testimonialPaused, setTestimonialPaused] = useState(false);
+  const [testimonialFade, setTestimonialFade] = useState(true);
 
   useEffect(() => {
     if (testimonialPaused) return;
     const id = setInterval(() => {
-      setTestimonialIndex((i) => (i + 1) % testimonials.length);
-    }, 6000);
+      setTestimonialFade(false);
+      setTimeout(() => {
+        setTestimonialIndex((i) => (i + 1) % testimonials.length);
+        setTestimonialFade(true);
+      }, 400);
+    }, 5000);
     return () => clearInterval(id);
   }, [testimonialPaused]);
+
+  const goToTestimonial = (i: number) => {
+    setTestimonialFade(false);
+    setTimeout(() => { setTestimonialIndex(i); setTestimonialFade(true); }, 300);
+  };
 
   const jsonLd = [
     {
@@ -628,69 +638,43 @@ export default function Healthcare() {
               </h2>
             </div>
           </RevealItem>
-          <RevealItem delay={150}>
-            <div
-              className="relative max-w-3xl mx-auto"
-              onMouseEnter={() => setTestimonialPaused(true)}
-              onMouseLeave={() => setTestimonialPaused(false)}
-            >
-              <div className="relative border border-black/10 rounded-2xl bg-[#fafafa] overflow-hidden min-h-[340px] md:min-h-[300px]">
-                <div className="absolute top-0 left-0 h-[2px] bg-black transition-all duration-[6000ms] ease-linear" style={{ width: testimonialPaused ? "0%" : "100%", transitionDuration: testimonialPaused ? "300ms" : "6000ms" }} key={testimonialIndex} aria-hidden="true" />
-                {testimonials.map((t, i) => (
-                  <div
-                    key={i}
-                    className={`absolute inset-0 p-8 md:p-12 flex flex-col transition-all duration-700 ease-out ${
-                      i === testimonialIndex
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-4 pointer-events-none"
-                    }`}
-                    aria-hidden={i !== testimonialIndex}
-                  >
-                    <svg className="w-10 h-10 text-black/30 mb-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                    </svg>
-                    <p className="text-lg md:text-xl text-black leading-relaxed mb-8 flex-1 font-medium">"{t.quote}"</p>
-                    <div className="border-t border-black/10 pt-5">
-                      <div className="text-sm font-bold text-black">{t.name}</div>
-                      <div className="text-xs text-[#888] uppercase tracking-wider mt-1">{t.org}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="flex items-center justify-center gap-3 mt-8">
-                <button
-                  onClick={() => setTestimonialIndex((i) => (i - 1 + testimonials.length) % testimonials.length)}
-                  className="w-9 h-9 rounded-full border border-black/20 flex items-center justify-center text-black hover:bg-black hover:text-white transition-colors"
-                  aria-label="Previous testimonial"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                  </svg>
-                </button>
-                <div className="flex items-center gap-2">
-                  {testimonials.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setTestimonialIndex(i)}
-                      className={`h-1.5 rounded-full transition-all duration-300 ${
-                        i === testimonialIndex ? "w-8 bg-black" : "w-1.5 bg-black/20 hover:bg-black/40"
-                      }`}
-                      aria-label={`Go to testimonial ${i + 1}`}
-                    />
-                  ))}
+          <div
+            className="max-w-4xl mx-auto text-center min-h-[320px] flex flex-col items-center justify-center"
+            onMouseEnter={() => setTestimonialPaused(true)}
+            onMouseLeave={() => setTestimonialPaused(false)}
+          >
+            <div className={`transition-all duration-500 ${testimonialFade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+              <p className="text-2xl md:text-4xl lg:text-5xl font-black text-black leading-tight tracking-tight mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
+                "{testimonials[testimonialIndex].quote}"
+              </p>
+              <div className="flex items-center justify-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center text-sm font-bold text-black">
+                  {testimonials[testimonialIndex].name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
                 </div>
-                <button
-                  onClick={() => setTestimonialIndex((i) => (i + 1) % testimonials.length)}
-                  className="w-9 h-9 rounded-full border border-black/20 flex items-center justify-center text-black hover:bg-black hover:text-white transition-colors"
-                  aria-label="Next testimonial"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                  </svg>
-                </button>
+                <div className="text-left">
+                  <span className="text-sm font-bold text-black block">{testimonials[testimonialIndex].name}</span>
+                  <span className="text-xs text-[#888] uppercase tracking-wider block mb-1">{testimonials[testimonialIndex].org}</span>
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} className="w-3 h-3 text-black" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
-          </RevealItem>
+            <div className="flex gap-2 mt-10">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => goToTestimonial(i)}
+                  className={`h-2 rounded-full transition-all duration-300 ${i === testimonialIndex ? "bg-black w-6" : "bg-black/15 hover:bg-black/30 w-2"}`}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
           <RevealItem delay={400}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 items-center mt-20 pt-12 border-t border-black/10">
               <div className="text-center">
