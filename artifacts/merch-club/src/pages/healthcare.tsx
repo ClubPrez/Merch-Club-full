@@ -475,47 +475,41 @@ export default function Healthcare() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
-            <div className="lg:w-1/2">
-              <RevealItem>
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#666] block mb-4">Challenges We Solve</span>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  Healthcare Challenges<br /><span className="text-[#888]">We Help Solve.</span>
-                </h2>
+      <section className="relative bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-70"
+          style={{ backgroundImage: `url(${heroImg})` }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/90 via-[#0a0a0a]/50 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-[#0a0a0a]/20" aria-hidden="true" />
+        <div className="relative max-w-7xl mx-auto">
+          <RevealItem>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Challenges We Solve</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Healthcare Challenges<br /><span className="text-[#aaa]">We Help Solve.</span>
+            </h2>
+            <p className="text-base text-[#aaa] mb-16 max-w-xl">Most healthcare teams come to us because coordination is the real problem.</p>
+          </RevealItem>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 max-w-3xl">
+            {challenges.map((c, i) => (
+              <RevealItem key={i} delay={i * 80}>
+                <div className="flex items-start gap-4 border border-white/10 bg-black/30 backdrop-blur-sm rounded-xl p-5 hover:border-white/25 transition-colors h-full">
+                  <div className="w-6 h-6 rounded-full border border-white/20 flex items-center justify-center shrink-0 mt-0.5">
+                    <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                  </div>
+                  <p className="text-sm text-[#e5e5e5] leading-relaxed">{c}</p>
+                </div>
               </RevealItem>
-              <RevealItem delay={100}>
-                <p className="text-base text-[#888] leading-relaxed mb-8">
-                  Most healthcare teams come to us because coordination is the real problem.
-                </p>
-              </RevealItem>
-              <div className="space-y-4">
-                {challenges.map((c, i) => (
-                  <RevealItem key={i} delay={150 + i * 80}>
-                    <div className="flex items-start gap-4 border border-white/10 rounded-xl p-5 hover:border-white/20 transition-colors">
-                      <div className="w-6 h-6 rounded-full border border-white/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                        </svg>
-                      </div>
-                      <p className="text-sm text-[#ccc] leading-relaxed">{c}</p>
-                    </div>
-                  </RevealItem>
-                ))}
-              </div>
-              <RevealItem delay={600}>
-                <p className="text-sm font-semibold text-white mt-10">
-                  Branded merchandise programs work when they're treated like operational systems, not one-off orders. That's the difference.
-                </p>
-              </RevealItem>
-            </div>
-            <RevealItem className="lg:w-1/2" delay={200} direction="right">
-              <div className="rounded-2xl overflow-hidden border border-white/10">
-                <img src={heroImg} alt="OneStaff branded scrubs" className="w-full h-[500px] md:h-[700px] object-cover object-top" />
-              </div>
-            </RevealItem>
+            ))}
           </div>
+          <RevealItem delay={600}>
+            <p className="text-base md:text-lg font-semibold text-white mt-12 max-w-2xl">
+              Branded merchandise programs work when they're treated like operational systems, not one-off orders. That's the difference.
+            </p>
+          </RevealItem>
         </div>
       </section>
 
