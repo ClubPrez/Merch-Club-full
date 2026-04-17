@@ -407,68 +407,6 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-6xl mx-auto">
-          <RevealItem delay={0}>
-            <div className="text-center mb-20">
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#666] block mb-4">Why Us</span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                What We Stand For
-              </h2>
-            </div>
-          </RevealItem>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {values.map((v, i) => (
-              <RevealItem key={i} delay={i * 150}>
-                <div className="border border-white/10 rounded-2xl p-8 md:p-10 hover:border-white/20 hover:-translate-y-1 transition-all duration-300">
-                  <div className="w-12 h-12 rounded-full border border-white/15 flex items-center justify-center mb-6">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d={v.icon} />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-black text-white mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
-                    {v.title}
-                  </h3>
-                  <p className="text-sm text-[#888] leading-relaxed">{v.desc}</p>
-                </div>
-              </RevealItem>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-6xl mx-auto">
-          <RevealItem delay={0}>
-            <div className="text-center mb-20">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">The Crew</span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                Meet the Team
-              </h2>
-            </div>
-          </RevealItem>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {teamMembers.map((member, i) => (
-              <RevealItem key={i} delay={i * 150} direction="scale">
-                <a href={`mailto:${member.email}`} className="text-center group block">
-                  <div className="relative mb-6 mx-auto w-[160px] h-[160px] md:w-[200px] md:h-[200px]">
-                    <img
-                      src={member.img}
-                      alt={member.name}
-                      className="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
-                    />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
-                    {member.name}
-                  </h3>
-                  <p className="text-xs text-[#888] mt-1 uppercase tracking-[0.1em] font-medium">{member.role}</p>
-                </a>
-              </RevealItem>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="bg-[#f5f5f5] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-7xl mx-auto">
           <RevealItem delay={0}>
@@ -606,6 +544,69 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
+        <div className="max-w-6xl mx-auto">
+          <RevealItem delay={0}>
+            <div className="text-center mb-20">
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#666] block mb-4">Why Us</span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                What We Stand For
+              </h2>
+            </div>
+          </RevealItem>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {values.map((v, i) => (
+              <RevealItem key={i} delay={i * 150}>
+                <div className="border border-white/10 rounded-2xl p-8 md:p-10 hover:border-white/20 hover:-translate-y-1 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-full border border-white/15 flex items-center justify-center mb-6">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d={v.icon} />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-black text-white mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
+                    {v.title}
+                  </h3>
+                  <p className="text-sm text-[#888] leading-relaxed">{v.desc}</p>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
+        <div className="max-w-6xl mx-auto">
+          <RevealItem delay={0}>
+            <div className="text-center mb-20">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">The Crew</span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                Meet the Team
+              </h2>
+            </div>
+          </RevealItem>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+            {teamMembers.map((member, i) => (
+              <RevealItem key={i} delay={i * 150} direction="scale">
+                <a href={`mailto:${member.email}`} className="text-center group block">
+                  <div className="relative mb-6 mx-auto w-[160px] h-[160px] md:w-[200px] md:h-[200px]">
+                    <img
+                      src={member.img}
+                      alt={member.name}
+                      className="w-full h-full object-cover rounded-full grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                    />
+                  </div>
+                  <h3 className="text-lg md:text-xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
+                    {member.name}
+                  </h3>
+                  <p className="text-xs text-[#888] mt-1 uppercase tracking-[0.1em] font-medium">{member.role}</p>
+                </a>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-7xl mx-auto">
