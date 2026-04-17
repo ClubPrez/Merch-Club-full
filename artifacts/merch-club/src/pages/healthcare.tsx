@@ -73,11 +73,36 @@ const processSteps = [
 ];
 
 const challenges = [
-  "Maintaining brand consistency across departments.",
-  "Managing apparel sizing for large clinical teams.",
-  "Shipping to multiple facilities on tight timelines.",
-  "Balancing professionalism with culture.",
-  "Avoiding low-quality promotional products that undermine trust.",
+  {
+    title: "Brand Consistency",
+    desc: "Maintaining a unified brand across departments, locations, and rotating staff — without one-off vendors going off-script.",
+    icon: "M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5",
+  },
+  {
+    title: "Sizing at Scale",
+    desc: "Managing apparel sizing across hundreds of clinical staff — without endless spreadsheets, exchanges, or guesswork.",
+    icon: "M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z",
+  },
+  {
+    title: "Multi-Site Logistics",
+    desc: "Shipping to multiple facilities, clinics, and offices on tight timelines — coordinated, tracked, and on schedule.",
+    icon: "M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9-1.5h10.5a1.5 1.5 0 001.5-1.5v-9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v9a1.5 1.5 0 001.5 1.5zm10.5 0h2.25a1.5 1.5 0 001.5-1.5V12a1.5 1.5 0 00-.44-1.06l-2.12-2.122a1.5 1.5 0 00-1.06-.44H15.75",
+  },
+  {
+    title: "Professional, Not Promo",
+    desc: "Balancing clinical professionalism with team culture — apparel and merch that staff are actually proud to wear.",
+    icon: "M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25",
+  },
+  {
+    title: "Quality That Holds Up",
+    desc: "Avoiding low-quality promo products that undermine trust — every item proofed, sourced, and produced to last.",
+    icon: "M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z",
+  },
+  {
+    title: "One Coordinated Partner",
+    desc: "Replacing five disconnected vendors with one team handling sourcing, proofing, kitting, and distribution end-to-end.",
+    icon: "M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z",
+  },
 ];
 
 const scrubBrands = [
@@ -491,16 +516,17 @@ export default function Healthcare() {
             </h2>
             <p className="text-base text-[#aaa] mb-16 max-w-xl">Most healthcare teams come to us because coordination is the real problem.</p>
           </RevealItem>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 max-w-3xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {challenges.map((c, i) => (
-              <RevealItem key={i} delay={i * 80}>
-                <div className="flex items-start gap-4 border border-white/10 bg-black/30 backdrop-blur-sm rounded-xl p-5 hover:border-white/25 transition-colors h-full">
-                  <div className="w-6 h-6 rounded-full border border-white/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              <RevealItem key={i} delay={i * 120}>
+                <div className="border border-white/10 rounded-2xl p-8 md:p-10 hover:border-white/20 hover:-translate-y-1 transition-all duration-300 h-full">
+                  <div className="w-12 h-12 rounded-full border border-white/15 flex items-center justify-center mb-6">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d={c.icon} />
                     </svg>
                   </div>
-                  <p className="text-sm text-[#e5e5e5] leading-relaxed">{c}</p>
+                  <h3 className="text-xl md:text-2xl font-black text-white tracking-tight mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{c.title}</h3>
+                  <p className="text-sm text-[#888] leading-relaxed">{c.desc}</p>
                 </div>
               </RevealItem>
             ))}
