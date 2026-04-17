@@ -601,13 +601,13 @@ export default function Healthcare() {
                     <img src={study.img} alt={study.name} className="w-full h-[280px] md:h-[320px] object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <h3 className="text-xl md:text-2xl font-black text-black tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{study.name}</h3>
-                  <p className="text-sm text-[#888] leading-relaxed">{study.desc}</p>
+                  <p className="text-base md:text-lg text-[#666] leading-relaxed">{study.desc}</p>
                 </div>
               </RevealItem>
             ))}
           </div>
           <RevealItem delay={300}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16 pt-12 border-t border-black/10">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
               <button
                 onClick={() => setProjectModalOpen(true)}
                 className="inline-flex items-center justify-center gap-2 bg-black text-white text-xs font-bold uppercase tracking-widest px-7 py-4 rounded-full hover:bg-[#222] transition-colors w-full sm:w-auto"
