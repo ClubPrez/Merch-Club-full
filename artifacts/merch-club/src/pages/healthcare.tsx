@@ -479,13 +479,13 @@ export default function Healthcare() {
 
       <section className="relative bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-50"
+          className="absolute inset-0 bg-cover bg-center opacity-90"
           style={{ backgroundImage: `url(${challengesBg})` }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-[#0a0a0a]/60" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/95 via-[#0a0a0a]/70 to-[#0a0a0a]/40" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/90 via-transparent to-[#0a0a0a]/40" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[#0a0a0a]/30" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/80 via-[#0a0a0a]/30 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/70 via-transparent to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto">
           <RevealItem>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Challenges We Solve</span>
