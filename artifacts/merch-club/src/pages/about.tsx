@@ -10,7 +10,7 @@ import team3Img from "@assets/3_1775229252466.png";
 import team4Img from "@assets/4_1775229252466.png";
 import missionImg from "@assets/0e8baef1-5aa2-4e3d-9acc-6eedba43547b_1776173642639.png";
 import featuredCrewImg from "@assets/image_1776425552216.png";
-import wideTeamImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_1776180821018.png";
+import wideTeamImg from "@assets/ChatGPT_Image_Apr_16,_2026,_02_19_45_PM_1776425570204.png";
 import brandAccessBank from "@assets/brand_accessbank_nobg.png";
 import brandPaylocity from "@assets/brand_paylocity_nobg.png";
 import brandFraserStryker from "@assets/brand_fraserstryker_nobg.png";
@@ -492,7 +492,7 @@ export default function About() {
 
             <RevealItem delay={200}>
               <div className="relative rounded-2xl overflow-hidden h-[260px] md:h-[300px] bg-black group">
-                <img src={wideTeamImg} alt="Merch Club work in action" className="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-700" />
+                <img src={wideTeamImg} alt="Merch Club work in action" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-black/20" />
                 <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
                   <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white">In the field</span>
