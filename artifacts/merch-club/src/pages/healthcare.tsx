@@ -392,45 +392,84 @@ export default function Healthcare() {
         </div>
       </section>
 
-      <section className="bg-[#f5f5f5] py-24 md:py-32 px-8 md:px-16 lg:px-20">
+      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-7xl mx-auto">
-          <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Use Cases</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-10" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              When Healthcare Teams<br /><span className="text-[#888]">Call Us.</span>
-            </h2>
-          </RevealItem>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-16 items-start">
-            <RevealItem delay={100} className="lg:col-span-7">
-              <p className="text-base md:text-lg text-[#444] leading-[1.8]">
-                <span className="float-left text-6xl md:text-7xl font-black text-black leading-[0.85] mr-3 mt-1" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>I</span>
-                n healthcare environments, <span className="text-black font-semibold">details matter</span>. Apparel needs to look professional. Materials need to hold up. Brand standards need to stay <span className="text-black font-semibold">consistent</span> across departments and locations.
-              </p>
-              <p className="text-base md:text-lg text-[#666] leading-relaxed mt-6">
-                Whether it's <span className="text-black font-semibold">staff apparel</span>, <span className="text-black font-semibold">awareness initiatives</span>, or <span className="text-black font-semibold">donor gifting</span>, branded merchandise in healthcare has to feel intentional and well-managed.
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 mb-10 items-start">
+            <RevealItem>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Use Cases</span>
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95] text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                When Healthcare Teams<br /><span className="text-[#888]">Call Us.</span>
+              </h2>
+            </RevealItem>
+            <RevealItem delay={100} className="lg:pt-3">
+              <p className="text-base md:text-lg text-[#666] leading-relaxed">
+                Whether it's <span className="text-black font-semibold">staff apparel</span>, <span className="text-black font-semibold">awareness initiatives</span>, or <span className="text-black font-semibold">donor gifting</span>, branded merchandise in healthcare has to feel intentional and well-managed — not transactional.
               </p>
             </RevealItem>
-            <RevealItem delay={200} className="lg:col-span-5">
-              <div className="relative border-l-2 border-black/30 pl-6 py-2">
-                <p className="text-2xl md:text-3xl text-black font-black leading-[1.2] tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  You're not ordering swag.<br />
-                  <span className="text-[#888]">You're reinforcing trust.</span>
+          </div>
+
+          <RevealItem delay={150} className="mb-8">
+            <div className="flex flex-wrap items-center gap-3">
+              <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-black text-white text-sm font-bold px-6 py-3 rounded-full hover:bg-[#222] transition-colors">
+                Start a Project
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+              </button>
+              <Link href="/blog" className="inline-flex items-center gap-2 border border-black text-black text-sm font-bold px-6 py-3 rounded-full hover:bg-black hover:text-white transition-colors">
+                Healthcare Playbook
+              </Link>
+            </div>
+          </RevealItem>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 md:grid-rows-2 gap-4 md:gap-5 md:auto-rows-fr" style={{ minHeight: "640px" }}>
+            <RevealItem className="md:row-span-2 md:h-full">
+              <div className="relative rounded-2xl overflow-hidden bg-[#0a0a0a] h-full min-h-[420px] group cursor-pointer" onClick={() => setProjectModalOpen(true)}>
+                <img src={scrubsModelImg} alt="Healthcare staff apparel programs" className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-black/0" />
+                <span className="absolute top-5 right-5 w-11 h-11 rounded-full bg-white text-black flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+                </span>
+                <div className="absolute bottom-7 left-7 right-7">
+                  <h3 className="text-3xl md:text-4xl font-black text-white mb-1.5" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>Staff Apparel</h3>
+                  <p className="text-sm text-white/80 leading-relaxed">Programs designed to stand up to clinical use, shift after shift.</p>
+                </div>
+              </div>
+            </RevealItem>
+
+            <RevealItem delay={100} className="md:h-full">
+              <div className="relative rounded-2xl overflow-hidden bg-[#0a0a0a] h-full min-h-[260px] group cursor-pointer" onClick={() => setProjectModalOpen(true)}>
+                <img src={nursesWeekImg} alt="Awareness initiatives merchandise" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/0" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <h3 className="text-2xl md:text-3xl font-black text-white leading-[1.05]" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>Awareness<br />Initiatives</h3>
+                </div>
+              </div>
+            </RevealItem>
+
+            <RevealItem delay={150} className="md:h-full">
+              <div className="rounded-2xl bg-[#eeece5] p-7 md:p-8 h-full min-h-[260px] flex flex-col justify-between">
+                <div className="inline-flex self-start items-center gap-2 border border-black/20 rounded-full px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-black">
+                  Why It Matters
+                </div>
+                <p className="text-2xl md:text-3xl text-black font-black leading-[1.1] tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  You're not ordering swag.<br /><span className="text-[#888]">You're reinforcing trust.</span>
                 </p>
               </div>
             </RevealItem>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {useCases.map((uc, i) => (
-              <RevealItem key={i} delay={i * 80}>
-                <div className="bg-white border border-black/10 rounded-2xl p-7 h-full hover:border-black/40 hover:shadow-lg transition-all">
-                  <div className="w-11 h-11 rounded-xl bg-black flex items-center justify-center mb-5">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d={uc.icon} /></svg>
-                  </div>
-                  <h3 className="text-xl font-black text-black mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{uc.title}</h3>
-                  <p className="text-sm text-[#666] leading-relaxed">{uc.desc}</p>
+
+            <RevealItem delay={200} className="md:row-span-2 md:h-full md:col-start-3 md:row-start-1">
+              <div className="relative rounded-2xl overflow-hidden bg-[#0a0a0a] h-full min-h-[420px] group cursor-pointer" onClick={() => setProjectModalOpen(true)}>
+                <img src={kittingImg} alt="Donor gifting and onboarding kits" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-black/0" />
+                <div className="absolute bottom-7 left-7 right-7">
+                  <h3 className="text-3xl md:text-4xl font-black text-white mb-1.5" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>Donor & Onboarding</h3>
+                  <p className="text-sm text-white/80 mb-5 leading-relaxed">Premium recognition kits and welcome programs that land the right way.</p>
+                  <button onClick={(e) => { e.stopPropagation(); setProjectModalOpen(true); }} className="inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
+                    Start a Project
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+                  </button>
                 </div>
-              </RevealItem>
-            ))}
+              </div>
+            </RevealItem>
           </div>
         </div>
       </section>
