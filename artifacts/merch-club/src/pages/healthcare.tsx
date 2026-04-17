@@ -483,7 +483,7 @@ export default function Healthcare() {
           style={{ backgroundImage: `url(${challengesBg})` }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-[#0a0a0a]/30" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[#0a0a0a]/35" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/80 via-[#0a0a0a]/30 to-transparent" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/70 via-transparent to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto">
