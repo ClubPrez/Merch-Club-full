@@ -1048,6 +1048,7 @@ export default function Healthcare() {
           title: c.title,
           description: c.summary,
           meta: c.readTime,
+          cta: `Read the ${c.client} case study`,
         }))}
         theme="light"
       />
@@ -1061,6 +1062,7 @@ export default function Healthcare() {
           title: p.title,
           description: p.excerpt,
           meta: p.readTime,
+          cta: `Read: ${p.title}`,
         }))}
         theme="dark"
       />

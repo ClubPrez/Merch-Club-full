@@ -7,6 +7,7 @@ export interface RelatedItem {
   description?: string;
   meta?: string;
   image?: string;
+  cta?: string;
 }
 
 interface RelatedContentProps {
@@ -47,26 +48,29 @@ export default function RelatedContent({
           </div>
         </div>
         <div className={`grid grid-cols-1 ${items.length >= 3 ? "md:grid-cols-3" : "md:grid-cols-2"} gap-5 md:gap-6`}>
-          {items.map((item) => (
-            <Link key={item.href} href={item.href} className={`group block rounded-2xl border ${cardBg} p-6 md:p-7 transition-all hover:-translate-y-1`}>
-              <span className={`text-[10px] font-bold uppercase tracking-[0.25em] ${cardEyebrow} block mb-3`}>{item.eyebrow}</span>
-              <h3 className={`text-xl md:text-2xl font-black ${cardTitle} mb-3 leading-[1.05] tracking-tight`} style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
-                {item.title}
-              </h3>
-              {item.description && (
-                <p className={`text-sm ${cardDesc} leading-relaxed mb-4 line-clamp-3`}>{item.description}</p>
-              )}
-              <div className="flex items-center justify-between mt-auto">
-                {item.meta && <span className={`text-[11px] uppercase tracking-[0.15em] ${cardMeta}`}>{item.meta}</span>}
-                <span className={`inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.15em] ${cardTitle} ml-auto`}>
-                  Read
-                  <svg className="w-3 h-3 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                  </svg>
-                </span>
-              </div>
-            </Link>
-          ))}
+          {items.map((item) => {
+            const ctaLabel = item.cta || `Read more about ${item.title}`;
+            return (
+              <Link key={item.href} href={item.href} aria-label={ctaLabel} className={`group block rounded-2xl border ${cardBg} p-6 md:p-7 transition-all hover:-translate-y-1`}>
+                <span className={`text-[10px] font-bold uppercase tracking-[0.25em] ${cardEyebrow} block mb-3`}>{item.eyebrow}</span>
+                <h3 className={`text-xl md:text-2xl font-black ${cardTitle} mb-3 leading-[1.05] tracking-tight`} style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
+                  {item.title}
+                </h3>
+                {item.description && (
+                  <p className={`text-sm ${cardDesc} leading-relaxed mb-4 line-clamp-3`}>{item.description}</p>
+                )}
+                <div className="flex items-center justify-between mt-auto gap-3">
+                  {item.meta && <span className={`text-[11px] uppercase tracking-[0.15em] ${cardMeta}`}>{item.meta}</span>}
+                  <span className={`inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.15em] ${cardTitle} ml-auto text-right`}>
+                    {ctaLabel}
+                    <svg className="w-3 h-3 transition-transform group-hover:translate-x-1 shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

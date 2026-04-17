@@ -43,6 +43,7 @@ export default function Industries() {
     title: c.title,
     description: c.summary,
     meta: c.readTime,
+    cta: `Read the ${c.client} case study`,
   }));
 
   return (

@@ -82,7 +82,7 @@ export default function CaseStudies() {
       <section className="bg-white text-black py-20 md:py-28 px-8 md:px-16 lg:px-20">
         <div className="max-w-6xl mx-auto space-y-10 md:space-y-12">
           {caseStudies.map((cs) => (
-            <Link key={cs.slug} href={`/case-studies/${cs.slug}`} className="group block rounded-2xl border border-black/10 bg-[#f7f7f7] hover:bg-white hover:border-black/30 hover:-translate-y-1 transition-all p-7 md:p-10">
+            <Link key={cs.slug} href={`/case-studies/${cs.slug}`} aria-label={`Read the ${cs.client} case study: ${cs.title}`} className="group block rounded-2xl border border-black/10 bg-[#f7f7f7] hover:bg-white hover:border-black/30 hover:-translate-y-1 transition-all p-7 md:p-10">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start">
                 <div className="md:col-span-7">
                   <div className="flex items-center gap-3 mb-5">
@@ -94,7 +94,7 @@ export default function CaseStudies() {
                   </h2>
                   <p className="text-sm md:text-base text-[#555] leading-relaxed mb-6">{cs.summary}</p>
                   <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-black">
-                    Read the Case Study
+                    Read the {cs.client} case study
                     <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
                   </span>
                 </div>

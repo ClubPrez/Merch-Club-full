@@ -55,6 +55,7 @@ export default function CaseStudy() {
     title: r.title,
     description: r.summary,
     meta: r.readTime,
+    cta: `Read the ${r.client} case study`,
   }));
 
   const relatedArticleItems: RelatedItem[] = (cs.relatedArticles || [])
@@ -66,6 +67,7 @@ export default function CaseStudy() {
       title: p.title,
       description: p.excerpt,
       meta: p.readTime,
+      cta: `Read: ${p.title}`,
     }));
 
   return (

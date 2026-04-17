@@ -312,6 +312,7 @@ export default function BlogPost() {
           title: c.title,
           description: c.summary,
           meta: c.readTime,
+          cta: `Read the ${c.client} case study`,
         }))}
         theme="dark"
       />
