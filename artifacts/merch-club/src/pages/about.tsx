@@ -361,26 +361,6 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
-        <div className="max-w-5xl mx-auto flex flex-col items-center gap-4 md:gap-5">
-          <RevealItem delay={0} direction="right">
-            <span className="inline-block bg-black text-white text-3xl md:text-5xl lg:text-6xl font-black px-6 md:px-10 py-2 md:py-3 rotate-[-2deg] hover:rotate-0 transition-transform duration-300" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
-              No Vendor Chaos.
-            </span>
-          </RevealItem>
-          <RevealItem delay={150} direction="left">
-            <span className="inline-block bg-black text-white text-3xl md:text-5xl lg:text-6xl font-black px-6 md:px-10 py-2 md:py-3 rotate-[1deg] hover:rotate-0 transition-transform duration-300" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
-              No Missed Details.
-            </span>
-          </RevealItem>
-          <RevealItem delay={300} direction="right">
-            <span className="inline-block bg-black text-white text-3xl md:text-5xl lg:text-6xl font-black px-6 md:px-10 py-2 md:py-3 rotate-[-1deg] hover:rotate-0 transition-transform duration-300" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
-              No Wasted Spend.
-            </span>
-          </RevealItem>
-        </div>
-      </section>
-
       <section className="bg-[#f5f5f5] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-3xl mx-auto text-center">
           <RevealItem delay={0}>
@@ -531,6 +511,26 @@ export default function About() {
               </div>
             </RevealItem>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
+        <div className="max-w-5xl mx-auto flex flex-col items-center gap-4 md:gap-5">
+          <RevealItem delay={0} direction="right">
+            <span className="inline-block bg-black text-white text-3xl md:text-5xl lg:text-6xl font-black px-6 md:px-10 py-2 md:py-3 rotate-[-2deg] hover:rotate-0 transition-transform duration-300" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
+              No Vendor Chaos.
+            </span>
+          </RevealItem>
+          <RevealItem delay={150} direction="left">
+            <span className="inline-block bg-black text-white text-3xl md:text-5xl lg:text-6xl font-black px-6 md:px-10 py-2 md:py-3 rotate-[1deg] hover:rotate-0 transition-transform duration-300" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
+              No Missed Details.
+            </span>
+          </RevealItem>
+          <RevealItem delay={300} direction="right">
+            <span className="inline-block bg-black text-white text-3xl md:text-5xl lg:text-6xl font-black px-6 md:px-10 py-2 md:py-3 rotate-[-1deg] hover:rotate-0 transition-transform duration-300" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
+              No Wasted Spend.
+            </span>
+          </RevealItem>
         </div>
       </section>
 
