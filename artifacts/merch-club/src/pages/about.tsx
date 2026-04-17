@@ -118,13 +118,86 @@ export default function About() {
     return () => clearInterval(timer);
   }, []);
 
+  const aboutJsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Merch Club",
+      "url": "https://merchclub.replit.app",
+      "logo": "https://merchclub.replit.app/opengraph.jpg",
+      "telephone": "+1-531-777-0347",
+      "email": "hello@merchclub.com",
+      "address": { "@type": "PostalAddress", "addressCountry": "US" },
+      "sameAs": [
+        "https://www.facebook.com/MerchClubPro",
+        "https://www.instagram.com/merchclub_ig/"
+      ],
+      "employee": teamMembers.map(m => ({
+        "@type": "Person",
+        "name": m.name,
+        "jobTitle": m.role,
+        "email": m.email
+      }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "url": "https://merchclub.replit.app/about",
+      "name": "About Merch Club",
+      "description": "Meet the team behind Merch Club — a full-service branded merchandise partner built on quality, speed, and relationships that last.",
+      "inLanguage": "en-US",
+      "isPartOf": { "@type": "WebSite", "name": "Merch Club", "url": "https://merchclub.replit.app" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.replit.app/" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://merchclub.replit.app/about" }
+      ]
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white text-black">
       <SEO
         title="About Us"
-        description="Meet the team behind Merch Club. We're a full-service branded merchandise partner built on quality, speed, and relationships that last."
+        description="Meet the team behind Merch Club. We're a full-service branded merchandise partner built on quality, speed, and relationships that last across every program we run."
         path="/about"
+        imageAlt="The Merch Club team"
+        keywords="about merch club, merch club team, branded merchandise agency, custom merch company team, full-service merch partner, merch club leadership"
+        jsonLd={aboutJsonLd}
       />
+
+      <noscript>
+        <div style={{ padding: "2rem", maxWidth: "900px", margin: "0 auto", fontFamily: "sans-serif" }}>
+          <h1>About Merch Club</h1>
+          <p>
+            Merch Club is a full-service branded merchandise partner. We handle strategy, design,
+            proofing, production, kitting, and nationwide distribution for teams that take their
+            brand seriously.
+          </p>
+          <h2>Our Team</h2>
+          <ul>
+            {teamMembers.map((m) => (
+              <li key={m.email}><strong>{m.name}</strong> — {m.role} (<a href={`mailto:${m.email}`}>{m.email}</a>)</li>
+            ))}
+          </ul>
+          <h2>Our Values</h2>
+          <ul>
+            {values.map((v) => (
+              <li key={v.title}><strong>{v.title}:</strong> {v.desc}</li>
+            ))}
+          </ul>
+          <h2>What Clients Say</h2>
+          {testimonials.map((t, i) => (
+            <blockquote key={i}>"{t.text}" — <cite>{t.name}</cite></blockquote>
+          ))}
+          <h2>Contact</h2>
+          <p>Phone: <a href="tel:+15317770347">+1 531-777-0347</a></p>
+          <p><a href="/">Home</a> · <a href="/blog">Blog</a> · <a href="/industries/healthcare">Healthcare</a></p>
+        </div>
+      </noscript>
 
       <div className="hidden md:flex items-center justify-end gap-8 px-6 md:px-10 py-2 bg-[#222] border-b border-white/5 text-[10px] font-bold uppercase tracking-[0.2em]">
         <a href="/" className="text-white transition-colors">MerchClub</a>

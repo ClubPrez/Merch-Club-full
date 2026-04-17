@@ -248,13 +248,63 @@ export const blogPosts: {
 export default function Blog() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const [projectModalOpen, setProjectModalOpen] = useState(false);
+  const blogJsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "url": "https://merchclub.replit.app/blog",
+      "name": "Merch Club Blog",
+      "description": "Strategy, branding, and operations thinking for teams that take their merch seriously.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Merch Club",
+        "logo": { "@type": "ImageObject", "url": "https://merchclub.replit.app/opengraph.jpg" }
+      },
+      "blogPost": blogPosts.map(p => ({
+        "@type": "BlogPosting",
+        "headline": p.title,
+        "url": `https://merchclub.replit.app/blog/${p.slug}`,
+        "description": p.excerpt,
+        "datePublished": p.date,
+        "author": { "@type": "Organization", "name": "Merch Club" }
+      }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.replit.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://merchclub.replit.app/blog" }
+      ]
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white text-black">
       <SEO
         title="Blog — Insights & Ideas"
-        description="Strategy, branding, and operations thinking for teams that take their merch seriously. Read the latest from the Merch Club blog."
+        description="Strategy, branding, and operations thinking for teams that take their merch seriously. Read the latest from the Merch Club blog on merch programs, kitting, design, and brand experience."
         path="/blog"
+        imageAlt="Merch Club blog — branded merchandise insights"
+        keywords="branded merchandise blog, merch program strategy, custom kitting, brand experience, swag mistakes, corporate merch insights, employee gifting ideas"
+        jsonLd={blogJsonLd}
       />
+
+      <noscript>
+        <div style={{ padding: "2rem", maxWidth: "900px", margin: "0 auto", fontFamily: "sans-serif" }}>
+          <h1>Merch Club Blog</h1>
+          <p>Strategy, branding, and operations thinking for teams that take their merch seriously.</p>
+          <h2>All Posts</h2>
+          <ul>
+            {blogPosts.map((p) => (
+              <li key={p.slug}>
+                <a href={`/blog/${p.slug}`}><strong>{p.title}</strong></a> — {p.excerpt} ({p.date}, {p.readTime})
+              </li>
+            ))}
+          </ul>
+          <p><a href="/">Home</a> · <a href="/about">About</a> · <a href="/industries/healthcare">Healthcare</a></p>
+        </div>
+      </noscript>
       <div className="hidden md:flex items-center justify-end gap-8 px-6 md:px-10 py-2 bg-[#222] border-b border-white/5 text-[10px] font-bold uppercase tracking-[0.2em]">
         <a href="/" className="text-white transition-colors">MerchClub</a>
         <span className="text-white/20">|</span>

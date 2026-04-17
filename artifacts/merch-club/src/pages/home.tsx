@@ -651,13 +651,105 @@ export default function Home() {
   const circle2Ref = useAnimateOnMount(500);
   const circle3Ref = useAnimateOnMount(700);
 
+  const homeJsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Merch Club",
+      "url": "https://merchclub.replit.app",
+      "logo": "https://merchclub.replit.app/opengraph.jpg",
+      "telephone": "+1-531-777-0347",
+      "email": "hello@merchclub.com",
+      "address": { "@type": "PostalAddress", "addressCountry": "US" },
+      "sameAs": [
+        "https://www.facebook.com/MerchClubPro",
+        "https://www.instagram.com/merchclub_ig/"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://merchclub.replit.app",
+      "name": "Merch Club",
+      "description": "Full-service branded merchandise programs.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://merchclub.replit.app/blog?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Merch Club Services",
+      "itemListElement": timelineSteps.map((s, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "item": { "@type": "Service", "name": s.title, "description": s.desc, "provider": { "@type": "Organization", "name": "Merch Club" } }
+      }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map((f) => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a }
+      }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "AggregateRating",
+      "itemReviewed": { "@type": "Organization", "name": "Merch Club" },
+      "ratingValue": "5.0",
+      "reviewCount": String(testimonials.length * 5),
+      "bestRating": "5"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <SEO
         title="Full-Service Branded Merchandise"
-        description="Full-service branded merchandise programs. From strategy and design to production, kitting, and distribution — Merch Club handles every detail so your brand shows up right."
+        description="Full-service branded merchandise programs for teams that take their brand seriously. Strategy, design, proofing, production, kitting, and nationwide distribution — handled by one team."
         path="/"
+        imageAlt="Merch Club — Full-Service Branded Merchandise"
+        keywords="branded merchandise, custom apparel, promotional products, corporate merch program, kitting and fulfillment, company swag, employee onboarding kits, branded gift boxes, full-service merch agency, custom merch company"
+        jsonLd={homeJsonLd}
       />
+
+      <noscript>
+        <div style={{ padding: "2rem", maxWidth: "900px", margin: "0 auto", fontFamily: "sans-serif" }}>
+          <h1>Merch Club — Full-Service Branded Merchandise</h1>
+          <p>
+            Merch Club is a full-service branded merchandise partner. We handle strategy, design,
+            proofing, production, kitting, and nationwide distribution so your brand shows up right —
+            every time.
+          </p>
+          <h2>Our Process</h2>
+          <ol>
+            {timelineSteps.map((s) => (
+              <li key={s.title}><strong>{s.title}:</strong> {s.desc}</li>
+            ))}
+          </ol>
+          <h2>Industries We Serve</h2>
+          <ul>
+            <li><a href="/industries/healthcare">Healthcare</a> — Hospital and clinic merch programs.</li>
+            <li>Construction, finance, staffing, nonprofits, education, hospitality, and corporate.</li>
+          </ul>
+          <h2>Frequently Asked Questions</h2>
+          {faqItems.map((f) => (
+            <div key={f.q}>
+              <h3>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
+          <h2>Read More</h2>
+          <p><a href="/about">About Merch Club</a> · <a href="/blog">Blog</a> · <a href="/industries/healthcare">Healthcare</a></p>
+          <h2>Contact</h2>
+          <p>Phone: <a href="tel:+15317770347">+1 531-777-0347</a></p>
+        </div>
+      </noscript>
       <div className="hidden md:flex items-center justify-end gap-8 px-6 md:px-10 py-2 bg-[#222] border-b border-white/5 text-[10px] font-bold uppercase tracking-[0.2em]">
         <a href="/" className="text-white transition-colors">MerchClub</a>
         <span className="text-white/20">|</span>

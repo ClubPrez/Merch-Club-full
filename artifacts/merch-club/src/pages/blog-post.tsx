@@ -25,6 +25,53 @@ export default function BlogPost() {
 
   const otherPosts = blogPosts.filter(p => p.slug !== post.slug);
 
+  const postUrl = `https://merchclub.replit.app/blog/${post.slug}`;
+  const isoDate = (() => {
+    const d = new Date(post.date);
+    return Number.isNaN(d.getTime()) ? "2026-04-01" : d.toISOString().slice(0, 10);
+  })();
+  const plainText = post.content
+    .map((b: any) => {
+      if (b.text) return b.text;
+      if (b.heading) return b.heading;
+      if (b.items) return b.items.map((it: any) => typeof it === "string" ? it : `${it.value} ${it.label}`).join(" ");
+      return "";
+    })
+    .join(" ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const postJsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": postUrl,
+      "mainEntityOfPage": { "@type": "WebPage", "@id": postUrl },
+      "headline": post.title,
+      "description": post.excerpt,
+      "image": post.img && typeof post.img === "string" ? [post.img] : ["https://merchclub.replit.app/opengraph.jpg"],
+      "datePublished": isoDate,
+      "dateModified": isoDate,
+      "articleSection": post.tag,
+      "wordCount": plainText.split(/\s+/).length,
+      "author": { "@type": "Organization", "name": "Merch Club", "url": "https://merchclub.replit.app" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Merch Club",
+        "logo": { "@type": "ImageObject", "url": "https://merchclub.replit.app/opengraph.jpg" }
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.replit.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://merchclub.replit.app/blog" },
+        { "@type": "ListItem", "position": 3, "name": post.title, "item": postUrl }
+      ]
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white text-black">
       <SEO
@@ -32,7 +79,40 @@ export default function BlogPost() {
         description={post.excerpt}
         path={`/blog/${post.slug}`}
         type="article"
+        imageAlt={post.title}
+        keywords={`${post.tag.toLowerCase()}, branded merchandise, merch club blog, ${post.slug.replace(/-/g, " ")}`}
+        jsonLd={postJsonLd}
       />
+
+      <noscript>
+        <div style={{ padding: "2rem", maxWidth: "900px", margin: "0 auto", fontFamily: "sans-serif" }}>
+          <h1>{post.title}</h1>
+          <p><em>{post.tag} · {post.date} · {post.readTime}</em></p>
+          <p>{post.excerpt}</p>
+          {post.content.map((b: any, i: number) => {
+            if (b.type === "heading") return <h2 key={i}>{b.text}</h2>;
+            if (b.type === "quote") return <blockquote key={i}>"{b.text}" — <cite>{b.author}, {b.role}</cite></blockquote>;
+            if (b.type === "callout") return <p key={i}><strong>{b.text}</strong></p>;
+            if (b.type === "list") return (
+              <div key={i}>
+                <p><strong>{b.heading}</strong></p>
+                <ul>{b.items.map((it: string, j: number) => <li key={j}>{it}</li>)}</ul>
+              </div>
+            );
+            if (b.type === "stats") return (
+              <ul key={i}>{b.items.map((s: any, j: number) => <li key={j}><strong>{s.value}</strong> — {s.label}</li>)}</ul>
+            );
+            return <p key={i}>{b.text}</p>;
+          })}
+          <h2>More from the blog</h2>
+          <ul>
+            {otherPosts.map(p => (
+              <li key={p.slug}><a href={`/blog/${p.slug}`}>{p.title}</a> — {p.excerpt}</li>
+            ))}
+          </ul>
+          <p><a href="/">Home</a> · <a href="/blog">Blog</a> · <a href="/about">About</a></p>
+        </div>
+      </noscript>
       <div className="hidden md:flex items-center justify-end gap-8 px-6 md:px-10 py-2 bg-[#222] border-b border-white/5 text-[10px] font-bold uppercase tracking-[0.2em]">
         <a href="/" className="text-white transition-colors">MerchClub</a>
         <span className="text-white/20">|</span>
