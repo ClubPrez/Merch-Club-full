@@ -386,11 +386,6 @@ export default function Healthcare() {
                   </p>
                 </div>
               </RevealItem>
-              <RevealItem delay={200}>
-                <p className="text-base md:text-lg text-[#ccc] leading-[1.8] mb-8">
-                  Whether it's <span className="text-white font-semibold">staff apparel</span>, <span className="text-white font-semibold">awareness initiatives</span>, or <span className="text-white font-semibold">donor gifting</span>, branded merchandise in healthcare has to feel intentional and well-managed.
-                </p>
-              </RevealItem>
             </div>
             <RevealItem delay={200} className="lg:w-1/2" direction="right">
               <div className="rounded-2xl overflow-hidden border border-white/10">
@@ -480,9 +475,12 @@ export default function Healthcare() {
         <div className="max-w-7xl mx-auto">
           <RevealItem>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Use Cases</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-16" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
               When Healthcare Teams<br /><span className="text-[#888]">Call Us.</span>
             </h2>
+            <p className="text-base md:text-lg text-[#666] max-w-2xl mb-16 leading-relaxed">
+              Whether it's <span className="text-black font-semibold">staff apparel</span>, <span className="text-black font-semibold">awareness initiatives</span>, or <span className="text-black font-semibold">donor gifting</span>, branded merchandise in healthcare has to feel intentional and well-managed.
+            </p>
           </RevealItem>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {useCases.map((uc, i) => (
