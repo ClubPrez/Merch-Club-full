@@ -1,7 +1,11 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import { Link } from "wouter";
 import SEO from "@/components/seo";
+import Breadcrumbs from "@/components/breadcrumbs";
+import RelatedContent from "@/components/related-content";
 import { StartProjectModal } from "@/components/start-project-modal";
+import { caseStudies as siteCaseStudies, getRelatedCaseStudies } from "@/lib/site-data";
+import { blogPosts } from "@/pages/blog";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import cloverImg from "@assets/Social_PostsArtboard_2@3x_copy_1775827336093.png";
 import heroImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1776180821018.png";
@@ -418,9 +422,9 @@ export default function Healthcare() {
           <nav className="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
             <Link href="/" className="text-[#a3a3a3] hover:text-white transition-colors">Home</Link>
             <Link href="/about" className="text-[#a3a3a3] hover:text-white transition-colors">About</Link>
-            <Link href="/blog" className="text-[#a3a3a3] hover:text-white transition-colors">Blog</Link>
-            <a href="/#services" className="text-[#a3a3a3] hover:text-white transition-colors">Services</a>
-            <span className="text-white">Industries</span>
+            <Link href="/industries" className="text-white">Industries</Link>
+            <Link href="/case-studies" className="text-[#a3a3a3] hover:text-white transition-colors">Case Studies</Link>
+            <Link href="/blog" className="text-[#a3a3a3] hover:text-white transition-colors">Learning Center</Link>
             <a href="/#contact" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
           </nav>
         </div>
@@ -458,7 +462,9 @@ export default function Healthcare() {
         <div className="lg:hidden fixed inset-0 top-[105px] z-30 bg-[#111] px-6 py-8 flex flex-col gap-6">
           <Link href="/" className="text-lg font-bold text-white" onClick={() => setMobileMenuOpen(false)}>Home</Link>
           <Link href="/about" className="text-lg font-bold text-[#888]" onClick={() => setMobileMenuOpen(false)}>About</Link>
-          <Link href="/blog" className="text-lg font-bold text-[#888]" onClick={() => setMobileMenuOpen(false)}>Blog</Link>
+          <Link href="/industries" className="text-lg font-bold text-[#888]" onClick={() => setMobileMenuOpen(false)}>Industries</Link>
+          <Link href="/case-studies" className="text-lg font-bold text-[#888]" onClick={() => setMobileMenuOpen(false)}>Case Studies</Link>
+          <Link href="/blog" className="text-lg font-bold text-[#888]" onClick={() => setMobileMenuOpen(false)}>Learning Center</Link>
           <button onClick={() => { setMobileMenuOpen(false); setProjectModalOpen(true); }} className="mt-4 inline-flex items-center justify-center gap-2 bg-white text-black text-sm font-bold px-6 py-3 rounded-full">
             Start a Project
           </button>
@@ -469,6 +475,15 @@ export default function Healthcare() {
         <div className="relative max-w-7xl mx-auto px-8 md:px-16 lg:px-20 pt-20 md:pt-28 pb-4 md:pb-6">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1 lg:col-span-3">
+              <Breadcrumbs
+                items={[
+                  { label: "Home", href: "/" },
+                  { label: "Industries", href: "/industries" },
+                  { label: "Healthcare", href: "/industries/healthcare" },
+                ]}
+                theme="light"
+                className="mb-6"
+              />
               <div className="inline-flex items-center gap-2 bg-black/5 border border-black/10 rounded-full px-4 py-1.5 mb-6">
                 <span className="w-2 h-2 rounded-full bg-black" />
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-black">Industry — Healthcare</span>
@@ -1024,6 +1039,32 @@ export default function Healthcare() {
         </div>
       </section>
 
+      <RelatedContent
+        eyebrow="Proof"
+        heading="Healthcare Programs We've Built"
+        items={getRelatedCaseStudies(undefined, "healthcare", 2).map((c) => ({
+          href: `/case-studies/${c.slug}`,
+          eyebrow: c.industry,
+          title: c.title,
+          description: c.summary,
+          meta: c.readTime,
+        }))}
+        theme="light"
+      />
+
+      <RelatedContent
+        eyebrow="From the Learning Center"
+        heading="Strategy & Operations Reading"
+        items={blogPosts.slice(0, 3).map((p) => ({
+          href: `/blog/${p.slug}`,
+          eyebrow: p.tag,
+          title: p.title,
+          description: p.excerpt,
+          meta: p.readTime,
+        }))}
+        theme="dark"
+      />
+
       <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-3xl mx-auto text-center">
           <RevealItem>
@@ -1077,7 +1118,9 @@ export default function Healthcare() {
               <ul className="space-y-3">
                 {[
                   { label: "About", href: "/about" },
-                  { label: "Blog", href: "/blog" },
+                  { label: "Industries", href: "/industries" },
+                  { label: "Case Studies", href: "/case-studies" },
+                  { label: "Learning Center", href: "/blog" },
                   { label: "Healthcare", href: "/industries/healthcare" },
                 ].map(item => (
                   <li key={item.label}><Link href={item.href} className="text-sm text-[#666] hover:text-white transition-colors">{item.label}</Link></li>

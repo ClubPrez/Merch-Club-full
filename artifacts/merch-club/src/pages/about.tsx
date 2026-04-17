@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import { Link } from "wouter";
 import SEO from "@/components/seo";
+import Breadcrumbs, { buildBreadcrumbJsonLd } from "@/components/breadcrumbs";
 import { StartProjectModal } from "@/components/start-project-modal";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import cloverImg from "@assets/Social_PostsArtboard_2@3x_copy_1775827336093.png";
@@ -227,9 +228,9 @@ export default function About() {
           <nav className="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
             <Link href="/" className="text-[#a3a3a3] hover:text-white transition-colors">Home</Link>
             <span className="text-white">About</span>
-            <Link href="/blog" className="text-[#a3a3a3] hover:text-white transition-colors">Blog</Link>
-            <a href="/#services" className="text-[#a3a3a3] hover:text-white transition-colors">Services</a>
-            <Link href="/industries/healthcare" className="text-[#a3a3a3] hover:text-white transition-colors">Industries</Link>
+            <Link href="/industries" className="text-[#a3a3a3] hover:text-white transition-colors">Industries</Link>
+            <Link href="/case-studies" className="text-[#a3a3a3] hover:text-white transition-colors">Case Studies</Link>
+            <Link href="/blog" className="text-[#a3a3a3] hover:text-white transition-colors">Learning Center</Link>
             <a href="/#contact" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
           </nav>
         </div>
@@ -267,6 +268,14 @@ export default function About() {
               </div>
             </div>
           </RevealItem>
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "About", href: "/about" },
+            ]}
+            theme="dark"
+            className="mb-6 justify-center [&>ol]:justify-center"
+          />
           <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#666] block mb-4">About Merch Club</span>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.9] text-white mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
             We Make Brands<br /><span className="text-[#888]">Look Their Best.</span>

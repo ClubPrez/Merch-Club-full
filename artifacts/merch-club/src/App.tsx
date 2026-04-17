@@ -7,6 +7,9 @@ import About from "@/pages/about";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import Healthcare from "@/pages/healthcare";
+import Industries from "@/pages/industries";
+import CaseStudies from "@/pages/case-studies";
+import CaseStudy from "@/pages/case-study";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -18,8 +21,11 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
+      <Route path="/industries" component={Industries} />
       <Route path="/industries/healthcare" component={Healthcare} />
       <Route path="/healthcare" component={Healthcare} />
+      <Route path="/case-studies" component={CaseStudies} />
+      <Route path="/case-studies/:slug" component={CaseStudy} />
       <Route component={NotFound} />
     </Switch>
   );

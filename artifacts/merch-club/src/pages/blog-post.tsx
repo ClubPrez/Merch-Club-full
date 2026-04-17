@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "wouter";
 import SEO from "@/components/seo";
+import Breadcrumbs from "@/components/breadcrumbs";
+import RelatedContent, { type RelatedItem } from "@/components/related-content";
 import { StartProjectModal } from "@/components/start-project-modal";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import { blogPosts } from "./blog";
+import { caseStudies as siteCaseStudies } from "@/lib/site-data";
 
 export default function BlogPost() {
   const params = useParams<{ slug: string }>();
@@ -126,9 +129,9 @@ export default function BlogPost() {
           <nav className="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
             <Link href="/" className="text-[#a3a3a3] hover:text-white transition-colors">Home</Link>
             <Link href="/about" className="text-[#a3a3a3] hover:text-white transition-colors">About</Link>
-            <Link href="/blog" className="text-[#a3a3a3] hover:text-white transition-colors">Blog</Link>
-            <a href="/#services" className="text-[#a3a3a3] hover:text-white transition-colors">Services</a>
-            <Link href="/industries/healthcare" className="text-[#a3a3a3] hover:text-white transition-colors">Industries</Link>
+            <Link href="/industries" className="text-[#a3a3a3] hover:text-white transition-colors">Industries</Link>
+            <Link href="/case-studies" className="text-[#a3a3a3] hover:text-white transition-colors">Case Studies</Link>
+            <Link href="/blog" className="text-white">Learning Center</Link>
             <a href="/#contact" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
           </nav>
         </div>
@@ -154,6 +157,15 @@ export default function BlogPost() {
           </div>
           <div className="absolute bottom-0 left-0 right-0 px-8 md:px-16 lg:px-20 pb-12 md:pb-16">
             <div className="max-w-3xl">
+              <Breadcrumbs
+                items={[
+                  { label: "Home", href: "/" },
+                  { label: "Learning Center", href: "/blog" },
+                  { label: post.title, href: `/blog/${post.slug}` },
+                ]}
+                theme="dark"
+                className="mb-5"
+              />
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-black bg-white px-3 py-1 rounded-full">{post.tag}</span>
                 <span className="text-[11px] text-white/70">{post.date}</span>
@@ -265,7 +277,7 @@ export default function BlogPost() {
       <section className="bg-[#f9f9f9] py-20 md:py-28 px-8 md:px-16 lg:px-20 border-t border-black/5">
         <div className="max-w-6xl mx-auto">
           <h3 className="text-3xl md:text-4xl font-black tracking-tight text-black mb-12" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            More from the blog
+            More From the Learning Center
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {otherPosts.map((p) => (
@@ -290,6 +302,19 @@ export default function BlogPost() {
           </div>
         </div>
       </section>
+
+      <RelatedContent
+        eyebrow="See It In Practice"
+        heading="Real Programs Built on This Thinking"
+        items={siteCaseStudies.slice(0, 2).map((c) => ({
+          href: `/case-studies/${c.slug}`,
+          eyebrow: c.industry,
+          title: c.title,
+          description: c.summary,
+          meta: c.readTime,
+        }))}
+        theme="dark"
+      />
 
       <footer className="bg-[#0a0a0a] border-t border-white/10">
         <div className="max-w-6xl mx-auto px-8 md:px-16 lg:px-20 pt-20 pb-10">

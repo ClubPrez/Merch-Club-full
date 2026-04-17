@@ -18,6 +18,47 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://merchclub.replit.app/industries</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://merchclub.replit.app/industries/healthcare</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://merchclub.replit.app/opengraph.jpg</image:loc>
+      <image:title>Healthcare Branded Merchandise Programs</image:title>
+      <image:caption>Structured branded merchandise programs for hospitals, healthcare networks, and specialty clinics.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://merchclub.replit.app/case-studies</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://merchclub.replit.app/case-studies/regional-health-network-staff-apparel</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://merchclub.replit.app/case-studies/nonprofit-donor-stewardship-program</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://merchclub.replit.app/case-studies/growth-stage-saas-team-onboarding</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://merchclub.replit.app/blog</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -40,16 +81,5 @@
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://merchclub.replit.app/industries/healthcare</loc>
-    <lastmod>2026-04-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://merchclub.replit.app/opengraph.jpg</image:loc>
-      <image:title>Healthcare Branded Merchandise Programs</image:title>
-      <image:caption>Structured branded merchandise programs for hospitals, healthcare networks, and specialty clinics.</image:caption>
-    </image:image>
   </url>
 </urlset>

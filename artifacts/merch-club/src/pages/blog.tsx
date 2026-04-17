@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import SEO from "@/components/seo";
+import Breadcrumbs, { buildBreadcrumbJsonLd } from "@/components/breadcrumbs";
 import { StartProjectModal } from "@/components/start-project-modal";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import blogKittingImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_1775835373159.png";
@@ -318,9 +319,9 @@ export default function Blog() {
           <nav className="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
             <Link href="/" className="text-[#a3a3a3] hover:text-white transition-colors">Home</Link>
             <Link href="/about" className="text-[#a3a3a3] hover:text-white transition-colors">About</Link>
-            <span className="text-white">Blog</span>
-            <a href="/#services" className="text-[#a3a3a3] hover:text-white transition-colors">Services</a>
-            <Link href="/industries/healthcare" className="text-[#a3a3a3] hover:text-white transition-colors">Industries</Link>
+            <Link href="/industries" className="text-[#a3a3a3] hover:text-white transition-colors">Industries</Link>
+            <Link href="/case-studies" className="text-[#a3a3a3] hover:text-white transition-colors">Case Studies</Link>
+            <span className="text-white">Learning Center</span>
             <a href="/#contact" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
           </nav>
         </div>
@@ -336,7 +337,15 @@ export default function Blog() {
 
       <section className="bg-[#0a0a0a] py-20 md:py-28 px-8 md:px-16 lg:px-20">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#666] block mb-4">The Merch Club Blog</span>
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Learning Center", href: "/blog" },
+            ]}
+            theme="dark"
+            className="mb-8 justify-center [&>ol]:justify-center"
+          />
+          <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#666] block mb-4">The Merch Club Learning Center</span>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.9] text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
             Insights & Ideas
           </h1>
