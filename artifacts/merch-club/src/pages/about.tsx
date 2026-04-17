@@ -589,11 +589,11 @@ export default function About() {
                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                       />
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-black text-black leading-[0.95] tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
-                      <span className="block">{first}</span>
-                      {last && <span className="block text-[#888]">{last}</span>}
+                    <h3 className="text-2xl md:text-3xl font-black text-black leading-[0.95] tracking-tight text-center" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
+                      <span className="block text-center">{first}</span>
+                      {last && <span className="block text-center text-[#888]">{last}</span>}
                     </h3>
-                    <p className="text-[11px] text-[#888] mt-2 uppercase tracking-[0.15em] font-medium">{member.role}</p>
+                    <p className="text-[11px] text-[#888] mt-2 uppercase tracking-[0.15em] font-medium text-center">{member.role}</p>
                   </a>
                 </RevealItem>
               );
