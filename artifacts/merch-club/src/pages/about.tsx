@@ -9,7 +9,7 @@ import team2Img from "@assets/2_1775229252466.png";
 import team3Img from "@assets/3_1775229252466.png";
 import team4Img from "@assets/4_1775229252466.png";
 import missionImg from "@assets/0e8baef1-5aa2-4e3d-9acc-6eedba43547b_1776173642639.png";
-import featuredCrewImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1776180821018.png";
+import featuredCrewImg from "@assets/image_1776425552216.png";
 import wideTeamImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_1776180821018.png";
 import brandAccessBank from "@assets/brand_accessbank_nobg.png";
 import brandPaylocity from "@assets/brand_paylocity_nobg.png";
@@ -410,7 +410,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-8 items-stretch">
             <RevealItem delay={100} direction="left" className="lg:col-span-3">
               <div className="relative rounded-2xl overflow-hidden h-[420px] md:h-[560px] bg-black">
-                <img src={featuredCrewImg} alt="Merch Club crew" className="w-full h-full object-cover grayscale" />
+                <img src={featuredCrewImg} alt="Merch Club crew" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
                   <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/80 bg-white/10 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-full">
