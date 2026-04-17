@@ -503,8 +503,8 @@ export default function Healthcare() {
                       <path strokeLinecap="round" strokeLinejoin="round" d={c.icon} />
                     </svg>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-black text-white tracking-tight mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{c.title}</h3>
-                  <p className="text-sm text-[#888] leading-relaxed">{c.desc}</p>
+                  <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{c.title}</h3>
+                  <p className="text-base md:text-lg text-[#bbb] leading-relaxed">{c.desc}</p>
                 </div>
               </RevealItem>
             ))}
