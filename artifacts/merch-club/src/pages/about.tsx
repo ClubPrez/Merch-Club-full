@@ -298,38 +298,63 @@ export default function About() {
 
       <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
             <div className="lg:w-1/2">
               <RevealItem delay={0}>
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">The Problem</span>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  Branded Merch That Actually <span className="text-[#888]">Means Something.</span>
+                <div className="inline-flex items-center gap-2 border border-black/15 rounded-full px-4 py-1.5 mb-8">
+                  <span className="w-2 h-2 rounded-full bg-black" />
+                  <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-black">The Problem — Why Merch Club</span>
+                </div>
+              </RevealItem>
+              <RevealItem delay={80}>
+                <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95] text-black mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  Branded Merch That Actually<br />
+                  <span className="text-[#9a9a9a]">Means Something.</span>
                 </h2>
               </RevealItem>
-              <RevealItem delay={100}>
-                <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-6">
-                  Merch Club exists because too many great brands are represented by forgettable merchandise.
-                </p>
-              </RevealItem>
-              <RevealItem delay={120}>
-                <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-6">
-                  Cheap pens. Faded prints. Products that say the opposite of what a company stands for.
-                </p>
-              </RevealItem>
               <RevealItem delay={140}>
-                <p className="text-base md:text-lg text-[#555] leading-[1.8] mb-6">
-                  Behind the scenes, it's just as broken. Teams stuck juggling vendors, chasing timelines, buried in proof approvals and spreadsheets. Too much effort for results that don't hold up.
+                <p className="text-base md:text-lg text-[#555] leading-[1.7] mb-10 max-w-xl">
+                  Too many great brands get represented by forgettable merch — cheap pens, faded prints, products that say the opposite of what a company stands for. Behind the scenes it's just as broken: vendor chaos, missed deadlines, spreadsheets stacked on spreadsheets. <span className="text-black font-semibold">We built Merch Club to fix that.</span>
                 </p>
               </RevealItem>
-              <RevealItem delay={160}>
-                <p className="text-base md:text-lg text-black font-semibold leading-[1.8]">
-                  We built Merch Club to fix that.
-                </p>
+              <RevealItem delay={200}>
+                <button
+                  onClick={() => setProjectModalOpen(true)}
+                  className="inline-flex items-center gap-3 bg-black text-white text-sm font-bold px-7 py-4 rounded-full hover:bg-[#222] hover:gap-4 transition-all"
+                >
+                  Start a Project
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                  </svg>
+                </button>
               </RevealItem>
             </div>
-            <RevealItem delay={200} className="lg:w-1/2" direction="right">
-              <div className="rounded-2xl overflow-hidden border border-black/10">
-                <ParallaxImage src={missionImg} alt="OneStaff branded water bottle" className="w-full h-[500px] md:h-[650px]" />
+
+            <RevealItem delay={200} className="lg:w-1/2 w-full" direction="right">
+              <div className="relative mx-auto w-full max-w-[560px] aspect-square">
+                <div className="absolute inset-0 rounded-full overflow-hidden bg-black">
+                  <ParallaxImage src={missionImg} alt="OneStaff branded merchandise" className="w-full h-full" />
+                </div>
+                <div className="absolute top-4 left-4 md:top-6 md:left-6 w-28 h-28 md:w-36 md:h-36 rounded-full bg-black text-white flex flex-col items-center justify-center text-center shadow-2xl">
+                  <span className="text-2xl md:text-3xl font-black leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                    500+
+                  </span>
+                  <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.18em] text-white/70 mt-1.5 leading-tight">
+                    Brands<br />Served
+                  </span>
+                </div>
+                <div className="absolute -bottom-2 -right-2 md:-bottom-4 md:-right-4 bg-white border border-black/10 rounded-2xl px-5 py-3 shadow-xl">
+                  <div className="flex items-center gap-2">
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className="w-3 h-3 text-black" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <span className="text-xs font-bold text-black">5.0 rated</span>
+                  </div>
+                </div>
               </div>
             </RevealItem>
           </div>
