@@ -152,6 +152,34 @@ const trustItems = [
   { label: "Insured & Bonded", desc: "Liability coverage on production, kitting, and freight." },
 ];
 
+const testimonials = [
+  {
+    quote: "Merch Club took the chaos out of our nurses week rollout. One vendor, every facility, on time — and the apparel actually looked like our brand.",
+    name: "Director of Marketing",
+    org: "Regional Hospital Network",
+  },
+  {
+    quote: "We've worked with promotional companies before. This is the first time it felt like a real program. The proofing process and quality control made the difference.",
+    name: "VP, Brand & Communications",
+    org: "Specialty Healthcare Group",
+  },
+  {
+    quote: "Kitting and multi-site distribution used to eat a week of our operations time. Now we approve a proof and the boxes show up where they need to be.",
+    name: "Operations Manager",
+    org: "Multi-Location Clinic Group",
+  },
+  {
+    quote: "Their team handled onboarding kits for 400 new hires last quarter without a single hiccup. Our HR team finally has a partner they can trust.",
+    name: "Chief People Officer",
+    org: "Integrated Health System",
+  },
+  {
+    quote: "From breast cancer awareness to physician gifting, every program lands the way we designed it. Quality, packaging, presentation — it all matches.",
+    name: "Brand Director",
+    org: "Academic Medical Center",
+  },
+];
+
 const relatedLinks = [
   { title: "Education & Universities", path: "/industries", desc: "Branded merchandise for higher-ed and K–12 systems." },
   { title: "Hospitality & Events", path: "/industries", desc: "Hotel, venue, and event activation merchandise." },
@@ -171,6 +199,16 @@ export default function Healthcare() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [videoPlaying, setVideoPlaying] = useState(false);
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const [testimonialPaused, setTestimonialPaused] = useState(false);
+
+  useEffect(() => {
+    if (testimonialPaused) return;
+    const id = setInterval(() => {
+      setTestimonialIndex((i) => (i + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(id);
+  }, [testimonialPaused]);
 
   const jsonLd = [
     {
@@ -563,39 +601,69 @@ export default function Healthcare() {
               </h2>
             </div>
           </RevealItem>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {[
-              {
-                quote: "Merch Club took the chaos out of our nurses week rollout. One vendor, every facility, on time — and the apparel actually looked like our brand.",
-                name: "Director of Marketing",
-                org: "Regional Hospital Network",
-              },
-              {
-                quote: "We've worked with promotional companies before. This is the first time it felt like a real program. The proofing process and quality control made the difference.",
-                name: "VP, Brand &amp; Communications",
-                org: "Specialty Healthcare Group",
-              },
-              {
-                quote: "Kitting and multi-site distribution used to eat a week of our operations time. Now we approve a proof and the boxes show up where they need to be.",
-                name: "Operations Manager",
-                org: "Multi-Location Clinic Group",
-              },
-            ].map((t, i) => (
-              <RevealItem key={i} delay={i * 150}>
-                <div className="group relative border border-black/10 rounded-2xl p-8 md:p-10 h-full bg-[#fafafa] hover:border-black/30 hover:bg-white hover:-translate-y-2 hover:shadow-xl hover:shadow-black/5 transition-all duration-500 ease-out flex flex-col overflow-hidden">
-                  <div className="absolute top-0 left-0 h-[2px] w-0 bg-black group-hover:w-full transition-all duration-700 ease-out" aria-hidden="true" />
-                  <svg className="w-8 h-8 text-black/20 mb-6 group-hover:text-black/60 group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-500 ease-out" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                  </svg>
-                  <p className="text-base text-black leading-relaxed mb-8 flex-1">"{t.quote}"</p>
-                  <div className="border-t border-black/10 group-hover:border-black/30 pt-5 transition-colors duration-500">
-                    <div className="text-sm font-bold text-black" dangerouslySetInnerHTML={{ __html: t.name }} />
-                    <div className="text-xs text-[#888] uppercase tracking-wider mt-1 group-hover:text-black/60 transition-colors duration-500">{t.org}</div>
+          <RevealItem delay={150}>
+            <div
+              className="relative max-w-3xl mx-auto"
+              onMouseEnter={() => setTestimonialPaused(true)}
+              onMouseLeave={() => setTestimonialPaused(false)}
+            >
+              <div className="relative border border-black/10 rounded-2xl bg-[#fafafa] overflow-hidden min-h-[340px] md:min-h-[300px]">
+                <div className="absolute top-0 left-0 h-[2px] bg-black transition-all duration-[6000ms] ease-linear" style={{ width: testimonialPaused ? "0%" : "100%", transitionDuration: testimonialPaused ? "300ms" : "6000ms" }} key={testimonialIndex} aria-hidden="true" />
+                {testimonials.map((t, i) => (
+                  <div
+                    key={i}
+                    className={`absolute inset-0 p-8 md:p-12 flex flex-col transition-all duration-700 ease-out ${
+                      i === testimonialIndex
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-4 pointer-events-none"
+                    }`}
+                    aria-hidden={i !== testimonialIndex}
+                  >
+                    <svg className="w-10 h-10 text-black/30 mb-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
+                    <p className="text-lg md:text-xl text-black leading-relaxed mb-8 flex-1 font-medium">"{t.quote}"</p>
+                    <div className="border-t border-black/10 pt-5">
+                      <div className="text-sm font-bold text-black">{t.name}</div>
+                      <div className="text-xs text-[#888] uppercase tracking-wider mt-1">{t.org}</div>
+                    </div>
                   </div>
+                ))}
+              </div>
+              <div className="flex items-center justify-center gap-3 mt-8">
+                <button
+                  onClick={() => setTestimonialIndex((i) => (i - 1 + testimonials.length) % testimonials.length)}
+                  className="w-9 h-9 rounded-full border border-black/20 flex items-center justify-center text-black hover:bg-black hover:text-white transition-colors"
+                  aria-label="Previous testimonial"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                  </svg>
+                </button>
+                <div className="flex items-center gap-2">
+                  {testimonials.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setTestimonialIndex(i)}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        i === testimonialIndex ? "w-8 bg-black" : "w-1.5 bg-black/20 hover:bg-black/40"
+                      }`}
+                      aria-label={`Go to testimonial ${i + 1}`}
+                    />
+                  ))}
                 </div>
-              </RevealItem>
-            ))}
-          </div>
+                <button
+                  onClick={() => setTestimonialIndex((i) => (i + 1) % testimonials.length)}
+                  className="w-9 h-9 rounded-full border border-black/20 flex items-center justify-center text-black hover:bg-black hover:text-white transition-colors"
+                  aria-label="Next testimonial"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </RevealItem>
           <RevealItem delay={400}>
             <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mt-16 pt-10 border-t border-black/10">
               <div className="text-center">
