@@ -405,19 +405,8 @@ export default function About() {
             </p>
           </RevealItem>
         </div>
-      </section>
 
-      <section className="bg-[#f5f5f5] py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-7xl mx-auto">
-          <RevealItem delay={0}>
-            <div className="text-center mb-14 md:mb-20">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Testimonials</span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                What Our Clients Say
-              </h2>
-            </div>
-          </RevealItem>
-
+        <div className="max-w-7xl mx-auto mt-20 md:mt-28">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-8 items-stretch">
             <RevealItem delay={100} direction="left" className="lg:col-span-3">
               <div className="relative rounded-2xl overflow-hidden h-[420px] md:h-[560px] bg-black">
