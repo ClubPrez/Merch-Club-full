@@ -12,6 +12,7 @@ import nursesWeekImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_08_AM_177618
 import scrubsModelImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1776181322914.png";
 import tumblerImg from "@assets/ChatGPT_Image_Apr_16,_2026,_02_19_38_PM_1776376559711.png";
 import whatWeBuildBg from "@assets/Sporty_style_by_the_door_1776378504187.png";
+import challengesBg from "@assets/Sporty_style_by_the_door_1776422196392.png";
 import heroVideo from "@assets/0416_1776378782818.mp4";
 
 function useRevealOnScroll(threshold = 0.15) {
@@ -503,7 +504,7 @@ export default function Healthcare() {
       <section className="relative bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-70"
-          style={{ backgroundImage: `url(${heroImg})` }}
+          style={{ backgroundImage: `url(${challengesBg})` }}
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/90 via-[#0a0a0a]/50 to-transparent" aria-hidden="true" />
