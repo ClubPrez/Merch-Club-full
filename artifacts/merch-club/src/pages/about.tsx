@@ -247,6 +247,26 @@ export default function About() {
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
         <div className="relative max-w-5xl mx-auto text-center">
           <img src={cloverImg} alt="Merch Club" className="h-16 md:h-20 mx-auto mb-6" />
+          <RevealItem delay={0}>
+            <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full pl-2 pr-5 py-1.5 mb-8">
+              <div className="flex -space-x-2">
+                {teamMembers.map((m) => (
+                  <img key={m.email} src={m.img} alt={m.name} className="w-7 h-7 rounded-full object-cover border-2 border-[#0a0a0a] grayscale" />
+                ))}
+              </div>
+              <div className="flex items-center gap-1.5">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-white">5.0</span>
+                <span className="text-[11px] uppercase tracking-[0.15em] text-[#888]">· 500+ teams trust us</span>
+              </div>
+            </div>
+          </RevealItem>
           <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#666] block mb-4">About Merch Club</span>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.9] text-white mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
             We Make Brands<br /><span className="text-[#888]">Look Their Best.</span>
@@ -254,6 +274,25 @@ export default function About() {
           <p className="text-base md:text-lg text-[#888] leading-relaxed max-w-2xl mx-auto">
             Merch Club is a full-service branded merchandise company built for teams that care about quality, consistency, and getting things done right. From strategy to delivery, we handle every detail.
           </p>
+        </div>
+      </section>
+
+      <section className="bg-[#0a0a0a] border-t border-white/5 py-10 md:py-12 px-8 md:px-16 lg:px-20">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-center text-[10px] font-bold uppercase tracking-[0.25em] text-[#555] mb-8">
+            Brands that trust us
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-12 md:gap-x-20 gap-y-6">
+            {trustedBrands.map((brand) => (
+              <img
+                key={brand.name}
+                src={brand.logo}
+                alt={brand.name}
+                className="h-8 md:h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -411,45 +450,140 @@ export default function About() {
       </section>
 
       <section className="bg-[#f5f5f5] py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <RevealItem delay={0}>
-            <div className="text-center mb-16">
+            <div className="text-center mb-14 md:mb-20">
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Testimonials</span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 What Our Clients Say
               </h2>
             </div>
           </RevealItem>
-          <RevealItem delay={100}>
-            <div className="max-w-3xl mx-auto text-center">
-              <div className="relative min-h-[200px] flex items-center justify-center">
-                {testimonials.map((t, i) => (
-                  <div
-                    key={i}
-                    className="absolute inset-0 flex flex-col items-center justify-center transition-all duration-500"
-                    style={{ opacity: activeTestimonial === i ? 1 : 0, transform: activeTestimonial === i ? "translateY(0)" : "translateY(16px)", pointerEvents: activeTestimonial === i ? "auto" : "none" }}
-                  >
-                    <svg className="w-10 h-10 text-black/10 mb-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11h4v10H0z" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-8 items-stretch">
+            <RevealItem delay={100} direction="left" className="lg:col-span-3">
+              <div className="relative rounded-2xl overflow-hidden h-[420px] md:h-[560px] bg-black">
+                <img src={featuredCrewImg} alt="Merch Club crew" className="w-full h-full object-cover grayscale" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/80 bg-white/10 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-full">
+                    The Merch Club Crew
+                  </span>
+                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                    Real teams. Real work.
+                  </div>
+                </div>
+              </div>
+            </RevealItem>
+
+            <RevealItem delay={200} direction="right" className="lg:col-span-2">
+              <div className="relative bg-white border border-black/10 rounded-2xl p-8 md:p-10 h-[420px] md:h-[560px] flex flex-col">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-11 h-11 rounded-full bg-black flex items-center justify-center text-sm font-bold text-white">
+                    {testimonials[activeTestimonial].name.split(" ").map(n => n[0]).join("").slice(0, 2).toUpperCase()}
+                  </div>
+                  <div>
+                    <span className="text-sm font-bold text-black block leading-tight capitalize">{testimonials[activeTestimonial].name}</span>
+                    <span className="text-[11px] text-[#888] uppercase tracking-[0.15em]">Verified Client</span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1 mb-5">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-4 h-4 text-black" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
-                    <p className="text-lg md:text-xl text-[#333] leading-relaxed font-medium italic mb-6 max-w-xl">
+                  ))}
+                  <span className="text-sm font-bold text-black ml-2">5.0</span>
+                </div>
+                <div className="flex-1 overflow-hidden relative">
+                  {testimonials.map((t, i) => (
+                    <p
+                      key={i}
+                      className="absolute inset-0 text-base md:text-lg text-[#333] leading-relaxed transition-all duration-500"
+                      style={{ opacity: activeTestimonial === i ? 1 : 0, transform: activeTestimonial === i ? "translateY(0)" : "translateY(12px)" }}
+                    >
                       "{t.text}"
                     </p>
-                    <span className="text-sm font-bold text-black">{t.name}</span>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between mt-8 pt-6 border-t border-black/10">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#888]">{activeTestimonial + 1} / {testimonials.length}</span>
+                  <div className="flex items-center gap-2">
+                    {testimonials.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setActiveTestimonial(i)}
+                        className={`h-1.5 rounded-full transition-all duration-300 ${activeTestimonial === i ? "bg-black w-6" : "bg-black/20 w-1.5 hover:bg-black/40"}`}
+                        aria-label={`Show testimonial ${i + 1}`}
+                      />
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
-              <div className="flex items-center justify-center gap-2 mt-12">
-                {testimonials.map((_, i) => (
+            </RevealItem>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-6 md:mt-8">
+            <RevealItem delay={100}>
+              <div className="relative bg-black text-white rounded-2xl p-8 md:p-10 h-[260px] md:h-[300px] flex flex-col justify-between overflow-hidden">
+                <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-white/5" />
+                <div className="absolute bottom-0 right-0 w-32 h-32 rounded-full bg-white/5" />
+                <div className="relative">
+                  <span className="block text-7xl md:text-8xl font-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                    <CountUp target={500} suffix="+" duration={2200} />
+                  </span>
+                  <p className="text-base font-bold mt-3">Brands served</p>
+                </div>
+                <div className="relative">
+                  <p className="text-xs text-white/60 leading-relaxed">
+                    From local shops to multi-state networks — we've shipped programs for hundreds of teams.
+                  </p>
+                </div>
+              </div>
+            </RevealItem>
+
+            <RevealItem delay={200}>
+              <div className="relative rounded-2xl overflow-hidden h-[260px] md:h-[300px] bg-black group">
+                <img src={wideTeamImg} alt="Merch Club work in action" className="w-full h-full object-cover grayscale group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-black/20" />
+                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white">In the field</span>
+                  <span className="w-9 h-9 rounded-full bg-white text-black flex items-center justify-center">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </RevealItem>
+
+            <RevealItem delay={300}>
+              <div className="relative bg-black text-white rounded-2xl p-8 md:p-10 h-[260px] md:h-[300px] flex flex-col justify-between overflow-hidden">
+                <div className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full border border-white/10" />
+                <div className="relative">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/60 block mb-3">Get in touch</span>
+                  <h3 className="text-3xl md:text-4xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                    Let's build your next program.
+                  </h3>
+                </div>
+                <div className="relative flex items-center gap-3">
                   <button
-                    key={i}
-                    onClick={() => setActiveTestimonial(i)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${activeTestimonial === i ? "bg-black w-6" : "bg-black/20"}`}
-                  />
-                ))}
+                    onClick={() => setProjectModalOpen(true)}
+                    className="inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-3 rounded-full hover:bg-gray-200 transition-colors"
+                  >
+                    Contact us
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                  </button>
+                  <a href="tel:+15317770347" className="text-xs text-white/70 hover:text-white transition-colors font-medium">
+                    or call (531) 777-0347
+                  </a>
+                </div>
               </div>
-            </div>
-          </RevealItem>
+            </RevealItem>
+          </div>
         </div>
       </section>
 
