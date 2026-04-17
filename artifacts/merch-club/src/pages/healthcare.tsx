@@ -362,11 +362,11 @@ export default function Healthcare() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
+      <section className="bg-[#0a0a0a] py-16 md:py-20 px-8 md:px-16 lg:px-20">
         <div className="max-w-7xl mx-auto">
           <RevealItem>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4 text-center">The Standard</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-16 text-center max-w-5xl mx-auto" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white text-center max-w-5xl mx-auto" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
               Healthcare Isn't Casual.<br /><span className="text-[#888]">Your Brand Presence Shouldn't Be Either.</span>
             </h2>
           </RevealItem>
