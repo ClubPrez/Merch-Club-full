@@ -377,7 +377,7 @@ export default function Healthcare() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 mb-10 items-start">
             <RevealItem>
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Use Cases</span>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Healthcare Merch, Handled</span>
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95] text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 When Healthcare Teams <span className="text-[#888]">Call Us.</span>
               </h2>
