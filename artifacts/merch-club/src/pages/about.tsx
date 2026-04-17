@@ -333,7 +333,7 @@ export default function About() {
             <RevealItem delay={200} className="lg:w-1/2 w-full" direction="right">
               <div className="relative mx-auto w-full max-w-[560px] aspect-square">
                 <div className="absolute inset-0 rounded-full overflow-hidden bg-black">
-                  <ParallaxImage src={missionImg} alt="OneStaff branded merchandise" className="w-full h-full" />
+                  <img src={missionImg} alt="OneStaff branded merchandise" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute top-4 left-4 md:top-6 md:left-6 w-28 h-28 md:w-36 md:h-36 rounded-full bg-black text-white flex flex-col items-center justify-center text-center shadow-2xl">
                   <span className="text-2xl md:text-3xl font-black leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
