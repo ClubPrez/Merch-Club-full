@@ -605,11 +605,10 @@ export default function About() {
 
       <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 text-center">
             {[
               { target: 1200, suffix: "+", label: "Kits Shipped" },
               { target: 48, suffix: "", label: "States Reached" },
-              { target: 500, suffix: "+", label: "Brands Served" },
               { target: 100, suffix: "%", label: "On-Time Delivery" },
             ].map((stat, i) => (
               <RevealItem key={i} delay={i * 150}>
