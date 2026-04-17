@@ -11,7 +11,6 @@ import kittingImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_177618082
 import nursesWeekImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_08_AM_1776180821018.png";
 import scrubsModelImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1776181322914.png";
 import tumblerImg from "@assets/ChatGPT_Image_Apr_16,_2026,_02_19_38_PM_1776376559711.png";
-import whatWeBuildBg from "@assets/Sporty_style_by_the_door_1776378504187.png";
 import challengesBg from "@assets/Sporty_style_by_the_door_1776422196392.png";
 import heroVideo from "@assets/0416_1776378782818.mp4";
 
@@ -42,29 +41,6 @@ function RevealItem({ children, delay = 0, className = "", direction = "up" }: {
     </div>
   );
 }
-
-const services = [
-  {
-    title: "Internal Apparel Systems",
-    desc: "Branded apparel programs for clinical staff, administrative teams, and leadership. Durable. Consistent. Easy to reorder. Built to scale across departments and facilities.",
-    icon: "M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z",
-  },
-  {
-    title: "Recruitment & Onboarding Kits",
-    desc: "New-hire kits that reinforce culture without losing professionalism. Apparel, printed materials, and welcome items that feel cohesive and well considered.",
-    icon: "M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0",
-  },
-  {
-    title: "Awareness & Community Initiatives",
-    desc: "Breast cancer awareness activations. Screening campaigns. Community health events. We coordinate products, packaging, and distribution so the message lands clearly.",
-    icon: "M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z",
-  },
-  {
-    title: "Gifting & Donor Programs",
-    desc: "Premium gifting initiatives for board members, physicians, and donors. Thoughtful sourcing. Elevated presentation. Managed fulfillment.",
-    icon: "M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z",
-  },
-];
 
 const processSteps = [
   { num: "01", title: "Strategic Alignment", desc: "We align with marketing and operations leadership to define scope, timelines, brand standards, and distribution needs.", img: scrubsModelImg },
@@ -642,40 +618,6 @@ export default function Healthcare() {
                   <div className="text-5xl md:text-6xl font-black text-white mb-2 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{o.stat}</div>
                   <div className="text-sm font-bold text-white mb-1 uppercase tracking-wide">{o.label}</div>
                   <div className="text-xs text-[#888] leading-relaxed">{o.desc}</div>
-                </div>
-              </RevealItem>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-70"
-          style={{ backgroundImage: `url(${whatWeBuildBg})` }}
-          aria-hidden="true"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/90 via-[#0a0a0a]/50 to-transparent" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-[#0a0a0a]/20" aria-hidden="true" />
-        <div className="relative max-w-7xl mx-auto">
-          <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">What We Build</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              What We Build for<br /><span className="text-[#aaa]">Healthcare Teams.</span>
-            </h2>
-            <p className="text-base text-[#aaa] mb-16 max-w-xl">Every healthcare organization is different. The common thread is structure.</p>
-          </RevealItem>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((s, i) => (
-              <RevealItem key={i} delay={i * 120}>
-                <div className="border border-white/10 rounded-2xl p-8 md:p-10 hover:border-white/20 hover:-translate-y-1 transition-all duration-300 h-full">
-                  <div className="w-12 h-12 rounded-full border border-white/15 flex items-center justify-center mb-6">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d={s.icon} />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-black text-white tracking-tight mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{s.title}</h3>
-                  <p className="text-sm text-[#888] leading-relaxed">{s.desc}</p>
                 </div>
               </RevealItem>
             ))}
