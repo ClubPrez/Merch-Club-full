@@ -35,6 +35,17 @@
     </image:image>
   </url>
   <url>
+    <loc>https://merchclub.replit.app/industries/construction</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://merchclub.replit.app/opengraph.jpg</image:loc>
+      <image:title>Construction & Trades Branded Apparel Programs</image:title>
+      <image:caption>Structured branded apparel and merchandise programs for construction firms, skilled trades, and field teams.</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://merchclub.replit.app/case-studies</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>

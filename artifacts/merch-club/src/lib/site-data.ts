@@ -39,6 +39,16 @@ export const industries: Industry[] = [
     who: "Hospital systems, specialty clinics, urgent care, foundations, and provider networks.",
   },
   {
+    slug: "construction",
+    name: "Construction & Trades",
+    status: "live",
+    href: "/industries/construction",
+    tagline: "Contractors, skilled trades, and field teams",
+    summary:
+      "Structured branded apparel and merchandise programs for construction firms, skilled trades, contractors, and field teams — sourcing, decoration, production, and multi-site distribution managed end to end.",
+    who: "General contractors, specialty trades, MEP firms, civil and heavy highway, and construction management firms.",
+  },
+  {
     slug: "nonprofit",
     name: "Nonprofit",
     status: "coming-soon",

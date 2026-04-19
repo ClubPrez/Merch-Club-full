@@ -7,6 +7,7 @@ import About from "@/pages/about";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import Healthcare from "@/pages/healthcare";
+import Construction from "@/pages/construction";
 import Industries from "@/pages/industries";
 import CaseStudies from "@/pages/case-studies";
 import CaseStudy from "@/pages/case-study";
@@ -24,6 +25,8 @@ function Router() {
       <Route path="/industries" component={Industries} />
       <Route path="/industries/healthcare" component={Healthcare} />
       <Route path="/healthcare" component={Healthcare} />
+      <Route path="/industries/construction" component={Construction} />
+      <Route path="/construction" component={Construction} />
       <Route path="/case-studies" component={CaseStudies} />
       <Route path="/case-studies/:slug" component={CaseStudy} />
       <Route component={NotFound} />
