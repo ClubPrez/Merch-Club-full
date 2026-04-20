@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import SEO from "@/components/seo";
 import Breadcrumbs, { buildBreadcrumbJsonLd } from "@/components/breadcrumbs";
 import { StartProjectModal } from "@/components/start-project-modal";
+import { IndustriesMegaMenu } from "@/components/industries-mega-menu";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import cloverImg from "@assets/Social_PostsArtboard_2@3x_copy_1775827336093.png";
 import team1Img from "@assets/1_1775229252465.png";
@@ -228,7 +229,7 @@ export default function About() {
           <nav className="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
             <Link href="/" className="text-[#a3a3a3] hover:text-white transition-colors">Home</Link>
             <span className="text-white">About</span>
-            <Link href="/industries" className="text-[#a3a3a3] hover:text-white transition-colors">Industries</Link>
+            <IndustriesMegaMenu />
             <Link href="/case-studies" className="text-[#a3a3a3] hover:text-white transition-colors">Case Studies</Link>
             <Link href="/blog" className="text-[#a3a3a3] hover:text-white transition-colors">Learning Center</Link>
             <a href="/#contact" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>

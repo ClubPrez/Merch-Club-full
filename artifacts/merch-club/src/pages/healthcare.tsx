@@ -4,6 +4,7 @@ import SEO from "@/components/seo";
 import Breadcrumbs from "@/components/breadcrumbs";
 import RelatedContent from "@/components/related-content";
 import { StartProjectModal } from "@/components/start-project-modal";
+import { IndustriesMegaMenu } from "@/components/industries-mega-menu";
 import { caseStudies as siteCaseStudies, getRelatedCaseStudies } from "@/lib/site-data";
 import { blogPosts } from "@/pages/blog";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
@@ -422,7 +423,7 @@ export default function Healthcare() {
           <nav className="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
             <Link href="/" className="text-[#a3a3a3] hover:text-white transition-colors">Home</Link>
             <Link href="/about" className="text-[#a3a3a3] hover:text-white transition-colors">About</Link>
-            <Link href="/industries" className="text-white">Industries</Link>
+            <IndustriesMegaMenu active />
             <Link href="/case-studies" className="text-[#a3a3a3] hover:text-white transition-colors">Case Studies</Link>
             <Link href="/blog" className="text-[#a3a3a3] hover:text-white transition-colors">Learning Center</Link>
             <a href="/#contact" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>

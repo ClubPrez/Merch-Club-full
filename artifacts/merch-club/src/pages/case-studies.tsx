@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import SEO from "@/components/seo";
 import Breadcrumbs, { buildBreadcrumbJsonLd } from "@/components/breadcrumbs";
 import { StartProjectModal } from "@/components/start-project-modal";
+import { IndustriesMegaMenu } from "@/components/industries-mega-menu";
 import { caseStudies } from "@/lib/site-data";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 
@@ -54,7 +55,7 @@ export default function CaseStudies() {
             <nav className="hidden lg:flex items-center gap-10 text-[11px] font-bold uppercase tracking-[0.2em] text-white/60">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <Link href="/about" className="hover:text-white transition-colors">About</Link>
-              <Link href="/industries" className="hover:text-white transition-colors">Industries</Link>
+              <IndustriesMegaMenu />
               <Link href="/case-studies" className="text-white">Case Studies</Link>
               <Link href="/blog" className="hover:text-white transition-colors">Learning Center</Link>
             </nav>

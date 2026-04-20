@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import SEO from "@/components/seo";
+import { IndustriesMegaMenu } from "@/components/industries-mega-menu";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import heroImg from "@assets/0I4A7792_1774446809972.jpg";
 import golfImg from "@assets/image_1774554118628.png";
@@ -765,7 +766,7 @@ export default function Home() {
             <Link href="/about" className="text-[#a3a3a3] hover:text-white transition-colors">About</Link>
             <Link href="/blog" className="text-[#a3a3a3] hover:text-white transition-colors">Blog</Link>
             <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Services</a>
-            <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Industries</a>
+            <IndustriesMegaMenu />
             <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
           </nav>
         </div>

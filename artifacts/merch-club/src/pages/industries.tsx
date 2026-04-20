@@ -4,6 +4,7 @@ import SEO from "@/components/seo";
 import Breadcrumbs, { buildBreadcrumbJsonLd } from "@/components/breadcrumbs";
 import RelatedContent from "@/components/related-content";
 import { StartProjectModal } from "@/components/start-project-modal";
+import { IndustriesMegaMenu } from "@/components/industries-mega-menu";
 import { industries, caseStudies } from "@/lib/site-data";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 
@@ -65,7 +66,7 @@ export default function Industries() {
             <nav className="hidden lg:flex items-center gap-10 text-[11px] font-bold uppercase tracking-[0.2em] text-white/60">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <Link href="/about" className="hover:text-white transition-colors">About</Link>
-              <Link href="/industries" className="text-white">Industries</Link>
+              <IndustriesMegaMenu active />
               <Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link>
               <Link href="/blog" className="hover:text-white transition-colors">Learning Center</Link>
             </nav>

@@ -4,6 +4,7 @@ import SEO from "@/components/seo";
 import Breadcrumbs from "@/components/breadcrumbs";
 import RelatedContent, { type RelatedItem } from "@/components/related-content";
 import { StartProjectModal } from "@/components/start-project-modal";
+import { IndustriesMegaMenu } from "@/components/industries-mega-menu";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import { blogPosts } from "./blog";
 import { caseStudies as siteCaseStudies } from "@/lib/site-data";
@@ -129,7 +130,7 @@ export default function BlogPost() {
           <nav className="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
             <Link href="/" className="text-[#a3a3a3] hover:text-white transition-colors">Home</Link>
             <Link href="/about" className="text-[#a3a3a3] hover:text-white transition-colors">About</Link>
-            <Link href="/industries" className="text-[#a3a3a3] hover:text-white transition-colors">Industries</Link>
+            <IndustriesMegaMenu />
             <Link href="/case-studies" className="text-[#a3a3a3] hover:text-white transition-colors">Case Studies</Link>
             <Link href="/blog" className="text-white">Learning Center</Link>
             <a href="/#contact" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>

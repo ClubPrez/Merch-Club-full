@@ -4,6 +4,7 @@ import SEO from "@/components/seo";
 import Breadcrumbs, { buildBreadcrumbJsonLd } from "@/components/breadcrumbs";
 import RelatedContent, { type RelatedItem } from "@/components/related-content";
 import { StartProjectModal } from "@/components/start-project-modal";
+import { IndustriesMegaMenu } from "@/components/industries-mega-menu";
 import { getCaseStudy, getRelatedCaseStudies } from "@/lib/site-data";
 import { blogPosts } from "@/pages/blog";
 import NotFound from "@/pages/not-found";
@@ -90,7 +91,7 @@ export default function CaseStudy() {
             <nav className="hidden lg:flex items-center gap-10 text-[11px] font-bold uppercase tracking-[0.2em] text-white/60">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <Link href="/about" className="hover:text-white transition-colors">About</Link>
-              <Link href="/industries" className="hover:text-white transition-colors">Industries</Link>
+              <IndustriesMegaMenu />
               <Link href="/case-studies" className="text-white">Case Studies</Link>
               <Link href="/blog" className="hover:text-white transition-colors">Learning Center</Link>
             </nav>
