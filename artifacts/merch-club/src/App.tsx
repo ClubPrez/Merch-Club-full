@@ -11,6 +11,7 @@ import Construction from "@/pages/construction";
 import Corporate from "@/pages/corporate";
 import Events from "@/pages/events";
 import Contact from "@/pages/contact";
+import Services from "@/pages/services";
 import Industries from "@/pages/industries";
 import CaseStudies from "@/pages/case-studies";
 import CaseStudy from "@/pages/case-study";
@@ -35,6 +36,7 @@ function Router() {
       <Route path="/industries/events" component={Events} />
       <Route path="/events" component={Events} />
       <Route path="/contact" component={Contact} />
+      <Route path="/services" component={Services} />
       <Route path="/case-studies" component={CaseStudies} />
       <Route path="/case-studies/:slug" component={CaseStudy} />
       <Route component={NotFound} />

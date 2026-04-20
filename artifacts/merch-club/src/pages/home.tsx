@@ -765,7 +765,7 @@ export default function Home() {
             <span className="text-white">Home</span>
             <Link href="/about" className="text-[#a3a3a3] hover:text-white transition-colors">About</Link>
             <Link href="/blog" className="text-[#a3a3a3] hover:text-white transition-colors">Blog</Link>
-            <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Services</a>
+            <Link href="/services" className="text-[#a3a3a3] hover:text-white transition-colors">Services</Link>
             <IndustriesMegaMenu />
             <a href="/contact" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
           </nav>
