@@ -57,6 +57,17 @@
     </image:image>
   </url>
   <url>
+    <loc>https://merchclub.replit.app/industries/events</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://merchclub.replit.app/opengraph.jpg</image:loc>
+      <image:title>Trade Show & Event Branded Merchandise Programs</image:title>
+      <image:caption>Structured branded merchandise programs for trade shows, conferences, recruiting events, and large-scale activations.</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://merchclub.replit.app/case-studies</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>

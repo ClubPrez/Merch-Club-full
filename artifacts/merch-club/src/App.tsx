@@ -9,6 +9,7 @@ import BlogPost from "@/pages/blog-post";
 import Healthcare from "@/pages/healthcare";
 import Construction from "@/pages/construction";
 import Corporate from "@/pages/corporate";
+import Events from "@/pages/events";
 import Industries from "@/pages/industries";
 import CaseStudies from "@/pages/case-studies";
 import CaseStudy from "@/pages/case-study";
@@ -30,6 +31,8 @@ function Router() {
       <Route path="/construction" component={Construction} />
       <Route path="/industries/corporate" component={Corporate} />
       <Route path="/corporate" component={Corporate} />
+      <Route path="/industries/events" component={Events} />
+      <Route path="/events" component={Events} />
       <Route path="/case-studies" component={CaseStudies} />
       <Route path="/case-studies/:slug" component={CaseStudy} />
       <Route component={NotFound} />

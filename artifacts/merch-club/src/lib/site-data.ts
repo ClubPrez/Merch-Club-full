@@ -59,6 +59,16 @@ export const industries: Industry[] = [
     who: "Multi-location corporates, financial services, tech, professional services, insurance, and national franchises.",
   },
   {
+    slug: "events",
+    name: "Trade Shows & Events",
+    status: "live",
+    href: "/industries/events",
+    tagline: "Trade shows, conferences, and activations",
+    summary:
+      "Structured branded merchandise programs for trade shows, conferences, recruiting events, and large-scale activations — apparel, premium giveaways, booth kits, and venue logistics handled end to end.",
+    who: "Event marketing, field marketing, trade show, recruiting, and brand activation teams.",
+  },
+  {
     slug: "nonprofit",
     name: "Nonprofit",
     status: "coming-soon",
