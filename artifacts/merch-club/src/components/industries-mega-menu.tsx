@@ -89,13 +89,13 @@ export function IndustriesMegaMenu({ active = false, theme = "dark" }: Props) {
         onMouseLeave={handleLeave}
       >
         <div className="bg-white shadow-2xl border-t border-black/[0.06]">
-          <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+          <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-6 lg:py-7 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
 
             <div className="lg:col-span-8">
-              <div className="flex items-end justify-between mb-6">
+              <div className="flex items-end justify-between mb-4">
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-2">Industries We Serve</span>
-                  <h3 className="text-3xl md:text-4xl font-black text-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
+                  <h3 className="text-2xl md:text-3xl font-black text-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
                     Programs Built for <span className="text-[#888]">Your Industry.</span>
                   </h3>
                 </div>
@@ -111,7 +111,7 @@ export function IndustriesMegaMenu({ active = false, theme = "dark" }: Props) {
                     key={ind.slug}
                     href={ind.href}
                     aria-label={`Visit ${ind.name} industry page`}
-                    className="group relative block rounded-xl overflow-hidden bg-[#0a0a0a] aspect-[16/9] hover:ring-2 hover:ring-black transition-all"
+                    className="group relative block rounded-xl overflow-hidden bg-[#0a0a0a] aspect-[16/7] hover:ring-2 hover:ring-black transition-all"
                   >
                     {industryImages[ind.slug] && (
                       <img
@@ -121,22 +121,24 @@ export function IndustriesMegaMenu({ active = false, theme = "dark" }: Props) {
                       />
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/5" />
-                    <div className="absolute inset-0 p-5 flex flex-col justify-end">
-                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70 block mb-1.5">{ind.tagline}</span>
-                      <h4 className="text-2xl md:text-3xl font-black text-white tracking-tight leading-[0.95] mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
-                        {ind.name}
-                      </h4>
-                      <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-white opacity-80 group-hover:opacity-100 group-hover:gap-2.5 transition-all">
-                        Explore Program
-                        <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-                      </span>
+                    <div className="absolute inset-0 p-4 flex flex-col justify-end">
+                      <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/70 block mb-1">{ind.tagline}</span>
+                      <div className="flex items-end justify-between gap-2">
+                        <h4 className="text-xl md:text-2xl font-black text-white tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
+                          {ind.name}
+                        </h4>
+                        <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.15em] text-white opacity-80 group-hover:opacity-100 group-hover:gap-1.5 transition-all whitespace-nowrap">
+                          Explore
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                        </span>
+                      </div>
                     </div>
                   </Link>
                 ))}
               </div>
 
               {upcoming.length > 0 && (
-                <div className="mt-5 pt-5 border-t border-black/10 flex flex-wrap items-center gap-x-4 gap-y-2">
+                <div className="mt-3 pt-3 border-t border-black/10 flex flex-wrap items-center gap-x-4 gap-y-2">
                   <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999]">Coming Soon</span>
                   {upcoming.map((ind, i) => (
                     <span key={ind.slug} className="flex items-center gap-3">
@@ -148,9 +150,9 @@ export function IndustriesMegaMenu({ active = false, theme = "dark" }: Props) {
               )}
             </div>
 
-            <div className="lg:col-span-4 lg:border-l lg:border-black/[0.08] lg:pl-10">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-4">Programs & Capabilities</span>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-x-6 gap-y-2">
+            <div className="lg:col-span-4 lg:border-l lg:border-black/[0.08] lg:pl-8">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-3">Programs & Capabilities</span>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-x-6 gap-y-1">
                 {[
                   "Crew & Staff Apparel",
                   "Leadership Gear",
@@ -168,9 +170,9 @@ export function IndustriesMegaMenu({ active = false, theme = "dark" }: Props) {
                 ))}
               </ul>
 
-              <div className="mt-6 pt-5 border-t border-black/10">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-3">Resources</span>
-                <ul className="space-y-2">
+              <div className="mt-4 pt-3 border-t border-black/10">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-2">Resources</span>
+                <ul className="space-y-1.5">
                   <li>
                     <Link href="/blog/merch-program-strategy" className="group flex items-center justify-between gap-2 text-sm text-[#444] hover:text-black transition-colors">
                       <span>Building a Strategic Merch Program</span>
