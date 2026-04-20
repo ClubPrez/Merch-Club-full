@@ -68,36 +68,6 @@ export const industries: Industry[] = [
       "Structured branded merchandise programs for trade shows, conferences, recruiting events, and large-scale activations — apparel, premium giveaways, booth kits, and venue logistics handled end to end.",
     who: "Event marketing, field marketing, trade show, recruiting, and brand activation teams.",
   },
-  {
-    slug: "nonprofit",
-    name: "Nonprofit",
-    status: "coming-soon",
-    href: "/industries#nonprofit",
-    tagline: "Foundations, advocacy groups, and member orgs",
-    summary:
-      "Mission-aligned merchandise programs for fundraising, donor stewardship, volunteer recognition, and event activations — built to extend cause visibility without overwhelming small teams.",
-    who: "Foundations, advocacy organizations, member associations, and community nonprofits.",
-  },
-  {
-    slug: "financial-services",
-    name: "Financial Services",
-    status: "coming-soon",
-    href: "/industries#financial-services",
-    tagline: "Banks, credit unions, and wealth firms",
-    summary:
-      "Polished, compliance-aware branded merchandise for client gifting, advisor onboarding, branch openings, and conference activations — engineered for institutions where brand presentation is non-negotiable.",
-    who: "Regional banks, credit unions, wealth management firms, and fintech companies.",
-  },
-  {
-    slug: "education",
-    name: "Education",
-    status: "coming-soon",
-    href: "/industries#education",
-    tagline: "Universities, K-12 systems, and EdTech",
-    summary:
-      "Campus-wide branded merchandise programs for student life, alumni engagement, athletics, and admissions — coordinated across departments without losing brand integrity.",
-    who: "Universities, K-12 districts, charter networks, and EdTech companies.",
-  },
 ];
 
 export const caseStudies: CaseStudy[] = [

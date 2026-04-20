@@ -118,22 +118,24 @@ export function IndustriesMegaMenu({ active = false, theme = "dark" }: Props) {
                 ))}
               </ul>
 
-              <div className="mt-6 pt-6 border-t border-black/10">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-3">Coming Soon</span>
-                <ul className="space-y-2">
-                  {upcoming.map((ind) => (
-                    <li key={ind.slug}>
-                      <Link
-                        href={ind.href}
-                        className="group flex items-center gap-2 text-xs text-[#666] hover:text-black transition-colors"
-                      >
-                        <span className="w-1 h-1 rounded-full bg-black/20 group-hover:bg-black transition-colors" />
-                        <span>{ind.name}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {upcoming.length > 0 && (
+                <div className="mt-6 pt-6 border-t border-black/10">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-3">Coming Soon</span>
+                  <ul className="space-y-2">
+                    {upcoming.map((ind) => (
+                      <li key={ind.slug}>
+                        <Link
+                          href={ind.href}
+                          className="group flex items-center gap-2 text-xs text-[#666] hover:text-black transition-colors"
+                        >
+                          <span className="w-1 h-1 rounded-full bg-black/20 group-hover:bg-black transition-colors" />
+                          <span>{ind.name}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
             <div className="lg:col-span-4">

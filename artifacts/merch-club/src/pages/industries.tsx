@@ -28,7 +28,7 @@ export default function Industries() {
     "@type": "CollectionPage",
     name: "Industries Served — Merch Club",
     description:
-      "Merch Club builds branded merchandise programs for industries where brand consistency, compliance, and operational structure matter — healthcare, nonprofit, financial services, and education.",
+      "Merch Club builds branded merchandise programs for industries where brand consistency, compliance, and operational structure matter — healthcare, construction, corporate, and trade shows & events.",
     url: "https://merchclub.replit.app/industries",
     hasPart: industries.map((i) => ({
       "@type": "WebPage",
@@ -51,9 +51,9 @@ export default function Industries() {
     <div className="min-h-screen bg-[#0a0a0a] text-white">
       <SEO
         title="Industries We Serve"
-        description="Branded merchandise programs built for healthcare, nonprofit, financial services, and education teams that need brand consistency, compliance, and operational structure at scale."
+        description="Branded merchandise programs built for healthcare, construction, corporate, and trade show & event teams that need brand consistency, compliance, and operational structure at scale."
         path="/industries"
-        keywords="industries served, branded merchandise by industry, healthcare merch, nonprofit merch, financial services merch, education merch"
+        keywords="industries served, branded merchandise by industry, healthcare merch, construction merch, corporate merch, trade show merch, event merch"
         jsonLd={[buildBreadcrumbJsonLd(breadcrumbs), collectionJsonLd]}
       />
 
@@ -86,7 +86,7 @@ export default function Industries() {
             Built For Industries Where <span className="text-[#888]">Brand Presence Matters.</span>
           </h1>
           <p className="text-base md:text-lg text-[#888] leading-relaxed max-w-2xl">
-            We run branded merchandise programs for organizations that can't afford to look inconsistent — healthcare networks, nonprofits, financial institutions, and education systems. Every program is built around your brand standards, compliance requirements, and operating cadence.
+            We run branded merchandise programs for organizations that can't afford to look inconsistent — healthcare networks, construction firms, multi-location corporates, and trade show & event teams. Every program is built around your brand standards, compliance requirements, and operating cadence.
           </p>
         </div>
       </section>
