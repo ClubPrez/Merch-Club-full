@@ -470,7 +470,7 @@ export default function Events() {
                 <span className="w-2 h-2 rounded-full bg-black" />
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-black">Industry — Trade Shows & Events</span>
               </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.9] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 Trade Show Merch<br />Programs Built<br /><span className="text-[#888]">For Show Floors.</span>
               </h1>
               <p className="text-base md:text-lg text-[#555] leading-relaxed max-w-xl mb-10">
