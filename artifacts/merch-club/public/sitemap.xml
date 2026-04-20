@@ -68,6 +68,12 @@
     </image:image>
   </url>
   <url>
+    <loc>https://merchclub.replit.app/contact</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://merchclub.replit.app/case-studies</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>

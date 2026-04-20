@@ -767,7 +767,7 @@ export default function Home() {
             <Link href="/blog" className="text-[#a3a3a3] hover:text-white transition-colors">Blog</Link>
             <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Services</a>
             <IndustriesMegaMenu />
-            <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
+            <a href="/contact" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
           </nav>
         </div>
         <div className="flex items-center gap-4">

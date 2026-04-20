@@ -133,7 +133,7 @@ export default function BlogPost() {
             <IndustriesMegaMenu />
             <Link href="/case-studies" className="text-[#a3a3a3] hover:text-white transition-colors">Case Studies</Link>
             <Link href="/blog" className="text-white">Learning Center</Link>
-            <a href="/#contact" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
+            <a href="/contact" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
           </nav>
         </div>
         <div className="flex items-center gap-4">
