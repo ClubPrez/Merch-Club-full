@@ -56,8 +56,29 @@ export default function SEO({
     setMeta("name", "description", description);
     setMeta("name", "robots", robots);
     setMeta("name", "googlebot", robots);
+    setMeta("name", "bingbot", robots);
+    setMeta("name", "GPTBot", "index, follow");
+    setMeta("name", "ChatGPT-User", "index, follow");
+    setMeta("name", "OAI-SearchBot", "index, follow");
+    setMeta("name", "ClaudeBot", "index, follow");
+    setMeta("name", "Claude-Web", "index, follow");
+    setMeta("name", "PerplexityBot", "index, follow");
+    setMeta("name", "Perplexity-User", "index, follow");
+    setMeta("name", "Google-Extended", "index, follow");
+    setMeta("name", "Applebot", "index, follow");
+    setMeta("name", "Applebot-Extended", "index, follow");
+    setMeta("name", "CCBot", "index, follow");
     setMeta("name", "author", author);
     if (keywords) setMeta("name", "keywords", keywords);
+
+    setMeta("name", "geo.region", "US-NE");
+    setMeta("name", "geo.placename", "Omaha, Nebraska");
+    setMeta("name", "geo.position", "41.2565;-95.9345");
+    setMeta("name", "ICBM", "41.2565, -95.9345");
+    setMeta("name", "coverage", "Worldwide");
+    setMeta("name", "distribution", "Global");
+    setMeta("name", "rating", "General");
+    setMeta("name", "target", "all");
 
     setMeta("property", "og:title", fullTitle);
     setMeta("property", "og:description", description);

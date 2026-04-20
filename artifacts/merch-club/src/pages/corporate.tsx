@@ -322,6 +322,45 @@ export default function Corporate() {
     },
     {
       "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://merchclub.replit.app/#localbusiness",
+      "name": "Merch Club",
+      "image": "https://merchclub.replit.app/opengraph.jpg",
+      "url": "https://merchclub.replit.app",
+      "telephone": "+1-531-777-0347",
+      "email": "hello@merchclub.com",
+      "priceRange": "$$-$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Omaha",
+        "addressRegion": "NE",
+        "postalCode": "68102",
+        "addressCountry": "US"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 41.2565, "longitude": -95.9345 },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "State", "name": "Nebraska" },
+        { "@type": "State", "name": "Iowa" },
+        { "@type": "State", "name": "Kansas" },
+        { "@type": "State", "name": "Missouri" },
+        { "@type": "State", "name": "South Dakota" }
+      ],
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      }],
+      "sameAs": ["https://www.facebook.com/MerchClubPro","https://www.instagram.com/merchclub_ig/"]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", "h2", "[data-speakable]"]
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.replit.app/" },
