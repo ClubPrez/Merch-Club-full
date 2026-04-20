@@ -49,6 +49,16 @@ export const industries: Industry[] = [
     who: "General contractors, specialty trades, MEP firms, civil and heavy highway, and construction management firms.",
   },
   {
+    slug: "corporate",
+    name: "Corporate",
+    status: "live",
+    href: "/industries/corporate",
+    tagline: "Multi-location offices, regions, and departments",
+    summary:
+      "Structured branded merchandise programs for corporate organizations operating across multiple offices, regions, and departments — onboarding kits, internal apparel systems, gifting initiatives, and national rollouts.",
+    who: "Multi-location corporates, financial services, tech, professional services, insurance, and national franchises.",
+  },
+  {
     slug: "nonprofit",
     name: "Nonprofit",
     status: "coming-soon",

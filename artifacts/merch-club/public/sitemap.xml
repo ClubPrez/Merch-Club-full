@@ -46,6 +46,17 @@
     </image:image>
   </url>
   <url>
+    <loc>https://merchclub.replit.app/industries/corporate</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://merchclub.replit.app/opengraph.jpg</image:loc>
+      <image:title>Corporate Multi-Location Branded Merchandise Programs</image:title>
+      <image:caption>Structured branded merchandise programs for corporate organizations operating across multiple offices, regions, and departments.</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://merchclub.replit.app/case-studies</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>

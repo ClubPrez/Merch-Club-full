@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { industries } from "@/lib/site-data";
 import healthcareImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1776181322914.png";
 import constructionImg from "@assets/Casual_style_with_Carhartt_jacket_1775772661826.png";
+import corporateImg from "@assets/Professional_promotional_packaging_shot_1776180821018.png";
 
 interface Props {
   active?: boolean;
@@ -12,6 +13,7 @@ interface Props {
 const industryImages: Record<string, string> = {
   healthcare: healthcareImg,
   construction: constructionImg,
+  corporate: corporateImg,
 };
 
 export function IndustriesMegaMenu({ active = false, theme = "dark" }: Props) {
