@@ -1025,20 +1025,6 @@ export default function Construction() {
       </section>
 
       <RelatedContent
-        eyebrow="Proof"
-        heading="Programs We've Built"
-        items={getRelatedCaseStudies(undefined, "construction", 2).map((c) => ({
-          href: `/case-studies/${c.slug}`,
-          eyebrow: c.industry,
-          title: c.title,
-          description: c.summary,
-          meta: c.readTime,
-          cta: `Read the ${c.client} case study`,
-        }))}
-        theme="light"
-      />
-
-      <RelatedContent
         eyebrow="From the Learning Center"
         heading="Strategy & Operations Reading"
         items={blogPosts.slice(0, 3).map((p) => ({

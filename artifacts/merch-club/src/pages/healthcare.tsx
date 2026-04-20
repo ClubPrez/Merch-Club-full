@@ -1041,20 +1041,6 @@ export default function Healthcare() {
       </section>
 
       <RelatedContent
-        eyebrow="Proof"
-        heading="Healthcare Programs We've Built"
-        items={getRelatedCaseStudies(undefined, "healthcare", 2).map((c) => ({
-          href: `/case-studies/${c.slug}`,
-          eyebrow: c.industry,
-          title: c.title,
-          description: c.summary,
-          meta: c.readTime,
-          cta: `Read the ${c.client} case study`,
-        }))}
-        theme="light"
-      />
-
-      <RelatedContent
         eyebrow="From the Learning Center"
         heading="Strategy & Operations Reading"
         items={blogPosts.slice(0, 3).map((p) => ({
