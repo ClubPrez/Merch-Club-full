@@ -14,6 +14,9 @@ import sourcingImg from "@assets/ChatGPT_Image_Apr_16,_2026,_02_19_38_PM_1776376
 import productionImg from "@assets/Professional_promotional_packaging_shot_1776180821018.png";
 import kittingImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_1776180821018.png";
 import distributionImg from "@assets/Sporty_style_by_the_door_1776180821016.png";
+import editorialImg1 from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_1776376559712.png";
+import editorialImg2 from "@assets/ChatGPT_Image_Apr_16,_2026,_02_19_45_PM_1776425570204.png";
+import editorialImg3 from "@assets/ChatGPT_Image_Apr_9,_2026,_04_16_06_PM_1775831640229.png";
 import healthcareImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1776181322914.png";
 import constructionImg from "@assets/Casual_style_with_Carhartt_jacket_1775772661826.png";
 import corporateImg from "@assets/Professional_promotional_packaging_shot_1776180821018.png";
@@ -126,11 +129,11 @@ const capabilities = [
 ];
 
 const processSteps = [
-  { num: "01", title: "Discovery", desc: "Kickoff call to map audience, timeline, brand standards, distribution needs, and budget. We come back with a scoped plan, not a quote." },
-  { num: "02", title: "Strategy & Selection", desc: "Curated product picks, decoration methods, packaging concepts, and a project timeline aligned to your launch date." },
-  { num: "03", title: "Design & Proofing", desc: "Mockups, color matching, and digital proofs reviewed against your brand standards. Nothing goes to production without sign-off." },
-  { num: "04", title: "Production", desc: "Sourcing, decoration, and quality control across our vetted manufacturer network. Status tracked in one place." },
-  { num: "05", title: "Kitting & Distribution", desc: "Assembly, packaging, and direct-to-recipient shipping — to one location or thousands. We handle logistics so internal teams aren't chasing boxes." },
+  { num: "01", title: "Discovery", desc: "Kickoff call to map audience, timeline, brand standards, distribution needs, and budget. We come back with a scoped plan, not a quote.", img: strategyImg },
+  { num: "02", title: "Strategy & Selection", desc: "Curated product picks, decoration methods, packaging concepts, and a project timeline aligned to your launch date.", img: sourcingImg },
+  { num: "03", title: "Design & Proofing", desc: "Mockups, color matching, and digital proofs reviewed against your brand standards. Nothing goes to production without sign-off.", img: designImg },
+  { num: "04", title: "Production", desc: "Sourcing, decoration, and quality control across our vetted manufacturer network. Status tracked in one place.", img: productionImg },
+  { num: "05", title: "Kitting & Distribution", desc: "Assembly, packaging, and direct-to-recipient shipping — to one location or thousands. We handle logistics so internal teams aren't chasing boxes.", img: kittingImg },
 ];
 
 const programs = [
@@ -421,14 +424,19 @@ export default function Services() {
           <div className="space-y-3">
             {processSteps.map((step, i) => (
               <RevealItem key={step.num} delay={i * 80}>
-                <div className="grid grid-cols-12 gap-4 md:gap-6 items-start py-6 md:py-8 border-t border-white/10 group hover:bg-white/[0.02] transition-colors -mx-4 md:-mx-6 px-4 md:px-6 rounded-xl">
+                <div className="grid grid-cols-12 gap-4 md:gap-6 items-center py-5 md:py-6 border-t border-white/10 group hover:bg-white/[0.02] transition-colors -mx-4 md:-mx-6 px-4 md:px-6 rounded-xl">
                   <div className="col-span-2 md:col-span-1">
                     <span className="text-3xl md:text-5xl font-black text-white/30 group-hover:text-white transition-colors" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>
                   </div>
-                  <div className="col-span-10 md:col-span-3">
+                  <div className="hidden md:block col-span-2 lg:col-span-2">
+                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[#1a1a1a] ring-1 ring-white/10">
+                      <img src={step.img} alt={step.title} className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+                    </div>
+                  </div>
+                  <div className="col-span-10 md:col-span-2 lg:col-span-2">
                     <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>{step.title}</h3>
                   </div>
-                  <div className="col-span-12 md:col-span-7 lg:col-span-7">
+                  <div className="col-span-12 md:col-span-6 lg:col-span-6">
                     <p className="text-sm md:text-base text-[#999] leading-relaxed">{step.desc}</p>
                   </div>
                   <div className="hidden lg:flex col-span-1 justify-end items-center text-white/20 group-hover:text-white transition-colors">
@@ -469,6 +477,25 @@ export default function Services() {
               </RevealItem>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-0 border-b border-black/10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-black/10">
+          {[
+            { img: editorialImg1, label: "Kitting Floor", caption: "Built-to-spec packs assembled in-house." },
+            { img: editorialImg2, label: "Decoration", caption: "Embroidery, screen print, DTG, and more." },
+            { img: editorialImg3, label: "Distribution", caption: "Direct-to-recipient — anywhere in the U.S." },
+          ].map((item, i) => (
+            <div key={i} className="relative aspect-[4/5] md:aspect-[4/5] overflow-hidden bg-[#0a0a0a] group">
+              <img src={item.img} alt={item.label} className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+              <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
+                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/80 block mb-3">0{i + 1} — {item.label}</span>
+                <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{item.caption}</h3>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -546,38 +573,63 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="bg-[#fafafa] py-24 md:py-32 px-8 md:px-16 lg:px-20 border-b border-black/10">
+      <section id="faq" className="bg-white py-16 md:py-20 px-8 md:px-16 lg:px-20 border-b border-black/10">
         <div className="max-w-5xl mx-auto">
-          <RevealItem>
-            <div className="text-center mb-14">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Common Questions</span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                Service FAQ.
-              </h2>
+          <RevealItem delay={0}>
+            <div className="text-center mb-16">
+              <span className="inline-block text-xs font-semibold uppercase tracking-[0.15em] text-[#888] border border-black/15 rounded-full px-4 py-1.5 mb-5">FAQ's</span>
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                Frequently Asked Questions
+              </h3>
             </div>
           </RevealItem>
-          <div className="space-y-3">
-            {faqs.map((f, i) => (
-              <RevealItem key={i} delay={i * 60}>
-                <div className="bg-white border border-black/10 rounded-xl overflow-hidden">
-                  <button
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    className="w-full flex items-center justify-between gap-4 px-6 py-5 md:px-7 md:py-6 text-left hover:bg-[#fafafa] transition-colors"
-                    aria-expanded={openFaq === i}
-                  >
-                    <span className="text-base md:text-lg font-bold text-black leading-snug">{f.q}</span>
-                    <svg className={`w-5 h-5 text-black/50 flex-shrink-0 transition-transform ${openFaq === i ? "rotate-45" : ""}`} fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                    </svg>
-                  </button>
-                  {openFaq === i && (
-                    <div className="px-6 pb-6 md:px-7 md:pb-7 -mt-1">
-                      <p className="text-sm md:text-base text-[#666] leading-relaxed">{f.a}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
+            <div>
+              {faqs.filter((_, i) => i % 2 === 0).map((faq, i) => {
+                const idx = i * 2;
+                const isOpen = openFaq === idx;
+                return (
+                  <div key={idx} className="border-t border-black/10">
+                    <button
+                      className="w-full flex items-center justify-between py-5 text-left group"
+                      onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    >
+                      <span className="text-base md:text-lg font-medium text-black pr-4">{faq.q}</span>
+                      <span className={`text-xl text-black/50 transition-transform duration-300 shrink-0 ${isOpen ? "rotate-45" : ""}`}>+</span>
+                    </button>
+                    <div
+                      className="overflow-hidden transition-all duration-300"
+                      style={{ maxHeight: isOpen ? "200px" : "0", opacity: isOpen ? 1 : 0 }}
+                    >
+                      <p className="text-sm text-[#666] pb-5 leading-relaxed">{faq.a}</p>
                     </div>
-                  )}
-                </div>
-              </RevealItem>
-            ))}
+                  </div>
+                );
+              })}
+            </div>
+            <div>
+              {faqs.filter((_, i) => i % 2 === 1).map((faq, i) => {
+                const idx = i * 2 + 1;
+                const isOpen = openFaq === idx;
+                return (
+                  <div key={idx} className="border-t border-black/10">
+                    <button
+                      className="w-full flex items-center justify-between py-5 text-left group"
+                      onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    >
+                      <span className="text-base md:text-lg font-medium text-black pr-4">{faq.q}</span>
+                      <span className={`text-xl text-black/50 transition-transform duration-300 shrink-0 ${isOpen ? "rotate-45" : ""}`}>+</span>
+                    </button>
+                    <div
+                      className="overflow-hidden transition-all duration-300"
+                      style={{ maxHeight: isOpen ? "200px" : "0", opacity: isOpen ? 1 : 0 }}
+                    >
+                      <p className="text-sm text-[#666] pb-5 leading-relaxed">{faq.a}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
