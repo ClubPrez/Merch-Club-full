@@ -89,58 +89,68 @@ export function IndustriesMegaMenu({ active = false, theme = "dark" }: Props) {
         onMouseLeave={handleLeave}
       >
         <div className="bg-white shadow-2xl border-t border-black/[0.06]">
-          <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+          <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
 
-            <div className="lg:col-span-3">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-5">Industries We Serve</span>
-              <ul className="space-y-1">
+            <div className="lg:col-span-8">
+              <div className="flex items-end justify-between mb-6">
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-2">Industries We Serve</span>
+                  <h3 className="text-3xl md:text-4xl font-black text-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
+                    Programs Built for <span className="text-[#888]">Your Industry.</span>
+                  </h3>
+                </div>
+                <Link href="/industries" className="hidden md:inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-black/60 hover:text-black transition-colors whitespace-nowrap">
+                  View All
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {live.map((ind) => (
-                  <li key={ind.slug}>
-                    <Link
-                      href={ind.href}
-                      className="group flex items-center gap-3 py-2.5 -mx-2 px-2 rounded-lg hover:bg-black/[0.03] transition-colors"
-                      aria-label={`Visit ${ind.name} industry page`}
-                    >
-                      <span className="flex-shrink-0 w-9 h-9 rounded-md overflow-hidden bg-[#f0f0f0]">
-                        {industryImages[ind.slug] && (
-                          <img src={industryImages[ind.slug]} alt="" className="w-full h-full object-cover" />
-                        )}
+                  <Link
+                    key={ind.slug}
+                    href={ind.href}
+                    aria-label={`Visit ${ind.name} industry page`}
+                    className="group relative block rounded-xl overflow-hidden bg-[#0a0a0a] aspect-[16/9] hover:ring-2 hover:ring-black transition-all"
+                  >
+                    {industryImages[ind.slug] && (
+                      <img
+                        src={industryImages[ind.slug]}
+                        alt={ind.name}
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/5" />
+                    <div className="absolute inset-0 p-5 flex flex-col justify-end">
+                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70 block mb-1.5">{ind.tagline}</span>
+                      <h4 className="text-2xl md:text-3xl font-black text-white tracking-tight leading-[0.95] mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
+                        {ind.name}
+                      </h4>
+                      <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-white opacity-80 group-hover:opacity-100 group-hover:gap-2.5 transition-all">
+                        Explore Program
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                       </span>
-                      <span className="flex-1 min-w-0">
-                        <span className="block text-sm font-bold text-black leading-tight">{ind.name}</span>
-                        <span className="block text-[11px] text-[#888] leading-tight mt-0.5 truncate">{ind.tagline}</span>
-                      </span>
-                      <svg className="w-3.5 h-3.5 text-black/20 group-hover:text-black group-hover:translate-x-0.5 transition-all flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                      </svg>
-                    </Link>
-                  </li>
+                    </div>
+                  </Link>
                 ))}
-              </ul>
+              </div>
 
               {upcoming.length > 0 && (
-                <div className="mt-6 pt-6 border-t border-black/10">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-3">Coming Soon</span>
-                  <ul className="space-y-2">
-                    {upcoming.map((ind) => (
-                      <li key={ind.slug}>
-                        <Link
-                          href={ind.href}
-                          className="group flex items-center gap-2 text-xs text-[#666] hover:text-black transition-colors"
-                        >
-                          <span className="w-1 h-1 rounded-full bg-black/20 group-hover:bg-black transition-colors" />
-                          <span>{ind.name}</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="mt-5 pt-5 border-t border-black/10 flex flex-wrap items-center gap-x-4 gap-y-2">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999]">Coming Soon</span>
+                  {upcoming.map((ind, i) => (
+                    <span key={ind.slug} className="flex items-center gap-3">
+                      <Link href={ind.href} className="text-xs text-[#666] hover:text-black transition-colors">{ind.name}</Link>
+                      {i < upcoming.length - 1 && <span className="text-black/15">·</span>}
+                    </span>
+                  ))}
                 </div>
               )}
             </div>
 
-            <div className="lg:col-span-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-5">Programs & Capabilities</span>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+            <div className="lg:col-span-4 lg:border-l lg:border-black/[0.08] lg:pl-10">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-4">Programs & Capabilities</span>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-x-6 gap-y-2">
                 {[
                   "Crew & Staff Apparel",
                   "Leadership Gear",
@@ -148,8 +158,6 @@ export function IndustriesMegaMenu({ active = false, theme = "dark" }: Props) {
                   "Trade Show Kits",
                   "Donor & Client Gifting",
                   "Awareness Campaigns",
-                  "Recruiting Materials",
-                  "Multi-Site Distribution",
                 ].map((item) => (
                   <li key={item}>
                     <a href="/#services" className="group flex items-center gap-2 text-sm text-[#444] hover:text-black transition-colors py-1">
@@ -160,55 +168,24 @@ export function IndustriesMegaMenu({ active = false, theme = "dark" }: Props) {
                 ))}
               </ul>
 
-              <div className="mt-7 pt-6 border-t border-black/10">
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-3">From the Learning Center</span>
-                <ul className="space-y-2.5">
+              <div className="mt-6 pt-5 border-t border-black/10">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-3">Resources</span>
+                <ul className="space-y-2">
                   <li>
-                    <Link href="/blog/merch-program-strategy" className="group flex items-center gap-2 text-sm text-[#444] hover:text-black transition-colors">
+                    <Link href="/blog/merch-program-strategy" className="group flex items-center justify-between gap-2 text-sm text-[#444] hover:text-black transition-colors">
                       <span>Building a Strategic Merch Program</span>
-                      <svg className="w-3 h-3 text-black/30 group-hover:text-black group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                      <svg className="w-3 h-3 text-black/30 group-hover:text-black group-hover:translate-x-0.5 transition-all flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/case-studies" className="group flex items-center gap-2 text-sm text-[#444] hover:text-black transition-colors">
-                      <span>Browse Client Case Studies</span>
-                      <svg className="w-3 h-3 text-black/30 group-hover:text-black group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                    <Link href="/case-studies" className="group flex items-center justify-between gap-2 text-sm text-[#444] hover:text-black transition-colors">
+                      <span>Client Case Studies</span>
+                      <svg className="w-3 h-3 text-black/30 group-hover:text-black group-hover:translate-x-0.5 transition-all flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                     </Link>
                   </li>
                 </ul>
               </div>
             </div>
-
-            {featured && (
-              <div className="lg:col-span-5">
-                <Link href={featured.href} className="group block relative rounded-2xl overflow-hidden bg-[#0a0a0a] aspect-[16/10] lg:aspect-auto lg:h-full min-h-[340px]">
-                  <img
-                    src={industryImages[featured.slug]}
-                    alt={featured.name}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10" />
-                  <div className="absolute top-5 left-5">
-                    <span className="inline-flex items-center gap-2 bg-white text-black text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full">
-                      <span className="w-1.5 h-1.5 rounded-full bg-black" />
-                      Featured Industry
-                    </span>
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 p-7">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70 block mb-2">{featured.tagline}</span>
-                    <h3 className="text-3xl md:text-4xl font-black text-white leading-[0.95] tracking-tight mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                      {featured.name} Merch<br /><span className="text-white/60">Programs.</span>
-                    </h3>
-                    <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-white group-hover:gap-3 transition-all">
-                      Explore Program
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                      </svg>
-                    </span>
-                  </div>
-                </Link>
-              </div>
-            )}
           </div>
 
           <div className="border-t border-black/[0.06] bg-[#fafafa]">
