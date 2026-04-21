@@ -4,10 +4,10 @@ import SEO from "@/components/seo";
 import Breadcrumbs from "@/components/breadcrumbs";
 import RelatedContent, { type RelatedItem } from "@/components/related-content";
 import { StartProjectModal } from "@/components/start-project-modal";
-import { IndustriesMegaMenu } from "@/components/industries-mega-menu";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import { blogPosts } from "./blog";
 import { caseStudies as siteCaseStudies } from "@/lib/site-data";
+import { SiteHeader } from "@/components/site-header";
 
 export default function BlogPost() {
   const params = useParams<{ slug: string }>();
@@ -117,34 +117,8 @@ export default function BlogPost() {
           <p><a href="/">Home</a> · <a href="/blog">Blog</a> · <a href="/about">About</a></p>
         </div>
       </noscript>
-      <div className="hidden md:flex items-center justify-end gap-8 px-6 md:px-10 py-2 bg-[#222] border-b border-white/5 text-[10px] font-bold uppercase tracking-[0.2em]">
-        <a href="/" className="text-white transition-colors">MerchClub</a>
-        <span className="text-white/20">|</span>
-        <a href="https://trybrandini.com/" target="_blank" rel="noopener noreferrer" className="text-[#a3a3a3] hover:text-white transition-colors">Brandini</a>
-        <span className="text-white/20">|</span>
-        <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">ScrubClub</a>
-      </div>
-      <header className="flex items-center justify-between px-6 md:px-10 py-4 bg-[#111] border-b border-white/10">
-        <div className="flex items-center gap-6">
-          <Link href="/"><img src={logoSrc} alt="Merch Club" className="h-8 object-contain invert" /></Link>
-          <nav className="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
-            <Link href="/" className="text-[#a3a3a3] hover:text-white transition-colors">Home</Link>
-            <Link href="/about" className="text-[#a3a3a3] hover:text-white transition-colors">About</Link>
-            <IndustriesMegaMenu />
-            <Link href="/case-studies" className="text-[#a3a3a3] hover:text-white transition-colors">Case Studies</Link>
-            <Link href="/blog" className="text-white">Learning Center</Link>
-            <a href="/contact" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
-          </nav>
-        </div>
-        <div className="flex items-center gap-4">
-          <button onClick={() => setProjectModalOpen(true)} className="hidden lg:inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
-            Start a Project
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-            </svg>
-          </button>
-        </div>
-      </header>
+      <SiteHeader onStartProject={() => setProjectModalOpen(true)} />
+
 
       <article>
         <div className="relative">

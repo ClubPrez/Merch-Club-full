@@ -3,9 +3,8 @@ import { Link } from "wouter";
 import SEO from "@/components/seo";
 import Breadcrumbs, { buildBreadcrumbJsonLd } from "@/components/breadcrumbs";
 import { StartProjectModal } from "@/components/start-project-modal";
-import { IndustriesMegaMenu } from "@/components/industries-mega-menu";
 import { caseStudies } from "@/lib/site-data";
-import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
+import { SiteHeader } from "@/components/site-header";
 
 export default function CaseStudies() {
   const [projectModalOpen, setProjectModalOpen] = useState(false);
@@ -46,26 +45,9 @@ export default function CaseStudies() {
         jsonLd={[buildBreadcrumbJsonLd(breadcrumbs), collectionJsonLd]}
       />
 
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "bg-[#111]/90 backdrop-blur-md py-3 shadow-xl" : "bg-[#0a0a0a] py-5 md:py-6"}`}>
-        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
-          <div className="flex items-center gap-12">
-            <Link href="/">
-              <img src={logoSrc} alt="Merch Club" className="h-7 md:h-9 object-contain brightness-0 invert" />
-            </Link>
-            <nav className="hidden lg:flex items-center gap-10 text-[11px] font-bold uppercase tracking-[0.2em] text-white/60">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <Link href="/about" className="hover:text-white transition-colors">About</Link>
-              <IndustriesMegaMenu />
-              <Link href="/case-studies" className="text-white">Case Studies</Link>
-              <Link href="/blog" className="hover:text-white transition-colors">Learning Center</Link>
-            </nav>
-          </div>
-          <button onClick={() => setProjectModalOpen(true)} className="hidden lg:inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] px-6 py-3 rounded-full bg-white text-black hover:bg-gray-200 transition-colors">
-            Start a Project
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-          </button>
-        </div>
-      </header>
+
+<SiteHeader onStartProject={() => setProjectModalOpen(true)} />
+
 
       <section className="pt-32 md:pt-40 pb-16 md:pb-20 px-8 md:px-16 lg:px-20 bg-[#0a0a0a]">
         <div className="max-w-6xl mx-auto">

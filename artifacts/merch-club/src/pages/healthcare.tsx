@@ -4,7 +4,6 @@ import SEO from "@/components/seo";
 import Breadcrumbs from "@/components/breadcrumbs";
 import RelatedContent from "@/components/related-content";
 import { StartProjectModal } from "@/components/start-project-modal";
-import { IndustriesMegaMenu } from "@/components/industries-mega-menu";
 import { caseStudies as siteCaseStudies, getRelatedCaseStudies } from "@/lib/site-data";
 import { blogPosts } from "@/pages/blog";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
@@ -18,6 +17,7 @@ import scrubsModelImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_17761
 import tumblerImg from "@assets/ChatGPT_Image_Apr_16,_2026,_02_19_38_PM_1776376559711.png";
 import challengesBg from "@assets/Sporty_style_by_the_door_1776422196392.png";
 import heroVideo from "@assets/0416_1776378782818.mp4";
+import { SiteHeader } from "@/components/site-header";
 
 function useRevealOnScroll(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -229,7 +229,6 @@ export default function Healthcare() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const [projectModalOpen, setProjectModalOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [videoPlaying, setVideoPlaying] = useState(false);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [testimonialPaused, setTestimonialPaused] = useState(false);
@@ -445,71 +444,8 @@ export default function Healthcare() {
           </p>
         </div>
       </noscript>
+      <SiteHeader onStartProject={() => setProjectModalOpen(true)} />
 
-      <div className="hidden md:flex items-center justify-end gap-8 px-6 md:px-10 py-2 bg-[#222] border-b border-white/5 text-[10px] font-bold uppercase tracking-[0.2em]">
-        <a href="/" className="text-[#888] hover:text-white transition-colors">MerchClub</a>
-        <span className="text-white/15">|</span>
-        <a href="https://trybrandini.com/" target="_blank" rel="noopener noreferrer" className="text-[#888] hover:text-white transition-colors">Brandini</a>
-        <span className="text-white/15">|</span>
-        <a href="#" className="text-[#888] hover:text-white transition-colors">ScrubClub</a>
-      </div>
-
-      <header className="sticky top-0 z-40 bg-[#111]/95 backdrop-blur-md border-b border-white/5 px-6 md:px-10 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-8">
-          <Link href="/">
-            <img src={logoSrc} alt="Merch Club" className="h-8 object-contain invert" />
-          </Link>
-          <nav className="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
-            <Link href="/" className="text-[#a3a3a3] hover:text-white transition-colors">Home</Link>
-            <Link href="/about" className="text-[#a3a3a3] hover:text-white transition-colors">About</Link>
-            <IndustriesMegaMenu active />
-            <Link href="/case-studies" className="text-[#a3a3a3] hover:text-white transition-colors">Case Studies</Link>
-            <Link href="/blog" className="text-[#a3a3a3] hover:text-white transition-colors">Learning Center</Link>
-            <a href="/contact" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
-          </nav>
-        </div>
-        <div className="flex items-center gap-4">
-          <a href="https://www.facebook.com/MerchClubPro" target="_blank" rel="noopener noreferrer" className="hidden lg:flex items-center text-[#a3a3a3] hover:text-white transition-colors">
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/merchclub_ig/" target="_blank" rel="noopener noreferrer" className="hidden lg:flex items-center text-[#a3a3a3] hover:text-white transition-colors">
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-          </a>
-          <a href="tel:+15317770347" className="hidden lg:flex items-center gap-2 text-xs text-[#a3a3a3] hover:text-white transition-colors font-medium tracking-wide">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-            </svg>
-            +1 531-777-0347
-          </a>
-          <button onClick={() => setProjectModalOpen(true)} className="hidden lg:inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
-            Start a Project
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-            </svg>
-          </button>
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden w-10 h-10 flex items-center justify-center text-white">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              {mobileMenuOpen
-                ? <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                : <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-              }
-            </svg>
-          </button>
-        </div>
-      </header>
-
-      {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[105px] z-30 bg-[#111] px-6 py-8 flex flex-col gap-6">
-          <Link href="/" className="text-lg font-bold text-white" onClick={() => setMobileMenuOpen(false)}>Home</Link>
-          <Link href="/about" className="text-lg font-bold text-[#888]" onClick={() => setMobileMenuOpen(false)}>About</Link>
-          <Link href="/industries" className="text-lg font-bold text-[#888]" onClick={() => setMobileMenuOpen(false)}>Industries</Link>
-          <Link href="/case-studies" className="text-lg font-bold text-[#888]" onClick={() => setMobileMenuOpen(false)}>Case Studies</Link>
-          <Link href="/blog" className="text-lg font-bold text-[#888]" onClick={() => setMobileMenuOpen(false)}>Learning Center</Link>
-          <button onClick={() => { setMobileMenuOpen(false); setProjectModalOpen(true); }} className="mt-4 inline-flex items-center justify-center gap-2 bg-white text-black text-sm font-bold px-6 py-3 rounded-full">
-            Start a Project
-          </button>
-        </div>
-      )}
 
       <section className="relative bg-white overflow-hidden border-b border-black/10">
         <div className="relative max-w-7xl mx-auto px-8 md:px-16 lg:px-20 pt-20 md:pt-28 pb-4 md:pb-6">

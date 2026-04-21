@@ -3,7 +3,6 @@ import { Link } from "wouter";
 import SEO from "@/components/seo";
 import Breadcrumbs, { buildBreadcrumbJsonLd } from "@/components/breadcrumbs";
 import { StartProjectModal } from "@/components/start-project-modal";
-import { IndustriesMegaMenu } from "@/components/industries-mega-menu";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import cloverImg from "@assets/Social_PostsArtboard_2@3x_copy_1775827336093.png";
 import team1Img from "@assets/1_1775229252465.png";
@@ -18,6 +17,7 @@ import brandPaylocity from "@assets/brand_paylocity_nobg.png";
 import brandFraserStryker from "@assets/brand_fraserstryker_nobg.png";
 import brandKomen from "@assets/brand_komen_nobg.png";
 import brandOnestaff from "@assets/brand_onestaff_nobg.png";
+import { SiteHeader } from "@/components/site-header";
 
 const trustedBrands = [
   { name: "OneStaff Medical", logo: brandOnestaff },
@@ -215,35 +215,8 @@ export default function About() {
           <p><a href="/">Home</a> · <a href="/blog">Blog</a> · <a href="/industries/healthcare">Healthcare</a></p>
         </div>
       </noscript>
+      <SiteHeader onStartProject={() => setProjectModalOpen(true)} />
 
-      <div className="hidden md:flex items-center justify-end gap-8 px-6 md:px-10 py-2 bg-[#222] border-b border-white/5 text-[10px] font-bold uppercase tracking-[0.2em]">
-        <a href="/" className="text-white transition-colors">MerchClub</a>
-        <span className="text-white/20">|</span>
-        <a href="https://trybrandini.com/" target="_blank" rel="noopener noreferrer" className="text-[#a3a3a3] hover:text-white transition-colors">Brandini</a>
-        <span className="text-white/20">|</span>
-        <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">ScrubClub</a>
-      </div>
-      <header className="flex items-center justify-between px-6 md:px-10 py-4 bg-[#111] border-b border-white/10">
-        <div className="flex items-center gap-6">
-          <Link href="/"><img src={logoSrc} alt="Merch Club" className="h-8 object-contain invert" /></Link>
-          <nav className="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
-            <Link href="/" className="text-[#a3a3a3] hover:text-white transition-colors">Home</Link>
-            <span className="text-white">About</span>
-            <IndustriesMegaMenu />
-            <Link href="/case-studies" className="text-[#a3a3a3] hover:text-white transition-colors">Case Studies</Link>
-            <Link href="/blog" className="text-[#a3a3a3] hover:text-white transition-colors">Learning Center</Link>
-            <a href="/contact" className="text-[#a3a3a3] hover:text-white transition-colors">Contact</a>
-          </nav>
-        </div>
-        <div className="flex items-center gap-4">
-          <button onClick={() => setProjectModalOpen(true)} className="hidden lg:inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
-            Start a Project
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-            </svg>
-          </button>
-        </div>
-      </header>
 
       <section className="relative bg-[#0a0a0a] pt-16 md:pt-20 pb-10 md:pb-14 px-8 md:px-16 lg:px-20 overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />

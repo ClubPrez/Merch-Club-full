@@ -3,9 +3,9 @@ import { Link } from "wouter";
 import SEO from "@/components/seo";
 import Breadcrumbs from "@/components/breadcrumbs";
 import { StartProjectModal } from "@/components/start-project-modal";
-import { IndustriesMegaMenu } from "@/components/industries-mega-menu";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import cloverImg from "@assets/Social_PostsArtboard_2@3x_copy_1775827336093.png";
+import { SiteHeader } from "@/components/site-header";
 
 function useRevealOnScroll(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -77,7 +77,6 @@ const faqs = [
 export default function Contact() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const [projectModalOpen, setProjectModalOpen] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const [submitted, setSubmitted] = useState(false);
@@ -196,58 +195,8 @@ export default function Contact() {
           <p>Monday–Friday, 8:00 AM – 6:00 PM CT</p>
         </div>
       </noscript>
+      <SiteHeader onStartProject={() => setProjectModalOpen(true)} />
 
-      <div className="hidden md:flex items-center justify-end gap-8 px-6 md:px-10 py-2 bg-[#222] border-b border-white/5 text-[10px] font-bold uppercase tracking-[0.2em]">
-        <a href="/" className="text-[#888] hover:text-white transition-colors">MerchClub</a>
-        <span className="text-white/15">|</span>
-        <a href="https://trybrandini.com/" target="_blank" rel="noopener noreferrer" className="text-[#888] hover:text-white transition-colors">Brandini</a>
-        <span className="text-white/15">|</span>
-        <a href="#" className="text-[#888] hover:text-white transition-colors">ScrubClub</a>
-      </div>
-
-      <header className="sticky top-0 z-40 bg-[#111]/95 backdrop-blur-md border-b border-white/5 px-6 md:px-10 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-8">
-          <Link href="/"><img src={logoSrc} alt="Merch Club" className="h-8 object-contain invert" /></Link>
-          <nav className="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
-            <Link href="/" className="text-[#a3a3a3] hover:text-white transition-colors">Home</Link>
-            <Link href="/about" className="text-[#a3a3a3] hover:text-white transition-colors">About</Link>
-            <IndustriesMegaMenu />
-            <Link href="/case-studies" className="text-[#a3a3a3] hover:text-white transition-colors">Case Studies</Link>
-            <Link href="/blog" className="text-[#a3a3a3] hover:text-white transition-colors">Learning Center</Link>
-            <span className="text-white">Contact</span>
-          </nav>
-        </div>
-        <div className="flex items-center gap-4">
-          <a href="tel:+15317770347" className="hidden lg:flex items-center gap-2 text-xs text-[#a3a3a3] hover:text-white transition-colors font-medium tracking-wide">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-            </svg>
-            +1 531-777-0347
-          </a>
-          <button onClick={() => setProjectModalOpen(true)} className="hidden lg:inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
-            Start a Project
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-          </button>
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden w-10 h-10 flex items-center justify-center text-white">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              {mobileMenuOpen
-                ? <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                : <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />}
-            </svg>
-          </button>
-        </div>
-      </header>
-
-      {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[105px] z-30 bg-[#111] px-6 py-8 flex flex-col gap-6">
-          <Link href="/" className="text-lg font-bold text-[#888]" onClick={() => setMobileMenuOpen(false)}>Home</Link>
-          <Link href="/about" className="text-lg font-bold text-[#888]" onClick={() => setMobileMenuOpen(false)}>About</Link>
-          <Link href="/industries" className="text-lg font-bold text-[#888]" onClick={() => setMobileMenuOpen(false)}>Industries</Link>
-          <Link href="/case-studies" className="text-lg font-bold text-[#888]" onClick={() => setMobileMenuOpen(false)}>Case Studies</Link>
-          <Link href="/blog" className="text-lg font-bold text-[#888]" onClick={() => setMobileMenuOpen(false)}>Learning Center</Link>
-          <span className="text-lg font-bold text-white">Contact</span>
-        </div>
-      )}
 
       <section className="bg-[#0a0a0a] text-white pt-20 md:pt-28 pb-16 md:pb-24 px-8 md:px-16 lg:px-20 border-b border-white/5">
         <div className="max-w-7xl mx-auto">
