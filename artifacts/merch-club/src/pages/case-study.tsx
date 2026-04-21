@@ -196,7 +196,7 @@ export default function CaseStudy() {
         />
       )}
 
-      <StartProjectModal isOpen={projectModalOpen} onClose={() => setProjectModalOpen(false)} />
+      <StartProjectModal open={projectModalOpen} onClose={() => setProjectModalOpen(false)} />
     </div>
   );
 }

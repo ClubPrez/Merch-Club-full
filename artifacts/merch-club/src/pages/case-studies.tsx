@@ -128,7 +128,7 @@ export default function CaseStudies() {
         </div>
       </section>
 
-      <StartProjectModal isOpen={projectModalOpen} onClose={() => setProjectModalOpen(false)} />
+      <StartProjectModal open={projectModalOpen} onClose={() => setProjectModalOpen(false)} />
     </div>
   );
 }

@@ -1,0 +1,308 @@
+Replace the standard start a project form with an AI-powered mockup experience.
+
+CORE GOAL
+A user enters their business website URL. The app should then:
+1. visually show an animated “AI scanning” process in the front end
+2. actually fetch and inspect the submitted website in the backend
+3. attempt to find the business logo from the website
+4. extract some basic brand cues like company name and possible colors
+5. place the detected logo onto 3 merch mockups that I will provide as image/template assets
+6. reveal the final mockups in a polished results state
+7. capture the lead with a form after the mockups are shown
+
+IMPORTANT
+This should be a REAL working experience, not just fake.
+However, the front-end should still dramatize the process with a premium “AI workflow” interface while the real backend work is happening.
+
+TECH STACK
+Use a Replit-friendly stack:
+- React frontend
+- Node/Express backend
+- clean component structure
+- responsive layout
+- modern CSS or Tailwind
+- use server-side scraping/fetching logic
+- use image compositing on the backend to place the extracted logo onto mockups
+
+OVERALL EXPERIENCE
+This should feel like a premium merch concierge tool, not a developer dashboard.
+Think:
+- polished SaaS
+- creative agency quality
+- clean white or very light interface
+- soft shadows
+- rounded cards
+- smooth animation
+- minimal but premium UI
+- no hacker terminal visuals
+- no cheesy AI graphics
+
+USER FLOW
+
+STEP 1
+User sees a hero section with:
+Headline:
+See Your Brand on Merch
+
+Subheadline:
+Enter your website and watch our mockup tool pull your logo, read your visual style, and generate 3 instant branded merch concepts.
+
+Input:
+Website URL field
+
+Button:
+Generate Mockups
+
+STEP 2
+After submit, show a 2-column loading experience.
+
+LEFT COLUMN
+AI workflow / scanning activity panel
+
+This panel should animate through steps while the real backend process runs:
+- Connecting to website…
+- Reading homepage…
+- Searching for logo assets…
+- Extracting brand colors…
+- Identifying company name…
+- Preparing product mockups…
+- Rendering final concepts…
+
+Each step should:
+- show loading state
+- then switch to complete with green checkmark
+- progress in sequence
+- be tied loosely to actual backend progress if possible
+- otherwise progress in believable timed stages while waiting for backend response
+
+Also include:
+- submitted URL displayed at top
+- animated progress bar
+- small “AI Notes” area that rotates messages such as:
+  - Found likely brand asset
+  - Detected clean logo treatment
+  - Pulling brand cues from website
+  - Preparing logo for mockup placement
+  - Building first-round merch concepts
+
+RIGHT COLUMN
+Live preview area that evolves while scanning:
+- website preview card or placeholder
+- detected company name
+- extracted logo preview
+- color swatches if available
+- placeholder skeletons for 3 mockup cards
+- final rendered mockups appear one by one when ready
+
+REAL BACKEND FUNCTIONALITY
+
+WEBSITE SCRAPING
+When the user submits a URL, the backend should:
+1. normalize the URL
+2. fetch the homepage HTML
+3. parse the page
+4. try multiple strategies to find the logo
+
+LOGO DETECTION STRATEGY
+Attempt these in order:
+- look for img elements with class/id/alt/src containing “logo”
+- inspect header/navbar brand images
+- inspect Open Graph / social image tags if useful
+- inspect favicon or site icons as fallback
+- inspect SVG logos if possible
+- resolve relative image URLs to absolute URLs
+
+Choose the best candidate logo using heuristics:
+- prioritize images with “logo” in alt/class/src
+- prefer transparent PNG or SVG when possible
+- avoid tiny icons if a better logo exists
+- avoid obvious hero images or banners
+- fallback gracefully if only favicon is available
+
+COMPANY NAME DETECTION
+Derive company name from:
+- meta title
+- og:site_name
+- title tag
+- domain parsing fallback
+
+BRAND COLOR DETECTION
+Try to derive likely brand colors from:
+- logo image dominant colors
+- CSS variables or theme colors in page source
+- favicon/logo palette fallback
+- if no good result, generate tasteful fallback colors
+
+MOCKUP GENERATION
+I will provide 3 mockup template assets.
+Use those assets and programmatically place the extracted logo onto each mockup.
+
+IMPORTANT MOCKUP REQUIREMENTS
+- preserve realistic placement
+- resize logo intelligently for each mockup
+- keep aspect ratio
+- add padding
+- if logo background is not transparent, handle it as cleanly as possible
+- center or place logo in the correct predefined print area
+- use different placement rules per product type
+
+Assume I will attach mockup assets such as:
+- bottle mockup
+- hoodie or quarter zip mockup
+- hat or mug mockup
+
+Create a backend image compositing pipeline that:
+- downloads the detected logo
+- preprocesses it if needed
+- overlays it onto each template
+- exports final generated mockup images
+- returns URLs/paths for those generated assets
+
+IMAGE PROCESSING
+Use a reliable Node image library for compositing, such as sharp, if possible.
+Create a reusable configuration object for each mockup that defines:
+- template source
+- print area x/y
+- max width
+- max height
+- placement style
+- optional rotation if needed
+
+If background removal is not available, assume best-effort placement.
+If the extracted logo is poor quality, still continue and show a fallback state.
+
+FRONTEND RESULT STATE
+
+When backend finishes, reveal:
+- extracted logo card
+- detected company name
+- detected/fallback color swatches
+- three rendered mockups, shown one at a time with staggered animation
+
+Then show a lead capture panel:
+
+Headline:
+Your first-round merch concepts are ready
+
+Body:
+We pulled your logo and brand cues to create three quick mockups. Want the real thing? We’ll handle design, sourcing, production, kitting, and delivery.
+
+Fields:
+- Name
+- Work Email
+- Company
+- What do you need help with?
+
+Button:
+Start My Project
+
+ERROR / FALLBACK HANDLING
+Build graceful fallback behavior.
+
+If scraping fails:
+- still show the scanning UI
+- display a friendly fallback message
+- use company initials from domain as a generated placeholder logo
+- render the 3 mockups with a clean monogram fallback
+- still allow the user to submit their info
+
+If logo detection is weak:
+- show “Best match logo found”
+- continue generating mockups anyway
+
+If the site blocks scraping:
+- fallback to favicon, site name, and generated placeholder branding
+
+DESIGN DETAILS
+- premium white/light UI
+- sharp typography
+- rounded cards
+- subtle microinteractions
+- smooth loading skeletons
+- polished reveal animations
+- modern spacing
+- strong CTA hierarchy
+- responsive desktop/mobile behavior
+
+COMPONENTS TO BUILD
+- Hero section with URL input
+- Scanning workflow panel
+- Preview/results panel
+- Mockup grid
+- Lead capture form
+- Error/fallback state
+- Backend API route for analysis and mockup generation
+
+API DESIGN
+Create an endpoint such as:
+POST /api/generate-mockups
+
+Request body:
+{
+  "url": "https://example.com"
+}
+
+Response should include something like:
+{
+  "success": true,
+  "companyName": "Example Co",
+  "submittedUrl": "https://example.com",
+  "logoUrl": "/generated/logo-preview.png",
+  "colors": ["#123456", "#abcdef", "#eeeeee"],
+  "mockups": [
+    "/generated/mockup-1.png",
+    "/generated/mockup-2.png",
+    "/generated/mockup-3.png"
+  ],
+  "notes": [
+    "Detected likely logo from site header",
+    "Extracted palette from logo asset"
+  ]
+}
+
+FILE STRUCTURE
+Keep code clean and production-friendly.
+Separate:
+- scraping utilities
+- logo detection utilities
+- color extraction utilities
+- mockup compositing utilities
+- frontend UI components
+
+COPY TO USE
+
+Headline:
+See Your Brand on Merch
+
+Subheadline:
+Enter your website and watch our mockup tool pull your logo, read your visual style, and generate 3 instant branded merch concepts.
+
+Primary button:
+Generate Mockups
+
+Final result headline:
+Your first-round merch concepts are ready
+
+Final result body:
+We pulled your logo and brand cues to create three quick mockups. Want the real thing? We’ll handle design, sourcing, production, kitting, and delivery.
+
+Final CTA:
+Start My Project
+
+STYLE KEYWORDS
+premium, polished, clean, modern, high-converting, merch concierge, strategic, beautiful, creative agency quality
+
+AVOID
+- terminal UI
+- cyberpunk visuals
+- overly technical language in the user interface
+- clutter
+- generic low-end templates
+- fake-only logic
+
+DELIVERABLE
+Build the full working app experience with both:
+1. a polished animated scanning interface
+2. real backend website analysis and logo-to-mockup generation
+
+Make the result feel premium enough to use on a live Merch Club site.

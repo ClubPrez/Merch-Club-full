@@ -156,7 +156,7 @@ export default function Industries() {
         </div>
       </section>
 
-      <StartProjectModal isOpen={projectModalOpen} onClose={() => setProjectModalOpen(false)} />
+      <StartProjectModal open={projectModalOpen} onClose={() => setProjectModalOpen(false)} />
     </div>
   );
 }

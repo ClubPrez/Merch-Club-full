@@ -97,7 +97,8 @@ Dark, editorial-style merch store landing page for Merch Club. React + Vite + Ta
 
 - **Pages**: Home (`/`), About (`/about`), Blog listing (`/blog`), Blog post (`/blog/:slug`), Healthcare (`/industries/healthcare`)
 - **Key files**: `src/pages/home.tsx`, `src/pages/about.tsx`, `src/pages/blog.tsx`, `src/pages/blog-post.tsx`, `src/pages/healthcare.tsx`
-- **Shared components**: `src/components/start-project-modal.tsx` (project form modal used on every page), `src/components/seo.tsx`
+- **Shared components**: `src/components/start-project-modal.tsx` (AI-powered mockup generator modal — URL → scrape → logo + palette → composited merch concepts → lead capture, used on every page), `src/components/seo.tsx`
+- **AI mockup generator**: Backend at `@workspace/api-server`, route `POST /api/generate-mockups` with `{url}` body. Pipeline: `lib/safeFetch.ts` (SSRF-hardened fetcher with pinned-IP undici dispatcher) → `lib/scrape.ts` → `lib/logo.ts` (img + inline-SVG candidate scoring, photo rejection, sharp rasterization, monogram fallback) → `lib/colors.ts` (palette from logo pixels + page CSS) → `lib/mockups.ts` (3 SVG product templates: tee, drinkware, cap; adaptive light/dark fabric based on logo brightness; conditional negate only for dark monochrome logos). Generated PNGs stored in `os.tmpdir()/merchclub-generated`, served at `/api/generated/*`. Lead capture at `POST /api/lead`.
 - **SEO**: Reusable `src/components/seo.tsx` component with dynamic title/description/OG/Twitter tags per page. `public/robots.txt` and `public/sitemap.xml` (7 URLs).
 - **Design**: Dark (#0a0a0a / #111) backgrounds with white/gray text, Bebas Neue for headlines, reveal-on-scroll animations via IntersectionObserver
 - **Navigation**: Consistent header across all pages with Home/About/Blog links (desktop + mobile on homepage)
