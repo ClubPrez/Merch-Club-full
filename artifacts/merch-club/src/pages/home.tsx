@@ -12,7 +12,6 @@ import industrySpecificImg from "@assets/Smiling_man_in_work_jacket_177577267882
 import employeeGiftsImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_55_44_PM_1775772702220.png";
 import bulkSourcingImg from "@assets/ChatGPT_Image_Apr_9,_2026,_04_16_06_PM_1775772750326.png";
 import eventMerchImg from "@assets/Monochrome_merch_flat_lay_arrangement_1775772900084.png";
-import logoOnestaff from "@assets/logo_onestaff_nobg.png";
 import logoAccessBank from "@assets/logo_accessbank_nobg.png";
 import logoPaylocity from "@assets/logo_paylocity_nobg.png";
 import logoFraserStryker from "@assets/logo_fraserstryker_nobg.png";
@@ -47,7 +46,7 @@ import brandAccessBank from "@assets/brand_accessbank_nobg.png";
 import brandPaylocity from "@assets/brand_paylocity_nobg.png";
 import brandFraserStryker from "@assets/brand_fraserstryker_nobg.png";
 import brandKomen from "@assets/brand_komen_nobg.png";
-import brandOnestaff from "@assets/brand_onestaff_nobg.png";
+import brandOnestaff from "@assets/Social_PostsArtboard_1@3x_1777583934192.png";
 import blogKittingImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_1775835373159.png";
 import blogPackagingImg from "@assets/Professional_promotional_packaging_shot_1775835373158.png";
 import blogCityImg from "@assets/Merch_club_in_the_city_plaza_1775835373159.png";

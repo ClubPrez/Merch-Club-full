@@ -16,7 +16,7 @@ import brandAccessBank from "@assets/brand_accessbank_nobg.png";
 import brandPaylocity from "@assets/brand_paylocity_nobg.png";
 import brandFraserStryker from "@assets/brand_fraserstryker_nobg.png";
 import brandKomen from "@assets/brand_komen_nobg.png";
-import brandOnestaff from "@assets/brand_onestaff_nobg.png";
+import brandOnestaff from "@assets/Social_PostsArtboard_1@3x_1777583934192.png";
 import { SiteHeader } from "@/components/site-header";
 
 const trustedBrands = [
