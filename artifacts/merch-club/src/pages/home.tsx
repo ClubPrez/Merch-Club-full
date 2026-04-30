@@ -766,7 +766,7 @@ export default function Home() {
                 <span className="inline-block overflow-hidden h-[1.1em] align-bottom relative">
                   <span className="invisible">organized.</span>
                   <span
-                    className={`absolute left-0 top-0 text-[#a3a3a3] transition-all duration-400 ${isAnimating ? "translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}
+                    className={`absolute inset-x-0 top-0 text-center lg:text-left text-[#a3a3a3] transition-all duration-400 ${isAnimating ? "translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}
                   >
                     {rotatingWords[wordIndex]}
                   </span>
