@@ -20,7 +20,7 @@ import brandOnestaff from "@assets/Social_PostsArtboard_1@3x_1777583934192.png";
 import { SiteHeader } from "@/components/site-header";
 
 const trustedBrands = [
-  { name: "OneStaff Medical", logo: brandOnestaff, sizeClass: "h-8 md:h-10" },
+  { name: "OneStaff Medical", logo: brandOnestaff, sizeClass: "h-5 md:h-7" },
   { name: "Access Bank", logo: brandAccessBank },
   { name: "Paylocity", logo: brandPaylocity },
   { name: "Fraser Stryker", logo: brandFraserStryker },
