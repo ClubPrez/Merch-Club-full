@@ -439,7 +439,7 @@ const testimonials = [
 ];
 
 const trustedBrands = [
-  { name: "OneStaff Medical", logo: brandOnestaff },
+  { name: "OneStaff Medical", logo: brandOnestaff, sizeClass: "h-8 md:h-10 lg:h-12" },
   { name: "Access Bank", logo: brandAccessBank },
   { name: "Paylocity", logo: brandPaylocity },
   { name: "Fraser Stryker", logo: brandFraserStryker },
@@ -476,7 +476,7 @@ function TrustedBrandsSection() {
               <img
                 src={brand.logo}
                 alt={brand.name}
-                className="h-12 md:h-16 lg:h-20 w-auto object-contain"
+                className={`${(brand as { sizeClass?: string }).sizeClass ?? "h-12 md:h-16 lg:h-20"} w-auto object-contain`}
               />
             </div>
           ))}
