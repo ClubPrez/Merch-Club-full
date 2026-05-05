@@ -6,6 +6,8 @@ import { StartProjectModal } from "@/components/start-project-modal";
 import { SiteHeader } from "@/components/site-header";
 import heroImage from "@assets/Blanket_4_1778000748265.png";
 import nursesWeekImage from "@assets/BLENDi_2_1778000814932.png";
+import bottleImage from "@assets/653849757_902181562799830_4065228705558207715_n_1778001045823.jpg";
+import scarfImage from "@assets/scarf_airport_1778001045823.png";
 
 function Placeholder({ label, ratio = "aspect-[4/3]" }: { label: string; ratio?: string }) {
   return (
@@ -171,8 +173,22 @@ export default function CaseStudyOnestaff() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <Placeholder label="Nurses Week box — closed" />
-            <Placeholder label="Nurses Week box — unboxed flat lay" />
+            <div className="aspect-[3/4] w-full rounded-2xl overflow-hidden bg-[#eee] border border-black/10">
+              <img
+                src={bottleImage}
+                alt="OneStaff-branded teal water bottle decorated with custom sticker pack — held by a travel nurse"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="aspect-[3/4] w-full rounded-2xl overflow-hidden bg-[#eee] border border-black/10">
+              <img
+                src={scarfImage}
+                alt="Travel nurse in an airport terminal wearing the OneStaff checkered scarf with smiley graphic, en route to the next assignment"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
