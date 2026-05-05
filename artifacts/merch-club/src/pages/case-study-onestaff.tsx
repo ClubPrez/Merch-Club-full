@@ -4,6 +4,7 @@ import SEO from "@/components/seo";
 import Breadcrumbs, { buildBreadcrumbJsonLd } from "@/components/breadcrumbs";
 import { StartProjectModal } from "@/components/start-project-modal";
 import { SiteHeader } from "@/components/site-header";
+import heroImage from "@assets/Blanket_4_1778000748265.png";
 
 function Placeholder({ label, ratio = "aspect-[4/3]" }: { label: string; ratio?: string }) {
   return (
@@ -83,7 +84,14 @@ export default function CaseStudyOnestaff() {
 
       <section className="bg-[#0a0a0a] pb-16 md:pb-20 px-8 md:px-16 lg:px-20">
         <div className="max-w-5xl mx-auto">
-          <PlaceholderDark label="Hero shot — full gift box composition" ratio="aspect-[16/9]" />
+          <div className="aspect-[16/9] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+            <img
+              src={heroImage}
+              alt="OneStaff Medical travel nurse on assignment — sunrise van life shot with branded blanket"
+              className="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
         </div>
       </section>
 
