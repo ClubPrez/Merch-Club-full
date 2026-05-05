@@ -8,6 +8,7 @@ import heroImage from "@assets/Blanket_4_1778000748265.png";
 import nursesWeekImage from "@assets/BLENDi_2_1778000814932.png";
 import bottleImage from "@assets/653849757_902181562799830_4065228705558207715_n_1778001045823.jpg";
 import scarfImage from "@assets/scarf_airport_1778001045823.png";
+import onestaffLogo from "@assets/Social_PostsArtboard_1_copy@3x_1778001408621.png";
 
 function Placeholder({ label, ratio = "aspect-[4/3]" }: { label: string; ratio?: string }) {
   return (
@@ -102,6 +103,12 @@ export default function CaseStudyOnestaff() {
       <section className="bg-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
         <div className="max-w-3xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Who They Are</span>
+          <img
+            src={onestaffLogo}
+            alt="OneStaff Medical logo"
+            className="h-8 md:h-10 lg:h-12 w-auto mb-8"
+            loading="lazy"
+          />
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
             Meet OneStaff Medical
           </h2>
