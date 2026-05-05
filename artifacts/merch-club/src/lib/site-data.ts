@@ -72,9 +72,9 @@ export const industries: Industry[] = [
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "onestaff-medical",
+    slug: "nurse-gifting",
     client: "OneStaff Medical",
-    industry: "Healthcare",
+    industry: "Nurse Gifting",
     industrySlug: "healthcare",
     title: "Travel Nurse Gifting, Built Around the Wanderlust",
     summary:

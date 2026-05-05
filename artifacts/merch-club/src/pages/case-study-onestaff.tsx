@@ -31,13 +31,13 @@ function PlaceholderDark({ label, ratio = "aspect-[4/3]" }: { label: string; rat
 const breadcrumbs = [
   { label: "Home", href: "/" },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "OneStaff Medical", href: "/case-studies/onestaff-medical" },
+  { label: "Nurse Gifting", href: "/case-studies/nurse-gifting" },
 ];
 
 const articleJsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "OneStaff Medical — Travel Nurse Gifting for Nurses Week & the Holidays",
+  headline: "Nurse Gifting — Travel Nurse Programs for Nurses Week & the Holidays (OneStaff Medical)",
   description:
     "How Merch Club designed and delivered two annual gifting programs for OneStaff Medical's travel nurses — translating their wanderlust brand into products nurses actually use on the road.",
   datePublished: "2026-04-15",
@@ -47,8 +47,8 @@ const articleJsonLd = {
     name: "Merch Club",
     logo: { "@type": "ImageObject", url: "https://merchclub.replit.app/opengraph.jpg" },
   },
-  mainEntityOfPage: "https://merchclub.replit.app/case-studies/onestaff-medical",
-  about: "Healthcare",
+  mainEntityOfPage: "https://merchclub.replit.app/case-studies/nurse-gifting",
+  about: "Nurse Gifting",
 };
 
 export default function CaseStudyOnestaff() {
@@ -61,11 +61,11 @@ export default function CaseStudyOnestaff() {
   return (
     <div className="min-h-screen bg-white text-black">
       <SEO
-        title="OneStaff Medical — Travel Nurse Gifting Programs"
+        title="Nurse Gifting — Travel Nurse Programs for OneStaff Medical"
         description="How Merch Club ran nurse gifting for OneStaff Medical for Nurses Week and the holidays — designed around their wanderlust brand and built for life on the road."
-        path="/case-studies/onestaff-medical"
+        path="/case-studies/nurse-gifting"
         type="article"
-        keywords="OneStaff Medical case study, travel nurse gifting, nurses week gifts, healthcare staffing merch, nurse holiday gifts, branded nurse gift box"
+        keywords="nurse gifting case study, travel nurse gifting, nurses week gifts, healthcare staffing merch, nurse holiday gifts, branded nurse gift box, OneStaff Medical"
         jsonLd={[buildBreadcrumbJsonLd(breadcrumbs), articleJsonLd]}
       />
 
@@ -75,7 +75,7 @@ export default function CaseStudyOnestaff() {
         <div className="max-w-4xl mx-auto">
           <Breadcrumbs items={breadcrumbs} theme="dark" className="mb-8" />
           <div className="flex flex-wrap items-center gap-3 mb-6">
-            <span className="text-[10px] font-bold uppercase tracking-[0.25em] bg-white text-black px-2.5 py-1 rounded-full">Healthcare</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.25em] bg-white text-black px-2.5 py-1 rounded-full">Nurse Gifting</span>
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">OneStaff Medical</span>
             <span className="text-[10px] uppercase tracking-[0.15em] text-white/40">Apr 15, 2026 · 6 min read</span>
           </div>

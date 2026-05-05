@@ -39,6 +39,7 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/services" component={Services} />
       <Route path="/case-studies" component={CaseStudies} />
+      <Route path="/case-studies/nurse-gifting" component={CaseStudyOnestaff} />
       <Route path="/case-studies/onestaff-medical" component={CaseStudyOnestaff} />
       <Route path="/case-studies/:slug" component={CaseStudy} />
       <Route component={NotFound} />
