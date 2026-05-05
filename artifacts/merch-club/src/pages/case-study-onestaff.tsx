@@ -9,6 +9,8 @@ import nursesWeekImage from "@assets/BLENDi_2_1778000814932.png";
 import bottleImage from "@assets/653849757_902181562799830_4065228705558207715_n_1778001045823.jpg";
 import scarfImage from "@assets/scarf_airport_1778001045823.png";
 import onestaffLogo from "@assets/Social_PostsArtboard_1_copy@3x_1778001408621.png";
+import holidayBoxImage from "@assets/Box-Logo_Corrected_1778004473223.png";
+import cozyKitImage from "@assets/Cozy_Time_Kit_1778004541901.png";
 
 function Placeholder({ label, ratio = "aspect-[4/3]" }: { label: string; ratio?: string }) {
   return (
@@ -229,8 +231,22 @@ export default function CaseStudyOnestaff() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <PlaceholderDark label="Holiday kit — packaging" />
-            <PlaceholderDark label="Holiday kit — product detail" />
+            <div className="aspect-[3/4] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+              <img
+                src={holidayBoxImage}
+                alt="OneStaff-branded holiday gift box opened to reveal a Wake Up to New Adventures Happy Nurses Week card"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="aspect-[3/4] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+              <img
+                src={cozyKitImage}
+                alt="OneStaff Cozy Time holiday kit — branded eye mask, fuzzy socks, candle, and warm mug styled on a knit blanket"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
