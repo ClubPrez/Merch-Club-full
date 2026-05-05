@@ -196,6 +196,27 @@ export default function CaseStudyOnestaff() {
         </div>
       </section>
 
+      {/* Testimonial */}
+      <section className="bg-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
+        <div className="max-w-4xl mx-auto text-center">
+          <svg className="w-10 h-10 md:w-12 md:h-12 text-black/20 mx-auto mb-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
+          </svg>
+          <blockquote className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-[1.15] text-black mb-10" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            "Merch Club gets our brand. They didn't just slap our logo on a tote — they built gifts our nurses actually want to take with them on the next assignment. Two programs a year, zero scrambling on our end, and the unboxing photos start rolling in within a week of every drop."
+          </blockquote>
+          <div className="flex items-center justify-center gap-4">
+            <div className="w-14 h-14 rounded-full bg-[#eee] border border-black/10 flex items-center justify-center text-[#888] text-[10px] font-bold uppercase tracking-[0.15em]">
+              Photo
+            </div>
+            <div className="text-left">
+              <div className="text-sm md:text-base font-bold text-black leading-tight">Marketing Director</div>
+              <div className="text-xs md:text-sm text-[#666] leading-tight mt-0.5">OneStaff Medical</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* End to end */}
       <section className="bg-[#f5f5f5] py-20 md:py-28 px-8 md:px-16 lg:px-20">
         <div className="max-w-3xl mx-auto">
