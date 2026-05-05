@@ -5,6 +5,7 @@ import Breadcrumbs, { buildBreadcrumbJsonLd } from "@/components/breadcrumbs";
 import { StartProjectModal } from "@/components/start-project-modal";
 import { SiteHeader } from "@/components/site-header";
 import heroImage from "@assets/Blanket_4_1778000748265.png";
+import nursesWeekImage from "@assets/BLENDi_2_1778000814932.png";
 
 function Placeholder({ label, ratio = "aspect-[4/3]" }: { label: string; ratio?: string }) {
   return (
@@ -164,7 +165,14 @@ export default function CaseStudyOnestaff() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <Placeholder label="Nurses Week box — closed" />
-            <Placeholder label="Nurses Week box — unboxed flat lay" />
+            <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-[#eee] border border-black/10">
+              <img
+                src={nursesWeekImage}
+                alt="OneStaff-branded BLENDi portable blender in use — travel nurse making a smoothie van-side at the coast"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
