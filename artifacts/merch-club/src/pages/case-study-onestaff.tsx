@@ -157,7 +157,7 @@ export default function CaseStudyOnestaff() {
           <div className="mb-12">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Program 1 — Nurses Week</span>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              A Nurses Week Box That Showed Up Before the Shift Did.
+              Nurses Week Gifts That Showed Up Before the Shift Did.
             </h2>
             <p className="text-base md:text-lg text-[#444] leading-relaxed max-w-3xl">
               For Nurses Week, the goal was a gift moment that landed on time — at a different address for every nurse on assignment — and felt personal in a category that's mostly tote bags and chocolate.
