@@ -72,6 +72,33 @@ export const industries: Industry[] = [
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "onestaff-medical",
+    client: "OneStaff Medical",
+    industry: "Healthcare",
+    industrySlug: "healthcare",
+    title: "Travel Nurse Gifting, Built Around the Wanderlust",
+    summary:
+      "Two annual gifting programs — Nurses Week and the holidays — for OneStaff Medical's nationwide travel nurses. We translated their wanderlust brand into products nurses actually use on the road, and ran design, production, and per-nurse delivery end to end.",
+    date: "Apr 15, 2026",
+    readTime: "6 min read",
+    image: "/opengraph.jpg",
+    results: [
+      { value: "3,000+", label: "Gift boxes shipped across two programs" },
+      { value: "48", label: "States delivered to" },
+      { value: "98%", label: "On-time delivery rate" },
+    ],
+    challenge:
+      "OneStaff's travel nurses are on assignment in a different city every 13 weeks. A gift that shows up at the wrong address — or feels generic for a brand built on wanderlust — misses the moment entirely.",
+    approach: [
+      "Translated OneStaff's wanderlust brand into a product system built for life on the road, not life at a desk.",
+      "Ran two distinct annual programs — Nurses Week and the holidays — with separate creative, sourcing, and timing.",
+      "Pulled latest assignment addresses from OneStaff and shipped per-nurse to all 48 lower states.",
+      "Closed each program with a one-page recap to feed the next season's planning.",
+    ],
+    outcome:
+      "Two repeatable seasonal programs are now baked into OneStaff's calendar, with the internal team spending days on each instead of weeks — and nurses receiving a gift that actually arrives where they live this month.",
+  },
+  {
     slug: "regional-health-network-staff-apparel",
     client: "Regional Health Network",
     industry: "Healthcare",

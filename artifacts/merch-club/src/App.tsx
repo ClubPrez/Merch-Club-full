@@ -15,6 +15,7 @@ import Services from "@/pages/services";
 import Industries from "@/pages/industries";
 import CaseStudies from "@/pages/case-studies";
 import CaseStudy from "@/pages/case-study";
+import CaseStudyOnestaff from "@/pages/case-study-onestaff";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/services" component={Services} />
       <Route path="/case-studies" component={CaseStudies} />
+      <Route path="/case-studies/onestaff-medical" component={CaseStudyOnestaff} />
       <Route path="/case-studies/:slug" component={CaseStudy} />
       <Route component={NotFound} />
     </Switch>

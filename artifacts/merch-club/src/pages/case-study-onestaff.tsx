@@ -1,0 +1,253 @@
+import { useEffect, useState } from "react";
+import { Link } from "wouter";
+import SEO from "@/components/seo";
+import Breadcrumbs, { buildBreadcrumbJsonLd } from "@/components/breadcrumbs";
+import { StartProjectModal } from "@/components/start-project-modal";
+import { SiteHeader } from "@/components/site-header";
+
+function Placeholder({ label, ratio = "aspect-[4/3]" }: { label: string; ratio?: string }) {
+  return (
+    <div className={`${ratio} w-full rounded-2xl bg-[#eee] border border-black/10 flex items-center justify-center text-[#888] text-xs font-bold uppercase tracking-[0.2em] text-center px-6`}>
+      <span>Image placeholder<br /><span className="text-[#bbb] font-medium normal-case tracking-normal">{label}</span></span>
+    </div>
+  );
+}
+
+function PlaceholderDark({ label, ratio = "aspect-[4/3]" }: { label: string; ratio?: string }) {
+  return (
+    <div className={`${ratio} w-full rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white/40 text-xs font-bold uppercase tracking-[0.2em] text-center px-6`}>
+      <span>Image placeholder<br /><span className="text-white/25 font-medium normal-case tracking-normal">{label}</span></span>
+    </div>
+  );
+}
+
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "OneStaff Medical", href: "/case-studies/onestaff-medical" },
+];
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "OneStaff Medical — Travel Nurse Gifting for Nurses Week & the Holidays",
+  description:
+    "How Merch Club designed and delivered two annual gifting programs for OneStaff Medical's travel nurses — translating their wanderlust brand into products nurses actually use on the road.",
+  datePublished: "2026-04-15",
+  author: { "@type": "Organization", name: "Merch Club" },
+  publisher: {
+    "@type": "Organization",
+    name: "Merch Club",
+    logo: { "@type": "ImageObject", url: "https://merchclub.replit.app/opengraph.jpg" },
+  },
+  mainEntityOfPage: "https://merchclub.replit.app/case-studies/onestaff-medical",
+  about: "Healthcare",
+};
+
+export default function CaseStudyOnestaff() {
+  const [projectModalOpen, setProjectModalOpen] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-white text-black">
+      <SEO
+        title="OneStaff Medical — Travel Nurse Gifting Programs"
+        description="How Merch Club ran nurse gifting for OneStaff Medical for Nurses Week and the holidays — designed around their wanderlust brand and built for life on the road."
+        path="/case-studies/onestaff-medical"
+        type="article"
+        keywords="OneStaff Medical case study, travel nurse gifting, nurses week gifts, healthcare staffing merch, nurse holiday gifts, branded nurse gift box"
+        jsonLd={[buildBreadcrumbJsonLd(breadcrumbs), articleJsonLd]}
+      />
+
+      <SiteHeader onStartProject={() => setProjectModalOpen(true)} />
+
+      <section className="pt-32 md:pt-40 pb-12 md:pb-16 px-8 md:px-16 lg:px-20 bg-[#0a0a0a] text-white">
+        <div className="max-w-4xl mx-auto">
+          <Breadcrumbs items={breadcrumbs} theme="dark" className="mb-8" />
+          <div className="flex flex-wrap items-center gap-3 mb-6">
+            <span className="text-[10px] font-bold uppercase tracking-[0.25em] bg-white text-black px-2.5 py-1 rounded-full">Healthcare</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">OneStaff Medical</span>
+            <span className="text-[10px] uppercase tracking-[0.15em] text-white/40">Apr 15, 2026 · 6 min read</span>
+          </div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95] text-white mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            Travel Nurse Gifting, Built Around the Wanderlust.
+          </h1>
+          <p className="text-base md:text-lg text-[#aaa] leading-relaxed max-w-3xl">
+            Two annual gifting programs for OneStaff Medical — one for Nurses Week, one for the holidays — designed around the way travel nurses actually live, work, and pack.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-[#0a0a0a] pb-16 md:pb-20 px-8 md:px-16 lg:px-20">
+        <div className="max-w-5xl mx-auto">
+          <PlaceholderDark label="Hero shot — full gift box composition" ratio="aspect-[16/9]" />
+        </div>
+      </section>
+
+      {/* Who is OneStaff */}
+      <section className="bg-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
+        <div className="max-w-3xl mx-auto">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Who They Are</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            Meet OneStaff Medical
+          </h2>
+          <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
+            OneStaff Medical is a national healthcare staffing agency that places travel nurses, allied health professionals, and per-diem clinicians at hospitals and clinics across all 50 states. Their brand is built on the freedom of the assignment — the ability to chase a 13-week contract anywhere from a downtown trauma center to a coastal hospital, then move on to the next adventure.
+          </p>
+          <p className="text-base md:text-lg text-[#444] leading-relaxed">
+            Their nurses aren't sitting at a desk waiting for a gift to land on it. They're on the road, in scrubs, between shifts — and any thank-you that doesn't survive a duffel bag and a 2,000-mile drive isn't really a thank-you at all.
+          </p>
+        </div>
+      </section>
+
+      {/* Wanderlust brand */}
+      <section className="bg-[#f5f5f5] py-20 md:py-28 px-8 md:px-16 lg:px-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">The Brand Translation</span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                Capturing the Wanderlust in Product Form.
+              </h2>
+              <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
+                OneStaff's identity is travel. Maps, mileage, time zones, suitcases, the open road. We took those visual cues and translated them into a product system — not just printed on a tee, but baked into objects nurses would actually carry with them on assignment.
+              </p>
+              <p className="text-base md:text-lg text-[#444] leading-relaxed">
+                Every SKU we picked had to pass one filter: <em>would a travel nurse pack this for the next contract?</em> If the answer was no, it didn't make the box.
+              </p>
+            </div>
+            <div>
+              <Placeholder label="Brand moodboard / on-product mockups" ratio="aspect-[4/5]" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Nurses Week Program */}
+      <section className="bg-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-12">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Program 1 — Nurses Week</span>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              A Nurses Week Box That Showed Up Before the Shift Did.
+            </h2>
+            <p className="text-base md:text-lg text-[#444] leading-relaxed max-w-3xl">
+              For Nurses Week, the goal was a gift moment that landed on time — at a different address for every nurse on assignment — and felt personal in a category that's mostly tote bags and chocolate.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 mb-12">
+            <div className="bg-[#f5f5f5] rounded-2xl p-6 md:p-7 text-center">
+              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>1,400+</div>
+              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">Nurse gift boxes shipped</div>
+            </div>
+            <div className="bg-[#f5f5f5] rounded-2xl p-6 md:p-7 text-center">
+              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>48</div>
+              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">States delivered to</div>
+            </div>
+            <div className="bg-[#f5f5f5] rounded-2xl p-6 md:p-7 text-center">
+              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>98%</div>
+              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">On-time delivery rate</div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <Placeholder label="Nurses Week box — closed" />
+            <Placeholder label="Nurses Week box — unboxed flat lay" />
+          </div>
+        </div>
+      </section>
+
+      {/* Holiday Program */}
+      <section className="bg-[#0a0a0a] text-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-12">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 block mb-4">Program 2 — Holiday Gifting</span>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              A Holiday Drop That Didn't Get Lost in the Shuffle.
+            </h2>
+            <p className="text-base md:text-lg text-[#aaa] leading-relaxed max-w-3xl">
+              The holiday program had to land in a crowded inbox of December gifts — without competing with whatever the hospital itself was sending. The answer was a tighter, more curated kit built around things nurses actually use on the road: warm layers, travel-ready accessories, and a few moments of quiet luxury for between shifts.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 mb-12">
+            <div className="bg-white text-black rounded-2xl p-6 md:p-7 text-center">
+              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>1,650</div>
+              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">Holiday kits delivered</div>
+            </div>
+            <div className="bg-white text-black rounded-2xl p-6 md:p-7 text-center">
+              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>21</div>
+              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">Days, design to doorstep</div>
+            </div>
+            <div className="bg-white text-black rounded-2xl p-6 md:p-7 text-center">
+              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>4.8/5</div>
+              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">Internal satisfaction score</div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <PlaceholderDark label="Holiday kit — packaging" />
+            <PlaceholderDark label="Holiday kit — product detail" />
+          </div>
+        </div>
+      </section>
+
+      {/* End to end */}
+      <section className="bg-[#f5f5f5] py-20 md:py-28 px-8 md:px-16 lg:px-20">
+        <div className="max-w-3xl mx-auto">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">How We Ran It</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-black mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            Design → Production → Delivery, All Under One Roof.
+          </h2>
+          <ol className="space-y-5">
+            {[
+              "Design — built the creative system from OneStaff's brand inward, with mockups and product visuals approved before a single SKU was ordered.",
+              "Sourcing & sampling — sourced product, pulled physical samples for sign-off, and locked decoration methods before scaling.",
+              "Production — managed printing, embroidery, and finished-goods QC across multiple suppliers as a single program.",
+              "Kitting & packaging — assembled every box by hand against a packing spec so the unboxing was identical from kit #1 to kit #1,650.",
+              "Per-nurse delivery — pulled the latest assignment addresses from OneStaff and shipped direct to each nurse, with tracking handed back as a single report.",
+              "Reporting — closed each program with a one-page recap: shipped, delivered, returned, and reorder candidates for next season.",
+            ].map((step, i) => (
+              <li key={i} className="flex gap-5 items-start">
+                <span className="shrink-0 w-9 h-9 rounded-full bg-black text-white text-sm font-black flex items-center justify-center" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{i + 1}</span>
+                <p className="text-base md:text-lg text-[#444] leading-relaxed pt-1.5">{step}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
+        <div className="max-w-3xl mx-auto">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">The Outcome</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            A Repeatable Gifting Motion, Twice a Year.
+          </h2>
+          <p className="text-base md:text-lg text-[#444] leading-relaxed mb-10">
+            Two seasonal programs are now built into OneStaff's calendar — each one launches off the prior year's recap, with creative direction and production timelines locked in advance. The internal team spends days on the program instead of weeks, and the nurses get a gift that actually shows up where they live this month.
+          </p>
+          <div className="border-t border-black/10 pt-8 flex flex-wrap items-center gap-4">
+            <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-black text-white text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-[#333] transition-colors">
+              Start Your Project
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+            </button>
+            <Link href="/industries/healthcare" className="inline-flex items-center gap-2 border border-black/15 text-black text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-black hover:text-white transition-colors">
+              See Healthcare Programs
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
+            </Link>
+            <Link href="/case-studies" className="inline-flex items-center gap-2 text-black text-sm md:text-base font-bold px-2 py-3 hover:underline">
+              All Case Studies
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <StartProjectModal open={projectModalOpen} onClose={() => setProjectModalOpen(false)} />
+    </div>
+  );
+}
