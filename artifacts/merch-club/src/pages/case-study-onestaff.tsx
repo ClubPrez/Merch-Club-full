@@ -128,8 +128,16 @@ export default function CaseStudyOnestaff() {
                 Every SKU we picked had to pass one filter: <em>would a travel nurse pack this for the next contract?</em> If the answer was no, it didn't make the box.
               </p>
             </div>
-            <div>
-              <Placeholder label="Brand moodboard / on-product mockups" ratio="aspect-[4/5]" />
+            <div className="grid grid-cols-1 gap-4">
+              <Placeholder label="Brand moodboard / on-product mockups" ratio="aspect-[4/3]" />
+              <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-[#eee] border border-black/10">
+                <img
+                  src={nursesWeekImage}
+                  alt="OneStaff-branded BLENDi portable blender van-side at the coast — wanderlust translated into a real travel-nurse product"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -165,14 +173,7 @@ export default function CaseStudyOnestaff() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <Placeholder label="Nurses Week box — closed" />
-            <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-[#eee] border border-black/10">
-              <img
-                src={nursesWeekImage}
-                alt="OneStaff-branded BLENDi portable blender in use — travel nurse making a smoothie van-side at the coast"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
+            <Placeholder label="Nurses Week box — unboxed flat lay" />
           </div>
         </div>
       </section>
