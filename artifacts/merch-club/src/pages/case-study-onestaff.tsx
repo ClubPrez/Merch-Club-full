@@ -301,11 +301,14 @@ export default function CaseStudyOnestaff() {
       <section className="bg-[#0a0a0a] text-white py-20 md:py-28 overflow-hidden">
         <div className="max-w-6xl mx-auto px-8 md:px-16 lg:px-20 mb-12 md:mb-14">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 block mb-4">From the Field</span>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-5" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            The Work, In the Wild.
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            Our Work, In the Wild.
           </h2>
+          <p className="text-xl md:text-2xl font-semibold text-white mb-4 leading-snug">
+            It's all in the details.
+          </p>
           <p className="text-base md:text-lg text-[#aaa] leading-relaxed max-w-2xl">
-            Product detail, packaging, and the photos that started rolling in once the boxes hit the road.
+            Thoughtful products. Creative details. Gifts that feel intentional, elevated, and aligned with your brand from every angle. Because great merch doesn't just wear your logo. It reflects your brand identity.
           </p>
         </div>
 
