@@ -258,7 +258,7 @@ export default function CaseStudyOnestaff() {
             <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
           </svg>
           <blockquote className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-[1.15] text-black mb-10" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            "Merch Club gets our brand. They didn't just slap our logo on a tote — they built gifts our nurses actually want to take with them on the next assignment. Two programs a year, zero scrambling on our end, and the unboxing photos start rolling in within a week of every drop."
+            "Yo. The traveler holiday gifts were a hit. Merch Club made the process easy, brought us ideas that didn't feel cookie-cutter, and helped us send something that actually felt thoughtful. That's always the bar for us, and they nailed it."
           </blockquote>
           <div className="flex items-center justify-center gap-4">
             <div className="w-14 h-14 rounded-full bg-[#eee] border border-black/10 flex items-center justify-center text-[#888] text-[10px] font-bold uppercase tracking-[0.15em]">
