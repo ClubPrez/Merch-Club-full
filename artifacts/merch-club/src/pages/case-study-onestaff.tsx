@@ -172,12 +172,12 @@ export default function CaseStudyOnestaff() {
               <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">Nurse gift boxes shipped</div>
             </div>
             <div className="bg-[#f5f5f5] rounded-2xl p-6 md:p-7 text-center">
-              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>48</div>
+              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>36</div>
               <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">States delivered to</div>
             </div>
             <div className="bg-[#f5f5f5] rounded-2xl p-6 md:p-7 text-center">
-              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>98%</div>
-              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">On-time delivery rate</div>
+              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>143</div>
+              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">Organic posts and tags</div>
             </div>
           </div>
 
