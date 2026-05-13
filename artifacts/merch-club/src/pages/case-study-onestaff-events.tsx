@@ -18,18 +18,18 @@ type GalleryItem = { src: string; alt: string; ratio: string; width: string };
 
 const galleryRowOne: GalleryItem[] = [
   { src: boothWide, alt: "OneStaff TravCon booth — wide shot with branded backdrop and table display", ratio: "aspect-[4/5]", width: "20rem" },
-  { src: vegasDropGroup, alt: "Three OneStaff team members in matching WRK OSM tracksuits and gold chain medallions in front of a graffiti wall", ratio: "aspect-[4/3]", width: "26rem" },
+  { src: vegasDropGroup, alt: "Three OneStaff booth crew members in matching WRK OSM tracksuits and gold chain medallions in front of a graffiti wall — the crew uniform on the show floor", ratio: "aspect-[4/3]", width: "26rem" },
   { src: boothChain, alt: "OneStaff recruiter wearing the WRK OSM gold chain medallion at the booth, attendee browsing branded bucket hats", ratio: "aspect-[3/4]", width: "16rem" },
   { src: boothBuckets, alt: "OneStaff team and attendees wearing branded TravCon bucket hats, gold chains, and WRK OSM tees in front of the travel work your own way backdrop", ratio: "aspect-[4/5]", width: "18rem" },
-  { src: vegasDropSolo, alt: "OneStaff team member in the full WRK OSM tracksuit and chain in front of a Florida-themed wall mural", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: vegasDropSolo, alt: "OneStaff booth crew member in the full WRK OSM tracksuit and chain in front of a Florida-themed wall mural", ratio: "aspect-[3/4]", width: "16rem" },
   { src: boothSelfie, alt: "OneStaff team selfie at the TravCon booth — After Party Sponsor sign visible", ratio: "aspect-[3/4]", width: "16rem" },
 ];
 
 const galleryRowTwo: GalleryItem[] = [
-  { src: vegasDropGroup, alt: "WRK OSM tracksuit drop campaign — three OneStaff team members posing with chains and boombox", ratio: "aspect-[4/3]", width: "26rem" },
+  { src: vegasDropGroup, alt: "OneStaff WRK OSM crew tracksuit — three team members posing with chains and a boombox", ratio: "aspect-[4/3]", width: "26rem" },
   { src: boothBuckets, alt: "Branded TravCon bucket hats and gold chain medallions worn by the OneStaff team", ratio: "aspect-[3/4]", width: "16rem" },
   { src: boothChain, alt: "Booth detail — gold chain medallion, branded jacket, table display of WRK OSM swag", ratio: "aspect-[4/5]", width: "18rem" },
-  { src: vegasDropSolo, alt: "WRK OSM tracksuit hero pose in front of the Clearwater FL mural — Vegas-style limited drop", ratio: "aspect-[4/5]", width: "18rem" },
+  { src: vegasDropSolo, alt: "WRK OSM crew tracksuit hero pose in front of the Clearwater FL mural", ratio: "aspect-[4/5]", width: "18rem" },
   { src: boothSelfie, alt: "Group selfie at the OneStaff TravCon booth with branded backdrops and After Party Sponsor signage", ratio: "aspect-[3/4]", width: "16rem" },
   { src: boothWide, alt: "OneStaff TravCon booth wide shot — orange and teal backdrops, branded tablecloth, and swag display", ratio: "aspect-[4/5]", width: "20rem" },
 ];
@@ -61,7 +61,7 @@ const articleJsonLd = {
   "@type": "Article",
   headline: "TravCon — Event Merch & Booth Activation for OneStaff Medical",
   description:
-    "How Merch Club designed and produced OneStaff Medical's full event merch program for TravCon — an 80s retro, rainbow-stripe booth with crossbody bags, bucket hats, compression socks, slap koozies, and luggage tags, plus a limited retro tracksuit capsule, all built and shipped to Las Vegas as one production.",
+    "How Merch Club designed and produced OneStaff Medical's full event merch program for TravCon — an 80s retro, rainbow-stripe booth with crossbody bags, bucket hats, compression socks, slap koozies, and luggage tags, plus a crew-only retro tracksuit uniform for the booth team, all built and shipped to Las Vegas as one production.",
   datePublished: "2026-05-12",
   author: { "@type": "Organization", name: "Merch Club" },
   publisher: {
@@ -84,7 +84,7 @@ export default function CaseStudyOnestaffEvents() {
     <div className="min-h-screen bg-white text-black">
       <SEO
         title="TravCon — Event Merch & Booth Activation for OneStaff Medical"
-        description="Merch Club ran OneStaff Medical's full event program at TravCon — an 80s retro, rainbow-stripe booth with branded crossbody bags, bucket hats, compression socks, slap koozies, and luggage tags, plus a limited retro tracksuit capsule, all built and shipped to Las Vegas as one production."
+        description="Merch Club ran OneStaff Medical's full event program at TravCon — an 80s retro, rainbow-stripe booth with branded crossbody bags, bucket hats, compression socks, slap koozies, and luggage tags, plus a crew-only retro tracksuit uniform for the booth team, all built and shipped to Las Vegas as one production."
         path="/case-studies/events"
         type="article"
         keywords="event merch case study, trade show merch, TravCon, travel nurse conference, branded booth giveaways, recruiter swag, healthcare staffing event, OneStaff Medical"
@@ -224,31 +224,31 @@ export default function CaseStudyOnestaffEvents() {
         </div>
       </section>
 
-      {/* Program 2 — Vegas Drop / Activations */}
+      {/* Program 2 — Booth Crew Uniform */}
       <section className="bg-[#0a0a0a] text-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 block mb-4">Program 2 — Vegas Drop</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 block mb-4">Program 2 — The Crew Uniform</span>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              The Retro Tracksuit Capsule That Sold Out by Saturday.
+              The Tracksuit Was the Booth Team's Uniform — Not for Sale.
             </h2>
             <p className="text-base md:text-lg text-[#aaa] leading-relaxed max-w-3xl">
-              The 80s direction kept going into a limited capsule — a full retro tracksuit in OneStaff's rainbow stripe, paired with a custom gold chain medallion and matching tee. Hero pieces, sized intentionally short, designed for the team to wear on the floor and for nurses to take home as the moment of the show — not stuff in the bottom of a suitcase.
+              The 80s direction kept going into a head-to-toe look for the booth crew — a full retro tracksuit in OneStaff's rainbow stripe, paired with a custom gold chain medallion and matching tee. Crew-only, never given away. The point: walk into the show floor and you could spot a OneStaff recruiter from the other end of the hall. The team became the marketing.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 mb-12">
             <div className="bg-white text-black rounded-2xl p-6 md:p-7 text-center">
-              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>4 Days</div>
-              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">From booth open to drop sold out</div>
+              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>1 Look</div>
+              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">Head-to-toe crew uniform on the floor</div>
             </div>
             <div className="bg-white text-black rounded-2xl p-6 md:p-7 text-center">
-              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>6</div>
-              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">Limited SKUs in the Vegas capsule</div>
+              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>4</div>
+              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">Pieces per kit — jacket, pants, tee, chain</div>
             </div>
             <div className="bg-white text-black rounded-2xl p-6 md:p-7 text-center">
-              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>1 Pallet</div>
-              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">Total freight to Las Vegas</div>
+              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>0</div>
+              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">Sold to the public — crew-only on purpose</div>
             </div>
           </div>
 
@@ -256,7 +256,7 @@ export default function CaseStudyOnestaffEvents() {
             <div className="aspect-[3/4] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10">
               <img
                 src={vegasDropSolo}
-                alt="OneStaff team member in the full WRK OSM tracksuit and gold chain in front of a Florida-themed wall mural — limited drop hero"
+                alt="OneStaff booth team member in the full WRK OSM crew tracksuit and gold chain in front of a Florida-themed wall mural"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -284,7 +284,7 @@ export default function CaseStudyOnestaffEvents() {
             It's all in the details.
           </p>
           <p className="text-base md:text-lg text-[#aaa] leading-relaxed max-w-2xl">
-            One 80s retro creative direction, run end-to-end — rainbow-stripe backdrops, the crossbody-bag-and-bucket-hat giveaway lineup, recruiter fits, and the full tracksuit capsule, all built for one week in Las Vegas where the whole industry is watching.
+            One 80s retro creative direction, run end-to-end — rainbow-stripe backdrops, the crossbody-bag-and-bucket-hat giveaway lineup, and the head-to-toe crew tracksuit, all built for one week in Las Vegas where the whole industry is watching.
           </p>
         </div>
 
@@ -333,7 +333,7 @@ export default function CaseStudyOnestaffEvents() {
             <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
           </svg>
           <blockquote className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-[1.15] text-black mb-10" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            "TravCon is our biggest week of the year and Merch Club treated it that way. Our booth team looked sharp, our recruiters had something real to hand over, and the Vegas drop sold out before the closing keynote. Easiest event production we've ever run."
+            "TravCon is our biggest week of the year and Merch Club treated it that way. Our booth crew was unmistakable on the floor in the retro tracksuits, our recruiters had something real to hand over, and every piece showed up where it needed to be. Easiest event production we've ever run."
           </blockquote>
           <div className="flex items-center justify-center gap-4">
             <img
@@ -360,11 +360,11 @@ export default function CaseStudyOnestaffEvents() {
           <ol className="space-y-5">
             {[
               "Strategy — mapped the show into three audience moments (aisle pull, recruiter conversation, post-conference wear) and built the SKU mix to serve each one.",
-              "Design — built the on-floor look from OneStaff's brand inward, plus a separate creative direction for the limited Vegas drop so it didn't feel like a logo restamp.",
+              "Design — built one 80s retro creative direction from OneStaff's brand inward, scaled across the giveaway lineup and the head-to-toe crew uniform so the booth read as a single visual system.",
               "Sourcing & sampling — sourced product, pulled physical samples for sign-off, and locked decoration methods well ahead of the freight cutoff.",
               "Production — managed printing, embroidery, and finished-goods QC across multiple suppliers as a single program with one ship date.",
               "Freight & on-site — palletized everything to a single Las Vegas drop point, coordinated with the convention's receiving dock, and had backup product staged offsite for the just-in-case.",
-              "Recap — closed the show with a one-page report: items distributed, sell-through on the Vegas drop, top performers, and reorder candidates for next year's TravCon.",
+              "Recap — closed the show with a one-page report: items distributed, top-performing giveaways, what got asked about most at the booth, and reorder candidates for next year's TravCon.",
             ].map((step, i) => (
               <li key={i} className="flex gap-5 items-start">
                 <span className="shrink-0 w-9 h-9 rounded-full bg-black text-white text-sm font-black flex items-center justify-center" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{i + 1}</span>
