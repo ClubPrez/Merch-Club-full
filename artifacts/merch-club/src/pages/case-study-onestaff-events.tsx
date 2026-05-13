@@ -7,30 +7,31 @@ import { SiteHeader } from "@/components/site-header";
 import onestaffLogo from "@assets/Social_PostsArtboard_1_copy@3x_1778001408621.png";
 import testimonialPhoto from "@assets/OneStaff-Test_1778691015027.png";
 
-type GalleryItem = { label: string; ratio: string; width: string };
+import boothWide from "@assets/461191773_18297032593205370_5287082838877484901_n_1778693892844.jpg";
+import boothSelfie from "@assets/461051920_18297032506205370_982178921037371215_n_1778693892843.jpg";
+import boothChain from "@assets/461204439_18297032584205370_9064317744138119949_n_1778693892845.jpg";
+import boothBuckets from "@assets/461238290_18297032536205370_6473409173115033458_n_1778693892845.jpg";
+import vegasDropSolo from "@assets/485771444_1048758360618545_372803450094697544_n_1778693892845.jpg";
+import vegasDropGroup from "@assets/ChatGPT_Image_Apr_30,_2026,_01_33_52_PM_1778693937978.png";
+
+type GalleryItem = { src: string; alt: string; ratio: string; width: string };
 
 const galleryRowOne: GalleryItem[] = [
-  { label: "Booth wide shot — show floor", ratio: "aspect-[4/3]", width: "24rem" },
-  { label: "Branded backdrop / step & repeat", ratio: "aspect-[3/4]", width: "16rem" },
-  { label: "Recruiter meetup — on-floor", ratio: "aspect-[3/4]", width: "16rem" },
-  { label: "Premium giveaway hero shot", ratio: "aspect-[4/5]", width: "18rem" },
-  { label: "Nurses with branded swag", ratio: "aspect-[3/4]", width: "16rem" },
-  { label: "Lanyards / badge holders", ratio: "aspect-[3/4]", width: "16rem" },
-  { label: "Booth detail — counter graphics", ratio: "aspect-[4/5]", width: "18rem" },
-  { label: "Branded coffee bar moment", ratio: "aspect-[4/3]", width: "24rem" },
-  { label: "Group photo — OneStaff team", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: boothWide, alt: "OneStaff TravCon booth — wide shot with branded backdrop and table display", ratio: "aspect-[4/5]", width: "20rem" },
+  { src: vegasDropGroup, alt: "Three OneStaff team members in matching WRK OSM tracksuits and gold chain medallions in front of a graffiti wall", ratio: "aspect-[4/3]", width: "26rem" },
+  { src: boothChain, alt: "OneStaff recruiter wearing the WRK OSM gold chain medallion at the booth, attendee browsing branded bucket hats", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: boothBuckets, alt: "OneStaff team and attendees wearing branded TravCon bucket hats, gold chains, and WRK OSM tees in front of the travel work your own way backdrop", ratio: "aspect-[4/5]", width: "18rem" },
+  { src: vegasDropSolo, alt: "OneStaff team member in the full WRK OSM tracksuit and chain in front of a Florida-themed wall mural", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: boothSelfie, alt: "OneStaff team selfie at the TravCon booth — After Party Sponsor sign visible", ratio: "aspect-[3/4]", width: "16rem" },
 ];
 
 const galleryRowTwo: GalleryItem[] = [
-  { label: "Custom tee — flat lay", ratio: "aspect-[3/4]", width: "16rem" },
-  { label: "Branded tote on the strip", ratio: "aspect-[4/5]", width: "18rem" },
-  { label: "Hat / cap product detail", ratio: "aspect-[3/4]", width: "16rem" },
-  { label: "Vegas-themed limited drop", ratio: "aspect-[4/5]", width: "18rem" },
-  { label: "Sticker pack / pins flat lay", ratio: "aspect-[3/4]", width: "16rem" },
-  { label: "After-party activation", ratio: "aspect-[4/3]", width: "24rem" },
-  { label: "Branded water bottle on floor", ratio: "aspect-[3/4]", width: "16rem" },
-  { label: "Recruiter swag drop, in hand", ratio: "aspect-[3/4]", width: "16rem" },
-  { label: "Booth signage detail", ratio: "aspect-[4/5]", width: "18rem" },
+  { src: vegasDropGroup, alt: "WRK OSM tracksuit drop campaign — three OneStaff team members posing with chains and boombox", ratio: "aspect-[4/3]", width: "26rem" },
+  { src: boothBuckets, alt: "Branded TravCon bucket hats and gold chain medallions worn by the OneStaff team", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: boothChain, alt: "Booth detail — gold chain medallion, branded jacket, table display of WRK OSM swag", ratio: "aspect-[4/5]", width: "18rem" },
+  { src: vegasDropSolo, alt: "WRK OSM tracksuit hero pose in front of the Clearwater FL mural — Vegas-style limited drop", ratio: "aspect-[4/5]", width: "18rem" },
+  { src: boothSelfie, alt: "Group selfie at the OneStaff TravCon booth with branded backdrops and After Party Sponsor signage", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: boothWide, alt: "OneStaff TravCon booth wide shot — orange and teal backdrops, branded tablecloth, and swag display", ratio: "aspect-[4/5]", width: "20rem" },
 ];
 
 function Placeholder({ label, ratio = "aspect-[4/3]" }: { label: string; ratio?: string }) {
@@ -111,7 +112,14 @@ export default function CaseStudyOnestaffEvents() {
 
       <section className="bg-[#0a0a0a] pb-16 md:pb-20 px-8 md:px-16 lg:px-20">
         <div className="max-w-5xl mx-auto">
-          <PlaceholderDark label="Hero — OneStaff TravCon booth, wide-angle show floor shot" ratio="aspect-[16/9]" />
+          <div className="aspect-[16/9] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+            <img
+              src={boothWide}
+              alt="OneStaff Medical TravCon booth — wide shot with orange and teal travel work your own way backdrops, branded tablecloth, and swag display"
+              className="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
         </div>
       </section>
 
@@ -154,7 +162,14 @@ export default function CaseStudyOnestaffEvents() {
               </p>
             </div>
             <div>
-              <Placeholder label="OneStaff team on the TravCon show floor" ratio="aspect-[4/5]" />
+              <div className="aspect-[4/5] w-full rounded-2xl overflow-hidden bg-[#eee] border border-black/10">
+                <img
+                  src={boothBuckets}
+                  alt="OneStaff team and TravCon attendees in branded bucket hats, WRK OSM tees, and gold chain medallions in front of the travel work your own way backdrop"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -189,8 +204,22 @@ export default function CaseStudyOnestaffEvents() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <Placeholder label="Recruiter polos / team look on the floor" ratio="aspect-[3/4]" />
-            <Placeholder label="Premium giveaway — recruiter hand-out" ratio="aspect-[3/4]" />
+            <div className="aspect-[3/4] w-full rounded-2xl overflow-hidden bg-[#eee] border border-black/10">
+              <img
+                src={boothChain}
+                alt="OneStaff recruiter wearing the WRK OSM gold chain medallion at the TravCon booth, attendee browsing branded bucket hats"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="aspect-[3/4] w-full rounded-2xl overflow-hidden bg-[#eee] border border-black/10">
+              <img
+                src={boothSelfie}
+                alt="OneStaff team selfie at the TravCon booth — branded backdrop and After Party Sponsor signage in frame"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -224,8 +253,22 @@ export default function CaseStudyOnestaffEvents() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <PlaceholderDark label="Vegas drop tee — front graphic" ratio="aspect-[3/4]" />
-            <PlaceholderDark label="Limited cap / accessory hero shot" ratio="aspect-[3/4]" />
+            <div className="aspect-[3/4] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+              <img
+                src={vegasDropSolo}
+                alt="OneStaff team member in the full WRK OSM tracksuit and gold chain in front of a Florida-themed wall mural — limited drop hero"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="aspect-[4/3] md:aspect-[3/4] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+              <img
+                src={vegasDropGroup}
+                alt="Three OneStaff team members in matching WRK OSM tracksuits and gold chain medallions posing with a boombox in front of an OLD SCHOOL graffiti wall"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -262,10 +305,10 @@ export default function CaseStudyOnestaffEvents() {
             {[...galleryRowOne, ...galleryRowOne].map((g, i) => (
               <div
                 key={`r1-${i}`}
-                className="shrink-0"
+                className={`${g.ratio} shrink-0 rounded-xl overflow-hidden bg-white/5 border border-white/10`}
                 style={{ width: g.width }}
               >
-                <PlaceholderDark label={g.label} ratio={g.ratio} />
+                <img src={g.src} alt={g.alt} className="w-full h-full object-cover" loading="lazy" />
               </div>
             ))}
           </div>
@@ -273,10 +316,10 @@ export default function CaseStudyOnestaffEvents() {
             {[...galleryRowTwo, ...galleryRowTwo].map((g, i) => (
               <div
                 key={`r2-${i}`}
-                className="shrink-0"
+                className={`${g.ratio} shrink-0 rounded-xl overflow-hidden bg-white/5 border border-white/10`}
                 style={{ width: g.width }}
               >
-                <PlaceholderDark label={g.label} ratio={g.ratio} />
+                <img src={g.src} alt={g.alt} className="w-full h-full object-cover" loading="lazy" />
               </div>
             ))}
           </div>
