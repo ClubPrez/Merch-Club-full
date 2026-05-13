@@ -13,24 +13,49 @@ import holidayBoxImage from "@assets/Logo_Corrected_Happy_Holiday_1778005396970.
 import cozyKitImage from "@assets/Cozy_Time_Kit_1778004541901.png";
 import testimonialPhoto from "@assets/OneStaff-Test_1778691015027.png";
 
+import gSpeakerLake from "@assets/ChatGPT_Image_May_5,_2026,_07_14_06_PM_(1)_1778691486692.png";
+import gPhoneGloves from "@assets/ChatGPT_Image_May_5,_2026,_07_27_03_PM_1778691486692.png";
+import gYogaBag from "@assets/ChatGPT_Image_May_5,_2026,_07_31_07_PM_1778691486693.png";
+import gSlingTulsa from "@assets/ChatGPT_Image_May_5,_2026,_08_00_22_PM_1778691486693.png";
+import gCheckeredTote from "@assets/Checkered_Tote_-_Floor_1778691486693.JPG";
+import gCozyKitFlat from "@assets/Cozy_Kit_3_1778691486693.png";
+import gCozyKitBedside from "@assets/Cozy_Time_Kit_1778691486693.png";
+import gCoolerBreakroom from "@assets/Custom_Cooler_Break_Room_1778691486694.png";
+import gCoolerNeutral from "@assets/Custom_Cooler_Neutral_Background_1778691486694.png";
+import gMassageNurse from "@assets/massage_nurse_1778691486694.png";
+import gTrackerSky from "@assets/OneStaff__1_Sky_1778691486694.png";
+import gTrackerPhone from "@assets/OneStaff__8_Phone_Tracker_1778691486695.png";
+import gBagTracker from "@assets/OneStaff_Bag_Mockup_1778691486695.png";
+import gScarfTraveler from "@assets/Scarf_2_1778691486695.png";
+import gScarfClose from "@assets/Scarf_Close_up_1778691486695.png";
+import gCapCity from "@assets/STYA_3_1778691486695.png";
+import gScarfAirportGuy from "@assets/ChatGPT_Image_May_5,_2026,_04_03_04_PM_1778691486695.png";
+import gBottleStickers from "@assets/653849757_902181562799830_4065228705558207715_n_1778691486696.jpg";
+
 type GalleryItem = { src: string; alt: string; ratio: string; width: string };
 
 const galleryRowOne: GalleryItem[] = [
-  { src: heroImage, alt: "Travel nurse at sunrise with branded blanket", ratio: "aspect-[16/10]", width: "26rem" },
-  { src: bottleImage, alt: "OneStaff sticker bottle held up to camera", ratio: "aspect-[3/4]", width: "16rem" },
-  { src: holidayBoxImage, alt: "OneStaff holiday gift box opened", ratio: "aspect-[3/4]", width: "16rem" },
-  { src: nursesWeekImage, alt: "BLENDi van-side smoothie moment", ratio: "aspect-[1/1]", width: "20rem" },
-  { src: scarfImage, alt: "Airport scarf shot — #weareonestaff", ratio: "aspect-[3/4]", width: "16rem" },
-  { src: cozyKitImage, alt: "Cozy Time holiday kit detail", ratio: "aspect-[5/4]", width: "22rem" },
+  { src: gSpeakerLake, alt: "OneStaff #weareOSM speaker held up at a lakeside campfire", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: gScarfTraveler, alt: "Traveler walking through airport with checkered OneStaff scarf and rolling bag", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: gCoolerBreakroom, alt: "Nurses in break room laughing around an OneStaff van-graphic lunch cooler", ratio: "aspect-[4/3]", width: "24rem" },
+  { src: gBottleStickers, alt: "OneStaff teal water bottle decorated with branded sticker pack", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: gYogaBag, alt: "OneStaff branded duffel and yoga mat heading into a wellness studio", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: gMassageNurse, alt: "Nurse using OneStaff-branded massage gun on her shoulder at home", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: gSlingTulsa, alt: "OneStaff stay osm sling bag at a Tulsa parade", ratio: "aspect-[4/5]", width: "18rem" },
+  { src: gCozyKitBedside, alt: "OneStaff Cozy Time kit styled at a bedside — eye mask, fuzzy socks, candle, mug", ratio: "aspect-[4/5]", width: "18rem" },
+  { src: gScarfAirportGuy, alt: "Traveler in denim jacket with OneStaff checkered smiley scarf at the gate", ratio: "aspect-[3/4]", width: "16rem" },
 ];
 
 const galleryRowTwo: GalleryItem[] = [
-  { src: cozyKitImage, alt: "Cozy Time holiday kit styled flat", ratio: "aspect-[3/4]", width: "16rem" },
-  { src: heroImage, alt: "Sunrise van life with branded blanket", ratio: "aspect-[1/1]", width: "20rem" },
-  { src: scarfImage, alt: "Travel nurse in airport with checkered scarf", ratio: "aspect-[16/10]", width: "26rem" },
-  { src: holidayBoxImage, alt: "Holiday box opened with Wake Up to New Adventures card", ratio: "aspect-[3/4]", width: "16rem" },
-  { src: nursesWeekImage, alt: "BLENDi blender in use, ocean view", ratio: "aspect-[5/4]", width: "22rem" },
-  { src: bottleImage, alt: "Sticker-decorated OneStaff bottle close up", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: gCozyKitFlat, alt: "OneStaff Cozy Kit flat lay — fuzzy socks and branded eye mask", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: gCheckeredTote, alt: "OneStaff checkered quilted tote with smiley patch on a graffitied checker floor", ratio: "aspect-[4/5]", width: "18rem" },
+  { src: gPhoneGloves, alt: "OneStaff branded touchscreen gloves scrolling Instagram", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: gCoolerNeutral, alt: "Custom OneStaff van-graphic insulated lunch cooler, product detail", ratio: "aspect-[4/5]", width: "18rem" },
+  { src: gTrackerPhone, alt: "OneStaff Bluetooth tracker held next to a phone in pairing mode", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: gScarfClose, alt: "Macro detail of the OneStaff black and white checkered scarf weave", ratio: "aspect-[4/5]", width: "18rem" },
+  { src: gTrackerSky, alt: "OneStaff Bluetooth tracker held against a clear blue sky", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: gBagTracker, alt: "OneStaff tracker clipped to the front of a black backpack", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: gCapCity, alt: "OneStaff branded corduroy cap worn on a downtown city walk", ratio: "aspect-[4/3]", width: "24rem" },
 ];
 
 function Placeholder({ label, ratio = "aspect-[4/3]" }: { label: string; ratio?: string }) {
