@@ -300,12 +300,12 @@ export default function CaseStudyOnestaff() {
       {/* Scrolling Gallery */}
       <section className="bg-[#0a0a0a] text-white py-20 md:py-28 overflow-hidden">
         <div className="max-w-6xl mx-auto px-8 md:px-16 lg:px-20 mb-12 md:mb-14">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 block mb-4">From the Field</span>
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 block mb-4">Out On Contract</span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-5" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            The Work, In the Wild.
+            The Merch, Out <br className="hidden md:block" />In the Wanderlust.
           </h2>
           <p className="text-base md:text-lg text-[#aaa] leading-relaxed max-w-2xl">
-            Product detail, packaging, and the photos that started rolling in once the boxes hit the road.
+            Product detail, packaging, and the unsolicited photos that started rolling in once the kits hit hospital break rooms, airport gates, and the long drive between contracts.
           </p>
         </div>
 
