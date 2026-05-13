@@ -225,8 +225,8 @@ export default function CaseStudyOnestaff() {
               <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">Days, design to doorstep</div>
             </div>
             <div className="bg-white text-black rounded-2xl p-6 md:p-7 text-center">
-              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>4.8/5</div>
-              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">Internal satisfaction score</div>
+              <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>97%</div>
+              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">Address accuracy on first ship</div>
             </div>
           </div>
 
