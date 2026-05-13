@@ -61,7 +61,7 @@ const articleJsonLd = {
   "@type": "Article",
   headline: "TravCon — Event Merch & Booth Activation for OneStaff Medical",
   description:
-    "How Merch Club designed and produced OneStaff Medical's full event merch program for TravCon — the largest annual gathering of travel healthcare professionals — from booth apparel to premium giveaways, recruiter swag, and limited-edition Vegas drops.",
+    "How Merch Club designed and produced OneStaff Medical's full event merch program for TravCon — an 80s retro, rainbow-stripe booth with crossbody bags, bucket hats, compression socks, slap koozies, and luggage tags, plus a limited retro tracksuit capsule, all built and shipped to Las Vegas as one production.",
   datePublished: "2026-05-12",
   author: { "@type": "Organization", name: "Merch Club" },
   publisher: {
@@ -84,7 +84,7 @@ export default function CaseStudyOnestaffEvents() {
     <div className="min-h-screen bg-white text-black">
       <SEO
         title="TravCon — Event Merch & Booth Activation for OneStaff Medical"
-        description="Merch Club ran OneStaff Medical's full event program at TravCon — booth apparel, premium giveaways, recruiter swag, and a limited Vegas drop, all built and shipped to Las Vegas as one production."
+        description="Merch Club ran OneStaff Medical's full event program at TravCon — an 80s retro, rainbow-stripe booth with branded crossbody bags, bucket hats, compression socks, slap koozies, and luggage tags, plus a limited retro tracksuit capsule, all built and shipped to Las Vegas as one production."
         path="/case-studies/events"
         type="article"
         keywords="event merch case study, trade show merch, TravCon, travel nurse conference, branded booth giveaways, recruiter swag, healthcare staffing event, OneStaff Medical"
@@ -181,10 +181,10 @@ export default function CaseStudyOnestaffEvents() {
           <div className="mb-12">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Program 1 — The Booth</span>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              A Booth That Pulled People in from Three Aisles Away.
+              An 80s Retro Booth That Pulled People in from Three Aisles Away.
             </h2>
             <p className="text-base md:text-lg text-[#444] leading-relaxed max-w-3xl">
-              Booth apparel for the OneStaff team, recruiter polos, branded counter graphics, and a tiered giveaway strategy — small grab-and-go items at the front, premium pieces saved for the recruiters to hand out as the conversation got real.
+              One creative direction ran the entire program — 80s retro with a rainbow stripe pulled through every piece, from the backdrops to the booth fits to the giveaways. The on-floor lineup: a colorful crossbody bag, branded luggage tags, a slap koozie, compression socks for the long flight home, and the bucket hat that ended up on every other head by day two.
             </p>
           </div>
 
@@ -195,7 +195,7 @@ export default function CaseStudyOnestaffEvents() {
             </div>
             <div className="bg-[#f5f5f5] rounded-2xl p-6 md:p-7 text-center">
               <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>14</div>
-              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">SKUs across the on-site program</div>
+              <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-[#666] leading-tight">SKUs across the booth giveaway lineup</div>
             </div>
             <div className="bg-[#f5f5f5] rounded-2xl p-6 md:p-7 text-center">
               <div className="text-5xl md:text-6xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>0</div>
@@ -230,10 +230,10 @@ export default function CaseStudyOnestaffEvents() {
           <div className="mb-12">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 block mb-4">Program 2 — Vegas Drop</span>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              A Limited Drop Built to Leave the Show Floor.
+              The Retro Tracksuit Capsule That Sold Out by Saturday.
             </h2>
             <p className="text-base md:text-lg text-[#aaa] leading-relaxed max-w-3xl">
-              Alongside the booth program we built a limited Vegas-themed drop — apparel and accessories nurses would actually want to wear back home, not stuff in the bottom of a suitcase. Sized intentionally short so it sold out by Saturday and gave the brand a scarcity moment instead of a leftover-inventory problem.
+              The 80s direction kept going into a limited capsule — a full retro tracksuit in OneStaff's rainbow stripe, paired with a custom gold chain medallion and matching tee. Hero pieces, sized intentionally short, designed for the team to wear on the floor and for nurses to take home as the moment of the show — not stuff in the bottom of a suitcase.
             </p>
           </div>
 
@@ -284,7 +284,7 @@ export default function CaseStudyOnestaffEvents() {
             It's all in the details.
           </p>
           <p className="text-base md:text-lg text-[#aaa] leading-relaxed max-w-2xl">
-            Booth apparel, premium giveaways, recruiter swag, and a limited Vegas drop — every piece designed for OneStaff's brand and built for one week in Las Vegas where the whole industry is watching.
+            One 80s retro creative direction, run end-to-end — rainbow-stripe backdrops, the crossbody-bag-and-bucket-hat giveaway lineup, recruiter fits, and the full tracksuit capsule, all built for one week in Las Vegas where the whole industry is watching.
           </p>
         </div>
 
