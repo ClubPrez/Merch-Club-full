@@ -277,7 +277,7 @@ export default function CaseStudyOnestaff() {
         <div className="max-w-3xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">How We Ran It</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-black mb-8" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            Design → Production → Delivery, All Under One Roof.
+            Design → Production → Delivery,<br />All Under One Roof.
           </h2>
           <ol className="space-y-5">
             {[
