@@ -285,7 +285,7 @@ export default function CaseStudyOnestaff() {
               "Sourcing & sampling — sourced product, pulled physical samples for sign-off, and locked decoration methods before scaling.",
               "Production — managed printing, embroidery, and finished-goods QC across multiple suppliers as a single program.",
               "Kitting & packaging — assembled every box by hand against a packing spec so the unboxing was identical from kit #1 to kit #1,650.",
-              "Per-nurse delivery — pulled the latest assignment addresses from OneStaff and shipped direct to each nurse, with tracking handed back as a single report.",
+              "Per-nurse delivery — built a redemption portal that let each nurse confirm their current address from their phone, eliminating bad-data ship-outs before they happened. Direct-to-door delivery with tracking handed back as a single report.",
               "Reporting — closed each program with a one-page recap: shipped, delivered, returned, and reorder candidates for next season.",
             ].map((step, i) => (
               <li key={i} className="flex gap-5 items-start">
