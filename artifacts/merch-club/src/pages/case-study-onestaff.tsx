@@ -13,6 +13,26 @@ import holidayBoxImage from "@assets/Logo_Corrected_Happy_Holiday_1778005396970.
 import cozyKitImage from "@assets/Cozy_Time_Kit_1778004541901.png";
 import testimonialPhoto from "@assets/OneStaff-Test_1778691015027.png";
 
+type GalleryItem = { src: string; alt: string; ratio: string; width: string };
+
+const galleryRowOne: GalleryItem[] = [
+  { src: heroImage, alt: "Travel nurse at sunrise with branded blanket", ratio: "aspect-[16/10]", width: "26rem" },
+  { src: bottleImage, alt: "OneStaff sticker bottle held up to camera", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: holidayBoxImage, alt: "OneStaff holiday gift box opened", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: nursesWeekImage, alt: "BLENDi van-side smoothie moment", ratio: "aspect-[1/1]", width: "20rem" },
+  { src: scarfImage, alt: "Airport scarf shot — #weareonestaff", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: cozyKitImage, alt: "Cozy Time holiday kit detail", ratio: "aspect-[5/4]", width: "22rem" },
+];
+
+const galleryRowTwo: GalleryItem[] = [
+  { src: cozyKitImage, alt: "Cozy Time holiday kit styled flat", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: heroImage, alt: "Sunrise van life with branded blanket", ratio: "aspect-[1/1]", width: "20rem" },
+  { src: scarfImage, alt: "Travel nurse in airport with checkered scarf", ratio: "aspect-[16/10]", width: "26rem" },
+  { src: holidayBoxImage, alt: "Holiday box opened with Wake Up to New Adventures card", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: nursesWeekImage, alt: "BLENDi blender in use, ocean view", ratio: "aspect-[5/4]", width: "22rem" },
+  { src: bottleImage, alt: "Sticker-decorated OneStaff bottle close up", ratio: "aspect-[3/4]", width: "16rem" },
+];
+
 function Placeholder({ label, ratio = "aspect-[4/3]" }: { label: string; ratio?: string }) {
   return (
     <div className={`${ratio} w-full rounded-2xl bg-[#eee] border border-black/10 flex items-center justify-center text-[#888] text-xs font-bold uppercase tracking-[0.2em] text-center px-6`}>
@@ -248,6 +268,58 @@ export default function CaseStudyOnestaff() {
                 loading="lazy"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Scrolling Gallery */}
+      <section className="bg-[#0a0a0a] text-white py-20 md:py-28 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-8 md:px-16 lg:px-20 mb-12 md:mb-14">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 block mb-4">From the Field</span>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-5" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+            The Work, In the Wild.
+          </h2>
+          <p className="text-base md:text-lg text-[#aaa] leading-relaxed max-w-2xl">
+            Product detail, packaging, and the photos that started rolling in once the boxes hit the road.
+          </p>
+        </div>
+
+        <style>{`
+          @keyframes mc-marquee-left { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-50%,0,0); } }
+          @keyframes mc-marquee-right { 0% { transform: translate3d(-50%,0,0); } 100% { transform: translate3d(0,0,0); } }
+          .mc-marquee-row { display: flex; width: max-content; gap: 1.25rem; will-change: transform; }
+          .mc-marquee-track-l { animation: mc-marquee-left 60s linear infinite; }
+          .mc-marquee-track-r { animation: mc-marquee-right 75s linear infinite; }
+          .mc-marquee:hover .mc-marquee-row { animation-play-state: paused; }
+          @media (prefers-reduced-motion: reduce) {
+            .mc-marquee-track-l, .mc-marquee-track-r { animation: none; }
+          }
+        `}</style>
+
+        <div className="mc-marquee space-y-5">
+          {/* Row 1 — left */}
+          <div className="mc-marquee-row mc-marquee-track-l">
+            {[...galleryRowOne, ...galleryRowOne].map((g, i) => (
+              <div
+                key={`r1-${i}`}
+                className={`${g.ratio} shrink-0 rounded-xl overflow-hidden bg-white/5 border border-white/10`}
+                style={{ width: g.width }}
+              >
+                <img src={g.src} alt={g.alt} className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            ))}
+          </div>
+          {/* Row 2 — right */}
+          <div className="mc-marquee-row mc-marquee-track-r">
+            {[...galleryRowTwo, ...galleryRowTwo].map((g, i) => (
+              <div
+                key={`r2-${i}`}
+                className={`${g.ratio} shrink-0 rounded-xl overflow-hidden bg-white/5 border border-white/10`}
+                style={{ width: g.width }}
+              >
+                <img src={g.src} alt={g.alt} className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
