@@ -7,7 +7,7 @@ import { SiteHeader } from "@/components/site-header";
 import heroImage from "@assets/Blanket_4_1778000748265.png";
 import nursesWeekImage from "@assets/BLENDi_2_1778000814932.png";
 import bottleImage from "@assets/653849757_902181562799830_4065228705558207715_n_1778001045823.jpg";
-import scarfImage from "@assets/scarf_airport_1778001045823.png";
+import scarfImage from "@assets/ChatGPT_Image_May_5,_2026,_04_03_04_PM_1778691070029.png";
 import onestaffLogo from "@assets/Social_PostsArtboard_1_copy@3x_1778001408621.png";
 import holidayBoxImage from "@assets/Logo_Corrected_Happy_Holiday_1778005396970.png";
 import cozyKitImage from "@assets/Cozy_Time_Kit_1778004541901.png";
