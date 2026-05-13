@@ -11,6 +11,7 @@ import scarfImage from "@assets/scarf_airport_1778001045823.png";
 import onestaffLogo from "@assets/Social_PostsArtboard_1_copy@3x_1778001408621.png";
 import holidayBoxImage from "@assets/Logo_Corrected_Happy_Holiday_1778005396970.png";
 import cozyKitImage from "@assets/Cozy_Time_Kit_1778004541901.png";
+import testimonialPhoto from "@assets/OneStaff-Test_1778691015027.png";
 
 function Placeholder({ label, ratio = "aspect-[4/3]" }: { label: string; ratio?: string }) {
   return (
@@ -261,9 +262,12 @@ export default function CaseStudyOnestaff() {
             "Yo. The traveler holiday gifts were a hit. Merch Club made the process easy, brought us ideas that didn't feel cookie-cutter, and helped us send something that actually felt thoughtful. That's always the bar for us, and they nailed it."
           </blockquote>
           <div className="flex items-center justify-center gap-4">
-            <div className="w-14 h-14 rounded-full bg-[#eee] border border-black/10 flex items-center justify-center text-[#888] text-[10px] font-bold uppercase tracking-[0.15em]">
-              Photo
-            </div>
+            <img
+              src={testimonialPhoto}
+              alt="Marketing Director, OneStaff Medical"
+              className="w-14 h-14 rounded-full object-cover border border-black/10"
+              loading="lazy"
+            />
             <div className="text-left">
               <div className="text-sm md:text-base font-bold text-black leading-tight">Marketing Director</div>
               <div className="text-xs md:text-sm text-[#666] leading-tight mt-0.5">OneStaff Medical</div>
