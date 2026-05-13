@@ -26,7 +26,7 @@ import gMassageNurse from "@assets/massage_nurse_1778691486694.png";
 import gTrackerSky from "@assets/OneStaff__1_Sky_1778691486694.png";
 import gTrackerPhone from "@assets/OneStaff__8_Phone_Tracker_1778691486695.png";
 import gBagTracker from "@assets/OneStaff_Bag_Mockup_1778691486695.png";
-import gScarfTraveler from "@assets/Scarf_2_1778691486695.png";
+import gScarfTraveler from "@assets/tote_vw_bus_1778692208474.png";
 import gScarfClose from "@assets/Scarf_Close_up_1778691486695.png";
 import gCapCity from "@assets/STYA_3_1778691486695.png";
 import gScarfAirportGuy from "@assets/ChatGPT_Image_May_5,_2026,_04_03_04_PM_1778691486695.png";
@@ -36,7 +36,7 @@ type GalleryItem = { src: string; alt: string; ratio: string; width: string };
 
 const galleryRowOne: GalleryItem[] = [
   { src: gSpeakerLake, alt: "OneStaff #weareOSM speaker held up at a lakeside campfire", ratio: "aspect-[3/4]", width: "16rem" },
-  { src: gScarfTraveler, alt: "Traveler walking through airport with checkered OneStaff scarf and rolling bag", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: gScarfTraveler, alt: "Travel nurse with OneStaff duffel sitting in vintage VW bus doorway overlooking the Pacific coast", ratio: "aspect-[3/4]", width: "16rem" },
   { src: gCoolerBreakroom, alt: "Nurses in break room laughing around an OneStaff van-graphic lunch cooler", ratio: "aspect-[4/3]", width: "24rem" },
   { src: gBottleStickers, alt: "OneStaff teal water bottle decorated with branded sticker pack", ratio: "aspect-[3/4]", width: "16rem" },
   { src: gYogaBag, alt: "OneStaff branded duffel and yoga mat heading into a wellness studio", ratio: "aspect-[3/4]", width: "16rem" },
