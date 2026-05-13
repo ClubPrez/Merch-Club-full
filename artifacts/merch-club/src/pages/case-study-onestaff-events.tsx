@@ -52,7 +52,7 @@ function PlaceholderDark({ label, ratio = "aspect-[4/3]" }: { label: string; rat
 const breadcrumbs = [
   { label: "Home", href: "/" },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "TravCon", href: "/case-studies/onestaff-travcon" },
+  { label: "Events — TravCon", href: "/case-studies/events" },
 ];
 
 const articleJsonLd = {
@@ -68,11 +68,11 @@ const articleJsonLd = {
     name: "Merch Club",
     logo: { "@type": "ImageObject", url: "https://merchclub.replit.app/opengraph.jpg" },
   },
-  mainEntityOfPage: "https://merchclub.replit.app/case-studies/onestaff-travcon",
+  mainEntityOfPage: "https://merchclub.replit.app/case-studies/events",
   about: "Event Merchandise",
 };
 
-export default function CaseStudyOnestaffTravcon() {
+export default function CaseStudyOnestaffEvents() {
   const [projectModalOpen, setProjectModalOpen] = useState(false);
 
   useEffect(() => {
@@ -84,7 +84,7 @@ export default function CaseStudyOnestaffTravcon() {
       <SEO
         title="TravCon — Event Merch & Booth Activation for OneStaff Medical"
         description="Merch Club ran OneStaff Medical's full event program at TravCon — booth apparel, premium giveaways, recruiter swag, and a limited Vegas drop, all built and shipped to Las Vegas as one production."
-        path="/case-studies/onestaff-travcon"
+        path="/case-studies/events"
         type="article"
         keywords="event merch case study, trade show merch, TravCon, travel nurse conference, branded booth giveaways, recruiter swag, healthcare staffing event, OneStaff Medical"
         jsonLd={[buildBreadcrumbJsonLd(breadcrumbs), articleJsonLd]}

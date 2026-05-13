@@ -72,7 +72,7 @@ export const industries: Industry[] = [
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "onestaff-travcon",
+    slug: "events",
     client: "OneStaff Medical",
     industry: "Events",
     industrySlug: "events",
