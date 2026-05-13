@@ -13,6 +13,8 @@ import boothChain from "@assets/461204439_18297032584205370_9064317744138119949_
 import boothBuckets from "@assets/461238290_18297032536205370_6473409173115033458_n_1778693892845.jpg";
 import vegasDropSolo from "@assets/485771444_1048758360618545_372803450094697544_n_1778693892845.jpg";
 import vegasDropGroup from "@assets/ChatGPT_Image_Apr_30,_2026,_01_33_52_PM_1778693937978.png";
+import giftSocks from "@assets/Resized_20240912_104004_1726158192626_2_1778694501183.JPG";
+import giftBucketHat from "@assets/Resized_20240912_103951_1726158181668_2_1778694501183.JPG";
 
 type GalleryItem = { src: string; alt: string; ratio: string; width: string };
 
@@ -203,7 +205,7 @@ export default function CaseStudyOnestaffEvents() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-16 md:mb-20">
             <div className="aspect-[3/4] w-full rounded-2xl overflow-hidden bg-[#eee] border border-black/10">
               <img
                 src={boothChain}
@@ -219,6 +221,71 @@ export default function CaseStudyOnestaffEvents() {
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
+            </div>
+          </div>
+
+          {/* The Lineup — what we gave away */}
+          <div>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">The Lineup</span>
+            <h3 className="text-2xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-black mb-10 md:mb-12 max-w-3xl" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              Five Pieces, One Rainbow Stripe.
+            </h3>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
+              {/* Bucket Hat — real photo */}
+              <div>
+                <div className="aspect-square w-full rounded-2xl overflow-hidden bg-[#f5f5f5] border border-black/10 mb-3">
+                  <img
+                    src={giftBucketHat}
+                    alt="OneStaff TravCon bucket hat — swirling rainbow print on top, mini OneStaff logo lining underneath"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="text-[11px] md:text-xs font-bold uppercase tracking-[0.18em] text-black mb-1">Bucket Hat</div>
+                <div className="text-xs text-[#666] leading-snug">All-over swirl print with a hidden mini-logo lining.</div>
+              </div>
+
+              {/* Compression Socks — real photo */}
+              <div>
+                <div className="aspect-square w-full rounded-2xl overflow-hidden bg-[#f5f5f5] border border-black/10 mb-3">
+                  <img
+                    src={giftSocks}
+                    alt="OneStaff branded rainbow stripe compression socks in clear retail packaging"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="text-[11px] md:text-xs font-bold uppercase tracking-[0.18em] text-black mb-1">Compression Socks</div>
+                <div className="text-xs text-[#666] leading-snug">Rainbow stripe knit, retail-bagged for the long flight home.</div>
+              </div>
+
+              {/* Crossbody Bag — placeholder */}
+              <div>
+                <div className="aspect-square w-full rounded-2xl bg-[#f5f5f5] border border-black/10 mb-3 flex items-center justify-center text-center px-4">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999]">Photo coming</span>
+                </div>
+                <div className="text-[11px] md:text-xs font-bold uppercase tracking-[0.18em] text-black mb-1">Crossbody Bag</div>
+                <div className="text-xs text-[#666] leading-snug">The colorful pull-from-the-aisle hero — biggest take-home of the show.</div>
+              </div>
+
+              {/* Luggage Tags — placeholder */}
+              <div>
+                <div className="aspect-square w-full rounded-2xl bg-[#f5f5f5] border border-black/10 mb-3 flex items-center justify-center text-center px-4">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999]">Photo coming</span>
+                </div>
+                <div className="text-[11px] md:text-xs font-bold uppercase tracking-[0.18em] text-black mb-1">Luggage Tags</div>
+                <div className="text-xs text-[#666] leading-snug">A grab-and-go that ends up on every nurse's bag flying home.</div>
+              </div>
+
+              {/* Slap Koozie — placeholder */}
+              <div>
+                <div className="aspect-square w-full rounded-2xl bg-[#f5f5f5] border border-black/10 mb-3 flex items-center justify-center text-center px-4">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999]">Photo coming</span>
+                </div>
+                <div className="text-[11px] md:text-xs font-bold uppercase tracking-[0.18em] text-black mb-1">Slap Koozie</div>
+                <div className="text-xs text-[#666] leading-snug">The fun, snap-on-your-wrist piece that doubled as walking advertising.</div>
+              </div>
             </div>
           </div>
         </div>
