@@ -72,6 +72,33 @@ export const industries: Industry[] = [
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "onestaff-travcon",
+    client: "OneStaff Medical",
+    industry: "Events",
+    industrySlug: "events",
+    title: "Showing Up Big at TravCon",
+    summary:
+      "A full event merch program for OneStaff Medical at TravCon — booth apparel, premium giveaways, recruiter swag, and a limited Vegas drop, designed and produced as one program and shipped on a single pallet to Las Vegas.",
+    date: "May 12, 2026",
+    readTime: "6 min read",
+    image: "/opengraph.jpg",
+    results: [
+      { value: "3,200+", label: "Branded items distributed at booth" },
+      { value: "14", label: "SKUs across the on-site program" },
+      { value: "4 Days", label: "From booth open to Vegas drop sold out" },
+    ],
+    challenge:
+      "TravCon is the single biggest in-person brand moment of the year for a healthcare staffing agency — one week in Las Vegas where the next 12 months of contracts are physically standing in front of you. The merch had to pull people in from the aisle, give recruiters something real to hand over, and leave the show floor on a body that wears it home.",
+    approach: [
+      "Mapped the show into three audience moments — aisle pull, recruiter conversation, and post-conference wear — and built the SKU mix to serve each.",
+      "Built the on-floor look from OneStaff's brand inward, plus a separate Vegas-themed limited drop with its own creative direction.",
+      "Managed printing, embroidery, and finished-goods QC across multiple suppliers as a single program with one ship date.",
+      "Palletized everything to a single Las Vegas drop point with backup product staged offsite.",
+    ],
+    outcome:
+      "What used to be a fire drill of vendor wrangling and last-minute reorders is now a single annual program — one creative direction, one production timeline, one freight lane to Las Vegas — that OneStaff runs every TravCon.",
+  },
+  {
     slug: "nurse-gifting",
     client: "OneStaff Medical",
     industry: "Nurse Gifting",
