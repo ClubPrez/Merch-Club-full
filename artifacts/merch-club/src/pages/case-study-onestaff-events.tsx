@@ -299,35 +299,60 @@ export default function CaseStudyOnestaffEvents() {
               The giveaways were sequenced as a three-day return strategy. Not a swag bowl. A reason to come back.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
-              <div className="bg-white border border-black/10 rounded-2xl p-6 md:p-7">
-                <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#888] mb-3">Day 1</div>
-                <div
-                  className="text-2xl md:text-3xl font-black tracking-tight text-black mb-2 leading-tight"
-                  style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-                >
-                  Reversible Bucket Caps
+              <div className="bg-white border border-black/10 rounded-2xl overflow-hidden">
+                <div className="aspect-[4/3] w-full bg-[#f5f5f5] overflow-hidden">
+                  <img
+                    src={giftBucketHat}
+                    alt="Day 1 giveaway — OneStaff TravCon reversible bucket cap with all-over swirl print"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
-                <p className="text-sm text-[#666] leading-snug">The Instagram-able hook — posted from the hotel room that night.</p>
+                <div className="p-6 md:p-7">
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#888] mb-3">Day 1</div>
+                  <div
+                    className="text-2xl md:text-3xl font-black tracking-tight text-black mb-2 leading-tight"
+                    style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                  >
+                    Reversible Bucket Caps
+                  </div>
+                  <p className="text-sm text-[#666] leading-snug">The Instagram-able hook — posted from the hotel room that night.</p>
+                </div>
               </div>
-              <div className="bg-white border border-black/10 rounded-2xl p-6 md:p-7">
-                <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#888] mb-3">Day 2</div>
-                <div
-                  className="text-2xl md:text-3xl font-black tracking-tight text-black mb-2 leading-tight"
-                  style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-                >
-                  Custom Socks &amp; Fanny Packs
+              <div className="bg-white border border-black/10 rounded-2xl overflow-hidden">
+                <div className="aspect-[4/3] w-full bg-[#f5f5f5] overflow-hidden">
+                  <img
+                    src={giftSocks}
+                    alt="Day 2 giveaway — OneStaff custom rainbow stripe compression socks in retail packaging"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
-                <p className="text-sm text-[#666] leading-snug">The piece that brings them back to find out what's next.</p>
+                <div className="p-6 md:p-7">
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#888] mb-3">Day 2</div>
+                  <div
+                    className="text-2xl md:text-3xl font-black tracking-tight text-black mb-2 leading-tight"
+                    style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                  >
+                    Custom Socks &amp; Fanny Packs
+                  </div>
+                  <p className="text-sm text-[#666] leading-snug">The piece that brings them back to find out what's next.</p>
+                </div>
               </div>
-              <div className="bg-white border border-black/10 rounded-2xl p-6 md:p-7">
-                <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#888] mb-3">Day 3</div>
-                <div
-                  className="text-2xl md:text-3xl font-black tracking-tight text-black mb-2 leading-tight"
-                  style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-                >
-                  Cassette Bluetooth Speakers
+              <div className="bg-white border border-black/10 rounded-2xl overflow-hidden">
+                <div className="aspect-[4/3] w-full bg-[#eee] flex items-center justify-center">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999]">Photo coming</span>
                 </div>
-                <p className="text-sm text-[#666] leading-snug">Plus charging cords and scrunchies — the hero piece nobody throws away.</p>
+                <div className="p-6 md:p-7">
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#888] mb-3">Day 3</div>
+                  <div
+                    className="text-2xl md:text-3xl font-black tracking-tight text-black mb-2 leading-tight"
+                    style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                  >
+                    Cassette Bluetooth Speakers
+                  </div>
+                  <p className="text-sm text-[#666] leading-snug">Plus charging cords and scrunchies — the hero piece nobody throws away.</p>
+                </div>
               </div>
             </div>
             <p className="text-sm md:text-base text-[#555] leading-relaxed mt-5 max-w-3xl">
