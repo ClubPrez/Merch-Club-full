@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { IndustriesMegaMenu } from "./industries-mega-menu";
+import { CaseStudiesMenu } from "./case-studies-menu";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 
 interface Props {
@@ -12,7 +13,6 @@ const NAV_LINKS: { label: string; href: string; xlOnly?: boolean }[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Case Studies", href: "/case-studies" },
   { label: "Learning Center", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
@@ -31,6 +31,7 @@ export function SiteHeader({ onStartProject, onOpenSearch }: Props) {
   };
 
   const industriesActive = location.startsWith("/industries");
+  const caseStudiesActive = location.startsWith("/case-studies");
 
   return (
     <>
@@ -59,6 +60,7 @@ export function SiteHeader({ onStartProject, onOpenSearch }: Props) {
               );
             })}
             <IndustriesMegaMenu active={industriesActive} />
+            <CaseStudiesMenu active={caseStudiesActive} />
             {NAV_LINKS.slice(3).map((link) => {
               const cls = link.xlOnly ? "hidden xl:inline-flex" : "";
               return isActive(link.href) ? (
@@ -134,6 +136,13 @@ export function SiteHeader({ onStartProject, onOpenSearch }: Props) {
               className={`text-sm font-bold uppercase tracking-widest ${industriesActive ? "text-white" : "text-[#a3a3a3]"} hover:text-white transition-colors`}
             >
               Industries
+            </Link>
+            <Link
+              href="/case-studies"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`text-sm font-bold uppercase tracking-widest ${caseStudiesActive ? "text-white" : "text-[#a3a3a3]"} hover:text-white transition-colors`}
+            >
+              Case Studies
             </Link>
             {NAV_LINKS.slice(3).map((link) => (
               <Link
