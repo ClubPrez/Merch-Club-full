@@ -17,6 +17,7 @@ import fansInMerch from "@assets/461192265_18297032566205370_4281744550923113286
 import boothGroupSelfie from "@assets/461204431_18297032518205370_2485932339959836626_n_1778780735807.jpg";
 import crossBodyBag from "@assets/ChatGPT_Image_May_14,_2026,_12_52_53_PM_1778781310578.png";
 import socksKneeHigh from "@assets/ChatGPT_Image_May_14,_2026,_01_00_46_PM_1778781706190.png";
+import luggageTags from "@assets/ChatGPT_Image_May_14,_2026,_01_04_00_PM_1778781857816.png";
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -54,7 +55,7 @@ const carouselRowOne: CarouselItem[] = [
   { kind: "label", label: "Letz Ride /\nParty Wagon Stickers", width: "480px", ratio: "aspect-[4/3]" },
   { kind: "image", src: crossBodyBag, alt: "Custom OneStaff cross-body bag with retro stripe pattern and branded webbing strap — front and back views", width: "520px", ratio: "aspect-[4/3]", tone: "light" },
   { kind: "image", src: vegasDropGroup, alt: "Track jacket back graphic in the team kit", width: "380px", ratio: "aspect-[4/5]" },
-  { kind: "label", label: "Record-Cut\nLuggage Tags", width: "380px", ratio: "aspect-square" },
+  { kind: "image", src: luggageTags, alt: "Custom record-cut luggage tags — vinyl-record shape with retro Party Wagon graphic on the front and name/address fields on the back", width: "480px", ratio: "aspect-[4/3]", tone: "light" },
 ];
 
 const carouselRowTwo: CarouselItem[] = [
