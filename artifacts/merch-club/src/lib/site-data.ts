@@ -76,9 +76,9 @@ export const caseStudies: CaseStudy[] = [
     client: "OneStaff Medical",
     industry: "Events",
     industrySlug: "events",
-    title: "Showing Up Big at TravCon",
+    title: "The Booth No One Stopped Talking About",
     summary:
-      "A full event merch program for OneStaff Medical at TravCon — booth apparel, premium giveaways, recruiter swag, and a limited Vegas drop, designed and produced as one program and shipped on a single pallet to Las Vegas.",
+      "How an 80's hip hop themed activation made OneStaff Medical the most talked-about booth at the biggest healthcare recruiting trade show — beating bigger budgets by 10x.",
     date: "May 12, 2026",
     readTime: "6 min read",
     image: "/opengraph.jpg",
