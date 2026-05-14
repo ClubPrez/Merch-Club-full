@@ -12,9 +12,6 @@ import boothBuckets from "@assets/461238290_18297032536205370_647340917311503345
 import vegasDropSolo from "@assets/485771444_1048758360618545_372803450094697544_n_1778693892845.jpg";
 import vegasDropGroup from "@assets/ChatGPT_Image_Apr_30,_2026,_01_33_52_PM_1778693937978.png";
 import giftBucketHat from "@assets/ChatGPT_Image_May_14,_2026,_12_56_49_PM_1778781428658.png";
-import teamFiveBanner from "@assets/461092537_18297032548205370_1790799881044431646_n_1778780735805.jpg";
-import fansInMerch from "@assets/461192265_18297032566205370_4281744550923113286_n_1778780735807.jpg";
-import boothGroupSelfie from "@assets/461204431_18297032518205370_2485932339959836626_n_1778780735807.jpg";
 import crossBodyBag from "@assets/ChatGPT_Image_May_14,_2026,_12_52_53_PM_1778781310578.png";
 import socksKneeHigh from "@assets/ChatGPT_Image_May_14,_2026,_01_00_46_PM_1778781706190.png";
 import luggageTags from "@assets/ChatGPT_Image_May_14,_2026,_01_04_00_PM_1778781857816.png";
@@ -42,36 +39,6 @@ const articleJsonLd = {
   mainEntityOfPage: "https://merchclub.replit.app/case-studies/events",
   about: "Healthcare Trade Show Activation",
 };
-
-type CarouselItem =
-  | { kind: "image"; src: string; alt: string; width: string; ratio: string; tone?: "light" }
-  | { kind: "label"; label: string; width: string; ratio: string };
-
-const carouselRowOne: CarouselItem[] = [
-  { kind: "image", src: boothWide, alt: "OneStaff TravCon booth in motion", width: "600px", ratio: "aspect-[16/10]" },
-  { kind: "label", label: "Awesome Mixtape\nBluetooth Speaker", width: "380px", ratio: "aspect-square" },
-  { kind: "image", src: giftBucketHat, alt: "Reversible bucket cap with all-over swirl print and OneStaff icon repeat lining", width: "380px", ratio: "aspect-[4/3]", tone: "light" },
-  { kind: "image", src: teamFiveBanner, alt: "Five-person OneStaff team in the full retro hip hop kit in front of the brand banner", width: "440px", ratio: "aspect-[4/5]" },
-  { kind: "image", src: boothChain, alt: "Recruiter in champ chain at the booth", width: "360px", ratio: "aspect-[3/4]" },
-  { kind: "label", label: "Letz Ride /\nParty Wagon Stickers", width: "480px", ratio: "aspect-[4/3]" },
-  { kind: "image", src: crossBodyBag, alt: "Custom OneStaff cross-body bag with retro stripe pattern and branded webbing strap — front and back views", width: "520px", ratio: "aspect-[4/3]", tone: "light" },
-  { kind: "image", src: vegasDropGroup, alt: "Track jacket back graphic in the team kit", width: "380px", ratio: "aspect-[4/5]" },
-  { kind: "image", src: luggageTags, alt: "Custom record-cut luggage tags — vinyl-record shape with retro Party Wagon graphic on the front and name/address fields on the back", width: "480px", ratio: "aspect-[4/3]", tone: "light" },
-];
-
-const carouselRowTwo: CarouselItem[] = [
-  { kind: "label", label: "Custom Sneaks", width: "480px", ratio: "aspect-[4/3]" },
-  { kind: "image", src: boothBuckets, alt: "Stack of bucket caps on the booth table", width: "380px", ratio: "aspect-[4/5]" },
-  { kind: "image", src: fansInMerch, alt: "TravCon attendees wearing the OneStaff bucket caps at the booth — fans rocking the merch", width: "360px", ratio: "aspect-[4/5]" },
-  { kind: "label", label: "Custom Mixtape\nInner Insert", width: "380px", ratio: "aspect-square" },
-  { kind: "image", src: boothSelfie, alt: "Team selfie at the booth — full crew in the retro hip hop kit", width: "360px", ratio: "aspect-[3/4]" },
-  { kind: "label", label: "Slap Koozies", width: "320px", ratio: "aspect-[4/5]" },
-  { kind: "image", src: socksKneeHigh, alt: "Custom OneStaff knee-high compression socks in retro stripe pattern with branded logo cuff", width: "320px", ratio: "aspect-[3/4]", tone: "light" },
-  { kind: "image", src: boothGroupSelfie, alt: "Big group selfie of the OneStaff crew and attendees throwing peace signs at the booth", width: "440px", ratio: "aspect-[4/5]" },
-  { kind: "image", src: vegasDropSolo, alt: "Custom track pants and sneaks in the team kit", width: "360px", ratio: "aspect-[3/4]" },
-  { kind: "label", label: 'Custom "Boom Box"\nBluetooth Speaker', width: "480px", ratio: "aspect-[4/3]" },
-  { kind: "label", label: "Custom Footwear\n+ Sock Program", width: "380px", ratio: "aspect-square" },
-];
 
 const services = [
   { title: "Strategy", desc: "Theme development, audience analysis, three-day giveaway sequencing." },
@@ -420,87 +387,6 @@ export default function CaseStudyOnestaffEvents() {
                 <p className="text-sm md:text-base text-[#555] leading-relaxed">{s.desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* THE PIECES — scrolling carousel */}
-      <section className="bg-[#0a0a0a] text-white py-20 md:py-28 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-8 md:px-16 lg:px-20 mb-12 md:mb-14">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 block mb-4">The Pieces</span>
-          <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-6 max-w-3xl"
-            style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-          >
-            Every Item, From the Bucket Cap to the Boom Box.
-          </h2>
-          <p className="text-base md:text-lg text-[#aaa] leading-relaxed max-w-2xl">
-            Custom cut-and-sew apparel, hard goods designed from the ground up, and on-floor activation pieces — every item built for the OneStaff x 80's hip hop activation.
-          </p>
-        </div>
-
-        <style>{`
-          @keyframes mc-pieces-left { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-50%,0,0); } }
-          @keyframes mc-pieces-right { 0% { transform: translate3d(-50%,0,0); } 100% { transform: translate3d(0,0,0); } }
-          .mc-pieces-row { display: flex; width: max-content; gap: 1.25rem; will-change: transform; }
-          .mc-pieces-track-l { animation: mc-pieces-left 65s linear infinite; }
-          .mc-pieces-track-r { animation: mc-pieces-right 80s linear infinite; }
-          .mc-pieces:hover .mc-pieces-row { animation-play-state: paused; }
-          @media (prefers-reduced-motion: reduce) {
-            .mc-pieces-track-l, .mc-pieces-track-r { animation: none; }
-          }
-        `}</style>
-
-        <div className="mc-pieces space-y-5">
-          <div className="mc-pieces-row mc-pieces-track-l">
-            {[...carouselRowOne, ...carouselRowOne].map((item, i) => {
-              const isLight = item.kind === "image" && item.tone === "light";
-              return (
-                <div
-                  key={`pr1-${i}`}
-                  className={`${item.ratio} shrink-0 rounded-xl overflow-hidden border ${isLight ? "bg-white border-white/30" : "bg-white/5 border-white/10"}`}
-                  style={{ width: item.width }}
-                >
-                  {item.kind === "image" ? (
-                    <img src={item.src} alt={item.alt} className={`w-full h-full ${isLight ? "object-contain p-4" : "object-cover"}`} loading="lazy" />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-center px-6 bg-gradient-to-br from-[#161616] to-[#0a0a0a]">
-                      <span
-                        className="text-2xl md:text-3xl font-black tracking-tight text-white leading-tight whitespace-pre-line"
-                        style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-                      >
-                        {item.label}
-                      </span>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-          <div className="mc-pieces-row mc-pieces-track-r">
-            {[...carouselRowTwo, ...carouselRowTwo].map((item, i) => {
-              const isLight = item.kind === "image" && item.tone === "light";
-              return (
-                <div
-                  key={`pr2-${i}`}
-                  className={`${item.ratio} shrink-0 rounded-xl overflow-hidden border ${isLight ? "bg-white border-white/30" : "bg-white/5 border-white/10"}`}
-                  style={{ width: item.width }}
-                >
-                  {item.kind === "image" ? (
-                    <img src={item.src} alt={item.alt} className={`w-full h-full ${isLight ? "object-contain p-4" : "object-cover"}`} loading="lazy" />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-center px-6 bg-gradient-to-br from-[#161616] to-[#0a0a0a]">
-                      <span
-                        className="text-2xl md:text-3xl font-black tracking-tight text-white leading-tight whitespace-pre-line"
-                        style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-                      >
-                        {item.label}
-                      </span>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
           </div>
         </div>
       </section>
