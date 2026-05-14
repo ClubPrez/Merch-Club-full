@@ -101,17 +101,9 @@ const teamKit = [
 
 export default function CaseStudyOnestaffEvents() {
   const [projectModalOpen, setProjectModalOpen] = useState(false);
-  const [productIndex, setProductIndex] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
-
-  useEffect(() => {
-    const id = window.setInterval(() => {
-      setProductIndex((i) => (i + 1) % productCarousel.length);
-    }, 3200);
-    return () => window.clearInterval(id);
   }, []);
 
   return (
@@ -282,37 +274,33 @@ export default function CaseStudyOnestaffEvents() {
             <p className="text-base text-[#666] mb-6 max-w-2xl">
               The giveaways were sequenced as a three-day return strategy. Not a swag bowl. A reason to come back.
             </p>
-            {/* Shared rotating product carousel */}
-            <div className="bg-white border border-black/10 rounded-2xl overflow-hidden mb-5">
-              <div className="relative aspect-[16/9] md:aspect-[21/9] w-full bg-white">
-                {productCarousel.map((p, i) => (
-                  <img
-                    key={p.label}
-                    src={p.src}
-                    alt={p.label}
-                    className={`absolute inset-0 w-full h-full object-contain p-6 md:p-10 transition-opacity duration-700 ease-in-out ${
-                      i === productIndex ? "opacity-100" : "opacity-0"
-                    }`}
-                    loading={i === 0 ? "eager" : "lazy"}
-                    aria-hidden={i !== productIndex}
-                  />
-                ))}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
-                  {productCarousel.map((p, i) => (
-                    <button
-                      key={p.label}
-                      type="button"
-                      onClick={() => setProductIndex(i)}
-                      aria-label={`Show ${p.label}`}
-                      className={`h-1.5 rounded-full transition-all ${
-                        i === productIndex ? "w-8 bg-black" : "w-3 bg-black/25 hover:bg-black/50"
-                      }`}
+            {/* Shared scrolling product marquee */}
+            <style>{`
+              @keyframes mc-products-scroll { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-50%,0,0); } }
+              .mc-products-row { display: flex; width: max-content; gap: 1.25rem; will-change: transform; animation: mc-products-scroll 45s linear infinite; }
+              .mc-products:hover .mc-products-row { animation-play-state: paused; }
+              @media (prefers-reduced-motion: reduce) {
+                .mc-products-row { animation: none; }
+              }
+            `}</style>
+            <div className="mc-products mb-5 overflow-hidden rounded-2xl border border-black/10 bg-white py-4">
+              <div className="mc-products-row">
+                {[...productCarousel, ...productCarousel].map((p, i) => (
+                  <div
+                    key={`prod-${i}`}
+                    className="shrink-0 w-[260px] md:w-[320px] aspect-square bg-white rounded-xl border border-black/5 relative overflow-hidden"
+                  >
+                    <img
+                      src={p.src}
+                      alt={p.label}
+                      className="w-full h-full object-contain p-4"
+                      loading={i === 0 ? "eager" : "lazy"}
                     />
-                  ))}
-                </div>
-                <div className="absolute top-4 left-4 md:top-5 md:left-6 inline-flex items-center px-3 py-1.5 rounded-full bg-black text-white text-[10px] md:text-[11px] font-bold uppercase tracking-[0.18em]">
-                  {productCarousel[productIndex].label}
-                </div>
+                    <div className="absolute bottom-2 left-2 inline-flex items-center px-2.5 py-1 rounded-full bg-black text-white text-[10px] font-bold uppercase tracking-[0.16em]">
+                      {p.label}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
