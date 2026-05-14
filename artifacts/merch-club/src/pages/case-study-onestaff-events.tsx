@@ -183,13 +183,21 @@ export default function CaseStudyOnestaffEvents() {
         </div>
       </section>
 
-      {/* HERO IMAGE */}
+      {/* HERO IMAGES */}
       <section className="bg-[#0a0a0a] pb-20 md:pb-24 px-8 md:px-16 lg:px-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="aspect-[16/9] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+          <div className="aspect-[3/4] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10">
             <img
-              src={boothWide}
-              alt="OneStaff Medical TravCon booth — wide shot with retro backdrops, branded tablecloth, and the full giveaway display"
+              src={boothChain}
+              alt="OneStaff recruiter at the TravCon booth in a champ chain and reversible bucket cap, attendee browsing the giveaway display in front of the travel work your own way backdrop"
+              className="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+          <div className="aspect-[3/4] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+            <img
+              src={boothSelfie}
+              alt="OneStaff team selfie at the TravCon booth — full crew in the retro hip hop kit, branded backdrop and After Party Sponsor signage in frame"
               className="w-full h-full object-cover"
               loading="eager"
             />
