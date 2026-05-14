@@ -12,7 +12,7 @@ import boothBuckets from "@assets/461238290_18297032536205370_647340917311503345
 import vegasDropSolo from "@assets/485771444_1048758360618545_372803450094697544_n_1778693892845.jpg";
 import vegasDropGroup from "@assets/ChatGPT_Image_Apr_30,_2026,_01_33_52_PM_1778693937978.png";
 import giftSocks from "@assets/Resized_20240912_104004_1726158192626_2_1778694501183.JPG";
-import giftBucketHat from "@assets/Resized_20240912_103951_1726158181668_2_1778694501183.JPG";
+import giftBucketHat from "@assets/ChatGPT_Image_May_14,_2026,_12_56_49_PM_1778781428658.png";
 import teamFiveBanner from "@assets/461092537_18297032548205370_1790799881044431646_n_1778780735805.jpg";
 import fansInMerch from "@assets/461192265_18297032566205370_4281744550923113286_n_1778780735807.jpg";
 import boothGroupSelfie from "@assets/461204431_18297032518205370_2485932339959836626_n_1778780735807.jpg";
@@ -48,7 +48,7 @@ type CarouselItem =
 const carouselRowOne: CarouselItem[] = [
   { kind: "image", src: boothWide, alt: "OneStaff TravCon booth in motion", width: "600px", ratio: "aspect-[16/10]" },
   { kind: "label", label: "Awesome Mixtape\nBluetooth Speaker", width: "380px", ratio: "aspect-square" },
-  { kind: "image", src: giftBucketHat, alt: "Reversible bucket cap", width: "360px", ratio: "aspect-[4/5]" },
+  { kind: "image", src: giftBucketHat, alt: "Reversible bucket cap with all-over swirl print and OneStaff icon repeat lining", width: "380px", ratio: "aspect-[4/3]", tone: "light" },
   { kind: "image", src: teamFiveBanner, alt: "Five-person OneStaff team in the full retro hip hop kit in front of the brand banner", width: "440px", ratio: "aspect-[4/5]" },
   { kind: "image", src: boothChain, alt: "Recruiter in champ chain at the booth", width: "360px", ratio: "aspect-[3/4]" },
   { kind: "label", label: "Letz Ride /\nParty Wagon Stickers", width: "480px", ratio: "aspect-[4/3]" },
@@ -266,11 +266,11 @@ export default function CaseStudyOnestaffEvents() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
               <div className="bg-white border border-black/10 rounded-2xl overflow-hidden">
-                <div className="aspect-[4/3] w-full bg-[#f5f5f5] overflow-hidden">
+                <div className="aspect-[4/3] w-full bg-white overflow-hidden">
                   <img
                     src={giftBucketHat}
-                    alt="Day 1 giveaway — OneStaff TravCon reversible bucket cap with all-over swirl print"
-                    className="w-full h-full object-cover"
+                    alt="Day 1 giveaway — OneStaff TravCon reversible bucket cap with all-over swirl print and icon repeat lining"
+                    className="w-full h-full object-contain p-3"
                     loading="lazy"
                   />
                 </div>
