@@ -16,6 +16,7 @@ import giftBucketHat from "@assets/Resized_20240912_103951_1726158181668_2_17786
 import teamFiveBanner from "@assets/461092537_18297032548205370_1790799881044431646_n_1778780735805.jpg";
 import fansInMerch from "@assets/461192265_18297032566205370_4281744550923113286_n_1778780735807.jpg";
 import boothGroupSelfie from "@assets/461204431_18297032518205370_2485932339959836626_n_1778780735807.jpg";
+import crossBodyBag from "@assets/ChatGPT_Image_May_14,_2026,_12_52_53_PM_1778781310578.png";
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -41,7 +42,7 @@ const articleJsonLd = {
 };
 
 type CarouselItem =
-  | { kind: "image"; src: string; alt: string; width: string; ratio: string }
+  | { kind: "image"; src: string; alt: string; width: string; ratio: string; tone?: "light" }
   | { kind: "label"; label: string; width: string; ratio: string };
 
 const carouselRowOne: CarouselItem[] = [
@@ -51,6 +52,7 @@ const carouselRowOne: CarouselItem[] = [
   { kind: "image", src: teamFiveBanner, alt: "Five-person OneStaff team in the full retro hip hop kit in front of the brand banner", width: "440px", ratio: "aspect-[4/5]" },
   { kind: "image", src: boothChain, alt: "Recruiter in champ chain at the booth", width: "360px", ratio: "aspect-[3/4]" },
   { kind: "label", label: "Letz Ride /\nParty Wagon Stickers", width: "480px", ratio: "aspect-[4/3]" },
+  { kind: "image", src: crossBodyBag, alt: "Custom OneStaff cross-body bag with retro stripe pattern and branded webbing strap — front and back views", width: "520px", ratio: "aspect-[4/3]", tone: "light" },
   { kind: "image", src: vegasDropGroup, alt: "Track jacket back graphic in the team kit", width: "380px", ratio: "aspect-[4/5]" },
   { kind: "label", label: "Record-Cut\nLuggage Tags", width: "380px", ratio: "aspect-square" },
   { kind: "image", src: giftSocks, alt: "Custom rainbow stripe compression socks", width: "360px", ratio: "aspect-[3/4]" },
@@ -435,48 +437,54 @@ export default function CaseStudyOnestaffEvents() {
 
         <div className="mc-pieces space-y-5">
           <div className="mc-pieces-row mc-pieces-track-l">
-            {[...carouselRowOne, ...carouselRowOne].map((item, i) => (
-              <div
-                key={`pr1-${i}`}
-                className={`${item.ratio} shrink-0 rounded-xl overflow-hidden bg-white/5 border border-white/10`}
-                style={{ width: item.width }}
-              >
-                {item.kind === "image" ? (
-                  <img src={item.src} alt={item.alt} className="w-full h-full object-cover" loading="lazy" />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-center px-6 bg-gradient-to-br from-[#161616] to-[#0a0a0a]">
-                    <span
-                      className="text-2xl md:text-3xl font-black tracking-tight text-white leading-tight whitespace-pre-line"
-                      style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-                    >
-                      {item.label}
-                    </span>
-                  </div>
-                )}
-              </div>
-            ))}
+            {[...carouselRowOne, ...carouselRowOne].map((item, i) => {
+              const isLight = item.kind === "image" && item.tone === "light";
+              return (
+                <div
+                  key={`pr1-${i}`}
+                  className={`${item.ratio} shrink-0 rounded-xl overflow-hidden border ${isLight ? "bg-white border-white/30" : "bg-white/5 border-white/10"}`}
+                  style={{ width: item.width }}
+                >
+                  {item.kind === "image" ? (
+                    <img src={item.src} alt={item.alt} className={`w-full h-full ${isLight ? "object-contain p-4" : "object-cover"}`} loading="lazy" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-center px-6 bg-gradient-to-br from-[#161616] to-[#0a0a0a]">
+                      <span
+                        className="text-2xl md:text-3xl font-black tracking-tight text-white leading-tight whitespace-pre-line"
+                        style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                      >
+                        {item.label}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
           <div className="mc-pieces-row mc-pieces-track-r">
-            {[...carouselRowTwo, ...carouselRowTwo].map((item, i) => (
-              <div
-                key={`pr2-${i}`}
-                className={`${item.ratio} shrink-0 rounded-xl overflow-hidden bg-white/5 border border-white/10`}
-                style={{ width: item.width }}
-              >
-                {item.kind === "image" ? (
-                  <img src={item.src} alt={item.alt} className="w-full h-full object-cover" loading="lazy" />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-center px-6 bg-gradient-to-br from-[#161616] to-[#0a0a0a]">
-                    <span
-                      className="text-2xl md:text-3xl font-black tracking-tight text-white leading-tight whitespace-pre-line"
-                      style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-                    >
-                      {item.label}
-                    </span>
-                  </div>
-                )}
-              </div>
-            ))}
+            {[...carouselRowTwo, ...carouselRowTwo].map((item, i) => {
+              const isLight = item.kind === "image" && item.tone === "light";
+              return (
+                <div
+                  key={`pr2-${i}`}
+                  className={`${item.ratio} shrink-0 rounded-xl overflow-hidden border ${isLight ? "bg-white border-white/30" : "bg-white/5 border-white/10"}`}
+                  style={{ width: item.width }}
+                >
+                  {item.kind === "image" ? (
+                    <img src={item.src} alt={item.alt} className={`w-full h-full ${isLight ? "object-contain p-4" : "object-cover"}`} loading="lazy" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-center px-6 bg-gradient-to-br from-[#161616] to-[#0a0a0a]">
+                      <span
+                        className="text-2xl md:text-3xl font-black tracking-tight text-white leading-tight whitespace-pre-line"
+                        style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                      >
+                        {item.label}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
