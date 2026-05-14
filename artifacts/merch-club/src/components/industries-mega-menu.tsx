@@ -95,7 +95,7 @@ export function IndustriesMegaMenu({ active = false, theme = "dark" }: Props) {
               <div className="flex items-end justify-between mb-4">
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-2">Industries We Serve</span>
-                  <h3 className="text-2xl md:text-3xl font-black text-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
+                  <h3 className="text-xl md:text-2xl font-black text-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
                     Programs Built for <span className="text-[#888]">Your Industry.</span>
                   </h3>
                 </div>
@@ -124,7 +124,7 @@ export function IndustriesMegaMenu({ active = false, theme = "dark" }: Props) {
                     <div className="absolute inset-0 p-4 flex flex-col justify-end">
                       <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/70 block mb-1">{ind.tagline}</span>
                       <div className="flex items-end justify-between gap-2">
-                        <h4 className="text-xl md:text-2xl font-black text-white tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
+                        <h4 className="text-lg md:text-xl font-black text-white tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
                           {ind.name}
                         </h4>
                         <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.15em] text-white opacity-80 group-hover:opacity-100 group-hover:gap-1.5 transition-all whitespace-nowrap">

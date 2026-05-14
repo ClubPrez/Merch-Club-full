@@ -83,7 +83,7 @@ export function CaseStudiesMenu({ active = false, theme = "dark" }: Props) {
             <div className="flex items-end justify-between mb-4">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-2">Case Studies</span>
-                <h3 className="text-2xl md:text-3xl font-black text-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
+                <h3 className="text-xl md:text-2xl font-black text-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
                   Programs We've <span className="text-[#888]">Built.</span>
                 </h3>
               </div>
