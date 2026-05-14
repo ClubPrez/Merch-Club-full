@@ -5,6 +5,11 @@ import Breadcrumbs, { buildBreadcrumbJsonLd } from "@/components/breadcrumbs";
 import { StartProjectModal } from "@/components/start-project-modal";
 import { caseStudies } from "@/lib/site-data";
 import { SiteHeader } from "@/components/site-header";
+import eventsThumb from "@assets/461191773_18297032593205370_5287082838877484901_n_1778693892844.jpg";
+
+const thumbBySlug: Record<string, string> = {
+  events: eventsThumb,
+};
 
 export default function CaseStudies() {
   const [projectModalOpen, setProjectModalOpen] = useState(false);
@@ -66,8 +71,8 @@ export default function CaseStudies() {
         <div className="max-w-6xl mx-auto space-y-10 md:space-y-12">
           {caseStudies.map((cs) => (
             <Link key={cs.slug} href={`/case-studies/${cs.slug}`} aria-label={`Read the ${cs.client} case study: ${cs.title}`} className="group block rounded-2xl border border-black/10 bg-[#f7f7f7] hover:bg-white hover:border-black/30 hover:-translate-y-1 transition-all p-7 md:p-10">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start">
-                <div className="md:col-span-7">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center mb-8 md:mb-10">
+                <div className="md:col-span-7 order-2 md:order-1">
                   <div className="flex items-center gap-3 mb-5">
                     <span className="text-[10px] font-bold uppercase tracking-[0.25em] bg-black text-white px-2.5 py-1 rounded-full">{cs.industry}</span>
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#888]">{cs.client}</span>
@@ -81,14 +86,24 @@ export default function CaseStudies() {
                     <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
                   </span>
                 </div>
-                <div className="md:col-span-5 grid grid-cols-3 gap-4 md:gap-3">
-                  {cs.results.map((r) => (
-                    <div key={r.label} className="bg-black text-white rounded-xl p-4 md:p-5 text-center">
-                      <div className="text-3xl md:text-4xl font-black leading-none mb-2 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{r.value}</div>
-                      <div className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] text-white/60 leading-tight">{r.label}</div>
-                    </div>
-                  ))}
+                <div className="md:col-span-5 order-1 md:order-2">
+                  <div className="aspect-[4/3] w-full rounded-xl overflow-hidden bg-black/5 border border-black/5">
+                    <img
+                      src={thumbBySlug[cs.slug] ?? cs.image}
+                      alt={`${cs.client} — ${cs.title}`}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
+              </div>
+              <div className="grid grid-cols-3 gap-3 md:gap-4">
+                {cs.results.map((r) => (
+                  <div key={r.label} className="bg-black text-white rounded-xl p-4 md:p-5 text-center">
+                    <div className="text-3xl md:text-4xl font-black leading-none mb-2 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{r.value}</div>
+                    <div className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] text-white/60 leading-tight">{r.label}</div>
+                  </div>
+                ))}
               </div>
             </Link>
           ))}
