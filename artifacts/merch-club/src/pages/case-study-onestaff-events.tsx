@@ -11,7 +11,6 @@ import boothChain from "@assets/461204439_18297032584205370_9064317744138119949_
 import boothBuckets from "@assets/461238290_18297032536205370_6473409173115033458_n_1778693892845.jpg";
 import vegasDropSolo from "@assets/485771444_1048758360618545_372803450094697544_n_1778693892845.jpg";
 import vegasDropGroup from "@assets/ChatGPT_Image_Apr_30,_2026,_01_33_52_PM_1778693937978.png";
-import giftSocks from "@assets/Resized_20240912_104004_1726158192626_2_1778694501183.JPG";
 import giftBucketHat from "@assets/ChatGPT_Image_May_14,_2026,_12_56_49_PM_1778781428658.png";
 import teamFiveBanner from "@assets/461092537_18297032548205370_1790799881044431646_n_1778780735805.jpg";
 import fansInMerch from "@assets/461192265_18297032566205370_4281744550923113286_n_1778780735807.jpg";
@@ -56,7 +55,6 @@ const carouselRowOne: CarouselItem[] = [
   { kind: "image", src: crossBodyBag, alt: "Custom OneStaff cross-body bag with retro stripe pattern and branded webbing strap — front and back views", width: "520px", ratio: "aspect-[4/3]", tone: "light" },
   { kind: "image", src: vegasDropGroup, alt: "Track jacket back graphic in the team kit", width: "380px", ratio: "aspect-[4/5]" },
   { kind: "label", label: "Record-Cut\nLuggage Tags", width: "380px", ratio: "aspect-square" },
-  { kind: "image", src: giftSocks, alt: "Custom rainbow stripe compression socks", width: "360px", ratio: "aspect-[3/4]" },
 ];
 
 const carouselRowTwo: CarouselItem[] = [
