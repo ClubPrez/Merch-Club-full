@@ -353,6 +353,15 @@ export default function CaseStudyOnestaffEvents() {
             The Most Popular Booth on the Floor — Every Day of the Show.
           </h2>
 
+          <div className="aspect-[4/3] md:aspect-[16/10] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 mb-12">
+            <img
+              src={boothWide}
+              alt="OneStaff Medical TravCon booth — full activation in motion with branded backdrops, the giveaway display, and the team in the retro hip hop kit"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mb-12">
             <div className="bg-white text-black rounded-2xl p-6 md:p-8 text-center">
               <div className="text-6xl md:text-7xl font-black leading-none mb-3 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>10x</div>
