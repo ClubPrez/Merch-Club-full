@@ -477,23 +477,35 @@ export default function CaseStudyOnestaffEvents() {
 
       {/* WHY THIS MATTERS */}
       <section className="bg-[#0a0a0a] text-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-4xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 block mb-6">Why This Matters</span>
-          <div className="border-l-4 border-white pl-6 md:pl-10">
-            <blockquote
-              className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] text-white mb-10"
-              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-            >
-              Most trade show activations get budgeted as a line item. We treat them as cultural moments.
-            </blockquote>
-            <div className="space-y-5 text-lg md:text-xl text-white/80 leading-relaxed">
-              <p>
-                The brands that win the floor aren't the ones with the biggest booths. They're the ones with the clearest signal, the tightest theme, and the smartest sequence — backed by execution that holds up under three days of foot traffic.
-              </p>
-              <div className="pt-4 space-y-2 text-xl md:text-2xl font-semibold text-white">
-                <p>That's what we do.</p>
-                <p>That's what we built for OneStaff.</p>
-                <p>That's what we'll build for you.</p>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div className="lg:col-span-5 order-2 lg:order-1">
+            <div className="aspect-[4/5] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+              <img
+                src={boothBuckets}
+                alt="OneStaff Medical team and partners in custom bucket hats and champ chains at the TravCon booth — 'travel. work. your own way.' banner behind them"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div className="lg:col-span-7 order-1 lg:order-2">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 block mb-6">Why This Matters</span>
+            <div className="border-l-4 border-white pl-6 md:pl-10">
+              <blockquote
+                className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] text-white mb-10"
+                style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+              >
+                Most trade show activations get budgeted as a line item. We treat them as cultural moments.
+              </blockquote>
+              <div className="space-y-5 text-base md:text-lg text-white/80 leading-relaxed">
+                <p>
+                  The brands that win the floor aren't the ones with the biggest booths. They're the ones with the clearest signal, the tightest theme, and the smartest sequence — backed by execution that holds up under three days of foot traffic.
+                </p>
+                <div className="pt-4 space-y-2 text-xl md:text-2xl font-semibold text-white">
+                  <p>That's what we do.</p>
+                  <p>That's what we built for OneStaff.</p>
+                  <p>That's what we'll build for you.</p>
+                </div>
               </div>
             </div>
           </div>
