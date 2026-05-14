@@ -286,11 +286,11 @@ export default function CaseStudyOnestaffEvents() {
                 </div>
               </div>
               <div className="bg-white border border-black/10 rounded-2xl overflow-hidden">
-                <div className="aspect-[4/3] w-full bg-[#f5f5f5] overflow-hidden">
+                <div className="aspect-[4/3] w-full bg-white overflow-hidden">
                   <img
-                    src={giftSocks}
-                    alt="Day 2 giveaway — OneStaff custom rainbow stripe compression socks in retail packaging"
-                    className="w-full h-full object-cover"
+                    src={crossBodyBag}
+                    alt="Day 2 giveaway — OneStaff custom retro stripe cross-body bag with branded webbing strap, front and back views"
+                    className="w-full h-full object-contain p-3"
                     loading="lazy"
                   />
                 </div>
