@@ -37,82 +37,30 @@ const articleJsonLd = {
   about: "Healthcare Trade Show Activation",
 };
 
-type PieceCard = {
-  title: string;
-  caption: string;
-  src?: string;
-  alt?: string;
-};
+type CarouselItem =
+  | { kind: "image"; src: string; alt: string; width: string; ratio: string }
+  | { kind: "label"; label: string; width: string; ratio: string };
 
-const pieces: PieceCard[] = [
-  {
-    title: "Reversible bucket cap",
-    caption:
-      "The Day 1 drop. Full retro pattern on one side, OneStaff icon repeat on the other. One hat, two looks, infinite Instagram posts.",
-    src: giftBucketHat,
-    alt: "OneStaff TravCon reversible bucket cap — full retro swirl print on one side, icon repeat on the other",
-  },
-  {
-    title: "Awesome Mixtape Bluetooth speaker",
-    caption:
-      "The Day 3 hero. Custom retro cassette housing, full-color brand artwork on Side A and Side B, real Bluetooth speaker inside. The piece nobody threw away.",
-  },
-  {
-    title: "Custom mixtape inner insert",
-    caption:
-      "Full creative direction down to the cassette case insert. The retro VW party wagon became the activation's signature visual asset.",
-  },
-  {
-    title: "Custom compression and athletic socks",
-    caption:
-      "Day 2 drop. Brand-colored stripes, OneStaff wordmark on the toe. Retro pattern, technical fabric, real performance build.",
-    src: giftSocks,
-    alt: "OneStaff custom rainbow stripe compression socks in retail packaging",
-  },
-  {
-    title: "Custom cut-and-sew track jacket",
-    caption:
-      "Part of the team kit. Camo base, brand-stripe shoulders, signature van graphic on the back. Designed from pattern up — not a blank with a print on it.",
-    src: vegasDropGroup,
-    alt: "OneStaff custom cut-and-sew track jacket — back panel showing the signature VW party wagon graphic",
-  },
-  {
-    title: "Custom track pants",
-    caption:
-      "Full team uniform piece. Pattern matched to the jacket. Designed and produced as a real garment, not a costume.",
-    src: vegasDropSolo,
-    alt: "OneStaff custom track pants — full retro look with brand stripe panels",
-  },
-  {
-    title: "Letz Ride / Party Wagon stickers",
-    caption:
-      "Activation artwork. Used as booth graphics, giveaway extras, and a signature visual that anchored the entire campaign.",
-  },
-  {
-    title: "Record-cut luggage tags",
-    caption:
-      "Cut from previously used vinyl records. Every-day giveaway. Functional, on-theme, recyclable, and unmistakably ours.",
-  },
-  {
-    title: "Slap koozies",
-    caption:
-      "Daily giveaway. Custom branded, fits a can or a bottle, snaps on a wrist. Low cost, high utility, never tossed.",
-  },
-  {
-    title: "Custom Sneaks",
-    caption:
-      "Designed and produced from scratch — not a stock shoe with a print on it. Brand stripes on the side panel, retro silhouette, signature heel detail. Worn by the team on the floor, photographed by attendees all three days.",
-  },
-  {
-    title: "Fully custom footwear and sock program",
-    caption:
-      "Athletic socks, compression socks, and custom Sneaks engineered to work together visually and worn together on the floor.",
-  },
-  {
-    title: 'Custom "boom box" Bluetooth speaker',
-    caption:
-      "Worn around the show floor. Blasted 80's hip hop in motion across the venue. The reason OneStaff brand impressions reached every corner of the show — not just their booth.",
-  },
+const carouselRowOne: CarouselItem[] = [
+  { kind: "image", src: boothWide, alt: "OneStaff TravCon booth in motion", width: "600px", ratio: "aspect-[16/10]" },
+  { kind: "label", label: "Awesome Mixtape\nBluetooth Speaker", width: "380px", ratio: "aspect-square" },
+  { kind: "image", src: giftBucketHat, alt: "Reversible bucket cap", width: "360px", ratio: "aspect-[4/5]" },
+  { kind: "image", src: boothChain, alt: "Recruiter in champ chain at the booth", width: "360px", ratio: "aspect-[3/4]" },
+  { kind: "label", label: "Letz Ride /\nParty Wagon Stickers", width: "480px", ratio: "aspect-[4/3]" },
+  { kind: "image", src: vegasDropGroup, alt: "Track jacket back graphic in the team kit", width: "380px", ratio: "aspect-[4/5]" },
+  { kind: "label", label: "Record-Cut\nLuggage Tags", width: "380px", ratio: "aspect-square" },
+  { kind: "image", src: giftSocks, alt: "Custom rainbow stripe compression socks", width: "360px", ratio: "aspect-[3/4]" },
+];
+
+const carouselRowTwo: CarouselItem[] = [
+  { kind: "label", label: "Custom Sneaks", width: "480px", ratio: "aspect-[4/3]" },
+  { kind: "image", src: boothBuckets, alt: "Stack of bucket caps on the booth table", width: "380px", ratio: "aspect-[4/5]" },
+  { kind: "label", label: "Custom Mixtape\nInner Insert", width: "380px", ratio: "aspect-square" },
+  { kind: "image", src: boothSelfie, alt: "Team selfie at the booth — full crew in the retro hip hop kit", width: "360px", ratio: "aspect-[3/4]" },
+  { kind: "label", label: "Slap Koozies", width: "320px", ratio: "aspect-[4/5]" },
+  { kind: "image", src: vegasDropSolo, alt: "Custom track pants and sneaks in the team kit", width: "360px", ratio: "aspect-[3/4]" },
+  { kind: "label", label: 'Custom "Boom Box"\nBluetooth Speaker', width: "480px", ratio: "aspect-[4/3]" },
+  { kind: "label", label: "Custom Footwear\n+ Sock Program", width: "380px", ratio: "aspect-square" },
 ];
 
 const services = [
@@ -442,40 +390,75 @@ export default function CaseStudyOnestaffEvents() {
         </div>
       </section>
 
-      {/* THE PIECES */}
-      <section className="bg-[#0a0a0a] text-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
-        <div className="max-w-6xl mx-auto">
+      {/* THE PIECES — scrolling carousel */}
+      <section className="bg-[#0a0a0a] text-white py-20 md:py-28 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-8 md:px-16 lg:px-20 mb-12 md:mb-14">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 block mb-4">The Pieces</span>
           <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-12 max-w-3xl"
+            className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-6 max-w-3xl"
             style={{ fontFamily: "'Bebas Neue', sans-serif" }}
           >
             Every Item, From the Bucket Cap to the Boom Box.
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {pieces.map((p, i) => (
-              <div key={i}>
-                <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 mb-4">
-                  {p.src ? (
-                    <img
-                      src={p.src}
-                      alt={p.alt || p.title}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-center px-6">
-                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">Photo coming</span>
-                    </div>
-                  )}
-                </div>
-                <div
-                  className="text-xl md:text-2xl font-black tracking-tight text-white mb-2 leading-tight"
-                  style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-                >
-                  {p.title}
-                </div>
-                <p className="text-sm md:text-base text-white/70 leading-relaxed">{p.caption}</p>
+          <p className="text-base md:text-lg text-[#aaa] leading-relaxed max-w-2xl">
+            Custom cut-and-sew apparel, hard goods designed from the ground up, and on-floor activation pieces — every item built for the OneStaff x 80's hip hop activation.
+          </p>
+        </div>
+
+        <style>{`
+          @keyframes mc-pieces-left { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-50%,0,0); } }
+          @keyframes mc-pieces-right { 0% { transform: translate3d(-50%,0,0); } 100% { transform: translate3d(0,0,0); } }
+          .mc-pieces-row { display: flex; width: max-content; gap: 1.25rem; will-change: transform; }
+          .mc-pieces-track-l { animation: mc-pieces-left 65s linear infinite; }
+          .mc-pieces-track-r { animation: mc-pieces-right 80s linear infinite; }
+          .mc-pieces:hover .mc-pieces-row { animation-play-state: paused; }
+          @media (prefers-reduced-motion: reduce) {
+            .mc-pieces-track-l, .mc-pieces-track-r { animation: none; }
+          }
+        `}</style>
+
+        <div className="mc-pieces space-y-5">
+          <div className="mc-pieces-row mc-pieces-track-l">
+            {[...carouselRowOne, ...carouselRowOne].map((item, i) => (
+              <div
+                key={`pr1-${i}`}
+                className={`${item.ratio} shrink-0 rounded-xl overflow-hidden bg-white/5 border border-white/10`}
+                style={{ width: item.width }}
+              >
+                {item.kind === "image" ? (
+                  <img src={item.src} alt={item.alt} className="w-full h-full object-cover" loading="lazy" />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-center px-6 bg-gradient-to-br from-[#161616] to-[#0a0a0a]">
+                    <span
+                      className="text-2xl md:text-3xl font-black tracking-tight text-white leading-tight whitespace-pre-line"
+                      style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                    >
+                      {item.label}
+                    </span>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="mc-pieces-row mc-pieces-track-r">
+            {[...carouselRowTwo, ...carouselRowTwo].map((item, i) => (
+              <div
+                key={`pr2-${i}`}
+                className={`${item.ratio} shrink-0 rounded-xl overflow-hidden bg-white/5 border border-white/10`}
+                style={{ width: item.width }}
+              >
+                {item.kind === "image" ? (
+                  <img src={item.src} alt={item.alt} className="w-full h-full object-cover" loading="lazy" />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-center px-6 bg-gradient-to-br from-[#161616] to-[#0a0a0a]">
+                    <span
+                      className="text-2xl md:text-3xl font-black tracking-tight text-white leading-tight whitespace-pre-line"
+                      style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                    >
+                      {item.label}
+                    </span>
+                  </div>
+                )}
               </div>
             ))}
           </div>
