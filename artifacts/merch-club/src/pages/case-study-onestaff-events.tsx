@@ -12,6 +12,9 @@ import boothBuckets from "@assets/461238290_18297032536205370_647340917311503345
 import vegasDropSolo from "@assets/485771444_1048758360618545_372803450094697544_n_1778693892845.jpg";
 import vegasDropGroup from "@assets/ChatGPT_Image_Apr_30,_2026,_01_33_52_PM_1778693937978.png";
 import giftBucketHat from "@assets/ChatGPT_Image_May_14,_2026,_12_56_49_PM_1778781428658.png";
+import boothGroupSelfie from "@assets/461204431_18297032518205370_2485932339959836626_n_1778782467156.jpg";
+import fansInMerch from "@assets/461192265_18297032566205370_4281744550923113286_n_1778782467156.jpg";
+import teamFiveBanner from "@assets/461092537_18297032548205370_1790799881044431646_n_1778782467156.jpg";
 import crossBodyBag from "@assets/ChatGPT_Image_May_14,_2026,_12_52_53_PM_1778781310578.png";
 import socksKneeHigh from "@assets/ChatGPT_Image_May_14,_2026,_01_00_46_PM_1778781706190.png";
 import luggageTags from "@assets/ChatGPT_Image_May_14,_2026,_01_04_00_PM_1778781857816.png";
@@ -327,13 +330,17 @@ export default function CaseStudyOnestaffEvents() {
             The Most Popular Booth on the Floor — Every Day of the Show.
           </h2>
 
-          <div className="aspect-[4/3] md:aspect-[16/10] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 mb-12">
-            <img
-              src={boothChain}
-              alt="OneStaff recruiter in a champ chain and reversible bucket cap at the TravCon booth — attendee browsing the giveaway display loaded with bucket caps, fanny packs, and the enter-to-win sign"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
+          <div className="grid grid-cols-2 gap-3 md:gap-5 mb-12">
+            {[
+              { src: boothChain, alt: "OneStaff recruiter in a champ chain and reversible bucket cap at the TravCon booth — attendee browsing the giveaway display loaded with bucket caps, fanny packs, and the enter-to-win sign" },
+              { src: teamFiveBanner, alt: "Five-person OneStaff team in the full retro hip hop kit in front of the brand banner" },
+              { src: fansInMerch, alt: "TravCon attendees wearing the OneStaff bucket caps at the booth — fans rocking the merch" },
+              { src: boothGroupSelfie, alt: "Big group selfie of the OneStaff crew and attendees throwing peace signs at the booth" },
+            ].map((img, i) => (
+              <div key={i} className="aspect-[4/5] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+                <img src={img.src} alt={img.alt} className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            ))}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mb-12">
