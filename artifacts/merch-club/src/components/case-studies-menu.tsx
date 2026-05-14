@@ -110,11 +110,14 @@ export function CaseStudiesMenu({ active = false, theme = "dark" }: Props) {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/5" />
                     <div className="absolute inset-0 p-4 flex flex-col justify-end">
-                      <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/70 block mb-1">{cs.industry} · {cs.client}</span>
+                      <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/70 block mb-1">{cs.client}</span>
                       <div className="flex items-end justify-between gap-2">
-                        <h4 className="text-lg md:text-xl font-black text-white tracking-tight leading-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
-                          {cs.title}
-                        </h4>
+                        <div className="min-w-0">
+                          <h4 className="text-lg md:text-xl font-black text-white tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
+                            {cs.industry}
+                          </h4>
+                          <p className="text-[11px] text-white/70 leading-snug mt-1 line-clamp-2">{cs.title}</p>
+                        </div>
                         <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.15em] text-white opacity-80 group-hover:opacity-100 group-hover:gap-1.5 transition-all whitespace-nowrap shrink-0">
                           Read
                           <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
