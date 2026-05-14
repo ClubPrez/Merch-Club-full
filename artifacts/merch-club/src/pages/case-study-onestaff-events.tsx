@@ -13,6 +13,9 @@ import vegasDropSolo from "@assets/485771444_1048758360618545_372803450094697544
 import vegasDropGroup from "@assets/ChatGPT_Image_Apr_30,_2026,_01_33_52_PM_1778693937978.png";
 import giftSocks from "@assets/Resized_20240912_104004_1726158192626_2_1778694501183.JPG";
 import giftBucketHat from "@assets/Resized_20240912_103951_1726158181668_2_1778694501183.JPG";
+import teamFiveBanner from "@assets/461092537_18297032548205370_1790799881044431646_n_1778780735805.jpg";
+import fansInMerch from "@assets/461192265_18297032566205370_4281744550923113286_n_1778780735807.jpg";
+import boothGroupSelfie from "@assets/461204431_18297032518205370_2485932339959836626_n_1778780735807.jpg";
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -45,6 +48,7 @@ const carouselRowOne: CarouselItem[] = [
   { kind: "image", src: boothWide, alt: "OneStaff TravCon booth in motion", width: "600px", ratio: "aspect-[16/10]" },
   { kind: "label", label: "Awesome Mixtape\nBluetooth Speaker", width: "380px", ratio: "aspect-square" },
   { kind: "image", src: giftBucketHat, alt: "Reversible bucket cap", width: "360px", ratio: "aspect-[4/5]" },
+  { kind: "image", src: teamFiveBanner, alt: "Five-person OneStaff team in the full retro hip hop kit in front of the brand banner", width: "440px", ratio: "aspect-[4/5]" },
   { kind: "image", src: boothChain, alt: "Recruiter in champ chain at the booth", width: "360px", ratio: "aspect-[3/4]" },
   { kind: "label", label: "Letz Ride /\nParty Wagon Stickers", width: "480px", ratio: "aspect-[4/3]" },
   { kind: "image", src: vegasDropGroup, alt: "Track jacket back graphic in the team kit", width: "380px", ratio: "aspect-[4/5]" },
@@ -55,9 +59,11 @@ const carouselRowOne: CarouselItem[] = [
 const carouselRowTwo: CarouselItem[] = [
   { kind: "label", label: "Custom Sneaks", width: "480px", ratio: "aspect-[4/3]" },
   { kind: "image", src: boothBuckets, alt: "Stack of bucket caps on the booth table", width: "380px", ratio: "aspect-[4/5]" },
+  { kind: "image", src: fansInMerch, alt: "TravCon attendees wearing the OneStaff bucket caps at the booth — fans rocking the merch", width: "360px", ratio: "aspect-[4/5]" },
   { kind: "label", label: "Custom Mixtape\nInner Insert", width: "380px", ratio: "aspect-square" },
   { kind: "image", src: boothSelfie, alt: "Team selfie at the booth — full crew in the retro hip hop kit", width: "360px", ratio: "aspect-[3/4]" },
   { kind: "label", label: "Slap Koozies", width: "320px", ratio: "aspect-[4/5]" },
+  { kind: "image", src: boothGroupSelfie, alt: "Big group selfie of the OneStaff crew and attendees throwing peace signs at the booth", width: "440px", ratio: "aspect-[4/5]" },
   { kind: "image", src: vegasDropSolo, alt: "Custom track pants and sneaks in the team kit", width: "360px", ratio: "aspect-[3/4]" },
   { kind: "label", label: 'Custom "Boom Box"\nBluetooth Speaker', width: "480px", ratio: "aspect-[4/3]" },
   { kind: "label", label: "Custom Footwear\n+ Sock Program", width: "380px", ratio: "aspect-square" },
