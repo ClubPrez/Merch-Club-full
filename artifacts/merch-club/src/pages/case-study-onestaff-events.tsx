@@ -188,17 +188,27 @@ export default function CaseStudyOnestaffEvents() {
           </div>
 
           {/* The Theme callout */}
-          <div className="bg-black text-white rounded-2xl p-8 md:p-12 mb-12">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 block mb-3">The Theme</span>
-            <div
-              className="text-5xl md:text-7xl font-black tracking-tight leading-none mb-5"
-              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-            >
-              80's Hip Hop.
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-5 mb-12 items-stretch">
+            <div className="md:col-span-3 bg-black text-white rounded-2xl p-8 md:p-12 flex flex-col justify-center">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 block mb-3">The Theme</span>
+              <div
+                className="text-5xl md:text-7xl font-black tracking-tight leading-none mb-5"
+                style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+              >
+                80's Hip Hop.
+              </div>
+              <p className="text-base md:text-lg text-white/80 leading-relaxed">
+                The right cultural anchor for a brand willing to be the loudest team on the floor — for the right reasons.
+              </p>
             </div>
-            <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-2xl">
-              The right cultural anchor for a brand willing to be the loudest team on the floor — for the right reasons.
-            </p>
+            <div className="md:col-span-2 aspect-[3/4] md:aspect-auto md:min-h-[360px] rounded-2xl overflow-hidden bg-[#eee] border border-black/10">
+              <img
+                src={vegasDropSolo}
+                alt="OneStaff team member in the full retro hip hop kit — track jacket, champ chain, snapback, and custom track pants in front of the activation backdrop"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
 
           <div className="max-w-3xl space-y-5 text-base md:text-lg text-[#333] leading-relaxed mb-16">
