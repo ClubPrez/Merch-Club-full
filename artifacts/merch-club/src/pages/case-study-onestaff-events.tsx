@@ -330,14 +330,14 @@ export default function CaseStudyOnestaffEvents() {
             The Most Popular Booth on the Floor — Every Day of the Show.
           </h2>
 
-          <div className="grid grid-cols-2 gap-3 md:gap-5 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-12">
             {[
               { src: boothChain, alt: "OneStaff recruiter in a champ chain and reversible bucket cap at the TravCon booth — attendee browsing the giveaway display loaded with bucket caps, fanny packs, and the enter-to-win sign" },
               { src: teamFiveBanner, alt: "Five-person OneStaff team in the full retro hip hop kit in front of the brand banner" },
               { src: fansInMerch, alt: "TravCon attendees wearing the OneStaff bucket caps at the booth — fans rocking the merch" },
               { src: boothGroupSelfie, alt: "Big group selfie of the OneStaff crew and attendees throwing peace signs at the booth" },
             ].map((img, i) => (
-              <div key={i} className="aspect-[4/5] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+              <div key={i} className="aspect-[4/5] w-full rounded-xl overflow-hidden bg-white/5 border border-white/10">
                 <img src={img.src} alt={img.alt} className="w-full h-full object-cover" loading="lazy" />
               </div>
             ))}
