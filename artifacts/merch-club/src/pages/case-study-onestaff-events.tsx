@@ -466,18 +466,10 @@ export default function CaseStudyOnestaffEvents() {
       </section>
 
       {/* WHY THIS MATTERS */}
-      <section className="bg-[#0b0b1f] text-white py-24 md:py-32 px-8 md:px-16 lg:px-20 relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-30 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(circle at 20% 0%, rgba(99,102,241,0.25) 0%, transparent 55%), radial-gradient(circle at 80% 100%, rgba(67,56,202,0.2) 0%, transparent 55%)",
-          }}
-          aria-hidden="true"
-        />
-        <div className="max-w-4xl mx-auto relative">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-indigo-400 block mb-6">Why This Matters</span>
-          <div className="border-l-4 border-indigo-500 pl-6 md:pl-10">
+      <section className="bg-[#0a0a0a] text-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
+        <div className="max-w-4xl mx-auto">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 block mb-6">Why This Matters</span>
+          <div className="border-l-4 border-white pl-6 md:pl-10">
             <blockquote
               className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] text-white mb-10"
               style={{ fontFamily: "'Bebas Neue', sans-serif" }}
@@ -491,7 +483,7 @@ export default function CaseStudyOnestaffEvents() {
               <div className="pt-4 space-y-2 text-xl md:text-2xl font-semibold text-white">
                 <p>That's what we do.</p>
                 <p>That's what we built for OneStaff.</p>
-                <p className="text-indigo-300">That's what we'll build for you.</p>
+                <p>That's what we'll build for you.</p>
               </div>
             </div>
           </div>
