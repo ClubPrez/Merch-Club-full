@@ -16,6 +16,7 @@ import carharttImg from "@assets/Apparel_in_the_field_1779227798874.png";
 import carharttAltImg from "@assets/walking_down_hall_2_1779227798873.png";
 import challengesBg from "@assets/Guy_with_cap_1779227798870.png";
 import heroPortrait from "@assets/Guy_with_cap_1779227910739.png";
+import tradeShowImg from "@assets/Trade_Show_1_1779227930266.png";
 import { SiteHeader } from "@/components/site-header";
 
 function useRevealOnScroll(threshold = 0.15) {
@@ -551,7 +552,7 @@ export default function Construction() {
 
             <RevealItem delay={100} className="md:h-full">
               <div className="relative rounded-2xl overflow-hidden bg-[#0a0a0a] h-full min-h-[260px] group cursor-pointer" onClick={() => setProjectModalOpen(true)}>
-                <img src={packagingImg} alt="Trade show and recruiting kits" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={tradeShowImg} alt="Baker Group recruiting booth at a university trade show with the team engaging students at the Expect the Best display" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/0" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <h3 className="text-2xl md:text-3xl font-black text-white leading-[1.05]" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>Trade Shows<br />& Recruiting</h3>
