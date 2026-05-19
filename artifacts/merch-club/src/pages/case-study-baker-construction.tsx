@@ -6,6 +6,7 @@ import { StartProjectModal } from "@/components/start-project-modal";
 import { SiteHeader } from "@/components/site-header";
 
 import bernieBeer from "@assets/Bernie_Beer_Glass_1779204227434.png";
+import heroJobsite from "@assets/Apparel_in_the_field_1779205508007.png";
 import beerCansCold from "@assets/Cold_Beer_Image_Alt_1779204227435.png";
 import backpackCoolers from "@assets/60_yr_backpack_coolers_1779204227431.png";
 import apparelField from "@assets/Apparel_in_the_field_1779204227432.png";
@@ -109,8 +110,8 @@ export default function CaseStudyBakerConstruction() {
         <div className="max-w-5xl mx-auto">
           <div className="aspect-[16/9] w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10">
             <img
-              src={bernieBeer}
-              alt="Bernie Steam Beer — Baker Group's 60th-anniversary beer brewed with Exile Brewing, with founder portraits and 'Lee Township against the World' on the label"
+              src={heroJobsite}
+              alt="Two Baker Group crew members in branded Carhartt jackets and embroidered caps reviewing site plans on a jobsite with an excavator behind them"
               className="w-full h-full object-cover"
               loading="eager"
             />
