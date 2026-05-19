@@ -147,23 +147,30 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "construction",
-    client: "Construction",
+    client: "Baker Group",
     industry: "Construction",
     industrySlug: "construction",
-    title: "Coming Soon",
+    title: "What It Looks Like When Your Merch Team Isn't a Vendor",
     summary:
-      "A jobsite-ready apparel and gear program for a national construction company — workwear, safety apparel, and crew gifting under one managed program. Full case study coming soon.",
-    date: "Coming Soon",
-    readTime: "—",
+      "Three-plus years embedded with Baker Group — a 1,500-employee Midwest design-build contractor. Field apparel, executive gear, client gifting, trade shows, recruiting, and a 60th-anniversary beer brewed in Des Moines with Exile Brewing.",
+    date: "Apr 22, 2026",
+    readTime: "7 min read",
     image: "/opengraph.jpg",
     results: [
-      { value: "—", label: "Crews outfitted" },
-      { value: "—", label: "SKUs in program" },
-      { value: "—", label: "On-time delivery" },
+      { value: "3+ Yrs", label: "Embedded partnership" },
+      { value: "1,500", label: "Employees outfitted" },
+      { value: "1 of 1", label: "Custom anniversary beer brewed" },
     ],
-    challenge: "Coming soon.",
-    approach: ["Coming soon."],
-    outcome: "Coming soon.",
+    challenge:
+      "Baker Group is a 1,500-employee multi-specialty contractor with field crews, executive leadership, recruiting, marketing, and HR all needing branded apparel and gear for different moments — and a 60th anniversary milestone that couldn't be marked with a coffee mug.",
+    approach: [
+      "Embedded across every department — field, exec, recruiting, marketing, HR — so one brand voice carries across every program.",
+      "Built Carhartt-grade field apparel for jobsite conditions alongside executive polos and golf gear for client meetings.",
+      "Developed Bernie Steam Beer with Exile Brewing as the 60th-anniversary hero — custom co-branded beer, glassware, and cooler backpacks.",
+      "Run annual planning, production across decoration methods, fulfillment, and recap reporting as a single ongoing partnership.",
+    ],
+    outcome:
+      "Baker runs every merch moment — field, exec, anniversaries, trade shows, recruiting — through one embedded team instead of a stack of vendors, with consistency across every department and milestone.",
   },
 ];
 

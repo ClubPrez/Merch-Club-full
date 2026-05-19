@@ -17,6 +17,7 @@ import CaseStudies from "@/pages/case-studies";
 import CaseStudy from "@/pages/case-study";
 import CaseStudyOnestaff from "@/pages/case-study-onestaff";
 import CaseStudyOnestaffEvents from "@/pages/case-study-onestaff-events";
+import CaseStudyBakerConstruction from "@/pages/case-study-baker-construction";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -46,6 +47,8 @@ function Router() {
       <Route path="/case-studies/onestaff-events" component={CaseStudyOnestaffEvents} />
       <Route path="/case-studies/onestaff-travcon" component={CaseStudyOnestaffEvents} />
       <Route path="/case-studies/travcon" component={CaseStudyOnestaffEvents} />
+      <Route path="/case-studies/construction" component={CaseStudyBakerConstruction} />
+      <Route path="/case-studies/baker-group" component={CaseStudyBakerConstruction} />
       <Route path="/case-studies/:slug" component={CaseStudy} />
       <Route component={NotFound} />
     </Switch>

@@ -1,0 +1,218 @@
+MERCH CLUB 
+Case Study Handoff 
+Baker Group · Long-Term Partnership 
+Complete copy, structure, image gallery captions, 
+SEO metadata, and schema markup 
+ready for the case study page build. 
+For: Jeannie (Designer / Developer) 
+Version 1.0 · April 2026 
+How to use this document: All black text is live copy — use it verbatim. All red text is a note or direction for you — do not include red text on the built case study page.
+Merch Club — Baker Group Case Study Page 1 
+READ THIS FIRST 
+Page metadata + structural note. 
+Page metadata 
+Field 
+Value
+URL 
+/work/baker-group-partnership
+Vertical 
+Construction · Multi-Specialty Trades
+Year(s) covered 
+Ongoing partnership · 2023+
+Pillar link 
+Construction & Trades Apparel Programs
+Featured 
+Yes — third published case study
+Format 
+Long-term partnership (third format in portfolio)
+
+
+
+Why this format is different 
+NOTE TO JEANNIE: This is Merch Club's third case study format — the 'embedded partnership' case study. The reader maps themselves onto a multi-department company that needs a partner across exec gear, field apparel, gifting, anniversaries, trade shows, and recruiting. The variety isn't a problem — it's the story. Use this format for Access Bank, CHI, and any future long-term-partnership case studies. 
+Recommended page structure 
+1. Hero (headline, subhead, anchor image — the Bernie beer label) 
+2. Who They Are (Baker Group introduction) 
+3. The Partnership (scope, history, embedded-team frame) 
+4. The Hero Moment: 60 Years of Baker (the anniversary as centerpiece) 
+5. The Range (visual showcase of breadth across every program type) 
+6. What This Looks Like Day-to-Day (the embedded-team operating rhythm) 
+7. From the Field (lifestyle image gallery — scrolling carousel) 
+8. Testimonial (placeholder — Chris to confirm client review) 
+9. Why This Matters (closing positioning) 
+10. CTAs + Related Content
+Merch Club — Baker Group Case Study Page 2 
+HERO 
+Hero headline + subhead. 
+NOTE TO JEANNIE: Hero anchor image should be the Bernie Steam Beer label. It's the most iconic single artifact of the relationship — bottled company history, real brewery partnership, founder portraits, '1963–2023' mark all in one frame. Pair the label image with a secondary photo of someone holding the actual can if available. 
+Headline 
+What it looks like when your merch team isn't a vendor. 
+Subhead 
+Three years embedded with Baker Group — every department, every milestone, every job site. From Carhartt-built field jackets to a 60th-anniversary beer brewed in Des Moines. 
+Hero intro (60 words) 
+Baker Group is a 1,500-employee, multi-specialty design-build contractor that's been running on grit since 1963. For three-plus years, we've been their embedded merch team — handling everything from field apparel to executive gear to a 60th-anniversary beer brewed alongside Exile Brewing in Des Moines. Not a vendor. Part of how they show up.
+Merch Club — Baker Group Case Study Page 3 
+SECTION 1 
+Who They Are 
+Meet Baker Group. 
+Baker Group is one of the Midwest's largest multi-specialty design-build contractors. Headquartered in Des Moines, Iowa, with roots that go back to 1963, Baker handles mechanical, electrical, building automation, life safety, plumbing, and HVAC service work for projects across the region. A 1,500-employee operation. A company that built itself the same way its crews build buildings — one detail at a time. 
+Baker's brand isn't loud. It's earned. Decades in the field. A founder story — Bernie and Berniece Baker, founding a small steamfitting company in Lee Township and growing it into a Midwest powerhouse — that the company still puts on a beer label. "Lee Township against the World" isn't a tagline. It's the worldview. 
+When a company carries that kind of identity, the merch can't be afterthought. It has to carry the same weight. 
+NOTE TO JEANNIE: Section visual — Baker Group logo + a wide environmental shot of a job site or HQ. Keep clean. Don't overdesign.
+Merch Club — Baker Group Case Study Page 4 
+SECTION 2 
+The Partnership 
+Not a vendor. An embedded team. 
+Most merch programs start with an order form. Baker started with a phone call about three years ago that turned into something different. 
+Today we handle the full spectrum of Baker Group merchandise across every department in the company. Field crews get Carhartt jackets and beanies built for jobsite conditions. Leadership gets executive polos, quarter-zips, and golf gear designed for the client meetings where real relationships happen. Recruiting gets the trade show kit. Marketing gets the anniversary program. HR gets the onboarding apparel. Sales gets the conference giveaways. 
+One partner. Every program. No internal team at Baker has to wonder which vendor handles what — because the answer is always the same. 
+What we run for Baker, across the year: 
+• Field apparel — Carhartt jackets, Defender hoodies, beanies, vests, cooling towels, hand warmers, first-aid kits, custom zipper pulls 
+• Executive gear — polos, quarter-zips, co-branded apparel, custom caps, patches • Client relationship gifting — golf items, custom golf log books, drinkware, suede koozies, duck hunting gear, multi-tool pens 
+• Trade show + event execution — backpacks, tech items, chargers, cables, earbuds, mouse pads, neck fans 
+• Anniversary and milestone programs — the 60th anniversary build (see next section) • Tape measures, branded tools, and field-tested giveaways 
+Across every program, every department, every milestone — one team handling it. That's the difference between a vendor and a partner.
+Merch Club — Baker Group Case Study Page 5 
+SECTION 3 
+The Hero Moment: 60 Years of Baker 
+Some milestones get a sheet cake. Baker got a beer. 
+In 2023, Baker Group hit 60 years. Six decades from Bernie and Berniece Baker founding a steamfitting company in Lee Township to one of the Midwest's largest multi-specialty contractors. 
+A milestone like that doesn't get marked with a coffee mug. So we built a program that matched the moment. 
+NOTE TO JEANNIE: Hero visual placement — Bernie Steam Beer label here, ideally with a secondary photograph of someone holding the actual can. The label has incredible storytelling density: founder portraits, founding year mark, 'Lee Township against the World' inscription, brewing partner credit. Let it breathe on the page. 
+Bernie Steam Beer · 1963–2023 
+In partnership with Exile Brewing Company — a local Des Moines brewery — we developed a custom co-branded beer for Baker's 60th anniversary. Named for Bernie Baker, the founder. Featured Bernie and Berniece's actual portraits on the label. Carried the company's worldview right on the can: "Lee Township against the World." A full-flavored steam beer brewed for a company that built itself on the boldness of an underdog. 
+Not a logo slapped on a stock label. A real product, brewed in their backyard, carrying their actual story — written in their actual voice. 
+The full 60th-anniversary kit: 
+• Custom Bernie Steam Beer, brewed by Exile Brewing 
+• Custom anniversary glassware engineered to pair with the beer 
+• Custom cooler backpacks — built for tailgates, jobsite breaks, and the kind of moments Baker celebrates with its team 
+• Anniversary apparel and accessories rolled out across the company 
+The result wasn't a gift. It was a moment of company history bottled, branded, and put in the hands of every employee, every long-time client, and every partner who helped Baker get here. 
+If a company is willing to put 60 years of their founder's worldview on a beer label, the merch program had better match the seriousness of the moment.
+Merch Club — Baker Group Case Study Page 6 
+SECTION 4 
+The Range 
+Every department. Every program. One team. 
+Most merch programs cover one or two needs. The Baker partnership spans the entire company — and stays consistent across every touchpoint because it's all coming from one team that knows the brand inside out. 
+NOTE TO JEANNIE: This section should be a visual gallery — grid layout, 3 columns on desktop, 2 on tablet, 1 on mobile. Each item gets the category label as a caption. Lift the categories below verbatim. Pull actual product photography from the Baker folder. If a category has multiple strong photos, use them in a horizontal scroll within that category. 
+Field Apparel 
+Carhartt jackets, Defender hoodies, beanies, vests, cooling towels, hand warmers, first-aid kits, custom zipper pulls. Built for the job site. Designed to outlast the project. 
+Executive & Leadership Gear 
+Polos, quarter-zips, co-branded apparel, custom caps, and patches engineered for the level of presence Baker's leadership carries into client meetings, conferences, and the field. 
+Client Gifting & Relationship Tools 
+Golf items including custom golf log books. Duck hunting gear. Multi-tool pens. Drinkware, koozies (including the suede ones that always get pulled out of the pile first). The relationship-building toolkit for a company where deals get done over rounds and dinners, not just in conference rooms. 
+Trade Show & Event Programs 
+Backpacks, tech items, chargers, cables, earbuds, mouse pads, neck fans — kitted, themed, and ready to ship to whichever city Baker is showing up in next. 
+Anniversary & Milestone Programs 
+The 60th-anniversary build. Custom Bernie Steam Beer with Exile Brewing. Cooler backpacks. Anniversary glassware. The full kit that turned 60 years into a moment people are still talking about. 
+Recruiting, HR & Onboarding 
+First-day apparel for new hires. Field-tested giveaways for hiring events. The pieces that signal what Baker stands for before someone has worked a single day.
+Merch Club — Baker Group Case Study Page 7 
+SECTION 5 
+What This Looks Like Day-to-Day 
+The operating rhythm of an embedded partnership. 
+NOTE TO JEANNIE: Use the same numbered-step format as the OneStaff Nurse Gifting case study. Steps below are 6 long — that's intentional. The breadth is the point. Lift verbatim. 
+1 Annual planning — every year starts with a calendar conversation. Anniversaries, trade shows, hiring waves, gifting seasons, leadership events. We map the year before it starts. 
+2 Department-by-department creative — field, exec, recruiting, marketing, and HR each get their own creative direction. One brand. Different applications. 
+3 Product sourcing across categories — from Carhartt programs to custom-developed items like the Bernie Beer collaboration. Whatever the moment calls for. 
+4 Production management across decoration methods — embroidery, screenprint, patch, laser-engrave, custom development. Coordinated as a single program instead of a stack of one-off orders. 
+5 Kitting, fulfillment, and distribution — whether the destination is a jobsite, a trade show booth, a client's office, or 1,500 employees company-wide. 
+6 Reporting and recap — every program closes with a recap. What landed. What to repeat. What to evolve next year. The relationship gets smarter every cycle. 
+This is what merch looks like when it's run as a program instead of an order. Less coordination on Baker's side. More consistency in how the brand shows up.
+Merch Club — Baker Group Case Study Page 8 
+SECTION 6 
+From the Field 
+Three years of Baker Group, in the wild. 
+Every piece below is real work. Real product. Real Baker employees wearing it on the job, in the office, on the course, and at the events that matter. 
+NOTE TO JEANNIE: Build this as a horizontal scrolling carousel — same treatment as the OneStaff Nurse Gifting page. 15–25 images. Mix field apparel, exec gear, gifting moments, trade show booth shots, the anniversary kit, Bernie Beer photos, and team-on-job-site lifestyle imagery. Goal is for visitors to scroll through and feel the depth of the relationship visually before they read another word. Same auto-advance + pause-on-hover behavior as the Nurse Gifting gallery. 
+NOTE TO JEANNIE: Image categories to populate the carousel from the Baker folder: (1) Carhartt jackets being worn on a job site, (2) Defender hoodies in action, (3) Executive polos and quarter-zips at meetings/events, (4) Golf items and custom golf log books in use, (5) Bernie Steam Beer cans in hand, with the brewer, on shelves, at the anniversary event, (6) Cooler backpacks at tailgates or company events, (7) Custom suede koozies, (8) Custom caps and patches, (9) Trade show booth shots, (10) Tech kits (chargers, cables, earbuds, mouse pads), (11) Tape measures and field tools, (12) Custom zipper pulls and small details up close, (13) Beanies and cold-weather gear on site, (14) Duck hunting and outdoor gear, (15) First aid kits in use, (16) Anniversary glassware paired with Bernie Beer.
+Merch Club — Baker Group Case Study Page 9 
+SECTION 7 
+Testimonial 
+NOTE TO JEANNIE: PLACEHOLDER — Chris is checking with the Baker Group contact to see if they're willing to provide a quote. If they are, this section gets a quote in the same style as the OneStaff Marketing Director quote. If they aren't, leave the section out entirely and skip directly to 'Why This Matters.' 
+NOTE TO JEANNIE: If a quote is approved, the format follows OneStaff: 
+[Quote here — first-person, voice-of-client, ~40–60 words] 
+[Title], Baker Group
+Merch Club — Baker Group Case Study Page 10 
+CLOSING 
+Why This Matters 
+NOTE TO JEANNIE: Set this section apart visually — pull-quote treatment, larger type, indigo accent, plenty of whitespace. This is the closing positioning that ties this case study back to Merch Club's broader brand. Match the visual treatment used on the OneStaff Trade Show case study. 
+A vendor takes orders. A partner builds the program. Three years in, that's the difference Baker Group can show you on every jobsite, every meeting, every milestone. 
+The brands that win the long game don't manage a dozen merch vendors. They build a relationship with one team that knows their company well enough to make every program better than the last one. 
+That's what we do. 
+That's what we've built with Baker. 
+That's what we'll build with you. 
+Calls to Action 
+NOTE TO JEANNIE: Two CTAs at the bottom of the page. 
+Primary: Start a Construction Project → /contact 
+Secondary: See more construction apparel programs → 
+/work/construction-trades-apparel-programs 
+Related Content 
+NOTE TO JEANNIE: Footer block — three internal links to keep readers in the site. 
+• See the full Construction &amp; Trades Apparel Programs page → 
+/work/construction-trades-apparel-programs 
+• See our Corporate Multi-Location Merchandise Programs → 
+/work/corporate-multi-location-merchandise-programs 
+• Read about CONDUCTOR, our 28-stage production system → /ai
+Merch Club — Baker Group Case Study Page 11 
+SEO METADATA 
+Title tag, meta description, keywords. 
+NOTE TO JEANNIE: Add these to the page head. Title tag under 60 characters. Meta description under 160 characters. 
+Title tag 
+Baker Group Construction Merch Partnership Case Study | Merch Club 
+Character count: 65 — slightly over Google's 60-char display limit but still strong. Optional shorter version: 'Baker Group Construction Merch Case Study | Merch Club' (56 chars) 
+Meta description 
+Three years embedded with Baker Group — handling Carhartt field apparel, exec gear, trade show kits, and a 60th-anniversary beer brewed with Exile Brewing in Des Moines. 
+Character count: 169 — trim slightly if needed 
+Keywords 
+Primary keyword: 
+construction company merch program 
+Secondary keywords: 
+Carhartt corporate apparel program, design-build contractor merch, multi-specialty contractor branded merchandise, construction trades apparel program, anniversary gifting program
+Merch Club — Baker Group Case Study Page 12 
+STRUCTURED DATA 
+Schema markup (JSON-LD). 
+NOTE TO JEANNIE: Add this JSON-LD to the page head. Combines Article schema + BreadcrumbList. Update [YYYY-MM-DD] with actual publish/modified dates. Update hero image URL once final assets are placed. 
+<script type="application/ld+json"> 
+{ 
+ "@context": "https://schema.org", 
+ "@graph": [ 
+ { 
+ "@type": "Article", 
+ "@id": "https://www.merchclub.com/work/baker-group-partnership#article", 
+ "headline": "What it looks like when your merch team isn't a vendor.", 
+ "description": "Three years embedded with Baker Group — Carhartt field apparel, exec gear, trade show kits, and  "image": "https://www.merchclub.com/case-studies/baker-group-hero.jpg", 
+ "author": { 
+ "@id": "https://www.merchclub.com/about/chris#person" 
+ }, 
+ "publisher": { 
+ "@id": "https://www.merchclub.com#organization" 
+ }, 
+ "datePublished": "[YYYY-MM-DD]", 
+ "dateModified": "[YYYY-MM-DD]", 
+ "mainEntityOfPage": "https://www.merchclub.com/work/baker-group-partnership", 
+ "articleSection": "Case Study", 
+ "about": { 
+ "@type": "Service", 
+ "name": "Construction & Trades Branded Merchandise Programs", 
+ "provider": { 
+ "@id": "https://www.merchclub.com#organization" 
+ } 
+ }, 
+ "mentions": [ 
+ { "@type": "Organization", "name": "Baker Group" }, 
+ { "@type": "Organization", "name": "Exile Brewing Company" } 
+ ] 
+ }, 
+ { 
+ "@type": "BreadcrumbList", 
+ "itemListElement": [ 
+ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.merchclub.com" },  { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://www.merchclub.com/work" },  { "@type": "ListItem", "position": 3, "name": "Baker Group Partnership", "item": "https://www.merchclub.com/wo ] 
+ } 
+ ] 
+} 
+</script> 
+End of Document — Version 1.0 
+All black text above is live copy, approved for build. 
+All red text is a note or direction for Jeannie — do not include in the built site.
+Merch Club — Baker Group Case Study Page 13 
