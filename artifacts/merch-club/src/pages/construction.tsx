@@ -15,7 +15,7 @@ import tumblerImg from "@assets/Charging_Cable_1779227798874.png";
 import carharttImg from "@assets/Apparel_in_the_field_1779227798874.png";
 import carharttAltImg from "@assets/walking_down_hall_2_1779227798873.png";
 import challengesBg from "@assets/Guy_with_cap_1779227798870.png";
-import heroVideo from "@assets/0416_1776378782818.mp4";
+import heroPortrait from "@assets/Guy_with_cap_1779227910739.png";
 import { SiteHeader } from "@/components/site-header";
 
 function useRevealOnScroll(threshold = 0.15) {
@@ -464,13 +464,11 @@ export default function Construction() {
 
             <div className="relative order-1 lg:order-2 lg:col-span-2 flex justify-center lg:justify-end">
               <div className="relative rounded-full overflow-hidden border border-black/10 aspect-square w-full max-w-[440px] bg-black shadow-2xl">
-                <video
-                  src={heroVideo}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <img
+                  src={heroPortrait}
+                  alt="Baker Group team member smiling in an embroidered Baker Group leather-patch cap and field jacket"
                   className="w-full h-full object-cover"
+                  loading="eager"
                 />
               </div>
               <div className="hidden md:flex absolute -top-4 -left-4 w-24 h-24 lg:w-28 lg:h-28 rounded-full bg-black text-white items-center justify-center text-[10px] font-bold uppercase tracking-[0.15em] text-center leading-tight p-3 -rotate-[8deg] shadow-xl">
