@@ -17,6 +17,7 @@ import carharttAltImg from "@assets/walking_down_hall_2_1779227798873.png";
 import challengesBg from "@assets/Guy_with_cap_1779227798870.png";
 import heroPortrait from "@assets/Guy_with_cap_1779227910739.png";
 import tradeShowImg from "@assets/Trade_Show_1_1779227930266.png";
+import crewApparelImg from "@assets/Beanie_1779227960906.png";
 import { SiteHeader } from "@/components/site-header";
 
 function useRevealOnScroll(threshold = 0.15) {
@@ -538,7 +539,7 @@ export default function Construction() {
           <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 md:grid-rows-2 gap-4 md:gap-5 md:auto-rows-fr" style={{ minHeight: "640px" }}>
             <RevealItem className="md:row-span-2 md:h-full">
               <div className="relative rounded-2xl overflow-hidden bg-[#0a0a0a] h-full min-h-[420px] group cursor-pointer" onClick={() => setProjectModalOpen(true)}>
-                <img src={carharttImg} alt="Construction crew apparel programs" className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                <img src={crewApparelImg} alt="Baker Group black embroidered crew beanie being pulled on by a team member" className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-black/0" />
                 <span className="absolute top-5 right-5 w-11 h-11 rounded-full bg-white text-black flex items-center justify-center group-hover:scale-110 transition-transform">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
