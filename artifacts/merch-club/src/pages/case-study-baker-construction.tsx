@@ -182,22 +182,42 @@ export default function CaseStudyBakerConstruction() {
             </div>
           </div>
 
-          <div className="max-w-3xl">
-            <h3 className="text-2xl md:text-3xl font-black tracking-tight text-white mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Bernie Steam Beer · 1963–2023
-            </h3>
-            <p className="text-base md:text-lg text-[#aaa] leading-relaxed mb-5">
-              In partnership with Exile Brewing Company — a local Des Moines brewery — we developed a custom co-branded beer for Baker's 60th anniversary. Named for Bernie Baker, the founder. Featured Bernie and Berniece's actual portraits on the label. Carried the company's worldview right on the can: "Lee Township against the World." A full-flavored steam beer brewed for a company that built itself on the boldness of an underdog.
-            </p>
-            <p className="text-base md:text-lg text-[#aaa] leading-relaxed mb-8">
-              Not a logo slapped on a stock label. A real product, brewed in their backyard, carrying their actual story — written in their actual voice.
-            </p>
-            <ul className="space-y-3 text-base md:text-lg text-white">
-              <li className="flex gap-3"><span className="text-white/30">—</span>Custom Bernie Steam Beer, brewed by Exile Brewing</li>
-              <li className="flex gap-3"><span className="text-white/30">—</span>Custom anniversary glassware engineered to pair with the beer</li>
-              <li className="flex gap-3"><span className="text-white/30">—</span>Custom cooler backpacks — built for tailgates, jobsite breaks, and team moments</li>
-              <li className="flex gap-3"><span className="text-white/30">—</span>Anniversary apparel and accessories rolled out across the company</li>
-            </ul>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            <div className="lg:col-span-7">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] bg-white text-black px-2.5 py-1 rounded-full">Anniversary Build</span>
+                <span className="text-xs font-bold uppercase tracking-[0.25em] text-white/40">1963 — 2023</span>
+              </div>
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                Bernie Steam Beer.<br /><span className="text-white/50">A label with a worldview.</span>
+              </h3>
+              <p className="text-base md:text-lg text-[#aaa] leading-relaxed mb-5">
+                In partnership with <span className="text-white">Exile Brewing Company</span> — a local Des Moines brewery — we developed a custom co-branded beer for Baker's 60th anniversary. Named for Bernie Baker, the founder. Featured Bernie and Berniece's actual portraits on the label. Carried the company's worldview right on the can: <span className="text-white">"Lee Township against the World."</span> A full-flavored steam beer brewed for a company that built itself on the boldness of an underdog.
+              </p>
+              <p className="text-base md:text-lg text-[#aaa] leading-relaxed">
+                Not a logo slapped on a stock label. A real product, brewed in their backyard, carrying their actual story — written in their actual voice.
+              </p>
+            </div>
+
+            <div className="lg:col-span-5 lg:pt-2">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 block mb-5">The Build</span>
+              <ol className="space-y-0 border-t border-white/10">
+                {[
+                  { n: "01", title: "Bernie Steam Beer", desc: "Custom-brewed by Exile Brewing in Des Moines." },
+                  { n: "02", title: "Anniversary Glassware", desc: "Engineered to pair with the pour." },
+                  { n: "03", title: "Cooler Backpacks", desc: "Built for tailgates, jobsite breaks, and team moments." },
+                  { n: "04", title: "Anniversary Apparel & Accessories", desc: "Rolled out across the entire company." },
+                ].map((item) => (
+                  <li key={item.n} className="grid grid-cols-[auto_1fr] gap-5 py-5 border-b border-white/10">
+                    <span className="text-xs font-bold tracking-[0.2em] text-white/40 pt-1.5">{item.n}</span>
+                    <div>
+                      <div className="text-lg md:text-xl font-black text-white tracking-tight mb-1" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{item.title}</div>
+                      <div className="text-sm md:text-base text-[#888] leading-relaxed">{item.desc}</div>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </div>
         </div>
       </section>
