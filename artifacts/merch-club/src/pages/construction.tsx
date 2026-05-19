@@ -653,26 +653,66 @@ export default function Construction() {
       <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 border-y border-black/10">
         <div className="max-w-7xl mx-auto">
           <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Featured Work</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-16" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Featured Construction<br /><span className="text-[#888]">Projects.</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Featured Case Study</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-12 md:mb-16" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              The Baker Group<br /><span className="text-[#888]">Partnership.</span>
             </h2>
           </RevealItem>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredProjects.map((study, i) => (
-              <RevealItem key={i} delay={i * 150}>
-                <div className="group cursor-pointer">
-                  <div className="rounded-2xl overflow-hidden border border-black/10 mb-6">
-                    <img src={study.img} alt={study.name} className="w-full h-[280px] md:h-[320px] object-cover group-hover:scale-105 transition-transform duration-500" />
+
+          <Link href="/case-studies/construction" className="group block">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-stretch">
+              <RevealItem className="lg:col-span-3">
+                <div className="relative rounded-2xl overflow-hidden border border-black/10 h-full min-h-[320px]">
+                  <img
+                    src={carharttImg}
+                    alt="Two Baker Group crew members in branded Carhartt jackets and embroidered caps reviewing site plans on a jobsite"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                  />
+                  <div className="absolute top-5 left-5 flex items-center gap-2">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] bg-white text-black px-2.5 py-1 rounded-full">Case Study</span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] bg-black/60 text-white px-2.5 py-1 rounded-full backdrop-blur-sm">Construction</span>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-black text-black tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{study.name}</h3>
-                  <p className="text-base md:text-lg text-[#666] leading-relaxed">{study.desc}</p>
                 </div>
               </RevealItem>
-            ))}
-          </div>
+
+              <RevealItem delay={100} className="lg:col-span-2">
+                <div className="h-full flex flex-col">
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-3">Baker Group · 2023+</span>
+                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-black tracking-tight leading-[0.95] mb-5" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                    What It Looks Like When Your Merch Team Isn't a Vendor.
+                  </h3>
+                  <p className="text-base md:text-lg text-[#555] leading-relaxed mb-6">
+                    Three years embedded with a 1,500-employee Midwest contractor. Field apparel, executive gear, client gifting, trade shows, recruiting — plus a 60th-anniversary beer brewed with Exile Brewing in Des Moines.
+                  </p>
+
+                  <div className="grid grid-cols-3 gap-3 mb-7">
+                    <div className="bg-[#f5f5f5] rounded-xl p-4">
+                      <div className="text-2xl md:text-3xl font-black leading-none mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>3+ Yrs</div>
+                      <div className="text-[9px] uppercase tracking-[0.15em] text-[#666] leading-tight">Embedded partnership</div>
+                    </div>
+                    <div className="bg-[#f5f5f5] rounded-xl p-4">
+                      <div className="text-2xl md:text-3xl font-black leading-none mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>1,500</div>
+                      <div className="text-[9px] uppercase tracking-[0.15em] text-[#666] leading-tight">Employees outfitted</div>
+                    </div>
+                    <div className="bg-[#f5f5f5] rounded-xl p-4">
+                      <div className="text-2xl md:text-3xl font-black leading-none mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>1 of 1</div>
+                      <div className="text-[9px] uppercase tracking-[0.15em] text-[#666] leading-tight">Anniversary beer brewed</div>
+                    </div>
+                  </div>
+
+                  <span className="mt-auto inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-black group-hover:gap-3 transition-all">
+                    Read the Case Study
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                  </span>
+                </div>
+              </RevealItem>
+            </div>
+          </Link>
+
           <RevealItem delay={300}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 md:mt-16">
               <button
                 onClick={() => setProjectModalOpen(true)}
                 className="inline-flex items-center justify-center gap-2 bg-black text-white text-xs font-bold uppercase tracking-widest px-7 py-4 rounded-full hover:bg-[#222] transition-colors w-full sm:w-auto"
@@ -682,12 +722,12 @@ export default function Construction() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </button>
-              <a
-                href="/#work"
+              <Link
+                href="/case-studies"
                 className="inline-flex items-center justify-center gap-2 border border-black/20 text-black text-xs font-bold uppercase tracking-widest px-7 py-4 rounded-full hover:bg-black hover:text-white transition-colors w-full sm:w-auto"
               >
-                View All Work
-              </a>
+                View All Case Studies
+              </Link>
             </div>
           </RevealItem>
         </div>
