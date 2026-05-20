@@ -15,7 +15,7 @@ import kittingImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_177618082
 import nursesWeekImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_08_AM_1776180821018.png";
 import scrubsModelImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1776181322914.png";
 import tumblerImg from "@assets/ChatGPT_Image_Apr_16,_2026,_02_19_38_PM_1776376559711.png";
-import challengesBg from "@assets/Sporty_style_by_the_door_1776422196392.png";
+import challengesBg from "@assets/Blanket_4_1779288512542.png";
 import clinicianGiftingImg from "@assets/Box-Logo_Corrected_1779288344289.png";
 import eventsImg from "@assets/461191773_18297032593205370_5287082838877484901_n_1778693892844.jpg";
 import heroPortrait from "@assets/ChatGPT_Image_May_5,_2026,_07_31_07_PM_1779288262963.png";
