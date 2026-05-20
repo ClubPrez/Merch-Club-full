@@ -14,7 +14,7 @@ import kittingImg from "@assets/Beanie_1779227798874.png";
 import tumblerImg from "@assets/Charging_Cable_1779227798874.png";
 import carharttImg from "@assets/Apparel_in_the_field_1779227798874.png";
 import carharttAltImg from "@assets/walking_down_hall_2_1779227798873.png";
-import challengesBg from "@assets/Guy_with_cap_1779227798870.png";
+import challengesBg from "@assets/Safety_1779288954410.png";
 import heroPortrait from "@assets/Guy_with_cap_1779227910739.png";
 import tradeShowImg from "@assets/Trade_Show_1_1779227930266.png";
 import crewApparelImg from "@assets/Beanie_1779227960906.png";
