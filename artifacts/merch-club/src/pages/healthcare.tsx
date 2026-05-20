@@ -16,7 +16,7 @@ import nursesWeekImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_08_AM_177618
 import scrubsModelImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1776181322914.png";
 import tumblerImg from "@assets/ChatGPT_Image_Apr_16,_2026,_02_19_38_PM_1776376559711.png";
 import challengesBg from "@assets/Sporty_style_by_the_door_1776422196392.png";
-import heroVideo from "@assets/0416_1776378782818.mp4";
+import heroPortrait from "@assets/ChatGPT_Image_May_5,_2026,_07_31_07_PM_1779288262963.png";
 import { SiteHeader } from "@/components/site-header";
 
 function useRevealOnScroll(threshold = 0.15) {
@@ -480,13 +480,11 @@ export default function Healthcare() {
 
             <div className="relative order-1 lg:order-2 lg:col-span-2 flex justify-center lg:justify-end">
               <div className="relative rounded-full overflow-hidden border border-black/10 aspect-square w-full max-w-[440px] bg-black shadow-2xl">
-                <video
-                  src={heroVideo}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <img
+                  src={heroPortrait}
+                  alt="Travel nurse leaving a wellness studio with a OneStaff-branded duffel and yoga mat"
                   className="w-full h-full object-cover"
+                  loading="eager"
                 />
               </div>
               <div className="hidden md:flex absolute -top-4 -left-4 w-24 h-24 lg:w-28 lg:h-28 rounded-full bg-black text-white items-center justify-center text-[10px] font-bold uppercase tracking-[0.15em] text-center leading-tight p-3 -rotate-[8deg] shadow-xl">
