@@ -713,12 +713,12 @@ export default function Healthcare() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </button>
-              <a
-                href="/#work"
+              <Link
+                href="/case-studies"
                 className="inline-flex items-center justify-center gap-2 border border-black/20 text-black text-xs font-bold uppercase tracking-widest px-7 py-4 rounded-full hover:bg-black hover:text-white transition-colors w-full sm:w-auto"
               >
                 View All Work
-              </a>
+              </Link>
             </div>
           </RevealItem>
         </div>
