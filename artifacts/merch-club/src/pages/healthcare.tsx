@@ -18,6 +18,8 @@ import tumblerImg from "@assets/ChatGPT_Image_Apr_16,_2026,_02_19_38_PM_17763765
 import challengesBg from "@assets/Blanket_4_1779288512542.png";
 import clinicianGiftingImg from "@assets/Box-Logo_Corrected_1779288344289.png";
 import eventsImg from "@assets/461191773_18297032593205370_5287082838877484901_n_1778693892844.jpg";
+import caseNurseGiftingImg from "@assets/Blanket_4_1778000748265.png";
+import caseEventsImg from "@assets/461191773_18297032593205370_5287082838877484901_n_1778693892844.jpg";
 import heroPortrait from "@assets/ChatGPT_Image_May_5,_2026,_07_31_07_PM_1779288262963.png";
 import { SiteHeader } from "@/components/site-header";
 
@@ -131,9 +133,18 @@ const scrubBrands = [
 ];
 
 const caseStudies = [
-  { name: "CHI", desc: "Structured apparel and branded materials executed across departments to maintain consistency and durability in clinical environments.", img: packagingImg },
-  { name: "OneStaff Medical", desc: "Large-scale apparel and event-driven merchandise programs built to support distributed healthcare staffing teams.", img: nursesWeekImg },
-  { name: "Breast Cancer Awareness Initiative", desc: "Coordinated awareness apparel and supporting materials designed to increase visibility and drive participation without feeling gimmicky.", img: bagImg },
+  {
+    name: "Nurse Gifting — OneStaff Medical",
+    desc: "Two annual gifting programs — Nurses Week and the holidays — designed around the way travel nurses actually live, work, and pack.",
+    img: caseNurseGiftingImg,
+    href: "/case-studies/nurse-gifting",
+  },
+  {
+    name: "Events — TravCon",
+    desc: "OneStaff Medical's TravCon booth and giveaway program — creative, sourcing, and on-site execution end-to-end.",
+    img: caseEventsImg,
+    href: "/case-studies/events",
+  },
 ];
 
 const faqs = [
@@ -674,16 +685,20 @@ export default function Healthcare() {
               Featured Healthcare<br /><span className="text-[#888]">Projects.</span>
             </h2>
           </RevealItem>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {caseStudies.map((study, i) => (
               <RevealItem key={i} delay={i * 150}>
-                <div className="group cursor-pointer">
+                <Link href={study.href} className="group block">
                   <div className="rounded-2xl overflow-hidden border border-black/10 mb-6">
-                    <img src={study.img} alt={study.name} className="w-full h-[280px] md:h-[320px] object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={study.img} alt={study.name} className="w-full h-[320px] md:h-[400px] object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <h3 className="text-xl md:text-2xl font-black text-black tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{study.name}</h3>
-                  <p className="text-base md:text-lg text-[#666] leading-relaxed">{study.desc}</p>
-                </div>
+                  <p className="text-base md:text-lg text-[#666] leading-relaxed mb-3">{study.desc}</p>
+                  <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-black group-hover:gap-3 transition-all">
+                    Read the Case Study
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                  </span>
+                </Link>
               </RevealItem>
             ))}
           </div>
