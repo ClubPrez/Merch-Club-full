@@ -34,7 +34,7 @@ import team2Img from "@assets/2_1775229252466.png";
 import team3Img from "@assets/3_1775229252466.png";
 import team4Img from "@assets/4_1775229252466.png";
 import accessBankImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_13_49_PM_1774718377455.png";
-import onestaffImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_08_AM_1775773287575.png";
+import onestaffImg from "@assets/Blanket_4_1778000748265.png";
 import merchClubProductionImg from "@assets/ChatGPT_Image_Mar_24,_2026,_11_18_55_AM_1774718494043.png";
 import merchClubDistributionImg from "@assets/ChatGPT_Image_Apr_9,_2026,_04_16_06_PM_1775831640229.png";
 import industryCorporateImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_13_49_PM_1774718584149.png";
@@ -953,7 +953,7 @@ export default function Home() {
 
                 <RevealItem delay={100}>
                   <div className="flex items-center gap-4 mb-10">
-                    <span className="text-xs font-bold text-black border border-black/20 rounded-full px-4 py-1.5">ONESTAFF MEDICAL</span>
+                    <span className="text-xs font-bold text-black border border-black/20 rounded-full px-4 py-1.5">ONESTAFF MEDICAL · NURSE GIFTING</span>
                   </div>
                 </RevealItem>
 
@@ -961,7 +961,7 @@ export default function Home() {
                   <div className="mb-8">
                     <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#888] block mb-4">Services delivered</span>
                     <div className="grid grid-cols-2 gap-x-8 gap-y-3">
-                      {["Nurses Week gifting", "Custom kitting", "Nationwide fulfillment", "Contract employee appreciation"].map((tool) => (
+                      {["Nurses Week gifting", "Holiday gifting", "Travel-nurse product design", "Custom kitting & fulfillment"].map((tool) => (
                         <div key={tool} className="flex items-center gap-2">
                           <svg className="w-3.5 h-3.5 text-[#888] flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -976,11 +976,11 @@ export default function Home() {
                 <RevealItem delay={300}>
                   <blockquote className="border-l-2 border-black/15 pl-5 mb-8">
                     <p className="text-base md:text-lg text-black/80 leading-relaxed font-medium italic">
-                      "Merch Club nailed it — every Nurses Week box was on-brand, beautifully packaged, and delivered on time to travelers across the country."
+                      "Yo. The traveler holiday gifts were a hit. Merch Club made the process easy, brought us ideas that didn't feel cookie-cutter, and helped us send something that actually felt thoughtful. That's always the bar for us, and they nailed it."
                     </p>
                     <footer className="mt-4">
-                      <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#888]">OneStaff Medical</span>
-                      <span className="text-xs text-[#aaa] ml-2">— Marketing Team</span>
+                      <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#888]">Marketing Director</span>
+                      <span className="text-xs text-[#aaa] ml-2">— OneStaff Medical</span>
                     </footer>
                   </blockquote>
                 </RevealItem>
@@ -991,30 +991,30 @@ export default function Home() {
             <RevealItem delay={200} className="lg:w-[55%] relative">
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden border border-black/10">
-                  <img src={onestaffImg} alt="OneStaff Medical Nurses Week gift boxes" className="w-full h-[300px] sm:h-[380px] md:h-[500px] object-cover" />
+                  <img src={onestaffImg} alt="OneStaff Medical travel nurse at sunrise with branded blanket — wanderlust-driven nurse gifting" className="w-full h-[300px] sm:h-[380px] md:h-[500px] object-cover" />
                 </div>
 
                 <div className="hidden md:block absolute bottom-6 left-6 bg-white/95 backdrop-blur-md rounded-xl border border-black/10 p-5 max-w-[280px] shadow-2xl shadow-black/10">
-                  <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#888] block mb-2">Case Study</span>
+                  <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#888] block mb-2">Case Study · Nurse Gifting</span>
                   <h4 className="text-sm font-black text-black leading-snug mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.1rem", letterSpacing: "0.01em" }}>
-                    OneStaff Medical Celebrates Nurses Week With Merch Club
+                    Travel Nurse Gifting, Built Around the Wanderlust.
                   </h4>
                   <p className="text-[11px] text-[#888] leading-relaxed mb-3">
-                    How a custom kitting program delivered branded gift boxes to traveling nurses nationwide.
+                    Two annual gifting programs — Nurses Week and the holidays — designed around the way travel nurses actually live, work, and pack.
                   </p>
-                  <a href="#" className="text-[11px] font-bold text-black underline underline-offset-2 hover:text-[#666] transition-colors">
+                  <Link href="/case-studies/nurse-gifting" className="text-[11px] font-bold text-black underline underline-offset-2 hover:text-[#666] transition-colors">
                     Read the case study
-                  </a>
+                  </Link>
                 </div>
               </div>
 
               <div className="hidden md:grid grid-cols-4 gap-6 mt-8">
                 <div>
-                  <span className="text-3xl md:text-4xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={1200} prefix="+" /></span>
-                  <p className="text-[10px] text-[#999] mt-1 leading-relaxed">Gift boxes shipped</p>
+                  <span className="text-3xl md:text-4xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>2x/yr</span>
+                  <p className="text-[10px] text-[#999] mt-1 leading-relaxed">Annual gifting moments</p>
                 </div>
                 <div>
-                  <span className="text-3xl md:text-4xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={48} /></span>
+                  <span className="text-3xl md:text-4xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={50} /></span>
                   <p className="text-[10px] text-[#999] mt-1 leading-relaxed">States reached</p>
                 </div>
                 <div>
@@ -1022,22 +1022,22 @@ export default function Home() {
                   <p className="text-[10px] text-[#999] mt-1 leading-relaxed">On-time delivery</p>
                 </div>
                 <div>
-                  <span className="text-3xl md:text-4xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}><CountUp end={5} /></span>
-                  <p className="text-[10px] text-[#999] mt-1 leading-relaxed">Custom items per kit</p>
+                  <span className="text-3xl md:text-4xl font-black text-black tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>1 Roof</span>
+                  <p className="text-[10px] text-[#999] mt-1 leading-relaxed">Design → kitting → fulfillment</p>
                 </div>
               </div>
 
               <div className="md:hidden mt-4 bg-[#f5f5f5] rounded-xl border border-black/10 p-5">
-                <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#888] block mb-2">Case Study</span>
+                <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#888] block mb-2">Case Study · Nurse Gifting</span>
                 <h4 className="text-sm font-black text-black leading-snug mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.1rem", letterSpacing: "0.01em" }}>
-                  OneStaff Medical Celebrates Nurses Week With Merch Club
+                  Travel Nurse Gifting, Built Around the Wanderlust.
                 </h4>
                 <p className="text-[11px] text-[#888] leading-relaxed mb-3">
-                  How a custom kitting program delivered branded gift boxes to traveling nurses nationwide.
+                  Two annual gifting programs — Nurses Week and the holidays — designed around the way travel nurses actually live, work, and pack.
                 </p>
-                <a href="#" className="text-[11px] font-bold text-black underline underline-offset-2 hover:text-[#666] transition-colors">
+                <Link href="/case-studies/nurse-gifting" className="text-[11px] font-bold text-black underline underline-offset-2 hover:text-[#666] transition-colors">
                   Read the case study
-                </a>
+                </Link>
               </div>
             </RevealItem>
           </div>
