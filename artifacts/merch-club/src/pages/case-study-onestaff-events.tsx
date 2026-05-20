@@ -435,34 +435,27 @@ export default function CaseStudyOnestaffEvents() {
         </div>
       </section>
 
-      {/* CTAs */}
-      <section className="bg-white py-20 md:py-24 px-8 md:px-16 lg:px-20">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2
-            className="text-4xl md:text-6xl font-black tracking-tight leading-[0.95] text-black mb-10"
-            style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-          >
+      {/* CTA */}
+      <section className="bg-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
+        <div className="max-w-3xl mx-auto">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">The Outcome</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
             Ready to Own Your Next Show?
           </h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch">
-            <button
-              type="button"
-              onClick={() => setProjectModalOpen(true)}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-black text-white font-bold uppercase tracking-[0.15em] text-sm rounded-full hover:bg-[#222] transition-colors"
-            >
-              Start an event project
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-              </svg>
+          <p className="text-base md:text-lg text-[#444] leading-relaxed mb-10">
+            A booth that pulls recruiters in, merch that walks off the floor, and a partner running creative, sourcing, and logistics end-to-end — so your team shows up to work the conversations, not the boxes.
+          </p>
+          <div className="border-t border-black/10 pt-8 flex flex-wrap items-center gap-4">
+            <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-black text-white text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-[#333] transition-colors">
+              Start Your Project
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
             </button>
-            <Link
-              href="/industries/events"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black border border-black/15 font-bold uppercase tracking-[0.15em] text-sm rounded-full hover:bg-[#f5f5f5] transition-colors"
-            >
-              See more event merchandise programs
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-              </svg>
+            <Link href="/industries/events" className="inline-flex items-center gap-2 border border-black/15 text-black text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-black hover:text-white transition-colors">
+              See Events Programs
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
+            </Link>
+            <Link href="/case-studies" className="inline-flex items-center gap-2 text-black text-sm md:text-base font-bold px-2 py-3 hover:underline">
+              All Case Studies
             </Link>
           </div>
         </div>
