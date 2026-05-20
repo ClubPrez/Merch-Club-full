@@ -6,7 +6,7 @@ import { StartProjectModal } from "@/components/start-project-modal";
 import { SiteHeader } from "@/components/site-header";
 
 import bernieBeer from "@assets/Bernie_Beer_Glass_1779204227434.png";
-import heroJobsite from "@assets/Apparel_in_the_field_1779205508007.png";
+import heroJobsite from "@assets/Guys_with_Caps_(1)_1779289096835.png";
 import beerCansCold from "@assets/Cold_Beer_Image_Alt_1779204227435.png";
 import backpackCoolers from "@assets/60_yr_backpack_coolers_1779204227431.png";
 import apparelField from "@assets/Apparel_in_the_field_1779204227432.png";
