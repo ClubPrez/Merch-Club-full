@@ -16,6 +16,7 @@ import nursesWeekImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_08_AM_177618
 import scrubsModelImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1776181322914.png";
 import tumblerImg from "@assets/ChatGPT_Image_Apr_16,_2026,_02_19_38_PM_1776376559711.png";
 import challengesBg from "@assets/Sporty_style_by_the_door_1776422196392.png";
+import clinicianGiftingImg from "@assets/Box-Logo_Corrected_1779288344289.png";
 import heroPortrait from "@assets/ChatGPT_Image_May_5,_2026,_07_31_07_PM_1779288262963.png";
 import { SiteHeader } from "@/components/site-header";
 
@@ -588,11 +589,11 @@ export default function Healthcare() {
 
             <RevealItem delay={200} className="md:row-span-2 md:h-full md:col-start-3 md:row-start-1">
               <div className="relative rounded-2xl overflow-hidden bg-[#0a0a0a] h-full min-h-[420px] group cursor-pointer" onClick={() => setProjectModalOpen(true)}>
-                <img src={kittingImg} alt="Donor gifting and onboarding kits" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={clinicianGiftingImg} alt="OneStaff Medical 'Wake Up to New Adventures' Nurses Week gift boxes with branded mailer cards and crinkle fill" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-black/0" />
                 <div className="absolute bottom-7 left-7 right-7">
-                  <h3 className="text-3xl md:text-4xl font-black text-white mb-1.5" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>Donor & Onboarding</h3>
-                  <p className="text-sm text-white/80 mb-5 leading-relaxed">Premium recognition kits and welcome programs that land the right way.</p>
+                  <h3 className="text-3xl md:text-4xl font-black text-white mb-1.5" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>Clinician Gifting</h3>
+                  <p className="text-sm text-white/80 mb-5 leading-relaxed">Nurses Week, holidays, and milestone kits — designed around the way clinicians actually live and pack.</p>
                   <button onClick={(e) => { e.stopPropagation(); setProjectModalOpen(true); }} className="inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-wider px-4 py-2.5 rounded-full hover:bg-gray-200 transition-colors">
                     Start a Project
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
