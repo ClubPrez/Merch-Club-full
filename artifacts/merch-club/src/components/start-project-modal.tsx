@@ -77,7 +77,7 @@ export function StartProjectModal({ open, onClose, onOpenChange }: Props) {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 12a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
               </svg>
               <div className="min-w-0">
-                <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-0.5">Studio</div>
+                <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-0.5">HQ</div>
                 <div>Omaha, Nebraska</div>
               </div>
             </div>
