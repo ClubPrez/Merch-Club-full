@@ -83,6 +83,8 @@ function Router() {
       <Route path="/checkout/"><Redirect to="/contact" /></Route>
       <Route path="/cart"><Redirect to="/contact" /></Route>
       <Route path="/cart/"><Redirect to="/contact" /></Route>
+      <Route path="/dress-shirt-size-calculator"><Redirect to="/services" /></Route>
+      <Route path="/dress-shirt-size-calculator/"><Redirect to="/services" /></Route>
 
       {/* Trailing-slash variants of current routes */}
       <Route path="/contact/"><Redirect to="/contact" /></Route>
