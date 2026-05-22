@@ -154,18 +154,18 @@ export function IndustriesMegaMenu({ active = false, theme = "dark" }: Props) {
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-3">Programs & Capabilities</span>
               <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-x-6 gap-y-1">
                 {[
-                  "Crew & Staff Apparel",
-                  "Leadership Gear",
-                  "Onboarding Kits",
-                  "Trade Show Kits",
-                  "Donor & Client Gifting",
-                  "Awareness Campaigns",
+                  { label: "Crew & Staff Apparel", href: "/case-studies/construction" },
+                  { label: "Leadership Gear", href: "/case-studies/access-bank" },
+                  { label: "Onboarding Kits", href: "/case-studies/construction" },
+                  { label: "Trade Show Kits", href: "/case-studies/events" },
+                  { label: "Donor & Client Gifting", href: "/case-studies/access-bank" },
+                  { label: "Awareness Campaigns", href: "/case-studies/nurse-gifting" },
                 ].map((item) => (
-                  <li key={item}>
-                    <a href="/#services" className="group flex items-center gap-2 text-sm text-[#444] hover:text-black transition-colors py-1">
+                  <li key={item.label}>
+                    <Link href={item.href} className="group flex items-center gap-2 text-sm text-[#444] hover:text-black transition-colors py-1">
                       <span className="text-black/30 group-hover:text-black transition-colors text-base leading-none">+</span>
-                      <span>{item}</span>
-                    </a>
+                      <span>{item.label}</span>
+                    </Link>
                   </li>
                 ))}
               </ul>
