@@ -658,7 +658,7 @@ export default function Home() {
       "url": "https://merchclub.replit.app",
       "logo": "https://merchclub.replit.app/opengraph.jpg",
       "telephone": "+1-531-777-0347",
-      "email": "hello@merchclub.com",
+      "email": "chris@merchclub.com",
       "address": { "@type": "PostalAddress", "addressCountry": "US" },
       "sameAs": [
         "https://www.facebook.com/MerchClubPro",

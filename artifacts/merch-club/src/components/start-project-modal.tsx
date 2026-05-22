@@ -51,13 +51,13 @@ export function StartProjectModal({ open, onClose, onOpenChange }: Props) {
           </p>
 
           <div className="mt-6 space-y-4 text-sm">
-            <a href="mailto:hello@merchclub.com?subject=New%20Project%20Inquiry" className="group flex items-start gap-3 text-white/80 hover:text-white transition-colors">
+            <a href="mailto:chris@merchclub.com?subject=New%20Project%20Inquiry" className="group flex items-start gap-3 text-white/80 hover:text-white transition-colors">
               <svg className="w-4 h-4 mt-0.5 flex-shrink-0 text-white/40 group-hover:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
               </svg>
               <div className="min-w-0">
                 <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-0.5">Email</div>
-                <div className="break-all">hello@merchclub.com</div>
+                <div className="break-all">chris@merchclub.com</div>
               </div>
             </a>
 

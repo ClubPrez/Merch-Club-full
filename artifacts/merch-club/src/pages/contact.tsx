@@ -39,8 +39,8 @@ const reachOptions = [
   {
     title: "Project Inquiries",
     desc: "Starting a new program, single event, or company-wide rollout? Tell us what you're planning and we'll route you to the right strategist.",
-    contact: "hello@merchclub.com",
-    href: "mailto:hello@merchclub.com?subject=New%20Project%20Inquiry",
+    contact: "chris@merchclub.com",
+    href: "mailto:chris@merchclub.com?subject=New%20Project%20Inquiry",
     icon: "M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 01-1.125-1.125v-3.75zM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-8.25zM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-2.25z",
   },
   {
@@ -111,10 +111,10 @@ export default function Contact() {
       "url": "https://merchclub.replit.app",
       "logo": "https://merchclub.replit.app/opengraph.jpg",
       "telephone": "+1-531-777-0347",
-      "email": "hello@merchclub.com",
+      "email": "chris@merchclub.com",
       "address": { "@type": "PostalAddress", "addressLocality": "Omaha", "addressRegion": "NE", "postalCode": "68102", "addressCountry": "US" },
       "contactPoint": [
-        { "@type": "ContactPoint", "telephone": "+1-531-777-0347", "contactType": "sales", "email": "hello@merchclub.com", "areaServed": "US", "availableLanguage": ["en"] },
+        { "@type": "ContactPoint", "telephone": "+1-531-777-0347", "contactType": "sales", "email": "chris@merchclub.com", "areaServed": "US", "availableLanguage": ["en"] },
         { "@type": "ContactPoint", "contactType": "partnerships", "email": "partners@merchclub.com", "areaServed": "US", "availableLanguage": ["en"] },
         { "@type": "ContactPoint", "contactType": "human resources", "email": "careers@merchclub.com", "areaServed": "US", "availableLanguage": ["en"] },
         { "@type": "ContactPoint", "contactType": "press", "email": "press@merchclub.com", "areaServed": "US", "availableLanguage": ["en"] }
@@ -129,7 +129,7 @@ export default function Contact() {
       "image": PAGE_IMG,
       "url": "https://merchclub.replit.app",
       "telephone": "+1-531-777-0347",
-      "email": "hello@merchclub.com",
+      "email": "chris@merchclub.com",
       "priceRange": "$$-$$$",
       "address": { "@type": "PostalAddress", "addressLocality": "Omaha", "addressRegion": "NE", "postalCode": "68102", "addressCountry": "US" },
       "geo": { "@type": "GeoCoordinates", "latitude": 41.2565, "longitude": -95.9345 },
@@ -184,7 +184,7 @@ export default function Contact() {
           <p><a href="tel:+15317770347">+1 531-777-0347</a></p>
           <h2>Email</h2>
           <ul>
-            <li>Project inquiries: <a href="mailto:hello@merchclub.com">hello@merchclub.com</a></li>
+            <li>Project inquiries: <a href="mailto:chris@merchclub.com">chris@merchclub.com</a></li>
             <li>Partnerships: <a href="mailto:partners@merchclub.com">partners@merchclub.com</a></li>
             <li>Careers: <a href="mailto:careers@merchclub.com">careers@merchclub.com</a></li>
             <li>Press: <a href="mailto:press@merchclub.com">press@merchclub.com</a></li>
@@ -316,7 +316,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] mb-1">Email</p>
-                    <a href="mailto:hello@merchclub.com" className="text-xl md:text-2xl font-black text-white hover:text-[#bbb] transition-colors break-all" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>hello@merchclub.com</a>
+                    <a href="mailto:chris@merchclub.com" className="text-xl md:text-2xl font-black text-white hover:text-[#bbb] transition-colors break-all" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>chris@merchclub.com</a>
                   </div>
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] mb-1">Headquarters</p>
