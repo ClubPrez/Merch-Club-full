@@ -7,18 +7,53 @@ interface Props {
   onOpenChange?: (open: boolean) => void;
 }
 
+const GHL_WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/5eJhURl3o1Ttqq3IisJ3/webhook-trigger/d9c4b14c-88f1-4813-b852-89b594c8e112";
+
 export function StartProjectModal({ open, onClose, onOpenChange }: Props) {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const close = () => {
     onClose?.();
     onOpenChange?.(false);
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (submitting) return;
+    setError(null);
+    setSubmitting(true);
+    const formEl = e.currentTarget;
+    const fd = new FormData(formEl);
+    const payload: Record<string, string> = {
+      source: "merchclub.com Start a Project modal",
+      page: typeof window !== "undefined" ? window.location.href : "",
+      submittedAt: new Date().toISOString(),
+    };
+    fd.forEach((value, key) => { payload[key] = String(value); });
+
+    try {
+      await fetch(GHL_WEBHOOK_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      setSubmitted(true);
+      formEl.reset();
+    } catch (err) {
+      setError("Something went wrong. Please email chris@merchclub.com directly.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
       setSubmitted(false);
+      setError(null);
     } else {
       document.body.style.overflow = "";
     }
@@ -121,18 +156,18 @@ export function StartProjectModal({ open, onClose, onOpenChange }: Props) {
                 Tell us what you're thinking. You don't need it all figured out — give us the basics and we'll take it from there.
               </p>
 
-              <form onSubmit={e => { e.preventDefault(); setSubmitted(true); }} className="space-y-3">
+              <form onSubmit={handleSubmit} className="space-y-3">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <input type="text" placeholder="Name" required className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 text-sm text-black placeholder-[#aaa] focus:outline-none focus:border-black/30 transition-colors" />
-                  <input type="text" placeholder="Company" className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 text-sm text-black placeholder-[#aaa] focus:outline-none focus:border-black/30 transition-colors" />
+                  <input name="name" type="text" placeholder="Name" required className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 text-sm text-black placeholder-[#aaa] focus:outline-none focus:border-black/30 transition-colors" />
+                  <input name="company" type="text" placeholder="Company" className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 text-sm text-black placeholder-[#aaa] focus:outline-none focus:border-black/30 transition-colors" />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <input type="email" placeholder="Work email" required className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 text-sm text-black placeholder-[#aaa] focus:outline-none focus:border-black/30 transition-colors" />
-                  <input type="tel" placeholder="Phone (optional)" className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 text-sm text-black placeholder-[#aaa] focus:outline-none focus:border-black/30 transition-colors" />
+                  <input name="email" type="email" placeholder="Work email" required className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 text-sm text-black placeholder-[#aaa] focus:outline-none focus:border-black/30 transition-colors" />
+                  <input name="phone" type="tel" placeholder="Phone (optional)" className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 text-sm text-black placeholder-[#aaa] focus:outline-none focus:border-black/30 transition-colors" />
                 </div>
 
                 <div className="relative">
-                  <select required defaultValue="" className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 pr-10 text-sm text-black focus:outline-none focus:border-black/30 transition-colors appearance-none cursor-pointer">
+                  <select name="projectType" required defaultValue="" className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 pr-10 text-sm text-black focus:outline-none focus:border-black/30 transition-colors appearance-none cursor-pointer">
                     <option value="" disabled>Project type</option>
                     <option value="apparel">Staff &amp; crew apparel</option>
                     <option value="gifting">Client or employee gifting</option>
@@ -144,11 +179,11 @@ export function StartProjectModal({ open, onClose, onOpenChange }: Props) {
                   <svg className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-black/50" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
                 </div>
 
-                <textarea placeholder="What are you looking to create? A few sentences is plenty." rows={4} required className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 text-sm text-black placeholder-[#aaa] focus:outline-none focus:border-black/30 transition-colors resize-none" />
+                <textarea name="message" placeholder="What are you looking to create? A few sentences is plenty." rows={4} required className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 text-sm text-black placeholder-[#aaa] focus:outline-none focus:border-black/30 transition-colors resize-none" />
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="relative">
-                    <select defaultValue="" className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 pr-10 text-sm text-black focus:outline-none focus:border-black/30 transition-colors appearance-none cursor-pointer">
+                    <select name="timeline" defaultValue="" className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 pr-10 text-sm text-black focus:outline-none focus:border-black/30 transition-colors appearance-none cursor-pointer">
                       <option value="" disabled>Timeline</option>
                       <option value="asap">ASAP</option>
                       <option value="2-weeks">Within 2 weeks</option>
@@ -159,7 +194,7 @@ export function StartProjectModal({ open, onClose, onOpenChange }: Props) {
                     <svg className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-black/50" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
                   </div>
                   <div className="relative">
-                    <select defaultValue="" className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 pr-10 text-sm text-black focus:outline-none focus:border-black/30 transition-colors appearance-none cursor-pointer">
+                    <select name="budget" defaultValue="" className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 pr-10 text-sm text-black focus:outline-none focus:border-black/30 transition-colors appearance-none cursor-pointer">
                       <option value="" disabled>Estimated budget</option>
                       <option value="under-5k">Under $5K</option>
                       <option value="5-15k">$5K–$15K</option>
@@ -171,8 +206,10 @@ export function StartProjectModal({ open, onClose, onOpenChange }: Props) {
                   </div>
                 </div>
 
-                <button type="submit" className="w-full bg-black text-white text-sm font-bold py-3.5 rounded-full hover:bg-black/80 transition-colors mt-2">
-                  Start My Project
+                {error && <p className="text-xs text-red-600 text-center">{error}</p>}
+
+                <button type="submit" disabled={submitting} className="w-full bg-black text-white text-sm font-bold py-3.5 rounded-full hover:bg-black/80 transition-colors mt-2 disabled:opacity-60 disabled:cursor-not-allowed">
+                  {submitting ? "Sending…" : "Start My Project"}
                 </button>
                 <p className="text-[10px] text-[#bbb] text-center">We respond within one business day. No spam — ever.</p>
               </form>
