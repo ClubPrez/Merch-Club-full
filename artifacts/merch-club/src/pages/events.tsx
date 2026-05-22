@@ -7,7 +7,7 @@ import { StartProjectModal } from "@/components/start-project-modal";
 import { blogPosts } from "@/pages/blog";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 import cloverImg from "@assets/Social_PostsArtboard_2@3x_copy_1775827336093.png";
-import bagImg from "@assets/461192265_18297032566205370_4281744550923113286_n_1778782467156.jpg";
+import bagImg from "@assets/ChatGPT_Image_May_22,_2026,_10_55_13_AM_1779465328841.png";
 import packagingImg from "@assets/461238290_18297032536205370_6473409173115033458_n_1778693892845.jpg";
 import kittingImg from "@assets/461204439_18297032584205370_9064317744138119949_n_1778693892845.jpg";
 import tumblerImg from "@assets/485771444_1048758360618545_372803450094697544_n_1778693892845.jpg";
