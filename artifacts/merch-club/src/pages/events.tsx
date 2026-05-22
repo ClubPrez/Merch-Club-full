@@ -14,7 +14,7 @@ import tumblerImg from "@assets/485771444_1048758360618545_372803450094697544_n_
 import hoodieImg from "@assets/461204431_18297032518205370_2485932339959836626_n_1778782467156.jpg";
 import boothImg from "@assets/461092537_18297032548205370_1790799881044431646_n_1778782467156.jpg";
 import challengesBg from "@assets/461191773_18297032593205370_5287082838877484901_n_1778693892844.jpg";
-import heroImg from "@assets/461191773_18297032593205370_5287082838877484901_n_1779464886754.jpg";
+import heroImg from "@assets/Trade_Show_1_1779465004779.png";
 import { SiteHeader } from "@/components/site-header";
 
 function useRevealOnScroll(threshold = 0.15) {
@@ -463,7 +463,7 @@ export default function Events() {
               <div className="relative rounded-full overflow-hidden border border-black/10 aspect-square w-full max-w-[440px] bg-black shadow-2xl">
                 <img
                   src={heroImg}
-                  alt="OneStaff Medical booth at TravCon"
+                  alt="Baker Group recruiting booth at a university career fair"
                   className="w-full h-full object-cover"
                 />
               </div>
