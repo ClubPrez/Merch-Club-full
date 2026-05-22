@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
+import { Switch, Route, Router as WouterRouter, useLocation, Redirect } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -65,6 +65,33 @@ function Router() {
       <Route path="/case-studies/accessbank" component={CaseStudyAccessBank} />
       <Route path="/case-studies/accessbank-corporate-gifting" component={CaseStudyAccessBank} />
       <Route path="/case-studies/:slug" component={CaseStudy} />
+
+      {/* Legacy merchclub.com URL redirects */}
+      <Route path="/shop"><Redirect to="/case-studies" /></Route>
+      <Route path="/shop/"><Redirect to="/case-studies" /></Route>
+      <Route path="/my-account"><Redirect to="/contact" /></Route>
+      <Route path="/my-account/"><Redirect to="/contact" /></Route>
+      <Route path="/latest-catalogs"><Redirect to="/services" /></Route>
+      <Route path="/latest-catalogs/"><Redirect to="/services" /></Route>
+      <Route path="/gallery"><Redirect to="/case-studies" /></Route>
+      <Route path="/gallery/"><Redirect to="/case-studies" /></Route>
+      <Route path="/apparel-decoration"><Redirect to="/services" /></Route>
+      <Route path="/apparel-decoration/"><Redirect to="/services" /></Route>
+      <Route path="/merch-101"><Redirect to="/blog" /></Route>
+      <Route path="/merch-101/"><Redirect to="/blog" /></Route>
+      <Route path="/checkout"><Redirect to="/contact" /></Route>
+      <Route path="/checkout/"><Redirect to="/contact" /></Route>
+      <Route path="/cart"><Redirect to="/contact" /></Route>
+      <Route path="/cart/"><Redirect to="/contact" /></Route>
+
+      {/* Trailing-slash variants of current routes */}
+      <Route path="/contact/"><Redirect to="/contact" /></Route>
+      <Route path="/about/"><Redirect to="/about" /></Route>
+      <Route path="/blog/"><Redirect to="/blog" /></Route>
+      <Route path="/services/"><Redirect to="/services" /></Route>
+      <Route path="/industries/"><Redirect to="/industries" /></Route>
+      <Route path="/case-studies/"><Redirect to="/case-studies" /></Route>
+
       <Route component={NotFound} />
     </Switch>
   );
