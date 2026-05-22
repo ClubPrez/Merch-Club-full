@@ -662,8 +662,8 @@ export default function About() {
               </ul>
             </div>
             <div className="md:col-span-3">
-              <h4 className="text-sm font-bold text-white uppercase tracking-[0.15em] mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1rem" }}>Get 10% Off Your First Order</h4>
-              <p className="text-xs text-[#666] mb-4 leading-relaxed">Join our newsletter for exclusive offers, new product drops, and merch inspiration.</p>
+              <h4 className="text-sm font-bold text-white uppercase tracking-[0.15em] mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1rem" }}>Join Our Newsletter</h4>
+              <p className="text-xs text-[#666] mb-4 leading-relaxed">Exclusive offers, new product drops, and merch inspiration — straight to your inbox.</p>
               <form onSubmit={e => e.preventDefault()} className="flex gap-2">
                 <input
                   type="email"
