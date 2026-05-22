@@ -44,7 +44,7 @@ export function StartProjectModal({ open, onClose, onOpenChange }: Props) {
         <aside className="md:col-span-2 bg-black text-white p-6 sm:p-8 md:p-10 flex flex-col">
           <img src={logoSrc} alt="Merch Club" className="h-8 object-contain mb-6 brightness-0 invert" />
           <h4 className="text-3xl md:text-4xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-            Let's Get It<br /><span className="text-white/60">Handled.</span>
+            Let's Get Your<br />Merch <span className="text-white/60">Handled.</span>
           </h4>
           <p className="text-sm text-white/60 mt-3 leading-relaxed">
             Prefer to skip the form? Reach us directly — a human responds within one business day.
