@@ -40,7 +40,10 @@ export function SiteHeader({ onStartProject, onOpenSearch }: Props) {
         <span className="text-white/20">|</span>
         <a href="https://trybrandini.com/" target="_blank" rel="noopener noreferrer" className="text-[#a3a3a3] hover:text-white transition-colors">Brandini</a>
         <span className="text-white/20">|</span>
-        <a href="#" className="text-[#a3a3a3] hover:text-white transition-colors">ScrubClub</a>
+        <span className="text-[#a3a3a3] inline-flex items-center gap-1.5">
+          ScrubClub
+          <span className="text-[8px] font-bold tracking-[0.15em] text-[#666] border border-white/15 rounded-full px-1.5 py-0.5">Coming Soon</span>
+        </span>
       </div>
 
       <header className="sticky top-0 z-40 bg-[#111]/95 backdrop-blur-md border-b border-white/10 px-6 md:px-10 py-4 flex items-center justify-between gap-4">
