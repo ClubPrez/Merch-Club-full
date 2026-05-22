@@ -131,35 +131,44 @@ export function StartProjectModal({ open, onClose, onOpenChange }: Props) {
                   <input type="tel" placeholder="Phone (optional)" className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 text-sm text-black placeholder-[#aaa] focus:outline-none focus:border-black/30 transition-colors" />
                 </div>
 
-                <select required defaultValue="" className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:border-black/30 transition-colors appearance-none">
-                  <option value="" disabled>Project type</option>
-                  <option value="apparel">Staff &amp; crew apparel</option>
-                  <option value="gifting">Client or employee gifting</option>
-                  <option value="onboarding">Onboarding kits</option>
-                  <option value="trade-show">Trade show / event kits</option>
-                  <option value="awareness">Awareness campaign</option>
-                  <option value="other">Something else</option>
-                </select>
+                <div className="relative">
+                  <select required defaultValue="" className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 pr-10 text-sm text-black focus:outline-none focus:border-black/30 transition-colors appearance-none cursor-pointer">
+                    <option value="" disabled>Project type</option>
+                    <option value="apparel">Staff &amp; crew apparel</option>
+                    <option value="gifting">Client or employee gifting</option>
+                    <option value="onboarding">Onboarding kits</option>
+                    <option value="trade-show">Trade show / event kits</option>
+                    <option value="awareness">Awareness campaign</option>
+                    <option value="other">Something else</option>
+                  </select>
+                  <svg className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-black/50" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                </div>
 
                 <textarea placeholder="What are you looking to create? A few sentences is plenty." rows={4} required className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 text-sm text-black placeholder-[#aaa] focus:outline-none focus:border-black/30 transition-colors resize-none" />
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <select defaultValue="" className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:border-black/30 transition-colors appearance-none">
-                    <option value="" disabled>Timeline</option>
-                    <option value="asap">ASAP</option>
-                    <option value="2-weeks">Within 2 weeks</option>
-                    <option value="1-month">Within a month</option>
-                    <option value="2-3-months">2–3 months</option>
-                    <option value="flexible">Flexible</option>
-                  </select>
-                  <select defaultValue="" className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 text-sm text-black focus:outline-none focus:border-black/30 transition-colors appearance-none">
-                    <option value="" disabled>Estimated budget</option>
-                    <option value="under-5k">Under $5K</option>
-                    <option value="5-15k">$5K–$15K</option>
-                    <option value="15-50k">$15K–$50K</option>
-                    <option value="50k-plus">$50K+</option>
-                    <option value="unsure">Not sure yet</option>
-                  </select>
+                  <div className="relative">
+                    <select defaultValue="" className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 pr-10 text-sm text-black focus:outline-none focus:border-black/30 transition-colors appearance-none cursor-pointer">
+                      <option value="" disabled>Timeline</option>
+                      <option value="asap">ASAP</option>
+                      <option value="2-weeks">Within 2 weeks</option>
+                      <option value="1-month">Within a month</option>
+                      <option value="2-3-months">2–3 months</option>
+                      <option value="flexible">Flexible</option>
+                    </select>
+                    <svg className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-black/50" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                  </div>
+                  <div className="relative">
+                    <select defaultValue="" className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3 pr-10 text-sm text-black focus:outline-none focus:border-black/30 transition-colors appearance-none cursor-pointer">
+                      <option value="" disabled>Estimated budget</option>
+                      <option value="under-5k">Under $5K</option>
+                      <option value="5-15k">$5K–$15K</option>
+                      <option value="15-50k">$15K–$50K</option>
+                      <option value="50k-plus">$50K+</option>
+                      <option value="unsure">Not sure yet</option>
+                    </select>
+                    <svg className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-black/50" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                  </div>
                 </div>
 
                 <button type="submit" className="w-full bg-black text-white text-sm font-bold py-3.5 rounded-full hover:bg-black/80 transition-colors mt-2">
