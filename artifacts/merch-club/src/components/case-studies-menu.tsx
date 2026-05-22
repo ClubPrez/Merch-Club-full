@@ -1,14 +1,16 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "wouter";
-import { caseStudies } from "@/lib/site-data";
+import { caseStudies, industries } from "@/lib/site-data";
 import eventsThumb from "@assets/461191773_18297032593205370_5287082838877484901_n_1778693892844.jpg";
 import nurseGiftingThumb from "@assets/Blanket_4_1778000748265.png";
 import constructionThumb from "@assets/Apparel_in_the_field_1779205508007.png";
+import accessBankThumb from "@assets/Professional_promotional_packaging_shot_1776180821018.png";
 
 const thumbBySlug: Record<string, string> = {
   events: eventsThumb,
   "nurse-gifting": nurseGiftingThumb,
   construction: constructionThumb,
+  "access-bank": accessBankThumb,
 };
 
 interface Props {
@@ -83,54 +85,111 @@ export function CaseStudiesMenu({ active = false, theme = "dark" }: Props) {
         onMouseLeave={handleLeave}
       >
         <div className="bg-white shadow-2xl border-t border-black/[0.06]">
-          <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-6 lg:py-7">
-            <div className="flex items-end justify-between mb-4">
-              <div>
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-2">Case Studies</span>
-                <h3 className="text-xl md:text-2xl font-black text-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
-                  Programs We've <span className="text-[#888]">Built.</span>
-                </h3>
-              </div>
-              <Link href="/case-studies" className="hidden md:inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-black/60 hover:text-black transition-colors whitespace-nowrap">
-                View All
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-              </Link>
-            </div>
+          <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-6 lg:py-7 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {caseStudies.map((cs) => {
-                const thumb = thumbBySlug[cs.slug] ?? cs.image;
-                return (
-                  <Link
-                    key={cs.slug}
-                    href={`/case-studies/${cs.slug}`}
-                    aria-label={`Read the ${cs.client} case study: ${cs.title}`}
-                    className="group relative block rounded-xl overflow-hidden bg-[#0a0a0a] aspect-[16/9] hover:ring-2 hover:ring-black transition-all"
-                  >
-                    <img
-                      src={thumb}
-                      alt={cs.client}
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/5" />
-                    <div className="absolute inset-0 p-4 flex flex-col justify-end">
-                      <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/70 block mb-1">{cs.client}</span>
-                      <div className="flex items-end justify-between gap-2">
-                        <div className="min-w-0">
+            <div className="lg:col-span-8">
+              <div className="flex items-end justify-between mb-4">
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-2">Case Studies</span>
+                  <h3 className="text-xl md:text-2xl font-black text-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
+                    Programs We've <span className="text-[#888]">Built.</span>
+                  </h3>
+                </div>
+                <Link href="/case-studies" className="hidden md:inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-black/60 hover:text-black transition-colors whitespace-nowrap">
+                  View All
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {caseStudies.map((cs) => {
+                  const thumb = thumbBySlug[cs.slug] ?? cs.image;
+                  return (
+                    <Link
+                      key={cs.slug}
+                      href={`/case-studies/${cs.slug}`}
+                      aria-label={`Read the ${cs.client} case study: ${cs.title}`}
+                      className="group relative block rounded-xl overflow-hidden bg-[#0a0a0a] aspect-[16/7] hover:ring-2 hover:ring-black transition-all"
+                    >
+                      <img
+                        src={thumb}
+                        alt={cs.client}
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/5" />
+                      <div className="absolute inset-0 p-4 flex flex-col justify-end">
+                        <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/70 block mb-1">{cs.client}</span>
+                        <div className="flex items-end justify-between gap-2">
                           <h4 className="text-lg md:text-xl font-black text-white tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.005em" }}>
                             {cs.industry}
                           </h4>
-                          <p className="text-[11px] text-white/70 leading-snug mt-1 line-clamp-2">{cs.title}</p>
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.15em] text-white opacity-80 group-hover:opacity-100 group-hover:gap-1.5 transition-all whitespace-nowrap">
+                            Read
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                          </span>
                         </div>
-                        <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.15em] text-white opacity-80 group-hover:opacity-100 group-hover:gap-1.5 transition-all whitespace-nowrap shrink-0">
-                          Read
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-                        </span>
                       </div>
-                    </div>
-                  </Link>
-                );
-              })}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="lg:col-span-4 lg:border-l lg:border-black/[0.08] lg:pl-8">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-3">Browse by Industry</span>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-x-6 gap-y-1">
+                {industries.map((ind) => (
+                  <li key={ind.slug}>
+                    <Link href={ind.href} className="group flex items-center gap-2 text-sm text-[#444] hover:text-black transition-colors py-1">
+                      <span className="text-black/30 group-hover:text-black transition-colors text-base leading-none">+</span>
+                      <span>{ind.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-4 pt-3 border-t border-black/10">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#999] block mb-2">Resources</span>
+                <ul className="space-y-1.5">
+                  <li>
+                    <Link href="/blog/merch-program-strategy" className="group flex items-center justify-between gap-2 text-sm text-[#444] hover:text-black transition-colors">
+                      <span>Building a Strategic Merch Program</span>
+                      <svg className="w-3 h-3 text-black/30 group-hover:text-black group-hover:translate-x-0.5 transition-all flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/about" className="group flex items-center justify-between gap-2 text-sm text-[#444] hover:text-black transition-colors">
+                      <span>How We Work</span>
+                      <svg className="w-3 h-3 text-black/30 group-hover:text-black group-hover:translate-x-0.5 transition-all flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-black/[0.06] bg-[#fafafa]">
+            <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-4 flex items-center justify-between gap-4">
+              <p className="text-xs text-[#666]">
+                Looking for a program like one of these? We'll build yours from the ground up.
+              </p>
+              <div className="flex items-center gap-3">
+                <Link
+                  href="/case-studies"
+                  className="text-[10px] font-bold uppercase tracking-[0.15em] text-black/70 hover:text-black transition-colors"
+                >
+                  Browse All
+                </Link>
+                <a
+                  href="tel:+15317770347"
+                  className="inline-flex items-center gap-2 bg-black text-white text-[10px] font-bold uppercase tracking-[0.15em] px-4 py-2 rounded-full hover:bg-[#222] transition-colors"
+                >
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                  </svg>
+                  Talk to Our Team
+                </a>
+              </div>
             </div>
           </div>
         </div>
