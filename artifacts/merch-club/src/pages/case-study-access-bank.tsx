@@ -5,6 +5,25 @@ import Breadcrumbs, { buildBreadcrumbJsonLd } from "@/components/breadcrumbs";
 import { StartProjectModal } from "@/components/start-project-modal";
 import { SiteHeader } from "@/components/site-header";
 
+import coffeeCupsImg from "@assets/Coffee_Cups_5_1779814740859.png";
+import giftingGloveImg from "@assets/Gifting_Glove_1779814740860.png";
+import driverHeadImg from "@assets/Gold_Driver_Head_1779814740861.png";
+import golfBallsImg from "@assets/Golf_Balls_1779814740861.png";
+import golfKitImg from "@assets/Golf_kit_1779814740861.png";
+import golfLogBookImg from "@assets/Golf_Log_Book_1779814740862.png";
+import golfFieldImg from "@assets/Golf_1779814740862.png";
+import iceChartreuseImg from "@assets/Ice_Cube_w__Chartreuse_1779814740862.png";
+import journalImg from "@assets/Journal_1779814740862.png";
+import leatherGlassImg from "@assets/Leather_Wrap_Glass_1779814740863.png";
+import letterOpenerImg from "@assets/Letter_Opener_1779814740863.png";
+import luggageTagImg from "@assets/Luggage_Tag_1_1779814740863.png";
+import phoneChargerImg from "@assets/Phone_Charger_1779814740863.png";
+import toastHeroImg from "@assets/Toast_2_1779814740863.png";
+import toastInsideImg from "@assets/Toast_1_1779814740863.png";
+import toastSpreadImg from "@assets/Toast_4_1779814740863.png";
+import toiletryBagImg from "@assets/Toiletry_Bag_1779814740863.png";
+import branchesImg from "@assets/Who_is_ACCESSbank_1779814740863.png";
+
 function Placeholder({ label, ratio = "aspect-[4/3]" }: { label: string; ratio?: string }) {
   return (
     <div className={`${ratio} w-full rounded-2xl bg-[#eee] border border-black/10 flex items-center justify-center text-[#888] text-xs font-bold uppercase tracking-[0.2em] text-center px-6`}>
@@ -17,6 +36,14 @@ function PlaceholderDark({ label, ratio = "aspect-[4/3]" }: { label: string; rat
   return (
     <div className={`${ratio} w-full rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white/40 text-xs font-bold uppercase tracking-[0.2em] text-center px-6`}>
       <span>Image placeholder<br /><span className="text-white/25 font-medium normal-case tracking-normal">{label}</span></span>
+    </div>
+  );
+}
+
+function Img({ src, alt, ratio = "aspect-[4/3]", dark = false }: { src: string; alt: string; ratio?: string; dark?: boolean }) {
+  return (
+    <div className={`${ratio} w-full rounded-2xl overflow-hidden ${dark ? "bg-white/5 border border-white/10" : "bg-[#eee] border border-black/10"}`}>
+      <img src={src} alt={alt} className="w-full h-full object-cover" loading="lazy" />
     </div>
   );
 }
@@ -50,25 +77,25 @@ const articleJsonLd = {
 };
 
 const tier1 = [
-  { label: "Buffalo leather gloves" },
-  { label: "Custom ice molds" },
-  { label: "Premium backpack coolers" },
-  { label: "Branded toiletry bags" },
+  { label: "Buffalo leather gloves", img: giftingGloveImg },
+  { label: "Custom ice molds", img: iceChartreuseImg },
+  { label: "Leather-wrap whiskey glasses", img: leatherGlassImg },
+  { label: "Branded toiletry bags", img: toiletryBagImg },
 ];
 
 const tier2 = [
-  { label: "Laser-engraved tumblers" },
-  { label: "Custom golf balls" },
-  { label: "Golf towels & head covers" },
-  { label: "Divot tools & log books" },
-  { label: "Premium polos" },
-  { label: "On-course gifting" },
+  { label: "Custom golf balls", img: golfBallsImg },
+  { label: "Driver head covers", img: driverHeadImg },
+  { label: "Custom golf bags & kits", img: golfKitImg },
+  { label: "Golf log books", img: golfLogBookImg },
+  { label: "Course towels & on-green gifting", img: golfFieldImg },
+  { label: "Branded luggage tags", img: luggageTagImg },
 ];
 
 const tier3 = [
-  { label: "Silver-ink envelope opener" },
-  { label: "Branded polos & quarter-zips" },
-  { label: "Soft-touch beanies" },
+  { label: "Silver-ink envelope opener", img: letterOpenerImg },
+  { label: "Branded polos & quarter-zips", img: null },
+  { label: "Soft-touch beanies", img: null },
 ];
 
 const branches = [
@@ -120,7 +147,7 @@ export default function CaseStudyAccessBank() {
       {/* Hero Image */}
       <section className="bg-[#0a0a0a] pb-16 md:pb-20 px-8 md:px-16 lg:px-20">
         <div className="max-w-5xl mx-auto">
-          <PlaceholderDark label="Art of Toasting book + PITCH wines + singing wine pourer — hero gifting moment" ratio="aspect-[16/9]" />
+          <Img src={toastHeroImg} alt="Art of Toasting book — turning a bottle of wine into a keepsake" ratio="aspect-[16/9]" dark />
         </div>
       </section>
 
@@ -149,7 +176,7 @@ export default function CaseStudyAccessBank() {
                 Their growth has been earned the slow way — by understanding the businesses they serve, locking onto their clients' success, and showing up for the community around them.
               </p>
             </div>
-            <Placeholder label="ACCESSbank logo + branch environmental shot" ratio="aspect-[4/5]" />
+            <Img src={branchesImg} alt="ACCESSbank branch locations across Omaha" ratio="aspect-[4/5]" />
           </div>
         </div>
       </section>
@@ -240,10 +267,10 @@ export default function CaseStudyAccessBank() {
               </p>
             </div>
             <div className="space-y-5">
-              <Placeholder label="Art of Toasting — hardcover front" ratio="aspect-[3/4]" />
+              <Img src={toastInsideImg} alt="Inside the Art of Toasting book — toasts that inspire, legacies that last" ratio="aspect-[3/4]" />
               <div className="grid grid-cols-2 gap-5">
-                <Placeholder label="Interior spread A" ratio="aspect-square" />
-                <Placeholder label="Interior spread B" ratio="aspect-square" />
+                <Img src={toastSpreadImg} alt="Art of Toasting — interior spread quoting ego vs. legacy" ratio="aspect-square" />
+                <Img src={toastHeroImg} alt="Art of Toasting — open spread with Legacy Toast" ratio="aspect-square" />
               </div>
             </div>
           </div>
@@ -274,7 +301,9 @@ export default function CaseStudyAccessBank() {
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
               {tier1.map((t, i) => (
-                <Placeholder key={i} label={t.label} ratio="aspect-square" />
+                t.img
+                  ? <Img key={i} src={t.img} alt={t.label} ratio="aspect-square" />
+                  : <Placeholder key={i} label={t.label} ratio="aspect-square" />
               ))}
             </div>
             <p className="text-lg md:text-xl font-bold text-black leading-snug">
@@ -293,7 +322,7 @@ export default function CaseStudyAccessBank() {
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {tier2.map((t, i) => (
-                <Placeholder key={i} label={t.label} ratio="aspect-[4/3]" />
+                <Img key={i} src={t.img} alt={t.label} ratio="aspect-[4/3]" />
               ))}
             </div>
           </div>
@@ -309,7 +338,9 @@ export default function CaseStudyAccessBank() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {tier3.map((t, i) => (
-                <Placeholder key={i} label={t.label} ratio="aspect-[4/3]" />
+                t.img
+                  ? <Img key={i} src={t.img} alt={t.label} ratio="aspect-[4/3]" />
+                  : <Placeholder key={i} label={t.label} ratio="aspect-[4/3]" />
               ))}
             </div>
           </div>
@@ -346,13 +377,13 @@ export default function CaseStudyAccessBank() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
-            {branches.map((name) => (
-              <div key={name}>
-                <Placeholder label={`${name} — line illustration`} ratio="aspect-[3/4]" />
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#666] mt-3 text-center">{name}</p>
-              </div>
-            ))}
+          <div className="mb-6">
+            <Img src={coffeeCupsImg} alt="Five ACCESSbank branch coffee cups — each with a custom line illustration of its building" ratio="aspect-[16/9]" />
+            <div className="grid grid-cols-5 gap-4 mt-4">
+              {branches.map((name) => (
+                <p key={name} className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#666] text-center">{name}</p>
+              ))}
+            </div>
           </div>
 
           <p className="text-lg md:text-xl font-bold text-black leading-snug max-w-3xl">
@@ -380,25 +411,31 @@ export default function CaseStudyAccessBank() {
                 title: "Denik journals — more than paper, a story",
                 body: "Custom soft-touch journals with full-color inside and outside covers telling the story of ACCESSbank. Denik has built eight schools in impoverished communities around the world — we're actively promoting them in their quest to fund the ninth. A brand story you can carry, and a school you help build by carrying it.",
                 placeholder: "Denik journal — inside cover storytelling",
+                img: journalImg,
               },
               {
                 title: "Custom desk chargers that glow ACCESSbank blue",
                 body: "A daily touchpoint, in the brand color, on every desk. Small detail. Constant reinforcement.",
                 placeholder: "Desk charger glowing blue",
+                img: phoneChargerImg,
               },
               {
                 title: "Laser-engraved tumblers — premium look, accessible price",
                 body: "$18 retail-feel tumblers delivered at $8 each through factory clearance pricing we negotiated for the client. Branded, laser-engraved, indistinguishable from the higher-priced versions on the shelf.",
                 placeholder: "Laser-engraved tumbler",
+                img: null as string | null,
               },
               {
                 title: "A dream-big stress toy",
                 body: "Most stress toys are junk. This one isn't. The item gets talked about the most because it carries a message — a small reminder to dream bigger, every day, on every desk.",
                 placeholder: "Dream-big stress toy",
+                img: null as string | null,
               },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-2xl overflow-hidden border border-black/5">
-                <Placeholder label={item.placeholder} ratio="aspect-[4/3]" />
+                {item.img
+                  ? <Img src={item.img} alt={item.title} ratio="aspect-[4/3]" />
+                  : <Placeholder label={item.placeholder} ratio="aspect-[4/3]" />}
                 <div className="p-7">
                   <h3 className="text-xl md:text-2xl font-black text-black tracking-tight mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{item.title}</h3>
                   <p className="text-base text-[#444] leading-relaxed">{item.body}</p>
@@ -424,24 +461,26 @@ export default function CaseStudyAccessBank() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              "Art of Toasting cover",
-              "Art of Toasting spread",
-              "PITCH wines + carrier",
-              "Singing wine pourer",
-              "Hand-delivery moment",
-              "Buffalo leather gloves + note",
-              "Outer box design",
-              "Inner box reveal",
-              "Custom whiskey + ice molds",
-              "Multi-material awards",
-              "Denik journals — open",
-              "Desk chargers in use",
-              "Laser-engraved tumblers",
-              "Dream-big stress toy",
-              "Silver-ink envelope opener",
-              "Custom pens — bulk packout",
-            ].map((label, i) => (
-              <PlaceholderDark key={i} label={label} ratio="aspect-square" />
+              { src: toastHeroImg, alt: "Art of Toasting — hero book layout" },
+              { src: toastInsideImg, alt: "Art of Toasting — inside the book" },
+              { src: toastSpreadImg, alt: "Art of Toasting — interior spread" },
+              { src: giftingGloveImg, alt: "Buffalo leather gloves — gifting moment" },
+              { src: iceChartreuseImg, alt: "Custom ice molds with Chartreuse" },
+              { src: leatherGlassImg, alt: "Leather-wrap whiskey glass with Omaha map" },
+              { src: toiletryBagImg, alt: "Branded toiletry bag" },
+              { src: coffeeCupsImg, alt: "Branch-illustrated coffee cups" },
+              { src: golfKitImg, alt: "Custom golf bag and kit on course" },
+              { src: golfFieldImg, alt: "Golf towel and balls at sunset" },
+              { src: golfBallsImg, alt: "Branded golf balls on the green" },
+              { src: driverHeadImg, alt: "Custom driver head cover" },
+              { src: golfLogBookImg, alt: "ACCESSbank golf log book" },
+              { src: luggageTagImg, alt: "Branded luggage tag on travel bag" },
+              { src: journalImg, alt: "Denik branded journal" },
+              { src: phoneChargerImg, alt: "Custom desk charger glowing blue" },
+              { src: letterOpenerImg, alt: "Silver-ink branded envelope opener" },
+              { src: branchesImg, alt: "ACCESSbank branch locations" },
+            ].map((item, i) => (
+              <Img key={i} src={item.src} alt={item.alt} ratio="aspect-square" dark />
             ))}
           </div>
         </div>
