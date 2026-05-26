@@ -16,6 +16,8 @@ import iceChartreuseImg from "@assets/Ice_Cube_w__Chartreuse_1779814740862.png";
 import journalImg from "@assets/Journal_1779814740862.png";
 import leatherGlassImg from "@assets/Leather_Wrap_Glass_1779814740863.png";
 import letterOpenerImg from "@assets/Letter_Opener_1779814740863.png";
+import apparelLadiesImg from "@assets/Apparel_Ladies_Green_1779815383438.png";
+import apparelQuarterZipImg from "@assets/Apparel_Quarter_Ziip_1779815383440.png";
 import luggageTagImg from "@assets/Luggage_Tag_1_1779814740863.png";
 import phoneChargerImg from "@assets/Phone_Charger_1779814740863.png";
 import toastHeroImg from "@assets/Toast_2_1779814740863.png";
@@ -94,8 +96,8 @@ const tier2 = [
 
 const tier3 = [
   { label: "Silver-ink envelope opener", img: letterOpenerImg },
-  { label: "Branded polos & quarter-zips", img: null },
-  { label: "Soft-touch beanies", img: null },
+  { label: "Ladies' branded performance polos", img: apparelLadiesImg },
+  { label: "Men's branded quarter-zips", img: apparelQuarterZipImg },
 ];
 
 const branches = [
