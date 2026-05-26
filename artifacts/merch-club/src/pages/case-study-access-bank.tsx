@@ -450,46 +450,6 @@ export default function CaseStudyAccessBank() {
         </div>
       </section>
 
-      {/* From the Field — placeholder gallery */}
-      <section className="bg-[#0a0a0a] text-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-12 max-w-3xl">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 block mb-4">From the Field</span>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              The ACCESSbank Work, In the Wild.
-            </h2>
-            <p className="text-base md:text-lg text-[#aaa] leading-relaxed">
-              Every piece below is real work. Real gifts. Real packaging. Built for a bank that treats every relationship — shareholder, employee, customer — as the long game.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { src: toastHeroImg, alt: "Art of Toasting — hero book layout" },
-              { src: toastInsideImg, alt: "Art of Toasting — inside the book" },
-              { src: toastSpreadImg, alt: "Art of Toasting — interior spread" },
-              { src: giftingGloveImg, alt: "Buffalo leather gloves — gifting moment" },
-              { src: iceChartreuseImg, alt: "Custom ice molds with Chartreuse" },
-              { src: leatherGlassImg, alt: "Leather-wrap whiskey glass with Omaha map" },
-              { src: toiletryBagImg, alt: "Branded toiletry bag" },
-              { src: coffeeCupsImg, alt: "Branch-illustrated coffee cups" },
-              { src: golfKitImg, alt: "Custom golf bag and kit on course" },
-              { src: golfFieldImg, alt: "Golf towel and balls at sunset" },
-              { src: golfBallsImg, alt: "Branded golf balls on the green" },
-              { src: driverHeadImg, alt: "Custom driver head cover" },
-              { src: golfLogBookImg, alt: "ACCESSbank golf log book" },
-              { src: luggageTagImg, alt: "Branded luggage tag on travel bag" },
-              { src: journalImg, alt: "Denik branded journal" },
-              { src: phoneChargerImg, alt: "Custom desk charger glowing blue" },
-              { src: letterOpenerImg, alt: "Silver-ink branded envelope opener" },
-              { src: branchesImg, alt: "ACCESSbank branch locations" },
-            ].map((item, i) => (
-              <Img key={i} src={item.src} alt={item.alt} ratio="aspect-square" dark />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Why This Matters */}
       <section className="bg-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
         <div className="max-w-3xl mx-auto">
