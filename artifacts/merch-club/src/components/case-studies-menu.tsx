@@ -4,7 +4,7 @@ import { caseStudies, industries } from "@/lib/site-data";
 import eventsThumb from "@assets/461191773_18297032593205370_5287082838877484901_n_1778693892844.jpg";
 import nurseGiftingThumb from "@assets/Blanket_4_1778000748265.png";
 import constructionThumb from "@assets/Apparel_in_the_field_1779205508007.png";
-import accessBankThumb from "@assets/Professional_promotional_packaging_shot_1776180821018.png";
+import accessBankThumb from "@assets/Apparel_Quarter_Ziip_1779815734898.png";
 
 const thumbBySlug: Record<string, string> = {
   events: eventsThumb,
