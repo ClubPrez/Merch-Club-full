@@ -176,7 +176,9 @@ export default function CaseStudyAccessBank() {
                 Their growth has been earned the slow way — by understanding the businesses they serve, locking onto their clients' success, and showing up for the community around them.
               </p>
             </div>
-            <Img src={branchesImg} alt="ACCESSbank branch locations across Omaha" ratio="aspect-[4/5]" />
+            <div className="w-full rounded-2xl overflow-hidden bg-[#eee] border border-black/10">
+              <img src={branchesImg} alt="ACCESSbank branch locations across Omaha" className="w-full h-auto block" loading="lazy" />
+            </div>
           </div>
         </div>
       </section>
