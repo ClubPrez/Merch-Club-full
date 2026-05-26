@@ -17,7 +17,7 @@ import internalApparelImg from "@assets/Apparel_Women's_Quilted_Vest_17798158442
 import challengesBg from "@assets/Golf_kit_1779815882715.png";
 import heroImg from "@assets/Gold_Driver_Head_1779815968162.png";
 import giftingRolloutImg from "@assets/Backpack_cooler_1779815913431.png";
-import accessBankFeatureImg from "@assets/Toast_2_1779814740863.png";
+import accessBankFeatureImg from "@assets/Apparel_Ladies_Green_1779816159284.png";
 import { SiteHeader } from "@/components/site-header";
 
 function useRevealOnScroll(threshold = 0.15) {
