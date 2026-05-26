@@ -18,6 +18,7 @@ import leatherGlassImg from "@assets/Leather_Wrap_Glass_1779814740863.png";
 import letterOpenerImg from "@assets/Letter_Opener_1779814740863.png";
 import apparelLadiesImg from "@assets/Apparel_Ladies_Green_1779815383438.png";
 import apparelQuarterZipImg from "@assets/Apparel_Quarter_Ziip_1779815383440.png";
+import backpackCoolerImg from "@assets/Backpack_cooler_1779815615792.png";
 import luggageTagImg from "@assets/Luggage_Tag_1_1779814740863.png";
 import phoneChargerImg from "@assets/Phone_Charger_1779814740863.png";
 import toastHeroImg from "@assets/Toast_2_1779814740863.png";
@@ -424,16 +425,16 @@ export default function CaseStudyAccessBank() {
                 img: phoneChargerImg,
               },
               {
-                title: "Laser-engraved tumblers — premium look, accessible price",
-                body: "$18 retail-feel tumblers delivered at $8 each through factory clearance pricing we negotiated for the client. Branded, laser-engraved, indistinguishable from the higher-priced versions on the shelf.",
-                placeholder: "Laser-engraved tumbler",
-                img: null as string | null,
+                title: "Igloo backpack coolers for the course and the lake",
+                body: "Co-branded Igloo backpack coolers built for the moments where ACCESSbank relationships actually happen — early mornings on the first tee, weekends at the lake, tailgates that run long. Premium hardware, not promotional filler.",
+                placeholder: "ACCESSbank backpack cooler",
+                img: backpackCoolerImg as string | null,
               },
               {
-                title: "A dream-big stress toy",
-                body: "Most stress toys are junk. This one isn't. The item gets talked about the most because it carries a message — a small reminder to dream bigger, every day, on every desk.",
-                placeholder: "Dream-big stress toy",
-                img: null as string | null,
+                title: "Branded luggage tags for the people always on the road",
+                body: "A simple piece of gear with a job to do — clip it on the carry-on, spot the bag at baggage claim, carry the brand from Omaha to wherever the next deal lives. Made to take the beating that real travel hands out.",
+                placeholder: "Branded luggage tag",
+                img: luggageTagImg as string | null,
               },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-2xl overflow-hidden border border-black/5">
