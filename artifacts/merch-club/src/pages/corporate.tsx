@@ -13,6 +13,7 @@ import kittingImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_177618082
 import tumblerImg from "@assets/ChatGPT_Image_Apr_16,_2026,_02_19_38_PM_1776376559711.png";
 import plazaImg from "@assets/Merch_club_in_the_city_plaza_1775835373159.png";
 import hoodieImg from "@assets/Club_logo_hoodie_with_bold_text_1775772595094.png";
+import internalApparelImg from "@assets/Apparel_Women's_Quilted_Vest_1779815844277.png";
 import challengesBg from "@assets/Sporty_style_by_the_door_1776422196392.png";
 import heroVideo from "@assets/0416_1776378782818.mp4";
 import { SiteHeader } from "@/components/site-header";
@@ -538,7 +539,7 @@ export default function Corporate() {
           <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 md:grid-rows-2 gap-4 md:gap-5 md:auto-rows-fr" style={{ minHeight: "640px" }}>
             <RevealItem className="md:row-span-2 md:h-full">
               <div className="relative rounded-2xl overflow-hidden bg-[#0a0a0a] h-full min-h-[420px] group cursor-pointer" onClick={() => setProjectModalOpen(true)}>
-                <img src={hoodieImg} alt="Internal apparel systems for corporate teams" className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                <img src={internalApparelImg} alt="Internal apparel systems for corporate teams" className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-black/0" />
                 <span className="absolute top-5 right-5 w-11 h-11 rounded-full bg-white text-black flex items-center justify-center group-hover:scale-110 transition-transform">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
