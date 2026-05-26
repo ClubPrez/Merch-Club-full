@@ -19,6 +19,7 @@ import letterOpenerImg from "@assets/Letter_Opener_1779814740863.png";
 import apparelLadiesImg from "@assets/Apparel_Ladies_Green_1779815383438.png";
 import apparelQuarterZipImg from "@assets/Apparel_Quarter_Ziip_1779815383440.png";
 import backpackCoolerImg from "@assets/Backpack_cooler_1779815615792.png";
+import heroQuarterZipImg from "@assets/Apparel_Quarter_Ziip_1779815734898.png";
 import luggageTagImg from "@assets/Luggage_Tag_1_1779814740863.png";
 import phoneChargerImg from "@assets/Phone_Charger_1779814740863.png";
 import toastHeroImg from "@assets/Toast_2_1779814740863.png";
@@ -150,7 +151,7 @@ export default function CaseStudyAccessBank() {
       {/* Hero Image */}
       <section className="bg-[#0a0a0a] pb-16 md:pb-20 px-8 md:px-16 lg:px-20">
         <div className="max-w-5xl mx-auto">
-          <Img src={toastHeroImg} alt="Art of Toasting book — turning a bottle of wine into a keepsake" ratio="aspect-[16/9]" dark />
+          <Img src={heroQuarterZipImg} alt="ACCESSbank branded quarter-zip — relationship banking in action" ratio="aspect-[16/9]" dark />
         </div>
       </section>
 
