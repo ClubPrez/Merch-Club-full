@@ -17,6 +17,7 @@ import internalApparelImg from "@assets/Apparel_Women's_Quilted_Vest_17798158442
 import challengesBg from "@assets/Golf_kit_1779815882715.png";
 import heroImg from "@assets/Backpack_cooler_1779815913431.png";
 import giftingRolloutImg from "@assets/Gold_Driver_Head_1779815968162.png";
+import accessBankFeatureImg from "@assets/Toast_2_1779814740863.png";
 import { SiteHeader } from "@/components/site-header";
 
 function useRevealOnScroll(threshold = 0.15) {
@@ -651,43 +652,66 @@ export default function Corporate() {
       <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 border-y border-black/10">
         <div className="max-w-7xl mx-auto">
           <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Featured Work</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-16" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-              Featured Corporate<br /><span className="text-[#888]">Projects.</span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">Featured Case Study</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-4" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              ACCESSbank.<br /><span className="text-[#888]">Banking Is Built on Relationships. So Is the Gift.</span>
             </h2>
           </RevealItem>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredProjects.map((study, i) => (
-              <RevealItem key={i} delay={i * 150}>
-                <div className="group cursor-pointer">
-                  <div className="rounded-2xl overflow-hidden border border-black/10 mb-6">
-                    <img src={study.img} alt={study.name} className="w-full h-[280px] md:h-[320px] object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-black text-black tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{study.name}</h3>
-                  <p className="text-base md:text-lg text-[#666] leading-relaxed">{study.desc}</p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mt-12">
+            <RevealItem>
+              <Link href="/case-studies/access-bank" className="block group">
+                <div className="rounded-2xl overflow-hidden border border-black/10">
+                  <img
+                    src={accessBankFeatureImg}
+                    alt="ACCESSbank — The Art of Toasting book, custom-authored by Merch Club"
+                    className="w-full h-[340px] md:h-[440px] object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                  />
                 </div>
-              </RevealItem>
-            ))}
+              </Link>
+            </RevealItem>
+
+            <RevealItem delay={150}>
+              <p className="text-lg md:text-xl text-[#444] leading-relaxed mb-6">
+                Most corporate gifting follows a formula: pick from a catalog, add a logo, ship it. ACCESSbank wasn't interested in that. So we built a multi-program system — shareholder gifting, executive accounts, employee recognition, branch hospitality, and a 52-page book on the art of toasting we authored and illustrated ourselves because the right one didn't exist.
+              </p>
+              <p className="text-base md:text-lg text-[#666] leading-relaxed mb-8">
+                Every program funds the next. Every tier feels like the relationship — not the transaction.
+              </p>
+
+              <div className="grid grid-cols-2 gap-6 mb-10 border-y border-black/10 py-8">
+                {[
+                  { stat: "4", label: "Gifting tiers — shareholder to bulk" },
+                  { stat: "52", label: "Page custom-authored book" },
+                  { stat: "5", label: "Branch-illustrated coffee cups" },
+                  { stat: "200+", label: "SKUs across the program" },
+                ].map((s, i) => (
+                  <div key={i}>
+                    <div className="text-4xl md:text-5xl font-black text-black leading-none mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{s.stat}</div>
+                    <p className="text-xs md:text-sm text-[#666] leading-snug uppercase tracking-wider">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <Link
+                  href="/case-studies/access-bank"
+                  className="inline-flex items-center justify-center gap-2 bg-black text-white text-xs font-bold uppercase tracking-widest px-7 py-4 rounded-full hover:bg-[#222] transition-colors"
+                >
+                  Read the ACCESSbank Case Study
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </Link>
+                <button
+                  onClick={() => setProjectModalOpen(true)}
+                  className="inline-flex items-center justify-center gap-2 border border-black/20 text-black text-xs font-bold uppercase tracking-widest px-7 py-4 rounded-full hover:bg-black hover:text-white transition-colors"
+                >
+                  Start Your Corporate Project
+                </button>
+              </div>
+            </RevealItem>
           </div>
-          <RevealItem delay={300}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
-              <button
-                onClick={() => setProjectModalOpen(true)}
-                className="inline-flex items-center justify-center gap-2 bg-black text-white text-xs font-bold uppercase tracking-widest px-7 py-4 rounded-full hover:bg-[#222] transition-colors w-full sm:w-auto"
-              >
-                Start Your Corporate Project
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
-              </button>
-              <a
-                href="/#work"
-                className="inline-flex items-center justify-center gap-2 border border-black/20 text-black text-xs font-bold uppercase tracking-widest px-7 py-4 rounded-full hover:bg-black hover:text-white transition-colors w-full sm:w-auto"
-              >
-                View All Work
-              </a>
-            </div>
-          </RevealItem>
         </div>
       </section>
 
