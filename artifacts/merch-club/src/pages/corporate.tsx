@@ -15,8 +15,8 @@ import plazaImg from "@assets/Merch_club_in_the_city_plaza_1775835373159.png";
 import hoodieImg from "@assets/Club_logo_hoodie_with_bold_text_1775772595094.png";
 import internalApparelImg from "@assets/Apparel_Women's_Quilted_Vest_1779815844277.png";
 import challengesBg from "@assets/Golf_kit_1779815882715.png";
-import heroImg from "@assets/Backpack_cooler_1779815913431.png";
-import giftingRolloutImg from "@assets/Gold_Driver_Head_1779815968162.png";
+import heroImg from "@assets/Gold_Driver_Head_1779815968162.png";
+import giftingRolloutImg from "@assets/Backpack_cooler_1779815913431.png";
 import accessBankFeatureImg from "@assets/Toast_2_1779814740863.png";
 import { SiteHeader } from "@/components/site-header";
 
