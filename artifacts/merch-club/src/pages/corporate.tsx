@@ -16,6 +16,7 @@ import hoodieImg from "@assets/Club_logo_hoodie_with_bold_text_1775772595094.png
 import internalApparelImg from "@assets/Apparel_Women's_Quilted_Vest_1779815844277.png";
 import challengesBg from "@assets/Golf_kit_1779815882715.png";
 import heroImg from "@assets/Backpack_cooler_1779815913431.png";
+import giftingRolloutImg from "@assets/Gold_Driver_Head_1779815968162.png";
 import { SiteHeader } from "@/components/site-header";
 
 function useRevealOnScroll(threshold = 0.15) {
@@ -571,7 +572,7 @@ export default function Corporate() {
 
             <RevealItem delay={200} className="md:row-span-2 md:h-full md:col-start-3 md:row-start-1">
               <div className="relative rounded-2xl overflow-hidden bg-[#0a0a0a] h-full min-h-[420px] group cursor-pointer" onClick={() => setProjectModalOpen(true)}>
-                <img src={packagingImg} alt="Corporate gifting and rollouts" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={giftingRolloutImg} alt="Corporate gifting and rollouts" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-black/0" />
                 <div className="absolute bottom-7 left-7 right-7">
                   <h3 className="text-3xl md:text-4xl font-black text-white mb-1.5" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>Gifting & Rollouts</h3>
