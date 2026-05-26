@@ -15,7 +15,7 @@ import plazaImg from "@assets/Merch_club_in_the_city_plaza_1775835373159.png";
 import hoodieImg from "@assets/Club_logo_hoodie_with_bold_text_1775772595094.png";
 import internalApparelImg from "@assets/Apparel_Women's_Quilted_Vest_1779815844277.png";
 import challengesBg from "@assets/Golf_kit_1779815882715.png";
-import heroVideo from "@assets/0416_1776378782818.mp4";
+import heroImg from "@assets/Backpack_cooler_1779815913431.png";
 import { SiteHeader } from "@/components/site-header";
 
 function useRevealOnScroll(threshold = 0.15) {
@@ -464,12 +464,9 @@ export default function Corporate() {
 
             <div className="relative order-1 lg:order-2 lg:col-span-2 flex justify-center lg:justify-end">
               <div className="relative rounded-full overflow-hidden border border-black/10 aspect-square w-full max-w-[440px] bg-black shadow-2xl">
-                <video
-                  src={heroVideo}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <img
+                  src={heroImg}
+                  alt="ACCESSbank-branded Igloo backpack cooler on the golf course at sunrise"
                   className="w-full h-full object-cover"
                 />
               </div>
