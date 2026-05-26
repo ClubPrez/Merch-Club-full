@@ -14,7 +14,7 @@ import tumblerImg from "@assets/ChatGPT_Image_Apr_16,_2026,_02_19_38_PM_17763765
 import plazaImg from "@assets/Merch_club_in_the_city_plaza_1775835373159.png";
 import hoodieImg from "@assets/Club_logo_hoodie_with_bold_text_1775772595094.png";
 import internalApparelImg from "@assets/Apparel_Women's_Quilted_Vest_1779815844277.png";
-import challengesBg from "@assets/Sporty_style_by_the_door_1776422196392.png";
+import challengesBg from "@assets/Golf_kit_1779815882715.png";
 import heroVideo from "@assets/0416_1776378782818.mp4";
 import { SiteHeader } from "@/components/site-header";
 
