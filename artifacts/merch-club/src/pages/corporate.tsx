@@ -18,6 +18,7 @@ import challengesBg from "@assets/Golf_kit_1779815882715.png";
 import heroImg from "@assets/Gold_Driver_Head_1779815968162.png";
 import giftingRolloutImg from "@assets/Backpack_cooler_1779815913431.png";
 import accessBankFeatureImg from "@assets/Apparel_Ladies_Green_1779816159284.png";
+import onboardingKitsImg from "@assets/Golf_1779816227199.png";
 import { SiteHeader } from "@/components/site-header";
 
 function useRevealOnScroll(threshold = 0.15) {
@@ -552,7 +553,7 @@ export default function Corporate() {
 
             <RevealItem delay={100} className="md:h-full">
               <div className="relative rounded-2xl overflow-hidden bg-[#0a0a0a] h-full min-h-[260px] group cursor-pointer" onClick={() => setProjectModalOpen(true)}>
-                <img src={kittingImg} alt="Onboarding and culture kits" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={onboardingKitsImg} alt="Onboarding and culture kits" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/0" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <h3 className="text-2xl md:text-3xl font-black text-white leading-[1.05]" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>Onboarding<br />& Culture Kits</h3>
