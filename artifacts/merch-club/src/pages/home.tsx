@@ -440,7 +440,7 @@ const testimonials = [
 
 const trustedBrands = [
   { name: "OneStaff Medical", logo: brandOnestaff, sizeClass: "h-5 md:h-7 lg:h-8" },
-  { name: "ACCESSbank", logo: brandAccessBank, sizeClass: "h-5 md:h-7 lg:h-8", imgFilter: "grayscale(100%) brightness(0.45) contrast(1.15)" },
+  { name: "ACCESSbank", logo: brandAccessBank, sizeClass: "h-4 md:h-6 lg:h-7", imgFilter: "grayscale(100%) brightness(0.45) contrast(1.15)" },
   { name: "Paylocity", logo: brandPaylocity },
   { name: "Fraser Stryker", logo: brandFraserStryker },
   { name: "Susan G. Komen", logo: brandKomen },
