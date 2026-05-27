@@ -20,6 +20,9 @@ import CaseStudyOnestaff from "@/pages/case-study-onestaff";
 import CaseStudyOnestaffEvents from "@/pages/case-study-onestaff-events";
 import CaseStudyBakerConstruction from "@/pages/case-study-baker-construction";
 import CaseStudyAccessBank from "@/pages/case-study-access-bank";
+import PrivacyPolicy from "@/pages/privacy-policy";
+import Terms from "@/pages/terms";
+import Accessibility from "@/pages/accessibility";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -65,6 +68,13 @@ function Router() {
       <Route path="/case-studies/accessbank" component={CaseStudyAccessBank} />
       <Route path="/case-studies/accessbank-corporate-gifting" component={CaseStudyAccessBank} />
       <Route path="/case-studies/:slug" component={CaseStudy} />
+
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/privacy-policy/"><Redirect to="/privacy-policy" /></Route>
+      <Route path="/terms" component={Terms} />
+      <Route path="/terms/"><Redirect to="/terms" /></Route>
+      <Route path="/accessibility" component={Accessibility} />
+      <Route path="/accessibility/"><Redirect to="/accessibility" /></Route>
 
       {/* Legacy merchclub.com URL redirects */}
       <Route path="/shop"><Redirect to="/case-studies" /></Route>
