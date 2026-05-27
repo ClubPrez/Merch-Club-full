@@ -121,54 +121,75 @@ export function SiteHeader({ onStartProject, onOpenSearch }: Props) {
       </header>
 
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed top-[var(--mc-header-h,64px)] left-0 right-0 bottom-0 z-30 bg-[#111] border-t border-white/10 px-6 py-6 flex flex-col gap-4 overflow-y-auto">
-          <nav className="flex flex-col gap-4">
-            {NAV_LINKS.slice(0, 3).map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`text-sm font-bold uppercase tracking-widest ${isActive(link.href) ? "text-white" : "text-[#a3a3a3]"} hover:text-white transition-colors`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/industries"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`text-sm font-bold uppercase tracking-widest ${industriesActive ? "text-white" : "text-[#a3a3a3]"} hover:text-white transition-colors`}
-            >
-              Industries
-            </Link>
-            <Link
-              href="/case-studies"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`text-sm font-bold uppercase tracking-widest ${caseStudiesActive ? "text-white" : "text-[#a3a3a3]"} hover:text-white transition-colors`}
-            >
-              Case Studies
-            </Link>
-            {NAV_LINKS.slice(3).map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`text-sm font-bold uppercase tracking-widest ${isActive(link.href) ? "text-white" : "text-[#a3a3a3]"} hover:text-white transition-colors`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="flex flex-col gap-3 pt-4 border-t border-white/10">
+        <div className="lg:hidden fixed top-[var(--mc-header-h,64px)] left-0 right-0 bottom-0 z-30 bg-[#0a0a0a] border-t border-white/10 flex flex-col overflow-y-auto">
+          <div className="flex-1 flex flex-col px-6 pt-8 pb-6">
+            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40 mb-5">Menu</span>
+            <nav className="flex flex-col">
+              {[
+                ...NAV_LINKS.slice(0, 3),
+                { label: "Industries", href: "/industries" },
+                { label: "Case Studies", href: "/case-studies" },
+                ...NAV_LINKS.slice(3),
+              ].map((link) => {
+                const active =
+                  link.href === "/industries" ? industriesActive
+                  : link.href === "/case-studies" ? caseStudiesActive
+                  : isActive(link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`group flex items-center justify-between py-4 border-b border-white/10 transition-colors ${active ? "text-white" : "text-white/80 hover:text-white"}`}
+                  >
+                    <span className="text-3xl font-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                      {link.label}
+                    </span>
+                    <svg className={`w-5 h-5 transition-transform ${active ? "translate-x-0 opacity-100" : "-translate-x-1 opacity-40 group-hover:opacity-100 group-hover:translate-x-0"}`} fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                    </svg>
+                  </Link>
+                );
+              })}
+            </nav>
+
+            <div className="mt-8">
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40 block mb-3">Industries</span>
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { label: "Corporate", href: "/industries/corporate" },
+                  { label: "Healthcare", href: "/industries/healthcare" },
+                  { label: "Construction", href: "/industries/construction" },
+                  { label: "Trade Shows", href: "/industries/events" },
+                ].map((ind) => (
+                  <Link
+                    key={ind.href}
+                    href={ind.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-xs font-bold uppercase tracking-widest text-white/70 hover:text-white border border-white/10 hover:border-white/30 rounded-full px-4 py-2.5 text-center transition-colors"
+                  >
+                    {ind.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="px-6 py-6 border-t border-white/10 bg-[#111] flex flex-col gap-3">
             <button
               onClick={() => { setMobileMenuOpen(false); onStartProject(); }}
-              className="w-full bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-3 rounded-full hover:bg-gray-200 transition-colors inline-flex items-center justify-center gap-2"
+              className="w-full bg-white text-black text-sm font-bold px-8 py-4 rounded-full hover:bg-gray-200 transition-colors inline-flex items-center justify-center gap-2"
             >
               Start a Project
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
               </svg>
             </button>
-            <a href="tel:+15317770347" className="text-xs text-[#a3a3a3] text-center font-medium tracking-wide">+1 531-777-0347</a>
+            <div className="flex items-center justify-center gap-4 text-xs text-white/60">
+              <a href="tel:+15317770347" className="hover:text-white transition-colors font-medium tracking-wide">+1 531-777-0347</a>
+              <span className="text-white/20">·</span>
+              <a href="mailto:hello@merchclub.com" className="hover:text-white transition-colors font-medium tracking-wide">hello@merchclub.com</a>
+            </div>
           </div>
         </div>
       )}
