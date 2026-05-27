@@ -253,7 +253,7 @@ export default function Services() {
                 <span className="w-2 h-2 rounded-full bg-white" />
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white">What We Do</span>
               </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-[0.95] text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-[0.95] text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 End-to-End Merch.<br /><span className="text-[#888]">Handled.</span>
               </h1>
             </div>

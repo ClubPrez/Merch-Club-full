@@ -445,13 +445,13 @@ export default function Events() {
                 <span className="w-2 h-2 rounded-full bg-black" />
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-black">Industry — Trade Shows & Events</span>
               </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                Trade Show Merch<br />Programs Built<br /><span className="text-[#888]">For Show Floors.</span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                Trade Show Merch Programs <span className="text-[#888]">For Show Floors.</span>
               </h1>
-              <p className="text-base md:text-lg text-[#555] leading-relaxed max-w-xl mb-10">
+              <p className="text-base md:text-lg text-[#555] leading-relaxed max-w-xl mb-8 md:mb-10">
                 Structured branded merchandise programs for trade shows, conferences, recruiting events, and large-scale activations — apparel, premium giveaways, booth kits, and venue logistics handled end to end.
               </p>
-              <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-black text-white text-sm font-bold px-8 py-3.5 rounded-full hover:bg-[#222] transition-colors">
+              <button onClick={() => setProjectModalOpen(true)} className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-black text-white text-sm font-bold px-8 py-4 sm:py-3.5 rounded-full hover:bg-[#222] transition-colors">
                 Start an Event Project
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
