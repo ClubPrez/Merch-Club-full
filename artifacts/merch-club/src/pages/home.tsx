@@ -604,12 +604,27 @@ export default function Home() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const [showStickyBar, setShowStickyBar] = useState(false);
+  const stickyTriggerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (searchOpen && searchInputRef.current) {
       searchInputRef.current.focus();
     }
   }, [searchOpen]);
+
+  useEffect(() => {
+    const el = stickyTriggerRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setShowStickyBar(true);
+        obs.disconnect();
+      }
+    }, { rootMargin: "0px 0px -20% 0px" });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   const searchableItems = [
     { label: "Services", desc: "Full merch programs, kitting, fulfillment, branded apparel", section: "services" },
@@ -884,7 +899,7 @@ export default function Home() {
         </div>
       </div>
 
-      <section id="services" className="relative bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
+      <section ref={stickyTriggerRef} id="services" className="relative bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
           <div className="flex-1 flex items-center justify-center order-2 md:order-1">
             <RotatingCards />
@@ -1416,7 +1431,7 @@ export default function Home() {
       </section>
       <SiteFooter />
 
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0a0a0a] border-t border-white/10 px-4 py-3 flex items-center gap-2 shadow-2xl" style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}>
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0a0a0a] border-t border-white/10 px-4 py-3 flex items-center gap-2 shadow-2xl transition-all duration-300" style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))", opacity: showStickyBar ? 1 : 0, pointerEvents: showStickyBar ? "auto" : "none", transform: showStickyBar ? "translateY(0)" : "translateY(100%)" }}>
         <a href="tel:+15317770347" className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors" aria-label="Call Merch Club">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
         </a>
