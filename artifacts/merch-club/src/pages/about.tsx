@@ -11,7 +11,7 @@ import team4Img from "@assets/4_1775229252466.png";
 import missionImg from "@assets/0e8baef1-5aa2-4e3d-9acc-6eedba43547b_1776173642639.png";
 import featuredCrewImg from "@assets/image_1776425552216.png";
 import wideTeamImg from "@assets/ChatGPT_Image_Apr_16,_2026,_02_19_45_PM_1776425570204.png";
-import brandAccessBank from "@assets/brand_accessbank_nobg.png";
+import brandAccessBank from "@assets/ACCESSbank_Lettering_Only_1779905854420.png";
 import brandPaylocity from "@assets/brand_paylocity_nobg.png";
 import brandFraserStryker from "@assets/brand_fraserstryker_nobg.png";
 import brandKomen from "@assets/brand_komen_nobg.png";
@@ -21,7 +21,7 @@ import { SiteFooter } from "@/components/site-footer";
 
 const trustedBrands = [
   { name: "OneStaff Medical", logo: brandOnestaff, sizeClass: "h-5 md:h-7" },
-  { name: "Access Bank", logo: brandAccessBank },
+  { name: "ACCESSbank", logo: brandAccessBank, sizeClass: "h-5 md:h-7" },
   { name: "Paylocity", logo: brandPaylocity },
   { name: "Fraser Stryker", logo: brandFraserStryker },
   { name: "Susan G. Komen", logo: brandKomen },
