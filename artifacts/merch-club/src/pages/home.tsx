@@ -1416,6 +1416,16 @@ export default function Home() {
       </section>
       <SiteFooter />
 
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0a0a0a] border-t border-white/10 px-4 py-3 flex items-center gap-2 shadow-2xl" style={{ paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom))" }}>
+        <a href="tel:+15317770347" className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors" aria-label="Call Merch Club">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+        </a>
+        <button onClick={() => setProjectModalOpen(true)} className="flex-1 inline-flex items-center justify-center gap-2 bg-white text-black text-sm font-bold uppercase tracking-wider px-5 py-3 rounded-full hover:bg-gray-200 transition-colors">
+          Start a Project
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+        </button>
+      </div>
+
       <StartProjectModal open={projectModalOpen} onClose={() => setProjectModalOpen(false)} />
 
       {searchOpen && (
@@ -1545,7 +1555,7 @@ export default function Home() {
 
       <button
         onClick={() => setChatOpen(prev => !prev)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-white text-black flex items-center justify-center shadow-lg hover:bg-gray-200 transition-all duration-300 hover:scale-105"
+        className="fixed bottom-24 lg:bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-white text-black flex items-center justify-center shadow-lg hover:bg-gray-200 transition-all duration-300 hover:scale-105"
         aria-label="Chat"
       >
         {chatOpen ? (
@@ -1562,7 +1572,7 @@ export default function Home() {
 
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-6 right-24 z-40 w-11 h-11 rounded-full bg-white text-black flex items-center justify-center shadow-lg hover:bg-gray-200 transition-all duration-300"
+        className="fixed bottom-24 lg:bottom-6 right-24 z-40 w-11 h-11 rounded-full bg-white text-black flex items-center justify-center shadow-lg hover:bg-gray-200 transition-all duration-300"
         style={{ opacity: showBackToTop ? 1 : 0, pointerEvents: showBackToTop ? "auto" : "none", transform: showBackToTop ? "translateY(0)" : "translateY(16px)" }}
         aria-label="Back to top"
       >
