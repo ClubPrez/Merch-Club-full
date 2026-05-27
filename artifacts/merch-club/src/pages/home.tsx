@@ -838,7 +838,7 @@ export default function Home() {
                 ].map((c, i) => (
                   <Link key={`${dup}-${i}`} href={c.href} className="group relative shrink-0 w-[200px] h-[200px] sm:w-[220px] sm:h-[220px] aspect-square rounded-full overflow-hidden border-4 border-[#0a0a0a] block">
                     <img src={c.img} alt={`${c.label} merch`} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-black/35 flex items-end justify-center pb-5">
+                    <div className="absolute inset-0 bg-black/35 flex items-center justify-center">
                       <span className="bg-white text-black text-[11px] font-bold px-3.5 py-2 rounded-full inline-flex items-center gap-1.5 leading-none">
                         {c.label}
                         <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
