@@ -70,8 +70,8 @@ export function StartProjectModal({ open, onClose, onOpenChange }: Props) {
         onClick={e => e.stopPropagation()}
         style={{ animation: "card-enter 0.3s ease-out forwards" }}
       >
-        <button onClick={close} className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-white/70 hover:text-white md:text-[#aaa] md:hover:text-black transition-colors z-10">
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+        <button onClick={close} aria-label="Close" className="absolute top-3 right-3 sm:top-4 sm:right-4 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-white text-black border border-black/10 shadow-lg hover:bg-black hover:text-white hover:scale-105 transition-all z-20">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
