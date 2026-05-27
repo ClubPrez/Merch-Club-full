@@ -175,21 +175,10 @@ export function SiteHeader({ onStartProject, onOpenSearch }: Props) {
             </div>
           </div>
 
-          <div className="px-6 py-6 border-t border-white/10 bg-[#111] flex flex-col gap-3">
-            <button
-              onClick={() => { setMobileMenuOpen(false); onStartProject(); }}
-              className="w-full bg-white text-black text-sm font-bold px-8 py-4 rounded-full hover:bg-gray-200 transition-colors inline-flex items-center justify-center gap-2"
-            >
-              Start a Project
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-              </svg>
-            </button>
-            <div className="flex items-center justify-center gap-4 text-xs text-white/60">
-              <a href="tel:+15317770347" className="hover:text-white transition-colors font-medium tracking-wide">+1 531-777-0347</a>
-              <span className="text-white/20">·</span>
-              <a href="mailto:hello@merchclub.com" className="hover:text-white transition-colors font-medium tracking-wide">hello@merchclub.com</a>
-            </div>
+          <div className="px-6 py-5 border-t border-white/10 bg-[#111] flex items-center justify-center gap-4 text-xs text-white/60">
+            <a href="tel:+15317770347" className="hover:text-white transition-colors font-medium tracking-wide">+1 531-777-0347</a>
+            <span className="text-white/20">·</span>
+            <a href="mailto:hello@merchclub.com" className="hover:text-white transition-colors font-medium tracking-wide">hello@merchclub.com</a>
           </div>
         </div>
       )}
