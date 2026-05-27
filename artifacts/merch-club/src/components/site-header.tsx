@@ -121,7 +121,7 @@ export function SiteHeader({ onStartProject, onOpenSearch }: Props) {
       </header>
 
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#111] border-b border-white/10 px-6 py-6 flex flex-col gap-4">
+        <div className="lg:hidden fixed top-[var(--mc-header-h,64px)] left-0 right-0 bottom-0 z-30 bg-[#111] border-t border-white/10 px-6 py-6 flex flex-col gap-4 overflow-y-auto">
           <nav className="flex flex-col gap-4">
             {NAV_LINKS.slice(0, 3).map((link) => (
               <Link
