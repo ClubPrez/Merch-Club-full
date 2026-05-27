@@ -761,7 +761,7 @@ export default function Home() {
               <div className="relative flex justify-center lg:justify-start">
                 <img src={cloverImg} alt="Merch Club clover" className="h-16 md:h-16 lg:h-20 object-contain mb-5 md:mb-4" style={{ display: 'block', maxWidth: 'fit-content' }} />
               </div>
-              <h2 className="text-6xl sm:text-6xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'League Spartan', sans-serif" }}>
+              <h2 className="text-6xl sm:text-6xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                 Merch,<br />
                 <span className="inline-block overflow-hidden h-[1.1em] align-bottom relative">
                   <span className="invisible">organized.</span>
