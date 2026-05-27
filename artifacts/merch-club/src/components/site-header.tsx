@@ -178,7 +178,7 @@ export function SiteHeader({ onStartProject, onOpenSearch }: Props) {
           <div className="px-6 py-5 border-t border-white/10 bg-[#111] flex items-center justify-center gap-4 text-xs text-white/60">
             <a href="tel:+15317770347" className="hover:text-white transition-colors font-medium tracking-wide">+1 531-777-0347</a>
             <span className="text-white/20">·</span>
-            <a href="mailto:hello@merchclub.com" className="hover:text-white transition-colors font-medium tracking-wide">hello@merchclub.com</a>
+            <a href="mailto:chris@merchclub.com" className="hover:text-white transition-colors font-medium tracking-wide">chris@merchclub.com</a>
           </div>
         </div>
       )}
