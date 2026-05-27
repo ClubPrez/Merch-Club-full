@@ -752,15 +752,15 @@ export default function Home() {
       <SiteHeader onStartProject={() => setProjectModalOpen(true)} />
 
 
-      <section className="relative overflow-hidden bg-[#0a0a0a] px-8 md:px-16 lg:px-20 pt-16 pb-10">
+      <section className="relative overflow-hidden bg-[#0a0a0a] px-6 sm:px-8 md:px-16 lg:px-20 pt-12 sm:pt-16 pb-14 sm:pb-10">
 
         <div className="relative flex flex-col items-center">
-          <div className="flex flex-col lg:flex-row items-center lg:items-center justify-center mb-10 gap-8 lg:gap-16 w-full max-w-7xl mx-auto">
-            <div ref={headlineRef} className="text-center lg:text-left shrink-0 lg:max-w-[320px]">
+          <div className="flex flex-col lg:flex-row items-center lg:items-center justify-center mb-10 gap-10 lg:gap-16 w-full max-w-7xl mx-auto">
+            <div ref={headlineRef} className="text-center lg:text-left shrink-0 w-full lg:max-w-[320px]">
               <div className="relative flex justify-center lg:justify-start">
-                <img src={cloverImg} alt="Merch Club clover" className="h-12 md:h-16 lg:h-20 object-contain mb-4" style={{ display: 'block', maxWidth: 'fit-content' }} />
+                <img src={cloverImg} alt="Merch Club clover" className="h-16 md:h-16 lg:h-20 object-contain mb-5 md:mb-4" style={{ display: 'block', maxWidth: 'fit-content' }} />
               </div>
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              <h2 className="text-7xl sm:text-7xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 Merch,<br />
                 <span className="inline-block overflow-hidden h-[1.1em] align-bottom relative">
                   <span className="invisible">organized.</span>
@@ -771,36 +771,36 @@ export default function Home() {
                   </span>
                 </span>
               </h2>
-              <p className="mt-4 text-sm md:text-base text-[#a3a3a3] leading-relaxed max-w-[320px] mx-auto lg:mx-0">
+              <p className="mt-5 md:mt-4 text-base md:text-base text-[#a3a3a3] leading-relaxed max-w-[420px] md:max-w-[320px] mx-auto lg:mx-0">
                 We design and execute structured branded merchandise programs for marketing and operations teams — from trade show kits to multi-location rollouts.
               </p>
-              <div className="flex flex-row justify-center lg:justify-start gap-3 mt-5">
-                <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-white text-black text-xs md:text-sm font-bold px-5 md:px-6 py-2.5 rounded-full hover:bg-gray-200 transition-colors whitespace-nowrap">
+              <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-3 mt-7 md:mt-5 w-full">
+                <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center justify-center gap-2 bg-white text-black text-sm md:text-sm font-bold px-7 md:px-6 py-4 md:py-2.5 rounded-full hover:bg-gray-200 transition-colors whitespace-nowrap w-full sm:w-auto">
                   Start a Project
-                  <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 md:w-4 md:h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                   </svg>
                 </button>
-                <a href="#" className="inline-flex items-center gap-2 border border-white/30 text-white text-xs md:text-sm font-bold px-5 md:px-6 py-2.5 rounded-full hover:bg-white/10 transition-colors whitespace-nowrap">
+                <a href="#" className="inline-flex items-center justify-center gap-2 border border-white/30 text-white text-sm md:text-sm font-bold px-7 md:px-6 py-4 md:py-2.5 rounded-full hover:bg-white/10 transition-colors whitespace-nowrap w-full sm:w-auto">
                   Book a Call
                 </a>
               </div>
             </div>
 
             <div className="relative flex items-center justify-center shrink-0">
-              <div ref={circle1Ref} className="w-[160px] h-[160px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] lg:w-[340px] lg:h-[340px] xl:w-[380px] xl:h-[380px] aspect-square rounded-full overflow-hidden relative z-10 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
+              <div ref={circle1Ref} className="w-[200px] h-[200px] sm:w-[220px] sm:h-[220px] md:w-[240px] md:h-[240px] lg:w-[340px] lg:h-[340px] xl:w-[380px] xl:h-[380px] aspect-square rounded-full overflow-hidden relative z-10 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
                 <img src={constructionApparelImg} alt="Construction apparel" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-100 hover:bg-black/40 transition-colors">
-                  <Link href="/industries/construction" className="bg-white text-black text-[8px] sm:text-[10px] md:text-xs font-bold px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full hover:bg-gray-200 transition-all hover:scale-105 inline-flex items-center gap-1 sm:gap-1.5 max-w-[85%] text-center justify-center leading-tight">
+                  <Link href="/industries/construction" className="bg-white text-black text-[10px] sm:text-[11px] md:text-xs font-bold px-3 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2 rounded-full hover:bg-gray-200 transition-all hover:scale-105 inline-flex items-center gap-1.5 max-w-[85%] text-center justify-center leading-tight">
                     Construction Apparel
-                    <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                    <svg className="w-3 h-3 sm:w-3 sm:h-3 md:w-4 md:h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                     </svg>
                   </Link>
                 </div>
               </div>
 
-              <div ref={circle2Ref} className="w-[160px] h-[160px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] lg:w-[340px] lg:h-[340px] xl:w-[380px] xl:h-[380px] aspect-square rounded-full overflow-hidden -ml-6 sm:-ml-8 md:-ml-12 lg:-ml-16 relative z-20 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
+              <div ref={circle2Ref} className="w-[200px] h-[200px] sm:w-[220px] sm:h-[220px] md:w-[240px] md:h-[240px] lg:w-[340px] lg:h-[340px] xl:w-[380px] xl:h-[380px] aspect-square rounded-full overflow-hidden -ml-8 sm:-ml-10 md:-ml-12 lg:-ml-16 relative z-20 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
                 <iframe
                   src="https://www.youtube.com/embed/S4aqX1SR_gY?autoplay=1&mute=1&loop=1&playlist=S4aqX1SR_gY&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1"
                   allow="autoplay; encrypted-media"
@@ -810,12 +810,12 @@ export default function Home() {
                 />
               </div>
 
-              <div ref={circle3Ref} className="w-[160px] h-[160px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px] lg:w-[340px] lg:h-[340px] xl:w-[380px] xl:h-[380px] aspect-square rounded-full overflow-hidden -ml-6 sm:-ml-8 md:-ml-12 lg:-ml-16 relative z-30 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
+              <div ref={circle3Ref} className="w-[200px] h-[200px] sm:w-[220px] sm:h-[220px] md:w-[240px] md:h-[240px] lg:w-[340px] lg:h-[340px] xl:w-[380px] xl:h-[380px] aspect-square rounded-full overflow-hidden -ml-8 sm:-ml-10 md:-ml-12 lg:-ml-16 relative z-30 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
                 <img src={healthcareApparelImg} alt="Healthcare apparel" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-100 hover:bg-black/40 transition-colors">
-                  <Link href="/industries/healthcare" className="bg-white text-black text-[8px] sm:text-[10px] md:text-xs font-bold px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full hover:bg-gray-200 transition-all hover:scale-105 inline-flex items-center gap-1 sm:gap-1.5 max-w-[85%] text-center justify-center leading-tight">
+                  <Link href="/industries/healthcare" className="bg-white text-black text-[10px] sm:text-[11px] md:text-xs font-bold px-3 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2 rounded-full hover:bg-gray-200 transition-all hover:scale-105 inline-flex items-center gap-1.5 max-w-[85%] text-center justify-center leading-tight">
                     Healthcare Apparel
-                    <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                    <svg className="w-3 h-3 sm:w-3 sm:h-3 md:w-4 md:h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                     </svg>
                   </Link>
