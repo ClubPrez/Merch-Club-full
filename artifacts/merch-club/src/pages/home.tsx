@@ -923,7 +923,7 @@ export default function Home() {
                 { label: "Events", img: industryEventsImg, href: "#" },
               ].map((item, i) => (
                 <RevealItem key={item.label} delay={200 + i * 150} className={`${i > 0 ? "sm:-ml-8 md:-ml-12 lg:-ml-16" : ""} relative`} style={undefined}>
-                  <div className={`w-[140px] h-[140px] sm:w-[160px] sm:h-[160px] md:w-[250px] md:h-[250px] lg:w-[320px] lg:h-[320px] xl:w-[350px] xl:h-[350px] aspect-square rounded-full overflow-hidden border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500 relative mx-auto`} style={{ zIndex: i + 10 }}>
+                  <div className={`w-[170px] h-[170px] sm:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px] lg:w-[320px] lg:h-[320px] xl:w-[350px] xl:h-[350px] aspect-square rounded-full overflow-hidden border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500 relative mx-auto`} style={{ zIndex: i + 10 }}>
                     <img src={item.img} alt={item.label} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center hover:bg-black/50 transition-colors">
                       <a href={item.href} className="bg-white text-black text-[9px] sm:text-[10px] md:text-sm font-bold px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-2.5 rounded-full inline-flex items-center gap-1 sm:gap-2 hover:bg-gray-200 transition-all hover:scale-105" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.05em" }}>
