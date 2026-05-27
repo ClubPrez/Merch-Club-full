@@ -412,11 +412,11 @@ export default function CaseStudyOnestaff() {
             Two seasonal programs are now built into OneStaff's calendar — each one launches off the prior year's recap, with creative direction and production timelines locked in advance. The internal team spends days on the program instead of weeks, and the nurses get a gift that actually shows up where they live this month.
           </p>
           <div className="border-t border-black/10 pt-8 flex flex-wrap items-center gap-4">
-            <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-black text-white text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-[#333] transition-colors">
+            <button onClick={() => setProjectModalOpen(true)} className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-black text-white text-sm font-bold px-8 py-4 sm:py-3.5 rounded-full hover:bg-[#333] transition-colors">
               Start Your Project
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
             </button>
-            <Link href="/industries/healthcare" className="inline-flex items-center gap-2 border border-black/15 text-black text-sm md:text-base font-bold px-7 py-3 rounded-full hover:bg-black hover:text-white transition-colors">
+            <Link href="/industries/healthcare" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 border border-black/15 text-black text-sm font-bold px-8 py-4 sm:py-3.5 rounded-full hover:bg-black hover:text-white transition-colors">
               See Healthcare Programs
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
             </Link>

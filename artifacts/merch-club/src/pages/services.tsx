@@ -262,11 +262,11 @@ export default function Services() {
                 Strategy, design, sourcing, production, kitting, and distribution — six capabilities, one accountable team, no vendor handoffs.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-white text-black text-xs font-bold uppercase tracking-widest px-5 py-3 rounded-full hover:bg-gray-200 transition-colors">
+                <button onClick={() => setProjectModalOpen(true)} className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-white text-black text-sm font-bold px-8 py-4 sm:py-3.5 rounded-full hover:bg-gray-200 transition-colors">
                   Start a Project
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
                 </button>
-                <Link href="/contact" className="inline-flex items-center gap-2 border border-white/20 text-white text-xs font-bold uppercase tracking-widest px-5 py-3 rounded-full hover:bg-white/10 transition-colors">
+                <Link href="/contact" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 border border-white/20 text-white text-sm font-bold px-8 py-4 sm:py-3.5 rounded-full hover:bg-white/10 transition-colors">
                   Book a Call
                 </Link>
               </div>
@@ -492,7 +492,7 @@ export default function Services() {
               <p className="text-base md:text-lg text-[#666] leading-relaxed mb-8">
                 Most teams burn weeks routing approvals between vendors. We replace that with a single point of accountability, structured timelines, and a quality bar that holds across every run.
               </p>
-              <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-black text-white text-sm font-bold uppercase tracking-widest px-7 py-4 rounded-full hover:bg-[#222] transition-colors">
+              <button onClick={() => setProjectModalOpen(true)} className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-black text-white text-sm font-bold px-8 py-4 sm:py-3.5 rounded-full hover:bg-[#222] transition-colors">
                 Start a Project
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
               </button>
@@ -594,11 +594,11 @@ export default function Services() {
           </RevealItem>
           <RevealItem delay={200}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <button onClick={() => setProjectModalOpen(true)} className="inline-flex items-center gap-2 bg-white text-black text-sm md:text-base font-bold px-8 py-3.5 rounded-full hover:bg-gray-200 transition-colors">
+              <button onClick={() => setProjectModalOpen(true)} className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-white text-black text-sm font-bold px-8 py-4 sm:py-3.5 rounded-full hover:bg-gray-200 transition-colors">
                 Start a Project
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
               </button>
-              <Link href="/contact" className="inline-flex items-center gap-2 border border-white/20 text-white text-sm md:text-base font-bold px-8 py-3.5 rounded-full hover:bg-white/10 transition-colors">
+              <Link href="/contact" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 border border-white/20 text-white text-sm font-bold px-8 py-4 sm:py-3.5 rounded-full hover:bg-white/10 transition-colors">
                 Book a Call
               </Link>
             </div>
