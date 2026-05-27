@@ -787,7 +787,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative flex items-center justify-center shrink-0">
+            <div className="hidden lg:flex relative items-center justify-center shrink-0">
               <div ref={circle1Ref} className="w-[200px] h-[200px] sm:w-[220px] sm:h-[220px] md:w-[240px] md:h-[240px] lg:w-[340px] lg:h-[340px] xl:w-[380px] xl:h-[380px] aspect-square rounded-full overflow-hidden relative z-10 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
                 <img src={constructionApparelImg} alt="Construction apparel" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-100 hover:bg-black/40 transition-colors">
@@ -824,6 +824,33 @@ export default function Home() {
             </div>
           </div>
 
+        </div>
+
+        <div className="lg:hidden -mx-6 sm:-mx-8 mt-2 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+          <div className="flex w-max gap-5 animate-[marquee_30s_linear_infinite]">
+            {[...Array(2)].map((_, dup) => (
+              <div key={dup} className="flex shrink-0 gap-5">
+                {[
+                  { href: "/industries/construction", img: constructionApparelImg, label: "Construction" },
+                  { href: "/industries/healthcare", img: healthcareApparelImg, label: "Healthcare" },
+                  { href: "/industries/corporate", img: corporateImg, label: "Corporate" },
+                  { href: "/industries/events", img: eventsImg, label: "Events" },
+                ].map((c, i) => (
+                  <Link key={`${dup}-${i}`} href={c.href} className="group relative shrink-0 w-[200px] h-[200px] sm:w-[220px] sm:h-[220px] aspect-square rounded-full overflow-hidden border-4 border-[#0a0a0a] block">
+                    <img src={c.img} alt={`${c.label} merch`} className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-black/35 flex items-end justify-center pb-5">
+                      <span className="bg-white text-black text-[11px] font-bold px-3.5 py-2 rounded-full inline-flex items-center gap-1.5 leading-none">
+                        {c.label}
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                        </svg>
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
