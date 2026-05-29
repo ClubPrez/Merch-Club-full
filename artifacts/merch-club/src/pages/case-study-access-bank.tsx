@@ -15,6 +15,8 @@ import leatherGlassImg from "@assets/Leather_Wrap_Glass_1780070278473.png";
 import iceChartreuseImg from "@assets/Ice_Cube_w__Chartreuse_1779814740862.png";
 import journalImg from "@assets/Journal_1779814740862.png";
 import handwrittenNoteImg from "@assets/Note_that_goes_with_glove_1780070248881.png";
+import pitchImg1 from "@assets/PITCH_Image_1_1780070452870.png";
+import pitchImg2 from "@assets/PITCH_Image_2_1780070452871.png";
 import drinkwareItemImg from "@assets/Drinkware_Item_1780070351616.png";
 import womensQuiltedVestImg from "@assets/Apparel_Women's_Quilted_Vest_1780070351615.png";
 import apparelLadiesImg from "@assets/Apparel_Ladies_Green_1779815383438.png";
@@ -224,8 +226,8 @@ export default function CaseStudyAccessBank() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
-            <PlaceholderDark label="PITCH wine carrier + Black & White bottles styled together" ratio="aspect-[4/5]" />
-            <PlaceholderDark label="Hand-delivery moment — two community brands at the door" ratio="aspect-[4/5]" />
+            <Img src={pitchImg1} alt="ACCESSbank x PITCH gift tote with Pitch White and Pitch Black wines and the Art of Toasting book" ratio="aspect-[4/5]" dark />
+            <Img src={pitchImg2} alt="Hand-delivery moment — Merch Club and PITCH deliver the ACCESSbank holiday gift" ratio="aspect-[4/5]" dark />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
