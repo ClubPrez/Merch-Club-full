@@ -14,7 +14,7 @@ import golfLogBookImg from "@assets/Golf_Log_Book_1779814740862.png";
 import golfFieldImg from "@assets/Golf_1779814740862.png";
 import iceChartreuseImg from "@assets/Ice_Cube_w__Chartreuse_1779814740862.png";
 import journalImg from "@assets/Journal_1779814740862.png";
-import leatherGlassImg from "@assets/Leather_Wrap_Glass_1779814740863.png";
+import handwrittenNoteImg from "@assets/Note_that_goes_with_glove_1780070248881.png";
 import letterOpenerImg from "@assets/Letter_Opener_1779814740863.png";
 import apparelLadiesImg from "@assets/Apparel_Ladies_Green_1779815383438.png";
 import apparelQuarterZipImg from "@assets/Apparel_Quarter_Ziip_1779815383440.png";
@@ -81,7 +81,7 @@ const articleJsonLd = {
 const tier1 = [
   { label: "Buffalo leather gloves", img: giftingGloveImg },
   { label: "Custom ice molds", img: iceChartreuseImg },
-  { label: "Leather-wrap whiskey glasses", img: leatherGlassImg },
+  { label: "Handwritten note from leadership", img: handwrittenNoteImg },
   { label: "Branded toiletry bags", img: toiletryBagImg },
 ];
 
