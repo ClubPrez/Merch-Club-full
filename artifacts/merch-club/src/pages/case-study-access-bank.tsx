@@ -11,7 +11,7 @@ import driverHeadImg from "@assets/Gold_Driver_Head_1779814740861.png";
 import golfBallsImg from "@assets/Golf_Balls_1779814740861.png";
 import golfKitImg from "@assets/Golf_kit_1779814740861.png";
 import golfLogBookImg from "@assets/Golf_Log_Book_1779814740862.png";
-import golfFieldImg from "@assets/Golf_1779814740862.png";
+import leatherGlassImg from "@assets/Leather_Wrap_Glass_1780070278473.png";
 import iceChartreuseImg from "@assets/Ice_Cube_w__Chartreuse_1779814740862.png";
 import journalImg from "@assets/Journal_1779814740862.png";
 import handwrittenNoteImg from "@assets/Note_that_goes_with_glove_1780070248881.png";
@@ -90,7 +90,7 @@ const tier2 = [
   { label: "Driver head covers", img: driverHeadImg },
   { label: "Custom golf bags & kits", img: golfKitImg },
   { label: "Golf log books", img: golfLogBookImg },
-  { label: "Course towels & on-green gifting", img: golfFieldImg },
+  { label: "Leather-wrap whiskey glasses", img: leatherGlassImg },
   { label: "Branded luggage tags", img: luggageTagImg },
 ];
 
