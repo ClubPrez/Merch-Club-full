@@ -15,9 +15,9 @@ import leatherGlassImg from "@assets/Leather_Wrap_Glass_1780070278473.png";
 import iceChartreuseImg from "@assets/Ice_Cube_w__Chartreuse_1779814740862.png";
 import journalImg from "@assets/Journal_1779814740862.png";
 import handwrittenNoteImg from "@assets/Note_that_goes_with_glove_1780070248881.png";
-import letterOpenerImg from "@assets/Letter_Opener_1779814740863.png";
+import drinkwareItemImg from "@assets/Drinkware_Item_1780070351616.png";
+import womensQuiltedVestImg from "@assets/Apparel_Women's_Quilted_Vest_1780070351615.png";
 import apparelLadiesImg from "@assets/Apparel_Ladies_Green_1779815383438.png";
-import apparelQuarterZipImg from "@assets/Apparel_Quarter_Ziip_1779815383440.png";
 import backpackCoolerImg from "@assets/Backpack_cooler_1779815615792.png";
 import heroQuarterZipImg from "@assets/Apparel_Quarter_Ziip_1779815734898.png";
 import luggageTagImg from "@assets/Luggage_Tag_1_1779814740863.png";
@@ -95,9 +95,9 @@ const tier2 = [
 ];
 
 const tier3 = [
-  { label: "Silver-ink envelope opener", img: letterOpenerImg },
+  { label: "Branded insulated drinkware", img: drinkwareItemImg },
   { label: "Ladies' branded performance polos", img: apparelLadiesImg },
-  { label: "Men's branded quarter-zips", img: apparelQuarterZipImg },
+  { label: "Women's branded quilted vests", img: womensQuiltedVestImg },
 ];
 
 const branches = [
@@ -334,7 +334,7 @@ export default function CaseStudyAccessBank() {
               <h3 className="text-2xl md:text-3xl font-black tracking-tight text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>Mid-Level Brand Touchpoints</h3>
             </div>
             <p className="text-base md:text-lg text-[#444] leading-relaxed mb-6">
-              Everyday brand signals. Like the envelope opener with a silver metallic ink overlay — most agencies buy the standard version. We made it the piece people can't lose on a desk. Plus branded apparel for staff, partners, and walk-ins.
+              Tier 3 is where budget math gets real — you need more pieces without spending Tier 1 dollars. Wins here look like a laser-engraved tumbler that costs $8 and feels like a $20 retail piece. Or staff apparel that matches the person, and carries the room.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {tier3.map((t, i) => (
