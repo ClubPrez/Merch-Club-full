@@ -218,10 +218,10 @@ export default function CaseStudyAccessBank() {
               A Community-Bank Holiday Gift, Built in Partnership with a Community Brand.
             </h2>
             <p className="text-base md:text-lg text-[#aaa] leading-relaxed mb-5">
-              For shareholders and key growth accounts, ACCESSbank wanted a holiday program that felt like a community-first bank — not a corporate one. So we built it in partnership with <strong className="text-white">PITCH</strong>, a Pittsburgh-style pizzeria with a deep wine program right in ACCESSbank's market.
+              For shareholders and key growth accounts, ACCESSbank wanted a holiday program that felt like a community-first bank — not a corporate one. So we built it in partnership with <strong className="text-white">PITCH</strong>, a coal-fire pizzeria with a deep wine program. Two Omaha businesses showing up together to deliver something neither could have built alone.
             </p>
             <p className="text-base md:text-lg text-[#aaa] leading-relaxed">
-              Because relationship banking is local. So the gift had to be local too.
+              That's what relationship banking actually looks like.
             </p>
           </div>
 
