@@ -22,9 +22,7 @@ import backpackCoolerImg from "@assets/Backpack_cooler_1779815615792.png";
 import heroQuarterZipImg from "@assets/Apparel_Quarter_Ziip_1779815734898.png";
 import luggageTagImg from "@assets/Luggage_Tag_1_1779814740863.png";
 import phoneChargerImg from "@assets/Phone_Charger_1779814740863.png";
-import toastHeroImg from "@assets/Toast_2_1779814740863.png";
 import toastInsideImg from "@assets/Toast_1_1779814740863.png";
-import toastSpreadImg from "@assets/Toast_4_1779814740863.png";
 import toiletryBagImg from "@assets/Toiletry_Bag_1779814740863.png";
 import branchesImg from "@assets/Who_is_ACCESSbank_1779814740863.png";
 
@@ -272,12 +270,8 @@ export default function CaseStudyAccessBank() {
                 Most agencies sell their clients products.<br />We wrote our client a book.
               </p>
             </div>
-            <div className="space-y-5">
+            <div>
               <Img src={toastInsideImg} alt="Inside the Art of Toasting book — toasts that inspire, legacies that last" ratio="aspect-[3/4]" />
-              <div className="grid grid-cols-2 gap-5">
-                <Img src={toastSpreadImg} alt="Art of Toasting — interior spread quoting ego vs. legacy" ratio="aspect-square" />
-                <Img src={toastHeroImg} alt="Art of Toasting — open spread with Legacy Toast" ratio="aspect-square" />
-              </div>
             </div>
           </div>
         </div>
