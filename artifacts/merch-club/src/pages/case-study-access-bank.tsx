@@ -30,6 +30,7 @@ import branchesImg from "@assets/Who_is_ACCESSbank_1779814740863.png";
 import envelopeOpenerImg from "@assets/ChatGPT_Image_May_26,_2026,_06_08_27_AM_1780112009960.png";
 import bandanaDogImg from "@assets/ChatGPT_Image_May_26,_2026,_11_08_03_PM_1780112016774.png";
 import brandedPenImg from "@assets/ChatGPT_Image_May_26,_2026,_11_14_15_PM_1780112024611.png";
+import denikJournalImg from "@assets/ChatGPT_Image_May_26,_2026,_10_55_42_PM_1780112325947.png";
 
 function Placeholder({ label, ratio = "aspect-[4/3]" }: { label: string; ratio?: string }) {
   return (
@@ -421,7 +422,7 @@ export default function CaseStudyAccessBank() {
                 title: "Denik journals — more than paper, a story",
                 body: "Custom soft-touch journals with full-color inside and outside covers telling the story of ACCESSbank. Denik has built eight schools in impoverished communities around the world — we're actively promoting them in their quest to fund the ninth. A brand story you can carry, and a school you help build by carrying it.",
                 placeholder: "Denik journal — inside cover storytelling",
-                img: journalImg,
+                img: denikJournalImg,
               },
               {
                 title: "Custom desk chargers that glow ACCESSbank blue",
