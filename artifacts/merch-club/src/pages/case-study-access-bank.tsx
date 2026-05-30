@@ -106,11 +106,11 @@ const tier3 = [
 ];
 
 const branches = [
+  "Village Point",
   "Aksarben",
-  "La Vista",
-  "Oakview",
-  "Downtown",
-  "West Center",
+  "Midtown",
+  "Papillion",
+  "Oak View",
 ];
 
 export default function CaseStudyAccessBank() {
