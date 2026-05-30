@@ -367,9 +367,6 @@ export default function CaseStudyAccessBank() {
               <Img src={bandanaDogImg} alt="Golden retriever wearing an ACCESSbank branded bandana at a downtown park" ratio="aspect-[4/3]" />
               <Img src={brandedPenImg} alt="ACCESSbank branded pen on a marble countertop beside a handwritten grocery list" ratio="aspect-[4/3]" />
             </div>
-            <p className="text-lg md:text-xl font-bold text-black leading-snug">
-              When the client pays $12 for an item and the recipient guesses we gave them $25 — that's the program working.
-            </p>
           </div>
         </div>
       </section>
