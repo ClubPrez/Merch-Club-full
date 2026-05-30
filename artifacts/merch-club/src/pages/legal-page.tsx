@@ -35,7 +35,7 @@ export function LegalPage({
   return (
     <div className="min-h-screen bg-white text-black">
       <SEO title={seoTitle} description={seoDescription} path={path} />
-      <SiteHeader />
+      <SiteHeader onStartProject={() => {}} />
 
       <main>
         <section className="bg-black text-white">
