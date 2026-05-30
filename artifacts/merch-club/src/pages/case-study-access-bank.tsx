@@ -27,6 +27,9 @@ import phoneChargerImg from "@assets/Phone_Charger_1779814740863.png";
 import toastInsideImg from "@assets/Toast_1_1779814740863.png";
 import toiletryBagImg from "@assets/Toiletry_Bag_1779814740863.png";
 import branchesImg from "@assets/Who_is_ACCESSbank_1779814740863.png";
+import envelopeOpenerImg from "@assets/ChatGPT_Image_May_26,_2026,_06_08_27_AM_1780112009960.png";
+import bandanaDogImg from "@assets/ChatGPT_Image_May_26,_2026,_11_08_03_PM_1780112016774.png";
+import brandedPenImg from "@assets/ChatGPT_Image_May_26,_2026,_11_14_15_PM_1780112024611.png";
 
 function Placeholder({ label, ratio = "aspect-[4/3]" }: { label: string; ratio?: string }) {
   return (
@@ -347,15 +350,23 @@ export default function CaseStudyAccessBank() {
             </div>
           </div>
 
-          {/* Bulk */}
+          {/* Tier 4 / Bulk */}
+          <div className="mb-3">
+            <span className="text-[10px] font-bold uppercase tracking-[0.25em] bg-black text-white px-2.5 py-1 rounded-full">Tier 4</span>
+          </div>
           <div className="bg-white rounded-3xl p-8 md:p-10">
             <div className="flex items-baseline gap-4 mb-4">
               <span className="text-[10px] font-bold uppercase tracking-[0.25em] bg-[#eee] text-black px-2.5 py-1 rounded-full">Bulk Giveaways</span>
               <h3 className="text-2xl md:text-3xl font-black tracking-tight text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>Branded Pieces That Cut Through Noise</h3>
             </div>
             <p className="text-base md:text-lg text-[#444] leading-relaxed mb-6">
-              Custom pens we source for $0.83 that sell for $1.89 everywhere else — because we know where the supplier opportunities live. Savings on bulk fund the upgrades that elevate the higher tiers. Every program funds the next one.
+              The dollar nobody else finds. Custom pens we source for $0.83 — a dollar less than identical pens cost everywhere else. Envelope openers with a silver metallic ink overlay so they stay top-of-mind on a desk instead of getting lost in the pile. Every program's savings fund the next one.
             </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+              <Img src={envelopeOpenerImg} alt="ACCESSbank branded envelope opener with a silver metallic ink overlay, resting on a stack of envelopes" ratio="aspect-[4/3]" />
+              <Img src={bandanaDogImg} alt="Golden retriever wearing an ACCESSbank branded bandana at a downtown park" ratio="aspect-[4/3]" />
+              <Img src={brandedPenImg} alt="ACCESSbank branded pen on a marble countertop beside a handwritten grocery list" ratio="aspect-[4/3]" />
+            </div>
             <p className="text-lg md:text-xl font-bold text-black leading-snug">
               When the client pays $12 for an item and the recipient guesses we gave them $25 — that's the program working.
             </p>
