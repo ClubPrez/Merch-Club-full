@@ -25,6 +25,7 @@ import heroQuarterZipImg from "@assets/Apparel_Quarter_Ziip_1779815734898.png";
 import luggageTagImg from "@assets/Luggage_Tag_1_1779814740863.png";
 import phoneChargerImg from "@assets/Phone_Charger_1779814740863.png";
 import toastInsideImg from "@assets/Toast_1_1779814740863.png";
+import wineBookBottomImg from "@assets/Updated_Wine_Book_bottom_image_(1)_1780110973790.png";
 import toiletryBagImg from "@assets/Toiletry_Bag_1779814740863.png";
 import branchesImg from "@assets/Who_is_ACCESSbank_1779814740863.png";
 
@@ -254,7 +255,7 @@ export default function CaseStudyAccessBank() {
       <section className="bg-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div>
+            <div className="lg:order-1">
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">The Art of Toasting</span>
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 The Book That Didn't Exist.<br />So We Wrote It.
@@ -272,8 +273,9 @@ export default function CaseStudyAccessBank() {
                 Most agencies sell their clients products.<br />We wrote our client a book.
               </p>
             </div>
-            <div>
+            <div className="lg:order-2 space-y-4">
               <Img src={toastInsideImg} alt="Inside the Art of Toasting book — toasts that inspire, legacies that last" ratio="aspect-[3/4]" />
+              <Img src={wineBookBottomImg} alt="ACCESSbank — Ego cares about what you drive; legacy cares about what drives you" ratio="aspect-[2/1]" dark />
             </div>
           </div>
         </div>
