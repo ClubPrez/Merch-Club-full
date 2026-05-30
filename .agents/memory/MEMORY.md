@@ -1,0 +1,1 @@
+- [Source corrupted with literal `[...]`](truncation-corruption.md) — if a build fails with JSX "Expected identifier but found [", suspect a file saved from a truncated view; recover from git.

@@ -110,7 +110,7 @@ export default function CaseStudyOnestaffEvents() {
           </p>
           <div className="border-t border-white/10 pt-8 max-w-3xl">
             <p className="text-base md:text-lg text-white/80 leading-relaxed">
-              OneStaff Medical came to us with a hard problem: how do you stand out at the biggest healthcare recruiting trade show of the year, on a floor full of identical booths, identical pit[...]
+              OneStaff Medical came to us with a hard problem: how do you stand out at the biggest healthcare recruiting trade show of the year, on a floor full of identical booths, identical pitches, and identical swag bowls — with less budget than your biggest competitors?
             </p>
             <p className="text-lg md:text-xl text-white leading-relaxed mt-5 font-semibold">
               We didn't outspend them. We outthought them.
@@ -155,7 +155,7 @@ export default function CaseStudyOnestaffEvents() {
             <p>Every recruiter at this show was after the same audience — traveling nurses and clinical professionals scanning a crowded floor for a reason to slow down.</p>
             <p>Most companies took the same path. Pop-up banner. Branded polo. A bowl of pens and stress balls. Maybe a tumbler if the budget allowed.</p>
             <p>The result was a sea of interchangeable booths competing for the same attention with the same playbook.</p>
-            <p>OneStaff's challenge wasn't visibility. It was differentiation. Bigger competitors had more booth space, more budget, more staff on the floor. We had to make the OneStaff booth the[...]</p>
+            <p>OneStaff's challenge wasn't visibility. It was differentiation. Bigger competitors had more booth space, more budget, more staff on the floor. We had to make the OneStaff booth the one nurses crossed the room to find — and the one they came back to.</p>
             <p className="text-xl md:text-2xl font-semibold text-black pt-4">The answer wasn't a bigger banner. It was a better strategy.</p>
           </div>
         </div>
@@ -172,7 +172,7 @@ export default function CaseStudyOnestaffEvents() {
             We Started Where Most Agencies Don't — at the Brand Level.
           </h2>
           <div className="max-w-3xl space-y-5 text-base md:text-lg text-[#333] leading-relaxed mb-12">
-            <p>OneStaff's brand carries real cultural edge. Bold visual presence. Innovative culture. A team that takes recruiting seriously without taking itself too seriously. The activation ne[...]</p>
+            <p>OneStaff's brand carries real cultural edge. Bold visual presence. Innovative culture. A team that takes recruiting seriously without taking itself too seriously. The activation needed to amplify that cultural signal without breaking the brand system underneath it.</p>
           </div>
 
           {/* The Theme callout */}
@@ -200,7 +200,7 @@ export default function CaseStudyOnestaffEvents() {
           </div>
 
           <div className="max-w-3xl space-y-5 text-base md:text-lg text-[#333] leading-relaxed mb-16">
-            <p>Before any product was sourced, we printed brand evolution boards showing how the existing OneStaff color palette, logo, and visual system would extend into 80's hip hop language. [...]</p>
+            <p>Before any product was sourced, we printed brand evolution boards showing how the existing OneStaff color palette, logo, and visual system would extend into 80's hip hop language. Same brand. New context. Everything stayed on-brand. Nothing felt like a costume.</p>
             <p className="text-xl md:text-2xl font-semibold text-black pt-2">Then we built the world.</p>
           </div>
 
@@ -313,8 +313,8 @@ export default function CaseStudyOnestaffEvents() {
           </div>
 
           <div className="max-w-3xl space-y-5 text-base md:text-lg text-[#333] leading-relaxed">
-            <p>The genius wasn't any single item. It was the sequence. Attendees got the bucket cap on Day 1, posted it on Instagram from their hotel that night, and showed up Day 2 for the next [...]</p>
-            <p>And while the team walked the floor between visits, they carried a custom "boom box" Bluetooth speaker built to match the activation, blasting 80's hip hop in motion across the ent[...]</p>
+            <p>The genius wasn't any single item. It was the sequence. Attendees got the bucket cap on Day 1, posted it on Instagram from their hotel that night, and showed up Day 2 for the next drop. By Day 3, the OneStaff booth was a destination — not a stop on the way to lunch.</p>
+            <p>And while the team walked the floor between visits, they carried a custom "boom box" Bluetooth speaker built to match the activation, blasting 80's hip hop in motion across the entire venue. Free brand impressions, all day, every day, in places the competition's static booths couldn't reach.</p>
           </div>
         </div>
       </section>
@@ -332,7 +332,7 @@ export default function CaseStudyOnestaffEvents() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-12">
             {[
-              { src: boothChain, alt: "OneStaff recruiter in a champ chain and reversible bucket cap at the TravCon booth — attendee browsing the giveaway display loaded with bucket caps, fanny[...]" },
+              { src: boothChain, alt: "OneStaff recruiter in a champ chain and reversible bucket cap at the TravCon booth — attendee browsing the giveaway display loaded with bucket caps, fanny packs, and the enter-to-win sign" },
               { src: teamFiveBanner, alt: "Five-person OneStaff team in the full retro hip hop kit in front of the brand banner" },
               { src: fansInMerch, alt: "TravCon attendees wearing the OneStaff bucket caps at the booth — fans rocking the merch" },
               { src: boothGroupSelfie, alt: "Big group selfie of the OneStaff crew and attendees throwing peace signs at the booth" },
@@ -366,8 +366,8 @@ export default function CaseStudyOnestaffEvents() {
 
           <div className="max-w-3xl space-y-5 text-base md:text-lg text-white/80 leading-relaxed">
             <p>By the end of Day 3, they were the only booth anyone was talking about.</p>
-            <p>Multiple competitors spent significantly more on their activations. OneStaff won by roughly 10x in attention, foot traffic, and post-event conversation — because the strategy was[...]</p>
-            <p>The brand carried forward long after the show closed. The team still talks about it. So do the nurses who left with a bucket cap, a pair of socks, a cassette speaker, and a story.<[...]</p>
+            <p>Multiple competitors spent significantly more on their activations. OneStaff won by roughly 10x in attention, foot traffic, and post-event conversation — because the strategy was right, the items were right, and the day-by-day sequencing turned a three-day trade show into a cultural moment people are still referencing.</p>
+            <p>The brand carried forward long after the show closed. The team still talks about it. So do the nurses who left with a bucket cap, a pair of socks, a cassette speaker, and a story.</p>
           </div>
         </div>
       </section>
@@ -422,7 +422,7 @@ export default function CaseStudyOnestaffEvents() {
               </blockquote>
               <div className="space-y-5 text-base md:text-lg text-white/80 leading-relaxed">
                 <p>
-                  The brands that win the floor aren't the ones with the biggest booths. They're the ones with the clearest signal, the tightest theme, and the smartest sequence — backed by exe[...]
+                  The brands that win the floor aren't the ones with the biggest booths. They're the ones with the clearest signal, the tightest theme, and the smartest sequence — backed by execution that holds up under three days of foot traffic.
                 </p>
                 <div className="pt-4 space-y-2 text-xl md:text-2xl font-semibold text-white">
                   <p>That's what we do.</p>
@@ -443,16 +443,16 @@ export default function CaseStudyOnestaffEvents() {
             Ready to Own Your Next Show?
           </h2>
           <p className="text-base md:text-lg text-[#444] leading-relaxed mb-10">
-            A booth that pulls recruiters in, merch that walks off the floor, and a partner running creative, sourcing, and logistics end-to-end — so your team shows up to work the conversation[...]
+            A booth that pulls recruiters in, merch that walks off the floor, and a partner running creative, sourcing, and logistics end-to-end — so your team shows up to work the conversations, not the boxes.
           </p>
           <div className="border-t border-black/10 pt-8 flex flex-wrap items-center gap-4">
-            <button onClick={() => setProjectModalOpen(true)} className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-black text-white text-sm font-bold px-8 py-4 sm:py-3.5 r[...]">
+            <button onClick={() => setProjectModalOpen(true)} className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-black text-white text-sm font-bold px-8 py-4 sm:py-3.5 rounded-full hover:bg-[#333] transition-colors">
               Start Your Project
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25[...]" /></svg>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
             </button>
-            <Link href="/industries/events" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 border border-black/15 text-black text-sm font-bold px-8 py-4 sm:py-3.5 round[...]">
+            <Link href="/industries/events" className="inline-flex w-full sm:w-auto items-center justify-center gap-2 border border-black/15 text-black text-sm font-bold px-8 py-4 sm:py-3.5 rounded-full hover:bg-black hover:text-white transition-colors">
               See Events Programs
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.[...]" /></svg>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
             </Link>
             <Link href="/case-studies" className="inline-flex items-center gap-2 text-black text-sm md:text-base font-bold px-2 py-3 hover:underline">
               All Case Studies
