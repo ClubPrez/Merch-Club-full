@@ -127,10 +127,10 @@ export default function CaseStudyBakerConstruction() {
             Meet Baker Group.
           </h2>
           <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
-            Baker Group is one of the Midwest's largest multi-specialty design-build contractors. Headquartered in Des Moines, Iowa, with roots that go back to 1963, Baker handles mechanical, electrical, building automation, life safety, plumbing, and HVAC service work for projects across the region. A 1,500-employee operation. A company that built itself the same way its crews build buildings — one detail at a time.
+            Baker Group is one of the Midwest's largest employee-owned specialty contractors. Headquartered near Des Moines, Iowa, with roots that go back to 1963, Baker handles mechanical, electrical, plumbing, building automation, life safety, custom metals, and service work across commercial, industrial, and mission critical sectors. Nearly 1,500 employees. A company that built itself the same way its crews build buildings, one detail at a time.
           </p>
           <p className="text-base md:text-lg text-[#444] leading-relaxed">
-            Baker's brand isn't loud. It's earned. Decades in the field. A founder story — Bernie and Berniece Baker, founding a small steamfitting company in Lee Township and growing it into a Midwest powerhouse — that the company still puts on a beer label. "Lee Township against the World" isn't a tagline. It's the worldview. When a company carries that kind of identity, the merch can't be afterthought. It has to carry the same weight.
+            Baker's brand isn't loud. It's earned. Decades in the field. A founder story that started with Bernie and Berniece Baker building a small steamfitting business in Lee Township and growing it into a Midwest powerhouse. That story still shows up in unexpected places, like the "Lee Township Against the World" beer Baker created with a local brewery. The phrase isn't a tagline. It's a worldview. When a company carries that kind of culture, the merch can't feel like an afterthought. It has to carry the same weight.
           </p>
         </div>
       </section>
