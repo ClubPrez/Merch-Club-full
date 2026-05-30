@@ -31,6 +31,7 @@ import envelopeOpenerImg from "@assets/ChatGPT_Image_May_26,_2026,_06_08_27_AM_1
 import bandanaDogImg from "@assets/ChatGPT_Image_May_26,_2026,_11_08_03_PM_1780112016774.png";
 import brandedPenImg from "@assets/ChatGPT_Image_May_26,_2026,_11_14_15_PM_1780112024611.png";
 import denikJournalImg from "@assets/ChatGPT_Image_May_26,_2026,_10_55_42_PM_1780112325947.png";
+import luggageTagKitImg from "@assets/ChatGPT_Image_May_26,_2026,_11_42_22_PM_1780112378512.png";
 
 function Placeholder({ label, ratio = "aspect-[4/3]" }: { label: string; ratio?: string }) {
   return (
@@ -440,7 +441,7 @@ export default function CaseStudyAccessBank() {
                 title: "Branded luggage tags for the people always on the road",
                 body: "A simple piece of gear with a job to do — clip it on the carry-on, spot the bag at baggage claim, carry the brand from Omaha to wherever the next deal lives. Made to take the beating that real travel hands out.",
                 placeholder: "Branded luggage tag",
-                img: luggageTagImg as string | null,
+                img: luggageTagKitImg as string | null,
               },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-2xl overflow-hidden border border-black/5">
