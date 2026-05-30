@@ -254,18 +254,18 @@ export default function Blog() {
     {
       "@context": "https://schema.org",
       "@type": "Blog",
-      "url": "https://merchclub.replit.app/blog",
+      "url": "https://merchclub.com/blog",
       "name": "Merch Club Blog",
       "description": "Strategy, branding, and operations thinking for teams that take their merch seriously.",
       "publisher": {
         "@type": "Organization",
         "name": "Merch Club",
-        "logo": { "@type": "ImageObject", "url": "https://merchclub.replit.app/opengraph.jpg" }
+        "logo": { "@type": "ImageObject", "url": "https://merchclub.com/opengraph.jpg" }
       },
       "blogPost": blogPosts.map(p => ({
         "@type": "BlogPosting",
         "headline": p.title,
-        "url": `https://merchclub.replit.app/blog/${p.slug}`,
+        "url": `https://merchclub.com/blog/${p.slug}`,
         "description": p.excerpt,
         "datePublished": p.date,
         "author": { "@type": "Organization", "name": "Merch Club" }
@@ -275,8 +275,8 @@ export default function Blog() {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.replit.app/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://merchclub.replit.app/blog" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://merchclub.com/blog" }
       ]
     }
   ];

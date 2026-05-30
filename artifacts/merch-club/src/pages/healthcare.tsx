@@ -264,16 +264,16 @@ export default function Healthcare() {
     setTimeout(() => { setTestimonialIndex(i); setTestimonialFade(true); }, 300);
   };
 
-  const PAGE_URL = "https://merchclub.replit.app/industries/healthcare";
-  const PAGE_IMG = "https://merchclub.replit.app/opengraph.jpg";
+  const PAGE_URL = "https://merchclub.com/industries/healthcare";
+  const PAGE_IMG = "https://merchclub.com/opengraph.jpg";
 
   const jsonLd = [
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Merch Club",
-      "url": "https://merchclub.replit.app",
-      "logo": "https://merchclub.replit.app/opengraph.jpg",
+      "url": "https://merchclub.com",
+      "logo": "https://merchclub.com/opengraph.jpg",
       "telephone": "+1-531-777-0347",
       "email": "chris@merchclub.com",
       "address": { "@type": "PostalAddress", "addressCountry": "US" },
@@ -290,7 +290,7 @@ export default function Healthcare() {
       "name": "Healthcare Branded Merchandise Programs | Merch Club",
       "description": "Structured branded merchandise programs for hospitals, healthcare networks, specialty clinics, and medical organizations — strategy through delivery.",
       "inLanguage": "en-US",
-      "isPartOf": { "@type": "WebSite", "name": "Merch Club", "url": "https://merchclub.replit.app" },
+      "isPartOf": { "@type": "WebSite", "name": "Merch Club", "url": "https://merchclub.com" },
       "primaryImageOfPage": { "@type": "ImageObject", "url": PAGE_IMG },
       "datePublished": "2026-04-01",
       "dateModified": "2026-04-17"
@@ -300,7 +300,7 @@ export default function Healthcare() {
       "@type": "Service",
       "name": "Healthcare Branded Merchandise Programs",
       "serviceType": "Healthcare Branded Merchandise Programs",
-      "provider": { "@type": "Organization", "name": "Merch Club", "url": "https://merchclub.replit.app", "telephone": "+1-531-777-0347" },
+      "provider": { "@type": "Organization", "name": "Merch Club", "url": "https://merchclub.com", "telephone": "+1-531-777-0347" },
       "areaServed": { "@type": "Country", "name": "United States" },
       "audience": { "@type": "Audience", "audienceType": "Hospitals, Healthcare Networks, Specialty Clinics, Medical Staffing Agencies" },
       "description": "Structured branded merchandise programs for hospitals, healthcare networks, specialty clinics, and medical organizations — strategy, design, sourcing, kitting, and multi-site distribution.",
@@ -351,10 +351,10 @@ export default function Healthcare() {
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "@id": "https://merchclub.replit.app/#localbusiness",
+      "@id": "https://merchclub.com/#localbusiness",
       "name": "Merch Club",
-      "image": "https://merchclub.replit.app/opengraph.jpg",
-      "url": "https://merchclub.replit.app",
+      "image": "https://merchclub.com/opengraph.jpg",
+      "url": "https://merchclub.com",
       "telephone": "+1-531-777-0347",
       "email": "chris@merchclub.com",
       "priceRange": "$$-$$$",
@@ -391,8 +391,8 @@ export default function Healthcare() {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.replit.app/" },
-        { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://merchclub.replit.app/industries" },
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://merchclub.com/industries" },
         { "@type": "ListItem", "position": 3, "name": "Healthcare", "item": PAGE_URL }
       ]
     }

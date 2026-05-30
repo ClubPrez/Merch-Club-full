@@ -671,8 +671,8 @@ export default function Home() {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Merch Club",
-      "url": "https://merchclub.replit.app",
-      "logo": "https://merchclub.replit.app/opengraph.jpg",
+      "url": "https://merchclub.com",
+      "logo": "https://merchclub.com/opengraph.jpg",
       "telephone": "+1-531-777-0347",
       "email": "chris@merchclub.com",
       "address": { "@type": "PostalAddress", "addressCountry": "US" },
@@ -684,12 +684,12 @@ export default function Home() {
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "url": "https://merchclub.replit.app",
+      "url": "https://merchclub.com",
       "name": "Merch Club",
       "description": "Full-service branded merchandise programs.",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://merchclub.replit.app/blog?q={search_term_string}",
+        "target": "https://merchclub.com/blog?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     },

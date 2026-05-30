@@ -37,9 +37,9 @@ const articleJsonLd = {
   publisher: {
     "@type": "Organization",
     name: "Merch Club",
-    logo: { "@type": "ImageObject", url: "https://merchclub.replit.app/opengraph.jpg" },
+    logo: { "@type": "ImageObject", url: "https://merchclub.com/opengraph.jpg" },
   },
-  mainEntityOfPage: "https://merchclub.replit.app/case-studies/events",
+  mainEntityOfPage: "https://merchclub.com/case-studies/events",
   about: "Healthcare Trade Show Activation",
 };
 

@@ -43,7 +43,7 @@ export default function Breadcrumbs({ items, theme = "dark", className = "" }: B
   );
 }
 
-export function buildBreadcrumbJsonLd(items: BreadcrumbItem[], baseUrl = "https://merchclub.replit.app") {
+export function buildBreadcrumbJsonLd(items: BreadcrumbItem[], baseUrl = "https://merchclub.com") {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

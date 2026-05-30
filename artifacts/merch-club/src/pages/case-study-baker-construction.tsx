@@ -62,9 +62,9 @@ const articleJsonLd = {
   publisher: {
     "@type": "Organization",
     name: "Merch Club",
-    logo: { "@type": "ImageObject", url: "https://merchclub.replit.app/opengraph.jpg" },
+    logo: { "@type": "ImageObject", url: "https://merchclub.com/opengraph.jpg" },
   },
-  mainEntityOfPage: "https://merchclub.replit.app/case-studies/construction",
+  mainEntityOfPage: "https://merchclub.com/case-studies/construction",
   about: "Construction & Trades Apparel Programs",
 };
 

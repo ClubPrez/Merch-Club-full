@@ -140,8 +140,8 @@ export default function About() {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Merch Club",
-      "url": "https://merchclub.replit.app",
-      "logo": "https://merchclub.replit.app/opengraph.jpg",
+      "url": "https://merchclub.com",
+      "logo": "https://merchclub.com/opengraph.jpg",
       "telephone": "+1-531-777-0347",
       "email": "chris@merchclub.com",
       "address": { "@type": "PostalAddress", "addressCountry": "US" },
@@ -159,18 +159,18 @@ export default function About() {
     {
       "@context": "https://schema.org",
       "@type": "AboutPage",
-      "url": "https://merchclub.replit.app/about",
+      "url": "https://merchclub.com/about",
       "name": "About Merch Club",
       "description": "Meet the team behind Merch Club — a full-service branded merchandise partner built on quality, speed, and relationships that last.",
       "inLanguage": "en-US",
-      "isPartOf": { "@type": "WebSite", "name": "Merch Club", "url": "https://merchclub.replit.app" }
+      "isPartOf": { "@type": "WebSite", "name": "Merch Club", "url": "https://merchclub.com" }
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.replit.app/" },
-        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://merchclub.replit.app/about" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.com/" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://merchclub.com/about" }
       ]
     }
   ];

@@ -65,4 +65,4 @@ Allow: /
 User-agent: MistralAI-User
 Allow: /
 
-Sitemap: https://merchclub.replit.app/sitemap.xml
+Sitemap: https://merchclub.com/sitemap.xml

@@ -89,8 +89,8 @@ export default function Contact() {
     setSubmitted(true);
   };
 
-  const PAGE_URL = "https://merchclub.replit.app/contact";
-  const PAGE_IMG = "https://merchclub.replit.app/opengraph.jpg";
+  const PAGE_URL = "https://merchclub.com/contact";
+  const PAGE_IMG = "https://merchclub.com/opengraph.jpg";
 
   const jsonLd = [
     {
@@ -101,15 +101,15 @@ export default function Contact() {
       "name": "Contact Merch Club",
       "description": "Talk to the Merch Club team. Project inquiries, partnerships, press, and careers — we respond within one business day.",
       "inLanguage": "en-US",
-      "isPartOf": { "@type": "WebSite", "name": "Merch Club", "url": "https://merchclub.replit.app" },
+      "isPartOf": { "@type": "WebSite", "name": "Merch Club", "url": "https://merchclub.com" },
       "primaryImageOfPage": { "@type": "ImageObject", "url": PAGE_IMG }
     },
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Merch Club",
-      "url": "https://merchclub.replit.app",
-      "logo": "https://merchclub.replit.app/opengraph.jpg",
+      "url": "https://merchclub.com",
+      "logo": "https://merchclub.com/opengraph.jpg",
       "telephone": "+1-531-777-0347",
       "email": "chris@merchclub.com",
       "address": { "@type": "PostalAddress", "addressLocality": "Omaha", "addressRegion": "NE", "postalCode": "68102", "addressCountry": "US" },
@@ -124,10 +124,10 @@ export default function Contact() {
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "@id": "https://merchclub.replit.app/#localbusiness",
+      "@id": "https://merchclub.com/#localbusiness",
       "name": "Merch Club",
       "image": PAGE_IMG,
-      "url": "https://merchclub.replit.app",
+      "url": "https://merchclub.com",
       "telephone": "+1-531-777-0347",
       "email": "chris@merchclub.com",
       "priceRange": "$$-$$$",
@@ -158,7 +158,7 @@ export default function Contact() {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.replit.app/" },
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.com/" },
         { "@type": "ListItem", "position": 2, "name": "Contact", "item": PAGE_URL }
       ]
     }

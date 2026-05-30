@@ -16,7 +16,7 @@ interface SEOProps {
 }
 
 const SITE_NAME = "Merch Club";
-const BASE_URL = "https://merchclub.replit.app";
+const BASE_URL = "https://merchclub.com";
 const JSON_LD_ID = "page-jsonld";
 const DEFAULT_TWITTER = "@merchclub";
 

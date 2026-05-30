@@ -74,9 +74,9 @@ const articleJsonLd = {
   publisher: {
     "@type": "Organization",
     name: "Merch Club",
-    logo: { "@type": "ImageObject", url: "https://merchclub.replit.app/opengraph.jpg" },
+    logo: { "@type": "ImageObject", url: "https://merchclub.com/opengraph.jpg" },
   },
-  mainEntityOfPage: "https://merchclub.replit.app/case-studies/access-bank",
+  mainEntityOfPage: "https://merchclub.com/case-studies/access-bank",
   about: "Corporate Gifting",
   mentions: [
     { "@type": "Organization", name: "ACCESSbank" },

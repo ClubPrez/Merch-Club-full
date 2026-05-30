@@ -2,132 +2,138 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://merchclub.replit.app/</loc>
+    <loc>https://merchclub.com/</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://merchclub.replit.app/opengraph.jpg</image:loc>
+      <image:loc>https://merchclub.com/opengraph.jpg</image:loc>
       <image:title>Merch Club — Full-Service Branded Merchandise</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://merchclub.replit.app/about</loc>
+    <loc>https://merchclub.com/about</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://merchclub.replit.app/industries</loc>
+    <loc>https://merchclub.com/industries</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://merchclub.replit.app/industries/healthcare</loc>
+    <loc>https://merchclub.com/industries/healthcare</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://merchclub.replit.app/opengraph.jpg</image:loc>
+      <image:loc>https://merchclub.com/opengraph.jpg</image:loc>
       <image:title>Healthcare Branded Merchandise Programs</image:title>
       <image:caption>Structured branded merchandise programs for hospitals, healthcare networks, and specialty clinics.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://merchclub.replit.app/industries/construction</loc>
+    <loc>https://merchclub.com/industries/construction</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://merchclub.replit.app/opengraph.jpg</image:loc>
+      <image:loc>https://merchclub.com/opengraph.jpg</image:loc>
       <image:title>Construction & Trades Branded Apparel Programs</image:title>
       <image:caption>Structured branded apparel and merchandise programs for construction firms, skilled trades, and field teams.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://merchclub.replit.app/industries/corporate</loc>
+    <loc>https://merchclub.com/industries/corporate</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://merchclub.replit.app/opengraph.jpg</image:loc>
+      <image:loc>https://merchclub.com/opengraph.jpg</image:loc>
       <image:title>Corporate Multi-Location Branded Merchandise Programs</image:title>
       <image:caption>Structured branded merchandise programs for corporate organizations operating across multiple offices, regions, and departments.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://merchclub.replit.app/industries/events</loc>
+    <loc>https://merchclub.com/industries/events</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://merchclub.replit.app/opengraph.jpg</image:loc>
+      <image:loc>https://merchclub.com/opengraph.jpg</image:loc>
       <image:title>Trade Show & Event Branded Merchandise Programs</image:title>
       <image:caption>Structured branded merchandise programs for trade shows, conferences, recruiting events, and large-scale activations.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://merchclub.replit.app/contact</loc>
+    <loc>https://merchclub.com/contact</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://merchclub.replit.app/services</loc>
+    <loc>https://merchclub.com/services</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://merchclub.replit.app/opengraph.jpg</image:loc>
+      <image:loc>https://merchclub.com/opengraph.jpg</image:loc>
       <image:title>Merch Club Services — Strategy, Design, Sourcing, Production, Kitting, Distribution</image:title>
       <image:caption>End-to-end branded merchandise services delivered by one accountable team.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://merchclub.replit.app/case-studies</loc>
+    <loc>https://merchclub.com/case-studies</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://merchclub.replit.app/case-studies/regional-health-network-staff-apparel</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://merchclub.com/case-studies/events</loc>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://merchclub.replit.app/case-studies/nonprofit-donor-stewardship-program</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://merchclub.com/case-studies/nurse-gifting</loc>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://merchclub.replit.app/case-studies/growth-stage-saas-team-onboarding</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://merchclub.com/case-studies/access-bank</loc>
+    <lastmod>2026-05-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://merchclub.replit.app/blog</loc>
+    <loc>https://merchclub.com/case-studies/construction</loc>
+    <lastmod>2026-05-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://merchclub.com/blog</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://merchclub.replit.app/blog/merch-program-strategy</loc>
+    <loc>https://merchclub.com/blog/merch-program-strategy</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://merchclub.replit.app/blog/custom-kitting-brand-experience</loc>
+    <loc>https://merchclub.com/blog/custom-kitting-brand-experience</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://merchclub.replit.app/blog/branded-merchandise-mistakes</loc>
+    <loc>https://merchclub.com/blog/branded-merchandise-mistakes</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

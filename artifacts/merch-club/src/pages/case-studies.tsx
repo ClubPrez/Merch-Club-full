@@ -31,11 +31,11 @@ export default function CaseStudies() {
     "@type": "CollectionPage",
     name: "Case Studies — Merch Club",
     description: "Real-world branded merchandise programs Merch Club has built for healthcare, nonprofit, and growth-stage teams.",
-    url: "https://merchclub.replit.app/case-studies",
+    url: "https://merchclub.com/case-studies",
     hasPart: caseStudies.map((c) => ({
       "@type": "Article",
       headline: c.title,
-      url: `https://merchclub.replit.app/case-studies/${c.slug}`,
+      url: `https://merchclub.com/case-studies/${c.slug}`,
       description: c.summary,
     })),
   };

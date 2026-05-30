@@ -43,9 +43,9 @@ export default function CaseStudy() {
     publisher: {
       "@type": "Organization",
       name: "Merch Club",
-      logo: { "@type": "ImageObject", url: "https://merchclub.replit.app/opengraph.jpg" },
+      logo: { "@type": "ImageObject", url: "https://merchclub.com/opengraph.jpg" },
     },
-    mainEntityOfPage: `https://merchclub.replit.app/case-studies/${cs.slug}`,
+    mainEntityOfPage: `https://merchclub.com/case-studies/${cs.slug}`,
     about: cs.industry,
   };
 

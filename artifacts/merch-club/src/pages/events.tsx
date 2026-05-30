@@ -235,16 +235,16 @@ export default function Events() {
     setTimeout(() => { setTestimonialIndex(i); setTestimonialFade(true); }, 300);
   };
 
-  const PAGE_URL = "https://merchclub.replit.app/industries/events";
-  const PAGE_IMG = "https://merchclub.replit.app/opengraph.jpg";
+  const PAGE_URL = "https://merchclub.com/industries/events";
+  const PAGE_IMG = "https://merchclub.com/opengraph.jpg";
 
   const jsonLd = [
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Merch Club",
-      "url": "https://merchclub.replit.app",
-      "logo": "https://merchclub.replit.app/opengraph.jpg",
+      "url": "https://merchclub.com",
+      "logo": "https://merchclub.com/opengraph.jpg",
       "telephone": "+1-531-777-0347",
       "email": "chris@merchclub.com",
       "address": { "@type": "PostalAddress", "addressCountry": "US" },
@@ -261,7 +261,7 @@ export default function Events() {
       "name": "Trade Show & Event Branded Merchandise Programs | Merch Club",
       "description": "Structured branded merchandise programs for trade shows, conferences, recruiting events, and large-scale activations — apparel, premium giveaways, booth kits, and venue logistics handled end to end.",
       "inLanguage": "en-US",
-      "isPartOf": { "@type": "WebSite", "name": "Merch Club", "url": "https://merchclub.replit.app" },
+      "isPartOf": { "@type": "WebSite", "name": "Merch Club", "url": "https://merchclub.com" },
       "primaryImageOfPage": { "@type": "ImageObject", "url": PAGE_IMG },
       "datePublished": "2026-04-20",
       "dateModified": "2026-04-20"
@@ -271,7 +271,7 @@ export default function Events() {
       "@type": "Service",
       "name": "Trade Show & Event Branded Merchandise Programs",
       "serviceType": "Trade Show & Event Merchandise Programs",
-      "provider": { "@type": "Organization", "name": "Merch Club", "url": "https://merchclub.replit.app", "telephone": "+1-531-777-0347" },
+      "provider": { "@type": "Organization", "name": "Merch Club", "url": "https://merchclub.com", "telephone": "+1-531-777-0347" },
       "areaServed": { "@type": "Country", "name": "United States" },
       "audience": { "@type": "Audience", "audienceType": "Event Marketing, Field Marketing, Trade Show, and Brand Activation Teams" },
       "description": "Structured branded merchandise programs for trade shows, conferences, recruiting events, and large-scale activations — apparel, premium giveaways, booth materials, kitting, and venue delivery.",
@@ -322,10 +322,10 @@ export default function Events() {
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "@id": "https://merchclub.replit.app/#localbusiness",
+      "@id": "https://merchclub.com/#localbusiness",
       "name": "Merch Club",
-      "image": "https://merchclub.replit.app/opengraph.jpg",
-      "url": "https://merchclub.replit.app",
+      "image": "https://merchclub.com/opengraph.jpg",
+      "url": "https://merchclub.com",
       "telephone": "+1-531-777-0347",
       "email": "chris@merchclub.com",
       "priceRange": "$$-$$$",
@@ -362,8 +362,8 @@ export default function Events() {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.replit.app/" },
-        { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://merchclub.replit.app/industries" },
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://merchclub.com/industries" },
         { "@type": "ListItem", "position": 3, "name": "Trade Shows & Events", "item": PAGE_URL }
       ]
     }

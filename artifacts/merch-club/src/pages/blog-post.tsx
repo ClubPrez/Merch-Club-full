@@ -29,7 +29,7 @@ export default function BlogPost() {
 
   const otherPosts = blogPosts.filter(p => p.slug !== post.slug);
 
-  const postUrl = `https://merchclub.replit.app/blog/${post.slug}`;
+  const postUrl = `https://merchclub.com/blog/${post.slug}`;
   const isoDate = (() => {
     const d = new Date(post.date);
     return Number.isNaN(d.getTime()) ? "2026-04-01" : d.toISOString().slice(0, 10);
@@ -53,24 +53,24 @@ export default function BlogPost() {
       "mainEntityOfPage": { "@type": "WebPage", "@id": postUrl },
       "headline": post.title,
       "description": post.excerpt,
-      "image": post.img && typeof post.img === "string" ? [post.img] : ["https://merchclub.replit.app/opengraph.jpg"],
+      "image": post.img && typeof post.img === "string" ? [post.img] : ["https://merchclub.com/opengraph.jpg"],
       "datePublished": isoDate,
       "dateModified": isoDate,
       "articleSection": post.tag,
       "wordCount": plainText.split(/\s+/).length,
-      "author": { "@type": "Organization", "name": "Merch Club", "url": "https://merchclub.replit.app" },
+      "author": { "@type": "Organization", "name": "Merch Club", "url": "https://merchclub.com" },
       "publisher": {
         "@type": "Organization",
         "name": "Merch Club",
-        "logo": { "@type": "ImageObject", "url": "https://merchclub.replit.app/opengraph.jpg" }
+        "logo": { "@type": "ImageObject", "url": "https://merchclub.com/opengraph.jpg" }
       }
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.replit.app/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://merchclub.replit.app/blog" },
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://merchclub.com/blog" },
         { "@type": "ListItem", "position": 3, "name": post.title, "item": postUrl }
       ]
     }

@@ -168,8 +168,8 @@ export default function Services() {
   const [projectModalOpen, setProjectModalOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const PAGE_URL = "https://merchclub.replit.app/services";
-  const PAGE_IMG = "https://merchclub.replit.app/opengraph.jpg";
+  const PAGE_URL = "https://merchclub.com/services";
+  const PAGE_IMG = "https://merchclub.com/opengraph.jpg";
 
   const jsonLd = [
     {
@@ -180,14 +180,14 @@ export default function Services() {
       "name": "Services — Merch Club",
       "description": "End-to-end branded merchandise services: strategy, design, sourcing, production, kitting, and nationwide distribution — handled by one accountable team.",
       "inLanguage": "en-US",
-      "isPartOf": { "@type": "WebSite", "name": "Merch Club", "url": "https://merchclub.replit.app" },
+      "isPartOf": { "@type": "WebSite", "name": "Merch Club", "url": "https://merchclub.com" },
       "primaryImageOfPage": { "@type": "ImageObject", "url": PAGE_IMG },
     },
     {
       "@context": "https://schema.org",
       "@type": "Service",
       "name": "Branded Merchandise Programs",
-      "provider": { "@type": "Organization", "name": "Merch Club", "url": "https://merchclub.replit.app" },
+      "provider": { "@type": "Organization", "name": "Merch Club", "url": "https://merchclub.com" },
       "areaServed": { "@type": "Country", "name": "United States" },
       "serviceType": "Branded merchandise, custom apparel, kitting and fulfillment",
       "hasOfferCatalog": {
@@ -208,7 +208,7 @@ export default function Services() {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.replit.app/" },
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.com/" },
         { "@type": "ListItem", "position": 2, "name": "Services", "item": PAGE_URL },
       ],
     },

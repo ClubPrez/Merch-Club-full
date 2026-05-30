@@ -28,11 +28,11 @@ export default function Industries() {
     name: "Industries Served — Merch Club",
     description:
       "Merch Club builds branded merchandise programs for industries where brand consistency, compliance, and operational structure matter — healthcare, construction, corporate, and trade shows & events.",
-    url: "https://merchclub.replit.app/industries",
+    url: "https://merchclub.com/industries",
     hasPart: industries.map((i) => ({
       "@type": "WebPage",
       name: i.name,
-      url: `https://merchclub.replit.app${i.href}`,
+      url: `https://merchclub.com${i.href}`,
       description: i.summary,
     })),
   };
