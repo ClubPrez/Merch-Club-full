@@ -192,10 +192,10 @@ export default function CaseStudyBakerConstruction() {
                 Bernie Steam Beer.<br /><span className="text-white/50">A label with a worldview.</span>
               </h3>
               <p className="text-base md:text-lg text-[#aaa] leading-relaxed mb-5">
-                In partnership with <span className="text-white">Exile Brewing Company</span> — a local Des Moines brewery — we developed a custom co-branded beer for Baker's 60th anniversary. Named for Bernie Baker, the founder. Featured Bernie and Berniece's actual portraits on the label. Carried the company's worldview right on the can: <span className="text-white">"Lee Township against the World."</span> A full-flavored steam beer brewed for a company that built itself on the boldness of an underdog.
+                For their 60th anniversary, Baker partnered with <span className="text-white">Exile Brewing Company</span>, a local Des Moines brewery, on a custom co-branded beer. Named for Bernie Baker, the founder. Featured Bernie and Berniece's actual portraits on the label. Carried the company's worldview right on the can: <span className="text-white">"Lee Township Against the World."</span> A full-flavored steam beer brewed for a company that built itself on the boldness of an underdog.
               </p>
               <p className="text-base md:text-lg text-[#aaa] leading-relaxed">
-                Not a logo slapped on a stock label. A real product, brewed in their backyard, carrying their actual story — written in their actual voice.
+                Not a logo slapped on a stock label. A real product, brewed in their backyard, carrying their actual story in their actual voice. The kind of brand thinking we point to when we talk about clients who get it.
               </p>
             </div>
 
