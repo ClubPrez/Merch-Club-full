@@ -351,10 +351,10 @@ export default function CaseStudyAccessBank() {
           </div>
 
           {/* Tier 4 / Bulk */}
-          <div className="mb-3">
-            <span className="text-[10px] font-bold uppercase tracking-[0.25em] bg-black text-white px-2.5 py-1 rounded-full">Tier 4</span>
-          </div>
           <div className="bg-white rounded-3xl p-8 md:p-10">
+            <div className="mb-3">
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] bg-black text-white px-2.5 py-1 rounded-full">Tier 4</span>
+            </div>
             <div className="flex items-baseline gap-4 mb-4">
               <span className="text-[10px] font-bold uppercase tracking-[0.25em] bg-[#eee] text-black px-2.5 py-1 rounded-full">Bulk Giveaways</span>
               <h3 className="text-2xl md:text-3xl font-black tracking-tight text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>Branded Pieces That Cut Through Noise</h3>
