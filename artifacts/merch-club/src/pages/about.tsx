@@ -153,6 +153,101 @@ const testimonials = [
   { name: "Nickole Duker", text: "Merch Club is the best! For years Chris has helped get our company great promotional items at great prices. They are super responsive and great with a deadline. We've tried many others — none compare." },
 ];
 
+const PANEL_ANIM_MS = 650;
+const PANEL_DISPLAY_MS = 4600;
+const PANEL_TRANSITIONS = ['fade', 'slide', 'flip', 'zoom'] as const;
+type PanelTransition = typeof PANEL_TRANSITIONS[number];
+
+const ENTER_CLASS: Record<PanelTransition, string> = {
+  fade:  'animate-[panel-fade-in_0.65s_ease_forwards]',
+  slide: 'animate-[panel-slide-in_0.65s_cubic-bezier(0.16,1,0.3,1)_forwards]',
+  flip:  'animate-[panel-flip-in_0.65s_ease_forwards]',
+  zoom:  'animate-[panel-zoom-in_0.65s_ease_forwards]',
+};
+const EXIT_CLASS: Record<PanelTransition, string> = {
+  fade:  'animate-[panel-fade-out_0.65s_ease_forwards]',
+  slide: 'animate-[panel-slide-out_0.65s_cubic-bezier(0.16,1,0.3,1)_forwards]',
+  flip:  'animate-[panel-flip-out_0.65s_ease_forwards]',
+  zoom:  'animate-[panel-zoom-out_0.65s_ease_forwards]',
+};
+
+function AlternatingStatsSection() {
+  const { ref, visible } = useRevealOnScroll(0.2);
+  const [active, setActive] = useState(0);
+  const [phase, setPhase] = useState<'entering' | 'visible' | 'exiting'>('entering');
+  const [transIdx, setTransIdx] = useState(0);
+  const started = useRef(false);
+
+  useEffect(() => {
+    if (!visible || started.current) return;
+    started.current = true;
+    setTimeout(() => setPhase('visible'), PANEL_ANIM_MS);
+  }, [visible]);
+
+  useEffect(() => {
+    if (phase !== 'visible') return;
+    const t = setTimeout(() => {
+      setPhase('exiting');
+      setTimeout(() => {
+        setActive(a => 1 - a);
+        setTransIdx(i => (i + 1) % PANEL_TRANSITIONS.length);
+        setPhase('entering');
+        setTimeout(() => setPhase('visible'), PANEL_ANIM_MS);
+      }, PANEL_ANIM_MS);
+    }, PANEL_DISPLAY_MS);
+    return () => clearTimeout(t);
+  }, [phase]);
+
+  const trans = PANEL_TRANSITIONS[transIdx];
+  const animClass = phase === 'entering' ? ENTER_CLASS[trans] : phase === 'exiting' ? EXIT_CLASS[trans] : '';
+
+  return (
+    <section
+      ref={ref}
+      className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20 overflow-hidden"
+      style={{ perspective: '1200px' }}
+    >
+      <div className="max-w-7xl mx-auto min-h-[160px] md:min-h-[200px] flex items-center justify-center">
+        <div className={`w-full will-change-transform ${animClass}`} style={{ transformOrigin: 'center center' }}>
+          {active === 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 text-center">
+              {[
+                { value: "6",  line1: "Stages",   line2: "Owned" },
+                { value: "0",  line1: "Handoffs",  line2: "No Middlemen" },
+                { value: "1",  line1: "Partner",   line2: "Start to Finish" },
+              ].map((stat, i) => (
+                <div key={i}>
+                  <span
+                    className="block text-7xl md:text-8xl lg:text-9xl font-black text-white tracking-tight leading-none"
+                    style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                  >
+                    {stat.value}
+                  </span>
+                  <p className="text-sm md:text-base text-[#888] mt-4 uppercase tracking-[0.18em] font-medium leading-relaxed">
+                    {stat.line1}<br />{stat.line2}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-4 md:py-8">
+              <p
+                className="text-5xl md:text-7xl lg:text-[5.5rem] font-black text-white tracking-tight leading-[0.9] mb-6"
+                style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+              >
+                Not a Vendor.
+              </p>
+              <p className="text-lg md:text-2xl text-[#666] font-light leading-relaxed max-w-2xl mx-auto">
+                A partner who owns every stage —<br className="hidden md:block" /> design to doorstep.
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function About() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -621,24 +716,7 @@ export default function About() {
       </section>
 
 
-      <section className="bg-[#0a0a0a] py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 text-center">
-            {[
-              { target: 1200, suffix: "+", label: "Kits Shipped" },
-              { target: 48, suffix: "", label: "States Reached" },
-              { target: 100, suffix: "%", label: "On-Time Delivery" },
-            ].map((stat, i) => (
-              <RevealItem key={i} delay={i * 150}>
-                <span className="block text-7xl md:text-8xl lg:text-9xl font-black text-white tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  <CountUp target={stat.target} suffix={stat.suffix} duration={2000 + i * 300} />
-                </span>
-                <p className="text-sm md:text-base text-[#888] mt-4 uppercase tracking-[0.18em] font-medium">{stat.label}</p>
-              </RevealItem>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AlternatingStatsSection />
 
       <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-3xl mx-auto text-center">
