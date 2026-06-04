@@ -22,6 +22,15 @@ import logoAHA from "@assets/aha_logo_nobg.png";
 import logoBackNine from "@assets/Back_Nine_Logo_1780542695681.png";
 import logoBakerGroup from "@assets/Baker_Group_Logo_With_R_Black_1780542718496.png";
 import logoBB from "@assets/BB_Logo_1780542852532.png";
+import logoBurlington from "@assets/Burlington_Capital_Logo_1780542879250.png";
+import logoF3 from "@assets/F3_Logo_1780542913430.png";
+import logoFederalCrop from "@assets/FederalCrop_Logo_1780542945995.png";
+import logoHologic from "@assets/Hologic_Main_Logo_PMS2756_WoTagline_1780542986902.png";
+import logoJayMoore from "@assets/jay_moore_nobg.png";
+import logoMarqeta from "@assets/marqeta_nobg.png";
+import logoPitch from "@assets/Pitch_IndividualLogos-03_1780543115104.png";
+import logoPicklemans from "@assets/Pickleman's_Gourmet_Cafe_2_1780543132832.png";
+import logoMcCoy from "@assets/McCoy_Horizontal_Logo_Black_1780543231903.png";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -37,6 +46,15 @@ const trustedBrands = [
   { name: "Back Nine",           logo: logoBackNine,    sizeClass: "h-8 md:h-10" },
   { name: "Baker Group",         logo: logoBakerGroup,  sizeClass: "h-6 md:h-8" },
   { name: "BB",                  logo: logoBB,          sizeClass: "h-8 md:h-10" },
+  { name: "Burlington Capital",  logo: logoBurlington,  sizeClass: "h-5 md:h-7" },
+  { name: "F3",                  logo: logoF3,          sizeClass: "h-8 md:h-10" },
+  { name: "Federal Crop",        logo: logoFederalCrop, sizeClass: "h-8 md:h-10" },
+  { name: "Hologic",             logo: logoHologic,     sizeClass: "h-4 md:h-5" },
+  { name: "Jay Moore Landscaping", logo: logoJayMoore,  sizeClass: "h-7 md:h-9" },
+  { name: "Marqeta",             logo: logoMarqeta,     sizeClass: "h-9 md:h-11" },
+  { name: "Pitch",               logo: logoPitch,       sizeClass: "h-8 md:h-10" },
+  { name: "Pickleman's",         logo: logoPicklemans,  sizeClass: "h-8 md:h-10" },
+  { name: "McCoy",               logo: logoMcCoy,       sizeClass: "h-5 md:h-7" },
 ];
 
 function useRevealOnScroll(threshold = 0.15) {
@@ -278,7 +296,7 @@ export default function About() {
         </p>
         <div className="relative overflow-hidden">
           <div
-            className="flex items-center animate-[marquee_45s_linear_infinite]"
+            className="flex items-center animate-[marquee_70s_linear_infinite]"
             style={{ width: "max-content" }}
           >
             {[0, 1, 2].flatMap((rep) =>
