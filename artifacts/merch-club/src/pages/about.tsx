@@ -476,7 +476,7 @@ export default function About() {
                 <div className="absolute bottom-0 right-0 w-32 h-32 rounded-full bg-white/5" />
                 <div className="relative">
                   <span className="block text-7xl md:text-8xl font-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                    <CountUp target={125} suffix="+" duration={2200} />
+                    <CountUp target={125} suffix="+" duration={3800} />
                   </span>
                   <p className="text-base font-bold mt-3">Brands Served</p>
                 </div>
