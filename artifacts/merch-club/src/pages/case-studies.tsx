@@ -7,9 +7,11 @@ import { caseStudies } from "@/lib/site-data";
 import { SiteHeader } from "@/components/site-header";
 import eventsThumb from "@assets/461191773_18297032593205370_5287082838877484901_n_1778693892844.jpg";
 import nurseGiftingThumb from "@assets/tote_vw_bus_1778692208474.png";
+import accessBankThumb from "@assets/Denik_Journal_1780544222401.png";
 
 const thumbBySlug: Record<string, string> = {
   "nurse-gifting": nurseGiftingThumb,
+  "access-bank": accessBankThumb,
   events: eventsThumb,
 };
 

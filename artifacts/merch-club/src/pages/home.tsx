@@ -32,7 +32,7 @@ import team1Img from "@assets/1_1775229252465.png";
 import team2Img from "@assets/2_1775229252466.png";
 import team3Img from "@assets/3_1775229252466.png";
 import team4Img from "@assets/4_1775229252466.png";
-import accessBankImg from "@assets/ChatGPT_Image_Mar_28,_2026,_12_13_49_PM_1774718377455.png";
+import accessBankImg from "@assets/Denik_Journal_1780544222401.png";
 import onestaffImg from "@assets/tote_vw_bus_1778692208474.png";
 import merchClubProductionImg from "@assets/ChatGPT_Image_Mar_24,_2026,_11_18_55_AM_1774718494043.png";
 import merchClubDistributionImg from "@assets/ChatGPT_Image_Apr_9,_2026,_04_16_06_PM_1775831640229.png";
