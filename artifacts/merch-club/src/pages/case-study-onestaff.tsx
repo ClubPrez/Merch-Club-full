@@ -4,7 +4,7 @@ import SEO from "@/components/seo";
 import Breadcrumbs, { buildBreadcrumbJsonLd } from "@/components/breadcrumbs";
 import { StartProjectModal } from "@/components/start-project-modal";
 import { SiteHeader } from "@/components/site-header";
-import heroImage from "@assets/Blanket_4_1778000748265.png";
+import heroImage from "@assets/tote_vw_bus_1778692208474.png";
 import nursesWeekImage from "@assets/BLENDi_2_1778000814932.png";
 import bottleImage from "@assets/653849757_902181562799830_4065228705558207715_n_1778001045823.jpg";
 import scarfImage from "@assets/ChatGPT_Image_May_5,_2026,_04_03_04_PM_1778691070029.png";
