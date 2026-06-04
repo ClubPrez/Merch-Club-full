@@ -503,7 +503,7 @@ export default function Services() {
               {[
                 { value: 195, suffix: "+", label: "Vetted suppliers in our manufacturer network" },
                 { value: 100, suffix: "%", label: "On-time delivery across active programs" },
-                { value: 48, suffix: "", label: "States reached with direct fulfillment" },
+                { value: 50, suffix: "", label: "States reached with direct fulfillment" },
                 { value: 1, suffix: "", label: "Accountable team — start to finish" },
               ].map((s, i) => (
                 <RevealItem key={i} delay={i * 100}>
