@@ -429,7 +429,7 @@ export default function Contact() {
               { label: "States Served", value: "50" },
               { label: "Headquarters", value: "Omaha, NE" },
               { label: "Response Time", value: "< 4 hr" },
-              { label: "Programs Run", value: "1,200+" },
+              { label: "Programs Run", value: "200+" },
             ].map((stat, i) => (
               <RevealItem key={i} delay={i * 80}>
                 <div>
