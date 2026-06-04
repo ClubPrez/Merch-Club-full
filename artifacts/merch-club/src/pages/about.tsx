@@ -16,15 +16,27 @@ import brandPaylocity from "@assets/brand_paylocity_nobg.png";
 import brandFraserStryker from "@assets/brand_fraserstryker_nobg.png";
 import brandKomen from "@assets/brand_komen_nobg.png";
 import brandOnestaff from "@assets/Social_PostsArtboard_1@3x_1777583934192.png";
+import logo50MileMarch from "@assets/50_Mile_March_-_Logo_-_Single_Color_Black_1780542627135.png";
+import logoAPAH from "@assets/APAH_Single_Color_Black_1780542659870.png";
+import logoAHA from "@assets/aha_logo_nobg.png";
+import logoBackNine from "@assets/Back_Nine_Logo_1780542695681.png";
+import logoBakerGroup from "@assets/Baker_Group_Logo_With_R_Black_1780542718496.png";
+import logoBB from "@assets/BB_Logo_1780542852532.png";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 const trustedBrands = [
-  { name: "OneStaff Medical", logo: brandOnestaff, sizeClass: "h-5 md:h-7" },
-  { name: "ACCESSbank", logo: brandAccessBank, sizeClass: "h-5 md:h-7" },
-  { name: "Paylocity", logo: brandPaylocity },
-  { name: "Fraser Stryker", logo: brandFraserStryker },
-  { name: "Susan G. Komen", logo: brandKomen },
+  { name: "OneStaff Medical",    logo: brandOnestaff,   sizeClass: "h-5 md:h-7" },
+  { name: "ACCESSbank",          logo: brandAccessBank, sizeClass: "h-5 md:h-7" },
+  { name: "Paylocity",           logo: brandPaylocity,  sizeClass: "h-6 md:h-8" },
+  { name: "Fraser Stryker",      logo: brandFraserStryker, sizeClass: "h-6 md:h-8" },
+  { name: "Susan G. Komen",      logo: brandKomen,      sizeClass: "h-6 md:h-8" },
+  { name: "50 Mile March",       logo: logo50MileMarch, sizeClass: "h-5 md:h-7" },
+  { name: "A Place At Home",     logo: logoAPAH,        sizeClass: "h-7 md:h-9" },
+  { name: "American Heart Association", logo: logoAHA,  sizeClass: "h-7 md:h-9" },
+  { name: "Back Nine",           logo: logoBackNine,    sizeClass: "h-8 md:h-10" },
+  { name: "Baker Group",         logo: logoBakerGroup,  sizeClass: "h-6 md:h-8" },
+  { name: "BB",                  logo: logoBB,          sizeClass: "h-8 md:h-10" },
 ];
 
 function useRevealOnScroll(threshold = 0.15) {
@@ -260,21 +272,26 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-[#0a0a0a] border-t border-white/5 py-8 md:py-10 px-8 md:px-16 lg:px-20">
-        <div className="max-w-6xl mx-auto">
-          <p className="text-center text-sm md:text-base font-bold uppercase tracking-[0.25em] text-[#888] mb-8">
-            Brands that trust us
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 md:gap-x-20 gap-y-8">
-            {trustedBrands.map((brand) => (
-              <img
-                key={brand.name}
-                src={brand.logo}
-                alt={brand.name}
-                className={`${(brand as { sizeClass?: string }).sizeClass ?? "h-12 md:h-16"} w-auto object-contain opacity-70 hover:opacity-100 transition-opacity`}
-                style={{ filter: "brightness(0) invert(1)" }}
-              />
-            ))}
+      <section className="bg-[#0a0a0a] border-t border-white/5 py-8 md:py-10 overflow-hidden">
+        <p className="text-center text-sm md:text-base font-bold uppercase tracking-[0.25em] text-[#888] mb-8 px-8">
+          Brands that trust us
+        </p>
+        <div className="relative overflow-hidden">
+          <div
+            className="flex items-center animate-[marquee_45s_linear_infinite]"
+            style={{ width: "max-content" }}
+          >
+            {[0, 1, 2].flatMap((rep) =>
+              trustedBrands.map((brand) => (
+                <img
+                  key={`${rep}-${brand.name}`}
+                  src={brand.logo}
+                  alt={brand.name}
+                  className={`${brand.sizeClass} w-auto object-contain opacity-60 hover:opacity-100 transition-opacity shrink-0 mx-10 md:mx-14`}
+                  style={{ filter: "brightness(0) invert(1)" }}
+                />
+              ))
+            )}
           </div>
         </div>
       </section>
