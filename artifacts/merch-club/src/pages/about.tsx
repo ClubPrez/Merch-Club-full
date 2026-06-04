@@ -238,7 +238,7 @@ export default function About() {
                   ))}
                 </div>
                 <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-white">5.0</span>
-                <span className="text-[11px] uppercase tracking-[0.15em] text-[#888]">· 500+ teams trust us</span>
+                <span className="text-[11px] uppercase tracking-[0.15em] text-[#888]">· 150+ teams trust us</span>
               </div>
             </div>
           </RevealItem>
