@@ -21,7 +21,7 @@ import logoAPAH from "@assets/APAH_Single_Color_Black_1780542659870.png";
 import logoAHA from "@assets/aha_logo_nobg.png";
 import logoBackNine from "@assets/Back_Nine_Logo_1780542695681.png";
 import logoBakerGroup from "@assets/Baker_Group_Logo_With_R_Black_1780542718496.png";
-import logoBB from "@assets/BB_Logo_1780542852532.png";
+import logoBB from "@assets/BB_Logo_1780543903363.png";
 import logoBurlington from "@assets/Burlington_Capital_Logo_1780542879250.png";
 import logoF3 from "@assets/F3_Logo_1780542913430.png";
 import logoFederalCrop from "@assets/FederalCrop_Logo_1780542945995.png";
@@ -35,26 +35,26 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 const trustedBrands = [
-  { name: "OneStaff Medical",    logo: brandOnestaff,   sizeClass: "h-5 md:h-7" },
-  { name: "ACCESSbank",          logo: brandAccessBank, sizeClass: "h-5 md:h-7" },
-  { name: "Paylocity",           logo: brandPaylocity,  sizeClass: "h-6 md:h-8" },
-  { name: "Fraser Stryker",      logo: brandFraserStryker, sizeClass: "h-6 md:h-8" },
-  { name: "Susan G. Komen",      logo: brandKomen,      sizeClass: "h-6 md:h-8" },
-  { name: "50 Mile March",       logo: logo50MileMarch, sizeClass: "h-5 md:h-7" },
-  { name: "A Place At Home",     logo: logoAPAH,        sizeClass: "h-7 md:h-9" },
-  { name: "American Heart Association", logo: logoAHA,  sizeClass: "h-7 md:h-9" },
-  { name: "Back Nine",           logo: logoBackNine,    sizeClass: "h-8 md:h-10" },
-  { name: "Baker Group",         logo: logoBakerGroup,  sizeClass: "h-6 md:h-8" },
-  { name: "BB",                  logo: logoBB,          sizeClass: "h-8 md:h-10" },
-  { name: "Burlington Capital",  logo: logoBurlington,  sizeClass: "h-5 md:h-7" },
-  { name: "F3",                  logo: logoF3,          sizeClass: "h-8 md:h-10" },
-  { name: "Federal Crop",        logo: logoFederalCrop, sizeClass: "h-8 md:h-10" },
-  { name: "Hologic",             logo: logoHologic,     sizeClass: "h-4 md:h-5" },
-  { name: "Jay Moore Landscaping", logo: logoJayMoore,  sizeClass: "h-7 md:h-9" },
-  { name: "Marqeta",             logo: logoMarqeta,     sizeClass: "h-9 md:h-11" },
-  { name: "Pitch",               logo: logoPitch,       sizeClass: "h-8 md:h-10" },
-  { name: "Pickleman's",         logo: logoPicklemans,  sizeClass: "h-8 md:h-10" },
-  { name: "McCoy",               logo: logoMcCoy,       sizeClass: "h-5 md:h-7" },
+  { name: "Marqeta",                   logo: logoMarqeta,       sizeClass: "h-12 md:h-14" },
+  { name: "OneStaff Medical",          logo: brandOnestaff,     sizeClass: "h-8 md:h-9"  },
+  { name: "Pickleman's",               logo: logoPicklemans,    sizeClass: "h-10 md:h-12" },
+  { name: "F3",                        logo: logoF3,            sizeClass: "h-12 md:h-14" },
+  { name: "Susan G. Komen",            logo: brandKomen,        sizeClass: "h-10 md:h-12" },
+  { name: "Burlington Capital",        logo: logoBurlington,    sizeClass: "h-8 md:h-10"  },
+  { name: "Jay Moore Landscaping",     logo: logoJayMoore,      sizeClass: "h-9 md:h-11"  },
+  { name: "Fraser Stryker",            logo: brandFraserStryker, sizeClass: "h-12 md:h-14" },
+  { name: "Federal Crop",              logo: logoFederalCrop,   sizeClass: "h-12 md:h-14" },
+  { name: "A Place At Home",           logo: logoAPAH,          sizeClass: "h-10 md:h-12" },
+  { name: "Hologic",                   logo: logoHologic,       sizeClass: "h-7 md:h-8"   },
+  { name: "Back Nine",                 logo: logoBackNine,      sizeClass: "h-12 md:h-14" },
+  { name: "50 Mile March",             logo: logo50MileMarch,   sizeClass: "h-9 md:h-11"  },
+  { name: "Pitch",                     logo: logoPitch,         sizeClass: "h-12 md:h-14" },
+  { name: "ACCESSbank",                logo: brandAccessBank,   sizeClass: "h-7 md:h-8"   },
+  { name: "Baker Group",               logo: logoBakerGroup,    sizeClass: "h-10 md:h-12" },
+  { name: "American Heart Association", logo: logoAHA,          sizeClass: "h-10 md:h-12" },
+  { name: "McCoy",                     logo: logoMcCoy,         sizeClass: "h-9 md:h-11"  },
+  { name: "Paylocity",                 logo: brandPaylocity,    sizeClass: "h-10 md:h-12" },
+  { name: "Benson Brewery",            logo: logoBB,            sizeClass: "h-14 md:h-16" },
 ];
 
 function useRevealOnScroll(threshold = 0.15) {
