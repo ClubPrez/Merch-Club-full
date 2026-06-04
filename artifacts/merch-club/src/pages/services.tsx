@@ -97,9 +97,9 @@ const capabilities = [
   {
     title: "Sourcing",
     short: "Curated suppliers",
-    desc: "Access to premium apparel and merchandise from the brands you trust — Carhartt, Nike, Patagonia, Yeti, FIGS, and 2,000+ vetted manufacturers — at the right price for your scale.",
+    desc: "Access to premium apparel and merchandise from the brands you trust — Carhartt, Nike, Patagonia, Yeti, FIGS, and 195+ vetted manufacturers — at the right price for your scale.",
     img: sourcingImg,
-    bullets: ["2,000+ vetted suppliers", "Premium brand access", "Sustainable options", "Volume pricing"],
+    bullets: ["195+ vetted suppliers", "Premium brand access", "Sustainable options", "Volume pricing"],
     icon: "M3.375 3h17.25c.621 0 1.125.504 1.125 1.125v3.026a2.999 2.999 0 01-.879 2.121l-6.621 6.621a3 3 0 01-2.121.879H5.25a3 3 0 01-2.121-.879l-2.121-2.121A2.999 2.999 0 010 11.151V4.125C0 3.504.504 3 1.125 3h2.25z M3 14.25v6.75c0 .621.504 1.125 1.125 1.125h15.75c.621 0 1.125-.504 1.125-1.125v-6.75",
   },
   {
@@ -151,7 +151,7 @@ const faqs = [
   { q: "Do you have minimum order quantities?", a: "Most programs assume a real production run, but we right-size to your audience. For kitting and rollouts, we'll scope to fit your headcount, locations, or event size." },
   { q: "How long does a typical project take?", a: "Standard apparel orders run 3–4 weeks from sign-off. Custom kits and complex multi-location programs run 4–8 weeks. Rush is possible — call us if your timeline is tight." },
   { q: "Can you handle decoration and fulfillment together?", a: "Yes — that's the model. Strategy, sourcing, decoration, kitting, and distribution all live with one accountable team. No vendor handoffs." },
-  { q: "What brands can you source?", a: "Premium brands including Carhartt, Nike, Patagonia, Yeti, FIGS, Stanley, Bella+Canvas, Next Level, Champion, Under Armour, plus 2,000+ vetted manufacturers and decorators." },
+  { q: "What brands can you source?", a: "Premium brands including Carhartt, Nike, Patagonia, Yeti, FIGS, Stanley, Bella+Canvas, Next Level, Champion, Under Armour, plus 195+ vetted manufacturers and decorators." },
   { q: "Do you ship nationwide?", a: "Yes. Direct-to-employee, direct-to-jobsite, direct-to-venue, and multi-location splits anywhere in the U.S. — with tracked, on-time delivery." },
   { q: "How do we get started?", a: "Send a project inquiry or book a strategy call. The first conversation is scoped to your goal — no pricing pressure, no obligation." },
 ];
@@ -501,7 +501,7 @@ export default function Services() {
           <div className="lg:col-span-7">
             <div className="grid grid-cols-2 gap-px bg-black/10 border border-black/10 rounded-2xl overflow-hidden">
               {[
-                { value: 2000, suffix: "+", label: "Vetted suppliers in our manufacturer network" },
+                { value: 195, suffix: "+", label: "Vetted suppliers in our manufacturer network" },
                 { value: 100, suffix: "%", label: "On-time delivery across active programs" },
                 { value: 48, suffix: "", label: "States reached with direct fulfillment" },
                 { value: 1, suffix: "", label: "Accountable team — start to finish" },
