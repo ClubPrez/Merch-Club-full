@@ -144,20 +144,28 @@ const painPoints = [
 
 function RotatingCards() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isExiting, setIsExiting] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const directionRef = useRef<1 | -1>(1);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsExiting(true);
-      setTimeout(() => {
-        setActiveIndex((prev) => (prev + 1) % painPoints.length);
-        setIsExiting(false);
-      }, 400);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+    if (hoveredIndex !== null) return;
 
-  const current = painPoints[activeIndex];
+    const id = setInterval(() => {
+      setActiveIndex((prev) => {
+        let next = prev + directionRef.current;
+        if (next >= painPoints.length) {
+          directionRef.current = -1;
+          next = prev - 1;
+        } else if (next < 0) {
+          directionRef.current = 1;
+          next = prev + 1;
+        }
+        return next;
+      });
+    }, 1800);
+
+    return () => clearInterval(id);
+  }, [hoveredIndex]);
 
   return (
     <div className="relative w-full max-w-sm">
@@ -167,24 +175,28 @@ function RotatingCards() {
           return (
             <div
               key={point.label}
-              className={`flex items-center gap-4 rounded-2xl px-5 py-4 transition-all duration-500 ${
+              className={`flex items-center gap-4 rounded-2xl px-5 py-4 transition-all duration-300 cursor-default ${
                 isActive
                   ? "bg-black/5 border border-black/10 shadow-[0_0_20px_rgba(0,0,0,0.05)] scale-[1.02]"
                   : "bg-transparent border border-transparent opacity-40 scale-100"
               }`}
-              style={{
-                animation: isActive && !isExiting ? "card-enter 0.4s ease-out forwards" : undefined,
+              onMouseEnter={() => {
+                setHoveredIndex(i);
+                setActiveIndex(i);
+              }}
+              onMouseLeave={() => {
+                setHoveredIndex(null);
               }}
             >
-              <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-500 ${isActive ? "bg-black/10" : "bg-black/5"}`}>
-                <svg className={`w-5 h-5 transition-colors duration-500 ${isActive ? "text-black" : "text-[#aaa]"}`} fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+              <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 ${isActive ? "bg-black/10" : "bg-black/5"}`}>
+                <svg className={`w-5 h-5 transition-colors duration-300 ${isActive ? "text-black" : "text-[#aaa]"}`} fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d={point.icon} />
                 </svg>
               </div>
               <div>
-                <span className={`text-sm font-bold tracking-wide transition-colors duration-500 ${isActive ? "text-black" : "text-[#999]"}`}>{point.label}</span>
+                <span className={`text-sm font-bold tracking-wide transition-colors duration-300 ${isActive ? "text-black" : "text-[#999]"}`}>{point.label}</span>
                 {isActive && (
-                  <p className="text-xs text-[#888] mt-0.5">{point.desc}</p>
+                  <p className="text-xs text-[#888] mt-0.5 animate-[card-enter_0.3s_ease-out_forwards]">{point.desc}</p>
                 )}
               </div>
             </div>
