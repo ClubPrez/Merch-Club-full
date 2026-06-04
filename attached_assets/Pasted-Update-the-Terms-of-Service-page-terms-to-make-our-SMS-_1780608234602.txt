@@ -1,0 +1,58 @@
+Update the Terms of Service page (/terms) to make our SMS program TCR-compliant.
+
+Find the existing "SMS Terms & Conditions" section (or add it directly below the
+main Terms content if it doesn't exist yet) and make it read EXACTLY as follows.
+Keep our existing site styling, header, and footer — only the text content below
+should be inserted/replaced:
+
+---
+SMS Terms & Conditions
+
+1. SMS Consent Communication
+The information (phone numbers) obtained as part of the SMS consent process will
+not be shared with third parties for marketing purposes.
+
+2. Types of SMS Communications
+If you have consented to receive text messages from Merch Club, you may receive
+messages related to the following:
+- Appointment reminders
+- Follow-up messages
+- Inquiries
+
+3. Message Frequency
+Message frequency may vary depending on the type of communication.
+
+4. Potential Fees for SMS Messaging
+Please note that standard message and data rates may apply, depending on your
+carrier's pricing plan. These fees may vary if the message is sent domestically
+or internationally.
+
+5. Opt-In Method
+You may opt in to receive SMS messages from Merch Club verbally, during a
+conversation.
+
+6. Opt-Out Method
+You can opt out of receiving SMS messages at any time. To do so, simply reply
+"STOP" to any SMS message you receive. Alternatively, you can contact us directly
+to request removal from our messaging list.
+
+7. Help
+If you are experiencing any issues, you can reply with the keyword HELP.
+
+8. Standard Messaging Disclosures
+- Message and data rates may apply.
+- You can opt out at any time by texting "STOP."
+- For assistance, text "HELP" or visit our website at https://merchclub.com.
+- Message frequency may vary.
+---
+
+Also confirm the Privacy Policy page (/privacy-policy) contains this exact line
+(add it under an "Information Sharing" or "SMS" heading if missing):
+
+"Mobile opt-in, SMS consent, and phone numbers collected for SMS communication
+purposes will not be shared with any third party or affiliates for marketing
+purposes."
+
+Do not add an SMS consent checkbox to any contact form. Our opt-in is verbal only.
+Do not change the footer links — Privacy Policy, Terms of Service, and Accessibility
+Statement are already correct.

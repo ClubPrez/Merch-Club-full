@@ -9,7 +9,7 @@ export default function PrivacyPolicy() {
       breadcrumbLabel="Privacy Policy"
       eyebrow="Legal"
       title="Privacy Policy"
-      lastUpdated="May 27, 2026"
+      lastUpdated="June 4, 2026"
       intro={
         <p>
           Merch Club ("we," "us," "our") respects your privacy. This policy explains what we collect, why we collect it,
@@ -45,11 +45,17 @@ export default function PrivacyPolicy() {
         {
           heading: "Sharing",
           body: (
-            <p>
-              We share information only with vendors that help us operate the business — production partners, fulfillment
-              providers, email and analytics tools — and only what they need to do their job. We may also share
-              information when required by law.
-            </p>
+            <>
+              <p>
+                We share information only with vendors that help us operate the business — production partners, fulfillment
+                providers, email and analytics tools — and only what they need to do their job. We may also share
+                information when required by law.
+              </p>
+              <p>
+                Mobile opt-in, SMS consent, and phone numbers collected for SMS communication purposes will not be shared
+                with any third party or affiliates for marketing purposes.
+              </p>
+            </>
           ),
         },
         {

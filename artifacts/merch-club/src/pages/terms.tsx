@@ -9,7 +9,7 @@ export default function Terms() {
       breadcrumbLabel="Terms of Service"
       eyebrow="Legal"
       title="Terms of Service"
-      lastUpdated="May 27, 2026"
+      lastUpdated="June 4, 2026"
       intro={
         <p>
           These terms govern your use of merchclub.com and any services we provide. By using the site or engaging us for
@@ -77,6 +77,39 @@ export default function Terms() {
         {
           heading: "Governing Law",
           body: <p>These terms are governed by the laws of the State of Nebraska, USA, without regard to conflict of laws principles.</p>,
+        },
+        {
+          heading: "SMS Terms & Conditions",
+          body: (
+            <>
+              <p><strong>1. SMS Consent Communication</strong><br />
+              The information (phone numbers) obtained as part of the SMS consent process will not be shared with third parties for marketing purposes.</p>
+              <p><strong>2. Types of SMS Communications</strong><br />
+              If you have consented to receive text messages from Merch Club, you may receive messages related to the following:</p>
+              <ul>
+                <li>Appointment reminders</li>
+                <li>Follow-up messages</li>
+                <li>Inquiries</li>
+              </ul>
+              <p><strong>3. Message Frequency</strong><br />
+              Message frequency may vary depending on the type of communication.</p>
+              <p><strong>4. Potential Fees for SMS Messaging</strong><br />
+              Please note that standard message and data rates may apply, depending on your carrier's pricing plan. These fees may vary if the message is sent domestically or internationally.</p>
+              <p><strong>5. Opt-In Method</strong><br />
+              You may opt in to receive SMS messages from Merch Club verbally, during a conversation.</p>
+              <p><strong>6. Opt-Out Method</strong><br />
+              You can opt out of receiving SMS messages at any time. To do so, simply reply "STOP" to any SMS message you receive. Alternatively, you can contact us directly to request removal from our messaging list.</p>
+              <p><strong>7. Help</strong><br />
+              If you are experiencing any issues, you can reply with the keyword HELP.</p>
+              <p><strong>8. Standard Messaging Disclosures</strong></p>
+              <ul>
+                <li>Message and data rates may apply.</li>
+                <li>You can opt out at any time by texting "STOP."</li>
+                <li>For assistance, text "HELP" or visit our website at <a href="https://merchclub.com" className="text-black underline hover:no-underline">https://merchclub.com</a>.</li>
+                <li>Message frequency may vary.</li>
+              </ul>
+            </>
+          ),
         },
         {
           heading: "Changes",
