@@ -355,7 +355,7 @@ export default function About() {
                 </div>
                 <div className="absolute top-4 left-4 md:top-6 md:left-6 w-28 h-28 md:w-36 md:h-36 rounded-full bg-black text-white flex flex-col items-center justify-center text-center shadow-2xl">
                   <span className="text-2xl md:text-3xl font-black leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                    500+
+                    125+
                   </span>
                   <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.18em] text-white/70 mt-1.5 leading-tight">
                     Brands<br />Served
@@ -476,9 +476,9 @@ export default function About() {
                 <div className="absolute bottom-0 right-0 w-32 h-32 rounded-full bg-white/5" />
                 <div className="relative">
                   <span className="block text-7xl md:text-8xl font-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                    <CountUp target={500} suffix="+" duration={2200} />
+                    <CountUp target={125} suffix="+" duration={2200} />
                   </span>
-                  <p className="text-base font-bold mt-3">Brands served</p>
+                  <p className="text-base font-bold mt-3">Brands Served</p>
                 </div>
                 <div className="relative">
                   <p className="text-xs text-white/60 leading-relaxed">
