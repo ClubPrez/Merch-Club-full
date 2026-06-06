@@ -102,7 +102,9 @@ export default function SizeBreakdown() {
   const [projectModalOpen, setProjectModalOpen] = useState(false);
   const [quantity, setQuantity] = useState<number | "">(100);
   const [audience, setAudience] = useState<AudienceKey>("average");
-  const [results, setResults] = useState<SizeResult[] | null>(null);
+  const [results, setResults] = useState<SizeResult[] | null>(() =>
+    calculateBreakdown(100, "average"),
+  );
 
   function handleCalculate() {
     const qty = typeof quantity === "number" ? quantity : 0;
@@ -259,33 +261,60 @@ export default function SizeBreakdown() {
                     </span>
                   </div>
 
-                  {/* Bar chart */}
-                  <div className="space-y-3 mb-8" role="list" aria-label="Size quantities">
-                    {visibleResults.map(r => (
-                      <div
-                        key={r.size}
-                        className="flex items-center gap-4"
-                        role="listitem"
-                        aria-label={`${r.size}: ${r.quantity} units, ${(r.percentage * 100).toFixed(1)} percent`}
-                      >
-                        <span className="text-sm font-bold text-black w-10 shrink-0">{r.size}</span>
+                  {/* Bar chart — shades scale with bar length: largest = near-black, smallest = mid-grey */}
+                  <div className="space-y-2.5 mb-8" role="list" aria-label="Size quantities">
+                    {visibleResults.map(r => {
+                      const ratio = r.quantity / maxQty;
+                      // Largest bar → ~7% lightness (near black), smallest visible → ~58% (mid-grey)
+                      const lightness = Math.round(7 + (1 - ratio) * 51);
+                      const barColor = `hsl(0,0%,${lightness}%)`;
+                      // Label colour mirrors the bar — dark bars get white text, lighter bars get black
+                      const labelDark = lightness < 45;
+                      return (
                         <div
-                          className="flex-1 bg-[#f0f0f0] rounded-full h-8 overflow-hidden"
-                          role="presentation"
+                          key={r.size}
+                          className="flex items-center gap-4"
+                          role="listitem"
+                          aria-label={`${r.size}: ${r.quantity} units, ${(r.percentage * 100).toFixed(1)} percent`}
                         >
+                          <span className="text-sm font-bold text-black w-10 shrink-0 tabular-nums">
+                            {r.size}
+                          </span>
                           <div
-                            className="h-full bg-black rounded-full transition-all duration-500 ease-out"
-                            style={{ width: `${(r.quantity / maxQty) * 100}%` }}
-                          />
+                            className="relative flex-1 bg-[#ebebeb] rounded-full h-9 overflow-hidden"
+                            role="presentation"
+                          >
+                            <div
+                              className="h-full rounded-full transition-all duration-500 ease-out flex items-center justify-end pr-3"
+                              style={{
+                                width: `${ratio * 100}%`,
+                                backgroundColor: barColor,
+                                minWidth: ratio > 0 ? "2.5rem" : 0,
+                              }}
+                            >
+                              {ratio >= 0.28 && (
+                                <span
+                                  className="text-xs font-bold tabular-nums leading-none"
+                                  style={{ color: labelDark ? "white" : "rgba(0,0,0,0.7)" }}
+                                  aria-hidden="true"
+                                >
+                                  {r.quantity}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                          <span className="text-sm font-bold text-black w-10 text-right shrink-0 tabular-nums">
+                            {r.quantity}
+                          </span>
+                          <span
+                            className="text-xs text-[#999] w-14 text-right shrink-0 tabular-nums"
+                            aria-hidden="true"
+                          >
+                            {(r.percentage * 100).toFixed(1)}%
+                          </span>
                         </div>
-                        <span className="text-sm font-bold text-black w-10 text-right shrink-0">
-                          {r.quantity}
-                        </span>
-                        <span className="text-xs text-[#888] w-14 text-right shrink-0" aria-hidden="true">
-                          {(r.percentage * 100).toFixed(1)}%
-                        </span>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
 
                   {/* Summary table */}
