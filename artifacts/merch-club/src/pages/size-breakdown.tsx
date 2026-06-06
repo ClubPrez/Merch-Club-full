@@ -6,6 +6,7 @@ import { StartProjectModal } from "@/components/start-project-modal";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { calculateBreakdown, AUDIENCE_TYPES, type AudienceKey, type SizeResult } from "@/lib/sizeData";
+import heroTexture from "@assets/ChatGPT_Image_Jun_6,_2026,_11_50_21_AM_1780764935613.png";
 
 const CANONICAL_PATH = "/tools/size-breakdown";
 
@@ -130,8 +131,17 @@ export default function SizeBreakdown() {
       <main id="main-content">
 
         {/* Hero */}
-        <section aria-label="Tool introduction" className="bg-[#0a0a0a] pt-32 pb-20 px-8 md:px-16 lg:px-20">
-          <div className="max-w-4xl mx-auto text-center">
+        <section aria-label="Tool introduction" className="relative bg-[#0a0a0a] pt-32 pb-20 px-8 md:px-16 lg:px-20 overflow-hidden">
+          {/* Fabric texture background */}
+          <img
+            src={heroTexture}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-60"
+          />
+          {/* Dark overlay to keep text crisp */}
+          <div className="absolute inset-0 bg-[#0a0a0a]/30" aria-hidden="true" />
+          <div className="relative z-10 max-w-4xl mx-auto text-center">
             <Breadcrumbs
               items={breadcrumbItems}
               theme="dark"
