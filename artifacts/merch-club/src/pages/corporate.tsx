@@ -1019,6 +1019,20 @@ export default function Corporate() {
               })}
             </div>
           </div>
+
+          <div className="mt-12 p-6 bg-[#f9f9f9] rounded-2xl border border-black/10 flex items-start gap-5">
+            <div className="w-10 h-10 rounded-xl bg-black flex items-center justify-center shrink-0">
+              <svg className="w-5 h-5 text-white" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 7h18M3 12h18M3 17h18" />
+              </svg>
+            </div>
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#888] block mb-1">Free Tool</span>
+              <p className="font-bold text-base text-black mb-1">Planning a corporate apparel order?</p>
+              <p className="text-sm text-[#666] leading-relaxed mb-3">Use our free Size Breakdown Calculator to get the right quantity per size for your team — before you place the order. Instant, no sign-up.</p>
+              <Link href="/tools/size-breakdown" className="text-sm font-bold text-black underline underline-offset-4 hover:text-[#444] transition-colors">Open the calculator →</Link>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -150,6 +150,13 @@ export default function CaseStudyBakerConstruction() {
               <p className="text-base md:text-lg text-[#444] leading-relaxed">
                 Field crews get Carhartt jackets and beanies built for jobsite conditions. Leadership gets executive polos, quarter-zips, and golf gear designed for the client meetings where real relationships happen. Recruiting gets the trade show kit. Marketing gets the anniversary program. HR gets the onboarding apparel. One partner. Every program.
               </p>
+              <p className="mt-4 text-sm text-[#777] leading-relaxed">
+                Planning a field crew order?{" "}
+                <Link href="/tools/size-breakdown" className="font-semibold text-black underline underline-offset-2 hover:text-[#555] transition-colors">
+                  Our free Size Breakdown Calculator
+                </Link>{" "}
+                takes your headcount and team profile and returns an optimized quantity per size — before you finalize production.
+              </p>
             </div>
             <div>
               <div className="aspect-[4/5] w-full rounded-2xl overflow-hidden bg-[#eee] border border-black/10">
