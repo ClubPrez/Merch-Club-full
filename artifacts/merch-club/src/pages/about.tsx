@@ -19,7 +19,7 @@ import brandOnestaff from "@assets/Social_PostsArtboard_1@3x_1777583934192.png";
 import logo50MileMarch from "@assets/50_Mile_March_-_Logo_-_Single_Color_Black_1780542627135.png";
 import logoAPAH from "@assets/APAH_Single_Color_Black_1780542659870.png";
 import logoAHA from "@assets/aha_logo_nobg.png";
-import logoBackNine from "@assets/Back_Nine_Logo_1780542695681.png";
+import logoBackNine from "@assets/Back_Nine_1780771403944.jpg";
 import logoBakerGroup from "@assets/Baker_Group_Logo_With_R_Black_1780542718496.png";
 import logoBB from "@assets/BB_Logo_1780543903363.png";
 import logoBurlington from "@assets/Burlington_Capital_Logo_1780542879250.png";
@@ -46,7 +46,7 @@ const trustedBrands = [
   { name: "Federal Crop",              logo: logoFederalCrop,   sizeClass: "h-16 md:h-18" },
   { name: "A Place At Home",           logo: logoAPAH,          sizeClass: "h-10 md:h-12" },
   { name: "Hologic",                   logo: logoHologic,       sizeClass: "h-7 md:h-8"   },
-  { name: "Back Nine",                 logo: logoBackNine,      sizeClass: "h-12 md:h-14" },
+  { name: "Back Nine",                 logo: logoBackNine,      sizeClass: "h-12 md:h-14", noFilter: true, customFilter: "grayscale(1) invert(1)" },
   { name: "50 Mile March",             logo: logo50MileMarch,   sizeClass: "h-9 md:h-11"  },
   { name: "Pitch",                     logo: logoPitch,         sizeClass: "h-16 md:h-20" },
   { name: "ACCESSbank",                logo: brandAccessBank,   sizeClass: "h-7 md:h-8"   },
@@ -396,7 +396,7 @@ export default function About() {
           >
             {[0, 1, 2].flatMap((rep) =>
               trustedBrands.map((brand) => {
-                const b = brand as { name: string; logo: string; sizeClass: string; noFilter?: boolean; blendMode?: string };
+                const b = brand as { name: string; logo: string; sizeClass: string; noFilter?: boolean; blendMode?: string; customFilter?: string };
                 return (
                   <img
                     key={`${rep}-${b.name}`}
@@ -404,7 +404,7 @@ export default function About() {
                     alt={b.name}
                     className={`${b.sizeClass} w-auto object-contain opacity-70 hover:opacity-100 transition-opacity shrink-0 mx-10 md:mx-14`}
                     style={{
-                      filter: b.noFilter ? "none" : "brightness(0) invert(1)",
+                      filter: b.customFilter ?? (b.noFilter ? "none" : "brightness(0) invert(1)"),
                       mixBlendMode: (b.blendMode as React.CSSProperties["mixBlendMode"]) ?? undefined,
                     }}
                   />
