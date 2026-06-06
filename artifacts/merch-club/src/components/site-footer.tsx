@@ -15,9 +15,6 @@ const COMPANY_LINKS = [
   { label: "Services", href: "/services" },
   { label: "Contact", href: "/contact" },
   { label: "Learning Center", href: "/blog" },
-];
-
-const TOOLS_LINKS = [
   { label: "Size Breakdown Tool", href: "/tools/size-breakdown" },
 ];
 
@@ -69,15 +66,6 @@ export function SiteFooter() {
             <h4 className="text-sm font-bold text-white uppercase tracking-[0.15em] mb-5" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1rem" }}>Company</h4>
             <ul className="space-y-3">
               {COMPANY_LINKS.map(item => (
-                <li key={item.href}><Link href={item.href} className="text-sm text-[#666] hover:text-white transition-colors">{item.label}</Link></li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="md:col-span-2">
-            <h4 className="text-sm font-bold text-white uppercase tracking-[0.15em] mb-5" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1rem" }}>Tools</h4>
-            <ul className="space-y-3">
-              {TOOLS_LINKS.map(item => (
                 <li key={item.href}><Link href={item.href} className="text-sm text-[#666] hover:text-white transition-colors">{item.label}</Link></li>
               ))}
             </ul>
