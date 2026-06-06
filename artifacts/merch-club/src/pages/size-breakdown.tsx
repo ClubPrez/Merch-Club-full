@@ -104,6 +104,7 @@ export default function SizeBreakdown() {
   const [quantity, setQuantity] = useState<number | "">(100);
   const [audience, setAudience] = useState<AudienceKey>("average");
   const [results, setResults] = useState<SizeResult[] | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   function handleCalculate() {
     const qty = typeof quantity === "number" ? quantity : 0;
     if (qty < 1) return;
@@ -437,20 +438,67 @@ export default function SizeBreakdown() {
               </button>
             </div>
 
-            <h2
-              id="faq-heading"
-              className="text-3xl md:text-4xl font-black tracking-tight leading-[0.95] text-black mb-2"
-              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-            >
-              Frequently Asked Questions
-            </h2>
-            <div className="divide-y divide-black/10" aria-labelledby="faq-heading">
-              {FAQS.map((faq, i) => (
-                <div key={i} className="py-6">
-                  <h3 className="text-base font-bold text-black mb-2">{faq.q}</h3>
-                  <p className="text-sm text-[#666] leading-relaxed">{faq.a}</p>
-                </div>
-              ))}
+            <div className="text-center mb-12">
+              <span className="inline-block text-xs font-semibold uppercase tracking-[0.15em] text-[#888] border border-black/15 rounded-full px-4 py-1.5 mb-5">FAQ's</span>
+              <h2
+                id="faq-heading"
+                className="text-4xl md:text-5xl font-black tracking-tight leading-[0.95] text-black"
+                style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+              >
+                Frequently Asked Questions
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12" aria-labelledby="faq-heading">
+              {/* Left column — even-indexed items */}
+              <div>
+                {FAQS.filter((_, i) => i % 2 === 0).map((faq, i) => {
+                  const idx = i * 2;
+                  const isOpen = openFaq === idx;
+                  return (
+                    <div key={idx} className="border-t border-black/10">
+                      <button
+                        className="w-full flex items-center justify-between py-5 text-left group"
+                        onClick={() => setOpenFaq(isOpen ? null : idx)}
+                        aria-expanded={isOpen}
+                      >
+                        <span className="text-base font-medium text-black pr-4">{faq.q}</span>
+                        <span className={`text-xl text-black/50 transition-transform duration-300 shrink-0 ${isOpen ? "rotate-45" : ""}`} aria-hidden="true">+</span>
+                      </button>
+                      <div
+                        className="overflow-hidden transition-all duration-300"
+                        style={{ maxHeight: isOpen ? "400px" : "0", opacity: isOpen ? 1 : 0 }}
+                      >
+                        <p className="text-sm text-[#666] pb-5 leading-relaxed">{faq.a}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              {/* Right column — odd-indexed items */}
+              <div>
+                {FAQS.filter((_, i) => i % 2 === 1).map((faq, i) => {
+                  const idx = i * 2 + 1;
+                  const isOpen = openFaq === idx;
+                  return (
+                    <div key={idx} className="border-t border-black/10">
+                      <button
+                        className="w-full flex items-center justify-between py-5 text-left group"
+                        onClick={() => setOpenFaq(isOpen ? null : idx)}
+                        aria-expanded={isOpen}
+                      >
+                        <span className="text-base font-medium text-black pr-4">{faq.q}</span>
+                        <span className={`text-xl text-black/50 transition-transform duration-300 shrink-0 ${isOpen ? "rotate-45" : ""}`} aria-hidden="true">+</span>
+                      </button>
+                      <div
+                        className="overflow-hidden transition-all duration-300"
+                        style={{ maxHeight: isOpen ? "400px" : "0", opacity: isOpen ? 1 : 0 }}
+                      >
+                        <p className="text-sm text-[#666] pb-5 leading-relaxed">{faq.a}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
 
             {/* Outbound links to related Learning Center articles */}
