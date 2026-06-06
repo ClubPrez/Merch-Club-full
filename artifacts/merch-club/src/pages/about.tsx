@@ -37,9 +37,9 @@ import { SiteFooter } from "@/components/site-footer";
 const trustedBrands = [
   { name: "Marqeta",                   logo: logoMarqeta,       sizeClass: "h-12 md:h-14" },
   { name: "OneStaff Medical",          logo: brandOnestaff,     sizeClass: "h-8 md:h-9"  },
-  { name: "Pickleman's",               logo: logoPicklemans,    sizeClass: "h-10 md:h-12" },
+  { name: "Pickleman's",               logo: logoPicklemans,    sizeClass: "h-10 md:h-12", noFilter: true, blendMode: "screen" },
   { name: "F3",                        logo: logoF3,            sizeClass: "h-12 md:h-14" },
-  { name: "Susan G. Komen",            logo: brandKomen,        sizeClass: "h-10 md:h-12" },
+  { name: "Susan G. Komen",            logo: brandKomen,        sizeClass: "h-14 md:h-16" },
   { name: "Burlington Capital",        logo: logoBurlington,    sizeClass: "h-8 md:h-10"  },
   { name: "Jay Moore Landscaping",     logo: logoJayMoore,      sizeClass: "h-9 md:h-11"  },
   { name: "Fraser Stryker",            logo: brandFraserStryker, sizeClass: "h-12 md:h-14" },
@@ -395,15 +395,21 @@ export default function About() {
             style={{ width: "max-content" }}
           >
             {[0, 1, 2].flatMap((rep) =>
-              trustedBrands.map((brand) => (
-                <img
-                  key={`${rep}-${brand.name}`}
-                  src={brand.logo}
-                  alt={brand.name}
-                  className={`${brand.sizeClass} w-auto object-contain opacity-60 hover:opacity-100 transition-opacity shrink-0 mx-10 md:mx-14`}
-                  style={{ filter: "brightness(0) invert(1)" }}
-                />
-              ))
+              trustedBrands.map((brand) => {
+                const b = brand as { name: string; logo: string; sizeClass: string; noFilter?: boolean; blendMode?: string };
+                return (
+                  <img
+                    key={`${rep}-${b.name}`}
+                    src={b.logo}
+                    alt={b.name}
+                    className={`${b.sizeClass} w-auto object-contain opacity-70 hover:opacity-100 transition-opacity shrink-0 mx-10 md:mx-14`}
+                    style={{
+                      filter: b.noFilter ? "none" : "brightness(0) invert(1)",
+                      mixBlendMode: (b.blendMode as React.CSSProperties["mixBlendMode"]) ?? undefined,
+                    }}
+                  />
+                );
+              })
             )}
           </div>
         </div>
