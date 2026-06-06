@@ -105,6 +105,7 @@ export default function SizeBreakdown() {
   const [results, setResults] = useState<SizeResult[] | null>(() =>
     calculateBreakdown(100, "average"),
   );
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   function handleCalculate() {
     const qty = typeof quantity === "number" ? quantity : 0;
@@ -417,20 +418,82 @@ export default function SizeBreakdown() {
               </p>
             </div>
 
+            {/* Persuasion block */}
+            <div className="bg-[#0a0a0a] rounded-2xl px-8 py-10 mb-16">
+              <h2
+                className="text-2xl md:text-3xl font-black tracking-tight leading-[0.95] text-white mb-6"
+                style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+              >
+                Most printers take your order. We build your program.
+              </h2>
+              <div className="space-y-4 text-sm text-[#888] leading-relaxed mb-8">
+                <p>
+                  Here's a quick test: did the company printing your shirts ever give you a tool like
+                  this one? Probably not. A sizing tool is a small thing, but it tells you something
+                  bigger about how a partner thinks. The good ones sweat the details you shouldn't
+                  have to.
+                </p>
+                <p>
+                  That's the difference with Merch Club. Private-label presentation that makes your
+                  team's apparel feel considered, not thrown in a box. Packaging and distribution
+                  handled so you're not the one sorting shirts by size in a conference room. Pricing
+                  that's a real value, not a markup on the same blank everyone else sells.
+                </p>
+                <p>
+                  The result: your people get apparel they actually want to wear, and you look good
+                  to the person who signed off on the budget.
+                </p>
+                <p>
+                  You're already on the site of a company that gets more out of your apparel dollars.
+                  Want to see what that looks like for your team?
+                </p>
+              </div>
+              <button
+                onClick={() => setProjectModalOpen(true)}
+                className="inline-flex items-center gap-2 bg-white text-black text-sm font-bold px-7 py-3.5 rounded-full hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
+              >
+                Talk to us
+                <svg className="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+              </button>
+            </div>
+
             <h2
               id="faq-heading"
-              className="text-3xl md:text-4xl font-black tracking-tight leading-[0.95] text-black mb-8"
+              className="text-3xl md:text-4xl font-black tracking-tight leading-[0.95] text-black mb-2"
               style={{ fontFamily: "'Bebas Neue', sans-serif" }}
             >
               Frequently Asked Questions
             </h2>
-            <div className="divide-y divide-black/10" aria-labelledby="faq-heading">
-              {FAQS.map((faq, i) => (
-                <div key={i} className="py-6">
-                  <h3 className="text-base font-bold text-black mb-2">{faq.q}</h3>
-                  <p className="text-sm text-[#666] leading-relaxed">{faq.a}</p>
-                </div>
-              ))}
+            <div aria-labelledby="faq-heading">
+              {FAQS.map((faq, i) => {
+                const isOpen = openFaq === i;
+                return (
+                  <div key={i} className="border-t border-black/10">
+                    <button
+                      className="w-full flex items-center justify-between py-5 text-left group"
+                      onClick={() => setOpenFaq(isOpen ? null : i)}
+                      aria-expanded={isOpen}
+                    >
+                      <span className="text-base font-medium text-black pr-4">{faq.q}</span>
+                      <span
+                        className={`text-xl text-black/40 transition-transform duration-300 shrink-0 ${isOpen ? "rotate-45" : ""}`}
+                        aria-hidden="true"
+                      >
+                        +
+                      </span>
+                    </button>
+                    <div
+                      className="overflow-hidden transition-all duration-300"
+                      style={{ maxHeight: isOpen ? "320px" : "0", opacity: isOpen ? 1 : 0 }}
+                    >
+                      <p className="text-sm text-[#666] pb-6 leading-relaxed">{faq.a}</p>
+                    </div>
+                  </div>
+                );
+              })}
+              <div className="border-t border-black/10" />
             </div>
 
             {/* Outbound links to related Learning Center articles */}
