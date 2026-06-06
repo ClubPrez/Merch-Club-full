@@ -118,10 +118,40 @@ export default function SizeBreakdown() {
   const [audience, setAudience] = useState<AudienceKey>("average");
   const [results, setResults] = useState<SizeResult[] | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [excludedSizes, setExcludedSizes] = useState<Set<string>>(new Set());
+
+  const ALL_SIZES = ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"];
+
+  function toggleSize(size: string) {
+    setExcludedSizes(prev => {
+      const next = new Set(prev);
+      if (next.has(size)) next.delete(size);
+      else next.add(size);
+      return next;
+    });
+  }
+
   function handleCalculate() {
     const qty = typeof quantity === "number" ? quantity : 0;
     if (qty < 1) return;
-    setResults(calculateBreakdown(qty, audience));
+    const base = calculateBreakdown(qty, audience);
+    const active = base.filter(r => !excludedSizes.has(r.size));
+    if (active.length === 0) return;
+    const totalPct = active.reduce((s, r) => s + r.percentage, 0);
+    const rescaled = active.map(r => ({
+      ...r,
+      percentage: r.percentage / totalPct,
+      quantity: Math.round((r.percentage / totalPct) * qty),
+    }));
+    const sum = rescaled.reduce((s, r) => s + r.quantity, 0);
+    const diff = qty - sum;
+    if (diff !== 0) {
+      const largestIdx = rescaled.reduce(
+        (best, r, i) => (r.quantity > rescaled[best].quantity ? i : best), 0
+      );
+      rescaled[largestIdx].quantity += diff;
+    }
+    setResults(rescaled);
   }
 
   const qty = typeof quantity === "number" ? quantity : 0;
@@ -180,109 +210,171 @@ export default function SizeBreakdown() {
         {/* Tool */}
         <section
           aria-label="Size breakdown calculator"
-          className="py-20 px-8 md:px-16 lg:px-20 bg-white border-b border-black/10"
+          className="py-16 px-8 md:px-16 lg:px-20 bg-white border-b border-black/10"
         >
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 items-start">
 
-            {/* Inputs */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <div>
-                <label
-                  htmlFor="quantity-input"
-                  className="block text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] mb-2"
-                >
-                  Total Order Quantity
-                </label>
+            {/* ── Left sidebar: four control panels ── */}
+            <div className="w-full lg:w-72 shrink-0 space-y-4">
+
+              {/* Panel 1 — Order Quantity */}
+              <div className="rounded-2xl border border-black/10 p-5 bg-[#fafafa]">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#888] mb-1">
+                  # &nbsp; Order Quantity
+                </p>
+                <p className="text-xs text-[#aaa] mb-3">Total units to order</p>
                 <input
                   id="quantity-input"
                   type="number"
                   min={1}
                   value={quantity}
                   onChange={e =>
-                    setQuantity(
-                      e.target.value === "" ? "" : Math.max(1, parseInt(e.target.value) || 1),
-                    )
+                    setQuantity(e.target.value === "" ? "" : Math.max(1, parseInt(e.target.value) || 1))
                   }
-                  className="w-full border border-black/20 rounded-xl px-4 py-3.5 text-lg font-bold text-black focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:border-black transition-colors"
+                  className="w-full border border-black/20 rounded-xl px-4 py-3 text-base font-bold text-black bg-white focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 transition-colors mb-3"
                   placeholder="e.g. 100"
-                  aria-describedby="quantity-hint"
+                  aria-label="Total order quantity"
                 />
-                <p id="quantity-hint" className="sr-only">
-                  Enter the total number of garments you want to order
-                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {[24, 48, 100, 250, 500, 1000].map(preset => (
+                    <button
+                      key={preset}
+                      onClick={() => setQuantity(preset)}
+                      className={`text-xs font-bold px-3 py-1.5 rounded-lg border transition-colors ${
+                        quantity === preset
+                          ? "bg-black text-white border-black"
+                          : "bg-white text-black border-black/20 hover:border-black/50"
+                      }`}
+                    >
+                      {preset.toLocaleString()}
+                    </button>
+                  ))}
+                </div>
               </div>
-              <div>
-                <label
-                  htmlFor="audience-select"
-                  className="block text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] mb-2"
-                >
+
+              {/* Panel 2 — Audience Type */}
+              <div className="rounded-2xl border border-black/10 p-5 bg-[#fafafa]">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#888] mb-1">
                   Audience Type
-                </label>
+                </p>
+                <p className="text-xs text-[#aaa] mb-3">Who is this order for?</p>
                 <div className="relative">
                   <select
                     id="audience-select"
                     value={audience}
                     onChange={e => setAudience(e.target.value as AudienceKey)}
-                    className="w-full border border-black/20 rounded-xl px-4 py-3.5 text-sm font-medium text-black focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:border-black transition-colors bg-white appearance-none pr-10"
+                    className="w-full border border-black/20 rounded-xl px-4 py-3 text-sm font-medium text-black bg-white focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 transition-colors appearance-none pr-9"
                     aria-describedby="audience-hint"
                   >
                     {AUDIENCE_TYPES.map(a => (
-                      <option key={a.key} value={a.key}>
-                        {a.label}
-                      </option>
+                      <option key={a.key} value={a.key}>{a.label}</option>
                     ))}
                   </select>
-                  <svg
-                    className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888] pointer-events-none"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    viewBox="0 0 24 24"
-                  >
+                  <svg className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888] pointer-events-none" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </div>
                 {selectedAudience && (
-                  <p id="audience-hint" className="mt-2 text-xs text-[#aaa] leading-relaxed">
+                  <p id="audience-hint" className="mt-2 text-xs text-[#aaa] leading-relaxed flex gap-1.5 items-start">
+                    <svg className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#bbb]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path strokeLinecap="round" d="M12 16v-4M12 8h.01"/></svg>
                     {selectedAudience.description}
                   </p>
                 )}
               </div>
+
+              {/* Panel 3 — Location */}
+              <div className="rounded-2xl border border-black/10 p-5 bg-[#fafafa]">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#888] mb-1">
+                  Location
+                </p>
+                <p className="text-xs text-[#aaa] mb-3">State / Region</p>
+                <div className="relative">
+                  <select
+                    className="w-full border border-black/20 rounded-xl px-4 py-3 text-sm font-medium text-black bg-white focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 transition-colors appearance-none pr-9"
+                    defaultValue="national"
+                    aria-label="Location / region"
+                  >
+                    <option value="national">National Average (No Adjustment)</option>
+                  </select>
+                  <svg className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888] pointer-events-none" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+                <p className="mt-2 text-xs text-[#aaa] leading-relaxed flex gap-1.5 items-start">
+                  <svg className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#bbb]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path strokeLinecap="round" d="M12 16v-4M12 8h.01"/></svg>
+                  Using national average distribution data.
+                </p>
+              </div>
+
+              {/* Panel 4 — Available Sizes */}
+              <div className="rounded-2xl border border-black/10 p-5 bg-[#fafafa]">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#888] mb-1">
+                  Available Sizes
+                </p>
+                <p className="text-xs text-[#aaa] mb-3">Click a size to exclude it from the calculation.</p>
+                <div className="flex flex-wrap gap-2">
+                  {ALL_SIZES.map(size => {
+                    const excluded = excludedSizes.has(size);
+                    const shade = SIZE_SHADES[size] ?? { bg: "hsl(0,0%,30%)", text: "white" };
+                    return (
+                      <button
+                        key={size}
+                        onClick={() => toggleSize(size)}
+                        aria-pressed={!excluded}
+                        className={`flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg border transition-all ${
+                          excluded
+                            ? "bg-white text-[#bbb] border-black/10 line-through"
+                            : "bg-white text-black border-black/20 hover:border-black/50"
+                        }`}
+                      >
+                        <span
+                          className="w-2.5 h-2.5 rounded-full shrink-0"
+                          style={{ backgroundColor: excluded ? "#ddd" : shade.bg }}
+                          aria-hidden="true"
+                        />
+                        {size}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Calculate button */}
+              <button
+                onClick={handleCalculate}
+                disabled={!qty || qty < 1}
+                aria-label="Calculate size breakdown for your order"
+                className="w-full bg-black text-white text-sm font-bold px-6 py-4 rounded-full hover:bg-[#222] transition-colors disabled:opacity-40 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+              >
+                Calculate Size Breakdown
+              </button>
             </div>
 
-            <button
-              onClick={handleCalculate}
-              disabled={!qty || qty < 1}
-              aria-label="Calculate size breakdown for your order"
-              className="w-full md:w-auto bg-black text-white text-sm font-bold px-10 py-4 rounded-full hover:bg-[#222] transition-colors disabled:opacity-40 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
-            >
-              Calculate Size Breakdown
-            </button>
-
-            {/* Results — aria-live so screen readers announce updates */}
+            {/* ── Right: results ── */}
             <div
+              className="flex-1 min-w-0"
               role="region"
               aria-live="polite"
               aria-atomic="false"
               aria-label="Size breakdown results"
-              className="mt-12"
             >
-              {results && visibleResults.length > 0 && (
+              {results && visibleResults.length > 0 ? (
                 <>
                   <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
-                    <h2
-                      className="text-2xl font-black tracking-tight"
-                      style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-                    >
-                      Size Breakdown — {qty.toLocaleString()} Units
-                    </h2>
-                    <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#888]">
-                      {selectedAudience?.label}
-                    </span>
+                    <div>
+                      <h2
+                        className="text-2xl font-black tracking-tight"
+                        style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                      >
+                        Size Breakdown
+                      </h2>
+                      <p className="text-xs text-[#888] mt-0.5">
+                        {qty.toLocaleString()} units · {selectedAudience?.label}
+                      </p>
+                    </div>
                   </div>
 
-                  {/* Bar chart — fixed shade per size */}
+                  {/* Bar chart */}
                   <div className="space-y-2.5 mb-8" role="list" aria-label="Size quantities">
                     {visibleResults.map(r => {
                       const ratio = r.quantity / maxQty;
@@ -295,9 +387,7 @@ export default function SizeBreakdown() {
                           role="listitem"
                           aria-label={`${r.size}: ${r.quantity} units, ${pct} percent`}
                         >
-                          <span className="text-sm font-bold text-black w-10 shrink-0 tabular-nums">
-                            {r.size}
-                          </span>
+                          <span className="text-sm font-bold text-black w-10 shrink-0 tabular-nums">{r.size}</span>
                           <div className="flex-1 bg-[#ebebeb] rounded-full h-9 overflow-hidden" role="presentation">
                             <div
                               className="h-full rounded-full transition-all duration-500 ease-out flex items-center px-3"
@@ -319,9 +409,7 @@ export default function SizeBreakdown() {
                               )}
                             </div>
                           </div>
-                          <span className="text-sm font-bold text-black w-10 text-right shrink-0 tabular-nums">
-                            {r.quantity}
-                          </span>
+                          <span className="text-sm font-bold text-black w-10 text-right shrink-0 tabular-nums">{r.quantity}</span>
                         </div>
                       );
                     })}
@@ -329,30 +417,12 @@ export default function SizeBreakdown() {
 
                   {/* Summary table */}
                   <div className="overflow-x-auto rounded-2xl border border-black/10">
-                    <table
-                      className="w-full text-sm"
-                      aria-label={`Size breakdown table for ${qty.toLocaleString()} units`}
-                    >
+                    <table className="w-full text-sm" aria-label={`Size breakdown table for ${qty.toLocaleString()} units`}>
                       <thead>
                         <tr className="border-b border-black/10 bg-[#fafafa]">
-                          <th
-                            scope="col"
-                            className="text-left text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] px-5 py-3.5"
-                          >
-                            Size
-                          </th>
-                          <th
-                            scope="col"
-                            className="text-right text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] px-5 py-3.5"
-                          >
-                            Quantity
-                          </th>
-                          <th
-                            scope="col"
-                            className="text-right text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] px-5 py-3.5"
-                          >
-                            Percentage
-                          </th>
+                          <th scope="col" className="text-left text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] px-5 py-3.5">Size</th>
+                          <th scope="col" className="text-right text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] px-5 py-3.5">Quantity</th>
+                          <th scope="col" className="text-right text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] px-5 py-3.5">Percentage</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-black/5">
@@ -360,18 +430,14 @@ export default function SizeBreakdown() {
                           <tr key={r.size}>
                             <td className="px-5 py-3 font-bold text-black">{r.size}</td>
                             <td className="px-5 py-3 text-right font-bold text-black">{r.quantity}</td>
-                            <td className="px-5 py-3 text-right text-[#666]">
-                              {(r.percentage * 100).toFixed(1)}%
-                            </td>
+                            <td className="px-5 py-3 text-right text-[#666]">{(r.percentage * 100).toFixed(1)}%</td>
                           </tr>
                         ))}
                       </tbody>
                       <tfoot>
                         <tr className="border-t border-black/10 bg-[#fafafa]">
                           <td className="px-5 py-3 font-bold text-black">Total</td>
-                          <td className="px-5 py-3 text-right font-bold text-black">
-                            {qty.toLocaleString()}
-                          </td>
+                          <td className="px-5 py-3 text-right font-bold text-black">{qty.toLocaleString()}</td>
                           <td className="px-5 py-3 text-right font-bold text-black">100%</td>
                         </tr>
                       </tfoot>
@@ -380,15 +446,22 @@ export default function SizeBreakdown() {
 
                   <div className="mt-6 p-5 bg-[#f9f9f9] rounded-2xl border border-black/10" role="note">
                     <p className="text-xs text-[#888] leading-relaxed">
-                      <strong className="text-black">Note:</strong> These quantities are starting-point
-                      recommendations based on national average distribution data, adjusted for your
-                      audience type. Always review with your merch team before finalizing production.
-                      Rounding ensures your total adds up to exactly {qty.toLocaleString()} units.
+                      <strong className="text-black">Note:</strong> Starting-point recommendations based on national average distribution data, adjusted for your audience type. Always review with your merch team before finalizing production. Rounding ensures totals add up to exactly {qty.toLocaleString()} units.
                     </p>
                   </div>
                 </>
+              ) : (
+                <div className="flex flex-col items-center justify-center h-full min-h-[320px] text-center">
+                  <div className="w-16 h-16 rounded-2xl bg-[#f5f5f5] flex items-center justify-center mb-5">
+                    <svg className="w-7 h-7 text-[#ccc]" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 7h18M3 12h18M3 17h18" />
+                    </svg>
+                  </div>
+                  <p className="text-sm font-medium text-[#aaa]">Set your options and click<br /><strong className="text-black">Calculate Size Breakdown</strong></p>
+                </div>
               )}
             </div>
+
           </div>
         </section>
 
