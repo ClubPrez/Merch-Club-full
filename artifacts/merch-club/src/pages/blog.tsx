@@ -6,6 +6,7 @@ import { StartProjectModal } from "@/components/start-project-modal";
 import blogKittingImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_1775835373159.png";
 import blogPackagingImg from "@assets/Professional_promotional_packaging_shot_1775835373158.png";
 import blogCityImg from "@assets/Merch_club_in_the_city_plaza_1775835373159.png";
+import sizeBreakdownPreviewImg from "@assets/Size_Breakdown_Calculator_1780764429438.png";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -402,23 +403,34 @@ export default function Blog() {
               </h2>
             </div>
           </div>
-          <Link href="/tools/size-breakdown" className="group block max-w-lg">
-            <div className="rounded-2xl border border-black/10 p-8 hover:border-black/30 transition-colors bg-[#fafafa] hover:bg-white">
-              <div className="w-10 h-10 rounded-xl bg-black flex items-center justify-center mb-5">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 7h18M3 12h18M3 17h18" />
-                </svg>
+          <Link href="/tools/size-breakdown" className="group block max-w-3xl">
+            <div className="rounded-2xl border border-black/10 hover:border-black/30 transition-colors bg-[#fafafa] hover:bg-white overflow-hidden grid grid-cols-1 md:grid-cols-2">
+              {/* Text side */}
+              <div className="p-8 flex flex-col justify-center">
+                <div className="w-10 h-10 rounded-xl bg-black flex items-center justify-center mb-5">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 7h18M3 12h18M3 17h18" />
+                  </svg>
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white bg-black px-3 py-1 rounded-full inline-block mb-4 self-start">Calculator</span>
+                <h3 className="text-xl md:text-2xl font-black tracking-tight leading-snug text-black mb-3 group-hover:text-[#555] transition-colors" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
+                  Size Breakdown Tool
+                </h3>
+                <p className="text-sm text-[#777] leading-relaxed mb-5">
+                  Enter your total order quantity and audience type to get the optimal size run — so you order the right number of each size, every time. Free, instant, no sign-up.
+                </p>
+                <span className="text-sm font-bold text-black underline underline-offset-4 group-hover:text-[#666] transition-colors">
+                  Open calculator →
+                </span>
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white bg-black px-3 py-1 rounded-full inline-block mb-4">Calculator</span>
-              <h3 className="text-xl md:text-2xl font-black tracking-tight leading-snug text-black mb-3 group-hover:text-[#555] transition-colors" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
-                Size Breakdown Tool
-              </h3>
-              <p className="text-sm text-[#777] leading-relaxed mb-4">
-                Enter your total order quantity and audience type to get the optimal size run — so you order the right number of each size, every time. Free, instant, no sign-up.
-              </p>
-              <span className="text-sm font-bold text-black underline underline-offset-4 group-hover:text-[#666] transition-colors">
-                Open calculator →
-              </span>
+              {/* Image side */}
+              <div className="relative hidden md:block aspect-[4/3] md:aspect-auto overflow-hidden">
+                <img
+                  src={sizeBreakdownPreviewImg}
+                  alt="Stacks of folded t-shirts in graduated sizes — from small to large"
+                  className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
+                />
+              </div>
             </div>
           </Link>
         </div>
