@@ -237,7 +237,7 @@ export default function SizeBreakdown() {
                   aria-label="Total order quantity"
                 />
                 <div className="flex flex-wrap gap-1.5">
-                  {[24, 48, 100, 250, 500, 1000].map(preset => (
+                  {[24, 48, 72, 144, 288, 576, 1152].map(preset => (
                     <button
                       key={preset}
                       onClick={() => setQuantity(preset)}
