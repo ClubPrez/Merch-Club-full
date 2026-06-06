@@ -84,6 +84,19 @@ const jsonLd = [
   },
 ];
 
+// Fixed grey shade per size — 9 steps from near-black (XS) to light grey (5XL)
+const SIZE_SHADES: Record<string, { bg: string; text: string }> = {
+  XS:  { bg: "hsl(0,0%,10%)",  text: "white" },
+  S:   { bg: "hsl(0,0%,20%)",  text: "white" },
+  M:   { bg: "hsl(0,0%,30%)",  text: "white" },
+  L:   { bg: "hsl(0,0%,40%)",  text: "white" },
+  XL:  { bg: "hsl(0,0%,50%)",  text: "white" },
+  "2XL": { bg: "hsl(0,0%,60%)", text: "black" },
+  "3XL": { bg: "hsl(0,0%,69%)", text: "black" },
+  "4XL": { bg: "hsl(0,0%,77%)", text: "black" },
+  "5XL": { bg: "hsl(0,0%,84%)", text: "black" },
+};
+
 const RELATED_ARTICLES = [
   {
     href: "/blog/merch-program-strategy",
@@ -269,32 +282,49 @@ export default function SizeBreakdown() {
                     </span>
                   </div>
 
-                  {/* Bar chart */}
-                  <div className="space-y-3 mb-8" role="list" aria-label="Size quantities">
-                    {visibleResults.map(r => (
-                      <div
-                        key={r.size}
-                        className="flex items-center gap-4"
-                        role="listitem"
-                        aria-label={`${r.size}: ${r.quantity} units, ${(r.percentage * 100).toFixed(1)} percent`}
-                      >
-                        <span className="text-sm font-bold text-black w-10 shrink-0 tabular-nums">
-                          {r.size}
-                        </span>
-                        <div className="flex-1 bg-[#f0f0f0] rounded-full h-8 overflow-hidden" role="presentation">
-                          <div
-                            className="h-full bg-black rounded-full transition-all duration-500 ease-out"
-                            style={{ width: `${(r.quantity / maxQty) * 100}%` }}
-                          />
+                  {/* Bar chart — fixed shade per size */}
+                  <div className="space-y-2.5 mb-8" role="list" aria-label="Size quantities">
+                    {visibleResults.map(r => {
+                      const ratio = r.quantity / maxQty;
+                      const shade = SIZE_SHADES[r.size] ?? { bg: "hsl(0,0%,30%)", text: "white" };
+                      const pct = (r.percentage * 100).toFixed(1);
+                      return (
+                        <div
+                          key={r.size}
+                          className="flex items-center gap-4"
+                          role="listitem"
+                          aria-label={`${r.size}: ${r.quantity} units, ${pct} percent`}
+                        >
+                          <span className="text-sm font-bold text-black w-10 shrink-0 tabular-nums">
+                            {r.size}
+                          </span>
+                          <div className="flex-1 bg-[#ebebeb] rounded-full h-9 overflow-hidden" role="presentation">
+                            <div
+                              className="h-full rounded-full transition-all duration-500 ease-out flex items-center px-3"
+                              style={{
+                                width: `${ratio * 100}%`,
+                                backgroundColor: shade.bg,
+                                minWidth: ratio > 0 ? "2.5rem" : 0,
+                                justifyContent: ratio >= 0.25 ? "flex-end" : "flex-start",
+                              }}
+                            >
+                              {ratio >= 0.18 && (
+                                <span
+                                  className="text-xs font-bold tabular-nums leading-none"
+                                  style={{ color: shade.text, opacity: 0.9 }}
+                                  aria-hidden="true"
+                                >
+                                  {pct}%
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                          <span className="text-sm font-bold text-black w-10 text-right shrink-0 tabular-nums">
+                            {r.quantity}
+                          </span>
                         </div>
-                        <span className="text-sm font-bold text-black w-10 text-right shrink-0 tabular-nums">
-                          {r.quantity}
-                        </span>
-                        <span className="text-xs text-[#888] w-14 text-right shrink-0 tabular-nums" aria-hidden="true">
-                          {(r.percentage * 100).toFixed(1)}%
-                        </span>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
 
                   {/* Summary table */}
