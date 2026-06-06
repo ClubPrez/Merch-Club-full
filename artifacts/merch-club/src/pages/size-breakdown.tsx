@@ -5,7 +5,7 @@ import Breadcrumbs, { buildBreadcrumbJsonLd } from "@/components/breadcrumbs";
 import { StartProjectModal } from "@/components/start-project-modal";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { calculateBreakdown, AUDIENCE_TYPES, type AudienceKey, type SizeResult } from "@/lib/sizeData";
+import { calculateBreakdown, AUDIENCE_TYPES, STATES, type AudienceKey, type SizeResult } from "@/lib/sizeData";
 import heroTexture from "@assets/ChatGPT_Image_Jun_6,_2026,_11_50_21_AM_1780764935613.png";
 
 const CANONICAL_PATH = "/tools/size-breakdown";
@@ -116,6 +116,7 @@ export default function SizeBreakdown() {
   const [projectModalOpen, setProjectModalOpen] = useState(false);
   const [quantity, setQuantity] = useState<number | "">(100);
   const [audience, setAudience] = useState<AudienceKey>("average");
+  const [state, setState] = useState<string>("");
   const [results, setResults] = useState<SizeResult[] | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [excludedSizes, setExcludedSizes] = useState<Set<string>>(new Set());
@@ -134,7 +135,7 @@ export default function SizeBreakdown() {
   function handleCalculate() {
     const qty = typeof quantity === "number" ? quantity : 0;
     if (qty < 1) return;
-    const base = calculateBreakdown(qty, audience);
+    const base = calculateBreakdown(qty, audience, state);
     const active = base.filter(r => !excludedSizes.has(r.size));
     if (active.length === 0) return;
     const totalPct = active.reduce((s, r) => s + r.percentage, 0);
@@ -291,10 +292,13 @@ export default function SizeBreakdown() {
                 <div className="relative">
                   <select
                     className="w-full border border-black/20 rounded-xl px-4 py-3 text-sm font-medium text-black bg-white focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 transition-colors appearance-none pr-9"
-                    defaultValue="national"
-                    aria-label="Location / region"
+                    value={state}
+                    onChange={e => setState(e.target.value)}
+                    aria-label="State or region"
                   >
-                    <option value="national">National Average (No Adjustment)</option>
+                    {STATES.map(s => (
+                      <option key={s.code} value={s.code}>{s.name}</option>
+                    ))}
                   </select>
                   <svg className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888] pointer-events-none" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -302,7 +306,14 @@ export default function SizeBreakdown() {
                 </div>
                 <p className="mt-2 text-xs text-[#aaa] leading-relaxed flex gap-1.5 items-start">
                   <svg className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#bbb]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path strokeLinecap="round" d="M12 16v-4M12 8h.01"/></svg>
-                  Using national average distribution data.
+                  {state === "" ? "Using national average distribution data." : (() => {
+                    const s = STATES.find(st => st.code === state)!;
+                    if (s.tier >= 2) return `${s.name} trends larger — distribution shifted toward XL+.`;
+                    if (s.tier === 1) return `${s.name} is slightly above average — mild shift toward larger sizes.`;
+                    if (s.tier === -1) return `${s.name} is slightly below average — mild shift toward smaller sizes.`;
+                    if (s.tier <= -2) return `${s.name} trends smaller — distribution shifted toward S/M.`;
+                    return `Using ${s.name} average distribution data.`;
+                  })()}
                 </p>
               </div>
 
