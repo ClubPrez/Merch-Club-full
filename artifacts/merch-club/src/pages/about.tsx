@@ -29,7 +29,7 @@ import logoHologic from "@assets/Hologic_Main_Logo_PMS2756_WoTagline_17805429869
 import logoJayMoore from "@assets/jay_moore_nobg.png";
 import logoMarqeta from "@assets/marqeta_nobg.png";
 import logoPitch from "@assets/Pitch_IndividualLogos-03_1780543115104.png";
-import logoPicklemans from "@assets/Pickleman's_Gourmet_Cafe_2_1780543132832.png";
+import logoPicklemans from "@assets/picklemans_nobg.png";
 import logoMcCoy from "@assets/McCoy_Horizontal_Logo_Black_1780543231903.png";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -37,7 +37,7 @@ import { SiteFooter } from "@/components/site-footer";
 const trustedBrands = [
   { name: "Marqeta",                   logo: logoMarqeta,       sizeClass: "h-12 md:h-14" },
   { name: "OneStaff Medical",          logo: brandOnestaff,     sizeClass: "h-8 md:h-9"  },
-  { name: "Pickleman's",               logo: logoPicklemans,    sizeClass: "h-10 md:h-12", noFilter: true, blendMode: "screen" },
+  { name: "Pickleman's",               logo: logoPicklemans,    sizeClass: "h-10 md:h-12", noFilter: true, customFilter: "grayscale(1) invert(1) brightness(2)" },
   { name: "F3",                        logo: logoF3,            sizeClass: "h-12 md:h-14" },
   { name: "Susan G. Komen",            logo: brandKomen,        sizeClass: "h-14 md:h-16" },
   { name: "Burlington Capital",        logo: logoBurlington,    sizeClass: "h-8 md:h-10"  },
