@@ -392,6 +392,38 @@ export default function Blog() {
         </div>
       </section>
 
+      <section className="py-20 md:py-28 px-8 md:px-16 lg:px-20 border-t border-black/10">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-end justify-between gap-6 mb-10">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#aaa] block mb-2">Free Resources</span>
+              <h2 className="text-3xl md:text-4xl font-black tracking-tight leading-[0.95]" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                Tools & Calculators
+              </h2>
+            </div>
+          </div>
+          <Link href="/tools/size-breakdown" className="group block max-w-lg">
+            <div className="rounded-2xl border border-black/10 p-8 hover:border-black/30 transition-colors bg-[#fafafa] hover:bg-white">
+              <div className="w-10 h-10 rounded-xl bg-black flex items-center justify-center mb-5">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 7h18M3 12h18M3 17h18" />
+                </svg>
+              </div>
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white bg-black px-3 py-1 rounded-full inline-block mb-4">Calculator</span>
+              <h3 className="text-xl md:text-2xl font-black tracking-tight leading-snug text-black mb-3 group-hover:text-[#555] transition-colors" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
+                Size Breakdown Tool
+              </h3>
+              <p className="text-sm text-[#777] leading-relaxed mb-4">
+                Enter your total order quantity and audience type to get the optimal size run — so you order the right number of each size, every time. Free, instant, no sign-up.
+              </p>
+              <span className="text-sm font-bold text-black underline underline-offset-4 group-hover:text-[#666] transition-colors">
+                Open calculator →
+              </span>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       <section className="bg-[#0a0a0a] py-20 md:py-28 px-8 md:px-16 lg:px-20">
         <div className="max-w-3xl mx-auto text-center">
           <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.9] text-white mb-6" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>

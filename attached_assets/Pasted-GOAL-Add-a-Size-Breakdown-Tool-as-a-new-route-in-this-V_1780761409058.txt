@@ -1,0 +1,62 @@
+GOAL: Add a "Size Breakdown Tool" as a new route in this Vite + React + TypeScript
+SPA (Wouter routing, deployed to Vercel via GitHub), matching our existing design
+system, and set up prerendering so the page is SEO-indexable.
+
+SOURCE TOOL: A working standalone version exists at
+https://apparel-size-wizard.replit.app — its calculation logic lives in
+client/src/lib/sizeData.ts and runs 100% client-side (no API calls, no server).
+Replicate the logic and UI EXACTLY. Do not change the math.
+
+STEP 1 — PORT THE TOOL
+- Copy the size calculation logic (the sizeData.ts module and any related types)
+  into this project under src/lib/ (match our existing folder structure).
+- Rebuild the tool's UI as a React component using OUR existing design system:
+  our Tailwind tokens, colors, fonts, spacing, and shared components (buttons,
+  inputs, cards). Do NOT introduce new colors or fonts. It must look native to
+  this site.
+- Make it fully responsive / mobile-first, consistent with our other pages.
+
+STEP 2 — ADD THE ROUTE (Wouter)
+- Add a new Wouter route at /tools/size-breakdown
+- Wrap it in our existing global layout (header + footer) like every other page.
+
+STEP 3 — NAV + FOOTER
+- In the Learning Center section, add a card/link to the tool labeled
+  "Size Breakdown Tool".
+- In the footer, add a "Tools" column (create it if it doesn't exist) with a link
+  labeled "Size Breakdown Tool" → /tools/size-breakdown.
+
+STEP 4 — SEO: META TAGS
+- Install and use react-helmet-async (or our existing meta-tag solution if one is
+  already in the project — check first and match it).
+- On the tool page set:
+  - <title>Bulk T-Shirt Size Breakdown Calculator | Merch Club</title>
+  - meta description: "Free bulk apparel size breakdown calculator. Enter your
+    total order quantity and audience type to get the optimal size run, so you
+    order the right number of each size."
+  - canonical: https://merchclub.com/tools/size-breakdown  (non-www, no trailing slash)
+  - Open Graph + Twitter card (title, description, our standard share image) —
+    match the pattern used on our other pages.
+  - JSON-LD structured data, type "WebApplication", applicationCategory
+    "BusinessApplication", name "Size Breakdown Tool", offers price "0".
+
+STEP 5 — SEO: PRERENDERING (critical — this is a SPA so content is JS-injected)
+- Add build-time prerendering so the route ships as static HTML with the meta tags
+  and visible content baked in. Use vite-plugin-prerender or react-snap, whichever
+  integrates more cleanly with our current vite.config and Vercel build.
+- Configure it to prerender at minimum /tools/size-breakdown (and ideally all our
+  existing routes).
+- Verify the built HTML for this route contains the H1 and meta tags in the raw
+  file (not only injected at runtime).
+
+STEP 6 — ON-PAGE CONTENT (needed to rank — Google can't read a bare calculator)
+- H1: "Bulk Apparel Size Breakdown Calculator"
+- Below the tool, scaffold 2–3 short paragraphs explaining what it does and who
+  it's for, plus a short FAQ block (placeholder copy is fine, I'll replace it).
+- Ensure /tools/size-breakdown is added to sitemap.xml and not blocked by robots.txt.
+
+STEP 7 — SAFETY
+- Do not modify other pages' routing or metadata.
+- Do not change the calculation logic from the source tool.
+- Show me the diff of every file changed, and confirm whether prerendering succeeded
+  in the build output before finalizing.

@@ -17,6 +17,10 @@ const COMPANY_LINKS = [
   { label: "Learning Center", href: "/blog" },
 ];
 
+const TOOLS_LINKS = [
+  { label: "Size Breakdown Tool", href: "/tools/size-breakdown" },
+];
+
 const LEGAL_LINKS = [
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms of Service", href: "/terms" },
@@ -28,7 +32,7 @@ export function SiteFooter() {
     <footer className="bg-[#0a0a0a] border-t border-white/10">
       <div className="max-w-6xl mx-auto px-8 md:px-16 lg:px-20 pt-20 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
-          <div className="md:col-span-5">
+          <div className="md:col-span-4">
             <img src={logoSrc} alt="Merch Club" className="h-10 w-auto mb-6 brightness-0 invert" />
             <p className="text-sm text-[#888] leading-relaxed max-w-sm mb-8">
               Full-service branded merchandise. From strategy to delivery, we handle every detail so your brand shows up right — every time.
@@ -70,7 +74,16 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div className="md:col-span-3">
+          <div className="md:col-span-2">
+            <h4 className="text-sm font-bold text-white uppercase tracking-[0.15em] mb-5" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1rem" }}>Tools</h4>
+            <ul className="space-y-3">
+              {TOOLS_LINKS.map(item => (
+                <li key={item.href}><Link href={item.href} className="text-sm text-[#666] hover:text-white transition-colors">{item.label}</Link></li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
             <h4 className="text-sm font-bold text-white uppercase tracking-[0.15em] mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1rem" }}>Join Our Newsletter</h4>
             <p className="text-xs text-[#666] mb-4 leading-relaxed">Exclusive offers, new product drops, and merch inspiration — straight to your inbox.</p>
             <form onSubmit={e => e.preventDefault()} className="flex gap-2">

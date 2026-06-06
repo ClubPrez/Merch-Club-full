@@ -1,0 +1,68 @@
+Make /tools/size-breakdown fully technical-SEO optimized. Match the conventions
+already used on our other pages where they exist; add what's missing. Do each of
+these and show me the diff:
+
+1. PRERENDERING (non-negotiable for a Vite SPA)
+   - Confirm build-time prerendering outputs static HTML for this route with the
+     H1, body copy, and meta tags present in the raw .html file (not JS-injected).
+   - If it isn't working, fix it before anything else. Nothing below matters if
+     the HTML ships empty.
+
+2. TITLE + META
+   - <title> (50-60 chars): "Bulk T-Shirt Size Breakdown Calculator | Merch Club"
+   - meta description (150-160 chars): "Free tool to plan your bulk apparel size
+     run. Enter total quantity and audience type to get the optimal breakdown of
+     each size, so you order right the first time."
+   - meta robots: index, follow
+
+3. CANONICAL
+   - <link rel="canonical" href="https://merchclub.com/tools/size-breakdown">
+   - Non-www, https, no trailing slash. Must exactly match site-wide canonical
+     format. Self-referencing.
+
+4. OPEN GRAPH + TWITTER
+   - og:title, og:description, og:type=website, og:url (the canonical),
+     og:site_name="Merch Club", og:image (our standard share image, absolute URL)
+   - twitter:card=summary_large_image, twitter:title, twitter:description,
+     twitter:image
+   - Ideally a custom OG image showing the tool. If none exists, use the site
+     default and flag that a custom one should be made.
+
+5. STRUCTURED DATA (JSON-LD, in the prerendered HTML)
+   - WebApplication schema: name "Size Breakdown Tool", applicationCategory
+     "BusinessApplication", operatingSystem "Web", offers with price "0" / "USD"
+   - BreadcrumbList schema: Home > Tools > Size Breakdown Tool
+   - FAQPage schema wired to the on-page FAQ (only include Q&As actually visible
+     on the page)
+   - Organization schema for Merch Club if not already set site-wide
+   - Validate all against schema.org types; no errors
+
+6. HEADINGS + SEMANTICS
+   - Exactly one <h1>: "Bulk Apparel Size Breakdown Calculator"
+   - Logical h2/h3 below (How it works, FAQ, etc.)
+   - Semantic landmarks: <main>, <section>, proper labels on all form inputs
+     (aria-label or <label for>), alt text on any images
+
+7. SITEMAP + ROBOTS
+   - Add /tools/size-breakdown to sitemap.xml with lastmod
+   - Confirm robots.txt allows it and references the sitemap
+   - Confirm no accidental noindex
+
+8. PERFORMANCE (Core Web Vitals are a ranking factor)
+   - Lazy-load anything below the fold, defer non-critical JS
+   - Ensure no layout shift when the tool renders (reserve space) for good CLS
+   - Target Lighthouse SEO 100 and Performance 90+ on mobile
+
+9. ACCESSIBILITY (correlates with SEO + it's the right thing)
+   - Keyboard navigable, visible focus states, sufficient contrast (matches our
+     design tokens), screen-reader labels on every input and result
+
+10. INTERNAL LINKING
+    - Link to this tool from: the Learning Center index, the corporate/enterprise
+      vertical page, and any case study that discusses apparel quantities
+    - On the tool page, link back out to 2-3 relevant Learning Center articles
+      (use placeholders if they don't exist yet)
+
+AFTER BUILDING: report the Lighthouse SEO + Performance scores for this route,
+and paste the first 30 lines of the prerendered HTML so I can confirm the meta
+tags and H1 are actually in the static file.

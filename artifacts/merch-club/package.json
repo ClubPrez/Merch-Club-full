@@ -6,8 +6,37 @@
   "scripts": {
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
     "build": "vite build --config vite.config.ts",
+    "postbuild": "react-snap",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "reactSnap": {
+    "source": "dist/public",
+    "destination": "dist/public",
+    "include": [
+      "/",
+      "/about",
+      "/services",
+      "/contact",
+      "/industries",
+      "/industries/healthcare",
+      "/industries/construction",
+      "/industries/corporate",
+      "/industries/events",
+      "/blog",
+      "/case-studies",
+      "/case-studies/nurse-gifting",
+      "/case-studies/access-bank",
+      "/case-studies/construction",
+      "/case-studies/events",
+      "/tools/size-breakdown",
+      "/terms",
+      "/privacy-policy",
+      "/accessibility"
+    ],
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "removeBlobs": true,
+    "minifyHtml": false
   },
   "devDependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -64,6 +93,7 @@
     "react-hook-form": "^7.55.0",
     "react-icons": "^5.4.0",
     "react-resizable-panels": "^2.1.7",
+    "react-snap": "^1.23.0",
     "recharts": "^2.15.2",
     "sonner": "^2.0.7",
     "tailwind-merge": "catalog:",
