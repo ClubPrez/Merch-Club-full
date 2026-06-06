@@ -46,6 +46,21 @@ import brandPaylocity from "@assets/brand_paylocity_nobg.png";
 import brandFraserStryker from "@assets/brand_fraserstryker_nobg.png";
 import brandKomen from "@assets/brand_komen_nobg.png";
 import brandOnestaff from "@assets/Social_PostsArtboard_1@3x_1777583934192.png";
+import logo50MileMarch from "@assets/50_Mile_March_-_Logo_-_Single_Color_Black_1780542627135.png";
+import logoAPAH from "@assets/APAH_Single_Color_Black_1780542659870.png";
+import logoAHA from "@assets/aha_logo_nobg.png";
+import logoBackNine from "@assets/Back_Nine_1780771403944.jpg";
+import logoBakerGroup from "@assets/Baker_Group_Logo_With_R_Black_1780542718496.png";
+import logoBB from "@assets/BB_Logo_1780543903363.png";
+import logoBurlington from "@assets/Burlington_Capital_Logo_1780542879250.png";
+import logoF3 from "@assets/F3_Logo_1780542913430.png";
+import logoFederalCrop from "@assets/FederalCrop_Logo_1780542945995.png";
+import logoHologic from "@assets/Hologic_Main_Logo_PMS2756_WoTagline_1780542986902.png";
+import logoJayMoore from "@assets/jay_moore_nobg.png";
+import logoMarqeta from "@assets/marqeta_nobg.png";
+import logoPitch from "@assets/Pitch_IndividualLogos-03_1780543115104.png";
+import logoPicklemans from "@assets/picklemans_nobg.png";
+import logoMcCoy from "@assets/McCoy_Horizontal_Logo_Black_1780543231903.png";
 import blogKittingImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_1775835373159.png";
 import blogPackagingImg from "@assets/Professional_promotional_packaging_shot_1775835373158.png";
 import blogCityImg from "@assets/Merch_club_in_the_city_plaza_1775835373159.png";
@@ -451,48 +466,50 @@ const testimonials = [
 ];
 
 const trustedBrands = [
-  { name: "OneStaff Medical", logo: brandOnestaff, sizeClass: "h-5 md:h-7 lg:h-8" },
-  { name: "ACCESSbank", logo: brandAccessBank, sizeClass: "h-4 md:h-6 lg:h-7", imgFilter: "grayscale(100%) brightness(0.45) contrast(1.15)" },
-  { name: "Paylocity", logo: brandPaylocity },
-  { name: "Fraser Stryker", logo: brandFraserStryker },
-  { name: "Susan G. Komen", logo: brandKomen },
+  { name: "Marqeta",                    logo: logoMarqeta,        sizeClass: "h-12 md:h-14" },
+  { name: "OneStaff Medical",           logo: brandOnestaff,      sizeClass: "h-8 md:h-9"   },
+  { name: "Pickleman's",                logo: logoPicklemans,     sizeClass: "h-10 md:h-12" },
+  { name: "F3",                         logo: logoF3,             sizeClass: "h-12 md:h-14" },
+  { name: "Susan G. Komen",             logo: brandKomen,         sizeClass: "h-16 md:h-20" },
+  { name: "Burlington Capital",         logo: logoBurlington,     sizeClass: "h-8 md:h-10"  },
+  { name: "Jay Moore Landscaping",      logo: logoJayMoore,       sizeClass: "h-9 md:h-11"  },
+  { name: "Fraser Stryker",             logo: brandFraserStryker, sizeClass: "h-20 md:h-24" },
+  { name: "Federal Crop",               logo: logoFederalCrop,    sizeClass: "h-16 md:h-18" },
+  { name: "A Place At Home",            logo: logoAPAH,           sizeClass: "h-10 md:h-12" },
+  { name: "Hologic",                    logo: logoHologic,        sizeClass: "h-7 md:h-8"   },
+  { name: "Back Nine",                  logo: logoBackNine,       sizeClass: "h-16 md:h-20" },
+  { name: "50 Mile March",              logo: logo50MileMarch,    sizeClass: "h-9 md:h-11"  },
+  { name: "Pitch",                      logo: logoPitch,          sizeClass: "h-20 md:h-24" },
+  { name: "ACCESSbank",                 logo: brandAccessBank,    sizeClass: "h-7 md:h-8"   },
+  { name: "Baker Group",                logo: logoBakerGroup,     sizeClass: "h-10 md:h-12" },
+  { name: "American Heart Association", logo: logoAHA,            sizeClass: "h-10 md:h-12" },
+  { name: "McCoy",                      logo: logoMcCoy,          sizeClass: "h-9 md:h-11"  },
+  { name: "Paylocity",                  logo: brandPaylocity,     sizeClass: "h-16 md:h-20" },
+  { name: "Benson Brewery",             logo: logoBB,             sizeClass: "h-14 md:h-16" },
 ];
 
 function TrustedBrandsSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % trustedBrands.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section className="bg-white py-16 md:py-20 px-8 md:px-16 lg:px-20">
-      <div className="max-w-6xl mx-auto">
-        <p className="text-center text-[11px] font-bold uppercase tracking-[0.25em] text-[#999] mb-10 md:mb-14">
-          Brands that trust us
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16 lg:gap-20">
-          {trustedBrands.map((brand, i) => (
-            <div
-              key={brand.name}
-              className="transition-all duration-700 ease-in-out"
-              style={{
-                opacity: i === activeIndex ? 1 : 0.25,
-                transform: i === activeIndex ? "scale(1.12)" : "scale(1)",
-                filter: i === activeIndex ? "none" : "grayscale(100%)",
-              }}
-            >
+    <section className="bg-white border-t border-black/5 py-8 md:py-10 overflow-hidden">
+      <p className="text-center text-sm md:text-base font-bold uppercase tracking-[0.25em] text-[#bbb] mb-8 px-8">
+        Brands that trust us
+      </p>
+      <div className="relative overflow-hidden">
+        <div
+          className="flex items-center animate-[marquee_70s_linear_infinite]"
+          style={{ width: "max-content" }}
+        >
+          {[0, 1, 2].flatMap((rep) =>
+            trustedBrands.map((brand) => (
               <img
+                key={`${rep}-${brand.name}`}
                 src={brand.logo}
                 alt={brand.name}
-                className={`${(brand as { sizeClass?: string }).sizeClass ?? "h-12 md:h-16 lg:h-20"} w-auto object-contain`}
-                style={(brand as { imgFilter?: string }).imgFilter ? { filter: (brand as { imgFilter?: string }).imgFilter } : undefined}
+                className={`${brand.sizeClass} w-auto object-contain opacity-50 hover:opacity-80 transition-opacity shrink-0 mx-10 md:mx-14`}
+                style={{ filter: "grayscale(1)" }}
               />
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
     </section>
