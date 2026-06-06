@@ -499,48 +499,55 @@ export default function SizeBreakdown() {
                 calculations per segment and combining the results.
               </p>
             </div>
+          </div>
+        </section>
 
-            {/* Persuasion block */}
-            <div className="bg-[#0a0a0a] rounded-2xl px-8 py-10 mb-16">
-              <h2
-                className="text-2xl md:text-3xl font-black tracking-tight leading-[0.95] text-white mb-6"
-                style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-              >
-                Most printers take your order. We build your program.
-              </h2>
-              <div className="space-y-4 text-sm text-[#888] leading-relaxed mb-8">
-                <p>
-                  Here's a quick test: did the company printing your shirts ever give you a tool like
-                  this one? Probably not. A sizing tool is a small thing, but it tells you something
-                  bigger about how a partner thinks. The good ones sweat the details you shouldn't
-                  have to.
-                </p>
-                <p>
-                  That's the difference with Merch Club. Private-label presentation that makes your
-                  team's apparel feel considered, not thrown in a box. Packaging and distribution
-                  handled so you're not the one sorting shirts by size in a conference room. Pricing
-                  that's a real value, not a markup on the same blank everyone else sells.
-                </p>
-                <p>
-                  The result: your people get apparel they actually want to wear, and you look good
-                  to the person who signed off on the budget.
-                </p>
-                <p>
-                  You're already on the site of a company that gets more out of your apparel dollars.
-                  Want to see what that looks like for your team?
-                </p>
-              </div>
-              <button
-                onClick={() => setProjectModalOpen(true)}
-                className="inline-flex items-center gap-2 bg-white text-black text-sm font-bold px-7 py-3.5 rounded-full hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
-              >
-                Talk to us
-                <svg className="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                </svg>
-              </button>
+        {/* Persuasion block */}
+        <section className="bg-[#0a0a0a] text-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
+          <div className="max-w-3xl mx-auto">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50 block mb-4">Why Merch Club</span>
+            <h2
+              className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-white mb-8"
+              style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+            >
+              Most Printers Take Your Order. We Build Your Program.
+            </h2>
+            <div className="space-y-5 text-base md:text-lg text-[#aaa] leading-relaxed mb-10">
+              <p>
+                Here's a quick test: did the company printing your shirts ever give you a tool like
+                this one? Probably not. A sizing tool is a small thing, but it tells you something
+                bigger about how a partner thinks. The good ones sweat the details you shouldn't
+                have to.
+              </p>
+              <p>
+                That's the difference with Merch Club. Private-label presentation that makes your
+                team's apparel feel considered, not thrown in a box. Packaging and distribution
+                handled so you're not the one sorting shirts by size in a conference room. Pricing
+                that's a real value, not a markup on the same blank everyone else sells.
+              </p>
+              <p>
+                The result: your people get apparel they actually want to wear, and you look good
+                to the person who signed off on the budget.
+              </p>
+              <p>
+                You're already on the site of a company that gets more out of your apparel dollars.
+                Want to see what that looks like for your team?
+              </p>
             </div>
+            <button
+              onClick={() => setProjectModalOpen(true)}
+              className="inline-flex items-center gap-2 bg-white text-black text-sm font-bold px-7 py-3.5 rounded-full hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
+            >
+              Talk to us
+              <svg className="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+              </svg>
+            </button>
+          </div>
+        </section>
 
+        <section className="py-20 px-8 md:px-16 lg:px-20 bg-white">
+          <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
               <span className="inline-block text-xs font-semibold uppercase tracking-[0.15em] text-[#888] border border-black/15 rounded-full px-4 py-1.5 mb-5">FAQ's</span>
               <h2
