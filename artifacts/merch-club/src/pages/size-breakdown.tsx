@@ -102,11 +102,7 @@ export default function SizeBreakdown() {
   const [projectModalOpen, setProjectModalOpen] = useState(false);
   const [quantity, setQuantity] = useState<number | "">(100);
   const [audience, setAudience] = useState<AudienceKey>("average");
-  const [results, setResults] = useState<SizeResult[] | null>(() =>
-    calculateBreakdown(100, "average"),
-  );
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
+  const [results, setResults] = useState<SizeResult[] | null>(null);
   function handleCalculate() {
     const qty = typeof quantity === "number" ? quantity : 0;
     if (qty < 1) return;
@@ -262,60 +258,32 @@ export default function SizeBreakdown() {
                     </span>
                   </div>
 
-                  {/* Bar chart — shades scale with bar length: largest = near-black, smallest = mid-grey */}
-                  <div className="space-y-2.5 mb-8" role="list" aria-label="Size quantities">
-                    {visibleResults.map(r => {
-                      const ratio = r.quantity / maxQty;
-                      // Largest bar → ~7% lightness (near black), smallest visible → ~58% (mid-grey)
-                      const lightness = Math.round(7 + (1 - ratio) * 51);
-                      const barColor = `hsl(0,0%,${lightness}%)`;
-                      // Label colour mirrors the bar — dark bars get white text, lighter bars get black
-                      const labelDark = lightness < 45;
-                      return (
-                        <div
-                          key={r.size}
-                          className="flex items-center gap-4"
-                          role="listitem"
-                          aria-label={`${r.size}: ${r.quantity} units, ${(r.percentage * 100).toFixed(1)} percent`}
-                        >
-                          <span className="text-sm font-bold text-black w-10 shrink-0 tabular-nums">
-                            {r.size}
-                          </span>
+                  {/* Bar chart */}
+                  <div className="space-y-3 mb-8" role="list" aria-label="Size quantities">
+                    {visibleResults.map(r => (
+                      <div
+                        key={r.size}
+                        className="flex items-center gap-4"
+                        role="listitem"
+                        aria-label={`${r.size}: ${r.quantity} units, ${(r.percentage * 100).toFixed(1)} percent`}
+                      >
+                        <span className="text-sm font-bold text-black w-10 shrink-0 tabular-nums">
+                          {r.size}
+                        </span>
+                        <div className="flex-1 bg-[#f0f0f0] rounded-full h-8 overflow-hidden" role="presentation">
                           <div
-                            className="relative flex-1 bg-[#ebebeb] rounded-full h-9 overflow-hidden"
-                            role="presentation"
-                          >
-                            <div
-                              className="h-full rounded-full transition-all duration-500 ease-out flex items-center justify-end pr-3"
-                              style={{
-                                width: `${ratio * 100}%`,
-                                backgroundColor: barColor,
-                                minWidth: ratio > 0 ? "2.5rem" : 0,
-                              }}
-                            >
-                              {ratio >= 0.28 && (
-                                <span
-                                  className="text-xs font-bold tabular-nums leading-none"
-                                  style={{ color: labelDark ? "white" : "rgba(0,0,0,0.7)" }}
-                                  aria-hidden="true"
-                                >
-                                  {r.quantity}
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                          <span className="text-sm font-bold text-black w-10 text-right shrink-0 tabular-nums">
-                            {r.quantity}
-                          </span>
-                          <span
-                            className="text-xs text-[#999] w-14 text-right shrink-0 tabular-nums"
-                            aria-hidden="true"
-                          >
-                            {(r.percentage * 100).toFixed(1)}%
-                          </span>
+                            className="h-full bg-black rounded-full transition-all duration-500 ease-out"
+                            style={{ width: `${(r.quantity / maxQty) * 100}%` }}
+                          />
                         </div>
-                      );
-                    })}
+                        <span className="text-sm font-bold text-black w-10 text-right shrink-0 tabular-nums">
+                          {r.quantity}
+                        </span>
+                        <span className="text-xs text-[#888] w-14 text-right shrink-0 tabular-nums" aria-hidden="true">
+                          {(r.percentage * 100).toFixed(1)}%
+                        </span>
+                      </div>
+                    ))}
                   </div>
 
                   {/* Summary table */}
@@ -466,34 +434,13 @@ export default function SizeBreakdown() {
             >
               Frequently Asked Questions
             </h2>
-            <div aria-labelledby="faq-heading">
-              {FAQS.map((faq, i) => {
-                const isOpen = openFaq === i;
-                return (
-                  <div key={i} className="border-t border-black/10">
-                    <button
-                      className="w-full flex items-center justify-between py-5 text-left group"
-                      onClick={() => setOpenFaq(isOpen ? null : i)}
-                      aria-expanded={isOpen}
-                    >
-                      <span className="text-base font-medium text-black pr-4">{faq.q}</span>
-                      <span
-                        className={`text-xl text-black/40 transition-transform duration-300 shrink-0 ${isOpen ? "rotate-45" : ""}`}
-                        aria-hidden="true"
-                      >
-                        +
-                      </span>
-                    </button>
-                    <div
-                      className="overflow-hidden transition-all duration-300"
-                      style={{ maxHeight: isOpen ? "320px" : "0", opacity: isOpen ? 1 : 0 }}
-                    >
-                      <p className="text-sm text-[#666] pb-6 leading-relaxed">{faq.a}</p>
-                    </div>
-                  </div>
-                );
-              })}
-              <div className="border-t border-black/10" />
+            <div className="divide-y divide-black/10" aria-labelledby="faq-heading">
+              {FAQS.map((faq, i) => (
+                <div key={i} className="py-6">
+                  <h3 className="text-base font-bold text-black mb-2">{faq.q}</h3>
+                  <p className="text-sm text-[#666] leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
             </div>
 
             {/* Outbound links to related Learning Center articles */}
