@@ -153,33 +153,6 @@ export const caseStudies: CaseStudy[] = [
       "Shareholder, executive, key account, employee, and walk-in programs run as one connected system — each gift designed around the way ACCESSbank actually shows up for the people it serves.",
   },
   {
-    slug: "jay-moore-landscaping",
-    client: "Jay Moore Landscaping",
-    industry: "Brand Identity",
-    industrySlug: "corporate",
-    title: "The Fuchsia Defense.",
-    summary:
-      "How Merch Club built Jay Moore Landscaping into Omaha's most recognizable brand by owning one color — and watched a century-old neighbor rebrand to match.",
-    date: "Jun 7, 2026",
-    readTime: "7 min read",
-    image: "/opengraph.jpg",
-    results: [
-      { value: "1 Color", label: "Owned in a crowded market" },
-      { value: "7", label: "Branded mailers in two years" },
-      { value: "1", label: "Competitor rebranded to match" },
-    ],
-    challenge:
-      "There was already another Moore Landscaping in Omaha. Same name, same city, same category. And the landscaping industry compounds the problem — green logos, generic trucks, yard signs that disappear into the lawn. Jay needed something people see from across the street and know instantly.",
-    approach: [
-      "Chose fuchsia (Pantone 227 C) as the single ownable color in a category dominated by green — a beacon against every lawn.",
-      "Painted Jay's entire building fuchsia and raised an interstate sign visible to tens of thousands of drivers daily.",
-      "Drew a hand-illustrated magnolia to signal craft — wrapping trucks, framing doors, and turning the yard sign into a piece of art homeowners want on their lawns.",
-      "Built a seven-mailer direct-mail program with soft-touch finish and real photo shoots, plus a branded welcome journal and a button-triggered fulfillment package for new clients.",
-    ],
-    outcome:
-      "People call Jay to compliment the color, not for a quote. A neighboring business of 100+ years rebranded to pink after being given directions as 'next to the beautiful pink building.' Jay's competitor started copying the color. The brand became part of how Omaha sees itself.",
-  },
-  {
     slug: "construction",
     client: "Baker Group",
     industry: "Construction",
@@ -205,6 +178,33 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcome:
       "Baker runs every merch moment — field, exec, anniversaries, trade shows, recruiting — through one embedded team instead of a stack of vendors, with consistency across every department and milestone.",
+  },
+  {
+    slug: "jay-moore-landscaping",
+    client: "Jay Moore Landscaping",
+    industry: "Brand Identity",
+    industrySlug: "corporate",
+    title: "How a Landscaper Became a Landmark.",
+    summary:
+      "How Merch Club built Jay Moore Landscaping into Omaha's most recognizable brand by owning one color — and watched a century-old neighbor rebrand to match.",
+    date: "Jun 7, 2026",
+    readTime: "7 min read",
+    image: "/opengraph.jpg",
+    results: [
+      { value: "1 Color", label: "Owned in a crowded market" },
+      { value: "7", label: "Branded mailers in two years" },
+      { value: "1", label: "Competitor rebranded to match" },
+    ],
+    challenge:
+      "There was already another Moore Landscaping in Omaha. Same name, same city, same category. And the landscaping industry compounds the problem — green logos, generic trucks, yard signs that disappear into the lawn. Jay needed something people see from across the street and know instantly.",
+    approach: [
+      "Chose fuchsia (Pantone 227 C) as the single ownable color in a category dominated by green — a beacon against every lawn.",
+      "Painted Jay's entire building fuchsia and raised an interstate sign visible to tens of thousands of drivers daily.",
+      "Drew a hand-illustrated magnolia to signal craft — wrapping trucks, framing doors, and turning the yard sign into a piece of art homeowners want on their lawns.",
+      "Built a seven-mailer direct-mail program with soft-touch finish and real photo shoots, plus a branded welcome journal and a button-triggered fulfillment package for new clients.",
+    ],
+    outcome:
+      "People call Jay to compliment the color, not for a quote. A neighboring business of 100+ years rebranded to pink after being given directions as 'next to the beautiful pink building.' Jay's competitor started copying the color. The brand became part of how Omaha sees itself.",
   },
 ];
 

@@ -40,9 +40,9 @@ const breadcrumbs = [
 const articleJsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "The Fuchsia Defense.",
+  headline: "How a Landscaper Became a Landmark.",
   description:
-    "How Merch Club built Jay Moore Landscaping into Omaha's most recognizable brand by owning one color — Pantone 227 C — and made the competition start copying it.",
+    "Jay Moore trusted us with a hard call: stop blending in. Here's what happened when a tradesman bet on standing out — and we made sure it paid off.",
   datePublished: "2026-06-07",
   author: { "@type": "Organization", name: "Merch Club" },
   publisher: {
@@ -92,8 +92,8 @@ export default function CaseStudyJayMoore() {
   return (
     <div className="min-h-screen bg-white text-black">
       <SEO
-        title="Jay Moore Landscaping Case Study — The Fuchsia Defense | Merch Club"
-        description="How Merch Club built Jay Moore Landscaping into Omaha's most recognizable brand by owning one color. A branded merchandise and brand system case study."
+        title="Jay Moore Landscaping Case Study — How a Landscaper Became a Landmark | Merch Club"
+        description="Jay Moore trusted us with a hard call: stop blending in. Here's what happened when a tradesman bet on standing out — and we made sure it paid off."
         path="/case-studies/jay-moore-landscaping"
         type="article"
         keywords="jay moore landscaping, fuchsia brand identity, landscaping brand case study, omaha landscaping brand, merch club case study, brand color strategy, branded merchandise landscaping"
@@ -122,11 +122,11 @@ export default function CaseStudyJayMoore() {
             className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95] text-white mb-6"
             style={{ fontFamily: "'Bebas Neue', sans-serif" }}
           >
-            The Fuchsia Defense.
+            How a Landscaper Became a Landmark.
           </h1>
           <p className="text-base md:text-lg text-[#aaa] leading-relaxed max-w-3xl">
-            How Jay Moore Landscaping built a brand so unmistakable the competition started
-            copying the color.
+            Jay Moore trusted us with a hard call: stop blending in. Here's what happened when
+            a tradesman bet on standing out — and we made sure it paid off.
           </p>
         </div>
       </section>
