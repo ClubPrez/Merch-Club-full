@@ -185,9 +185,10 @@ export default function CaseStudyJayMoore() {
                 style={{
                   bottom: "-3.5rem",
                   left: "-3rem",
-                  width: "72%",
+                  width: "83%",
                   transform: "rotate(3deg)",
                   opacity: 1,
+                  mixBlendMode: "multiply",
                 }}
               />
             </div>
