@@ -20,6 +20,7 @@ import CaseStudyOnestaff from "@/pages/case-study-onestaff";
 import CaseStudyOnestaffEvents from "@/pages/case-study-onestaff-events";
 import CaseStudyBakerConstruction from "@/pages/case-study-baker-construction";
 import CaseStudyAccessBank from "@/pages/case-study-access-bank";
+import CaseStudyJayMoore from "@/pages/case-study-jay-moore";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import Terms from "@/pages/terms";
 import Accessibility from "@/pages/accessibility";
@@ -68,6 +69,8 @@ function Router() {
       <Route path="/case-studies/access-bank" component={CaseStudyAccessBank} />
       <Route path="/case-studies/accessbank" component={CaseStudyAccessBank} />
       <Route path="/case-studies/accessbank-corporate-gifting" component={CaseStudyAccessBank} />
+      <Route path="/case-studies/jay-moore-landscaping" component={CaseStudyJayMoore} />
+      <Route path="/case-studies/jay-moore" component={CaseStudyJayMoore} />
       <Route path="/case-studies/:slug" component={CaseStudy} />
 
       <Route path="/tools/size-breakdown" component={SizeBreakdown} />

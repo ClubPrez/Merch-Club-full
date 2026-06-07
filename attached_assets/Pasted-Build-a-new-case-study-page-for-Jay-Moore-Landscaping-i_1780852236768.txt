@@ -1,0 +1,157 @@
+Build a new case study page for "Jay Moore Landscaping" in our existing Vite +
+React + TypeScript SPA (Wouter routing, deployed to Vercel via GitHub).
+
+STEP 0 — MATCH OUR EXISTING CASE STUDIES (do this first)
+Before building anything, open and study our existing case study pages in this
+repo (look in the pages/components for the ACCESSbank, Baker Group, and other
+case studies under /case-studies). Identify and reuse:
+- The exact page layout structure and section components they use
+- Hero treatment, section spacing, max-width containers, and grid system
+- Typography scale, heading styles, and eyebrow labels
+- Image treatments (full-bleed, grid, carousel) and how images are loaded
+- Scroll behavior, animations, and transitions
+- The CTA block at the bottom
+Build the Jay Moore page using these SAME components and patterns so it is visually
+and behaviorally identical to the other four case studies. Do not invent a new
+design language. If a section type already exists as a component, reuse it.
+
+STEP 1 — ROUTE
+Add the page at /case-studies/jay-moore-landscaping (match the URL pattern of the
+existing case studies — adjust if theirs differ).
+
+STEP 2 — BUILD THESE 8 SECTIONS (in order), using our existing section components
+
+1. HERO
+   Eyebrow: CASE STUDY
+   Headline: "The Fuchsia Defense."
+   Subhead: "How Jay Moore Landscaping built a brand so unmistakable the
+   competition started copying the color."
+   Hero image: [fuchsia truck on a green lawn — placeholder for now]
+   Accent note: this case study's accent color is fuchsia (Pantone 227 C,
+   approx #A1006B). Use it ONLY as a small accent within this page (rules,
+   pull-quote color) — keep the global site chrome (header/footer) unchanged.
+
+2. THE PROBLEM — "Two landscapers. One name. One color to settle it."
+   Body: The landscaping industry has a sameness problem — green logos, generic
+   trucks, yard signs that vanish into the lawn. Jay had it worse: there was
+   already another Moore Landscaping in Omaha. Same name, same city, same
+   category. You can't out-logo a name collision. You need something people see
+   from across the street and know instantly which Moore is which.
+   Pull statement: "Not 'look distinctive.' Be unmistakable."
+   Image slot: green-truck-sameness vs one fuchsia truck.
+
+3. WHO IS JAY — "Jay doesn't sell. He listens."
+   Body: The outside of your home is one of the most important rooms in it, and
+   Jay treats it that way. He's part psychologist, part anthropologist — he asks
+   how you actually live, who hosts, who needs privacy, who's drowning in
+   maintenance, then designs around the answer. Forty years of knowledge. A crew
+   that's been together for twenty. You don't get that at the bottom of the
+   market, and Jay's clients know it.
+   Pull quote: "The best salesman alive. Because he never sells anyone."
+   Image slot: Jay mid-conversation with a homeowner.
+
+4. THE SOLUTION — "Own a color. Own the market."
+   Body: Every landscaper fights over green, so we took the one color nobody
+   owns. Fuchsia. Pantone 227 C. Not pink-pink — the deep, confident kind a
+   luxury brand picks. Against a green lawn, it's a beacon. One rule from there:
+   every choice makes the color stronger or weaker. We only ever made it stronger.
+   Image slot: the fuchsia swatch / brand system.
+
+5. BRINGING IT TO LIFE — "We painted the building. Then we made it art."
+   Body: We started big — painted Jay's entire building fuchsia and raised a sign
+   on it off an interstate with tens of thousands of drivers a day. Permanent.
+   Free advertising for the next decade. Then we drew a magnolia, by hand,
+   because craft signals craft and craft is what Jay sells. It wraps the trucks,
+   frames the doors, and fixes the one thing every landscaper gets wrong: the
+   yard sign. Most are eyesores a homeowner tolerates. Jay's is a small piece of
+   art a homeowner actually wants on the lawn.
+   Pull statement: "Don't fight to put your brand on people's lawns. Make a brand
+   they want there."
+   Image slots (3): painted building + interstate sign at golden hour; hand-drawn
+   magnolia detail on a truck door; magnolia yard sign on a finished lawn.
+
+6. THE PROGRAM — "A brand you can hold."
+   Three sub-beats:
+   - The mail: Seven mailers in two years. Beautiful design, soft-touch finish,
+     real photo shoots. Hand-delivered by the USPS, who, for the record, have
+     some of the strongest calves in the country. You can scroll past an ad. You
+     can't scroll past your mailbox.
+   - The welcome: A luxe denim journal at the first meeting, because Jay wants you
+     taking notes and asking questions. The best designs come from collaboration,
+     not a menu.
+   - The button: When the plans are ready, Jay pushes a button. That single click
+     triggers a fulfillment action handled entirely by Merch Club — a custom
+     floral package ships to the client's door with drinkware, a to-do list, a
+     fuchsia marker, and a note: "the level of care you're about to receive will
+     arrive once you're ready to seed the future." Jay presses one button. We
+     handle the rest.
+   Pull quote: "Recognition isn't built in one impression. It's built in seven."
+   Image slot (2x2 grid): mailer collection fanned to show finish; denim journal;
+   floral package unboxed; behind-the-scenes photo shoot frame.
+
+7. THE IMPACT — "The phone rings to say thanks. The neighbor changed colors."
+   Body: People call Jay to compliment the color — not for a quote. They say it
+   makes Omaha look bold and sophisticated to people driving past on the
+   interstate. That's a landscaping company becoming part of how a city sees
+   itself. Then there's the neighbor: Ideal Pure Water, a family-owned Omaha
+   business delivering water for more than a hundred years, kept hearing the same
+   directions to their own door: "Oh yeah, next to the beautiful pink building."
+   So they changed their brand color to pink and put up a pink billboard on the
+   same interstate. A century-old company looked at Jay's color and decided the
+   smart move wasn't to fight it. It was to join it.
+   Quote (large, fuchsia): "Oh yeah, next to the beautiful pink building."
+   Pull statement: "If you can't beat us, join us. And hey, it works."
+   Small aside: "(We're still working on getting them to paint the actual
+   building. We're confident the neighborhood is about to send a lot of emails.)"
+   Image slot (the hero proof shot): both pink signals on the same interstate in
+   one frame — Jay's fuchsia building + Ideal's pink billboard.
+
+8. THE BAD IDEAS TAX — "The cost of our best ideas? You hear the bad ones too."
+   Intro: Every great idea has a graveyard of bad ones behind it. We don't hide
+   ours. We pitch them. Jay says no. Usually.
+   Three entries (style each with a fuchsia label + body + a muted italic
+   one-line reaction):
+   - Bad Idea #1 — The Lemonade Stand. Finish a job, set up a free lemonade stand
+     on the brand-new lawn. Neighbors wander over to get refreshed and leave
+     wondering who turned the yard next door into something out of a magazine.
+     Suburbia runs on keeping up with the Joneses. We'd just make sure the
+     Joneses were handing out pink lemonade. — "Jay said maybe."
+   - Bad Idea #2 — The Weed Tray. Every promo company slaps a logo on a koozie.
+     Nobody makes the branded rolling tray. Among adults 35 to 50, about four in
+     five drank in the past year, and one in three used THC. That's a third of
+     the prime homeowner market, and not one landscaping company in the country
+     is talking to them. Be the first. Also, it's all plants. — "Jay said 'we'll
+     see.'"
+   - Bad Idea #3 — The Flag. The biggest flagpole in Omaha, right off the
+     interstate. Instead of a normal flag, a giant white #1 on a fuchsia field.
+     No logo, no words, just the number — a thirty-foot monument to self-belief
+     you could read from a passing semi. Jay went and put up a giant flagpole. He
+     just didn't fly the flag we designed. — (fuchsia, bold) "He's wrong, but
+     he's the client."
+   Closer: There are more. Every Tuesday we walk in with "I had an idea last
+   night," and Jay reaches for his coffee. That's the partnership.
+
+9. CLOSING + CTA — reuse the exact CTA component from our other case studies.
+   Above it: "We're the physical layer of every brand. Pick a lane. Own a
+   surface. Make it impossible to forget."
+
+STEP 3 — IMAGES
+Use placeholder image components everywhere there's an image slot, sized/styled
+like the other case studies' images, so I can drop final photos in later. Label
+each placeholder with the description from the slot.
+
+STEP 4 — SEO (match the pattern our other case study pages use)
+- Prerender this route to static HTML (we're a SPA — content must be in the HTML).
+- title: "Jay Moore Landscaping Case Study — The Fuchsia Defense | Merch Club"
+- meta description: "How Merch Club built Jay Moore Landscaping into Omaha's most
+  recognizable brand by owning one color. A branded merchandise and brand system
+  case study."
+- canonical: https://merchclub.com/case-studies/jay-moore-landscaping (non-www,
+  no trailing slash)
+- Open Graph + Twitter card matching our other pages; OG image = the two-pink-
+  signals shot once available.
+- Add the page to sitemap.xml and the case studies index/listing page.
+
+STEP 5 — SAFETY
+Do not modify the other case study pages, global header/footer, or routing for
+other pages. Show me the diff of every file changed before finalizing.
