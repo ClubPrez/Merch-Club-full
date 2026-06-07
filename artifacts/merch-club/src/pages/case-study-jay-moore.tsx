@@ -169,7 +169,13 @@ export default function CaseStudyJayMoore() {
                 This is what happened next.
               </p>
             </div>
-            <Placeholder label="Jay Moore — portrait" ratio="aspect-[4/5]" />
+            <div className="rounded-2xl overflow-hidden aspect-[4/5]">
+              <img
+                src="/images/jay-moore-portrait.jpg"
+                alt="Jay Moore in his plant nursery wearing a branded Jay Moore Landscaping shirt"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
           </div>
         </div>
       </section>
