@@ -226,10 +226,13 @@ export default function CaseStudyJayMoore() {
               </p>
             </div>
             <div className="lg:pt-16">
-              <Placeholder
-                label="Green-truck sameness vs. one fuchsia truck"
-                ratio="aspect-[4/3]"
-              />
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden">
+                <img
+                  src="/images/jay-moore-truck.jpg"
+                  alt="Jay Moore Landscaping fuchsia-wrapped truck with American flag — the brand that stops traffic"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
