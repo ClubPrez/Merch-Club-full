@@ -375,6 +375,8 @@ export default function SizeBreakdown() {
   const [editableQtys, setEditableQtys] = useState<Record<string, number>>({});
   const [lockedSizes, setLockedSizes] = useState<Set<string>>(new Set());
   const [hasEdits, setHasEdits] = useState(false);
+  const [editingSize, setEditingSize] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
 
   // Send modal
   const [sendModalOpen, setSendModalOpen] = useState(false);
@@ -466,6 +468,49 @@ export default function SizeBreakdown() {
 
   function handlePrint() {
     window.print();
+  }
+
+  function handleCopy() {
+    const header = `Merch Club — Size Breakdown\n${qty.toLocaleString()} units · ${selectedAudience?.label ?? ""}${selectedState?.code ? ` · ${selectedState.name}` : ""}\n\nSize\tQty\t%`;
+    const rows = visibleResults.map(r => {
+      const dq = editableQtys[r.size] ?? r.quantity;
+      const pct = totalDisplayQty > 0 ? ((dq / totalDisplayQty) * 100).toFixed(1) : "0.0";
+      return `${r.size}\t${dq}\t${pct}%`;
+    });
+    const footer = `Total\t${totalDisplayQty}\t100%`;
+    const text = [header, ...rows, footer].join("\n");
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }).catch(() => {});
+  }
+
+  function handleDownloadCSV() {
+    const csvRows = [
+      ["Size", "Quantity", "Percentage"],
+      ...visibleResults.map(r => {
+        const dq = editableQtys[r.size] ?? r.quantity;
+        const pct = totalDisplayQty > 0 ? ((dq / totalDisplayQty) * 100).toFixed(1) : "0.0";
+        return [r.size, String(dq), `${pct}%`];
+      }),
+      ["Total", String(totalDisplayQty), "100%"],
+    ];
+    const csv = [
+      `# Merch Club Size Breakdown`,
+      `# ${qty.toLocaleString()} units · ${selectedAudience?.label ?? ""}${selectedState?.code ? ` · ${selectedState.name}` : ""}`,
+      `# Generated ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}`,
+      "",
+      ...csvRows.map(row => row.map(cell => `"${cell}"`).join(",")),
+    ].join("\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `merch-club-size-breakdown-${qty}units.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   }
 
   const qty = typeof quantity === "number" ? quantity : 0;
@@ -739,16 +784,46 @@ export default function SizeBreakdown() {
                       </p>
                     </div>
                     <div className="flex items-center gap-2 flex-wrap">
+                      {/* Copy */}
+                      <button
+                        onClick={handleCopy}
+                        aria-label="Copy breakdown to clipboard"
+                        className="flex items-center gap-1.5 text-xs font-bold px-4 py-2.5 rounded-full border border-black/20 hover:border-black/50 transition-colors bg-white text-black"
+                      >
+                        {copied ? (
+                          <svg className="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        ) : (
+                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path strokeLinecap="round" d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                          </svg>
+                        )}
+                        {copied ? "Copied!" : "Copy"}
+                      </button>
+                      {/* CSV */}
+                      <button
+                        onClick={handleDownloadCSV}
+                        aria-label="Download breakdown as CSV"
+                        className="flex items-center gap-1.5 text-xs font-bold px-4 py-2.5 rounded-full border border-black/20 hover:border-black/50 transition-colors bg-white text-black"
+                      >
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                        </svg>
+                        CSV
+                      </button>
+                      {/* PDF */}
                       <button
                         onClick={handlePrint}
                         aria-label="Download or print PDF"
                         className="flex items-center gap-1.5 text-xs font-bold px-4 py-2.5 rounded-full border border-black/20 hover:border-black/50 transition-colors bg-white text-black"
                       >
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
                         </svg>
-                        Download PDF
+                        PDF
                       </button>
+                      {/* Send */}
                       <button
                         onClick={() => setSendModalOpen(true)}
                         aria-label="Send this breakdown to Merch Club"
@@ -757,7 +832,7 @@ export default function SizeBreakdown() {
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
-                        Send to Merch Club
+                        Send
                       </button>
                     </div>
                   </div>
@@ -810,16 +885,16 @@ export default function SizeBreakdown() {
                       <thead>
                         <tr className="border-b border-black/10 bg-[#fafafa]">
                           <th scope="col" className="text-left text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] px-5 py-3.5">Size</th>
-                          <th scope="col" className="text-center text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] px-5 py-3.5 no-print">
-                            <span className="flex items-center justify-center gap-1">
+                          <th scope="col" className="text-left text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] px-4 py-3.5 no-print">
+                            <span className="flex items-center gap-1">
                               Qty
-                              <span className="text-[9px] normal-case text-[#bbb] font-normal tracking-normal">(editable)</span>
+                              <span className="text-[9px] normal-case text-[#bbb] font-normal tracking-normal">(click to set)</span>
                             </span>
                           </th>
-                          <th scope="col" className="text-right text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] px-5 py-3.5 print-only">Quantity</th>
-                          <th scope="col" className="text-right text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] px-5 py-3.5">Pct</th>
-                          <th scope="col" className="text-center text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] px-3 py-3.5 no-print" aria-label="Lock size">
-                            <svg className="w-3.5 h-3.5 mx-auto text-[#bbb]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+                          <th scope="col" className="text-right text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] px-5 py-3.5 print-only">Qty</th>
+                          <th scope="col" className="text-right text-[10px] font-bold uppercase tracking-[0.15em] text-[#888] px-4 py-3.5">%</th>
+                          <th scope="col" className="text-center px-4 py-3.5 no-print" aria-label="Lock size">
+                            <svg className="w-3.5 h-3.5 mx-auto text-[#ccc]" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24" aria-hidden="true">
                               <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
                               <path strokeLinecap="round" d="M7 11V7a5 5 0 0110 0v4"/>
                             </svg>
@@ -830,12 +905,14 @@ export default function SizeBreakdown() {
                         {visibleResults.map(r => {
                           const displayQty = editableQtys[r.size] ?? r.quantity;
                           const isLocked = lockedSizes.has(r.size);
+                          const isEditing = editingSize === r.size && !isLocked;
                           const pct = totalDisplayQty > 0
                             ? ((displayQty / totalDisplayQty) * 100).toFixed(1)
                             : "0.0";
                           return (
-                            <tr key={r.size} className={isLocked ? "bg-[#fafafa]" : ""}>
-                              <td className="px-5 py-2.5 font-bold text-black">
+                            <tr key={r.size} className={isLocked ? "bg-[#fafafa]" : "hover:bg-[#fdfdfd] transition-colors"}>
+                              {/* Size label */}
+                              <td className="px-5 py-3 font-bold text-black">
                                 <div className="flex items-center gap-2">
                                   <span
                                     className="w-2 h-2 rounded-full shrink-0"
@@ -845,27 +922,48 @@ export default function SizeBreakdown() {
                                   {r.size}
                                 </div>
                               </td>
-                              {/* Editable qty input — hidden on print */}
-                              <td className="px-3 py-2 no-print">
-                                <input
-                                  type="number"
-                                  min={0}
-                                  value={displayQty}
-                                  onChange={e => handleQtyChange(r.size, parseInt(e.target.value) || 0)}
-                                  disabled={isLocked}
-                                  aria-label={`Quantity for size ${r.size}`}
-                                  className={`w-20 text-center border rounded-lg px-2 py-1.5 text-sm font-bold tabular-nums transition-colors focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 ${
-                                    isLocked
-                                      ? "bg-[#f0f0f0] text-[#888] border-black/10 cursor-not-allowed"
-                                      : "bg-white text-black border-black/20 hover:border-black/40"
-                                  }`}
-                                />
+
+                              {/* Click-to-edit qty — screen only */}
+                              <td className="px-4 py-2 no-print">
+                                {isEditing ? (
+                                  <input
+                                    type="number"
+                                    min={0}
+                                    autoFocus
+                                    value={displayQty}
+                                    onChange={e => handleQtyChange(r.size, parseInt(e.target.value) || 0)}
+                                    onBlur={() => setEditingSize(null)}
+                                    onKeyDown={e => {
+                                      if (e.key === "Enter" || e.key === "Escape") setEditingSize(null);
+                                    }}
+                                    aria-label={`Quantity for size ${r.size}`}
+                                    className="w-20 border-b-2 border-black bg-transparent text-xl font-black tabular-nums text-black focus:outline-none py-0.5 text-left"
+                                  />
+                                ) : (
+                                  <button
+                                    onClick={() => { if (!isLocked) setEditingSize(r.size); }}
+                                    disabled={isLocked}
+                                    aria-label={`Quantity for size ${r.size}: ${displayQty}. Click to edit.`}
+                                    className={`text-xl font-black tabular-nums text-black leading-none py-1 transition-colors ${
+                                      isLocked
+                                        ? "cursor-default text-[#aaa]"
+                                        : "cursor-pointer hover:text-[#555] group"
+                                    }`}
+                                    title={isLocked ? "Unlock to edit" : "Click to edit"}
+                                  >
+                                    {displayQty}
+                                  </button>
+                                )}
                               </td>
+
                               {/* Print-only static qty */}
-                              <td className="px-5 py-2.5 text-right font-bold text-black print-only">{displayQty}</td>
-                              <td className="px-5 py-2.5 text-right text-[#666]">{pct}%</td>
-                              {/* Lock toggle — hidden on print */}
-                              <td className="px-3 py-2 text-center no-print">
+                              <td className="px-5 py-3 text-right font-bold text-black print-only">{displayQty}</td>
+
+                              {/* Percentage */}
+                              <td className="px-4 py-3 text-right text-[#888] tabular-nums">{pct}%</td>
+
+                              {/* Lock toggle — screen only */}
+                              <td className="px-4 py-3 text-center no-print">
                                 <button
                                   onClick={() => toggleLock(r.size)}
                                   aria-pressed={isLocked}
@@ -873,7 +971,7 @@ export default function SizeBreakdown() {
                                   className={`w-8 h-8 rounded-lg flex items-center justify-center mx-auto transition-all ${
                                     isLocked
                                       ? "bg-black text-white"
-                                      : "bg-transparent text-[#ccc] hover:text-[#888] hover:bg-black/10"
+                                      : "text-[#ccc] hover:text-[#888] hover:bg-black/8"
                                   }`}
                                 >
                                   {isLocked ? (
@@ -881,7 +979,7 @@ export default function SizeBreakdown() {
                                       <path d="M12 1a5 5 0 00-5 5v3H5a2 2 0 00-2 2v10a2 2 0 002 2h14a2 2 0 002-2V11a2 2 0 00-2-2h-2V6a5 5 0 00-5-5zm0 2a3 3 0 013 3v3H9V6a3 3 0 013-3zm0 9a2 2 0 110 4 2 2 0 010-4z"/>
                                     </svg>
                                   ) : (
-                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24" aria-hidden="true">
                                       <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
                                       <path strokeLinecap="round" d="M7 11V7a5 5 0 0110 0v4"/>
                                     </svg>
@@ -895,9 +993,9 @@ export default function SizeBreakdown() {
                       <tfoot>
                         <tr className="border-t border-black/10 bg-[#fafafa]">
                           <td className="px-5 py-3 font-bold text-black">Total</td>
-                          <td className="px-3 py-3 text-center font-bold text-black tabular-nums no-print">{totalDisplayQty.toLocaleString()}</td>
+                          <td className="px-4 py-3 font-black text-xl text-black tabular-nums no-print">{totalDisplayQty.toLocaleString()}</td>
                           <td className="px-5 py-3 text-right font-bold text-black tabular-nums print-only">{totalDisplayQty.toLocaleString()}</td>
-                          <td className="px-5 py-3 text-right font-bold text-black">100%</td>
+                          <td className="px-4 py-3 text-right font-bold text-black">100%</td>
                           <td className="no-print" />
                         </tr>
                       </tfoot>
