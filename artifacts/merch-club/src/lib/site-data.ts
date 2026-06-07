@@ -189,7 +189,7 @@ export const caseStudies: CaseStudy[] = [
       "How Merch Club built Jay Moore Landscaping into Omaha's most recognizable brand by owning one color — and watched a century-old neighbor rebrand to match.",
     date: "Jun 7, 2026",
     readTime: "7 min read",
-    image: "/opengraph.jpg",
+    image: "/images/jay-moore-thumb.jpg",
     results: [
       { value: "1 Color", label: "Owned in a crowded market" },
       { value: "7", label: "Branded mailers in two years" },

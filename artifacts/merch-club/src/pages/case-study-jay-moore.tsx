@@ -96,7 +96,9 @@ export default function CaseStudyJayMoore() {
         description="Jay Moore trusted us with a hard call: stop blending in. Here's what happened when a tradesman bet on standing out — and we made sure it paid off."
         path="/case-studies/jay-moore-landscaping"
         type="article"
-        keywords="jay moore landscaping, fuchsia brand identity, landscaping brand case study, omaha landscaping brand, merch club case study, brand color strategy, branded merchandise landscaping"
+        image="/images/jay-moore-thumb.jpg"
+        imageAlt="Jay Moore Landscaping fuchsia building with brand sign — brand system case study by Merch Club"
+        keywords="jay moore landscaping, brand system, fuchsia brand identity, landscaping brand case study, omaha landscaping brand, merch club case study, brand color strategy, branded merchandise landscaping"
         jsonLd={[buildBreadcrumbJsonLd(breadcrumbs), articleJsonLd]}
       />
 
