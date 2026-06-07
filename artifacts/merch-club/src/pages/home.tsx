@@ -488,30 +488,119 @@ const trustedBrands = [
   { name: "Benson Brewery",             logo: logoBB,             sizeClass: "h-14 md:h-16" },
 ];
 
+// Ease-in-out sigmoid approximation for the spotlight gradient mask.
+// 14 stops that simulate a smooth bell-curve falloff centered at 50%.
+const SPOTLIGHT_STOPS = [
+  "transparent 0%",
+  "transparent 14%",
+  "rgba(0,0,0,0.04) 21%",
+  "rgba(0,0,0,0.18) 27%",
+  "rgba(0,0,0,0.44) 33%",
+  "rgba(0,0,0,0.76) 39%",
+  "rgba(0,0,0,0.96) 44%",
+  "#000 47%",
+  "#000 53%",
+  "rgba(0,0,0,0.96) 56%",
+  "rgba(0,0,0,0.76) 61%",
+  "rgba(0,0,0,0.44) 67%",
+  "rgba(0,0,0,0.18) 73%",
+  "rgba(0,0,0,0.04) 79%",
+  "transparent 86%",
+  "transparent 100%",
+].join(", ");
+const SPOTLIGHT_MASK = `linear-gradient(to right, ${SPOTLIGHT_STOPS})`;
+
 function TrustedBrandsSection() {
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  const logoRow = (filter: string, opacity: number) =>
+    [0, 1, 2].flatMap((rep) =>
+      trustedBrands.map((brand) => (
+        <img
+          key={`${rep}-${brand.name}`}
+          src={brand.logo}
+          alt={rep === 0 ? brand.name : ""}
+          className={`${brand.sizeClass} w-auto object-contain shrink-0 mx-10 md:mx-14`}
+          style={{ filter, opacity }}
+        />
+      ))
+    );
+
   return (
     <section className="bg-white border-t border-black/5 py-8 md:py-10 overflow-hidden">
       <p className="text-center text-sm md:text-base font-bold uppercase tracking-[0.25em] text-[#bbb] mb-8 px-8">
         Brands that trust us
       </p>
-      <div className="relative overflow-hidden">
-        <div
-          className="flex items-center animate-[marquee_70s_linear_infinite]"
-          style={{ width: "max-content" }}
-        >
-          {[0, 1, 2].flatMap((rep) =>
-            trustedBrands.map((brand) => (
-              <img
-                key={`${rep}-${brand.name}`}
-                src={brand.logo}
-                alt={brand.name}
-                className={`${brand.sizeClass} w-auto object-contain opacity-50 hover:opacity-80 transition-opacity shrink-0 mx-10 md:mx-14`}
-                style={{ filter: "grayscale(1)" }}
-              />
-            ))
-          )}
+
+      {reducedMotion ? (
+        /* Reduced-motion: static centered wrap, no animation */
+        <div className="max-w-6xl mx-auto px-8 flex flex-wrap items-center justify-center gap-10 md:gap-14">
+          {trustedBrands.map((brand) => (
+            <img
+              key={brand.name}
+              src={brand.logo}
+              alt={brand.name}
+              className={`${brand.sizeClass} w-auto object-contain`}
+              style={{ filter: "grayscale(1)", opacity: 0.55 }}
+            />
+          ))}
         </div>
-      </div>
+      ) : (
+        <div className="relative overflow-hidden">
+          {/* ── Layer 1: gray base — sets section height, always visible ── */}
+          <div
+            className="flex items-center animate-[marquee_70s_linear_infinite]"
+            style={{ width: "max-content" }}
+            aria-label="Brands that trust Merch Club"
+          >
+            {logoRow("grayscale(1)", 0.55)}
+          </div>
+
+          {/*
+            ── Layer 2: spotlight overlay ──
+            Absolutely covers Layer 1. Same animation → perfectly in sync.
+            Logos rendered pure black (brightness(0)).
+            A gradient mask reveals them only near the horizontal center,
+            fading out on both sides via the ease-in-out sigmoid above.
+            Logos "pass through" the fixed spotlight as they scroll.
+          */}
+          <div
+            className="absolute inset-0 overflow-hidden pointer-events-none"
+            aria-hidden="true"
+            style={{
+              maskImage: SPOTLIGHT_MASK,
+              WebkitMaskImage: SPOTLIGHT_MASK,
+            }}
+          >
+            <div
+              className="flex items-center animate-[marquee_70s_linear_infinite]"
+              style={{ width: "max-content" }}
+            >
+              {logoRow("grayscale(1) brightness(0)", 1)}
+            </div>
+          </div>
+
+          {/* Edge fades — blends logos into the white background on entry/exit */}
+          <div
+            className="absolute inset-y-0 left-0 w-28 md:w-44 pointer-events-none"
+            aria-hidden="true"
+            style={{ background: "linear-gradient(to right, #fff 40%, transparent 100%)" }}
+          />
+          <div
+            className="absolute inset-y-0 right-0 w-28 md:w-44 pointer-events-none"
+            aria-hidden="true"
+            style={{ background: "linear-gradient(to left, #fff 40%, transparent 100%)" }}
+          />
+        </div>
+      )}
     </section>
   );
 }
