@@ -183,12 +183,11 @@ export default function CaseStudyJayMoore() {
                 aria-hidden="true"
                 className="absolute pointer-events-none select-none"
                 style={{
-                  bottom: "-2.5rem",
-                  right: "-1.5rem",
-                  width: "62%",
-                  transform: "rotate(-6deg)",
-                  opacity: 0.92,
-                  mixBlendMode: "multiply",
+                  bottom: "-3.5rem",
+                  left: "-3rem",
+                  width: "72%",
+                  transform: "rotate(3deg)",
+                  opacity: 1,
                 }}
               />
             </div>
