@@ -15,6 +15,7 @@ const thumbBySlug: Record<string, string> = {
   "access-bank": accessBankThumb,
   construction: bakerThumb,
   events: eventsThumb,
+  "jay-moore-landscaping": "/images/jay-moore-thumb.jpg",
 };
 
 export default function CaseStudies() {

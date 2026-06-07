@@ -182,7 +182,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "jay-moore-landscaping",
     client: "Jay Moore Landscaping",
-    industry: "Brand Identity",
+    industry: "Brand System",
     industrySlug: "corporate",
     title: "How a Landscaper Became a Landmark.",
     summary:

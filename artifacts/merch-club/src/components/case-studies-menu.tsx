@@ -11,6 +11,7 @@ const thumbBySlug: Record<string, string> = {
   "nurse-gifting": nurseGiftingThumb,
   construction: constructionThumb,
   "access-bank": accessBankThumb,
+  "jay-moore-landscaping": "/images/jay-moore-thumb.jpg",
 };
 
 interface Props {
