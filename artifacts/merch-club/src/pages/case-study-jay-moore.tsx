@@ -169,11 +169,26 @@ export default function CaseStudyJayMoore() {
                 This is what happened next.
               </p>
             </div>
-            <div className="rounded-2xl overflow-hidden aspect-[4/5]">
+            <div className="relative overflow-visible">
+              <div className="rounded-2xl overflow-hidden aspect-[4/5]">
+                <img
+                  src="/images/jay-moore-portrait.jpg"
+                  alt="Jay Moore in his plant nursery wearing a branded Jay Moore Landscaping shirt"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
               <img
-                src="/images/jay-moore-portrait.jpg"
-                alt="Jay Moore in his plant nursery wearing a branded Jay Moore Landscaping shirt"
-                className="w-full h-full object-cover object-center"
+                src="/images/jay-moore-signature.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute pointer-events-none select-none"
+                style={{
+                  bottom: "-2.5rem",
+                  right: "-1.5rem",
+                  width: "62%",
+                  transform: "rotate(-6deg)",
+                  opacity: 0.92,
+                }}
               />
             </div>
           </div>
