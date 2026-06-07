@@ -136,7 +136,13 @@ export default function CaseStudyJayMoore() {
       {/* ── Hero Image ──────────────────────────────────────────────────── */}
       <section className="bg-[#0a0a0a] pb-16 md:pb-20 px-8 md:px-16 lg:px-20">
         <div className="max-w-5xl mx-auto">
-          <PlaceholderDark label="Fuchsia truck on a green lawn" ratio="aspect-[16/9]" />
+          <div className="rounded-2xl overflow-hidden aspect-[16/9]">
+            <img
+              src="/images/jay-moore-hero.jpg"
+              alt="Jay Moore standing in front of his fuchsia-painted building — Jay Moore Landscaping, Omaha"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </section>
 
