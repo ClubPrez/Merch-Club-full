@@ -138,8 +138,36 @@ export default function CaseStudyJayMoore() {
         </div>
       </section>
 
-      {/* ── The Problem ─────────────────────────────────────────────────── */}
+      {/* ── Jay Moore ───────────────────────────────────────────────────── */}
       <section className="bg-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-8">
+                Jay Moore
+              </span>
+              <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
+                Every tradesman who's good at the work eventually hits the same wall: the work
+                doesn't speak for itself. Jay Moore is one of the best landscapers in Omaha, but
+                "one of the best" is invisible when every competitor looks identical from the
+                road.
+              </p>
+              <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
+                So Jay made a decision most people in his trade never will. He trusted a partner
+                to take him somewhere uncomfortable. To stop looking like everyone else. To
+                become a landmark instead of a logo.
+              </p>
+              <p className="text-base md:text-lg font-bold text-black leading-relaxed">
+                This is what happened next.
+              </p>
+            </div>
+            <Placeholder label="Jay Moore — portrait" ratio="aspect-[4/5]" />
+          </div>
+        </div>
+      </section>
+
+      {/* ── The Problem ─────────────────────────────────────────────────── */}
+      <section className="bg-[#f5f5f5] py-20 md:py-28 px-8 md:px-16 lg:px-20">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
