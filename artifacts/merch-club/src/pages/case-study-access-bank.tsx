@@ -421,7 +421,7 @@ export default function CaseStudyAccessBank() {
             {[
               {
                 title: "Denik journals — more than paper, a story",
-                body: "Custom soft-touch journals with full-color inside and outside covers telling the story of ACCESSbank. Denik has built eight schools in impoverished communities around the world — we're actively promoting them in their quest to fund the ninth. A brand story you can carry, and a school you help build by carrying it.",
+                body: "Custom soft-touch journals with full-color inside and outside covers telling the story of ACCESSbank. Denik has built eight schools in impoverished communities around the world — we're part of the quest to fund the ninth. A brand story you can carry, and a school you help build by carrying it.",
                 placeholder: "Denik journal — inside cover storytelling",
                 img: denikJournalImg,
               },
