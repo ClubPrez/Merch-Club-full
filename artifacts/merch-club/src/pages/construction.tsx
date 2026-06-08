@@ -868,7 +868,7 @@ export default function Construction() {
               </div>
               <div className="text-center md:border-x md:border-black/10">
                 <div className="text-7xl md:text-8xl lg:text-9xl font-black text-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  <CountUp end={40} suffix="+" />
+                  <CountUp end={30} suffix="+" />
                 </div>
                 <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-[#888] mt-3">Multi-Site Programs</div>
               </div>
