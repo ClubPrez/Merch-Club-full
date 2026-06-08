@@ -675,7 +675,7 @@ export default function CaseStudyJayMoore() {
                     "{idea.reaction}"
                   </p>
                 </div>
-                <div className="hidden lg:block">
+                <div>
                   {idea.image ? (
                     <div className="aspect-square rounded-2xl overflow-hidden">
                       <img
