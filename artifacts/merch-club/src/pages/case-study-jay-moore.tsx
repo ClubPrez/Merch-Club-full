@@ -65,6 +65,8 @@ const badIdeas = [
     body: "Finish a job, set up a free lemonade stand on the brand-new lawn. Neighbors wander over to get refreshed and leave wondering who turned the yard next door into something out of a magazine. Suburbia runs on keeping up with the Joneses. We'd just make sure the Joneses were handing out pink lemonade.",
     reaction: "Jay said maybe.",
     reactionFuchsia: false,
+    image: "/images/jay-moore-bad-idea-lemonade.jpg",
+    imageAlt: "Jay Moore Landscaping branded fuchsia popup tent with lemonade stand — the Bad Idea #01 mockup",
   },
   {
     n: "02",
@@ -72,6 +74,8 @@ const badIdeas = [
     body: "Every promo company slaps a logo on a koozie. Nobody makes the branded rolling tray. Among adults 35 to 50, about four in five drank in the past year, and one in three used THC. That's a third of the prime homeowner market, and not one landscaping company in the country is talking to them. Be the first. Also, it's all plants.",
     reaction: "Jay said 'we'll see.'",
     reactionFuchsia: false,
+    image: null,
+    imageAlt: "",
   },
   {
     n: "03",
@@ -79,6 +83,8 @@ const badIdeas = [
     body: "The biggest flagpole in Omaha, right off the interstate. Instead of a normal flag, a giant white #1 on a fuchsia field. No logo, no words, just the number — a thirty-foot monument to self-belief you could read from a passing semi. Jay went and put up a giant flagpole. He just didn't fly the flag we designed.",
     reaction: "He's wrong, but he's the client.",
     reactionFuchsia: true,
+    image: null,
+    imageAlt: "",
   },
 ];
 
@@ -565,7 +571,7 @@ export default function CaseStudyJayMoore() {
             {badIdeas.map((idea) => (
               <li
                 key={idea.n}
-                className="grid grid-cols-1 lg:grid-cols-[3rem_1fr_196px] gap-5 lg:gap-12 py-10 border-b border-white/10 items-start"
+                className="grid grid-cols-1 lg:grid-cols-[3rem_1fr_280px] gap-5 lg:gap-12 py-10 border-b border-white/10 items-start"
               >
                 <span className="text-xs font-bold tracking-[0.2em] text-white/30 pt-1.5">
                   {idea.n}
@@ -597,10 +603,20 @@ export default function CaseStudyJayMoore() {
                   </p>
                 </div>
                 <div className="hidden lg:block">
-                  <PlaceholderDark
-                    label={`Bad Idea #${idea.n} mockup`}
-                    ratio="aspect-square"
-                  />
+                  {idea.image ? (
+                    <div className="aspect-square rounded-2xl overflow-hidden">
+                      <img
+                        src={idea.image}
+                        alt={idea.imageAlt}
+                        className="w-full h-full object-cover object-center"
+                      />
+                    </div>
+                  ) : (
+                    <PlaceholderDark
+                      label={`Bad Idea #${idea.n} mockup`}
+                      ratio="aspect-square"
+                    />
+                  )}
                 </div>
               </li>
             ))}
