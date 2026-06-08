@@ -712,15 +712,23 @@ export default function CaseStudyJayMoore() {
             className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-black mb-6"
             style={{ fontFamily: "'Bebas Neue', sans-serif" }}
           >
-            We're the Physical Layer of Every Brand.
+            We're the physical layer of every brand.
           </h2>
           <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
-            Pick a lane. Own a surface. Make it impossible to forget.
+            A brand isn't a logo or a color.
+            It's the feeling that shows up before you do. The expectation that arrives the second someone hears your name.
+          </p>
+          <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
+            Jay didn't buy trucks and signs and mailers.
+            He built a reputation you can summon with three words.
+            And we built every surface that reputation lives on. The building. The trucks. The yard signs. The mail. The package at the door.
+          </p>
+          <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
+            That's the work.
+            Not one loud thing. Every thing, saying the same thing — until forgetting you isn't an option.
           </p>
           <p className="text-base md:text-lg text-[#444] leading-relaxed mb-10">
-            Jay picked fuchsia. Every truck, every sign, every mailer, every floral package
-            reinforced the same thing. His competitor started copying the color. His neighbor
-            rebranded. That's what brand ownership looks like when it's done right.
+            That's what we did for Jay. Let's do it for you.
           </p>
           <div className="border-t border-black/10 pt-8 flex flex-wrap items-center gap-4">
             <button
