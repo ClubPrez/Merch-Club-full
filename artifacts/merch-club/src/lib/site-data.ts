@@ -191,7 +191,7 @@ export const caseStudies: CaseStudy[] = [
     readTime: "7 min read",
     image: "/images/jay-moore-building-hero.png",
     results: [
-      { value: "210K+", label: "Vehicles past his interchange daily" },
+      { value: "210K+", label: "Vehicles past his building daily" },
       { value: "227 C", label: "The color he owns" },
       { value: "1 of 1", label: "Fuchsia-owned in his market" },
     ],
