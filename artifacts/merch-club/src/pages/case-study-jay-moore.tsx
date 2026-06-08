@@ -454,11 +454,20 @@ export default function CaseStudyJayMoore() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Placeholder
-              label="Mailer collection fanned to show soft-touch finish"
-              ratio="aspect-square"
-            />
-            <Placeholder label="Denik journal at first client meeting" ratio="aspect-square" />
+            <div className="aspect-square rounded-2xl overflow-hidden">
+              <img
+                src="/images/jay-moore-mailers.jpg"
+                alt="Jay Moore Landscaping direct mail postcards displayed on a design monitor — fuchsia branded mailers sent to Omaha homeowners"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+            <div className="aspect-square rounded-2xl overflow-hidden">
+              <img
+                src="/images/jay-moore-journal.jpg"
+                alt="Jay Moore Landscaping branded Denik journal with fuchsia cover and magnolia illustration — given to clients at first meeting"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
             <Placeholder
               label="Floral package unboxed — drinkware, to-do list, fuchsia marker"
               ratio="aspect-square"
