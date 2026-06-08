@@ -442,7 +442,7 @@ export default function CaseStudyJayMoore() {
               className="text-xl md:text-2xl font-bold text-black leading-snug border-l-[3px] pl-5"
               style={{ borderColor: FUCHSIA }}
             >
-              "Don't fight to put your brand on people's lawns. Make a brand they want there."
+              "We asked: what if the yard sign wasn't an ad you tolerate, but a signature you're proud to leave up? Every real piece of art is signed. We made one worth signing."
             </p>
           </div>
 
