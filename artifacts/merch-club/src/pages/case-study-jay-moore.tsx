@@ -204,7 +204,7 @@ export default function CaseStudyJayMoore() {
       <section className="bg-white py-20 md:py-28 px-8 md:px-16 lg:px-20">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div>
+            <div className="relative">
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-8">
                 Jay Moore
               </span>
@@ -222,6 +222,20 @@ export default function CaseStudyJayMoore() {
               <p className="text-base md:text-lg font-bold text-black leading-relaxed">
                 This is what happened next.
               </p>
+              <img
+                src="/images/jay-moore-flowers.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute pointer-events-none select-none"
+                style={{
+                  bottom: "-4rem",
+                  right: "-1rem",
+                  width: "200px",
+                  opacity: 0.10,
+                  mixBlendMode: "multiply",
+                  transform: "rotate(-15deg)",
+                }}
+              />
             </div>
             <div className="relative overflow-visible">
               <div className="rounded-2xl overflow-hidden aspect-[4/5]">
