@@ -212,8 +212,11 @@ export default function CaseStudyJayMoore() {
               </h2>
               <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
                 The landscaping industry has a sameness problem — green logos, generic trucks,
-                yard signs that vanish into the lawn. Jay had it worse: there was already another
-                Moore Landscaping in Omaha. Same name, same city, same category.
+                yard signs that vanish into the lawn.
+              </p>
+              <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
+                Jay had it worse: there was already another Moore Landscaping in Omaha. Same
+                name, same city, same category.
               </p>
               <p className="text-base md:text-lg text-[#444] leading-relaxed mb-10">
                 You can't out-logo a name collision. You need something people see from across
