@@ -565,13 +565,13 @@ export default function CaseStudyJayMoore() {
             {badIdeas.map((idea) => (
               <li
                 key={idea.n}
-                className="grid grid-cols-1 lg:grid-cols-[3rem_1fr_14rem] gap-5 lg:gap-10 py-8 border-b border-white/10 items-start"
+                className="grid grid-cols-1 lg:grid-cols-[3rem_1fr_196px] gap-5 lg:gap-12 py-10 border-b border-white/10 items-start"
               >
                 <span className="text-xs font-bold tracking-[0.2em] text-white/30 pt-1.5">
                   {idea.n}
                 </span>
                 <div>
-                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                  <div className="flex flex-wrap items-center gap-3 mb-4">
                     <span
                       className="text-[10px] font-bold uppercase tracking-[0.25em] px-2.5 py-1 rounded-full text-white"
                       style={{ backgroundColor: FUCHSIA }}
@@ -579,21 +579,28 @@ export default function CaseStudyJayMoore() {
                       Bad Idea #{idea.n}
                     </span>
                     <h3
-                      className="text-xl md:text-2xl font-black tracking-tight text-white leading-tight"
+                      className="text-2xl md:text-3xl font-black tracking-tight text-white leading-tight"
                       style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}
                     >
                       {idea.title}
                     </h3>
                   </div>
-                  <p className="text-base text-[#888] leading-relaxed">{idea.body}</p>
-                </div>
-                <div className="lg:text-right">
+                  <p className="text-lg text-[#888] leading-relaxed mb-6">{idea.body}</p>
                   <p
-                    className={`text-sm italic leading-relaxed ${idea.reactionFuchsia ? "font-bold" : "text-white/40"}`}
-                    style={idea.reactionFuchsia ? { color: FUCHSIA } : {}}
+                    className="text-2xl md:text-3xl font-black tracking-tight leading-tight"
+                    style={{
+                      fontFamily: "'Bebas Neue', sans-serif",
+                      color: idea.reactionFuchsia ? FUCHSIA : "rgba(255,255,255,0.55)",
+                    }}
                   >
                     "{idea.reaction}"
                   </p>
+                </div>
+                <div className="hidden lg:block">
+                  <PlaceholderDark
+                    label={`Bad Idea #${idea.n} mockup`}
+                    ratio="aspect-square"
+                  />
                 </div>
               </li>
             ))}
