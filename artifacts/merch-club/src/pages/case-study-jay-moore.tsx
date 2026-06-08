@@ -381,7 +381,13 @@ export default function CaseStudyJayMoore() {
                 className="w-full h-full object-cover object-center"
               />
             </div>
-            <Placeholder label="Hand-drawn magnolia detail on a truck door" ratio="aspect-[4/5]" />
+            <div className="rounded-2xl overflow-hidden aspect-[4/5]">
+              <img
+                src="/images/jay-moore-yard-sign.jpg"
+                alt="Jay Moore Landscaping branded yard sign with fuchsia magnolia illustration on a professionally landscaped Omaha home — custom landscaping signage that homeowners actually want on their lawn"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
             <Placeholder label="Magnolia yard sign on a finished lawn" ratio="aspect-[4/5]" />
           </div>
         </div>
