@@ -52,11 +52,23 @@ const articleJsonLd = {
     url: "https://merchclub.com",
     logo: { "@type": "ImageObject", url: "https://merchclub.com/opengraph.jpg" },
   },
-  image: {
-    "@type": "ImageObject",
-    url: "https://merchclub.com/images/jay-moore-hero.jpg",
-    description: "Jay Moore standing in front of his Pantone 227 C fuchsia building — Jay Moore Landscaping brand identity case study by Merch Club, Omaha Nebraska",
-  },
+  image: [
+    {
+      "@type": "ImageObject",
+      url: "https://merchclub.com/images/jay-moore-hero.jpg",
+      description: "Jay Moore standing in front of his Pantone 227 C fuchsia building — Jay Moore Landscaping brand identity case study by Merch Club, Omaha Nebraska",
+    },
+    {
+      "@type": "ImageObject",
+      url: "https://merchclub.com/images/jay-moore-nursery-shoot.jpg",
+      description: "Brand photographer documenting Jay Moore Landscaping plant inventory at Omaha nursery — professional landscaping brand photography by Merch Club",
+    },
+    {
+      "@type": "ImageObject",
+      url: "https://merchclub.com/images/jay-moore-yard-sign-lawn.jpg",
+      description: "Jay Moore Landscaping fuchsia magnolia yard sign installed in a finished residential lawn in Omaha Nebraska — branded landscaping signage",
+    },
+  ],
   mainEntityOfPage: "https://merchclub.com/case-studies/jay-moore-landscaping",
   about: [
     { "@type": "Thing", name: "Brand Identity" },
@@ -525,8 +537,8 @@ export default function CaseStudyJayMoore() {
             </div>
             <div className="aspect-square rounded-2xl overflow-hidden">
               <img
-                src="/images/jay-moore-location.jpg"
-                alt="Jay Moore Landscaping fuchsia building beside Ideal Pure Water billboard on Omaha interstate — two neighbors sharing a bold color story"
+                src="/images/jay-moore-nursery-shoot.jpg"
+                alt="Brand photographer capturing Jay Moore Landscaping plant inventory at Omaha nursery — professional landscaping brand photography Omaha Nebraska"
                 className="w-full h-full object-cover object-center"
               />
             </div>
@@ -580,8 +592,8 @@ export default function CaseStudyJayMoore() {
               </p>
               <div className="rounded-2xl overflow-hidden aspect-[4/3]">
                 <img
-                  src="/images/jay-moore-location.jpg"
-                  alt="Jay Moore Landscaping fuchsia building and Ideal Pure Water billboard side by side on the Omaha interstate — a century-old neighbor rebranded to pink after Jay owned the color"
+                  src="/images/jay-moore-nursery-shoot.jpg"
+                  alt="Photographer documenting Jay Moore Landscaping plant selection at Omaha nursery — brand shoot capturing the depth of Jay Moore's landscaping inventory and expertise"
                   className="w-full h-full object-cover object-center"
                 />
               </div>
