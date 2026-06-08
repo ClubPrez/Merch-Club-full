@@ -1,0 +1,37 @@
+Add a new case study card to the case studies menu/listing page, for "Jay Moore
+Landscaping." Match the EXACT structure, layout, and styling of the existing
+Baker Group case study card on that page — same card container, same category-
+tag pill, same headline treatment, same blurb style, same "READ THE ___ CASE
+STUDY →" link pattern, same image placement, and the same three-stat block row
+underneath. Do not invent a new card design; clone the Baker card component and
+populate it with the content below.
+
+CARD CONTENT:
+- Category tag pill: LANDSCAPING
+- Client label (next to the tag): JAY MOORE LANDSCAPING
+- Headline: "How a Landscaper Became a Landmark"
+- Blurb: "A landscaper drowning in a sea of green — and sharing his name with a
+  competitor across town. We gave him one color nobody else would touch, and
+  built every surface it lives on. Today people give directions by his building."
+- Link text: "READ THE JAY MOORE CASE STUDY →"
+- Link target: /case-studies/jay-moore-landscaping
+- Card image: placeholder for the fuchsia building / truck shot (style/size it
+  exactly like the Baker card image; I'll drop the final photo in later).
+
+THREE STAT BLOCKS (match Baker's black stat-block styling exactly):
+- Stat 1: big number "210K+" / label "VEHICLES PAST HIS INTERCHANGE DAILY"
+- Stat 2: big number "227 C" / label "THE COLOR HE OWNS"
+- Stat 3: big number "1 OF 1" / label "FUCHSIA-OWNED IN HIS MARKET"
+
+FUCHSIA ACCENT:
+- Render the Stat 2 number "227 C" in fuchsia (#A1006B) instead of white, so it
+  visually demonstrates the color the stat is naming. Keep Stat 1 and Stat 3
+  numbers in the same white/default treatment as the Baker card. Do not change
+  any other card's stat colors. This fuchsia accent is scoped to THIS card only.
+
+REQUIREMENTS:
+- Place the card in the same grid/stack as the other case study cards, following
+  their existing order logic.
+- Fully responsive, matching the Baker card's responsive behavior.
+- Do not modify the Baker card or any other existing card.
+- Show me the diff of every file changed before finalizing.

@@ -182,18 +182,18 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "jay-moore-landscaping",
     client: "Jay Moore Landscaping",
-    industry: "Brand System",
+    industry: "Landscaping",
     industrySlug: "corporate",
-    title: "How a Landscaper Became a Landmark.",
+    title: "How a Landscaper Became a Landmark",
     summary:
-      "How Merch Club built Jay Moore Landscaping into Omaha's most recognizable brand by owning one color — and watched a century-old neighbor rebrand to match.",
+      "A landscaper drowning in a sea of green — and sharing his name with a competitor across town. We gave him one color nobody else would touch, and built every surface it lives on. Today people give directions by his building.",
     date: "Jun 7, 2026",
     readTime: "7 min read",
-    image: "/images/jay-moore-thumb.jpg",
+    image: "/images/jay-moore-building-hero.png",
     results: [
-      { value: "1 Color", label: "Owned in a crowded market" },
-      { value: "7", label: "Branded mailers in two years" },
-      { value: "1", label: "Competitor rebranded to match" },
+      { value: "210K+", label: "Vehicles past his interchange daily" },
+      { value: "227 C", label: "The color he owns" },
+      { value: "1 of 1", label: "Fuchsia-owned in his market" },
     ],
     challenge:
       "There was already another Moore Landscaping in Omaha. Same name, same city, same category. And the landscaping industry compounds the problem — green logos, generic trucks, yard signs that disappear into the lawn. Jay needed something people see from across the street and know instantly.",
