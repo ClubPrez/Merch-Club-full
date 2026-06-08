@@ -65,6 +65,11 @@ const articleJsonLd = {
     },
     {
       "@type": "ImageObject",
+      url: "https://merchclub.com/images/jay-moore-location.jpg",
+      description: "Jay Moore Landscaping fuchsia building beside Ideal Pure Water billboard on the Omaha interstate — two landmark neighbors sharing a bold color story",
+    },
+    {
+      "@type": "ImageObject",
       url: "https://merchclub.com/images/jay-moore-yard-sign-lawn.jpg",
       description: "Jay Moore Landscaping fuchsia magnolia yard sign installed in a finished residential lawn in Omaha Nebraska — branded landscaping signage",
     },
@@ -606,8 +611,8 @@ export default function CaseStudyJayMoore() {
               </p>
               <div className="rounded-2xl overflow-hidden aspect-[4/3]">
                 <img
-                  src="/images/jay-moore-nursery-shoot.jpg"
-                  alt="Photographer documenting Jay Moore Landscaping plant selection at Omaha nursery — brand shoot capturing the depth of Jay Moore's landscaping inventory and expertise"
+                  src="/images/jay-moore-location.jpg"
+                  alt="Jay Moore Landscaping fuchsia building beside Ideal Pure Water billboard on the Omaha interstate — two neighbors sharing a bold color story that turned heads across the city"
                   className="w-full h-full object-cover object-center"
                 />
               </div>
