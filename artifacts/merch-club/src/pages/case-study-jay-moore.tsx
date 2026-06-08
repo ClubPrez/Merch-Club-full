@@ -374,10 +374,13 @@ export default function CaseStudyJayMoore() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <Placeholder
-              label="Painted building + interstate sign at golden hour"
-              ratio="aspect-[4/5]"
-            />
+            <div className="rounded-2xl overflow-hidden aspect-[4/5]">
+              <img
+                src="/images/jay-moore-building.jpg"
+                alt="Jay Moore Landscaping fuchsia-painted building with magnolia sign surrounded by professional landscaping — Omaha Nebraska brand identity"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
             <Placeholder label="Hand-drawn magnolia detail on a truck door" ratio="aspect-[4/5]" />
             <Placeholder label="Magnolia yard sign on a finished lawn" ratio="aspect-[4/5]" />
           </div>
