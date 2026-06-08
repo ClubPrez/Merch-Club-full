@@ -227,20 +227,20 @@ export default function CaseStudyJayMoore() {
               <p className="text-base md:text-lg font-bold text-black leading-relaxed">
                 This is what happened next.
               </p>
-              <img
-                src="/images/jay-moore-magnolia-illustration.png"
-                alt=""
-                aria-hidden="true"
-                className="absolute pointer-events-none select-none"
-                style={{
-                  top: "calc(100% + 2.5rem)",
-                  left: "50%",
-                  width: "200px",
-                  opacity: 0.22,
-                  mixBlendMode: "multiply",
-                  transform: "translateX(-50%) rotate(-12deg)",
-                }}
-              />
+              <div className="flex justify-center mt-6">
+                <img
+                  src="/images/jay-moore-magnolia-illustration.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="pointer-events-none select-none"
+                  style={{
+                    width: "200px",
+                    opacity: 0.22,
+                    mixBlendMode: "multiply",
+                    transform: "rotate(-12deg)",
+                  }}
+                />
+              </div>
             </div>
             <div className="relative overflow-visible">
               <div className="rounded-2xl overflow-hidden aspect-[4/5]">
