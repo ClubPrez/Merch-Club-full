@@ -2,17 +2,17 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "wouter";
 import { caseStudies, industries } from "@/lib/site-data";
 import eventsThumb from "@assets/461191773_18297032593205370_5287082838877484901_n_1778693892844.jpg";
-import nurseGiftingThumb from "@assets/Blanket_4_1778000748265.png";
 import constructionThumb from "@assets/Apparel_in_the_field_1779205508007.png";
 import accessBankThumb from "@assets/Apparel_Quarter_Ziip_1779815734898.png";
 
 const thumbBySlug: Record<string, string> = {
   events: eventsThumb,
-  "nurse-gifting": nurseGiftingThumb,
   construction: constructionThumb,
   "access-bank": accessBankThumb,
-  "jay-moore-landscaping": "/images/jay-moore-thumb.jpg",
+  "jay-moore-landscaping": "/images/jay-moore-menu-tile.png",
 };
+
+const FEATURED_SLUGS = ["events", "access-bank", "construction", "jay-moore-landscaping"];
 
 interface Props {
   active?: boolean;
@@ -103,7 +103,7 @@ export function CaseStudiesMenu({ active = false, theme = "dark" }: Props) {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {caseStudies.map((cs) => {
+                {caseStudies.filter((cs) => FEATURED_SLUGS.includes(cs.slug)).sort((a, b) => FEATURED_SLUGS.indexOf(a.slug) - FEATURED_SLUGS.indexOf(b.slug)).map((cs) => {
                   const thumb = thumbBySlug[cs.slug] ?? cs.image;
                   return (
                     <Link
