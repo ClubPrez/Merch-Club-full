@@ -196,10 +196,12 @@ export default function CaseStudyJayMoore() {
         </div>
       </section>
 
-      {/* ── The Problem ─────────────────────────────────────────────────── */}
-      <section className="bg-[#f5f5f5] pt-24 md:pt-32 pb-20 md:pb-28 px-8 md:px-16 lg:px-20">
+      {/* ── The Problem + Who Is Jay ────────────────────────────────────── */}
+      <section className="bg-[#f5f5f5] pt-24 md:pt-32 pb-24 md:pb-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+            {/* Left — two text blocks with flower divider between them */}
             <div>
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">
                 The Problem
@@ -223,41 +225,21 @@ export default function CaseStudyJayMoore() {
                 the street and know instantly which Moore is which.
               </p>
               <p
-                className="text-xl md:text-2xl font-bold text-black leading-snug border-l-[3px] pl-5"
+                className="text-xl md:text-2xl font-bold text-black leading-snug border-l-[3px] pl-5 mb-10"
                 style={{ borderColor: FUCHSIA }}
               >
                 "Not 'look distinctive.' Be unmistakable."
               </p>
-            </div>
-            <div className="rounded-2xl overflow-hidden aspect-[4/3] lg:mt-0">
+
+              {/* Flower divider — left column only */}
               <img
-                src="/images/jay-moore-truck.jpg"
-                alt="Jay Moore Landscaping fuchsia-wrapped flatbed truck with American flag — Omaha's most recognizable landscaping brand"
-                className="w-full h-full object-cover"
+                src="/images/jay-moore-flowers.png"
+                alt=""
+                aria-hidden="true"
+                className="w-full my-10 select-none pointer-events-none"
+                style={{ maxWidth: "420px" }}
               />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ── Flower break ────────────────────────────────────────────────── */}
-      <section className="bg-[#f5f5f5] py-4 px-8 md:px-16 lg:px-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="rounded-3xl overflow-hidden aspect-[21/9]">
-            <img
-              src="/images/jay-moore-flowers.png"
-              alt="Lush floral arrangement — Jay Moore Landscaping brand photography"
-              className="w-full h-full object-cover object-center"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ── Who Is Jay ──────────────────────────────────────────────────── */}
-      <section className="bg-[#f5f5f5] pt-20 md:pt-28 pb-24 md:pb-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            <div>
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">
                 Who They Are
               </span>
@@ -284,7 +266,16 @@ export default function CaseStudyJayMoore() {
                 "The best salesman alive.<br />Because he never sells anyone."
               </p>
             </div>
-            <div className="flex flex-col gap-6 lg:pt-6">
+
+            {/* Right — three images stacked */}
+            <div className="flex flex-col gap-6 lg:pt-10">
+              <div className="rounded-2xl overflow-hidden aspect-[4/3]">
+                <img
+                  src="/images/jay-moore-truck.jpg"
+                  alt="Jay Moore Landscaping fuchsia-wrapped flatbed truck with American flag — Omaha's most recognizable landscaping brand"
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="rounded-2xl overflow-hidden aspect-[16/9]">
                 <img
                   src="/images/jay-moore-sign-closeup.jpg"
@@ -300,6 +291,7 @@ export default function CaseStudyJayMoore() {
                 />
               </div>
             </div>
+
           </div>
         </div>
       </section>
