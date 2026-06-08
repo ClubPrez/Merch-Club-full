@@ -581,7 +581,7 @@ export default function CaseStudyJayMoore() {
               </h2>
               <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
                 People call Jay to compliment the color — not for a quote. They say it makes
-                Omaha look bold and sophisticated to people driving past on the interstate.
+                Omaha look bold and sophisticated to travelers driving past on the interstate.
                 That's a landscaping company becoming part of how a city sees itself.
               </p>
               <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
