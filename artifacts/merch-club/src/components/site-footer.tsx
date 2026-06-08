@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "wouter";
 import logoSrc from "@assets/Social_PostsArtboard_3@3x_1775229381093.png";
 
@@ -25,6 +26,36 @@ const LEGAL_LINKS = [
 ];
 
 export function SiteFooter() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    setStatus("loading");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setEmail("");
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setErrorMsg(data.error ?? "Something went wrong. Please try again.");
+        setStatus("error");
+      }
+    } catch {
+      setErrorMsg("Network error. Please try again.");
+      setStatus("error");
+    }
+  };
+
   return (
     <footer className="bg-[#0a0a0a] border-t border-white/10">
       <div className="max-w-6xl mx-auto px-8 md:px-16 lg:px-20 pt-20 pb-10">
@@ -71,22 +102,37 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div className="md:col-span-2">
+          <div className="md:col-span-4">
             <h4 className="text-sm font-bold text-white uppercase tracking-[0.15em] mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1rem" }}>Join Our Newsletter</h4>
             <p className="text-xs text-[#666] mb-4 leading-relaxed">Exclusive offers, new product drops, and merch inspiration — straight to your inbox.</p>
-            <form onSubmit={e => e.preventDefault()} className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="flex-1 bg-[#1a1a1a] border border-white/10 rounded-full px-4 py-2.5 text-sm text-white placeholder-[#555] focus:outline-none focus:border-white/30 transition-colors"
-              />
-              <button
-                type="submit"
-                className="bg-white text-black text-xs font-bold px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors shrink-0"
-              >
-                Subscribe
-              </button>
-            </form>
+
+            {status === "success" ? (
+              <p className="text-sm text-green-400 font-medium">You're in! Thanks for subscribing.</p>
+            ) : (
+              <form onSubmit={handleSubscribe} className="flex gap-2">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  placeholder="Your email"
+                  required
+                  disabled={status === "loading"}
+                  className="flex-1 bg-[#1a1a1a] border border-white/10 rounded-full px-4 py-2.5 text-sm text-white placeholder-[#555] focus:outline-none focus:border-white/30 transition-colors disabled:opacity-50"
+                />
+                <button
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="bg-white text-black text-xs font-bold px-5 py-2.5 rounded-full hover:bg-gray-200 transition-colors shrink-0 disabled:opacity-50"
+                >
+                  {status === "loading" ? "..." : "Subscribe"}
+                </button>
+              </form>
+            )}
+
+            {status === "error" && (
+              <p className="text-[10px] text-red-400 mt-2">{errorMsg}</p>
+            )}
+
             <p className="text-[10px] text-[#444] mt-3 leading-relaxed">By subscribing, you agree to our privacy policy. Unsubscribe anytime.</p>
           </div>
         </div>
