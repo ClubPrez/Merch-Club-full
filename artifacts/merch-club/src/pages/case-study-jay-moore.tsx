@@ -327,7 +327,13 @@ export default function CaseStudyJayMoore() {
                 ever made it stronger.
               </p>
             </div>
-            <PlaceholderDark label="The fuchsia swatch / brand system" ratio="aspect-[4/3]" />
+            <div className="rounded-2xl overflow-hidden aspect-[4/3]">
+              <img
+                src="/images/jay-moore-brand-system.jpg"
+                alt="Jay Moore Landscaping brand system — Pantone 227 C fuchsia mailer with magnolia illustration and color wheel"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
           </div>
         </div>
       </section>
