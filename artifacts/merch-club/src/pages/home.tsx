@@ -49,7 +49,7 @@ import brandOnestaff from "@assets/Social_PostsArtboard_1@3x_1777583934192.png";
 import logo50MileMarch from "@assets/50_Mile_March_-_Logo_-_Single_Color_Black_1780542627135.png";
 import logoAPAH from "@assets/APAH_Single_Color_Black_1780542659870.png";
 import logoAHA from "@assets/aha_logo_nobg.png";
-import logoBackNine from "@assets/Back_Nine_1780771403944.jpg";
+import logoBackNine from "@assets/Back_Nine_Logo_1780542695681.png";
 import logoBakerGroup from "@assets/Baker_Group_Logo_With_R_Black_1780542718496.png";
 import logoBB from "@assets/BB_Logo_1780895152187.png";
 import logoBurlington from "@assets/Burlington_Capital_Logo_1780542879250.png";
@@ -59,7 +59,7 @@ import logoHologic from "@assets/Hologic_Main_Logo_PMS2756_WoTagline_17805429869
 import logoJayMoore from "@assets/jay_moore_nobg.png";
 import logoMarqeta from "@assets/marqeta_nobg.png";
 import logoPitch from "@assets/Pitch_IndividualLogos-03_1780543115104.png";
-import logoPicklemans from "@assets/picklemans_nobg.png";
+import logoPicklemans from "@assets/picklemans_logo_clean.png";
 import logoMcCoy from "@assets/McCoy_Horizontal_Logo_Black_1780543231903.png";
 import blogKittingImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_1775835373159.png";
 import blogPackagingImg from "@assets/Professional_promotional_packaging_shot_1775835373158.png";
@@ -474,7 +474,7 @@ const trustedBrands = [
   { name: "Burlington Capital",         logo: logoBurlington,     sizeClass: "h-8 md:h-10"  },
   { name: "Jay Moore Landscaping",      logo: logoJayMoore,       sizeClass: "h-9 md:h-11"  },
   { name: "Fraser Stryker",             logo: brandFraserStryker, sizeClass: "h-20 md:h-24" },
-  { name: "Federal Crop",               logo: logoFederalCrop,    sizeClass: "h-16 md:h-18" },
+  { name: "Federal Crop",               logo: logoFederalCrop,    sizeClass: "h-20 md:h-24" },
   { name: "A Place At Home",            logo: logoAPAH,           sizeClass: "h-10 md:h-12" },
   { name: "Hologic",                    logo: logoHologic,        sizeClass: "h-7 md:h-8"   },
   { name: "Back Nine",                  logo: logoBackNine,       sizeClass: "h-16 md:h-20" },
