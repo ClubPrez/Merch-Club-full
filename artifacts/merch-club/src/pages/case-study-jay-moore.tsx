@@ -727,8 +727,10 @@ export default function CaseStudyJayMoore() {
             That's the work.
             Not one loud thing. Every thing, saying the same thing — until forgetting you isn't an option.
           </p>
-          <p className="text-base md:text-lg text-[#444] leading-relaxed mb-10">
-            That's what we did for Jay. Let's do it for you.
+          <p className="text-xl md:text-2xl font-bold text-black leading-snug mb-10">
+            That's not branding. That's gravity.<br />
+            That's how a landscaper became a landmark.<br />
+            <span style={{ color: "#A1006B" }}>That's what we'll build with you.</span>
           </p>
           <div className="border-t border-black/10 pt-8 flex flex-wrap items-center gap-4">
             <button
