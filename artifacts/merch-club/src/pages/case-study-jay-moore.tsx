@@ -577,7 +577,7 @@ export default function CaseStudyJayMoore() {
                 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-black mb-6"
                 style={{ fontFamily: "'Bebas Neue', sans-serif" }}
               >
-                The Phone Rings to Say Thanks. The Neighbor Changed Colors.
+                The Phone Rings to Say Thanks.<br />The Neighbor Changed Colors.
               </h2>
               <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
                 People call Jay to compliment the color — not for a quote. They say it makes
