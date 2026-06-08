@@ -713,18 +713,17 @@ export default function Construction() {
           </Link>
 
           {/* Jay Moore Landscaping accordion */}
-          <div className="mt-10 border-t border-black/10 pt-8">
+          <div className="border-t border-black/10">
             <button
-              className="w-full flex items-center justify-between group"
+              className="w-full flex items-center justify-between py-5 text-left group"
               onClick={() => setJayMooreOpen((o) => !o)}
               aria-expanded={jayMooreOpen}
             >
-              <span className="text-sm font-bold uppercase tracking-widest text-black group-hover:text-[#A1006B] transition-colors">
+              <span className="text-base md:text-lg font-bold uppercase tracking-widest text-black group-hover:text-[#A1006B] transition-colors">
                 View Jay Moore Landscaping Case Study
               </span>
               <span
-                className="text-2xl font-light text-black/40 group-hover:text-[#A1006B] transition-all duration-300"
-                style={{ transform: jayMooreOpen ? "rotate(45deg)" : "rotate(0deg)", display: "inline-block" }}
+                className={`text-xl text-black/50 group-hover:text-[#A1006B] transition-all duration-300 shrink-0 ${jayMooreOpen ? "rotate-45" : ""}`}
               >
                 +
               </span>
