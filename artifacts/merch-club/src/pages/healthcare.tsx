@@ -501,7 +501,7 @@ export default function Healthcare() {
                 />
               </div>
               <div className="hidden md:flex absolute -top-4 -left-4 w-24 h-24 lg:w-28 lg:h-28 rounded-full bg-black text-white items-center justify-center text-[10px] font-bold uppercase tracking-[0.15em] text-center leading-tight p-3 -rotate-[8deg] shadow-xl">
-                200+ Healthcare<br />Clients
+                40+ Healthcare<br />Clients
               </div>
             </div>
           </div>
