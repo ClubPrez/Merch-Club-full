@@ -566,7 +566,7 @@ export default function Healthcare() {
           <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 md:grid-rows-2 gap-4 md:gap-5 md:auto-rows-fr" style={{ minHeight: "640px" }}>
             <RevealItem className="md:row-span-2 md:h-full">
               <div className="relative rounded-2xl overflow-hidden bg-[#0a0a0a] h-full min-h-[420px] group cursor-pointer" onClick={() => setProjectModalOpen(true)}>
-                <img src={scrubsModelImg} alt="Healthcare staff apparel programs" className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                <img src={scrubsModelImg} alt="Branded healthcare staff apparel programs — custom scrubs, polos, and clinical team uniforms for hospitals and staffing firms by Merch Club" className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-black/0" />
                 <span className="absolute top-5 right-5 w-11 h-11 rounded-full bg-white text-black flex items-center justify-center group-hover:scale-110 transition-transform">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
@@ -690,7 +690,7 @@ export default function Healthcare() {
               <RevealItem key={i} delay={i * 150}>
                 <Link href={study.href} className="group block">
                   <div className="rounded-2xl overflow-hidden border border-black/10 mb-6">
-                    <img src={study.img} alt={study.name} className="w-full h-[320px] md:h-[400px] object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={study.img} alt={`${study.name} — healthcare branded merchandise case study by Merch Club`} className="w-full h-[320px] md:h-[400px] object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <h3 className="text-xl md:text-2xl font-black text-black tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{study.name}</h3>
                   <p className="text-base md:text-lg text-[#666] leading-relaxed mb-3">{study.desc}</p>
@@ -810,7 +810,7 @@ export default function Healthcare() {
               <RevealItem key={i} delay={i * 120}>
                 <div className="relative flex items-start gap-6 group">
                   <div className="shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-xl overflow-hidden border border-white/10 bg-black">
-                    <img src={step.img} alt={step.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={step.img} alt={`${step.title} — healthcare branded apparel and merchandise program by Merch Club`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <span className="block text-2xl md:text-3xl font-black text-white/90 mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>

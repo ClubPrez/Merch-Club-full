@@ -315,7 +315,7 @@ export default function Services() {
               <RevealItem key={cap.title} delay={i * 80}>
                 <div className="group relative bg-white border border-black/10 rounded-2xl overflow-hidden hover:border-black/40 transition-colors h-full flex flex-col">
                   <div className="relative aspect-[16/10] overflow-hidden bg-[#0a0a0a]">
-                    <img src={cap.img} alt={cap.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <img src={cap.img} alt={`${cap.title} — branded merchandise service by Merch Club`} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                     <div className="absolute top-4 left-4 inline-flex items-center gap-2 bg-white text-black text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 rounded-full">
                       <span className="text-black/40">0{i + 1}</span>
@@ -377,7 +377,7 @@ export default function Services() {
                   </div>
                   <div className="hidden md:block col-span-2 lg:col-span-2">
                     <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[#1a1a1a] ring-1 ring-white/10">
-                      <img src={step.img} alt={step.title} className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+                      <img src={step.img} alt={`${step.num} ${step.title} — Merch Club branded merchandise program process`} className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
                     </div>
                   </div>
                   <div className="col-span-10 md:col-span-2 lg:col-span-2">
@@ -430,12 +430,12 @@ export default function Services() {
       <section className="bg-white py-0 border-b border-black/10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-black/10">
           {[
-            { img: editorialImg1, label: "Kitting Floor", caption: "Built-to-spec packs assembled in-house." },
-            { img: editorialImg2, label: "Decoration", caption: "Embroidery, screen print, DTG, and more." },
-            { img: editorialImg3, label: "Distribution", caption: "Direct-to-recipient — anywhere in the U.S." },
+            { img: editorialImg1, label: "Kitting Floor", caption: "Built-to-spec packs assembled in-house.", imgAlt: "Custom branded kitting floor — onboarding kits, gift boxes, and trade show packs assembled in-house by Merch Club" },
+            { img: editorialImg2, label: "Decoration", caption: "Embroidery, screen print, DTG, and more.", imgAlt: "Branded apparel decoration — embroidery, screen print, and DTG for corporate and field team merchandise programs" },
+            { img: editorialImg3, label: "Distribution", caption: "Direct-to-recipient — anywhere in the U.S.", imgAlt: "Nationwide branded merchandise distribution — direct-to-employee and multi-location fulfillment by Merch Club" },
           ].map((item, i) => (
             <div key={i} className="relative aspect-[4/5] md:aspect-[4/5] overflow-hidden bg-[#0a0a0a] group">
-              <img src={item.img} alt={item.label} className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+              <img src={item.img} alt={item.imgAlt} className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end">
                 <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/80 block mb-3">0{i + 1} — {item.label}</span>
@@ -464,7 +464,7 @@ export default function Services() {
             {industries.filter((i) => i.status === "live").map((ind, i) => (
               <RevealItem key={ind.slug} delay={i * 100}>
                 <Link href={ind.href} className="group relative block rounded-2xl overflow-hidden bg-[#141414] aspect-[3/4] hover:ring-2 hover:ring-white transition-all">
-                  <img src={industryImages[ind.slug]} alt={ind.name} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+                  <img src={industryImages[ind.slug]} alt={`${ind.name} branded apparel and merchandise programs — Merch Club industry specialization`} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/0" />
                   <div className="absolute inset-0 p-6 flex flex-col justify-end">
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70 block mb-2">{ind.tagline}</span>

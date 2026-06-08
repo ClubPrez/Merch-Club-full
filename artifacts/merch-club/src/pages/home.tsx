@@ -923,7 +923,7 @@ export default function Home() {
 
             <div className="hidden lg:flex relative items-center justify-center shrink-0">
               <div ref={circle1Ref} className="w-[200px] h-[200px] sm:w-[220px] sm:h-[220px] md:w-[240px] md:h-[240px] lg:w-[340px] lg:h-[340px] xl:w-[380px] xl:h-[380px] aspect-square rounded-full overflow-hidden relative z-10 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
-                <img src={constructionApparelImg} alt="Construction apparel" className="w-full h-full object-cover" />
+                <img src={constructionApparelImg} alt="Branded Carhartt field jacket with embroidered contractor logo — construction crew apparel program by Merch Club" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-100 hover:bg-black/40 transition-colors">
                   <Link href="/industries/construction" className="bg-white text-black text-[10px] sm:text-[11px] md:text-xs font-bold px-3 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2 rounded-full hover:bg-gray-200 transition-all hover:scale-105 inline-flex items-center gap-1.5 max-w-[85%] text-center justify-center leading-tight">
                     Construction Apparel
@@ -946,7 +946,7 @@ export default function Home() {
               </div>
 
               <div ref={circle3Ref} className="w-[200px] h-[200px] sm:w-[220px] sm:h-[220px] md:w-[240px] md:h-[240px] lg:w-[340px] lg:h-[340px] xl:w-[380px] xl:h-[380px] aspect-square rounded-full overflow-hidden -ml-8 sm:-ml-10 md:-ml-12 lg:-ml-16 relative z-30 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
-                <img src={healthcareApparelImg} alt="Healthcare apparel" className="w-full h-full object-cover" />
+                <img src={healthcareApparelImg} alt="OneStaff Medical branded healthcare staff apparel — nurse and clinical team uniform program by Merch Club" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-100 hover:bg-black/40 transition-colors">
                   <Link href="/industries/healthcare" className="bg-white text-black text-[10px] sm:text-[11px] md:text-xs font-bold px-3 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2 rounded-full hover:bg-gray-200 transition-all hover:scale-105 inline-flex items-center gap-1.5 max-w-[85%] text-center justify-center leading-tight">
                     Healthcare Apparel
@@ -972,7 +972,7 @@ export default function Home() {
                   { href: "/industries/events", img: eventsImg, label: "Events" },
                 ].map((c, i) => (
                   <Link key={`${dup}-${i}`} href={c.href} className="group relative shrink-0 w-[200px] h-[200px] sm:w-[220px] sm:h-[220px] aspect-square rounded-full overflow-hidden border-4 border-[#0a0a0a] block">
-                    <img src={c.img} alt={`${c.label} merch`} className="w-full h-full object-cover" />
+                    <img src={c.img} alt={`${c.label} branded apparel and merchandise program — industry-specific merch execution by Merch Club`} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-black/35 flex items-center justify-center">
                       <span className="bg-white text-black text-[11px] font-bold px-3.5 py-2 rounded-full inline-flex items-center gap-1.5 leading-none">
                         {c.label}
@@ -1059,7 +1059,7 @@ export default function Home() {
               ].map((item, i) => (
                 <RevealItem key={item.label} delay={200 + i * 150} className={`${i > 0 ? "sm:-ml-8 md:-ml-12 lg:-ml-16" : ""} relative`} style={undefined}>
                   <div className={`w-[170px] h-[170px] sm:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px] lg:w-[320px] lg:h-[320px] xl:w-[350px] xl:h-[350px] aspect-square rounded-full overflow-hidden border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500 relative mx-auto`} style={{ zIndex: i + 10 }}>
-                    <img src={item.img} alt={item.label} className="w-full h-full object-cover" />
+                    <img src={item.img} alt={`${item.label} branded apparel and merchandise programs — Merch Club industry execution`} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center hover:bg-black/50 transition-colors">
                       <a href={item.href} className="bg-white text-black text-xs sm:text-sm md:text-sm font-bold px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-2.5 rounded-full inline-flex items-center gap-1.5 sm:gap-2 hover:bg-gray-200 transition-all hover:scale-105" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.05em" }}>
                         {item.label}
@@ -1386,7 +1386,7 @@ export default function Home() {
                   <div key={idx} className="flex-shrink-0 w-[320px] group">
                     <div className="relative rounded-2xl overflow-hidden bg-[#f5f5f5] border border-black/5 hover:border-black/15 transition-all duration-500 h-full">
                       <div className="relative h-[220px] overflow-hidden">
-                        <img src={card.img} alt={card.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <img src={card.img} alt={`${card.title} — branded merchandise program by Merch Club`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#f5f5f5] via-transparent to-transparent" />
                       </div>
                       <div className="p-6">

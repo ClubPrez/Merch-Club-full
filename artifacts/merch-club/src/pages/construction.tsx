@@ -575,7 +575,7 @@ export default function Construction() {
 
             <RevealItem delay={200} className="md:row-span-2 md:h-full md:col-start-3 md:row-start-1">
               <div className="relative rounded-2xl overflow-hidden bg-[#0a0a0a] h-full min-h-[420px] group cursor-pointer" onClick={() => setProjectModalOpen(true)}>
-                <img src={carharttAltImg} alt="Leadership and client-facing apparel" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={carharttAltImg} alt="Leadership and client-facing branded apparel for construction project managers and site executives — Merch Club" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-black/0" />
                 <div className="absolute bottom-7 left-7 right-7">
                   <h3 className="text-3xl md:text-4xl font-black text-white mb-1.5" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>Leadership & Rollouts</h3>
@@ -898,7 +898,7 @@ export default function Construction() {
               <RevealItem key={i} delay={i * 120}>
                 <div className="relative flex items-start gap-6 group">
                   <div className="shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-xl overflow-hidden border border-white/10 bg-black">
-                    <img src={step.img} alt={step.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={step.img} alt={`${step.title} — construction branded apparel program by Merch Club`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <span className="block text-2xl md:text-3xl font-black text-white/90 mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>

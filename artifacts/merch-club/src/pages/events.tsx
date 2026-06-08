@@ -533,7 +533,7 @@ export default function Events() {
           <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-1 md:grid-rows-2 gap-4 md:gap-5 md:auto-rows-fr" style={{ minHeight: "640px" }}>
             <RevealItem className="md:row-span-2 md:h-full">
               <div className="relative rounded-2xl overflow-hidden bg-[#0a0a0a] h-full min-h-[420px] group cursor-pointer" onClick={() => setProjectModalOpen(true)}>
-                <img src={bagImg} alt="Trade show booth execution kits" className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                <img src={bagImg} alt="Branded trade show booth execution kits — custom bags, giveaways, and staff apparel for events by Merch Club" className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-black/0" />
                 <span className="absolute top-5 right-5 w-11 h-11 rounded-full bg-white text-black flex items-center justify-center group-hover:scale-110 transition-transform">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
@@ -547,7 +547,7 @@ export default function Events() {
 
             <RevealItem delay={100} className="md:h-full">
               <div className="relative rounded-2xl overflow-hidden bg-[#0a0a0a] h-full min-h-[260px] group cursor-pointer" onClick={() => setProjectModalOpen(true)}>
-                <img src={hoodieImg} alt="Staff apparel systems for events" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={hoodieImg} alt="Branded staff apparel systems for events — custom hoodies, polos, and uniforms for event teams by Merch Club" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/0" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <h3 className="text-2xl md:text-3xl font-black text-white leading-[1.05]" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>Staff Apparel<br />Systems</h3>
@@ -568,7 +568,7 @@ export default function Events() {
 
             <RevealItem delay={200} className="md:row-span-2 md:h-full md:col-start-3 md:row-start-1">
               <div className="relative rounded-2xl overflow-hidden bg-[#0a0a0a] h-full min-h-[420px] group cursor-pointer" onClick={() => setProjectModalOpen(true)}>
-                <img src={packagingImg} alt="Premium giveaway strategy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={packagingImg} alt="Premium branded giveaway strategy — curated merchandise and packaging for trade shows, conferences, and corporate events by Merch Club" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-black/0" />
                 <div className="absolute bottom-7 left-7 right-7">
                   <h3 className="text-3xl md:text-4xl font-black text-white mb-1.5" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>Premium Giveaways</h3>
@@ -657,7 +657,7 @@ export default function Events() {
               <RevealItem key={i} delay={i * 150}>
                 <div className="group cursor-pointer">
                   <div className="rounded-2xl overflow-hidden border border-black/10 mb-6">
-                    <img src={study.img} alt={study.name} className="w-full h-[280px] md:h-[320px] object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={study.img} alt={`${study.name} — events branded merchandise case study by Merch Club`} className="w-full h-[280px] md:h-[320px] object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <h3 className="text-xl md:text-2xl font-black text-black tracking-tight mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>{study.name}</h3>
                   <p className="text-base md:text-lg text-[#666] leading-relaxed">{study.desc}</p>
@@ -773,7 +773,7 @@ export default function Events() {
               <RevealItem key={i} delay={i * 120}>
                 <div className="relative flex items-start gap-6 group">
                   <div className="shrink-0 w-24 h-24 md:w-28 md:h-28 rounded-xl overflow-hidden border border-white/10 bg-black">
-                    <img src={step.img} alt={step.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={step.img} alt={`${step.title} — events branded merchandise and apparel program by Merch Club`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <span className="block text-2xl md:text-3xl font-black text-white/90 mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>{step.num}</span>

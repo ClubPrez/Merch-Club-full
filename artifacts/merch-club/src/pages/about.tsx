@@ -452,7 +452,7 @@ export default function About() {
             <RevealItem delay={200} className="lg:w-1/2 w-full" direction="right">
               <div className="relative mx-auto w-full max-w-[560px] aspect-square">
                 <div className="absolute inset-0 rounded-full overflow-hidden bg-black">
-                  <img src={missionImg} alt="OneStaff branded merchandise" className="w-full h-full object-cover" />
+                  <img src={missionImg} alt="OneStaff Medical branded merchandise and travel nurse gifting program — client work by Merch Club" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute top-4 left-4 md:top-6 md:left-6 w-28 h-28 md:w-36 md:h-36 rounded-full bg-black text-white flex flex-col items-center justify-center text-center shadow-2xl">
                   <span className="text-2xl md:text-3xl font-black leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
@@ -509,7 +509,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-8 items-stretch">
             <RevealItem delay={100} direction="left" className="lg:col-span-3">
               <div className="relative rounded-2xl overflow-hidden h-[420px] md:h-[560px] bg-black">
-                <img src={featuredCrewImg} alt="Merch Club crew" className="w-full h-full object-cover" />
+                <img src={featuredCrewImg} alt="Merch Club team executing branded merchandise programs for healthcare, construction, and corporate clients across the U.S." className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
                   <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/80 bg-white/10 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-full">
@@ -591,7 +591,7 @@ export default function About() {
 
             <RevealItem delay={200}>
               <div className="relative rounded-2xl overflow-hidden h-[260px] md:h-[300px] bg-black group">
-                <img src={wideTeamImg} alt="Merch Club work in action" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={wideTeamImg} alt="Merch Club branded merchandise production and kitting in action — custom apparel decoration and fulfillment for client programs" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-black/20" />
                 <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
                   <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white">In the field</span>

@@ -116,7 +116,7 @@ export function CaseStudiesMenu({ active = false, theme = "dark" }: Props) {
                     >
                       <img
                         src={thumb}
-                        alt={cs.client}
+                        alt={`${cs.client} branded merchandise case study — ${cs.title}`}
                         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/5" />
