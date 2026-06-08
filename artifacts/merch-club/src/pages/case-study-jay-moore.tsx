@@ -44,17 +44,53 @@ const articleJsonLd = {
   description:
     "Jay Moore trusted us with a hard call: stop blending in. Here's what happened when a tradesman bet on standing out — and we made sure it paid off.",
   datePublished: "2026-06-07",
-  author: { "@type": "Organization", name: "Merch Club" },
+  dateModified: "2026-06-08",
+  author: { "@type": "Organization", name: "Merch Club", url: "https://merchclub.com" },
   publisher: {
     "@type": "Organization",
     name: "Merch Club",
+    url: "https://merchclub.com",
     logo: { "@type": "ImageObject", url: "https://merchclub.com/opengraph.jpg" },
   },
+  image: {
+    "@type": "ImageObject",
+    url: "https://merchclub.com/images/jay-moore-hero.jpg",
+    description: "Jay Moore standing in front of his Pantone 227 C fuchsia building — Jay Moore Landscaping brand identity case study by Merch Club, Omaha Nebraska",
+  },
   mainEntityOfPage: "https://merchclub.com/case-studies/jay-moore-landscaping",
-  about: "Brand Identity & Branded Merchandise",
+  about: [
+    { "@type": "Thing", name: "Brand Identity" },
+    { "@type": "Thing", name: "Branded Merchandise" },
+    { "@type": "Thing", name: "Landscaping Marketing" },
+    { "@type": "Thing", name: "Direct Mail Marketing" },
+    { "@type": "Thing", name: "Fuchsia Brand Color Strategy" },
+  ],
   mentions: [
-    { "@type": "Organization", name: "Jay Moore Landscaping" },
-    { "@type": "Organization", name: "Ideal Pure Water" },
+    {
+      "@type": "LocalBusiness",
+      name: "Jay Moore Landscaping",
+      description: "Premium landscaping design and outdoor living in Omaha, Nebraska. 40 years of experience, custom lawns, pergolas, and landscape architecture.",
+      telephone: "402-981-7800",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Omaha",
+        addressRegion: "NE",
+        addressCountry: "US",
+      },
+      url: "https://jaymoore.com",
+      brand: { "@type": "Brand", name: "Jay Moore Landscaping", description: "Pantone 227 C fuchsia — the most recognizable brand color in Omaha landscaping" },
+    },
+    {
+      "@type": "LocalBusiness",
+      name: "Ideal Pure Water",
+      description: "Family-owned Omaha water delivery business operating for over 100 years. Neighbor of Jay Moore Landscaping on the Omaha interstate.",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Omaha",
+        addressRegion: "NE",
+        addressCountry: "US",
+      },
+    },
   ],
 };
 
@@ -83,8 +119,8 @@ const badIdeas = [
     body: "The biggest flagpole in Omaha, right off the interstate. Instead of a normal flag, a giant white #1 on a fuchsia field. No logo, no words, just the number — a thirty-foot monument to self-belief you could read from a passing semi. Jay went and put up a giant flagpole. He just didn't fly the flag we designed.",
     reaction: "He's wrong, but he's the client.",
     reactionFuchsia: true,
-    image: null,
-    imageAlt: "",
+    image: "/images/jay-moore-bad-idea-flag.jpg",
+    imageAlt: "Jay Moore standing beneath his giant fuchsia #1 flag on the Omaha interstate flagpole — Bad Idea #03 The Flag, with Ideal Pure Water billboard visible in background",
   },
 ];
 
@@ -104,7 +140,7 @@ export default function CaseStudyJayMoore() {
         type="article"
         image="/images/jay-moore-thumb.jpg"
         imageAlt="Jay Moore Landscaping fuchsia building with brand sign — brand system case study by Merch Club"
-        keywords="jay moore landscaping, brand system, fuchsia brand identity, landscaping brand case study, omaha landscaping brand, merch club case study, brand color strategy, branded merchandise landscaping"
+        keywords="jay moore landscaping, omaha landscaping company, fuchsia brand identity, pantone 227 c brand color, landscaping brand case study, omaha landscaping brand, merch club case study, brand color strategy, branded merchandise landscaping, how to brand a landscaping company, landscaping company marketing omaha, branded yard signs, direct mail landscaping marketing, landscaping company logo omaha nebraska, stand out landscaping brand, custom branded merch for contractors"
         jsonLd={[buildBreadcrumbJsonLd(breadcrumbs), articleJsonLd]}
       />
 
@@ -145,7 +181,7 @@ export default function CaseStudyJayMoore() {
           <div className="rounded-2xl overflow-hidden aspect-[16/9]">
             <img
               src="/images/jay-moore-hero.jpg"
-              alt="Jay Moore standing in front of his fuchsia-painted building — Jay Moore Landscaping, Omaha"
+              alt="Jay Moore, owner of Jay Moore Landscaping, standing arms crossed in front of his Pantone 227 C fuchsia building and magnolia sign in Omaha Nebraska"
               className="w-full h-full object-cover"
             />
           </div>
@@ -179,7 +215,7 @@ export default function CaseStudyJayMoore() {
               <div className="rounded-2xl overflow-hidden aspect-[4/5]">
                 <img
                   src="/images/jay-moore-portrait.jpg"
-                  alt="Jay Moore in his plant nursery wearing a branded Jay Moore Landscaping shirt"
+                  alt="Jay Moore smiling in his plant nursery wearing a branded Jay Moore Landscaping long-sleeve shirt — 40 years of landscaping experience in Omaha Nebraska"
                   className="w-full h-full object-cover object-center"
                 />
               </div>
@@ -278,7 +314,7 @@ export default function CaseStudyJayMoore() {
               <div className="rounded-xl lg:rounded-2xl overflow-hidden aspect-[4/3]">
                 <img
                   src="/images/jay-moore-truck.jpg"
-                  alt="Jay Moore Landscaping fuchsia-wrapped flatbed truck with American flag — Omaha's most recognizable landscaping brand"
+                  alt="Jay Moore Landscaping fuchsia-wrapped flatbed truck flying an American flag — the most recognizable branded vehicle in Omaha Nebraska landscaping"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -299,7 +335,7 @@ export default function CaseStudyJayMoore() {
               <div className="rounded-xl lg:rounded-2xl overflow-hidden aspect-[4/3] lg:aspect-[16/9]">
                 <img
                   src="/images/jay-moore-pergola.jpg"
-                  alt="Wooden pergola at sunset with fuchsia sky — Jay Moore Landscaping craftsmanship, Omaha Nebraska"
+                  alt="Custom wood pergola built by Jay Moore Landscaping at golden hour — outdoor living design and landscape architecture in Omaha Nebraska"
                   className="w-full h-full object-cover object-center"
                 />
               </div>
