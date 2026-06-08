@@ -217,6 +217,7 @@ export default function Construction() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const [projectModalOpen, setProjectModalOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [jayMooreOpen, setJayMooreOpen] = useState(false);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [testimonialPaused, setTestimonialPaused] = useState(false);
   const [testimonialFade, setTestimonialFade] = useState(true);
@@ -710,6 +711,84 @@ export default function Construction() {
               </RevealItem>
             </div>
           </Link>
+
+          {/* Jay Moore Landscaping accordion */}
+          <div className="mt-10 border-t border-black/10 pt-8">
+            <button
+              className="w-full flex items-center justify-between group"
+              onClick={() => setJayMooreOpen((o) => !o)}
+              aria-expanded={jayMooreOpen}
+            >
+              <span className="text-sm font-bold uppercase tracking-widest text-black group-hover:text-[#A1006B] transition-colors">
+                View Jay Moore Landscaping Case Study
+              </span>
+              <span
+                className="text-2xl font-light text-black/40 group-hover:text-[#A1006B] transition-all duration-300"
+                style={{ transform: jayMooreOpen ? "rotate(45deg)" : "rotate(0deg)", display: "inline-block" }}
+              >
+                +
+              </span>
+            </button>
+
+            <div
+              className="overflow-hidden transition-all duration-500"
+              style={{ maxHeight: jayMooreOpen ? "800px" : "0", opacity: jayMooreOpen ? 1 : 0 }}
+            >
+              <div className="pt-8">
+                <Link href="/case-studies/jay-moore-landscaping" className="group block">
+                  <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-stretch">
+                    <div className="lg:col-span-3">
+                      <div className="relative rounded-2xl overflow-hidden border border-black/10 h-full min-h-[280px]">
+                        <img
+                          src="/images/jay-moore-building-hero.png"
+                          alt="Jay Moore Landscaping fuchsia building exterior"
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+                        />
+                        <div className="absolute top-5 left-5 flex items-center gap-2">
+                          <span className="text-[10px] font-bold uppercase tracking-[0.2em] bg-white text-black px-2.5 py-1 rounded-full">Case Study</span>
+                          <span className="text-[10px] font-bold uppercase tracking-[0.2em] bg-black/60 text-white px-2.5 py-1 rounded-full backdrop-blur-sm">Landscaping</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="lg:col-span-2">
+                      <div className="h-full flex flex-col">
+                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-3">Jay Moore Landscaping · 2024+</span>
+                        <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-black tracking-tight leading-[0.95] mb-5" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                          How a Landscaper Became a Landmark.
+                        </h3>
+                        <p className="text-base md:text-lg text-[#555] leading-relaxed mb-6">
+                          A landscaper drowning in a sea of green — sharing his name with a competitor across town. We gave him one color nobody else would touch, and built every surface it lives on. Today people give directions by his building.
+                        </p>
+
+                        <div className="grid grid-cols-3 gap-3 mb-7">
+                          <div className="bg-[#f5f5f5] rounded-xl p-4">
+                            <div className="text-2xl md:text-3xl font-black leading-none mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>210K+</div>
+                            <div className="text-[9px] uppercase tracking-[0.15em] text-[#666] leading-tight">Vehicles past his interchange daily</div>
+                          </div>
+                          <div className="bg-[#f5f5f5] rounded-xl p-4">
+                            <div className="text-2xl md:text-3xl font-black leading-none mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", color: "#A1006B" }}>227 C</div>
+                            <div className="text-[9px] uppercase tracking-[0.15em] text-[#666] leading-tight">The color he owns</div>
+                          </div>
+                          <div className="bg-[#f5f5f5] rounded-xl p-4">
+                            <div className="text-2xl md:text-3xl font-black leading-none mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>1 of 1</div>
+                            <div className="text-[9px] uppercase tracking-[0.15em] text-[#666] leading-tight">Fuchsia-owned in his market</div>
+                          </div>
+                        </div>
+
+                        <span className="mt-auto inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-black group-hover:gap-3 transition-all">
+                          Read the Case Study
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
 
           <RevealItem delay={300}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 md:mt-16">
