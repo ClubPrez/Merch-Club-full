@@ -417,7 +417,7 @@ export default function CaseStudyJayMoore() {
               },
               {
                 label: "The Welcome",
-                title: "A luxe denim journal at the first meeting.",
+                title: "A luxe Denik journal at the first meeting.",
                 body: "Because Jay wants you taking notes and asking questions. The best designs come from collaboration, not a menu.",
               },
               {
@@ -458,7 +458,7 @@ export default function CaseStudyJayMoore() {
               label="Mailer collection fanned to show soft-touch finish"
               ratio="aspect-square"
             />
-            <Placeholder label="Denim journal at first client meeting" ratio="aspect-square" />
+            <Placeholder label="Denik journal at first client meeting" ratio="aspect-square" />
             <Placeholder
               label="Floral package unboxed — drinkware, to-do list, fuchsia marker"
               ratio="aspect-square"
