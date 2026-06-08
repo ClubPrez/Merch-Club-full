@@ -290,6 +290,13 @@ export default function CaseStudyJayMoore() {
                   className="w-full h-full object-cover object-top"
                 />
               </div>
+              <div className="rounded-2xl overflow-hidden aspect-[16/9]">
+                <img
+                  src="/images/jay-moore-pergola.jpg"
+                  alt="Wooden pergola at sunset with fuchsia sky — Jay Moore Landscaping craftsmanship, Omaha Nebraska"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
             </div>
 
           </div>
