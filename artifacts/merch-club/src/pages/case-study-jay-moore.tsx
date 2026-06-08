@@ -468,11 +468,20 @@ export default function CaseStudyJayMoore() {
                 className="w-full h-full object-cover object-center"
               />
             </div>
-            <Placeholder
-              label="Floral package unboxed — drinkware, to-do list, fuchsia marker"
-              ratio="aspect-square"
-            />
-            <Placeholder label="Behind-the-scenes photo shoot frame" ratio="aspect-square" />
+            <div className="aspect-square rounded-2xl overflow-hidden">
+              <img
+                src="/images/jay-moore-floral-package.jpg"
+                alt="Jay Moore Landscaping client welcome package — fuchsia gift box, branded Tervis drinkware, magnolia to-do pads, and pen — Omaha Nebraska"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+            <div className="aspect-square rounded-2xl overflow-hidden">
+              <img
+                src="/images/jay-moore-location.jpg"
+                alt="Jay Moore Landscaping fuchsia building beside Ideal Pure Water billboard on Omaha interstate — two neighbors sharing a bold color story"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -521,10 +530,13 @@ export default function CaseStudyJayMoore() {
               >
                 "Oh yeah, next to the beautiful pink building."
               </p>
-              <Placeholder
-                label="Jay's fuchsia building + Ideal's pink billboard — same interstate, one frame"
-                ratio="aspect-[4/3]"
-              />
+              <div className="rounded-2xl overflow-hidden aspect-[4/3]">
+                <img
+                  src="/images/jay-moore-location.jpg"
+                  alt="Jay Moore Landscaping fuchsia building and Ideal Pure Water billboard side by side on the Omaha interstate — a century-old neighbor rebranded to pink after Jay owned the color"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
             </div>
           </div>
         </div>
