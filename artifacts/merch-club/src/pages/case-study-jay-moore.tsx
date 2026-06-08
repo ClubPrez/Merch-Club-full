@@ -310,7 +310,7 @@ export default function CaseStudyJayMoore() {
                 alt=""
                 aria-hidden="true"
                 className="w-full select-none pointer-events-none"
-                style={{ maxWidth: "380px", mixBlendMode: "multiply", marginTop: "3rem", marginBottom: "3.5rem" }}
+                style={{ maxWidth: "380px", mixBlendMode: "multiply", marginTop: "3rem", marginBottom: "3.5rem", opacity: 0.22 }}
               />
 
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-5">
