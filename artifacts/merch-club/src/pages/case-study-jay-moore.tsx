@@ -233,8 +233,8 @@ export default function CaseStudyJayMoore() {
                 aria-hidden="true"
                 className="absolute pointer-events-none select-none"
                 style={{
-                  bottom: "-4rem",
-                  right: "-1rem",
+                  top: "calc(100% + 1.5rem)",
+                  left: "20%",
                   width: "220px",
                   opacity: 0.22,
                   mixBlendMode: "multiply",
