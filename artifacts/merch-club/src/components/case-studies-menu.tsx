@@ -12,7 +12,7 @@ const thumbBySlug: Record<string, string> = {
   "jay-moore-landscaping": "/images/jay-moore-menu-tile.png",
 };
 
-const FEATURED_SLUGS = ["events", "access-bank", "construction", "jay-moore-landscaping"];
+const FEATURED_SLUGS = ["events", "nurse-gifting", "access-bank", "construction", "jay-moore-landscaping"];
 
 interface Props {
   active?: boolean;
@@ -96,7 +96,7 @@ export function CaseStudiesMenu({ active = false, theme = "dark" }: Props) {
                     Programs We've <span className="text-[#888]">Built.</span>
                   </h3>
                 </div>
-                <Link href="/case-studies" className="hidden md:inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-black/60 hover:text-black transition-colors whitespace-nowrap">
+                <Link href="/case-studies" onClick={() => setOpen(false)} className="hidden md:inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-black/60 hover:text-black transition-colors whitespace-nowrap">
                   View All
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                 </Link>
@@ -177,6 +177,7 @@ export function CaseStudiesMenu({ active = false, theme = "dark" }: Props) {
               <div className="flex items-center gap-3">
                 <Link
                   href="/case-studies"
+                  onClick={() => setOpen(false)}
                   className="text-[10px] font-bold uppercase tracking-[0.15em] text-black/70 hover:text-black transition-colors"
                 >
                   Browse All
