@@ -227,20 +227,6 @@ export default function CaseStudyJayMoore() {
               <p className="text-base md:text-lg font-bold text-black leading-relaxed">
                 This is what happened next.
               </p>
-              <img
-                src="/images/jay-moore-magnolia-illustration.png"
-                alt=""
-                aria-hidden="true"
-                className="absolute pointer-events-none select-none"
-                style={{
-                  top: "-2rem",
-                  right: "-1rem",
-                  width: "200px",
-                  opacity: 0.22,
-                  mixBlendMode: "multiply",
-                  transform: "rotate(8deg)",
-                }}
-              />
             </div>
             <div className="relative overflow-visible">
               <div className="rounded-2xl overflow-hidden aspect-[4/5]">
