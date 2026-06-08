@@ -51,7 +51,7 @@ import logoAPAH from "@assets/APAH_Single_Color_Black_1780542659870.png";
 import logoAHA from "@assets/aha_logo_nobg.png";
 import logoBackNine from "@assets/Back_Nine_1780771403944.jpg";
 import logoBakerGroup from "@assets/Baker_Group_Logo_With_R_Black_1780542718496.png";
-import logoBB from "@assets/BB_Logo_1780543903363.png";
+import logoBB from "@assets/BB_Logo_1780895152187.png";
 import logoBurlington from "@assets/Burlington_Capital_Logo_1780542879250.png";
 import logoF3 from "@assets/F3_Logo_1780542913430.png";
 import logoFederalCrop from "@assets/FederalCrop_Logo_1780542945995.png";
