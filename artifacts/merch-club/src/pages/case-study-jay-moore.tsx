@@ -62,7 +62,7 @@ const badIdeas = [
   {
     n: "01",
     title: "The Lemonade Stand",
-    body: "Finish a job, set up a free lemonade stand on the brand-new lawn. Neighbors wander over to get refreshed and leave wondering who turned the yard next door into something out of a magazine. Suburbia runs on keeping up with the Joneses. We'd just make sure the Joneses were handing out pink lemonade.",
+    body: "Finish a job, set up a free lemonade stand on the brand-new lawn. Neighbors wander over and leave wondering who turned the yard next door into something out of a magazine. Suburbia runs on keeping up with the Joneses — so we'd make sure the Joneses were handing out pink lemonade, and pretty soon the whole block is jonesin' for Jay.",
     reaction: "Jay said maybe.",
     reactionFuchsia: false,
     image: "/images/jay-moore-bad-idea-lemonade.jpg",
