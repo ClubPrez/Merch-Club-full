@@ -74,8 +74,8 @@ const badIdeas = [
     body: "Every promo company slaps a logo on a koozie. Nobody makes the branded rolling tray. Among adults 35 to 50, about four in five drank in the past year, and one in three used THC. That's a third of the prime homeowner market, and not one landscaping company in the country is talking to them. Be the first. Also, it's all plants.",
     reaction: "Jay said 'we'll see.'",
     reactionFuchsia: false,
-    image: null,
-    imageAlt: "",
+    image: "/images/jay-moore-bad-idea-weed-tray.jpg",
+    imageAlt: "Jay Moore Landscaping branded rolling tray with fuchsia magnolia illustration — the Bad Idea #02 mockup",
   },
   {
     n: "03",
