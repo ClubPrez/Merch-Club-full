@@ -456,15 +456,15 @@ export default function CaseStudyJayMoore() {
             </div>
             <div className="rounded-2xl overflow-hidden aspect-[4/5]">
               <img
-                src="/images/jay-moore-yard-sign.jpg"
-                alt="Jay Moore Landscaping branded yard sign with fuchsia magnolia illustration on a professionally landscaped Omaha home — custom landscaping signage that homeowners actually want on their lawn"
+                src="/images/jay-moore-yard-sign-lawn.jpg"
+                alt="Jay Moore Landscaping magnolia yard sign planted in a lush finished lawn in Omaha Nebraska — fuchsia branded landscaping signage on a completed residential project"
                 className="w-full h-full object-cover object-center"
               />
             </div>
             <div className="rounded-2xl overflow-hidden aspect-[4/5]">
               <img
-                src="/images/jay-moore-yard-sign-lawn.jpg"
-                alt="Jay Moore Landscaping magnolia yard sign planted in a lush finished lawn in Omaha Nebraska — fuchsia branded landscaping signage on a completed residential project"
+                src="/images/jay-moore-yard-sign.jpg"
+                alt="Jay Moore Landscaping branded yard sign with fuchsia magnolia illustration on a professionally landscaped Omaha home — custom landscaping signage that homeowners actually want on their lawn"
                 className="w-full h-full object-cover object-center"
               />
             </div>
