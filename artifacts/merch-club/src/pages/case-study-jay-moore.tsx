@@ -133,7 +133,7 @@ const badIdeas = [
   {
     n: "03",
     title: "The Flag",
-    body: "The biggest flagpole in Omaha, right off the interstate. Instead of a normal flag, a giant white #1 on a fuchsia field. No logo, no words, just the number — a thirty-foot monument to self-belief you could read from a passing semi. Jay went and put up a giant flagpole. He just didn't fly the flag we designed.",
+    body: "The biggest flagpole in Omaha, right off the interstate. Instead of a normal flag, a giant white #1 on a fuchsia canvas. No logo, no words, just the number — a thirty-foot monument to self-belief you could read from a passing semi. Jay went and put up a giant flagpole. He just didn't fly the flag we designed.",
     reaction: "He's wrong, but he's the client.",
     reactionFuchsia: true,
     image: "/images/jay-moore-bad-idea-flag.jpg",
