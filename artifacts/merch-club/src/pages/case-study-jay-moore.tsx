@@ -228,15 +228,15 @@ export default function CaseStudyJayMoore() {
                 This is what happened next.
               </p>
               <img
-                src="/images/jay-moore-flowers.png"
+                src="/images/jay-moore-magnolia-illustration.png"
                 alt=""
                 aria-hidden="true"
                 className="absolute pointer-events-none select-none"
                 style={{
                   bottom: "-4rem",
                   right: "-1rem",
-                  width: "200px",
-                  opacity: 0.10,
+                  width: "220px",
+                  opacity: 0.22,
                   mixBlendMode: "multiply",
                   transform: "rotate(-15deg)",
                 }}
