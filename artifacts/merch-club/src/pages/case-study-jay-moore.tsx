@@ -199,24 +199,24 @@ export default function CaseStudyJayMoore() {
       {/* ── The Problem + Who Is Jay ────────────────────────────────────── */}
       <section className="bg-[#f5f5f5] pt-24 md:pt-32 pb-24 md:pb-32 px-8 md:px-16 lg:px-20">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-start">
 
             {/* Left — two text blocks with flower divider between them */}
             <div>
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-5">
                 The Problem
               </span>
               <h2
-                className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-black mb-6"
+                className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-black mb-8"
                 style={{ fontFamily: "'Bebas Neue', sans-serif" }}
               >
                 Two Landscapers.<br />One Name.<br />One Color to Settle It.
               </h2>
-              <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
+              <p className="text-base md:text-lg text-[#444] leading-relaxed mb-6">
                 The landscaping industry has a sameness problem — green logos, generic trucks,
                 yard signs that vanish into the lawn.
               </p>
-              <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
+              <p className="text-base md:text-lg text-[#444] leading-relaxed mb-6">
                 Jay had it worse: there was already another Moore Landscaping in Omaha. Same
                 name, same city, same category.
               </p>
@@ -225,7 +225,7 @@ export default function CaseStudyJayMoore() {
                 the street and know instantly which Moore is which.
               </p>
               <p
-                className="text-xl md:text-2xl font-bold text-black leading-snug border-l-[3px] pl-5 mb-10"
+                className="text-xl md:text-2xl font-bold text-black leading-snug border-l-[3px] pl-5"
                 style={{ borderColor: FUCHSIA }}
               >
                 "Not 'look distinctive.' Be unmistakable."
@@ -236,20 +236,20 @@ export default function CaseStudyJayMoore() {
                 src="/images/jay-moore-flowers.png"
                 alt=""
                 aria-hidden="true"
-                className="w-full my-10 select-none pointer-events-none"
-                style={{ maxWidth: "420px", mixBlendMode: "multiply" }}
+                className="w-full select-none pointer-events-none"
+                style={{ maxWidth: "380px", mixBlendMode: "multiply", marginTop: "3rem", marginBottom: "3.5rem" }}
               />
 
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-5">
                 Who They Are
               </span>
               <h2
-                className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-black mb-6"
+                className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[0.95] text-black mb-8"
                 style={{ fontFamily: "'Bebas Neue', sans-serif" }}
               >
                 Jay Doesn't Sell.<br />He Listens.
               </h2>
-              <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
+              <p className="text-base md:text-lg text-[#444] leading-relaxed mb-6">
                 The outside of your home is one of the most important rooms in it, and Jay treats
                 it that way. He's part psychologist, part anthropologist — he asks how you
                 actually live, who hosts, who needs privacy, who's drowning in maintenance, then
@@ -267,30 +267,30 @@ export default function CaseStudyJayMoore() {
               </p>
             </div>
 
-            {/* Right — three images stacked */}
-            <div className="flex flex-col gap-6 lg:pt-10">
-              <div className="rounded-2xl overflow-hidden aspect-[4/3]">
+            {/* Right — 2×2 grid on mobile, stacked column on desktop */}
+            <div className="grid grid-cols-2 gap-3 lg:flex lg:flex-col lg:gap-5 lg:pt-12">
+              <div className="rounded-xl lg:rounded-2xl overflow-hidden aspect-[4/3]">
                 <img
                   src="/images/jay-moore-truck.jpg"
                   alt="Jay Moore Landscaping fuchsia-wrapped flatbed truck with American flag — Omaha's most recognizable landscaping brand"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="rounded-2xl overflow-hidden aspect-[16/9]">
+              <div className="rounded-xl lg:rounded-2xl overflow-hidden aspect-[4/3] lg:aspect-[16/9]">
                 <img
                   src="/images/jay-moore-sign-closeup.jpg"
                   alt="Jay Moore Landscaping illuminated sign on fuchsia building at sunset — bold brand identity in Omaha Nebraska"
                   className="w-full h-full object-cover object-center"
                 />
               </div>
-              <div className="rounded-2xl overflow-hidden aspect-[4/3]">
+              <div className="rounded-xl lg:rounded-2xl overflow-hidden aspect-[4/3]">
                 <img
                   src="/images/jay-moore-headshot.jpg"
                   alt="Jay Moore, owner of Jay Moore Landscaping in Omaha Nebraska, photographed among lush greenery"
                   className="w-full h-full object-cover object-top"
                 />
               </div>
-              <div className="rounded-2xl overflow-hidden aspect-[16/9]">
+              <div className="rounded-xl lg:rounded-2xl overflow-hidden aspect-[4/3] lg:aspect-[16/9]">
                 <img
                   src="/images/jay-moore-pergola.jpg"
                   alt="Wooden pergola at sunset with fuchsia sky — Jay Moore Landscaping craftsmanship, Omaha Nebraska"
