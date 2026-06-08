@@ -449,7 +449,7 @@ export default function CaseStudyJayMoore() {
               className="text-xl md:text-2xl font-bold text-black leading-snug border-l-[3px] pl-5"
               style={{ borderColor: FUCHSIA }}
             >
-              "Recognition isn't built in one impression. It's built in seven."
+              "No single thing made Jay unforgettable. Everything did."
             </p>
           </div>
 
