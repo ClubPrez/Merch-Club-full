@@ -233,12 +233,12 @@ export default function CaseStudyJayMoore() {
                 aria-hidden="true"
                 className="absolute pointer-events-none select-none"
                 style={{
-                  bottom: "-1rem",
+                  top: "-2rem",
                   right: "-1rem",
-                  width: "180px",
-                  opacity: 0.2,
+                  width: "200px",
+                  opacity: 0.22,
                   mixBlendMode: "multiply",
-                  transform: "rotate(-28deg)",
+                  transform: "rotate(8deg)",
                 }}
               />
             </div>
