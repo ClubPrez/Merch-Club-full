@@ -1138,7 +1138,7 @@ export default function Home() {
                 <RevealItem delay={300}>
                   <blockquote className="border-l-2 border-black/15 pl-5 mb-8">
                     <p className="text-base md:text-lg text-black/80 leading-relaxed font-medium italic">
-                      "Yo. The traveler holiday gifts were a hit. Merch Club made the process easy, brought us ideas that didn't feel cookie-cutter, and helped us send something that actually felt thoughtful. That's always the bar for us, and they nailed it."
+                      "Heyo. The traveler holiday gifts were a hit. Merch Club made the process easy, brought us ideas that didn't feel cookie-cutter, and helped us send something that actually felt thoughtful. That's always the bar for us, and they nailed it."
                     </p>
                     <footer className="mt-4">
                       <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#888]">Marketing Director</span>
