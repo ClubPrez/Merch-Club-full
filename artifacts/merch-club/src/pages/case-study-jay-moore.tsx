@@ -237,7 +237,7 @@ export default function CaseStudyJayMoore() {
                 alt=""
                 aria-hidden="true"
                 className="w-full my-10 select-none pointer-events-none"
-                style={{ maxWidth: "420px" }}
+                style={{ maxWidth: "420px", mixBlendMode: "multiply" }}
               />
 
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">
