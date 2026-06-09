@@ -1,0 +1,35 @@
+Our site is a Vite + React SPA (Wouter routing) deployed to Vercel via GitHub.
+The production HTML ships with an empty <body><div id="root"></div></body> —
+all content is injected by JavaScript after load. This is causing Google to see
+empty pages and not index them. Fix this by adding build-time prerendering so
+every route ships as static HTML with its real content (H1, body copy, etc.)
+baked into the raw HTML.
+
+REQUIREMENTS:
+- Add prerendering to the Vite build. Use vite-plugin-prerender, vite-plugin-ssg,
+  or react-snap — whichever integrates most cleanly with our current vite.config
+  and our Vercel build pipeline. Pick the one least likely to break the existing
+  build.
+- Prerender ALL routes (every page in the Wouter router): homepage, all case
+  study pages, about, contact, tools pages, legal pages, and any others. Generate
+  a static HTML file per route with that route's full rendered content in the
+  <body>.
+- Each route's prerendered HTML must keep its existing per-page <head> tags
+  (title, meta description, canonical, OG, Twitter) — do not regress the metadata
+  that's already working.
+- The Google Analytics gtag script in <head> must remain intact.
+- After building, the raw HTML for each route (View Source, not the rendered DOM)
+  must contain the page's H1 and visible text content. This is the acceptance
+  test — if the <body> is still just <div id="root"></div>, it failed.
+
+VERIFY BEFORE FINALIZING:
+- Run the production build and paste the first 40 lines of the BODY (not head) of
+  the built index.html for the homepage AND one case study page, so I can confir
+  real content is present in the static HTML.
+- Confirm the build still deploys cleanly to Vercel with no routing breakage
+  (client-side navigation must still work after the initial static load).
+- Show me which prerender plugin you used and the config changes.
+
+DO NOT change any page's content, copy, routing logic, or design. This is purely
+a build-output change so content ships in the HTML. Show me the diff of config
+files changed.

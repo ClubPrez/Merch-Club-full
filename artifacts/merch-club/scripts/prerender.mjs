@@ -1,63 +1,141 @@
 #!/usr/bin/env node
 /**
- * Build-time prerender: generates route-specific HTML files with all meta
- * tags, canonical, OG/Twitter, JSON-LD, and visible body content baked in.
+ * Build-time prerender: generates a static HTML file per route with the page's
+ * real React content (H1, body copy, navigation) baked into the raw HTML.
  *
- * Runs as `postbuild` via: node scripts/prerender.mjs
- * Requires the Vite build to have already output dist/public/index.html.
+ * Strategy:
+ *  1. Build an SSR bundle via `vite build --config vite.ssr.config.ts`
+ *  2. Import the SSR bundle and call render(url) for each route
+ *  3. Inject the rendered HTML into the Vite-built index.html template
+ *  4. Update per-route <head> tags (title, description, canonical, OG, Twitter)
+ *  5. Write each route to dist/public/<route>/index.html
+ *
+ * Runs automatically as `postbuild` — no manual invocation needed.
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DIST = path.join(__dirname, '..', 'dist', 'public');
+const ROOT = path.join(__dirname, '..');
+const DIST = path.join(ROOT, 'dist', 'public');
+const SERVER_DIST = path.join(ROOT, 'dist', 'server');
 const BASE_URL = 'https://merchclub.com';
 
 // ---------------------------------------------------------------------------
-// Helpers
+// Per-route metadata — title, description, canonical injected into <head>.
+// Titles mirror the SEO component's logic:
+//   path="/"  → "Merch Club — Full-Service Branded Merchandise"
+//   others    → "{title} | Merch Club"
 // ---------------------------------------------------------------------------
+const ROUTE_META = {
+  '/': {
+    title: 'Merch Club — Full-Service Branded Merchandise',
+    description:
+      'Full-service branded merchandise programs for teams that take their brand seriously. Strategy, design, proofing, production, kitting, and nationwide distribution — handled by one team.',
+  },
+  '/about': {
+    title: 'About Us | Merch Club',
+    description:
+      "Meet the team behind Merch Club. We're a full-service branded merchandise partner built on quality, speed, and relationships that last across every program we run.",
+  },
+  '/services': {
+    title: 'Services | Merch Club',
+    description:
+      'End-to-end branded merchandise services: strategy, design, sourcing, production, kitting, and nationwide distribution — one accountable team handling it all.',
+  },
+  '/contact': {
+    title: 'Contact | Merch Club',
+    description:
+      'Talk to the Merch Club team. Project inquiries, partnerships, press, and careers — we respond within one business day. Headquartered in Omaha, serving teams nationwide.',
+  },
+  '/blog': {
+    title: 'Blog — Insights & Ideas | Merch Club',
+    description:
+      'Strategy, branding, and operations thinking for teams that take their merch seriously. Read the latest from the Merch Club blog on merch programs, kitting, design, and brand experience.',
+  },
+  '/industries': {
+    title: 'Industries We Serve | Merch Club',
+    description:
+      'Branded merchandise programs built for healthcare, construction, corporate, and trade show & event teams that need brand consistency, compliance, and operational structure at scale.',
+  },
+  '/industries/healthcare': {
+    title: 'Healthcare Branded Merchandise Programs | Merch Club',
+    description:
+      'Structured branded merchandise programs for hospitals, healthcare networks, specialty clinics, and medical organizations. Strategy, design, sourcing, kitting, and multi-site distribution — handled by one team.',
+  },
+  '/industries/construction': {
+    title: 'Construction & Trades Branded Apparel Programs | Merch Club',
+    description:
+      'Structured branded apparel and merchandise programs for construction firms, skilled trades, contractors, and field teams. Sourcing, decoration, production, and distribution — handled by one team.',
+  },
+  '/industries/corporate': {
+    title: 'Corporate Multi-Location Branded Merchandise Programs | Merch Club',
+    description:
+      'Structured branded merchandise programs for corporate organizations operating across multiple offices, regions, and departments. Onboarding kits, internal apparel systems, gifting initiatives, and national rollouts — handled by one team.',
+  },
+  '/industries/events': {
+    title: 'Trade Show & Event Branded Merchandise Programs | Merch Club',
+    description:
+      'Structured branded merchandise programs for trade shows, conferences, recruiting events, and activations. Apparel, premium giveaways, booth kits, and venue logistics — handled end to end.',
+  },
+  '/case-studies': {
+    title: 'Case Studies — Branded Merchandise Programs | Merch Club',
+    description:
+      'Real branded merchandise programs Merch Club has executed — staff apparel rollouts, donor stewardship kits, and onboarding programs with measurable results.',
+  },
+  '/case-studies/nurse-gifting': {
+    title: 'Nurse Gifting — Travel Nurse Programs for OneStaff Medical | Merch Club',
+    description:
+      'How Merch Club ran nurse gifting for OneStaff Medical for Nurses Week and the holidays — designed around their wanderlust brand and built for life on the road.',
+  },
+  '/case-studies/events': {
+    title: 'OneStaff Medical Trade Show Activation Case Study | Merch Club',
+    description:
+      "How an 80's hip hop themed activation made OneStaff Medical the most talked-about booth at the biggest healthcare recruiting trade show — beating bigger budgets by 10x.",
+  },
+  '/case-studies/construction': {
+    title: 'Baker Group — A Long-Term Construction Merch Partnership | Merch Club',
+    description:
+      "What it looks like when your merch team isn't a vendor. Three-plus years embedded with Baker Group — field apparel, executive gear, gifting, trade shows, and a 60th-anniversary beer brewed in Des Moines.",
+  },
+  '/case-studies/access-bank': {
+    title: 'ACCESSbank Corporate Gifting Case Study | Merch Club',
+    description:
+      "How Merch Club built ACCESSbank's shareholder, executive, and employee gifting programs — including a book on the art of toasting we wrote and illustrated ourselves.",
+  },
+  '/case-studies/jay-moore-landscaping': {
+    title: 'Jay Moore Landscaping Case Study — How a Landscaper Became a Landmark | Merch Club',
+    description:
+      "Jay Moore trusted us with a hard call: stop blending in. Here's what happened when a tradesman bet on standing out — and we made sure it paid off.",
+  },
+  '/tools/size-breakdown': {
+    title: 'Bulk T-Shirt Size Breakdown Calculator | Merch Club',
+    description:
+      'Free tool to plan your bulk apparel size run. Enter total quantity and audience type to get the optimal breakdown of each size, so you order right the first time.',
+  },
+  '/privacy-policy': {
+    title: 'Privacy Policy | Merch Club',
+    description: 'Read the Merch Club privacy policy — how we collect, use, and protect your information.',
+  },
+  '/terms': {
+    title: 'Terms of Service | Merch Club',
+    description: 'Read the Merch Club terms of service governing use of our website and services.',
+  },
+  '/accessibility': {
+    title: 'Accessibility Statement | Merch Club',
+    description:
+      'Merch Club is committed to digital accessibility. Read our accessibility statement and how to reach us with concerns.',
+  },
+};
 
-/** Safe string replace — prevents $ in replacement being mis-interpreted */
-const rep = (html, regex, str) => html.replace(regex, () => str);
-
-function injectMeta(html, { title, description, canonical }) {
-  html = rep(html, /<title>[^<]+<\/title>/, `<title>${title}</title>`);
-  html = html.replace(/(<meta name="description" content=")[^"]*"/, (_, p) => `${p}${description}"`);
-  html = html.replace(/(<link rel="canonical" href=")[^"]*"/, (_, p) => `${p}${canonical}"`);
-  html = html.replace(/(<meta property="og:title" content=")[^"]*"/, (_, p) => `${p}${title}"`);
-  html = html.replace(/(<meta property="og:description" content=")[^"]*"/, (_, p) => `${p}${description}"`);
-  html = html.replace(/(<meta property="og:url" content=")[^"]*"/, (_, p) => `${p}${canonical}"`);
-  html = html.replace(/(<meta name="twitter:title" content=")[^"]*"/, (_, p) => `${p}${title}"`);
-  html = html.replace(/(<meta name="twitter:description" content=")[^"]*"/, (_, p) => `${p}${description}"`);
-  return html;
-}
-
-function injectSchemas(html, schemas) {
-  const tags = schemas
-    .map(s => `  <script type="application/ld+json">\n${JSON.stringify(s, null, 2)}\n  </script>`)
-    .join('\n');
-  return html.replace('</head>', `${tags}\n</head>`);
-}
-
-function injectBody(html, bodyHtml) {
-  return html.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
-}
-
-function writeRoute(urlPath, html) {
-  const segments = urlPath.split('/').filter(Boolean);
-  const outDir = path.join(DIST, ...segments);
-  fs.mkdirSync(outDir, { recursive: true });
-  const outFile = path.join(outDir, 'index.html');
-  fs.writeFileSync(outFile, html, 'utf8');
-  console.log(`  ✓  ${BASE_URL}${urlPath} → ${path.relative(process.cwd(), outFile)}`);
-}
+const ROUTES = Object.keys(ROUTE_META);
 
 // ---------------------------------------------------------------------------
-// Route: /tools/size-breakdown
+// JSON-LD schemas for /tools/size-breakdown
 // ---------------------------------------------------------------------------
-
-const FAQS = [
+const SIZE_BREAKDOWN_FAQS = [
   {
     q: 'What size distribution data does this use?',
     a: 'The calculator is based on national average unisex apparel distribution data, adjusted by audience type. The baseline reflects broad industry benchmarks across thousands of bulk apparel orders, then modified based on demographic patterns (age, gender skew, activity level, etc.).',
@@ -76,184 +154,172 @@ const FAQS = [
   },
   {
     q: 'Can I use this for hats, jackets, or other items?',
-    a: 'This calculator is optimized for unisex T-shirts and similar cut-and-sew apparel. For structured caps, jackets, or bottoms, size distributions vary meaningfully — reach out and we\'ll help you plan the right run.',
+    a: "This calculator is optimized for unisex T-shirts and similar cut-and-sew apparel. For structured caps, jackets, or bottoms, size distributions vary meaningfully — reach out and we'll help you plan the right run.",
   },
 ];
 
-const SIZE_BREAKDOWN = {
-  urlPath: '/tools/size-breakdown',
-  title: 'Bulk T-Shirt Size Breakdown Calculator | Merch Club',
-  description:
-    'Free tool to plan your bulk apparel size run. Enter total quantity and audience type to get the optimal breakdown of each size, so you order right the first time.',
-  canonical: `${BASE_URL}/tools/size-breakdown`,
-  schemas: [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
-        { '@type': 'ListItem', position: 2, name: 'Learning Center', item: `${BASE_URL}/blog` },
-        {
-          '@type': 'ListItem',
-          position: 3,
-          name: 'Size Breakdown Tool',
-          item: `${BASE_URL}/tools/size-breakdown`,
-        },
-      ],
+const SIZE_BREAKDOWN_SCHEMAS = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Learning Center', item: `${BASE_URL}/blog` },
+      { '@type': 'ListItem', position: 3, name: 'Size Breakdown Tool', item: `${BASE_URL}/tools/size-breakdown` },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Size Breakdown Tool',
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web',
+    description:
+      'Free bulk apparel size breakdown calculator. Enter your total order quantity and audience type to get the optimal size run, so you order the right number of each size.',
+    url: `${BASE_URL}/tools/size-breakdown`,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    provider: { '@type': 'Organization', name: 'Merch Club', url: BASE_URL },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: SIZE_BREAKDOWN_FAQS.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Merch Club',
+    url: BASE_URL,
+    logo: `${BASE_URL}/opengraph.jpg`,
+    description: 'Full-service branded merchandise programs — strategy, design, production, kitting, and distribution.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Omaha',
+      addressRegion: 'NE',
+      addressCountry: 'US',
     },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebApplication',
-      name: 'Size Breakdown Tool',
-      applicationCategory: 'BusinessApplication',
-      operatingSystem: 'Web',
-      description:
-        'Free bulk apparel size breakdown calculator. Enter your total order quantity and audience type to get the optimal size run, so you order the right number of each size.',
-      url: `${BASE_URL}/tools/size-breakdown`,
-      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-      provider: { '@type': 'Organization', name: 'Merch Club', url: BASE_URL },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      url: `${BASE_URL}/contact`,
     },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: FAQS.map(faq => ({
-        '@type': 'Question',
-        name: faq.q,
-        acceptedAnswer: { '@type': 'Answer', text: faq.a },
-      })),
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'Merch Club',
-      url: BASE_URL,
-      logo: `${BASE_URL}/opengraph.jpg`,
-      description:
-        'Full-service branded merchandise programs — strategy, design, production, kitting, and distribution.',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Omaha',
-        addressRegion: 'NE',
-        addressCountry: 'US',
-      },
-      contactPoint: {
-        '@type': 'ContactPoint',
-        contactType: 'customer service',
-        url: `${BASE_URL}/contact`,
-      },
-    },
-  ],
-  bodyHtml: `<header style="background:#0a0a0a;padding:1rem 2rem;display:flex;align-items:center">
-  <a href="/" style="color:white;font-weight:900;font-size:1.1rem;text-decoration:none">Merch Club</a>
-  <nav aria-label="Main navigation" style="display:flex;gap:1.5rem;margin-left:2rem">
-    <a href="/" style="color:#888;font-size:.875rem;text-decoration:none">Home</a>
-    <a href="/about" style="color:#888;font-size:.875rem;text-decoration:none">About</a>
-    <a href="/services" style="color:#888;font-size:.875rem;text-decoration:none">Services</a>
-    <a href="/blog" style="color:#888;font-size:.875rem;text-decoration:none">Learning Center</a>
-    <a href="/contact" style="color:#888;font-size:.875rem;text-decoration:none">Contact</a>
-  </nav>
-</header>
-<main id="main-content">
-  <nav aria-label="Breadcrumb" style="background:#0a0a0a;padding:2rem 2rem 0">
-    <ol style="list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;padding:0;margin:0;font-size:.625rem;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:#666">
-      <li><a href="/" style="color:#666;text-decoration:none">Home</a></li>
-      <li style="color:#444">/</li>
-      <li><a href="/blog" style="color:#666;text-decoration:none">Learning Center</a></li>
-      <li style="color:#444">/</li>
-      <li aria-current="page" style="color:#aaa">Size Breakdown Tool</li>
-    </ol>
-  </nav>
-  <section aria-label="Tool introduction" style="background:#0a0a0a;padding:3rem 2rem 5rem;text-align:center">
-    <p style="color:#666;font-size:.625rem;font-weight:700;text-transform:uppercase;letter-spacing:.25em;margin-bottom:1rem">Merch Club Tools</p>
-    <h1 style="color:white;font-size:clamp(2.5rem,7vw,5rem);font-weight:900;line-height:0.9;margin:0 auto 1.5rem;max-width:50rem">Bulk Apparel Size Breakdown Calculator</h1>
-    <p style="color:#888;max-width:36rem;margin:0 auto;line-height:1.6;font-size:.9375rem">Enter your total order quantity and audience type to get the optimal size run &mdash; so you order the right number of each size, every time.</p>
-  </section>
-  <section aria-label="Size breakdown calculator" style="padding:5rem 2rem;background:white;border-bottom:1px solid rgba(0,0,0,.1)">
-    <div style="max-width:48rem;margin:0 auto">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem">
-        <div>
-          <label for="quantity-input" style="display:block;font-size:.625rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#888;margin-bottom:.5rem">Total Order Quantity</label>
-          <input id="quantity-input" type="number" value="100" min="1" aria-label="Total order quantity" style="width:100%;border:1px solid rgba(0,0,0,.2);border-radius:.75rem;padding:.875rem 1rem;font-size:1.125rem;font-weight:700;box-sizing:border-box" />
-        </div>
-        <div>
-          <label for="audience-select" style="display:block;font-size:.625rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#888;margin-bottom:.5rem">Audience Type</label>
-          <select id="audience-select" aria-label="Audience type" style="width:100%;border:1px solid rgba(0,0,0,.2);border-radius:.75rem;padding:.875rem 1rem;font-size:.875rem;font-weight:500;box-sizing:border-box">
-            <option value="average">General / Mixed &mdash; Standard national average distribution</option>
-            <option value="younger">Younger Crowd (18&ndash;30) &mdash; Skews smaller, college students</option>
-            <option value="hs_students">High School Students &mdash; Heavy XS, S, M; very few 2XL+</option>
-            <option value="women_focused">Women-Focused &mdash; Adjusted for women&rsquo;s typical distribution</option>
-            <option value="men_focused">Men-Focused &mdash; Adjusted for men&rsquo;s typical distribution</option>
-            <option value="athletic">Athletic / Active &mdash; Centers M/L/XL</option>
-            <option value="plus_focused">Plus / Larger Audience &mdash; Skews toward XL and above</option>
-            <option value="mixed_corporate">Corporate / Office &mdash; Broad professional workforce</option>
-          </select>
-        </div>
-      </div>
-      <button type="button" aria-label="Calculate size breakdown for your order" style="background:black;color:white;font-weight:700;font-size:.875rem;padding:1rem 2.5rem;border-radius:9999px;border:none;cursor:pointer">Calculate Size Breakdown</button>
-    </div>
-  </section>
-  <section aria-labelledby="how-to-heading" style="padding:5rem 2rem;background:white;border-bottom:1px solid rgba(0,0,0,.1)">
-    <div style="max-width:48rem;margin:0 auto">
-      <h2 id="how-to-heading" style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;line-height:0.95;margin-bottom:2rem">How to Use This Calculator</h2>
-      <p style="color:#555;line-height:1.75;margin-bottom:1.25rem;font-size:.9375rem">Ordering the right mix of sizes is one of the most under-appreciated parts of a bulk apparel run. Order too many smalls and your team in the field is left fighting over the three larges that came in. Order too many XLs for a college-age population and you&rsquo;re left with extras nobody wants. This calculator takes the guesswork out of size planning by applying real-world distribution data to your specific audience.</p>
-      <p style="color:#555;line-height:1.75;margin-bottom:1.25rem;font-size:.9375rem">Select your audience type &mdash; whether that&rsquo;s a general mixed workforce, an athletic club, a construction crew, or a high school student body &mdash; and enter your total quantity. The tool applies statistical adjustments to the national average size distribution and returns a recommended quantity per size that adds up exactly to your order total.</p>
-      <p style="color:#555;line-height:1.75;margin-bottom:4rem;font-size:.9375rem">These recommendations are a starting point, not a guarantee. If you have historical order data or specific knowledge about your audience, layer that in. And if you&rsquo;re ordering for a mixed population spanning multiple locations or departments, consider running separate calculations per segment and combining the results.</p>
-      <h2 id="faq-heading" style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;line-height:0.95;margin-bottom:2rem">Frequently Asked Questions</h2>
-      <div>
-        ${FAQS.map(faq => `<div style="border-top:1px solid rgba(0,0,0,.1);padding:1.5rem 0">
-          <h3 style="font-size:1rem;font-weight:700;margin-bottom:.5rem;line-height:1.4">${faq.q}</h3>
-          <p style="font-size:.875rem;color:#666;line-height:1.6;margin:0">${faq.a}</p>
-        </div>`).join('\n        ')}
-      </div>
-      <nav aria-label="Related articles" style="margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(0,0,0,.1)">
-        <h3 style="font-size:.625rem;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:#888;margin-bottom:1.25rem">Related Reading</h3>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.75rem">
-          <li><a href="/blog/merch-program-strategy" style="font-weight:600;color:black;text-underline-offset:4px">Why Your Merch Program Needs a Strategy &mdash; Not Just a Vendor</a></li>
-          <li><a href="/blog/branded-merchandise-mistakes" style="font-weight:600;color:black;text-underline-offset:4px">5 Branded Merchandise Mistakes That Make Your Company Look Amateur</a></li>
-          <li><a href="/blog/custom-kitting-brand-experience" style="font-weight:600;color:black;text-underline-offset:4px">The Hidden Cost of Unboxing: How Custom Kitting Elevates Brand Experience</a></li>
-        </ul>
-      </nav>
-    </div>
-  </section>
-  <section aria-label="Start a project" style="background:#0a0a0a;padding:5rem 2rem;text-align:center">
-    <h2 style="color:white;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:0.9;margin-bottom:1.5rem">Ready to place your order?</h2>
-    <p style="color:#888;margin-bottom:2rem;max-width:30rem;margin-left:auto;margin-right:auto;line-height:1.6">We&rsquo;ll help you finalize your size run, source the right product, and deliver on time &mdash; start to finish.</p>
-    <a href="/contact" style="display:inline-block;background:white;color:black;font-weight:700;font-size:.875rem;padding:.875rem 2rem;border-radius:9999px;text-decoration:none">Start a Project</a>
-  </section>
-</main>
-<footer style="background:#0a0a0a;padding:2rem;border-top:1px solid rgba(255,255,255,.05)">
-  <nav aria-label="Footer navigation" style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-bottom:1rem">
-    <a href="/privacy-policy" style="color:#444;font-size:.75rem;text-decoration:none">Privacy Policy</a>
-    <a href="/terms" style="color:#444;font-size:.75rem;text-decoration:none">Terms of Service</a>
-    <a href="/contact" style="color:#444;font-size:.75rem;text-decoration:none">Contact</a>
-    <a href="/tools/size-breakdown" style="color:#444;font-size:.75rem;text-decoration:none">Size Breakdown Tool</a>
-  </nav>
-  <p style="color:#444;font-size:.75rem;text-align:center;margin:0">&copy; ${new Date().getFullYear()} Merch Club. All rights reserved.</p>
-</footer>`,
-};
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+const rep = (html, regex, str) => html.replace(regex, () => str);
+
+function injectMeta(html, route) {
+  const { title, description } = ROUTE_META[route] ?? {};
+  const canonical = `${BASE_URL}${route}`;
+
+  if (title) {
+    html = rep(html, /<title>[^<]+<\/title>/, `<title>${title}</title>`);
+    html = html.replace(/(<meta property="og:title" content=")[^"]*"/, (_, p) => `${p}${title}"`);
+    html = html.replace(/(<meta name="twitter:title" content=")[^"]*"/, (_, p) => `${p}${title}"`);
+  }
+  if (description) {
+    html = html.replace(/(<meta name="description" content=")[^"]*"/, (_, p) => `${p}${description}"`);
+    html = html.replace(/(<meta property="og:description" content=")[^"]*"/, (_, p) => `${p}${description}"`);
+    html = html.replace(/(<meta name="twitter:description" content=")[^"]*"/, (_, p) => `${p}${description}"`);
+  }
+  html = html.replace(/(<link rel="canonical" href=")[^"]*"/, (_, p) => `${p}${canonical}"`);
+  html = html.replace(/(<meta property="og:url" content=")[^"]*"/, (_, p) => `${p}${canonical}"`);
+
+  return html;
+}
+
+function injectJsonLd(html, schemas) {
+  const tags = schemas
+    .map((s) => `  <script type="application/ld+json">\n${JSON.stringify(s, null, 2)}\n  </script>`)
+    .join('\n');
+  return html.replace('</head>', `${tags}\n</head>`);
+}
+
+function writeRoute(urlPath, html) {
+  if (urlPath === '/') {
+    fs.writeFileSync(path.join(DIST, 'index.html'), html, 'utf8');
+    console.log(`  ✓  ${BASE_URL}/`);
+    return;
+  }
+  const segments = urlPath.split('/').filter(Boolean);
+  const outDir = path.join(DIST, ...segments);
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
+  console.log(`  ✓  ${BASE_URL}${urlPath}`);
+}
 
 // ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
+async function buildSSR() {
+  console.log('Building SSR bundle…');
+  execFileSync('pnpm', ['exec', 'vite', 'build', '--config', 'vite.ssr.config.ts'], {
+    cwd: ROOT,
+    stdio: 'inherit',
+    env: { ...process.env, NODE_ENV: 'production' },
+  });
+  console.log('SSR bundle built.\n');
+}
 
-function main() {
+async function main() {
   if (!fs.existsSync(DIST)) {
     console.error('✗  dist/public not found — run `vite build` first');
     process.exit(1);
   }
 
-  const template = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
-  console.log('Prerendering routes…');
+  await buildSSR();
 
-  for (const route of [SIZE_BREAKDOWN]) {
-    let html = template;
-    html = injectMeta(html, route);
-    html = injectSchemas(html, route.schemas);
-    html = injectBody(html, route.bodyHtml);
-    writeRoute(route.urlPath, html);
+  const serverEntry = path.join(SERVER_DIST, 'entry-server.js');
+  if (!fs.existsSync(serverEntry)) {
+    console.error('✗  SSR bundle not found at', serverEntry);
+    process.exit(1);
   }
 
-  console.log('Done.');
+  const { render } = await import(serverEntry);
+  const template = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
+
+  console.log('Prerendering routes…');
+
+  let rendered = 0;
+  let skipped = 0;
+
+  for (const route of ROUTES) {
+    let appHtml = '';
+    try {
+      appHtml = render(route);
+    } catch (err) {
+      console.warn(`  ⚠  ${route} — SSR render threw: ${err.message}`);
+      skipped++;
+    }
+
+    let html = template;
+    html = injectMeta(html, route);
+
+    if (route === '/tools/size-breakdown') {
+      html = injectJsonLd(html, SIZE_BREAKDOWN_SCHEMAS);
+    }
+
+    if (appHtml) {
+      html = html.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
+      rendered++;
+    } else {
+      skipped++;
+    }
+
+    writeRoute(route, html);
+  }
+
+  console.log(`\nDone — ${rendered} routes prerendered, ${skipped} skipped (template-only fallback).`);
 }
 
-main();
+main().catch((err) => {
+  console.error('Prerender failed:', err);
+  process.exit(1);
+});
