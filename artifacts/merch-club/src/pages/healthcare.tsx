@@ -10,7 +10,7 @@ import cloverImg from "@assets/Social_PostsArtboard_2@3x_copy_1775827336093.png"
 import heroImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1776180821018.png";
 import bagImg from "@assets/Sporty_style_by_the_door_1776180821016.png";
 import packagingImg from "@assets/Professional_promotional_packaging_shot_1776180821018.png";
-import kittingImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_1776180821018.png";
+import kittingImg from "@assets/IMG_8532_1781059963066.JPG";
 import nursesWeekImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_08_AM_1776180821018.png";
 import scrubsModelImg from "@assets/ChatGPT_Image_Apr_9,_2026,_03_13_04_PM_1776181322914.png";
 import tumblerImg from "@assets/ChatGPT_Image_Apr_16,_2026,_02_19_38_PM_1776376559711.png";
