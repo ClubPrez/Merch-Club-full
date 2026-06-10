@@ -37,7 +37,7 @@ export default function Industries() {
     })),
   };
 
-  const relatedCaseStudies = caseStudies.slice(0, 3).map((c) => ({
+  const relatedCaseStudies = caseStudies.slice(0, 5).map((c) => ({
     href: `/case-studies/${c.slug}`,
     eyebrow: c.industry,
     title: c.title,
