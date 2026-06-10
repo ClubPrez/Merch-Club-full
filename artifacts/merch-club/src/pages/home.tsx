@@ -364,7 +364,7 @@ function StickyTimeline() {
         </RevealItem>
         <RevealItem delay={100}>
           <p className="text-sm md:text-base text-[#888] leading-relaxed max-w-2xl mb-14">
-            A compact process signal that demonstrates operational maturity. Descriptions can be hover-revealed on desktop and visible by default on mobile.
+            One partner. Six stages. From the first creative brief to the final box on the dock, every step is ours to own.
           </p>
         </RevealItem>
 
@@ -793,10 +793,13 @@ export default function Home() {
       "logo": "https://merchclub.com/opengraph.jpg",
       "telephone": "+1-531-777-0347",
       "email": "chris@merchclub.com",
-      "address": { "@type": "PostalAddress", "addressCountry": "US" },
+      "address": { "@type": "PostalAddress", "streetAddress": "12020 Shamrock Plaza, Suite 200", "addressLocality": "Omaha", "addressRegion": "NE", "postalCode": "68154", "addressCountry": "US" },
       "sameAs": [
         "https://www.facebook.com/MerchClubPro",
-        "https://www.instagram.com/merchclub_ig/"
+        "https://www.instagram.com/merchclub_ig/",
+        "https://www.linkedin.com/company/merchclub/",
+        "https://www.tiktok.com/@merchclub_tt",
+        "https://www.youtube.com/@MerchClubPro"
       ]
     },
     {
@@ -835,7 +838,7 @@ export default function Home() {
       "@type": "AggregateRating",
       "itemReviewed": { "@type": "Organization", "name": "Merch Club" },
       "ratingValue": "5.0",
-      "reviewCount": String(testimonials.length * 5),
+      "reviewCount": "18",
       "bestRating": "5"
     }
   ];

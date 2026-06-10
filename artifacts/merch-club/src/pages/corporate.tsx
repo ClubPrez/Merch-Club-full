@@ -251,10 +251,13 @@ export default function Corporate() {
       "logo": "https://merchclub.com/opengraph.jpg",
       "telephone": "+1-531-777-0347",
       "email": "chris@merchclub.com",
-      "address": { "@type": "PostalAddress", "addressCountry": "US" },
+      "address": { "@type": "PostalAddress", "streetAddress": "12020 Shamrock Plaza, Suite 200", "addressLocality": "Omaha", "addressRegion": "NE", "postalCode": "68154", "addressCountry": "US" },
       "sameAs": [
         "https://www.facebook.com/MerchClubPro",
-        "https://www.instagram.com/merchclub_ig/"
+        "https://www.instagram.com/merchclub_ig/",
+        "https://www.linkedin.com/company/merchclub/",
+        "https://www.tiktok.com/@merchclub_tt",
+        "https://www.youtube.com/@MerchClubPro"
       ]
     },
     {
@@ -309,7 +312,7 @@ export default function Corporate() {
       "@type": "AggregateRating",
       "itemReviewed": { "@type": "Organization", "name": "Merch Club" },
       "ratingValue": "5.0",
-      "reviewCount": "47",
+      "reviewCount": "18",
       "bestRating": "5"
     },
     {
@@ -335,9 +338,10 @@ export default function Corporate() {
       "priceRange": "$$-$$$",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "12020 Shamrock Plaza, Suite 200",
         "addressLocality": "Omaha",
         "addressRegion": "NE",
-        "postalCode": "68102",
+        "postalCode": "68154",
         "addressCountry": "US"
       },
       "geo": { "@type": "GeoCoordinates", "latitude": 41.2565, "longitude": -95.9345 },
@@ -355,7 +359,7 @@ export default function Corporate() {
         "opens": "08:00",
         "closes": "18:00"
       }],
-      "sameAs": ["https://www.facebook.com/MerchClubPro","https://www.instagram.com/merchclub_ig/"]
+      "sameAs": ["https://www.facebook.com/MerchClubPro","https://www.instagram.com/merchclub_ig/","https://www.linkedin.com/company/merchclub/","https://www.tiktok.com/@merchclub_tt","https://www.youtube.com/@MerchClubPro"]
     },
     {
       "@context": "https://schema.org",

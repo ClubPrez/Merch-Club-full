@@ -269,10 +269,13 @@ export default function About() {
       "logo": "https://merchclub.com/opengraph.jpg",
       "telephone": "+1-531-777-0347",
       "email": "chris@merchclub.com",
-      "address": { "@type": "PostalAddress", "addressCountry": "US" },
+      "address": { "@type": "PostalAddress", "streetAddress": "12020 Shamrock Plaza, Suite 200", "addressLocality": "Omaha", "addressRegion": "NE", "postalCode": "68154", "addressCountry": "US" },
       "sameAs": [
         "https://www.facebook.com/MerchClubPro",
-        "https://www.instagram.com/merchclub_ig/"
+        "https://www.instagram.com/merchclub_ig/",
+        "https://www.linkedin.com/company/merchclub/",
+        "https://www.tiktok.com/@merchclub_tt",
+        "https://www.youtube.com/@MerchClubPro"
       ],
       "employee": teamMembers.map(m => ({
         "@type": "Person",
