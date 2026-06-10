@@ -1,1 +1,2 @@
 - [Source corrupted with literal `[...]`](truncation-corruption.md) — if a build fails with JSX "Expected identifier but found [", suspect a file saved from a truncated view; recover from git.
+- [Merch Club prerender + Vercel deploy](prerender-deploy.md) — apex 307→www (verify live with `curl -L`); never gate prerender on pnpm `postbuild`; prerender must fail build on empty renders.

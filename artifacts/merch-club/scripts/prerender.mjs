@@ -285,10 +285,23 @@ async function main() {
   const { render } = await import(serverEntry);
   const template = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
 
+  // Guard: the template must still contain the empty mount node. If it doesn't,
+  // index.html was already prerendered (this script is not idempotent — it reads
+  // dist/public/index.html as the template and overwrites it with the homepage
+  // render). Re-running without a fresh `vite build` would ship the homepage body
+  // on every route, so fail loudly instead.
+  if (!template.includes('<div id="root"></div>')) {
+    console.error(
+      '✗  index.html has no empty <div id="root"></div> placeholder — it was likely\n' +
+        '   already prerendered. Run a fresh `vite build` before prerendering.',
+    );
+    process.exit(1);
+  }
+
   console.log('Prerendering routes…');
 
   let rendered = 0;
-  let skipped = 0;
+  const failed = [];
 
   for (const route of ROUTES) {
     let appHtml = '';
@@ -296,7 +309,6 @@ async function main() {
       appHtml = render(route);
     } catch (err) {
       console.warn(`  ⚠  ${route} — SSR render threw: ${err.message}`);
-      skipped++;
     }
 
     let html = template;
@@ -310,13 +322,26 @@ async function main() {
       html = html.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
       rendered++;
     } else {
-      skipped++;
+      failed.push(route);
     }
 
     writeRoute(route, html);
   }
 
-  console.log(`\nDone — ${rendered} routes prerendered, ${skipped} skipped (template-only fallback).`);
+  console.log(`\nDone — ${rendered}/${ROUTES.length} routes prerendered.`);
+
+  // Fail the build if ANY route produced empty content. Shipping a template-only
+  // file would re-introduce the empty <div id="root"></div> in production with a
+  // green build — exactly the failure this prerender exists to prevent.
+  if (failed.length > 0) {
+    console.error(
+      `\n✗  ${failed.length} route(s) produced EMPTY content (would ship an empty ` +
+        '<div id="root"></div> to production):',
+    );
+    for (const route of failed) console.error(`     - ${route}`);
+    console.error('\n   Failing the build to prevent shipping empty HTML.');
+    process.exit(1);
+  }
 }
 
 main().catch((err) => {
