@@ -39,7 +39,7 @@ const galleryRowOne: GalleryItem[] = [
   { src: gScarfTraveler, alt: "Travel nurse with OneStaff duffel sitting in vintage VW bus doorway overlooking the Pacific coast", ratio: "aspect-[3/4]", width: "16rem" },
   { src: gCoolerBreakroom, alt: "Nurses in break room laughing around an OneStaff van-graphic lunch cooler", ratio: "aspect-[4/3]", width: "24rem" },
   { src: gBottleStickers, alt: "OneStaff teal water bottle decorated with branded sticker pack", ratio: "aspect-[3/4]", width: "16rem" },
-  { src: gYogaBag, alt: "OneStaff branded duffel and yoga mat heading into a wellness studio", ratio: "aspect-[3/4]", width: "16rem" },
+  { src: gYogaBag, alt: "OneStaff Medical Nurses Week gift — branded duffel bag, sports bag, and yoga bag for travel nurses", ratio: "aspect-[3/4]", width: "16rem" },
   { src: gMassageNurse, alt: "Nurse using OneStaff-branded massage gun on her shoulder at home", ratio: "aspect-[3/4]", width: "16rem" },
   { src: gSlingTulsa, alt: "OneStaff stay osm sling bag at a Tulsa parade", ratio: "aspect-[4/5]", width: "18rem" },
   { src: gCozyKitBedside, alt: "OneStaff Cozy Time kit styled at a bedside — eye mask, fuzzy socks, candle, mug", ratio: "aspect-[4/5]", width: "18rem" },
