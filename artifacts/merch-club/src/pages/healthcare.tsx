@@ -779,13 +779,13 @@ export default function Healthcare() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 items-center mt-20 pt-12 border-t border-black/10">
               <div className="text-center">
                 <div className="text-7xl md:text-8xl lg:text-9xl font-black text-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  <CountUp end={200} suffix="+" />
+                  <CountUp end={40} />
                 </div>
                 <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-[#888] mt-3">Healthcare Clients</div>
               </div>
               <div className="text-center md:border-x md:border-black/10">
                 <div className="text-7xl md:text-8xl lg:text-9xl font-black text-black tracking-tight leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  <CountUp end={50} suffix="+" />
+                  <CountUp end={5} suffix="+" />
                 </div>
                 <div className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-[#888] mt-3">Hospitals Served</div>
               </div>
