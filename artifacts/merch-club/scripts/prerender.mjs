@@ -130,93 +130,25 @@ const ROUTE_META = {
   },
 };
 
-const ROUTES = Object.keys(ROUTE_META);
-
-// ---------------------------------------------------------------------------
-// JSON-LD schemas for /tools/size-breakdown
-// ---------------------------------------------------------------------------
-const SIZE_BREAKDOWN_FAQS = [
-  {
-    q: 'What size distribution data does this use?',
-    a: 'The calculator is based on national average unisex apparel distribution data, adjusted by audience type. The baseline reflects broad industry benchmarks across thousands of bulk apparel orders, then modified based on demographic patterns (age, gender skew, activity level, etc.).',
-  },
-  {
-    q: "Does this work for women's cut or youth sizing?",
-    a: "The tool outputs unisex sizing recommendations. For women's-cut apparel, select 'Women-Focused' and expect to size down one level relative to standard unisex. For youth sizing, the High School Students profile is the closest match — talk to your merch team to refine further.",
-  },
-  {
-    q: 'My order is a mix of field crews and office staff — which audience do I pick?',
-    a: "Run two separate calculations: one for your field headcount using 'Men-Focused' (assuming a male-heavy field crew) and one for office staff using 'Corporate / Office'. Combine the results for your final order.",
-  },
-  {
-    q: 'Should I order extra safety stock in any sizes?',
-    a: 'For most programs, we recommend adding 5–10% buffer on M, L, and XL — the three highest-demand sizes — especially for on-demand stores or programs with late joiners. Your Merch Club team can help you plan buffer inventory as part of your overall program.',
-  },
-  {
-    q: 'Can I use this for hats, jackets, or other items?',
-    a: "This calculator is optimized for unisex T-shirts and similar cut-and-sew apparel. For structured caps, jackets, or bottoms, size distributions vary meaningfully — reach out and we'll help you plan the right run.",
-  },
-];
-
-const SIZE_BREAKDOWN_SCHEMAS = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: 'Learning Center', item: `${BASE_URL}/blog` },
-      { '@type': 'ListItem', position: 3, name: 'Size Breakdown Tool', item: `${BASE_URL}/tools/size-breakdown` },
-    ],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebApplication',
-    name: 'Size Breakdown Tool',
-    applicationCategory: 'BusinessApplication',
-    operatingSystem: 'Web',
-    description:
-      'Free bulk apparel size breakdown calculator. Enter your total order quantity and audience type to get the optimal size run, so you order the right number of each size.',
-    url: `${BASE_URL}/tools/size-breakdown`,
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    provider: { '@type': 'Organization', name: 'Merch Club', url: BASE_URL },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: SIZE_BREAKDOWN_FAQS.map((faq) => ({
-      '@type': 'Question',
-      name: faq.q,
-      acceptedAnswer: { '@type': 'Answer', text: faq.a },
-    })),
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Merch Club',
-    url: BASE_URL,
-    logo: `${BASE_URL}/opengraph.jpg`,
-    description: 'Full-service branded merchandise programs — strategy, design, production, kitting, and distribution.',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Omaha',
-      addressRegion: 'NE',
-      addressCountry: 'US',
-    },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'customer service',
-      url: `${BASE_URL}/contact`,
-    },
-  },
-];
 
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
 const rep = (html, regex, str) => html.replace(regex, () => str);
 
+// Escape values destined for HTML attributes / element text so titles or
+// descriptions containing &, <, >, or " can't break the markup.
+const escapeHtml = (s) =>
+  String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+
 function injectMeta(html, route) {
-  const { title, description } = ROUTE_META[route] ?? {};
+  const meta = ROUTE_META[route] ?? {};
+  const title = meta.title ? escapeHtml(meta.title) : undefined;
+  const description = meta.description ? escapeHtml(meta.description) : undefined;
   const canonical = `${BASE_URL}${route}`;
 
   if (title) {
@@ -235,11 +167,17 @@ function injectMeta(html, route) {
   return html;
 }
 
-function injectJsonLd(html, schemas) {
-  const tags = schemas
-    .map((s) => `  <script type="application/ld+json">\n${JSON.stringify(s, null, 2)}\n  </script>`)
-    .join('\n');
-  return html.replace('</head>', `${tags}\n</head>`);
+// Bake all of a route's structured data into a single <head> <script> tag,
+// mirroring the id the client SEO component uses (page-jsonld). The lone
+// `<` escape keeps a stray "</script>" inside any string from closing the tag
+// early; everything else is valid JSON.
+function injectPageJsonLd(html, schemas) {
+  if (!Array.isArray(schemas) || schemas.length === 0) return html;
+  const json = JSON.stringify(schemas).replace(/</g, '\\u003c');
+  const tag = `  <script type="application/ld+json" id="page-jsonld">${json}</script>`;
+  // Function replacement so `$`-sequences in the JSON (e.g. a "$$-$$$" priceRange)
+  // aren't treated as String.replace special patterns ($$, $&, $', $`).
+  return html.replace('</head>', () => `${tag}\n</head>`);
 }
 
 function writeRoute(urlPath, html) {
@@ -282,8 +220,18 @@ async function main() {
     process.exit(1);
   }
 
-  const { render } = await import(serverEntry);
+  const { render, blogRouteMeta } = await import(serverEntry);
   const template = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
+
+  // Register one route per blog post using the dataset exported from the SSR
+  // bundle, so /blog/<slug> gets a prerendered file with the right <head>.
+  for (const post of blogRouteMeta ?? []) {
+    ROUTE_META[`/blog/${post.slug}`] = {
+      title: `${post.title} | Merch Club`,
+      description: post.excerpt,
+    };
+  }
+  const ROUTES = Object.keys(ROUTE_META);
 
   // Guard: the template must still contain the empty mount node. If it doesn't,
   // index.html was already prerendered (this script is not idempotent — it reads
@@ -305,21 +253,21 @@ async function main() {
 
   for (const route of ROUTES) {
     let appHtml = '';
+    let routeJsonLd = [];
     try {
-      appHtml = render(route);
+      const result = render(route);
+      appHtml = result.html;
+      routeJsonLd = result.jsonLd ?? [];
     } catch (err) {
       console.warn(`  ⚠  ${route} — SSR render threw: ${err.message}`);
     }
 
     let html = template;
     html = injectMeta(html, route);
-
-    if (route === '/tools/size-breakdown') {
-      html = injectJsonLd(html, SIZE_BREAKDOWN_SCHEMAS);
-    }
+    html = injectPageJsonLd(html, routeJsonLd);
 
     if (appHtml) {
-      html = html.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
+      html = html.replace('<div id="root"></div>', () => `<div id="root">${appHtml}</div>`);
       rendered++;
     } else {
       failed.push(route);

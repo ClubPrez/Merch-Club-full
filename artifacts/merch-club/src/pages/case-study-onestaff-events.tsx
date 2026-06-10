@@ -33,6 +33,8 @@ const articleJsonLd = {
   description:
     "How an 80's hip hop themed activation made OneStaff Medical the most talked-about booth at the biggest healthcare recruiting trade show — beating bigger budgets by 10x.",
   datePublished: "2026-05-12",
+  dateModified: "2026-06-10",
+  image: "https://merchclub.com/opengraph.jpg",
   author: { "@type": "Organization", name: "Merch Club" },
   publisher: {
     "@type": "Organization",

@@ -87,6 +87,8 @@ const articleJsonLd = {
   description:
     "How Merch Club designed and delivered two annual gifting programs for OneStaff Medical's travel nurses — translating their wanderlust brand into products nurses actually use on the road.",
   datePublished: "2026-04-15",
+  dateModified: "2026-06-10",
+  image: "https://merchclub.com/opengraph.jpg",
   author: { "@type": "Organization", name: "Merch Club" },
   publisher: {
     "@type": "Organization",

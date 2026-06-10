@@ -1,16 +1,16 @@
 # Merch Club
 
-> Full-service branded apparel and merchandise programs. Headquartered in Omaha, Nebraska. Serving organizations across the United States. We design, source, decorate, kit, and distribute branded merchandise as structured programs — not transactional swag orders.
+> Full-service branded apparel and merchandise programs. Headquartered in Omaha, Nebraska, serving organizations across the United States. We design, source, decorate, kit, and distribute branded merchandise as structured programs — not transactional swag orders.
 
 Merch Club builds branded merchandise programs for organizations that need consistency, quality, and operational execution across multiple sites, teams, departments, or events. We act as a single accountable team across strategy, design, sourcing, production, kitting, and distribution.
 
 ## Company
 
 - **Name:** Merch Club
-- **Headquarters:** Omaha, Nebraska, United States
+- **Headquarters:** 12020 Shamrock Plaza, Suite 200, Omaha, NE 68154, United States
 - **Service area:** United States (national)
 - **Phone:** +1 531-777-0347
-- **Email:** hello@merchclub.com
+- **Email:** chris@merchclub.com
 - **Website:** https://merchclub.com
 - **Sister brands:** Brandini (https://trybrandini.com), ScrubClub
 
@@ -24,6 +24,16 @@ Structured branded merchandise programs covering:
 - Direct-to-employee, direct-to-venue, and multi-site distribution
 - On-demand company stores and recurring rollouts
 
+## Key Pages
+
+- [Home](https://merchclub.com/): Overview of services and approach
+- [About](https://merchclub.com/about): Team, philosophy, and how we operate
+- [Services](https://merchclub.com/services): End-to-end program services from strategy to distribution
+- [Industries](https://merchclub.com/industries): Industry program hub
+- [Case Studies](https://merchclub.com/case-studies): Featured client work
+- [Learning Center](https://merchclub.com/blog): Strategy and operations articles
+- [Contact](https://merchclub.com/contact): Project inquiries, partnerships, press, and careers
+
 ## Industries Served
 
 - [Healthcare](https://merchclub.com/industries/healthcare): Hospitals, healthcare networks, specialty clinics, and medical organizations. Programs for nurses week, donor appreciation, recruiting, hospital-wide rebrands, and clinical apparel.
@@ -31,13 +41,23 @@ Structured branded merchandise programs covering:
 - [Corporate](https://merchclub.com/industries/corporate): Multi-location corporates across financial services, tech, professional services, insurance, and national franchises. Onboarding kits, internal apparel systems, executive gifting, national brand rollouts, and on-demand company stores.
 - [Trade Shows & Events](https://merchclub.com/industries/events): Event marketing, field marketing, trade show, recruiting, and brand activation teams. Trade show execution kits, staff apparel systems, premium giveaway strategies, multi-event rollouts, themed activations, and direct-to-venue logistics.
 
-## Key Pages
+## Case Studies
 
-- [Home](https://merchclub.com/) — Overview of services and approach
-- [About](https://merchclub.com/about) — Team, philosophy, and how we operate
-- [Industries](https://merchclub.com/industries) — Industry hub
-- [Case Studies](https://merchclub.com/case-studies) — Featured client work
-- [Learning Center](https://merchclub.com/blog) — Strategy and operations articles
+- [Nurse Gifting — OneStaff Medical](https://merchclub.com/case-studies/nurse-gifting): Travel nurse gifting programs for Nurses Week and the holidays, designed around OneStaff Medical's wanderlust brand and built for life on the road.
+- [Trade Show Activation — OneStaff Medical](https://merchclub.com/case-studies/events): An 80's hip hop themed activation that made OneStaff Medical the most talked-about booth at the biggest healthcare recruiting trade show.
+- [Construction Partnership — Baker Group](https://merchclub.com/case-studies/construction): A multi-year embedded merch partnership spanning field apparel, executive gear, gifting, trade show kits, and a 60th-anniversary program.
+- [Corporate Gifting — ACCESSbank](https://merchclub.com/case-studies/access-bank): Shareholder, executive, and employee gifting programs, including a book on the art of toasting we wrote and illustrated ourselves.
+- [Jay Moore Landscaping](https://merchclub.com/case-studies/jay-moore-landscaping): How a landscaper became a local landmark by betting on standing out instead of blending in.
+
+## Articles
+
+- [Why Your Merch Program Needs a Strategy — Not Just a Vendor](https://merchclub.com/blog/merch-program-strategy): Why treating branded merchandise as a strategic program beats one-off vendor orders.
+- [The Hidden Cost of Unboxing: How Custom Kitting Elevates Brand Experience](https://merchclub.com/blog/custom-kitting-brand-experience): How thoughtful kitting turns a delivery into a brand moment.
+- [5 Branded Merchandise Mistakes That Make Your Company Look Amateur](https://merchclub.com/blog/branded-merchandise-mistakes): Common missteps that undermine your brand, and what separates forgettable swag from strategic merch.
+
+## Tools
+
+- [Bulk T-Shirt Size Breakdown Calculator](https://merchclub.com/tools/size-breakdown): Free tool to plan a bulk apparel size run — enter total quantity and audience type to get the optimal breakdown of each size.
 
 ## Differentiators
 

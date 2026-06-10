@@ -58,6 +58,8 @@ const articleJsonLd = {
   description:
     "Three-plus years embedded with Baker Group, a 1,500-employee multi-specialty contractor — running field apparel, executive gear, client gifting, trade show kits, and the 60th-anniversary Bernie Steam Beer program.",
   datePublished: "2026-04-22",
+  dateModified: "2026-06-10",
+  image: "https://merchclub.com/opengraph.jpg",
   author: { "@type": "Organization", name: "Merch Club" },
   publisher: {
     "@type": "Organization",

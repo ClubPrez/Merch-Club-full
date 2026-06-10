@@ -1,2 +1,3 @@
 - [Source corrupted with literal `[...]`](truncation-corruption.md) — if a build fails with JSX "Expected identifier but found [", suspect a file saved from a truncated view; recover from git.
+- [String.replace template injection](prerender-string-replace.md) — injecting JSON/HTML via `.replace(marker, str)` corrupts `$$`/`$&`/`` $` ``/`$'`; use a function replacement, and grep the literal value since JSON.parse won't catch it.
 - [Merch Club prerender + Vercel deploy](prerender-deploy.md) — apex 307→www (verify live with `curl -L`); never gate prerender on pnpm `postbuild`; prerender must fail build on empty renders.

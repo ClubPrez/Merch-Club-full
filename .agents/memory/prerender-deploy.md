@@ -6,15 +6,18 @@ description: How the marketing site ships static prerendered HTML to production,
 # Merch Club prerender & deploy
 
 The marketing site (`artifacts/merch-club`) deploys to **Vercel** via the repo-root
-`vercel.json` and is served at `www.merchclub.com`. The `.replit` `autoscale` config
-is NOT what serves the public domain — don't be misled by it.
+`vercel.json` and is served at the **apex `merchclub.com`** (non-www). The `.replit`
+`autoscale` config is NOT what serves the public domain — don't be misled by it.
 
-- **Apex 307-redirects to www.** `https://merchclub.com/*` returns a 307 to
-  `https://www.merchclub.com/*`. When checking the live site, fetch with `curl -L`
-  (follow redirects) or you'll see a ~15-byte redirect stub and wrongly conclude the
-  body is empty. "Live site shows empty `<div id="root">`" reports are often just a
-  stale CDN/browser cache or a pre-propagation deploy — verify with `curl -L -A <browser-UA>`
-  per route before changing anything.
+- **Canonical is the apex; www redirects to apex.** As verified 2026-06-10,
+  `https://merchclub.com/` returns 200 directly and `https://www.merchclub.com/`
+  returns a 308 → `https://merchclub.com/`. So sitemap/canonical/JSON-LD URLs should
+  use **non-www** (they do). NOTE: this is the reverse of an earlier note that claimed
+  apex→www; always re-verify the live direction with `curl -sS -D - -o /dev/null` before
+  trusting either way. When checking the live site, fetch with `curl -L` (follow
+  redirects) or a redirect stub can read as an empty body. "Live site shows empty
+  `<div id="root">`" reports are often just a stale CDN/browser cache or a
+  pre-propagation deploy — verify with `curl -L -A <browser-UA>` per route first.
 
 - **Vercel serves static files before applying `rewrites`.** The SPA catch-all
   `{ source:"/(.*)", destination:"/index.html" }` does NOT clobber per-route

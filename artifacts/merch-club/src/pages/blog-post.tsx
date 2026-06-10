@@ -53,7 +53,7 @@ export default function BlogPost() {
       "mainEntityOfPage": { "@type": "WebPage", "@id": postUrl },
       "headline": post.title,
       "description": post.excerpt,
-      "image": post.img && typeof post.img === "string" ? [post.img] : ["https://merchclub.com/opengraph.jpg"],
+      "image": post.img && typeof post.img === "string" ? [post.img.startsWith("http") ? post.img : `https://merchclub.com${post.img}`] : ["https://merchclub.com/opengraph.jpg"],
       "datePublished": isoDate,
       "dateModified": isoDate,
       "articleSection": post.tag,

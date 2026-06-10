@@ -295,6 +295,29 @@ export default function About() {
     },
     {
       "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://merchclub.com/#localbusiness",
+      "name": "Merch Club",
+      "image": "https://merchclub.com/opengraph.jpg",
+      "url": "https://merchclub.com",
+      "telephone": "+1-531-777-0347",
+      "email": "chris@merchclub.com",
+      "priceRange": "$$-$$$",
+      "address": { "@type": "PostalAddress", "streetAddress": "12020 Shamrock Plaza, Suite 200", "addressLocality": "Omaha", "addressRegion": "NE", "postalCode": "68154", "addressCountry": "US" },
+      "geo": { "@type": "GeoCoordinates", "latitude": 41.2565, "longitude": -95.9345 },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "State", "name": "Nebraska" },
+        { "@type": "State", "name": "Iowa" },
+        { "@type": "State", "name": "Kansas" },
+        { "@type": "State", "name": "Missouri" },
+        { "@type": "State", "name": "South Dakota" }
+      ],
+      "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" }],
+      "sameAs": ["https://www.facebook.com/MerchClubPro","https://www.instagram.com/merchclub_ig/","https://www.linkedin.com/company/merchclub/","https://www.tiktok.com/@merchclub_tt","https://www.youtube.com/@MerchClubPro"]
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://merchclub.com/" },

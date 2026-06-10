@@ -1,0 +1,97 @@
+Three SEO enhancements. Build/markup/config only — no copy, design, or routing
+changes. We are a Vite + React SPA with build-time prerendering (scripts/
+prerender.mjs); all structured data and files below must end up in the actual
+served output, verified via View Source / the built files.
+
+=== TASK 1: COMPLETE STRUCTURED DATA SITEWIDE ===
+We already have Organization, WebSite, FAQPage, and ItemList JSON-LD on the
+homepage. Add the following, injected into the prerendered HTML of the relevant
+routes:
+
+a) LocalBusiness schema on /contact AND /about:
+   - @type: LocalBusiness
+   - name: "Merch Club"
+   - url: "https://merchclub.com"
+   - telephone: "+1-531-777-0347"
+   - email: "chris@merchclub.com"
+   - address: streetAddress "12020 Shamrock Plaza, Suite 200", addressLocality
+     "Omaha", addressRegion "NE", postalCode "68154", addressCountry "US"
+   - geo: latitude 41.2565, longitude -95.9345 (or the precise coords for the
+     suite if available)
+   - sameAs: the full social list (Facebook, Instagram, LinkedIn
+     linkedin.com/company/merchclub, TikTok @merchclub_tt, YouTube @MerchClubPro)
+   - openingHours if we have them; omit if unknown rather than guessing
+
+b) Article schema on EVERY case study page (/case-studies/*) and every blog post
+   (/blog/*):
+   - @type: Article, headline = the page's H1, image = the page's hero image
+     (absolute URL), author + publisher = Organization "Merch Club" with logo,
+     datePublished + dateModified (use real/known dates; if unknown for case
+     studies use a sensible published date and today's date for modified)
+   - mainEntityOfPage = the page's canonical URL
+
+c) BreadcrumbList schema on all nested pages (case studies, blog posts, tools,
+   industries pages), reflecting the real path, e.g. Home > Case Studies >
+   [Client], Home > Industries > [Industry], Home > Tools > [Tool].
+
+d) Also add Organization sameAs completeness + full address to the existing
+   homepage Organization schema (currently address only has country, and sameAs
+   is missing LinkedIn/TikTok/YouTube).
+
+Validate all JSON-LD against schema.org — zero errors. Each must appear in the
+RAW prerendered HTML, not injected client-side only.
+
+=== TASK 2: CREATE /llms.txt ===
+Create a plain-text file served at https://merchclub.com/llms.txt (must be
+reachable at that exact path, returning text/plain). Structure it per the
+emerging llms.txt convention:
+
+# Merch Club
+> Merch Club is an Omaha, Nebraska-based full-service branded merchandise
+partner. We design and operate end-to-end branded merchandise programs —
+strategy, design, proofing, production, kitting, and nationwide distribution —
+for healthcare, construction and trades, corporate, and events clients. One
+partner, not a vendor. We are the physical layer of every brand.
+
+## Key Pages
+- About: https://merchclub.com/about
+- Services: https://merchclub.com/services
+- Contact: https://merchclub.com/contact
+- Case Studies: https://merchclub.com/case-studies
+
+## Case Studies
+- [list each of the 5 with its URL and a one-line description]
+
+## Industries
+- Healthcare, Construction & Trades, Corporate, Trade Shows & Events
+[with their /industries/ URLs]
+
+## Tools
+- [Size Breakdown Tool, etc. as they go live]
+
+## Contact
+12020 Shamrock Plaza, Suite 200, Omaha, NE 68154 · (531) 777-0347 ·
+chris@merchclub.com
+
+Keep it accurate to what's actually live — don't list pages that don't exist yet.
+
+=== TASK 3: SITEMAP + IMAGE SEO AUDIT ===
+a) Sitemap: confirm sitemap.xml includes ALL live routes, uses non-www canonical
+   URLs (https://merchclub.com, no trailing slash), has valid lastmod dates, and
+   is referenced in robots.txt. Fix anything missing or inconsistent.
+b) Image alt text: audit all <img> tags. Every meaningful image needs
+   descriptive, keyword-relevant alt text. Decorative/duplicate images (e.g. the
+   second set in an infinite marquee) should have empty alt="" intentionally.
+   Fix images currently missing alt or with empty alt that shouldn't be.
+c) Image dimensions: ensure images have explicit width/height (or aspect-ratio)
+   to prevent layout shift (CLS). 
+d) Where straightforward, serve modern formats (WebP) — but do NOT break any
+   existing images chasing this; skip if risky.
+
+=== VERIFY BEFORE FINALIZING ===
+- Show me the diff of every file changed.
+- Paste the raw prerendered HTML <head> (or relevant section) of /contact showing
+  the LocalBusiness JSON-LD, and one case study showing Article + BreadcrumbList.
+- Confirm https://merchclub.com/llms.txt is reachable and returns plain text.
+- Confirm sitemap.xml is valid and uses non-www URLs.
+Do not modify page copy, design, or routing. Do not touch other functionality.

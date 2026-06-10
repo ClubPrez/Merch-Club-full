@@ -1,5 +1,15 @@
 import { renderToString } from "react-dom/server";
 import App from "./App";
+import { resetSSRJsonLd, getSSRJsonLd } from "./lib/ssr-jsonld";
+import { blogPosts } from "./pages/blog";
+
+// Exposed to scripts/prerender.mjs so it can generate one prerendered file per
+// blog post (title/description for <head>) without duplicating the blog dataset.
+export const blogRouteMeta = blogPosts.map((p) => ({
+  slug: p.slug,
+  title: p.title,
+  excerpt: p.excerpt,
+}));
 
 function setupGlobals(pathname: string) {
   const noop = () => {};
@@ -216,13 +226,15 @@ function setupGlobals(pathname: string) {
   def("PointerEvent", class { constructor(_t?: string, _i?: unknown) {} });
 }
 
-export function render(url: string): string {
+export function render(url: string): { html: string; jsonLd: object[] } {
   setupGlobals(url);
+  resetSSRJsonLd();
   try {
-    return renderToString(<App />);
+    const html = renderToString(<App />);
+    return { html, jsonLd: getSSRJsonLd() };
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     console.warn(`[SSR] render failed for ${url}: ${message}`);
-    return "";
+    return { html: "", jsonLd: [] };
   }
 }

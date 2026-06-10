@@ -70,6 +70,8 @@ const articleJsonLd = {
   description:
     "How Merch Club built ACCESSbank's shareholder, executive, and employee gifting programs — including a book on the art of toasting we wrote and illustrated ourselves.",
   datePublished: "2026-04-15",
+  dateModified: "2026-06-10",
+  image: "https://merchclub.com/opengraph.jpg",
   author: { "@type": "Organization", name: "Merch Club" },
   publisher: {
     "@type": "Organization",

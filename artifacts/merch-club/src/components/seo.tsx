@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { pushSSRJsonLd } from "@/lib/ssr-jsonld";
 
 interface SEOProps {
   title: string;
@@ -34,6 +35,12 @@ export default function SEO({
   author = SITE_NAME,
   twitterSite = DEFAULT_TWITTER,
 }: SEOProps) {
+  // During the build-time prerender (SSR), record the structured data so it can be
+  // baked into the raw <head>. Tree-shaken out of the client bundle.
+  if (import.meta.env.SSR && jsonLd) {
+    pushSSRJsonLd(jsonLd);
+  }
+
   useEffect(() => {
     const fullTitle = path === "/" ? `${SITE_NAME} — Full-Service Branded Merchandise` : `${title} | ${SITE_NAME}`;
     const canonicalUrl = `${BASE_URL}${path}`;

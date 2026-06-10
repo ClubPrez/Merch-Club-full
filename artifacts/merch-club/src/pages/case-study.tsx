@@ -39,6 +39,8 @@ export default function CaseStudy() {
     headline: cs.title,
     description: cs.summary,
     datePublished: cs.date,
+    dateModified: "2026-06-10",
+    image: "https://merchclub.com/opengraph.jpg",
     author: { "@type": "Organization", name: "Merch Club" },
     publisher: {
       "@type": "Organization",
