@@ -290,6 +290,45 @@ async function main() {
     console.error('\n   Failing the build to prevent shipping empty HTML.');
     process.exit(1);
   }
+
+  // Prerender 404.html -------------------------------------------------------
+  // vercel.json "routes" serves this file with HTTP 404 status for any request
+  // that doesn't resolve to a prerendered static file.  We pass a guaranteed-
+  // nonexistent path so Wouter falls through to the catch-all
+  // <Route component={NotFound} /> in App.tsx and renders that component.
+  try {
+    const { html: nfHtml } = render('/__not_found__');
+    let notFoundHtml = template;
+    notFoundHtml = rep(
+      notFoundHtml,
+      /<title>[^<]+<\/title>/,
+      '<title>404 — Page Not Found | Merch Club</title>',
+    );
+    notFoundHtml = notFoundHtml.replace(
+      /(<meta name="description" content=")[^"]*"/,
+      (_, p) => `${p}The page you're looking for doesn't exist. Head back to the Merch Club homepage."`,
+    );
+    // Point canonical + OG URL to the homepage — 404 pages should not be
+    // indexed and have no meaningful self-referential URL.
+    notFoundHtml = notFoundHtml.replace(
+      /(<link rel="canonical" href=")[^"]*"/,
+      (_, p) => `${p}${BASE_URL}/"`,
+    );
+    notFoundHtml = notFoundHtml.replace(
+      /(<meta property="og:url" content=")[^"]*"/,
+      (_, p) => `${p}${BASE_URL}/"`,
+    );
+    if (nfHtml) {
+      notFoundHtml = notFoundHtml.replace(
+        '<div id="root"></div>',
+        () => `<div id="root">${nfHtml}</div>`,
+      );
+    }
+    fs.writeFileSync(path.join(DIST, '404.html'), notFoundHtml, 'utf8');
+    console.log('  ✓  404.html');
+  } catch (err) {
+    console.warn('  ⚠  404.html — render threw:', err.message);
+  }
 }
 
 main().catch((err) => {
