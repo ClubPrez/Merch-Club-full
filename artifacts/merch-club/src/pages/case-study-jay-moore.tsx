@@ -580,9 +580,8 @@ export default function CaseStudyJayMoore() {
                 The Phone Rings to Say Thanks.<br />The Neighbor Changed Colors.
               </h2>
               <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
-                People call Jay to compliment the color — not for a quote. They say it makes
-                Omaha look bold and sophisticated to travelers driving past on the interstate.
-                That's a landscaping company becoming part of how a city sees itself.
+                People call Jay all the time for everything relating to their outdoor space.
+                And some call simply to compliment him on the bold choice to paint his building Fuchsia.
               </p>
               <p className="text-base md:text-lg text-[#444] leading-relaxed mb-5">
                 Then there's the neighbor: Ideal Pure Water, a family-owned Omaha business
