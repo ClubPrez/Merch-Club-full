@@ -593,10 +593,7 @@ export default function CaseStudyJayMoore() {
                 A century-old company looked at Jay's color and decided the smart move wasn't to
                 fight it. It was to join it.
               </p>
-              <p className="text-sm text-[#aaa] italic leading-relaxed mb-10">
-                (We're still working on getting them to paint the actual building. We're
-                confident the neighborhood is about to send a lot of emails.)
-              </p>
+
               <p className="text-xl md:text-2xl font-bold text-black leading-snug">
                 "If you can't beat us, join us. And hey, it works."
               </p>
