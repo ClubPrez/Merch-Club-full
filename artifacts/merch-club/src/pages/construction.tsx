@@ -770,7 +770,7 @@ export default function Construction() {
                             <div className="text-[9px] uppercase tracking-[0.15em] text-[#666] leading-tight">Vehicles past his building daily</div>
                           </div>
                           <div className="bg-[#f5f5f5] rounded-xl p-4">
-                            <div className="text-2xl md:text-3xl font-black leading-none mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif", color: "#A1006B" }}>227 C</div>
+                            <div className="text-2xl md:text-3xl font-black leading-none mb-1 tracking-tight" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>227 C</div>
                             <div className="text-[9px] uppercase tracking-[0.15em] text-[#666] leading-tight">The color he owns</div>
                           </div>
                           <div className="bg-[#f5f5f5] rounded-xl p-4">

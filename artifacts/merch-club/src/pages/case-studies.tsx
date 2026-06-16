@@ -105,18 +105,15 @@ export default function CaseStudies() {
                 </div>
               </div>
               <div className="grid grid-cols-3 gap-3 md:gap-4">
-                {cs.results.map((r) => {
-                  const isFuchsiaStat = cs.slug === "jay-moore-landscaping" && r.value === "227 C";
-                  return (
-                    <div key={r.label} className="bg-black text-white rounded-xl p-4 md:p-5 text-center">
-                      <div
-                        className="text-3xl md:text-4xl font-black leading-none mb-2 tracking-tight"
-                        style={{ fontFamily: "'Bebas Neue', sans-serif", color: isFuchsiaStat ? "#A1006B" : undefined }}
-                      >{r.value}</div>
-                      <div className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] text-white/60 leading-tight">{r.label}</div>
-                    </div>
-                  );
-                })}
+                {cs.results.map((r) => (
+                  <div key={r.label} className="bg-black text-white rounded-xl p-4 md:p-5 text-center">
+                    <div
+                      className="text-3xl md:text-4xl font-black leading-none mb-2 tracking-tight"
+                      style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                    >{r.value}</div>
+                    <div className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] text-white/60 leading-tight">{r.label}</div>
+                  </div>
+                ))}
               </div>
             </Link>
           ))}
