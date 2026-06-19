@@ -1,0 +1,69 @@
+Fix Google Search Console Soft 404 issues for my Vercel-deployed site.
+
+The affected URLs are:
+
+https://merchclub.com/product/tackle-knit/
+https://merchclub.com/product/nfc-tap-tee/
+https://merchclub.com/product/sublimated-patches/
+https://merchclub.com/product/nailheads-print-tshirt/feed/
+https://merchclub.com/product/chromaflex-holographic/
+https://merchclub.com/product-category/custom-shirts/
+https://merchclub.com/product/chromaflex-beveled/
+https://merchclub.com/product/applique/
+https://merchclub.com/product/seam-spray/
+https://merchclub.com/product/pms-color-match/
+https://merchclub.com/product/lextra-3d-4d/
+https://merchclub.com/product/chromaflex/
+https://merchclub.com/product/chromaflex-flat/
+https://merchclub.com/home/
+https://merchclub.com/home
+
+Goal:
+Remove Soft 404 problems by making every old URL resolve correctly.
+
+Please inspect the app routes, redirects, sitemap, and metadata.
+
+Implement these rules:
+
+1. Redirect /home and /home/ to the homepage /
+   - Use a permanent 301 redirect.
+   - Do not keep /home as a separate indexable page.
+   - Make sure sitemap does not include /home or /home/.
+
+2. For /product/nailheads-print-tshirt/feed/
+   - This is an old WordPress feed-style URL.
+   - It should not be indexed.
+   - Either return a proper 404/410 status, or redirect it only if there is a highly relevant current page.
+   - Do not return a normal 200 page with thin/empty content.
+
+3. For old product URLs:
+   - If there is a current relevant service/product page, 301 redirect the old URL to that best matching current page.
+   - If there is no relevant replacement page, return a real 404 or 410 status.
+   - Do not create placeholder pages.
+   - Do not return 200 OK for empty or unavailable product pages.
+
+4. For /product-category/custom-shirts/
+   - Redirect to the best current custom shirts/custom apparel page if one exists.
+   - If not, return 404/410.
+   - Do not return a thin category page.
+
+5. Remove all Soft 404 URLs from sitemap.xml unless they now redirect intentionally.
+   - Sitemap should include only final canonical URLs that return 200 OK.
+   - Sitemap should not include redirected URLs, /feed/ URLs, /home, or old unavailable products.
+
+6. Check canonical tags:
+   - Canonicals should point to final live pages, not old product URLs.
+   - Use https://merchclub.com as the canonical domain.
+
+7. Check internal links:
+   - Remove or update internal links pointing to these old URLs.
+   - Internal links should point directly to the final destination page, not through redirects.
+
+8. Avoid redirect chains and loops.
+   - Each redirected URL should go directly to the final destination in one hop.
+
+After making changes:
+- Show me the files changed.
+- Show me the redirect map you created.
+- Show me which URLs now redirect and which URLs return 404/410.
+- Do not change visual design or page content except where needed to fix routing/SEO.

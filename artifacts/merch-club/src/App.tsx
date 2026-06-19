@@ -83,6 +83,14 @@ function Router() {
       <Route path="/accessibility" component={Accessibility} />
       <Route path="/accessibility/"><Redirect to="/accessibility" /></Route>
 
+      {/* Legacy /home redirects */}
+      <Route path="/home"><Redirect to="/" /></Route>
+      <Route path="/home/"><Redirect to="/" /></Route>
+
+      {/* Legacy WordPress product/category URLs */}
+      <Route path="/product/:rest*"><Redirect to="/services" /></Route>
+      <Route path="/product-category/:rest*"><Redirect to="/services" /></Route>
+
       {/* Legacy merchclub.com URL redirects */}
       <Route path="/shop"><Redirect to="/case-studies" /></Route>
       <Route path="/shop/"><Redirect to="/case-studies" /></Route>
