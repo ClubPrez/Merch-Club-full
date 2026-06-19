@@ -807,12 +807,7 @@ export default function Home() {
       "@type": "WebSite",
       "url": "https://merchclub.com",
       "name": "Merch Club",
-      "description": "Full-service branded merchandise programs.",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://merchclub.com/blog?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "description": "Full-service branded merchandise programs."
     },
     {
       "@context": "https://schema.org",

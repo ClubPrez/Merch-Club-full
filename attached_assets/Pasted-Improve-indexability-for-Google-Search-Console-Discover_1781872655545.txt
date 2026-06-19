@@ -1,0 +1,98 @@
+Improve indexability for Google Search Console “Discovered - currently not indexed” URLs.
+
+Affected URLs:
+
+https://merchclub.com/accessibility
+https://merchclub.com/blog
+https://merchclub.com/blog/branded-merchandise-mistakes
+https://merchclub.com/blog/merch-program-strategy
+https://merchclub.com/case-studies/access-bank
+https://merchclub.com/case-studies/construction
+https://merchclub.com/case-studies/events
+https://merchclub.com/case-studies/jay-moore-landscaping
+https://merchclub.com/case-studies/nurse-gifting
+https://merchclub.com/industries
+https://merchclub.com/industries/construction
+https://merchclub.com/industries/corporate
+https://merchclub.com/industries/events
+https://merchclub.com/industries/healthcare
+https://merchclub.com/privacy-policy
+https://merchclub.com/terms
+https://merchclub.com/tools/size-breakdown
+
+Goal:
+These appear to be real current pages. Make sure they are crawlable, indexable, internally linked, included in the sitemap, and have clean SEO metadata.
+
+Tasks:
+
+1. Confirm each URL returns 200 OK server-side.
+   Do not redirect these pages unless there is a clear canonical URL mismatch.
+   Do not return 404/410 for these pages.
+
+2. Confirm none of these pages have:
+   - noindex meta tag
+   - X-Robots-Tag noindex header
+   - robots.txt blocking
+   - broken route behavior
+   - client-only rendering that prevents meaningful page content from being available
+
+3. Add or verify canonical tags for each page.
+   Use the exact final URL format:
+   https://merchclub.com/accessibility
+   https://merchclub.com/blog
+   https://merchclub.com/blog/branded-merchandise-mistakes
+   https://merchclub.com/blog/merch-program-strategy
+   https://merchclub.com/case-studies/access-bank
+   https://merchclub.com/case-studies/construction
+   https://merchclub.com/case-studies/events
+   https://merchclub.com/case-studies/jay-moore-landscaping
+   https://merchclub.com/case-studies/nurse-gifting
+   https://merchclub.com/industries
+   https://merchclub.com/industries/construction
+   https://merchclub.com/industries/corporate
+   https://merchclub.com/industries/events
+   https://merchclub.com/industries/healthcare
+   https://merchclub.com/privacy-policy
+   https://merchclub.com/terms
+   https://merchclub.com/tools/size-breakdown
+
+4. Add or verify unique title tags and meta descriptions for each page.
+   Avoid duplicate titles/descriptions.
+   Keep them natural and relevant.
+
+5. Update sitemap.xml or sitemap generation so these URLs are included if they are intended to be indexed.
+   Sitemap should include only final 200 OK canonical URLs.
+   Do not include trailing-slash versions if the final URL has no trailing slash.
+
+6. Strengthen internal linking:
+   - Make sure /blog is linked from at least one crawlable page.
+   - Make sure blog articles are linked from /blog.
+   - Make sure /case-studies is linked if it exists, or case study pages are linked from a relevant visible section.
+   - Make sure /industries is linked from navigation, footer, homepage, or services page.
+   - Make sure industry detail pages are linked from /industries.
+   - Make sure /tools/size-breakdown is linked from a relevant page.
+   - Footer links for /privacy-policy, /terms, and /accessibility are fine.
+
+7. Check for orphan pages.
+   These URLs should not exist only in the sitemap. They should have crawlable internal links from current pages.
+
+8. For blog and case study pages, make sure the page has enough unique visible content.
+   Do not create thin placeholder pages.
+   If any page has very little content, flag it instead of inventing content.
+
+9. Add basic structured data where appropriate:
+   - BlogPosting for blog articles if content supports it
+   - BreadcrumbList for blog, case studies, industries, and tools pages
+   - Organization or WebSite schema only if already implemented cleanly
+
+10. Do not change visual design unless needed for internal links.
+    Do not remove existing page content.
+
+After changes, show me:
+- which URLs return 200 OK
+- which URLs were added to sitemap
+- which canonical tags were added/updated
+- which titles/meta descriptions were added/updated
+- which internal links were added/updated
+- whether any pages appear thin or incomplete
+- files changed
