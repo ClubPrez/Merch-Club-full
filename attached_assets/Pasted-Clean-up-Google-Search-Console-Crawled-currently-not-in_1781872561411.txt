@@ -1,0 +1,161 @@
+Clean up Google Search Console “Crawled - currently not indexed” issues.
+
+Goal:
+Most affected URLs are old WordPress, WooCommerce, feed, product, product-category, plugin, and archive URLs. They should either redirect to a highly relevant current page, return 404/410 if obsolete, or be made clearly indexable if they are real current pages.
+
+Important:
+Do not redirect every old URL to the homepage.
+Do not return 200 OK for old feed/plugin/archive URLs.
+Do not create thin placeholder pages.
+Do not change visual design.
+
+Affected URL patterns seen in Search Console include:
+
+/product-category/emblem/page/3/
+/product-category/custom-shirts/page/2/
+/product-category/custom-shirts/page/3/
+/product-category/custom-shirts/page/4/
+/product/crystal-wash/feed/
+/product/hoodie-liner/feed/
+/product/applique-print/feed/
+/product/full-color-gloss-print/feed/
+/product/pvc-rubber-patch/feed/
+/product/dailies-name-patches/feed/
+/product/additional-colors/feed/
+/product/chroma-bling/feed/
+/product/butterlux/feed/
+/product/peek-a-boo-pocket/feed/
+/product/reflective-print/feed/
+/product/foil-print/feed/
+/product/3dimensional-matte-print/feed/
+/product/3m-safety-reflective/feed/
+/product/elasti-print/feed/
+/product/full-color-faux-leather-patch/feed/
+/product/glitter-print/feed/
+/product/chromaflex-beveled/feed/
+/comments/feed/
+/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4
+/?wc-ajax=%endpoint%
+/locations.kml
+
+Also product/service-style URLs such as:
+/product/full-color-gloss-print/
+/product/pvc-rubber-patch/
+/product/lextra/
+/product/colorcrest/
+/product/apparel-laser-etching/
+/product/3d-embroidered-patches/
+/product/diamond-plate-print/
+/product/foil-print/
+/product/print-over-zippers/
+/product/private-label/
+/product/mono-gloss-print/
+/product/additional-colors/
+/product/peek-a-boo-pocket/
+/product/dailies-name-patches/
+/product/glitter-print/
+/product/chromaflex-textured/
+/product/woven-patches/
+/product/print-stitch-patches/
+/product/nailheads-print-tshirt/
+/product/print-over-seams/
+/product/faux-suede/
+/product/inside-out-butterlux/
+/product/3dimensional-matte-print/
+/product/reflective-print/
+/product/glow-in-the-dark/
+/product/custom-cuffs/
+/product/3m-safety-reflective/
+/product/vintage-flock/
+/product/custom-drawcords-aglets/
+/product/spiral-dye/
+
+And current-looking pages:
+/gallery
+/latest-catalogs
+
+Tasks:
+
+1. Feed URLs:
+   Any old feed URL should return 410 Gone if possible, otherwise 404.
+   This includes:
+   - /product/*/feed/
+   - /comments/feed/
+   Do not redirect feed URLs to homepage or /services.
+
+2. WordPress/plugin/WooCommerce technical URLs:
+   Return 410 or 404 for:
+   - /wp-includes/*
+   - /?wc-ajax=*
+   - /locations.kml
+   Do not include them in sitemap.
+   Do not block them in robots.txt if already discovered; Google should be able to crawl and see 404/410.
+
+3. Old product URLs:
+   For known product/service URLs that represent real services Merch Club still offers, 301 redirect them to /services, or to a more specific current service page if one exists.
+   Avoid broad catch-all redirects for unknown /product/* URLs.
+   Known old product URLs may redirect to /services.
+   Unknown product URLs should return 404/410.
+
+4. Old product-category pagination:
+   Return 410 or 404 for old paginated category URLs such as:
+   - /product-category/emblem/page/3/
+   - /product-category/custom-shirts/page/2/
+   - /product-category/custom-shirts/page/3/
+   - /product-category/custom-shirts/page/4/
+
+   If /product-category/custom-shirts/ itself has already been redirected to /services, keep that redirect, but do not redirect old pagination pages unless there is a strong reason.
+
+5. Current pages:
+   Check /gallery and /latest-catalogs.
+   These should be real 200 OK pages if they exist on the current site.
+   Make sure they:
+   - return 200 OK
+   - are not noindexed
+   - have canonical tags pointing to themselves
+   - appear in sitemap only as final canonical URLs
+   - are internally linked using the final URL format
+
+6. Sitemap cleanup:
+   Make sure sitemap.xml includes only final 200 OK canonical URLs.
+   Remove:
+   - old /product/* URLs
+   - old /product-category/* URLs
+   - feed URLs
+   - wp-includes URLs
+   - wc-ajax URLs
+   - locations.kml
+   - redirected URLs
+   - 404/410 URLs
+
+7. Internal link cleanup:
+   Search the codebase for:
+   - /product/
+   - /product-category/
+   - /feed/
+   - /comments/feed
+   - wp-includes
+   - wc-ajax
+   - locations.kml
+   - latest-catalogs
+   - gallery
+
+   Update or remove internal links that point to obsolete URLs.
+   Keep internal links to /gallery and /latest-catalogs only if they are current live pages.
+
+8. Canonical cleanup:
+   Make sure canonical tags use:
+   https://merchclub.com
+   and point only to final 200 OK pages.
+
+9. Redirect/status rules:
+   Keep server-side Vercel rules as the source of truth for Googlebot.
+   Client-side SPA redirects are okay as backup, but they do not replace server-side redirects/statuses.
+
+10. After changes, show me:
+   - files changed
+   - final redirect map
+   - final 404/410 map
+   - which old URLs were removed from sitemap
+   - whether /gallery and /latest-catalogs are indexable 200 pages
+   - whether any internal links were updated

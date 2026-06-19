@@ -87,9 +87,19 @@ function Router() {
       <Route path="/home"><Redirect to="/" /></Route>
       <Route path="/home/"><Redirect to="/" /></Route>
 
-      {/* Legacy WordPress product/category URLs */}
-      <Route path="/product/:rest*"><Redirect to="/services" /></Route>
-      <Route path="/product-category/:rest*"><Redirect to="/services" /></Route>
+      {/* Legacy WordPress product/category URLs — known redirects only; unknown slugs fall to 404 */}
+      <Route path="/product/tackle-knit"><Redirect to="/services" /></Route>
+      <Route path="/product/nfc-tap-tee"><Redirect to="/services" /></Route>
+      <Route path="/product/sublimated-patches"><Redirect to="/services" /></Route>
+      <Route path="/product/chromaflex-holographic"><Redirect to="/services" /></Route>
+      <Route path="/product/chromaflex-beveled"><Redirect to="/services" /></Route>
+      <Route path="/product/chromaflex-flat"><Redirect to="/services" /></Route>
+      <Route path="/product/chromaflex"><Redirect to="/services" /></Route>
+      <Route path="/product/applique"><Redirect to="/services" /></Route>
+      <Route path="/product/seam-spray"><Redirect to="/services" /></Route>
+      <Route path="/product/pms-color-match"><Redirect to="/services" /></Route>
+      <Route path="/product/lextra-3d-4d"><Redirect to="/services" /></Route>
+      <Route path="/product-category/custom-shirts"><Redirect to="/services" /></Route>
 
       {/* Legacy merchclub.com URL redirects */}
       <Route path="/shop"><Redirect to="/case-studies" /></Route>
