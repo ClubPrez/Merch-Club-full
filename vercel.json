@@ -6,6 +6,9 @@
   "framework": null,
   "routes": [
     { "src": "/home/?", "headers": { "Location": "/" }, "status": 301 },
+    { "src": "/contact/", "headers": { "Location": "/contact" }, "status": 301 },
+    { "src": "/gallery/?", "headers": { "Location": "/case-studies" }, "status": 301 },
+    { "src": "/latest-catalogs/?", "headers": { "Location": "/services" }, "status": 301 },
     { "src": "/product/nailheads-print-tshirt/feed/?", "dest": "/404.html", "status": 410 },
     { "src": "/product/.+", "headers": { "Location": "/services" }, "status": 301 },
     { "src": "/product-category/.+", "headers": { "Location": "/services" }, "status": 301 },
