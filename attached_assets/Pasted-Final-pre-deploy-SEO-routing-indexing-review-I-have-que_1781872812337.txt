@@ -1,0 +1,113 @@
+Final pre-deploy SEO routing/indexing review.
+
+I have queued several Google Search Console fixes for redirects, soft 404s, old WordPress URLs, noindex cleanup, and indexability improvements.
+
+Before I push/sync live to Vercel, please review all changes together and confirm there are no conflicts.
+
+Check these areas:
+
+1. Redirects
+Confirm these work server-side:
+- /home → / with 301
+- /home/ → / with 301
+- known old /product/... URLs → /services with 301 only when listed in the known redirect map
+- known old /product-category/custom-shirts/ → /services with 301
+- /latest-catalogs/ → /latest-catalogs if the non-trailing-slash version is canonical
+- /gallery/ → /gallery if the non-trailing-slash version is canonical
+- /contact/ → /contact if the non-trailing-slash version is canonical
+
+2. 404/410 cleanup
+Confirm these return 404 or 410 server-side:
+- old feed URLs like /product/*/feed/
+- /comments/feed/
+- /wp-content/*
+- /wp-content/uploads/*
+- /wp-includes/*
+- /wp-admin/* if not blocked before status can be seen
+- /?wc-ajax=*
+- /locations.kml
+- /author/engrzeb/
+- unknown /product/... URLs that are not in the known redirect map
+- unknown /product-category/... URLs that are not in the known redirect map
+- old product-category pagination URLs like /product-category/custom-shirts/page/3/
+
+3. Important live pages
+Confirm these return 200 OK, are indexable, and are not accidentally redirected, blocked, noindexed, or set to 404/410:
+- /
+- /about
+- /services
+- /contact
+- /gallery
+- /latest-catalogs
+- /accessibility
+- /blog
+- /blog/branded-merchandise-mistakes
+- /blog/merch-program-strategy
+- /case-studies/access-bank
+- /case-studies/construction
+- /case-studies/events
+- /case-studies/jay-moore-landscaping
+- /case-studies/nurse-gifting
+- /industries
+- /industries/construction
+- /industries/corporate
+- /industries/events
+- /industries/healthcare
+- /privacy-policy
+- /terms
+- /tools/size-breakdown
+
+4. Sitemap
+Confirm sitemap.xml includes only final 200 OK canonical URLs.
+It should not include:
+- redirected URLs
+- trailing-slash URLs if non-trailing-slash is canonical
+- /home or /home/
+- old /product/... URLs
+- old /product-category/... URLs
+- feed URLs
+- wp-content URLs
+- wp-includes URLs
+- wp-admin URLs
+- wc-ajax URLs
+- locations.kml
+- /author/engrzeb/
+
+5. Canonicals
+Confirm canonical tags use:
+https://merchclub.com
+and point to final live 200 OK pages only.
+
+6. Internal links
+Confirm internal links point directly to final URLs, not redirected URLs.
+Check for old references to:
+- /product/
+- /product-category/
+- /feed/
+- /wp-content/
+- /wp-includes/
+- /wp-admin/
+- ?s=
+- search_term_string
+- wc-ajax
+- locations.kml
+- /home
+
+7. Robots and noindex
+Confirm robots.txt does not block important public pages.
+Confirm no important public pages have noindex.
+If SearchAction structured data exists with ?s={search_term_string}, remove it unless there is a real working search page.
+
+8. Conflict check
+Confirm there are no redirect loops.
+Confirm there are no broad catch-all redirects sending every /product/... or /product-category/... URL to /services.
+Confirm Vercel/server-side rules are the source of truth for crawlers.
+Client-side App.tsx redirects should not conflict with vercel.json.
+
+After review, provide:
+- files changed
+- final redirect map
+- final 404/410 map
+- list of indexable 200 pages
+- sitemap changes
+- any warnings before deployment

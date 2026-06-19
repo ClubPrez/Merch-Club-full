@@ -99,7 +99,45 @@ function Router() {
       <Route path="/product/seam-spray"><Redirect to="/services" /></Route>
       <Route path="/product/pms-color-match"><Redirect to="/services" /></Route>
       <Route path="/product/lextra-3d-4d"><Redirect to="/services" /></Route>
+      <Route path="/product/nailheads-print-tshirt"><Redirect to="/services" /></Route>
+      <Route path="/product/crystal-wash"><Redirect to="/services" /></Route>
+      <Route path="/product/hoodie-liner"><Redirect to="/services" /></Route>
+      <Route path="/product/applique-print"><Redirect to="/services" /></Route>
+      <Route path="/product/full-color-gloss-print"><Redirect to="/services" /></Route>
+      <Route path="/product/pvc-rubber-patch"><Redirect to="/services" /></Route>
+      <Route path="/product/chroma-bling"><Redirect to="/services" /></Route>
+      <Route path="/product/butterlux"><Redirect to="/services" /></Route>
+      <Route path="/product/elasti-print"><Redirect to="/services" /></Route>
+      <Route path="/product/full-color-faux-leather-patch"><Redirect to="/services" /></Route>
+      <Route path="/product/lextra"><Redirect to="/services" /></Route>
+      <Route path="/product/colorcrest"><Redirect to="/services" /></Route>
+      <Route path="/product/apparel-laser-etching"><Redirect to="/services" /></Route>
+      <Route path="/product/3d-embroidered-patches"><Redirect to="/services" /></Route>
+      <Route path="/product/diamond-plate-print"><Redirect to="/services" /></Route>
+      <Route path="/product/foil-print"><Redirect to="/services" /></Route>
+      <Route path="/product/print-over-zippers"><Redirect to="/services" /></Route>
+      <Route path="/product/private-label"><Redirect to="/services" /></Route>
+      <Route path="/product/mono-gloss-print"><Redirect to="/services" /></Route>
+      <Route path="/product/additional-colors"><Redirect to="/services" /></Route>
+      <Route path="/product/peek-a-boo-pocket"><Redirect to="/services" /></Route>
+      <Route path="/product/dailies-name-patches"><Redirect to="/services" /></Route>
+      <Route path="/product/glitter-print"><Redirect to="/services" /></Route>
+      <Route path="/product/chromaflex-textured"><Redirect to="/services" /></Route>
+      <Route path="/product/woven-patches"><Redirect to="/services" /></Route>
+      <Route path="/product/print-stitch-patches"><Redirect to="/services" /></Route>
+      <Route path="/product/print-over-seams"><Redirect to="/services" /></Route>
+      <Route path="/product/faux-suede"><Redirect to="/services" /></Route>
+      <Route path="/product/inside-out-butterlux"><Redirect to="/services" /></Route>
+      <Route path="/product/3dimensional-matte-print"><Redirect to="/services" /></Route>
+      <Route path="/product/reflective-print"><Redirect to="/services" /></Route>
+      <Route path="/product/glow-in-the-dark"><Redirect to="/services" /></Route>
+      <Route path="/product/custom-cuffs"><Redirect to="/services" /></Route>
+      <Route path="/product/3m-safety-reflective"><Redirect to="/services" /></Route>
+      <Route path="/product/vintage-flock"><Redirect to="/services" /></Route>
+      <Route path="/product/custom-drawcords-aglets"><Redirect to="/services" /></Route>
+      <Route path="/product/spiral-dye"><Redirect to="/services" /></Route>
       <Route path="/product-category/custom-shirts"><Redirect to="/services" /></Route>
+      <Route path="/product-category/emblem"><Redirect to="/services" /></Route>
 
       {/* Legacy merchclub.com URL redirects */}
       <Route path="/shop"><Redirect to="/case-studies" /></Route>
