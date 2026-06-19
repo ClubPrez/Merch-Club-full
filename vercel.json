@@ -5,6 +5,8 @@
   "outputDirectory": "artifacts/merch-club/dist/public",
   "framework": null,
   "routes": [
+    { "src": "/wp-content/.*", "dest": "/404.html", "status": 410 },
+    { "src": "/wp-admin/.*", "dest": "/404.html", "status": 410 },
     { "src": "/home/?", "headers": { "Location": "/" }, "status": 301 },
     { "src": "/contact/", "headers": { "Location": "/contact" }, "status": 301 },
     { "src": "/gallery/?", "headers": { "Location": "/case-studies" }, "status": 301 },
