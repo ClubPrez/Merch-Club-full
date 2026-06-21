@@ -16,7 +16,18 @@ interface PublicProduct {
   thumb: string | null;
 }
 
-const QUICK_TAGS = ["Mugs", "Hoodies", "Totes", "Pens", "Drinkware", "Bags"];
+const QUICK_TAGS = [
+  { label: "Backpacks",   term: "Backpacks" },
+  { label: "Bags",        term: "Bags" },
+  { label: "Tech",        term: "Tech Accessories" },
+  { label: "Pens",        term: "Pens" },
+  { label: "Journals",    term: "Journals Notebooks" },
+  { label: "Decals",      term: "Decals" },
+  { label: "Stress Toys", term: "Stress Relievers" },
+  { label: "Tumblers",    term: "Tumblers" },
+  { label: "Displays",    term: "Displays" },
+  { label: "Tools",       term: "Multi-Tools" },
+];
 const PAGE_SIZE = 24;
 
 function useRevealOnScroll(threshold = 0.15) {
@@ -217,6 +228,14 @@ export default function InstantQuote() {
     runSearch(activeQuery, currentPage + 1, true);
   }, [activeQuery, currentPage, runSearch]);
 
+  const handleChipClick = useCallback((label: string, term: string) => {
+    setInputValue(label);
+    setActiveQuery(term);
+    setHasSearched(false);
+    setHasMore(false);
+    runSearch(term, 1, false);
+  }, [runSearch]);
+
   const handleQuote = useCallback((product: PublicProduct) => {
     // TODO: open quote modal with this product (wire up in next prompt)
     console.log("Get Instant Quote clicked for product id:", product.id);
@@ -285,17 +304,17 @@ export default function InstantQuote() {
 
           {/* Quick-tag chips */}
           <div className="flex flex-wrap items-center justify-center gap-2 mt-5">
-            {QUICK_TAGS.map((tag) => (
+            {QUICK_TAGS.map((chip) => (
               <button
-                key={tag}
-                onClick={() => handleSubmit(tag)}
+                key={chip.label}
+                onClick={() => handleChipClick(chip.label, chip.term)}
                 disabled={loading}
                 className="text-[10px] font-bold uppercase tracking-[0.15em] px-4 py-2 rounded-full text-white/50 transition-all duration-200 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
                 style={{ border: "1px solid rgba(255,255,255,0.13)" }}
                 onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.35)"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.13)"; }}
               >
-                {tag}
+                {chip.label}
               </button>
             ))}
           </div>
