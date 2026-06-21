@@ -1,3 +1,5 @@
+import { toProxiedImageUrl } from "./image-proxy";
+
 const SEARCH_SERVICE_ID = 103;
 const DETAIL_SERVICE_ID = 104;
 const FULL_DETAIL_SERVICE_ID = 105;
@@ -178,7 +180,7 @@ function toPublicProduct(raw: Record<string, unknown>): PublicProduct {
     category: typeof raw.category === "string" ? raw.category : null,
     description: typeof raw.description === "string" ? raw.description : null,
     priceRange: typeof raw.prc === "string" ? raw.prc : null,
-    thumb: typeof raw.thumbPic === "string" ? raw.thumbPic : null,
+    thumb: toProxiedImageUrl(typeof raw.thumbPic === "string" ? raw.thumbPic : null, 600),
   };
 }
 
@@ -190,7 +192,7 @@ function toPublicProductDetail(id: number, raw: Record<string, unknown>): Public
 
   const pics = Array.isArray(raw.pics)
     ? (raw.pics as Record<string, unknown>[]).map((pic) => ({
-        url: typeof pic?.url === "string" ? pic.url : null,
+        url: toProxiedImageUrl(typeof pic?.url === "string" ? pic.url : null, 600),
         caption: typeof pic?.caption === "string" ? pic.caption : null,
       }))
     : [];
@@ -318,10 +320,6 @@ function parseDecorationMethodNames(value: unknown): string[] {
     .filter((m) => m.length > 0);
 }
 
-function bumpPicResolution(url: string): string {
-  return url.replace(/RS=\d+/gi, "RS=600");
-}
-
 // Whitelist builder: starts from {} and copies ONLY safe fields. Any field SAGE
 // returns that is not explicitly named here (net, suppId, lineName, catPrc, etc.)
 // can never reach the client — including new fields SAGE may add later.
@@ -364,7 +362,7 @@ function toPublicQuoteData(id: number, raw: Record<string, unknown>): PublicQuot
 
   const pics: PublicProductPic[] = Array.isArray(raw.pics)
     ? (raw.pics as Record<string, unknown>[]).map((pic) => ({
-        url: typeof pic?.url === "string" ? bumpPicResolution(pic.url) : null,
+        url: toProxiedImageUrl(typeof pic?.url === "string" ? pic.url : null, 600),
         caption: typeof pic?.caption === "string" ? pic.caption : null,
       }))
     : [];
