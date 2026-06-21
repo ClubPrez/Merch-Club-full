@@ -29,3 +29,21 @@ Run a Node process (has runtime env) that POSTs to `https://api.resend.com/email
 with `Authorization: Bearer $RESEND_API_KEY`, using the same From/To as the route.
 Read the HTTP status: 200 = delivering, 403 = domain not verified, 401 = bad key.
 Never print the key value.
+
+## Dev-sender fallback (test before the domain verifies)
+The From address is env-driven: `process.env.EMAIL_FROM ?? "Merch Club
+<quotes@merchclub.com>"`. Set `EMAIL_FROM="Merch Club <onboarding@resend.dev>"`
+(Resend's universal test sender) to send immediately; later swap to the verified
+custom-domain address with only an env change + api-server restart (no code edit).
+
+**Surprising:** a key that is domain-restricted to merchclub.com (returns the 403
+above for merchclub.com sends) STILL sends fine via `onboarding@resend.dev` — a
+direct probe returned HTTP 200 and the live route logged "Quote notification email
+sent". So the dev sender is a reliable end-to-end test path even with a scoped key.
+(Delivery of the test sender is still limited to the Resend account's own address.)
+
+## reply-to field naming + error handling
+Reply-to must ALWAYS be the customer's email. Resend **Node SDK v6 uses `replyTo`
+(camelCase)**; the **REST API uses `reply_to` (snake_case)**. `resend.emails.send()`
+returns `{ data, error }` and does NOT throw on 4xx — check the returned `error`,
+not just try/catch, or failures look like successes.

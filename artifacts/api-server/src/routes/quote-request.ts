@@ -32,8 +32,10 @@ function getResend(): Resend | null {
 }
 
 const NOTIFY_EMAIL = "chris@merchclub.com";
-const FROM_EMAIL =
-  process.env.RESEND_FROM_EMAIL ?? "Merch Club <quotes@merchclub.com>";
+// Env-driven so the sender can be swapped without a code change:
+//   • before domain verification: EMAIL_FROM="Merch Club <onboarding@resend.dev>"
+//   • after merchclub.com verified:  EMAIL_FROM="Merch Club <quotes@merchclub.com>"
+const FROM_EMAIL = process.env.EMAIL_FROM ?? "Merch Club <quotes@merchclub.com>";
 
 // Private Supabase Storage bucket (created manually). Service/secret key only.
 const ARTWORK_BUCKET = "quote-artwork";
@@ -174,83 +176,141 @@ function esc(str: string): string {
     .replace(/"/g, "&quot;");
 }
 
-function row(label: string, value: string): string {
+function rowRaw(label: string, htmlValue: string): string {
   return `<tr>
-    <td style="padding:5px 0;color:#777;font-size:13px;width:38%;">${esc(label)}</td>
-    <td style="padding:5px 0;font-size:13px;">${esc(value)}</td>
+    <td style="padding:7px 0;color:#a1a1aa;font-size:13px;width:34%;vertical-align:top;">${esc(label)}</td>
+    <td style="padding:7px 0;font-size:14px;color:#18181b;font-weight:500;line-height:1.45;">${htmlValue}</td>
   </tr>`;
 }
 
-function buildEmailHtml(d: ValidatedPayload, artworkUrl: string | null): string {
+function row(label: string, value: string): string {
+  return rowRaw(label, esc(value));
+}
+
+function sectionLabel(text: string): string {
+  return `<p style="margin:0 0 12px;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#a1a1aa;">${esc(text)}</p>`;
+}
+
+function buildEmailHtml(
+  d: ValidatedPayload,
+  artworkUrl: string | null,
+  submittedAt: string,
+): string {
   const colorsStr =
     d.numColors != null ? `${d.numColors} color${d.numColors !== 1 ? "s" : ""}` : "—";
   const locsStr =
     d.numLocations != null
       ? `${d.numLocations} location${d.numLocations !== 1 ? "s" : ""}`
       : "—";
+  const perUnitStr = `$${Number(d.perUnit).toFixed(2)}`;
+  const qtyStr = Number(d.qty).toLocaleString();
+  const firstName = d.name.split(/\s+/)[0] || d.name;
 
-  const quoteRows = [
-    row("Product", d.productName),
-    row("Product ID", d.productId),
-    row("Quantity", `${Number(d.qty).toLocaleString()} units`),
-    row("Method", d.method),
-    row("Colors", colorsStr),
-    row("Locations", locsStr),
-  ].join("\n");
+  // Reply-to button: opens a pre-filled email back to the customer.
+  const replyMailto = `mailto:${encodeURIComponent(d.email)}?subject=${encodeURIComponent(
+    "Re: Your Merch Club quote request",
+  )}`;
 
-  const contactRows = [
-    row("Name", d.name),
-    ...(d.company ? [row("Company", d.company)] : []),
-    row("Email", d.email),
-    ...(d.phone ? [row("Phone", d.phone)] : []),
+  const whoRows = [
+    rowRaw(
+      "Email",
+      `<a href="mailto:${encodeURIComponent(d.email)}" style="color:#2563eb;text-decoration:none;font-weight:600;">${esc(d.email)}</a>`,
+    ),
+    ...(d.phone
+      ? [
+          rowRaw(
+            "Phone",
+            `<a href="tel:${esc(d.phone.replace(/[^0-9+]/g, ""))}" style="color:#18181b;text-decoration:none;">${esc(d.phone)}</a>`,
+          ),
+        ]
+      : []),
     ...(d.zip ? [row("Zip", d.zip)] : []),
   ].join("\n");
 
-  const artworkSection =
-    artworkUrl && d.artworkFileName
-      ? `
-    <h3 style="font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#aaa;margin:28px 0 10px;">Artwork</h3>
-    <table style="width:100%;border-collapse:collapse;">
-      ${row("File", d.artworkFileName)}
-    </table>
-    <p style="font-size:12px;color:#888;margin:8px 0 4px;">Secure download link (valid 7 days):</p>
-    <a href="${esc(artworkUrl)}" style="color:#111;font-size:12px;word-break:break-all;">${esc(artworkUrl)}</a>
-  `
-      : "";
+  const whatRows = [
+    row("Product", d.productName),
+    row("Quantity", `${qtyStr} units`),
+    row("Decoration", d.method),
+    row("Colors", colorsStr),
+    row("Locations", locsStr),
+    rowRaw(
+      "Est. per unit",
+      `<span style="font-weight:800;font-size:16px;color:#18181b;">${esc(perUnitStr)}</span>`,
+    ),
+  ].join("\n");
+
+  const artworkBlock = artworkUrl
+    ? `<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+        <td style="border-radius:10px;background:#ffffff;border:1.5px solid #18181b;">
+          <a href="${esc(artworkUrl)}" style="display:inline-block;padding:12px 22px;font-size:14px;font-weight:700;color:#18181b;text-decoration:none;border-radius:10px;">&#11015;&nbsp;&nbsp;Download Artwork</a>
+        </td>
+      </tr></table>
+      <p style="margin:12px 0 0;font-size:12px;color:#a1a1aa;line-height:1.5;">${
+        d.artworkFileName ? esc(d.artworkFileName) + " &middot; " : ""
+      }secure link, expires in 7 days</p>`
+    : `<p style="margin:0;font-size:14px;color:#71717a;">Customer will send artwork later.</p>`;
+
+  const companyLine = d.company
+    ? `<span style="color:#71717a;font-weight:500;"> &middot; ${esc(d.company)}</span>`
+    : "";
 
   return `<!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-<body style="margin:0;padding:0;background:#f9f9f7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
-<div style="max-width:580px;margin:32px auto;background:#fff;border-radius:12px;padding:36px;border:1px solid #eee;">
-  <p style="margin:0 0 4px;font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#aaa;">Merch Club</p>
-  <h1 style="margin:0 0 6px;font-size:26px;font-weight:900;color:#111;">New Quote Request</h1>
-  <p style="margin:0 0 28px;font-size:13px;color:#999;">Submitted via the Instant Quote tool</p>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="x-apple-disable-message-reformatting">
+  <title>New Quote Request</title>
+</head>
+<body style="margin:0;padding:0;background:#f4f4f5;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;">New quote from ${esc(d.name)}${
+    d.company ? " at " + esc(d.company) : ""
+  } — ${esc(qtyStr)} units of ${esc(d.productName)} at ${esc(perUnitStr)}/unit.</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f4f4f5;">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;width:100%;background:#ffffff;border-radius:16px;border:1px solid #e4e4e7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
 
-  <div style="background:#f5f5f5;border-radius:8px;padding:16px 20px;margin-bottom:28px;">
-    <span style="font-size:20px;font-weight:900;color:#111;">$${Number(d.perUnit).toFixed(2)}</span>
-    <span style="font-size:13px;color:#888;"> / unit &nbsp;&middot;&nbsp; ${esc(d.productName)} &nbsp;&middot;&nbsp; ${Number(d.qty).toLocaleString()} units &nbsp;&middot;&nbsp; ${esc(d.method)}</span>
-  </div>
+          <tr><td style="padding:32px 28px 0;">
+            <p style="margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#a1a1aa;">Merch Club &middot; Instant Quote</p>
+            <h1 style="margin:0 0 6px;font-size:26px;line-height:1.15;font-weight:800;color:#18181b;letter-spacing:-0.02em;">New Quote Request</h1>
+            <p style="margin:0;font-size:14px;color:#71717a;line-height:1.5;">${esc(qtyStr)} units &middot; ${esc(d.productName)} &middot; <strong style="color:#18181b;">${esc(perUnitStr)}/unit</strong></p>
+          </td></tr>
 
-  <h3 style="font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#aaa;margin:0 0 10px;">Quote Details</h3>
-  <table style="width:100%;border-collapse:collapse;margin-bottom:28px;">
-    ${quoteRows}
-    <tr style="border-top:1px solid #eee;">
-      <td style="padding:10px 0 6px;color:#111;font-weight:700;font-size:13px;">Est. Per Unit</td>
-      <td style="padding:10px 0 6px;font-weight:900;font-size:17px;color:#111;">$${Number(d.perUnit).toFixed(2)}</td>
+          <tr><td style="padding:28px 28px 0;">
+            ${sectionLabel("Who")}
+            <p style="margin:0 0 14px;font-size:19px;font-weight:800;color:#18181b;letter-spacing:-0.01em;">${esc(d.name)}${companyLine}</p>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${whoRows}</table>
+          </td></tr>
+
+          <tr><td style="padding:28px 28px 0;">
+            ${sectionLabel("What")}
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${whatRows}</table>
+          </td></tr>
+
+          <tr><td style="padding:28px 28px 0;">
+            ${sectionLabel("Artwork")}
+            ${artworkBlock}
+          </td></tr>
+
+          <tr><td style="padding:28px 28px 4px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+              <td align="center" style="border-radius:12px;background:#18181b;">
+                <a href="${esc(replyMailto)}" style="display:block;padding:16px 24px;font-size:15px;font-weight:700;color:#ffffff;text-decoration:none;border-radius:12px;text-align:center;">Reply to ${esc(firstName)} &rarr;</a>
+              </td>
+            </tr></table>
+          </td></tr>
+
+          <tr><td style="padding:24px 28px 32px;">
+            <hr style="border:none;border-top:1px solid #f0f0f0;margin:0 0 16px;">
+            <p style="margin:0;font-size:12px;color:#a1a1aa;">Submitted ${esc(submittedAt)}</p>
+            <p style="margin:4px 0 0;font-size:12px;color:#c4c4c8;">Merch Club Instant Quote tool &middot; merchclub.com</p>
+          </td></tr>
+
+        </table>
+      </td>
     </tr>
   </table>
-
-  <h3 style="font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#aaa;margin:0 0 10px;">Contact</h3>
-  <table style="width:100%;border-collapse:collapse;">
-    ${contactRows}
-  </table>
-
-  ${artworkSection}
-
-  <hr style="border:none;border-top:1px solid #eee;margin:32px 0 16px;">
-  <p style="font-size:11px;color:#bbb;margin:0;">Sent from <a href="https://merchclub.com" style="color:#bbb;">merchclub.com</a> Instant Quote tool</p>
-</div>
 </body>
 </html>`;
 }
@@ -397,14 +457,30 @@ router.post("/quote-request", async (req: Request, res: Response) => {
     logger.warn("RESEND_API_KEY not set — skipping notification email");
   } else {
     try {
-      const subject = `New Quote Request — ${data.company || data.name}`;
-      await resend.emails.send({
+      const submittedAt =
+        new Date().toLocaleString("en-US", {
+          dateStyle: "long",
+          timeStyle: "short",
+          timeZone: "America/New_York",
+        }) + " ET";
+      const subject = `New Quote Request — ${data.company || data.name} (${Number(
+        data.qty,
+      ).toLocaleString()} units)`;
+      const { error: sendErr } = await resend.emails.send({
         from: FROM_EMAIL,
         to: NOTIFY_EMAIL,
+        replyTo: data.email,
         subject,
-        html: buildEmailHtml(data, artworkUrl),
+        html: buildEmailHtml(data, artworkUrl, submittedAt),
       });
-      logger.info({ to: NOTIFY_EMAIL }, "Quote notification email sent");
+      if (sendErr) {
+        logger.warn(
+          { err: sendErr },
+          "Quote notification email rejected by Resend — lead already saved to DB",
+        );
+      } else {
+        logger.info({ to: NOTIFY_EMAIL }, "Quote notification email sent");
+      }
     } catch (err) {
       logger.warn({ err }, "Quote notification email failed — lead already saved to DB");
     }

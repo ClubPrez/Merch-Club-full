@@ -1,0 +1,38 @@
+The Supabase upload + quote_requests insert are working. The only blocker is
+Resend domain verification for merchclub.com (DNS still propagating). Do two
+things:
+
+1. EMAIL TEMPLATE — format the quote-request notification email (sent to
+   chris@merchclub.com) exactly like this, mobile-scannable, most important
+   info first:
+
+   SUBJECT: New Quote Request — {company} ({quantity} units)
+
+   BODY (clean HTML email, dark text on white, generous spacing):
+   - Heading: "New Quote Request"
+   - WHO section: {name} · {company} / {email} / {phone} / {zip}
+   - WHAT section: {product_name} / Qty: {quantity} / Decoration: {method} /
+     Colors: {colors} · Locations: {locations} / Est. per-unit: ${per_unit}
+   - ARTWORK section: if artwork uploaded, a clear button "Download Artwork"
+     linking to a Supabase SIGNED URL (7-day expiry, private bucket — never a
+     public link). If no art: show "Customer will send artwork later."
+   - A one-tap "Reply to {name}" button = a mailto: link to the customer's
+     email, with a pre-filled subject like "Re: Your Merch Club quote request"
+     so Chris can reply in one tap.
+   - Footer: "Submitted {timestamp}"
+   Keep it clean and skimmable on a phone.
+
+2. DEV-SENDER FALLBACK so we can test NOW before the domain verifies:
+   - Add an env var EMAIL_FROM. If merchclub.com isn't verified yet, set
+     EMAIL_FROM to Resend's test sender "onboarding@resend.dev" so the email
+     sends immediately for testing. Once merchclub.com shows verified, I'll
+     change EMAIL_FROM to something like "quotes@merchclub.com" — code should
+     read the from-address from EMAIL_FROM so swapping it is just an env change,
+     no code edit.
+   - The reply-to should ALWAYS be the customer's email regardless of from-address.
+
+Then RUN a full end-to-end test using onboarding@resend.dev as the sender:
+upload a test PNG → fill contact → submit → and confirm (a) the row inserted,
+(b) the file is in the bucket, (c) an actual email arrived at chris@merchclub.com
+formatted as above with a working art download button and reply link. Report
+what landed. Power mode.

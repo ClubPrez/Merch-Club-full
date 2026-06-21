@@ -5,4 +5,4 @@
 - [api-server typecheck pre-broken](api-server-typecheck.md) — `tsc -p` fails on unrelated lib/db Zod + project-ref errors; validate new files via esbuild build + isolated tsc.
 - [String.replace template injection](prerender-string-replace.md) — injecting JSON/HTML via `.replace(marker, str)` corrupts `$$`/`$&`/`` $` ``/`$'`; use a function replacement, and grep the literal value since JSON.parse won't catch it.
 - [Merch Club prerender + Vercel deploy](prerender-deploy.md) — apex 307→www (verify live with `curl -L`); never gate prerender on pnpm `postbuild`; prerender must fail build on empty renders.
-- [Merch Club Resend email](merchclub-resend-email.md) — valid key isn't enough; Resend 403 "not authorized to send from merchclub.com" = verify the DOMAIN in Resend; email is best-effort after lead save.
+- [Merch Club Resend email](merchclub-resend-email.md) — valid key ≠ sends (custom domain must verify, else 403); onboarding@resend.dev works even with a scoped key; SDK v6 replyTo / REST reply_to; from via EMAIL_FROM.
