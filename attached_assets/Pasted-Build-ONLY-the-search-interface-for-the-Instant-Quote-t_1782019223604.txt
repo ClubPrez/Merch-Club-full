@@ -1,0 +1,48 @@
+Build ONLY the search interface for the Instant Quote tool — the page, the
+search bar, and the results grid. No quote modal yet (that's next). This is a
+React component in our existing Vite SPA; match the app's existing component
+conventions, routing, and styling patterns — read a couple existing pages first
+and follow them.
+
+DATA: it calls our existing backend POST /api/search with JSON
+{ query, category, page }, which returns { ok, products } where each product is:
+  { id, spc, name, category, description, priceRange, thumb }
+(priceRange is a string like "0.66 - 1.42". thumb is an image URL.)
+
+ROUTE: add it at /instant-quote in the app's router, following how existing
+routes are registered.
+
+LAYOUT (premium corporate aesthetic — deep slate grays, one bright accent,
+clean structure, tasteful micro-animations; match the Merch Club site's existing
+look, don't invent a new theme):
+
+1. HERO SEARCH
+   - Big centered headline + subhead. Headline: "Instant Quote." Subhead:
+     "Search our vetted catalog, upload your art, get pricing in minutes."
+   - Large search input with a search button. Enter key also submits.
+   - Quick-tag filter chips below it: Mugs, Hoodies, Totes, Pens, Drinkware,
+     Bags. Tapping a chip runs that search immediately.
+
+2. CURATED-NETWORK NOTE (place just under the search bar, subtle, not alarmy):
+   "You're browsing our vetted network — lines we trust on quality and speed.
+   Need something you don't see? We'll source it. Just ask." Make "Just ask" a
+   link/button that (for now) scrolls to or links our existing contact route.
+
+3. RESULTS GRID
+   - Responsive grid of product cards (1 col mobile, 2 tablet, 3-4 desktop).
+   - Each card: product image (thumb), name, category, the price range shown as
+     "Est. {priceRange} ea", and a primary "Get Instant Quote" button.
+   - Card button currently just console.logs the product id — wire the real
+     modal in the NEXT prompt. Leave a clearly marked TODO there.
+
+4. STATES (don't skip these):
+   - Loading: skeleton cards or a tasteful spinner while fetching.
+   - Empty: friendly "No matches in our vetted network — tell us what you're
+     after and we'll source it" with a link to contact.
+   - Error: clean message if the API returns ok:false; never show raw errors.
+   - Paging: a "Load more" button that fetches the next page and appends
+     (backend returns 24 per page).
+
+Mobile-first and fully responsive — it must look sharp on a phone. Complete,
+working code, no placeholders. After generating, tell me the exact local URL to
+open (e.g. localhost:xxxx/instant-quote) so I can test search live.
