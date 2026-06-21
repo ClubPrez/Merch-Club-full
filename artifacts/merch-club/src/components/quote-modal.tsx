@@ -146,6 +146,7 @@ export function QuoteModal({ open, product, onClose }: Props) {
   const [numColors, setNumColors] = useState(1);
   const [numLocations, setNumLocations] = useState(1);
   const [showDetails, setShowDetails] = useState(false);
+  const [picError, setPicError] = useState(false);
 
   // ── Mount / unmount with animation ──
   useEffect(() => {
@@ -202,6 +203,7 @@ export function QuoteModal({ open, product, onClose }: Props) {
     setNumColors(1);
     setNumLocations(1);
     setShowDetails(false);
+    setPicError(false);
 
     fetch(`/api/quote-data/${product.id}`, { signal: ctrl.signal })
       .then(async (res) => {
@@ -315,15 +317,30 @@ export function QuoteModal({ open, product, onClose }: Props) {
             </div>
           ) : (
             <div className="flex gap-3 items-start pr-10">
-              {quoteData!.pics[0]?.url ? (
-                <img
-                  src={quoteData!.pics[0].url}
-                  alt={quoteData!.name}
-                  className="w-[52px] h-[52px] rounded-lg object-contain bg-[#f4f2ef] p-1.5 flex-shrink-0"
-                />
-              ) : (
-                <div className="w-[52px] h-[52px] rounded-lg bg-[#f4f2ef] flex-shrink-0" />
-              )}
+              {(() => {
+                const primarySrc = quoteData!.pics[0]?.url || null;
+                const fallbackSrc = product?.thumb || null;
+                const imgSrc = picError ? fallbackSrc : primarySrc;
+                return imgSrc ? (
+                  <img
+                    key={imgSrc}
+                    src={imgSrc}
+                    alt={quoteData!.name}
+                    className="w-[52px] h-[52px] rounded-lg object-contain bg-[#f4f2ef] p-1.5 flex-shrink-0"
+                    onError={() => {
+                      if (!picError && fallbackSrc && imgSrc !== fallbackSrc) {
+                        setPicError(true);
+                      }
+                    }}
+                  />
+                ) : (
+                  <div className="w-[52px] h-[52px] rounded-lg bg-[#f4f2ef] flex-shrink-0 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-black/15" fill="none" stroke="currentColor" strokeWidth={1} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                    </svg>
+                  </div>
+                );
+              })()}
               <div className="min-w-0">
                 <h2 className="text-[14px] font-semibold text-black leading-snug line-clamp-2">
                   {quoteData!.name}
