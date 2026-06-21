@@ -118,6 +118,11 @@ function requireCredentials(): SageCredentials {
   return { url, acctId, loginId, authKey };
 }
 
+// Upper bound on any single SAGE Connect call so a slow/hung upstream never
+// holds a user request open indefinitely. SAGE calls here are never chained,
+// so one timeout covers the whole round-trip.
+const SAGE_TIMEOUT_MS = 15_000;
+
 async function postToSage(
   url: string,
   requestBody: Record<string, unknown>,
@@ -133,8 +138,15 @@ async function postToSage(
         Accept: "application/json",
       },
       body: JSON.stringify(requestBody),
+      signal: AbortSignal.timeout(SAGE_TIMEOUT_MS),
     });
-  } catch {
+  } catch (err) {
+    const name = (err as { name?: string } | null | undefined)?.name;
+    if (name === "TimeoutError" || name === "AbortError") {
+      throw new SageError(
+        "The product service is taking longer than usual to respond. Please try again in a moment.",
+      );
+    }
     throw new SageError("Could not reach the SAGE Connect service.");
   }
 

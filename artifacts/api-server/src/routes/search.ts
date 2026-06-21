@@ -1,5 +1,6 @@
 import { Router, type IRouter } from "express";
 import { searchProducts, SageError, type PublicProduct } from "../lib/sage";
+import { searchRateLimit } from "../lib/rate-limit";
 import { logger } from "../lib/logger";
 
 const router: IRouter = Router();
@@ -27,7 +28,7 @@ function setCached(key: string, products: PublicProduct[]): void {
   cache.set(key, { products, expires: Date.now() + CACHE_TTL_MS });
 }
 
-router.post("/search", async (req, res) => {
+router.post("/search", searchRateLimit, async (req, res) => {
   const body = (req.body ?? {}) as Record<string, unknown>;
 
   const query = typeof body.query === "string" ? body.query.trim() : "";

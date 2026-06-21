@@ -3,6 +3,7 @@ import multer from "multer";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 import { randomUUID } from "node:crypto";
+import { uploadRateLimit, submitRateLimit } from "../lib/rate-limit";
 import { logger } from "../lib/logger";
 
 const router: IRouter = Router();
@@ -129,7 +130,10 @@ function validateBody(
   if (!productName) return { ok: false, message: "Missing productName." };
   if (!Number.isFinite(qty) || qty <= 0) return { ok: false, message: "Invalid qty." };
   if (!method) return { ok: false, message: "Missing method." };
-  if (!Number.isFinite(perUnit) || perUnit < 0)
+  // Require a positive per-unit price: a $0 quote is never a real instant quote
+  // (it means pricing could not be computed). The client routes those to the
+  // contact path instead, so a 0 here indicates a malformed/abusive submission.
+  if (!Number.isFinite(perUnit) || perUnit <= 0)
     return { ok: false, message: "Invalid perUnit." };
   if (!name) return { ok: false, message: "Name is required." };
   if (!email) return { ok: false, message: "Email is required." };
@@ -319,6 +323,7 @@ function buildEmailHtml(
 
 router.post(
   "/quote-request/upload",
+  uploadRateLimit,
   (req: Request, res: Response, next: NextFunction) => {
     upload.single("file")(req as any, res, (err: unknown) => {
       if (err instanceof multer.MulterError) {
@@ -387,7 +392,7 @@ router.post(
 
 // ── POST /quote-request ───────────────────────────────────────────────────────
 
-router.post("/quote-request", async (req: Request, res: Response) => {
+router.post("/quote-request", submitRateLimit, async (req: Request, res: Response) => {
   const result = validateBody(req.body as RawBody);
   if (!result.ok) {
     res.status(400).json({ ok: false, message: result.message });

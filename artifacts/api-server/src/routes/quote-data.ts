@@ -1,5 +1,6 @@
 import { Router, type IRouter } from "express";
 import { getFullQuoteData, SageError, type PublicQuoteData } from "../lib/sage";
+import { quoteDataRateLimit } from "../lib/rate-limit";
 import { logger } from "../lib/logger";
 
 const router: IRouter = Router();
@@ -27,7 +28,7 @@ function setCached(key: string, data: PublicQuoteData): void {
   cache.set(key, { data, expires: Date.now() + CACHE_TTL_MS });
 }
 
-router.get("/quote-data/:id", async (req, res) => {
+router.get("/quote-data/:id", quoteDataRateLimit, async (req, res) => {
   const rawId = req.params.id;
   const prodEId = Number(rawId);
 

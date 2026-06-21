@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "wouter";
 import { Skeleton } from "@/components/ui/skeleton";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -38,6 +39,12 @@ interface Props {
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
+// A price is only safe to show when it's a finite, positive number. Anything
+// else (missing tier, NaN, or $0) means we couldn't compute a real quote.
+function isPriceable(n: number): boolean {
+  return Number.isFinite(n) && n > 0;
+}
+
 function calcPerUnit(
   basePrc: number[],
   qtyIdx: number,
@@ -45,11 +52,14 @@ function calcPerUnit(
   numColors: number,
   numLocations: number,
 ): number {
-  const base = Number(basePrc[qtyIdx]) || 0;
+  const base = Number(basePrc[qtyIdx]);
+  if (!Number.isFinite(base)) return NaN;
   const colorsBeyondFirst = method.pricingDependsOnColors ? Math.max(0, numColors - 1) : 0;
   const effectiveLocations = method.pricingDependsOnLocations ? Math.max(1, numLocations) : 1;
-  const perColorRun = Number(method.perColorRunChg[qtyIdx]) || 0;
-  return base + perColorRun * colorsBeyondFirst * effectiveLocations;
+  const perColorRunRaw = Number(method.perColorRunChg[qtyIdx]);
+  const perColorRun = Number.isFinite(perColorRunRaw) ? perColorRunRaw : 0;
+  const result = base + perColorRun * colorsBeyondFirst * effectiveLocations;
+  return Number.isFinite(result) ? result : NaN;
 }
 
 function formatIncludes(raw: string): string {
@@ -307,6 +317,10 @@ export function QuoteModal({ open, product, onClose }: Props) {
   // ── Quote request submit handler ──────────────────────────────────────────
   const handleSubmit = async () => {
     if (!quoteData || !selectedMethod) return;
+    if (!isPriceable(perUnit)) {
+      setSubmitError("We couldn't price this item automatically. Please contact us for a quote.");
+      return;
+    }
     const trimmedName = contactName.trim();
     const trimmedEmail = contactEmail.trim();
     if (!trimmedName) {
@@ -371,10 +385,20 @@ export function QuoteModal({ open, product, onClose }: Props) {
   const perUnit =
     quoteData && selectedMethod
       ? calcPerUnit(quoteData.basePrc, selectedQtyIdx, selectedMethod, numColors, numLocations)
-      : 0;
+      : NaN;
 
   const basePerUnit = quoteData ? Number(quoteData.basePrc[selectedQtyIdx]) || 0 : 0;
-  const decoPerUnit = Math.max(0, perUnit - basePerUnit);
+
+  // Margin protection: only treat the quote as priceable when we have a real
+  // quantity tier, a selected method, and a finite positive computed price.
+  // Otherwise show "Contact us for pricing" instead of $0.00 / NaN.
+  const canPrice =
+    qtyBreakpoints.length > 0 &&
+    !!selectedMethod &&
+    isPriceable(basePerUnit) &&
+    isPriceable(perUnit);
+
+  const decoPerUnit = canPrice ? Math.max(0, perUnit - basePerUnit) : 0;
 
   const oneTimeSetupFees: { label: string; amount: number }[] = selectedMethod
     ? [
@@ -506,6 +530,17 @@ export function QuoteModal({ open, product, onClose }: Props) {
               >
                 Try again
               </button>
+              <p className="text-[12px] text-[#999] mt-1 leading-relaxed">
+                Or{" "}
+                <Link
+                  href="/contact"
+                  onClick={onClose}
+                  className="text-black font-semibold underline underline-offset-2 hover:text-[#555] transition-colors"
+                >
+                  contact us
+                </Link>{" "}
+                and we'll quote it manually.
+              </p>
             </div>
           )}
 
@@ -513,6 +548,7 @@ export function QuoteModal({ open, product, onClose }: Props) {
             <div className="px-6 py-6 space-y-8">
 
               {/* ── STEP 1: QUANTITY ── */}
+              {qtyBreakpoints.length > 0 && (
               <section>
                 <p className="text-[9px] font-bold uppercase tracking-[0.22em] text-[#bbb] mb-3">
                   Step 1 — Quantity
@@ -536,8 +572,10 @@ export function QuoteModal({ open, product, onClose }: Props) {
                   })}
                 </div>
               </section>
+              )}
 
               {/* ── STEP 2: DECORATION METHOD ── */}
+              {quoteData.decorationMethods.length > 0 && (
               <section>
                 <p className="text-[9px] font-bold uppercase tracking-[0.22em] text-[#bbb] mb-3">
                   Step 2 — Decoration Method
@@ -556,6 +594,13 @@ export function QuoteModal({ open, product, onClose }: Props) {
                       numColors,
                       numLocations,
                     );
+                    // Mirror canPrice exactly (shared qty-tier + base-price
+                    // checks) so a card can never show a price the main quote
+                    // treats as unpriceable.
+                    const methodPriceable =
+                      qtyBreakpoints.length > 0 &&
+                      isPriceable(basePerUnit) &&
+                      isPriceable(methodUnit);
                     return (
                       <button
                         key={i}
@@ -581,20 +626,21 @@ export function QuoteModal({ open, product, onClose }: Props) {
                           {dm.method}
                         </p>
                         <p
-                          className={`mt-2 text-[22px] font-black tabular-nums leading-none ${
-                            isSelected ? "text-white" : "text-black"
-                          }`}
+                          className={`mt-2 font-black tabular-nums leading-none ${
+                            methodPriceable ? "text-[22px]" : "text-[15px]"
+                          } ${isSelected ? "text-white" : "text-black"}`}
                         >
-                          ${methodUnit.toFixed(2)}
+                          {methodPriceable ? `$${methodUnit.toFixed(2)}` : "Contact us"}
                         </p>
                         <p className={`text-[10px] mt-0.5 ${isSelected ? "text-white/45" : "text-[#ccc]"}`}>
-                          / unit
+                          {methodPriceable ? "/ unit" : "for pricing"}
                         </p>
                       </button>
                     );
                   })}
                 </div>
               </section>
+              )}
 
               {/* ── CONDITIONAL INPUTS ── */}
               {(selectedMethod?.pricingDependsOnColors || selectedMethod?.pricingDependsOnLocations) && (
@@ -620,6 +666,8 @@ export function QuoteModal({ open, product, onClose }: Props) {
 
               {/* ── PER-UNIT PRICE ── */}
               <section className="pb-2">
+                {canPrice ? (
+                <>
                 <div className="flex items-baseline gap-2">
                   <span
                     className="text-[52px] font-black text-black tabular-nums leading-none"
@@ -702,6 +750,28 @@ export function QuoteModal({ open, product, onClose }: Props) {
                     )}
                   </div>
                 </div>
+                </>
+                ) : (
+                  <div>
+                    <p
+                      className="text-[30px] font-black text-black leading-tight"
+                      style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                    >
+                      Contact us for pricing
+                    </p>
+                    <p className="mt-2 text-[13px] text-[#777] leading-relaxed max-w-xs">
+                      We couldn't generate an automatic price for this item.{" "}
+                      <Link
+                        href="/contact"
+                        onClick={onClose}
+                        className="text-black font-semibold underline underline-offset-2 hover:text-[#555] transition-colors"
+                      >
+                        Contact us
+                      </Link>{" "}
+                      and we'll put together an accurate quote.
+                    </p>
+                  </div>
+                )}
               </section>
             </div>
           )}
@@ -724,7 +794,9 @@ export function QuoteModal({ open, product, onClose }: Props) {
                   <span className="font-semibold">{selectedMethod?.method ?? "—"}</span>
                   <span className="text-[#999]"> · {(quoteData?.qty[selectedQtyIdx] ?? 0).toLocaleString()} units</span>
                   <span className="text-[#999]"> · </span>
-                  <span className="font-semibold">${perUnit.toFixed(2)} / unit</span>
+                  <span className="font-semibold">
+                    {canPrice ? `$${perUnit.toFixed(2)} / unit` : "Contact us for pricing"}
+                  </span>
                 </div>
               </div>
 
@@ -867,6 +939,20 @@ export function QuoteModal({ open, product, onClose }: Props) {
         {modalView !== "success" && (
           <div className="flex-shrink-0 border-t border-black/8 px-6 pt-4 pb-6 bg-white">
             {modalView === "quote" && (
+              isLoaded && !canPrice ? (
+                <>
+                  <Link
+                    href="/contact"
+                    onClick={onClose}
+                    className="block w-full bg-black text-white text-[11px] font-bold uppercase tracking-[0.2em] py-4 rounded-full hover:bg-black/80 transition-all duration-200 text-center"
+                  >
+                    Contact Us About This Product
+                  </Link>
+                  <p className="mt-2 text-center text-[10px] text-[#bbb]">
+                    We'll put together an accurate quote for this item.
+                  </p>
+                </>
+              ) : (
               <>
                 <button
                   disabled={!isLoaded}
@@ -882,6 +968,7 @@ export function QuoteModal({ open, product, onClose }: Props) {
                   No commitment — we'll confirm the quote and collect artwork next.
                 </p>
               </>
+              )
             )}
             {modalView === "contact" && (
               <>
