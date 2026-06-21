@@ -35,6 +35,9 @@ const NOTIFY_EMAIL = "chris@merchclub.com";
 const FROM_EMAIL =
   process.env.RESEND_FROM_EMAIL ?? "Merch Club <quotes@merchclub.com>";
 
+// Private Supabase Storage bucket (created manually). Service/secret key only.
+const ARTWORK_BUCKET = "quote-artwork";
+
 // ── Multer (memory storage, 20 MB cap) ───────────────────────────────────────
 
 const ALLOWED_MIME = new Set([
@@ -300,7 +303,7 @@ router.post(
       const fileId = `${randomUUID()}.${ext}`;
 
       const { error } = await supabase.storage
-        .from("artwork")
+        .from(ARTWORK_BUCKET)
         .upload(fileId, file.buffer, { contentType: file.mimetype, upsert: false });
 
       if (error) {
@@ -347,18 +350,18 @@ router.post("/quote-request", async (req: Request, res: Response) => {
   const { error: dbError } = await supabase.from("quote_requests").insert({
     product_id: data.productId,
     product_name: data.productName,
-    qty: data.qty,
-    method: data.method,
-    num_colors: data.numColors,
-    num_locations: data.numLocations,
+    quantity: data.qty,
+    decoration_method: data.method,
+    colors: data.numColors,
+    locations: data.numLocations,
     per_unit: data.perUnit,
     artwork_file_id: data.artworkFileId,
     artwork_file_name: data.artworkFileName,
     contact_name: data.name,
-    contact_company: data.company || null,
-    contact_email: data.email,
-    contact_phone: data.phone || null,
-    contact_zip: data.zip || null,
+    company: data.company || null,
+    email: data.email,
+    phone: data.phone || null,
+    zip: data.zip || null,
   });
 
   if (dbError) {
@@ -376,7 +379,7 @@ router.post("/quote-request", async (req: Request, res: Response) => {
   if (data.artworkFileId) {
     try {
       const { data: signed, error: signErr } = await supabase.storage
-        .from("artwork")
+        .from(ARTWORK_BUCKET)
         .createSignedUrl(data.artworkFileId, 7 * 24 * 3600);
       if (signErr) {
         logger.warn({ err: signErr }, "Failed to generate artwork signed URL");
