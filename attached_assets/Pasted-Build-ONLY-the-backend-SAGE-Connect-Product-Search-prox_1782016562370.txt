@@ -1,0 +1,52 @@
+Build ONLY the backend SAGE Connect "Product Search" proxy for our existing
+Next.js (App Router) site. No frontend, no uploads, no quote logic yet — we are
+validating the SAGE pipe in isolation before building anything on top of it.
+
+STACK: Next.js App Router, deployed on Vercel (serverless). Use the native
+fetch API (no node-fetch). Write the SAGE logic as a standalone lib module so
+it's reusable by later routes.
+
+FILES:
+1. lib/sage.js — exports async function searchProducts({ query, category, page })
+   - Builds a SAGE Connect Product Search request: serviceId 103, apiVer 130.
+   - Auth pulled from process.env: SAGE_ACCT_ID, SAGE_LOGIN_ID, SAGE_AUTH_KEY.
+     These NEVER appear in any response sent to the client.
+   - search object:
+       * put the user's text in `quickSearch` (NOT keywords — quicksearch
+         auto-detects category vs keyword vs SPC).
+       * if `category` is provided, also set `categories`.
+   - REQUIRED FLAGS:
+       * endBuyerSearch: true
+       * endUserOnly: true
+       * applyPsSearchRestrictions: true   (this enforces our saved PromoEQP /
+         vetted-supplier restriction configured in SAGE Workplace)
+   - sort: "BESTMATCH".
+   - extraReturnFields: "DESCRIPTION,CATEGORY" ONLY. Do NOT request NET,
+     SUPPLIER, LINE, or SUPPID under any circumstances.
+   - Paging: maxRecs 24; startNum derived from `page` (page 1 => startNum 1,
+     page 2 => 25, etc).
+   - POST as strictly UTF-8 JSON to process.env.SAGE_CONNECT_URL.
+   - Parse the response: if ok === false OR errNum is present, throw an Error
+     carrying errNum + errMsg. Map codes 10301/10302/10303/10304 to friendly
+     messages.
+   - NORMALIZE each product to a clean PUBLIC-SAFE shape ONLY:
+       { id: prodEId, spc, name: (name || prName), category, description,
+         priceRange: prc, thumb: thumbPic }
+     Strip everything else. Never let net/supplier/line pass through.
+
+2. app/api/search/route.js — a POST route handler that reads { query, category,
+   page } from the JSON body, calls searchProducts, and returns
+   { ok:true, products } or { ok:false, message } with a clean status code.
+   - Wrap in try/catch; never leak raw SAGE errors or keys to the client.
+   - Guard input: empty/blank query => 400 before calling SAGE (don't burn
+     credits).
+   - Add a simple 60-second in-memory cache keyed by the request body.
+
+3. .env.example — list: SAGE_CONNECT_URL, SAGE_ACCT_ID, SAGE_LOGIN_ID,
+   SAGE_AUTH_KEY (no real values).
+
+Use only PUBLIC-SAFE fields. Complete, working code — no placeholders, no
+ellipses, no TODO comments. After generating, tell me:
+  (a) the exact env vars I need to set in Replit Secrets AND in Vercel, and
+  (b) a curl command to test POST /api/search with {"query":"flashlights"},
+      and the exact normalized JSON shape I should expect back.
