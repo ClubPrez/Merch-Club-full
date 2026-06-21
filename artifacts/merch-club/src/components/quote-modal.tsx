@@ -148,6 +148,21 @@ export function QuoteModal({ open, product, onClose }: Props) {
   const [showDetails, setShowDetails] = useState(false);
   const [picError, setPicError] = useState(false);
 
+  // ── View state, artwork upload, contact form, submit ──
+  const [modalView, setModalView] = useState<"quote" | "contact" | "success">("quote");
+  const [artworkFileId, setArtworkFileId] = useState<string | null>(null);
+  const [artworkFileName, setArtworkFileName] = useState<string | null>(null);
+  const [uploadState, setUploadState] = useState<"idle" | "uploading" | "done" | "error">("idle");
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [contactName, setContactName] = useState("");
+  const [contactCompany, setContactCompany] = useState("");
+  const [contactEmail, setContactEmail] = useState("");
+  const [contactPhone, setContactPhone] = useState("");
+  const [contactZip, setContactZip] = useState("");
+  const [submitState, setSubmitState] = useState<"idle" | "submitting" | "error">("idle");
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
   // ── Mount / unmount with animation ──
   useEffect(() => {
     let cleanup: (() => void) | undefined;
@@ -204,6 +219,18 @@ export function QuoteModal({ open, product, onClose }: Props) {
     setNumLocations(1);
     setShowDetails(false);
     setPicError(false);
+    setModalView("quote");
+    setArtworkFileId(null);
+    setArtworkFileName(null);
+    setUploadState("idle");
+    setUploadError(null);
+    setContactName("");
+    setContactCompany("");
+    setContactEmail("");
+    setContactPhone("");
+    setContactZip("");
+    setSubmitState("idle");
+    setSubmitError(null);
 
     fetch(`/api/quote-data/${product.id}`, { signal: ctrl.signal })
       .then(async (res) => {
@@ -231,6 +258,105 @@ export function QuoteModal({ open, product, onClose }: Props) {
 
     return () => ctrl.abort();
   }, [open, product?.id, fetchTrigger]);
+
+  // ── Artwork upload handler ────────────────────────────────────────────────
+  const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    if (file.size > 20 * 1024 * 1024) {
+      setUploadState("error");
+      setUploadError("File is too large (max 20MB).");
+      return;
+    }
+    setUploadState("uploading");
+    setUploadError(null);
+    setArtworkFileId(null);
+    setArtworkFileName(null);
+    const fd = new FormData();
+    fd.append("file", file);
+    try {
+      const res = await fetch("/api/quote-request/upload", { method: "POST", body: fd });
+      const json = (await res.json()) as {
+        ok: boolean;
+        fileId?: string;
+        fileName?: string;
+        message?: string;
+      };
+      if (!json.ok || !json.fileId) {
+        setUploadState("error");
+        setUploadError(json.message ?? "Upload failed. You can proceed without artwork.");
+        return;
+      }
+      setArtworkFileId(json.fileId);
+      setArtworkFileName(json.fileName ?? file.name);
+      setUploadState("done");
+    } catch {
+      setUploadState("error");
+      setUploadError("Upload failed. You can proceed without artwork.");
+    }
+  };
+
+  const handleRemoveArtwork = () => {
+    setArtworkFileId(null);
+    setArtworkFileName(null);
+    setUploadState("idle");
+    setUploadError(null);
+  };
+
+  // ── Quote request submit handler ──────────────────────────────────────────
+  const handleSubmit = async () => {
+    if (!quoteData || !selectedMethod) return;
+    const trimmedName = contactName.trim();
+    const trimmedEmail = contactEmail.trim();
+    if (!trimmedName) {
+      setSubmitError("Name is required.");
+      return;
+    }
+    if (!trimmedEmail) {
+      setSubmitError("Email is required.");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
+      setSubmitError("Please enter a valid email address.");
+      return;
+    }
+    setSubmitState("submitting");
+    setSubmitError(null);
+    try {
+      const res = await fetch("/api/quote-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          productId: String(product?.id ?? ""),
+          productName: quoteData.name,
+          qty: quoteData.qty[selectedQtyIdx],
+          method: selectedMethod.method,
+          numColors: selectedMethod.pricingDependsOnColors ? numColors : null,
+          numLocations: selectedMethod.pricingDependsOnLocations ? numLocations : null,
+          perUnit: Number(perUnit.toFixed(2)),
+          artworkFileId,
+          artworkFileName,
+          name: trimmedName,
+          company: contactCompany.trim(),
+          email: trimmedEmail,
+          phone: contactPhone.trim(),
+          zip: contactZip.trim(),
+        }),
+      });
+      const json = (await res.json()) as { ok: boolean; message?: string };
+      if (!json.ok) {
+        setSubmitState("error");
+        setSubmitError(json.message ?? "Something went wrong. Please try again.");
+        return;
+      }
+      setModalView("success");
+      setSubmitState("idle");
+    } catch {
+      setSubmitState("error");
+      setSubmitError("Network error. Please check your connection and try again.");
+    }
+  };
 
   if (!mounted) return null;
 
@@ -383,7 +509,7 @@ export function QuoteModal({ open, product, onClose }: Props) {
             </div>
           )}
 
-          {isLoaded && quoteData && (
+          {isLoaded && quoteData && modalView === "quote" && (
             <div className="px-6 py-6 space-y-8">
 
               {/* ── STEP 1: QUANTITY ── */}
@@ -579,32 +705,204 @@ export function QuoteModal({ open, product, onClose }: Props) {
               </section>
             </div>
           )}
+
+          {/* ── CONTACT VIEW ── */}
+          {modalView === "contact" && (
+            <div className="px-6 py-6 space-y-6">
+              {/* Back link + quote summary */}
+              <div>
+                <button
+                  onClick={() => setModalView("quote")}
+                  className="inline-flex items-center gap-1.5 text-[11px] font-medium text-[#aaa] hover:text-black transition-colors mb-4"
+                >
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                  </svg>
+                  Back to options
+                </button>
+                <div className="bg-[#f5f5f5] rounded-xl px-4 py-3 text-[12px]">
+                  <span className="font-semibold">{selectedMethod?.method ?? "—"}</span>
+                  <span className="text-[#999]"> · {(quoteData?.qty[selectedQtyIdx] ?? 0).toLocaleString()} units</span>
+                  <span className="text-[#999]"> · </span>
+                  <span className="font-semibold">${perUnit.toFixed(2)} / unit</span>
+                </div>
+              </div>
+
+              {/* Artwork upload */}
+              <section>
+                <p className="text-[9px] font-bold uppercase tracking-[0.22em] text-[#bbb] mb-3">
+                  Artwork{" "}
+                  <span className="normal-case font-normal tracking-normal text-[9px] text-[#ccc]">
+                    (optional)
+                  </span>
+                </p>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept=".png,.jpg,.jpeg,.pdf,.ai,.eps,.svg,image/*,application/pdf"
+                  onChange={handleFileSelect}
+                  className="hidden"
+                />
+                {uploadState === "done" && artworkFileName ? (
+                  <div className="flex items-center gap-3 border border-black/10 rounded-xl px-4 py-3 bg-[#f5f5f5]">
+                    <svg className="w-4 h-4 text-black flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="text-[12px] text-black flex-1 truncate">{artworkFileName}</span>
+                    <button
+                      onClick={handleRemoveArtwork}
+                      className="text-[#aaa] hover:text-black transition-colors text-[11px] underline underline-offset-2 flex-shrink-0"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => fileInputRef.current?.click()}
+                    disabled={uploadState === "uploading"}
+                    className="w-full border border-dashed border-black/20 hover:border-black/40 rounded-xl px-4 py-5 flex flex-col items-center gap-2 transition-colors disabled:opacity-60"
+                  >
+                    {uploadState === "uploading" ? (
+                      <>
+                        <svg className="w-5 h-5 text-[#aaa] animate-spin" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                        </svg>
+                        <span className="text-[11px] text-[#aaa]">Uploading…</span>
+                      </>
+                    ) : (
+                      <>
+                        <svg className="w-5 h-5 text-[#ccc]" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                        </svg>
+                        <span className="text-[12px] text-[#aaa]">Upload artwork file</span>
+                        <span className="text-[10px] text-[#bbb]">PNG, JPG, PDF, AI, EPS, SVG · max 20MB</span>
+                      </>
+                    )}
+                  </button>
+                )}
+                {uploadState === "error" && uploadError && (
+                  <p className="mt-2 text-[11px] text-[#999]">{uploadError}</p>
+                )}
+              </section>
+
+              {/* Contact form */}
+              <section>
+                <p className="text-[9px] font-bold uppercase tracking-[0.22em] text-[#bbb] mb-3">
+                  Your Info
+                </p>
+                <div className="space-y-2.5">
+                  <div className="grid grid-cols-2 gap-2.5">
+                    <input
+                      value={contactName}
+                      onChange={(e) => setContactName(e.target.value)}
+                      placeholder="Name *"
+                      className="bg-[#f5f5f5] border border-black/10 rounded-lg px-3.5 py-3 text-[13px] placeholder:text-[#bbb] focus:outline-none focus:border-black/30 transition-colors"
+                    />
+                    <input
+                      value={contactCompany}
+                      onChange={(e) => setContactCompany(e.target.value)}
+                      placeholder="Company"
+                      className="bg-[#f5f5f5] border border-black/10 rounded-lg px-3.5 py-3 text-[13px] placeholder:text-[#bbb] focus:outline-none focus:border-black/30 transition-colors"
+                    />
+                  </div>
+                  <div className="grid grid-cols-2 gap-2.5">
+                    <input
+                      type="email"
+                      value={contactEmail}
+                      onChange={(e) => setContactEmail(e.target.value)}
+                      placeholder="Email *"
+                      className="bg-[#f5f5f5] border border-black/10 rounded-lg px-3.5 py-3 text-[13px] placeholder:text-[#bbb] focus:outline-none focus:border-black/30 transition-colors"
+                    />
+                    <input
+                      type="tel"
+                      value={contactPhone}
+                      onChange={(e) => setContactPhone(e.target.value)}
+                      placeholder="Phone"
+                      className="bg-[#f5f5f5] border border-black/10 rounded-lg px-3.5 py-3 text-[13px] placeholder:text-[#bbb] focus:outline-none focus:border-black/30 transition-colors"
+                    />
+                  </div>
+                  <input
+                    value={contactZip}
+                    onChange={(e) => setContactZip(e.target.value)}
+                    placeholder="Zip code"
+                    className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-3.5 py-3 text-[13px] placeholder:text-[#bbb] focus:outline-none focus:border-black/30 transition-colors"
+                  />
+                  {submitError && (
+                    <p className="text-[11px] text-red-500 pt-0.5">{submitError}</p>
+                  )}
+                </div>
+              </section>
+            </div>
+          )}
+
+          {/* ── SUCCESS VIEW ── */}
+          {modalView === "success" && (
+            <div className="flex-1 flex flex-col items-center justify-center text-center px-8 py-20">
+              <div className="w-16 h-16 rounded-full bg-black/5 flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </div>
+              <h3
+                className="text-3xl font-black text-black"
+                style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.04em" }}
+              >
+                Request received.
+              </h3>
+              <p className="text-[14px] text-[#777] mt-3 leading-relaxed max-w-xs">
+                Thanks — your request is in. We'll be in touch shortly to confirm details.
+              </p>
+              <button
+                onClick={onClose}
+                className="mt-10 text-[11px] font-bold uppercase tracking-[0.2em] text-black underline underline-offset-4 hover:text-[#666] transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          )}
         </div>
 
         {/* ── STICKY FOOTER ── */}
-        <div className="flex-shrink-0 border-t border-black/8 px-6 pt-4 pb-6 bg-white">
-          <button
-            disabled={!isLoaded}
-            onClick={() => {
-              if (!quoteData || !selectedMethod) return;
-              // TODO: wire to artwork upload + contact form (next prompt)
-              console.log("Instant Quote selection:", {
-                productId: product?.id,
-                qty: quoteData.qty[selectedQtyIdx],
-                method: selectedMethod.method,
-                numColors: selectedMethod.pricingDependsOnColors ? numColors : null,
-                numLocations: selectedMethod.pricingDependsOnLocations ? numLocations : null,
-                perUnit: Number(perUnit.toFixed(2)),
-              });
-            }}
-            className="w-full bg-black text-white text-[11px] font-bold uppercase tracking-[0.2em] py-4 rounded-full hover:bg-black/80 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200"
-          >
-            Continue to Artwork &amp; Contact
-          </button>
-          <p className="mt-2 text-center text-[10px] text-[#bbb]">
-            No commitment — we'll confirm the quote and collect artwork next.
-          </p>
-        </div>
+        {modalView !== "success" && (
+          <div className="flex-shrink-0 border-t border-black/8 px-6 pt-4 pb-6 bg-white">
+            {modalView === "quote" && (
+              <>
+                <button
+                  disabled={!isLoaded}
+                  onClick={() => {
+                    if (!quoteData || !selectedMethod) return;
+                    setModalView("contact");
+                  }}
+                  className="w-full bg-black text-white text-[11px] font-bold uppercase tracking-[0.2em] py-4 rounded-full hover:bg-black/80 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200"
+                >
+                  Continue to Artwork &amp; Contact
+                </button>
+                <p className="mt-2 text-center text-[10px] text-[#bbb]">
+                  No commitment — we'll confirm the quote and collect artwork next.
+                </p>
+              </>
+            )}
+            {modalView === "contact" && (
+              <>
+                <button
+                  disabled={
+                    submitState === "submitting" ||
+                    !contactName.trim() ||
+                    !contactEmail.trim()
+                  }
+                  onClick={handleSubmit}
+                  className="w-full bg-black text-white text-[11px] font-bold uppercase tracking-[0.2em] py-4 rounded-full hover:bg-black/80 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200"
+                >
+                  {submitState === "submitting" ? "Submitting…" : "Submit Quote Request"}
+                </button>
+                <p className="mt-2 text-center text-[10px] text-[#bbb]">
+                  No commitment — we'll follow up to confirm details.
+                </p>
+              </>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

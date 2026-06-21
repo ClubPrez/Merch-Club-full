@@ -255,6 +255,7 @@ export default function InstantQuote() {
         description="Search our vetted merch catalog and get instant pricing. Mugs, hoodies, totes, pens, drinkware, bags, and more — accurate price breaks in minutes."
         path="/instant-quote"
         keywords="instant merch quote, custom merch pricing, branded merchandise catalog, bulk order pricing, custom hoodies quote, branded mugs wholesale"
+        robots="noindex, nofollow"
       />
 
       <SiteHeader onStartProject={() => setProjectModalOpen(true)} />
