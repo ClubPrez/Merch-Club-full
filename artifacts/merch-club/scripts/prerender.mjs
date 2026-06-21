@@ -291,6 +291,24 @@ async function main() {
     process.exit(1);
   }
 
+  // Write noindex-only pages: live interactive routes that need a static shell
+  // with <meta name="robots" content="noindex, nofollow"> baked in, but are
+  // unsafe or unnecessary to SSR-render at build time (dynamic API-driven tool).
+  // Using function replacement to guard against "$"-sequence corruption.
+  const NOINDEX_ONLY_ROUTES = ['/instant-quote'];
+  for (const urlPath of NOINDEX_ONLY_ROUTES) {
+    const noindexHtml = template.replace(
+      '</head>',
+      () =>
+        '  <meta name="robots" content="noindex, nofollow">\n' +
+        '  <meta name="googlebot" content="noindex, nofollow">\n' +
+        '  <meta name="bingbot" content="noindex, nofollow">\n' +
+        '</head>',
+    );
+    writeRoute(urlPath, noindexHtml);
+    console.log(`  ✓  ${BASE_URL}${urlPath} (noindex, shell only)`);
+  }
+
   // Prerender 404.html -------------------------------------------------------
   // vercel.json "routes" serves this file with HTTP 404 status for any request
   // that doesn't resolve to a prerendered static file.  We pass a guaranteed-
