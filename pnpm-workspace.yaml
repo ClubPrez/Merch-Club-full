@@ -205,5 +205,5 @@ overrides:
   "drizzle-orm": ">=0.45.2"
   # lodash GHSA-f23m-r3pf-42rh / GHSA-r5fr-rjxr-66jc (via react-snap>minimalcss>cheerio>lodash)
   "lodash": ">=4.18.0"
-  # html-minifier GHSA-pfq8-rq6v-vf5m (via react-snap; no patched version; minifyHtml:false disables the vulnerable path at runtime)
-  "html-minifier": "4.0.0"
+  # html-minifier GHSA-pfq8-rq6v-vf5m (via react-snap; no patched version of html-minifier exists; redirect to html-minifier-terser@5.x which is the maintained fork with the ReDoS fix and a compatible sync API; minifyHtml:false also disables the vulnerable code path at runtime)
+  "html-minifier": "npm:html-minifier-terser@^5.1.1"
