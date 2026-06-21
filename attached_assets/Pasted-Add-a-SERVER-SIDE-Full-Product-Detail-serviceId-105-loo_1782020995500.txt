@@ -1,0 +1,64 @@
+Add a SERVER-SIDE Full Product Detail (serviceId 105) lookup that returns real
+decoration pricing, with ALL confidential data stripped before anything leaves
+the server. Build on the existing patterns in src/lib/sage.ts and the existing
+/api routes. No frontend yet — data layer only.
+
+WHY 105: we need real per-method decoration charges (per-color run charges,
+screen/setup charges, additional-color/location fees) which Basic Detail (104)
+does not include. 105 also returns CONFIDENTIAL fields (net cost, supplier
+identity) that must NEVER reach the client.
+
+CRITICAL SECURITY — WHITELIST, don't blacklist:
+Build the public response by EXPLICITLY copying only safe fields into a new
+object. Do NOT take the SAGE response and delete fields — start from {} and add
+only what's listed below. This guarantees any field we don't name (including new
+ones SAGE adds later) can never leak. Absolutely never include: net, suppId,
+supplier, lineName, or any *net*/cost field anywhere, including inside nested
+option/value arrays.
+
+FILES:
+1. In src/lib/sage.ts add async function getFullQuoteData(prodEId):
+   - SAGE Full Product Detail request: serviceId 105, apiVer 130, includeSuppInfo
+     FALSE (we don't need supplier info — don't even request it).
+   - Reuse the existing auth helper + env vars + SAGE_CONNECT_URL.
+   - From the 105 response, build and return ONLY this public-safe shape:
+       {
+         id,
+         name,
+         qty: number[],            // convert string qtys to numbers
+         basePrc: number[],        // CATALOG price per qty (prc), as numbers
+                                   //   (NOT net, NOT catPrc-with-net)
+         priceIncludes,            // string, e.g. "1 color;1 side;1 location"
+         setupChg: number,
+         // decoration: parse the available methods + their charges into a
+         // normalized array the UI can compare side by side:
+         decorationMethods: [
+           {
+             method: string,                 // e.g. "Screen Print", "Embroidery", "Laser"
+             setupChg: number,               // setup for THIS method if available
+             screenChg: number,              // if present
+             perColorSetup: number,          // addClrChg if present
+             perColorRunChg: number[],       // addClrRunChg per qty break, as numbers
+             pricingDependsOnColors: boolean, // TRUE if per-color charges exist
+             pricingDependsOnLocations: boolean // TRUE if multi-location charges exist
+           }
+         ],
+         pics: [{ url, caption }]   // bump RS=300 -> RS=600 in urls
+       }
+   - Derive decorationMethods from the product's decorationMethod field + the
+     charge fields present (setupChg, screenChg, addClrChg, addClrRunChg[],
+     plateChg, etc). If the product offers multiple methods, return one entry
+     per method. If a method has per-color or per-location charges, set the
+     corresponding pricingDependsOn* flag TRUE so the UI knows to ask.
+   - Map every monetary value from string to number. Empty/blank => 0.
+   - On ok===false or errNum, throw with errNum+errMsg (handle 10501/10502).
+
+2. Add route GET /api/quote-data/:id that calls getFullQuoteData and returns
+   { ok:true, data } or { ok:false, message }. try/catch, clean status codes,
+   60s cache by id. Never leak SAGE errors or keys.
+
+Complete working TypeScript, no placeholders. After generating:
+  (a) give me a curl for GET /api/quote-data/<id> using a real product id, and
+  (b) show me the EXACT JSON returned, so I can verify it has decorationMethods
+      with real numbers AND zero net/supplier/line fields anywhere, including
+      inside nested arrays.

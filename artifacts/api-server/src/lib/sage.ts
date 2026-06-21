@@ -1,5 +1,6 @@
 const SEARCH_SERVICE_ID = 103;
 const DETAIL_SERVICE_ID = 104;
+const FULL_DETAIL_SERVICE_ID = 105;
 const API_VER = 130;
 const MAX_RECS = 24;
 
@@ -37,6 +38,27 @@ export interface PublicProductDetail {
   prodTime: string | null;
 }
 
+export interface PublicDecorationMethod {
+  method: string;
+  setupChg: number;
+  screenChg: number;
+  perColorSetup: number;
+  perColorRunChg: number[];
+  pricingDependsOnColors: boolean;
+  pricingDependsOnLocations: boolean;
+}
+
+export interface PublicQuoteData {
+  id: number;
+  name: string | null;
+  qty: number[];
+  basePrc: number[];
+  priceIncludes: string | null;
+  setupChg: number;
+  decorationMethods: PublicDecorationMethod[];
+  pics: PublicProductPic[];
+}
+
 const FRIENDLY_SEARCH_ERROR_MESSAGES: Record<number, string> = {
   10301: "SAGE authentication failed. Please verify the account credentials.",
   10302: "This SAGE account is not authorized for product search.",
@@ -47,6 +69,11 @@ const FRIENDLY_SEARCH_ERROR_MESSAGES: Record<number, string> = {
 const FRIENDLY_DETAIL_ERROR_MESSAGES: Record<number, string> = {
   10401: "That product could not be found.",
   10402: "That product is not available.",
+};
+
+const FRIENDLY_QUOTE_ERROR_MESSAGES: Record<number, string> = {
+  10501: "That product could not be found.",
+  10502: "That product is not available.",
 };
 
 export class SageError extends Error {
@@ -265,4 +292,121 @@ export async function getProductDetail(prodEId: number): Promise<PublicProductDe
   }
 
   return toPublicProductDetail(prodEId, product as Record<string, unknown>);
+}
+
+function toNumber(value: unknown): number {
+  if (typeof value === "number") return Number.isFinite(value) ? value : 0;
+  if (typeof value === "string") {
+    const cleaned = value.replace(/[$,\s]/g, "");
+    if (cleaned === "") return 0;
+    const n = Number(cleaned);
+    return Number.isFinite(n) ? n : 0;
+  }
+  return 0;
+}
+
+function toNumberArray(value: unknown): number[] {
+  if (!Array.isArray(value)) return [];
+  return value.map(toNumber);
+}
+
+function parseDecorationMethodNames(value: unknown): string[] {
+  if (typeof value !== "string") return [];
+  return value
+    .split(/[/;,]/)
+    .map((m) => m.trim())
+    .filter((m) => m.length > 0);
+}
+
+function bumpPicResolution(url: string): string {
+  return url.replace(/RS=\d+/gi, "RS=600");
+}
+
+// Whitelist builder: starts from {} and copies ONLY safe fields. Any field SAGE
+// returns that is not explicitly named here (net, suppId, lineName, catPrc, etc.)
+// can never reach the client — including new fields SAGE may add later.
+function toPublicQuoteData(id: number, raw: Record<string, unknown>): PublicQuoteData {
+  const name =
+    (typeof raw.prName === "string" && raw.prName) ||
+    (typeof raw.name === "string" && raw.name) ||
+    null;
+
+  const priceIncludes = typeof raw.priceIncludes === "string" ? raw.priceIncludes : null;
+
+  const setupChg = toNumber(raw.setupChg);
+  const screenChg = toNumber(raw.screenChg);
+  const perColorSetup = toNumber(raw.addClrChg);
+  const perColorRunChg = toNumberArray(raw.addClrRunChg);
+
+  const pricingDependsOnColors = perColorSetup > 0 || perColorRunChg.some((n) => n > 0);
+
+  // SAGE has no explicit per-location charge field; the setup/screen charge is
+  // incurred again for each additional location/side beyond what priceIncludes
+  // covers. Flag TRUE when the base price is limited to a set number of
+  // locations/sides AND a per-location-style charge exists.
+  const includesLimitedLocations =
+    typeof priceIncludes === "string" && /\b\d+\s*(?:location|side)s?\b/i.test(priceIncludes);
+  const pricingDependsOnLocations =
+    includesLimitedLocations && (setupChg > 0 || screenChg > 0 || perColorSetup > 0);
+
+  const decorationNotOffered = toNumber(raw.decorationNotOffered) > 0;
+  const decorationMethods: PublicDecorationMethod[] = decorationNotOffered
+    ? []
+    : parseDecorationMethodNames(raw.decorationMethod).map((method) => ({
+        method,
+        setupChg,
+        screenChg,
+        perColorSetup,
+        perColorRunChg,
+        pricingDependsOnColors,
+        pricingDependsOnLocations,
+      }));
+
+  const pics: PublicProductPic[] = Array.isArray(raw.pics)
+    ? (raw.pics as Record<string, unknown>[]).map((pic) => ({
+        url: typeof pic?.url === "string" ? bumpPicResolution(pic.url) : null,
+        caption: typeof pic?.caption === "string" ? pic.caption : null,
+      }))
+    : [];
+
+  return {
+    id,
+    name,
+    qty: toNumberArray(raw.qty),
+    basePrc: toNumberArray(raw.prc),
+    priceIncludes,
+    setupChg,
+    decorationMethods,
+    pics,
+  };
+}
+
+export async function getFullQuoteData(prodEId: number): Promise<PublicQuoteData> {
+  const { url, acctId, loginId, authKey } = requireCredentials();
+
+  const requestBody = {
+    serviceId: FULL_DETAIL_SERVICE_ID,
+    apiVer: API_VER,
+    auth: {
+      acctId: Number(acctId),
+      loginId,
+      key: authKey,
+    },
+    prodEId,
+    includeSuppInfo: false,
+  };
+
+  const data = await postToSage(
+    url,
+    requestBody,
+    FRIENDLY_QUOTE_ERROR_MESSAGES,
+    "The product quote data could not be retrieved. Please try again.",
+  );
+
+  const product = data.product;
+  if (!product || typeof product !== "object") {
+    throw new SageError("That product could not be found.", { errNum: 10501 });
+  }
+
+  return toPublicQuoteData(prodEId, product as Record<string, unknown>);
 }
