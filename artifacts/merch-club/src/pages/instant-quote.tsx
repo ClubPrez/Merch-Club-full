@@ -52,17 +52,25 @@ function RevealItem({ children, delay = 0, className = "" }: { children: React.R
   );
 }
 
+function hiResThumb(url: string | null): string | null {
+  if (!url) return null;
+  return url.replace(/RS=\d+/, "RS=600");
+}
+
+function formatFromPrice(priceRange: string | null): string | null {
+  if (!priceRange) return null;
+  const low = parseFloat(priceRange.trim().split(/\s*[-–—]\s*/)[0]);
+  if (isNaN(low)) return null;
+  return `From $${low.toFixed(2)}`;
+}
+
 function ProductCardSkeleton() {
   return (
-    <div className="bg-white border border-black/8 rounded-2xl overflow-hidden flex flex-col">
-      <Skeleton className="w-full aspect-square" />
-      <div className="p-5 flex flex-col gap-3 flex-1">
-        <Skeleton className="h-4 w-3/4 rounded-lg" />
-        <Skeleton className="h-3 w-1/2 rounded-lg" />
-        <Skeleton className="h-3 w-1/3 rounded-lg" />
-        <div className="mt-auto pt-3">
-          <Skeleton className="h-10 w-full rounded-full" />
-        </div>
+    <div>
+      <Skeleton className="w-full aspect-[4/5] rounded-xl mb-4" />
+      <div className="px-0.5 space-y-2">
+        <Skeleton className="h-3.5 w-4/5 rounded" />
+        <Skeleton className="h-3 w-1/3 rounded" />
       </div>
     </div>
   );
@@ -70,8 +78,8 @@ function ProductCardSkeleton() {
 
 function NoImagePlaceholder() {
   return (
-    <div className="w-full h-full flex items-center justify-center bg-[#f0eee9]">
-      <svg className="w-10 h-10 text-black/20" fill="none" stroke="currentColor" strokeWidth={1} viewBox="0 0 24 24">
+    <div className="w-full h-full flex items-center justify-center">
+      <svg className="w-8 h-8 text-black/15" fill="none" stroke="currentColor" strokeWidth={1} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
       </svg>
     </div>
@@ -80,43 +88,52 @@ function NoImagePlaceholder() {
 
 function ProductCard({ product, onQuote }: { product: PublicProduct; onQuote: (p: PublicProduct) => void }) {
   const [imgError, setImgError] = useState(false);
+  const fromPrice = formatFromPrice(product.priceRange);
+  const thumbSrc = hiResThumb(product.thumb);
+
   return (
-    <div className="group bg-white border border-black/8 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.10)] hover:border-black/15 hover:-translate-y-0.5">
-      <div className="relative aspect-square bg-[#f5f4f0] overflow-hidden">
-        {product.thumb && !imgError ? (
+    <div
+      className="group cursor-pointer"
+      onClick={() => onQuote(product)}
+    >
+      {/* Image tile */}
+      <div className="relative w-full aspect-[4/5] bg-[#F4F2EF] rounded-xl overflow-hidden transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:shadow-[0_16px_48px_rgba(0,0,0,0.09)]">
+        {thumbSrc && !imgError ? (
           <img
-            src={product.thumb}
+            src={thumbSrc}
             alt={product.name ?? "Product"}
-            className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-[1.04]"
+            className="w-full h-full object-contain p-5"
             loading="lazy"
             onError={() => setImgError(true)}
           />
         ) : (
           <NoImagePlaceholder />
         )}
+
+        {/* Desktop: CTA pill fades in at bottom of tile on hover */}
+        <div className="hidden sm:flex absolute inset-x-0 bottom-0 pb-4 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+          <span className="bg-black/90 text-white text-[9px] font-bold uppercase tracking-[0.18em] px-5 py-2.5 rounded-full">
+            Get Instant Quote
+          </span>
+        </div>
       </div>
-      <div className="p-5 flex flex-col flex-1 gap-1.5">
-        <h3 className="text-sm font-bold text-black leading-snug line-clamp-2 min-h-[2.5rem]">
+
+      {/* Text block */}
+      <div className="mt-3.5 px-0.5">
+        <h3 className="text-[13px] font-medium text-black leading-snug line-clamp-2">
           {product.name ?? "Unnamed Product"}
         </h3>
-        {product.category && (
-          <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#999]">
-            {product.category}
-          </p>
+        {fromPrice && (
+          <p className="mt-1 text-[12px] text-[#999]">{fromPrice}</p>
         )}
-        {product.priceRange && (
-          <p className="text-sm font-bold text-black mt-1">
-            Est.&nbsp;{product.priceRange}&nbsp;ea
-          </p>
-        )}
-        <div className="mt-auto pt-4">
-          <button
-            onClick={() => onQuote(product)}
-            className="w-full bg-black text-white text-[10px] font-bold uppercase tracking-[0.18em] px-4 py-3 rounded-full hover:bg-[#1a1a1a] active:scale-[0.98] transition-all duration-200"
-          >
-            Get Instant Quote
-          </button>
-        </div>
+
+        {/* Mobile: always-visible text CTA */}
+        <button
+          className="sm:hidden mt-2.5 text-[11px] font-medium text-black underline underline-offset-2 active:text-[#555] transition-colors"
+          onClick={(e) => { e.stopPropagation(); onQuote(product); }}
+        >
+          Get Instant Quote →
+        </button>
       </div>
     </div>
   );
@@ -303,8 +320,8 @@ export default function InstantQuote() {
 
           {/* Loading skeletons (first page) */}
           {loading && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-              {Array.from({ length: 8 }).map((_, i) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-10">
+              {Array.from({ length: 6 }).map((_, i) => (
                 <ProductCardSkeleton key={i} />
               ))}
             </div>
@@ -374,9 +391,9 @@ export default function InstantQuote() {
                 </p>
               </RevealItem>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-10">
                 {products.map((product, i) => (
-                  <RevealItem key={String(product.id ?? i)} delay={Math.min(i % 4, 3) * 60}>
+                  <RevealItem key={String(product.id ?? i)} delay={Math.min(i % 3, 2) * 60}>
                     <ProductCard product={product} onQuote={handleQuote} />
                   </RevealItem>
                 ))}
@@ -384,8 +401,8 @@ export default function InstantQuote() {
 
               {/* Load-more skeletons (appended rows) */}
               {loadingMore && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-5">
-                  {Array.from({ length: 4 }).map((_, i) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-10 mt-10">
+                  {Array.from({ length: 3 }).map((_, i) => (
                     <ProductCardSkeleton key={`more-${i}`} />
                   ))}
                 </div>
