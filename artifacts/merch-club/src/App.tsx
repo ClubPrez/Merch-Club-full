@@ -25,6 +25,7 @@ import PrivacyPolicy from "@/pages/privacy-policy";
 import Terms from "@/pages/terms";
 import Accessibility from "@/pages/accessibility";
 import SizeBreakdown from "@/pages/size-breakdown";
+import InstantQuote from "@/pages/instant-quote";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -75,6 +76,9 @@ function Router() {
 
       <Route path="/tools/size-breakdown" component={SizeBreakdown} />
       <Route path="/tools/size-breakdown/"><Redirect to="/tools/size-breakdown" /></Route>
+
+      <Route path="/instant-quote" component={InstantQuote} />
+      <Route path="/instant-quote/"><Redirect to="/instant-quote" /></Route>
 
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/privacy-policy/"><Redirect to="/privacy-policy" /></Route>

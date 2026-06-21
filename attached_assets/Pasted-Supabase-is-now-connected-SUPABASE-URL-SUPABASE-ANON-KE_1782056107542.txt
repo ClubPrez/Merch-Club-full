@@ -1,0 +1,41 @@
+Supabase is now connected — SUPABASE_URL, SUPABASE_ANON_KEY, and
+SUPABASE_SERVICE_ROLE_KEY are set in Secrets, pointing at a fresh empty project.
+Wire up and verify the full lead-capture path. The artwork bucket "quote-artwork"
+(private) has been created manually in Supabase Storage.
+
+NOTE: this Supabase project uses the NEW key format (publishable / secret keys,
+sb_publishable_... and sb_secret_...). Make sure the server uses the SECRET key
+(service role) for storage writes and table inserts so RLS doesn't block them,
+and that the secret key is used SERVER-SIDE ONLY, never exposed to the client.
+
+DO THE FOLLOWING:
+1. Confirm the server reads all three Supabase env vars correctly and can
+   initialize a Supabase client with the SECRET key server-side.
+
+2. Create the "quote_requests" table in this Supabase project (generate and run
+   the SQL, or use a migration). Columns:
+   - id uuid primary key default gen_random_uuid()
+   - created_at timestamptz default now()
+   - product_id text, product_name text
+   - quantity int, decoration_method text, colors int, locations int,
+     per_unit numeric
+   - artwork_file_id text null, artwork_file_name text null
+   - contact_name text, company text, email text, phone text null, zip text null
+   Show me the SQL you ran and confirm the table now exists.
+
+3. Verify the artwork upload endpoint writes to the "quote-artwork" bucket using
+   the secret key. Fix the "upload spins forever" bug — it was failing because
+   no bucket/keys existed; now they do. The bucket is PRIVATE — uploads use the
+   service/secret key; never make the bucket public.
+
+4. Verify the quote-request submit endpoint inserts a row into quote_requests
+   AND sends the Resend email (if RESEND_API_KEY is set; if not, tell me it's
+   missing and still save the row).
+
+After wiring, RUN AN ACTUAL END-TO-END TEST yourself from the server side if
+possible, and report:
+  (a) the SQL you ran and confirmation quote_requests exists,
+  (b) a test file upload succeeded and the file is in the quote-artwork bucket,
+  (c) a test row was inserted into quote_requests,
+  (d) whether the Resend email sent or RESEND_API_KEY is missing.
+Do not expose the secret key anywhere in output. Power mode.

@@ -1,0 +1,48 @@
+Restyle ONLY the search results grid and product cards on /instant-quote to a
+premium editorial e-commerce look (think SSENSE / high-end Shopify). Do NOT
+touch the search logic, the /api/search call, the data flow, or the hero — only
+the results grid, the card visual design, and the image resolution. Keep all
+existing functionality working.
+
+FIX 1 — IMAGE RESOLUTION (this is a real bug):
+The SAGE image URLs currently end in "RS=300" and look low-res when displayed
+large. Increase resolution:
+- In the card grid image, request RS=600 (replace RS=300 with RS=600 in the
+  thumb URL before rendering).
+- Keep aspect ratio clean; never stretch. If the SAGE image is on a white
+  background, sit it inside a soft neutral tile (see below) so white-on-dark
+  doesn't clash.
+
+FIX 2 — GRID:
+- Desktop: 3 columns. Tablet: 2. Mobile: 1.
+- Tight, consistent gutters. Even spacing. This is a SCANNABLE grid of options,
+  not one giant card per screen — that's the main thing to fix.
+
+FIX 3 — CARD DESIGN (editorial / minimal):
+- Each card = image tile on top, minimal text block below.
+- Image tile: fixed square or 4:5 aspect ratio, product image centered with
+  "object-fit: contain" on a soft neutral background (e.g. a very light warm
+  gray like #F4F2EF) so every product sits on a consistent premium surface
+  regardless of its source photo. Subtle rounded corners.
+- Below the tile, minimal text, generous line spacing:
+    * Product NAME — clean, 1-2 lines max, truncate with ellipsis if longer.
+    * PRICE — reformat the range. Instead of "Est. 6.70 - 12.03 ea", show
+      "From $6.70" (take the LOW end of priceRange, prepend $, drop the range
+      and the "ea"). Small, refined, not loud.
+- NO category, NO description on the card. Keep it minimal.
+- "Get Instant Quote" CTA: on desktop, reveal it subtly on hover over the card;
+  on mobile/touch, show it always as a clean full-width button or a small text
+  link under the price. Keep it understated, not a big loud button.
+- Whole card has a subtle hover lift (slight scale or shadow) on desktop. Tasteful.
+
+KEEP:
+- The "24 results for X" count, but style it smaller, lighter, letter-spaced,
+  editorial (it already looks close).
+- Loading skeletons, empty state, error state, and "Load more" — keep them, just
+  make the skeletons match the new card shape.
+- The card button still does what it does now (console.log the product id /
+  TODO for the modal) — we wire the real modal next prompt. Don't change behavior.
+
+Match the existing Merch Club dark theme and type. Mobile-first, fully
+responsive. Complete working code, no placeholders. After generating, give me
+the local URL so I can re-test "crossbody bags" and see the 3-up grid.

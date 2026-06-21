@@ -41,3 +41,12 @@ The marketing site (`artifacts/merch-club`) deploys to **Vercel** via the repo-r
   template and overwrites it with the homepage render. Run it only after a fresh
   `vite build` (the `build` script chains both). A guard exits 1 if the template no
   longer contains the empty `<div id="root"></div>` placeholder.
+
+- **A local `build` needs both `PORT` and `BASE_PATH` env vars** or `vite.config.ts`
+  throws ("PORT/BASE_PATH environment variable is required") before bundling. To run
+  the prerender by hand: `PORT=5000 BASE_PATH=/ pnpm --filter @workspace/merch-club run build`.
+
+## noindex isolation for the instant-quote tool
+**Why:** `/instant-quote` must be invisible to Google; the `SEO` component only injects robots meta client-side (useEffect), which is absent from the raw served HTML.
+- `prerender.mjs` has a `NOINDEX_ONLY_ROUTES` block that writes a shell `dist/public/instant-quote/index.html` (no SSR render) and **replaces** the template's default `<meta name="robots" content="index, follow">` with `noindex, nofollow` (don't append — two conflicting robots tags is sloppy), plus googlebot/bingbot noindex.
+- Defense in depth: `public/robots.txt` `Disallow: /instant-quote` + `/api/` (under `User-agent: *`; named AI-bot blocks each `Allow: /` so they're unaffected); the tool is modal-only (no routed per-product URLs, only `/contact` links); and it's absent from `sitemap.xml`.

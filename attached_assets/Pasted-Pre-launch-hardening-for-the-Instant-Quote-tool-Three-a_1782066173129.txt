@@ -1,0 +1,45 @@
+Pre-launch hardening for the Instant Quote tool. Three areas. Do NOT change the
+working happy-path behavior — only add safety around the edges. Show me what
+changed in each area.
+
+1. PRICE-MATH EDGE CASES (margin protection — most important):
+   Audit the per-unit price calculation in the quote modal and quote-data flow
+   for these cases, and make each safe + correct:
+   - Quantity of 1, or the smallest available break.
+   - A product whose decorationMethods is empty or has no per-color charges
+     (pricingDependsOnColors false) — must still price the base correctly, never
+     NaN or $0.00 or blank.
+   - A method where BOTH pricingDependsOnColors AND pricingDependsOnLocations
+     are true — confirm colors and locations both apply correctly, not double-
+     counted.
+   - qty[] arrays that contain a trailing 0 (some SAGE products do) — the 0 tier
+     must not be selectable and must not break the price lookup.
+   - Any value arriving as a string vs number — coerce safely; never produce
+     NaN, "undefined", $0.00-by-accident, or a negative price.
+   - If a price genuinely can't be computed, show "Contact us for pricing"
+     instead of a wrong/blank number. NEVER display a misleading price.
+   Tell me each case and how it's now handled.
+
+2. RATE LIMITING (protect SAGE credits + inbox, since these go public):
+   Add basic per-IP rate limiting to the public endpoints:
+   - /api/search and /api/quote-data: reasonable limit (e.g. ~30 req/min/IP).
+   - /api/quote-request (submissions): stricter (e.g. ~5/min/IP) to stop spam
+     floods to the inbox/table.
+   - /api/upload-art: limit to prevent abuse.
+   - On limit exceeded, return a clean 429 with a friendly message; never crash.
+   Use a simple in-memory limiter (fine for current scale). Show the config.
+
+3. SAGE-FAILURE & EMPTY-RESULT UX (first-impression protection):
+   - If SAGE returns an error, times out, or is unreachable mid-search or mid-
+     quote, the user must see a clean, friendly message ("Search is temporarily
+     unavailable, please try again" / "We couldn't load pricing right now —
+     contact us and we'll quote it"), NEVER a spinner-of-death, raw error, or
+     stack trace.
+   - Confirm the empty-results state ("no matches in our vetted network") is
+     friendly and offers the contact path.
+   - Add a sensible timeout to SAGE calls so a slow SAGE doesn't hang the user
+     indefinitely.
+
+Keep all existing working behavior intact. Complete code, no placeholders.
+After: summarize what changed in each of the three areas and confirm the happy
+path still works (run a normal search + quote to prove nothing broke).

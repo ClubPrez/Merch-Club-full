@@ -52,7 +52,7 @@ catalog:
   '@vitejs/plugin-react': ^5.0.4
   class-variance-authority: ^0.7.1
   clsx: ^2.1.1
-  drizzle-orm: ^0.45.1
+  drizzle-orm: ^0.45.2
   framer-motion: ^12.23.24
   lucide-react: ^0.545.0
   # Must be this exact version because expo requires it
@@ -62,7 +62,7 @@ catalog:
   tailwind-merge: ^3.3.1
   tailwindcss: ^4.1.14
   tsx: ^4.21.0
-  vite: ^7.3.0
+  vite: ^7.3.5
   zod: ^3.25.76
 
 autoInstallPeers: false
@@ -157,4 +157,53 @@ overrides:
   "@expo/ngrok-bin>@expo/ngrok-bin-win32-x64": "-"
   # drizzle-kit uses esbuild internally on an older version that's vulnerable, this overrides it
   "@esbuild-kit/esm-loader": "npm:tsx@^4.21.0"
-  esbuild: "0.27.3"
+  esbuild: "0.28.1"
+  # Security CVE fixes: pin transitive vulnerable packages to patched versions
+  # undici: api-server direct dep handled in package.json; cheerio pulls 7.x undici
+  "cheerio>undici": "^7.28.0"
+  # fast-uri GHSA-q3j6-qgpj-74h6 / GHSA-v39h-62p7-jpjc
+  "fast-uri": ">=3.1.2"
+  # yaml GHSA-48c2-rrv3-qjmp
+  "yaml": ">=2.8.3"
+  # path-to-regexp GHSA-9wv6-86v2-598j / GHSA-rhx6-c78j-4q9w / GHSA-37ch-88jc-xwx2 (0.x branch)
+  "path-to-regexp@<1": "0.1.13"
+  # path-to-regexp GHSA-j3q9-mxjg-w52f / GHSA-27v5-c462-wpq7 (8.x branch via express router)
+  "path-to-regexp@>=8": "8.4.0"
+  # picomatch GHSA-3v7f-55p6-f55p / GHSA-c2c7-rcm5-vvqj (2.x)
+  "picomatch@>=2 <3": "2.3.2"
+  # picomatch GHSA-3v7f-55p6-f55p / GHSA-c2c7-rcm5-vvqj (4.x via vite)
+  "picomatch@>=4": "4.0.4"
+  # qs GHSA-6rw7-vpxm-498p / GHSA-hrpp-h998-j3pp / GHSA-q8mj-m7cp-5q26
+  "qs": ">=6.15.2"
+  # express GHSA-qw6h-vgh9-j6wx / GHSA-rv95-896h-c2vc (react-snap uses express@4)
+  "react-snap>express": "^4.21.2"
+  # body-parser GHSA-qwcr-r2fm-qrc7
+  "body-parser": ">=1.20.3"
+  # cookie GHSA-pxg6-pf52-xh8x
+  "cookie": ">=0.7.0"
+  # send GHSA-m6fv-jmcg-4jfg
+  "send": ">=0.19.0"
+  # serve-static GHSA-cm22-4g7w-348p
+  "serve-static": ">=1.16.0"
+  # minimist GHSA-vh95-rmgr-6w4m / GHSA-xvch-5gv4-984h
+  "minimist": ">=0.2.4"
+  # node-fetch GHSA-r683-j2x4-v87g (stay in 2.x; 3.x is ESM-only and breaks CJS consumers like isomorphic-fetch)
+  "node-fetch": ">=2.6.7 <3"
+  # nth-check GHSA-rp65-9cf3-cjxr
+  "nth-check": ">=2.0.1"
+  # postcss GHSA-qx2v-qp2m-jg93
+  "postcss": ">=8.5.10"
+  # brace-expansion GHSA-f886-m6hf-6m8v
+  "brace-expansion@>=2 <3": "2.0.3"
+  # @babel/core GHSA-4x5r-pxfx-6jf8 (via @vitejs/plugin-react; cap to 7.x — 8.x is a new major with breaking changes)
+  "@babel/core": ">=7.29.6 <8"
+  # markdown-it GHSA-6v5v-wf23-fmfq
+  "markdown-it": ">=14.2.0"
+  # js-yaml GHSA-h67p-54hq-rp68
+  "js-yaml": ">=4.2.0"
+  # drizzle-orm GHSA-gpj5-g38j-94v9 (handled via catalog bump; listed here for lockfile consistency)
+  "drizzle-orm": ">=0.45.2"
+  # lodash GHSA-f23m-r3pf-42rh / GHSA-r5fr-rjxr-66jc (via react-snap>minimalcss>cheerio>lodash)
+  "lodash": ">=4.18.0"
+  # html-minifier GHSA-pfq8-rq6v-vf5m (via react-snap; no patched version of html-minifier exists; redirect to html-minifier-terser@5.x which is the maintained fork with the ReDoS fix and a compatible sync API; minifyHtml:false also disables the vulnerable code path at runtime)
+  "html-minifier": "npm:html-minifier-terser@^5.1.1"

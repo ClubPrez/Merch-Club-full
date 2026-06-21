@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /wp-admin/
+Disallow: /instant-quote
+Disallow: /api/
 
 # AI / LLM crawlers — explicitly allowed for citation in generative answers
 User-agent: GPTBot

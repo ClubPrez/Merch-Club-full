@@ -1,0 +1,53 @@
+Final wiring for the /instant-quote tool: real submission, lead delivery, and
+SEO protection. Build on the existing modal + payload from the previous prompt.
+
+1. SUBMIT ENDPOINT — POST /api/quote-request
+   - Accepts the full quote payload: product id, name, qty, method, colors,
+     locations, perUnit, artwork (fileId/fileName or null), and contact fields
+     (name, company, email, phone, zip).
+   - Server-side validation: required fields present, email format valid. Reject
+     bad payloads with a clean 400.
+   - DO TWO THINGS on a valid submit (in this order, and don't let an email
+     failure lose the lead):
+     a) SAVE the lead to a Supabase table "quote_requests" (create the table if
+        needed: id uuid pk, created_at timestamptz default now(), and columns
+        for every payload field; artwork_file_id + artwork_file_name nullable).
+        This is the durable record — it must succeed even if email fails.
+     b) SEND a notification email to chris@merchclub.com using Resend
+        (process.env.RESEND_API_KEY, server-side only). Email contains: a clean
+        formatted summary of the quote (product, qty, method, colors/locations,
+        per-unit price) and all contact info. If artwork was uploaded, include a
+        SECURE TIME-LIMITED download link (generate a Supabase signed URL,
+        ~7-day expiry) — do NOT attach the raw file and do NOT use a public URL.
+        From: a verified sender; Subject: "New Quote Request — {company}".
+   - Wrap email in try/catch: if email fails, still return success to the user
+     (the lead is already saved) and log the email error server-side. Never lose
+     a lead because email hiccupped.
+   - Return { ok:true } on success.
+
+2. FRONTEND SUBMIT
+   - "Submit Quote Request" now calls POST /api/quote-request with the payload.
+   - Show submitting state, then a clean on-screen confirmation ("Thanks — your
+     request is in. We'll be in touch shortly.") and reset/close the modal.
+     On-screen only, no buyer email receipt.
+   - Clean error state if the API returns ok:false.
+
+3. SEO PROTECTION — CRITICAL (this is the whole reason the tool is isolated):
+   - The /instant-quote route and ALL its API routes must NOT be indexable.
+   - Add <meta name="robots" content="noindex, nofollow"> to the /instant-quote
+     page (and ensure it's in the actual served HTML, not just client-injected
+     if the app prerenders).
+   - Add the route to robots.txt as Disallow.
+   - Ensure NO crawlable product URLs are generated — the tool is interaction-only,
+     no per-product pages, no links Google can follow into the catalog.
+   - Do NOT add /instant-quote to any sitemap.
+
+Complete working code, no placeholders. After generating, tell me:
+  (a) the env vars I must set (Replit Secrets + Vercel): RESEND_API_KEY and any
+      Supabase vars, and what I must do in Resend first (verify a sending domain
+      or use their test sender),
+  (b) whether I must create the Supabase "quote_requests" table manually (with
+      exact steps/SQL if so),
+  (c) confirmation of exactly how /instant-quote is blocked from Google, and
+  (d) the local URL for a full end-to-end test: search → quote → upload art →
+      contact → submit → and I should receive an email + see a row in Supabase.
