@@ -1,0 +1,66 @@
+Build the interactive Quote Modal for /instant-quote. When a product card's
+"Get Instant Quote" is tapped, open a slide-over panel. Use the existing
+GET /api/quote-data/:id endpoint — it returns:
+  { id, name, qty:number[], basePrc:number[], priceIncludes, setupChg:number,
+    decorationMethods:[ { method, setupChg, screenChg, perColorSetup,
+      perColorRunChg:number[], pricingDependsOnColors, pricingDependsOnLocations } ],
+    pics:[{url,caption}] }
+Match existing component conventions and the dark editorial theme. No CRM submit
+or file upload yet (those are later prompts) — this prompt is quantity +
+decoration + live per-unit estimate only.
+
+ON CARD TAP:
+- Open a right-side slide-over (full-screen sheet on mobile). Fetch quote-data
+  for that product id. Show loading skeleton while fetching, clean error state
+  if ok:false.
+- Header: product image (first pic) + name + priceIncludes shown as a small
+  "Includes: 1 color, 1 location" line.
+
+STEP 1 — QUANTITY:
+- Show the real qty breakpoints from qty[] as selectable pills (e.g. 100, 250,
+  500, 1000, 2500, 5000). Default to the first that isn't 0.
+- Selecting a quantity drives which price tier is used everywhere below.
+
+STEP 2 — DECORATION METHOD (side-by-side, the key feature):
+- Render ALL decorationMethods as selectable cards shown side by side so the
+  buyer can compare. Each shows the method name and its resulting PER-UNIT price
+  at the currently selected quantity (recomputed live).
+- Selecting a method makes it active for the estimate.
+
+CONDITIONAL INPUTS (only show when the selected method's flags are true):
+- If pricingDependsOnColors === true: show a "Number of colors" stepper
+  (min 1, default 1).
+- If pricingDependsOnLocations === true: show a "Number of locations" stepper
+  (min 1, default 1).
+- If a flag is false, DO NOT show that input. This is important — only ask when
+  pricing actually depends on it.
+
+PER-UNIT PRICE MATH (per selected method, at selected qty index i):
+  base = basePrc[i]
+  colorsBeyondFirst = max(0, numColors - 1)
+  locationsBeyondFirst = max(0, numLocations - 1)
+  perUnitDeco = perColorRunChg[i] * colorsBeyondFirst
+                (apply per extra location too if locations flag true)
+  perUnit = base + perUnitDeco
+- NOTE: all values may arrive as numbers already, but coerce to Number() before
+  math to be safe. Recompute live on every change (qty, method, colors, locations).
+- Setup fees (setupChg / perColorSetup / screenChg) are ONE-TIME, not per unit —
+  do NOT add them into the per-unit number. (We show per-unit only, per the
+  design — see below.)
+
+DISPLAY (per the agreed design — PER-UNIT ONLY, no scary total):
+- Big, clean: "${perUnit.toFixed(2)} / unit" for the selected method+qty.
+- Do NOT show a multiplied grand total.
+- A subtle "See price details ▾" toggle that, when expanded, shows the breakdown:
+  base per unit, decoration per unit, and the one-time setup fees listed
+  separately (clearly labeled "one-time setup"). Collapsed by default.
+
+- Primary button at the bottom: "Continue to Artwork & Contact" — for now it
+  just console.logs the full selection (product id, qty, method, colors,
+  locations, perUnit). We wire the next steps in the following prompt. Mark it
+  with a TODO.
+
+Mobile-first, smooth open/close animation, tasteful. Complete working code, no
+placeholders. After generating, give me the local URL so I can tap a tote bag
+result, open the modal, and watch the per-unit price change as I change quantity,
+method, and colors.

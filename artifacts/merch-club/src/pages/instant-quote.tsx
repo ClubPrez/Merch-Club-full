@@ -4,6 +4,7 @@ import SEO from "@/components/seo";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { StartProjectModal } from "@/components/start-project-modal";
+import { QuoteModal, type QuoteProduct } from "@/components/quote-modal";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface PublicProduct {
@@ -163,6 +164,8 @@ export default function InstantQuote() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   const [projectModalOpen, setProjectModalOpen] = useState(false);
+  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  const [quotingProduct, setQuotingProduct] = useState<QuoteProduct | null>(null);
   const [inputValue, setInputValue] = useState("");
   const [activeQuery, setActiveQuery] = useState("");
   const [products, setProducts] = useState<PublicProduct[]>([]);
@@ -237,8 +240,8 @@ export default function InstantQuote() {
   }, [runSearch]);
 
   const handleQuote = useCallback((product: PublicProduct) => {
-    // TODO: open quote modal with this product (wire up in next prompt)
-    console.log("Get Instant Quote clicked for product id:", product.id);
+    setQuotingProduct(product);
+    setQuoteModalOpen(true);
   }, []);
 
   const showGrid = !loading && products.length > 0;
@@ -256,6 +259,11 @@ export default function InstantQuote() {
 
       <SiteHeader onStartProject={() => setProjectModalOpen(true)} />
       <StartProjectModal open={projectModalOpen} onClose={() => setProjectModalOpen(false)} />
+      <QuoteModal
+        open={quoteModalOpen}
+        product={quotingProduct}
+        onClose={() => setQuoteModalOpen(false)}
+      />
 
       {/* ─── HERO SEARCH ─── */}
       <section className="bg-[#0a0a0a] text-white pt-20 md:pt-28 pb-12 px-6 md:px-16 lg:px-20">
