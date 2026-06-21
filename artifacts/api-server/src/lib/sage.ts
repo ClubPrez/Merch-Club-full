@@ -1,4 +1,5 @@
-const SERVICE_ID = 103;
+const SEARCH_SERVICE_ID = 103;
+const DETAIL_SERVICE_ID = 104;
 const API_VER = 130;
 const MAX_RECS = 24;
 
@@ -18,11 +19,34 @@ export interface PublicProduct {
   thumb: string | null;
 }
 
-const FRIENDLY_ERROR_MESSAGES: Record<number, string> = {
+export interface PublicProductPic {
+  url: string | null;
+  caption: string | null;
+}
+
+export interface PublicProductDetail {
+  id: number;
+  name: string | null;
+  description: string | null;
+  category: string | null;
+  qty: (string | number)[];
+  prc: (string | number)[];
+  priceIncludes: string | null;
+  setupChg: string | number | null;
+  pics: PublicProductPic[];
+  prodTime: string | null;
+}
+
+const FRIENDLY_SEARCH_ERROR_MESSAGES: Record<number, string> = {
   10301: "SAGE authentication failed. Please verify the account credentials.",
   10302: "This SAGE account is not authorized for product search.",
   10303: "The SAGE login is invalid or has expired.",
   10304: "Access was denied by SAGE. Please check the account permissions.",
+};
+
+const FRIENDLY_DETAIL_ERROR_MESSAGES: Record<number, string> = {
+  10401: "That product could not be found.",
+  10402: "That product is not available.",
 };
 
 export class SageError extends Error {
@@ -65,6 +89,50 @@ function requireCredentials(): SageCredentials {
   return { url, acctId, loginId, authKey };
 }
 
+async function postToSage(
+  url: string,
+  requestBody: Record<string, unknown>,
+  friendlyMessages: Record<number, string>,
+  genericErrorMessage: string,
+): Promise<Record<string, unknown>> {
+  let response: Response;
+  try {
+    response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(requestBody),
+    });
+  } catch {
+    throw new SageError("Could not reach the SAGE Connect service.");
+  }
+
+  if (!response.ok) {
+    throw new SageError(`SAGE Connect returned HTTP ${response.status}.`);
+  }
+
+  let data: Record<string, unknown>;
+  try {
+    data = (await response.json()) as Record<string, unknown>;
+  } catch {
+    throw new SageError("SAGE Connect returned an invalid response.");
+  }
+
+  const errNumPresent = data.errNum !== undefined && data.errNum !== null;
+  const errNum = parseErrNum(data.errNum);
+
+  if (data.ok === false || errNumPresent) {
+    const friendly = errNum !== undefined ? friendlyMessages[errNum] : undefined;
+    const rawMsg =
+      typeof data.errMsg === "string" && data.errMsg.trim() ? data.errMsg.trim() : undefined;
+    throw new SageError(friendly ?? genericErrorMessage, { errNum, detail: rawMsg });
+  }
+
+  return data;
+}
+
 function toPublicProduct(raw: Record<string, unknown>): PublicProduct {
   const name =
     (typeof raw.name === "string" && raw.name) ||
@@ -84,6 +152,41 @@ function toPublicProduct(raw: Record<string, unknown>): PublicProduct {
     description: typeof raw.description === "string" ? raw.description : null,
     priceRange: typeof raw.prc === "string" ? raw.prc : null,
     thumb: typeof raw.thumbPic === "string" ? raw.thumbPic : null,
+  };
+}
+
+function toPublicProductDetail(id: number, raw: Record<string, unknown>): PublicProductDetail {
+  const name =
+    (typeof raw.prName === "string" && raw.prName) ||
+    (typeof raw.name === "string" && raw.name) ||
+    null;
+
+  const pics = Array.isArray(raw.pics)
+    ? (raw.pics as Record<string, unknown>[]).map((pic) => ({
+        url: typeof pic?.url === "string" ? pic.url : null,
+        caption: typeof pic?.caption === "string" ? pic.caption : null,
+      }))
+    : [];
+
+  const qty = Array.isArray(raw.qty) ? (raw.qty as (string | number)[]) : [];
+  const prc = Array.isArray(raw.prc) ? (raw.prc as (string | number)[]) : [];
+
+  const setupChg =
+    typeof raw.setupChg === "string" || typeof raw.setupChg === "number"
+      ? raw.setupChg
+      : null;
+
+  return {
+    id,
+    name,
+    description: typeof raw.description === "string" ? raw.description : null,
+    category: typeof raw.category === "string" ? raw.category : null,
+    qty,
+    prc,
+    priceIncludes: typeof raw.priceIncludes === "string" ? raw.priceIncludes : null,
+    setupChg,
+    pics,
+    prodTime: typeof raw.prodTime === "string" ? raw.prodTime : null,
   };
 }
 
@@ -114,7 +217,7 @@ export async function searchProducts({
   }
 
   const requestBody = {
-    serviceId: SERVICE_ID,
+    serviceId: SEARCH_SERVICE_ID,
     apiVer: API_VER,
     auth: {
       acctId: Number(acctId),
@@ -124,44 +227,42 @@ export async function searchProducts({
     search,
   };
 
-  let response: Response;
-  try {
-    response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(requestBody),
-    });
-  } catch {
-    throw new SageError("Could not reach the SAGE Connect service.");
-  }
-
-  if (!response.ok) {
-    throw new SageError(`SAGE Connect returned HTTP ${response.status}.`);
-  }
-
-  let data: Record<string, unknown>;
-  try {
-    data = (await response.json()) as Record<string, unknown>;
-  } catch {
-    throw new SageError("SAGE Connect returned an invalid response.");
-  }
-
-  const errNumPresent = data.errNum !== undefined && data.errNum !== null;
-  const errNum = parseErrNum(data.errNum);
-
-  if (data.ok === false || errNumPresent) {
-    const friendly = errNum !== undefined ? FRIENDLY_ERROR_MESSAGES[errNum] : undefined;
-    const rawMsg =
-      typeof data.errMsg === "string" && data.errMsg.trim() ? data.errMsg.trim() : undefined;
-    throw new SageError(
-      friendly ?? "The product search could not be completed. Please try again.",
-      { errNum, detail: rawMsg },
-    );
-  }
+  const data = await postToSage(
+    url,
+    requestBody,
+    FRIENDLY_SEARCH_ERROR_MESSAGES,
+    "The product search could not be completed. Please try again.",
+  );
 
   const products = Array.isArray(data.products) ? data.products : [];
   return products.map((item) => toPublicProduct(item as Record<string, unknown>));
+}
+
+export async function getProductDetail(prodEId: number): Promise<PublicProductDetail> {
+  const { url, acctId, loginId, authKey } = requireCredentials();
+
+  const requestBody = {
+    serviceId: DETAIL_SERVICE_ID,
+    apiVer: API_VER,
+    auth: {
+      acctId: Number(acctId),
+      loginId,
+      key: authKey,
+    },
+    prodEId,
+  };
+
+  const data = await postToSage(
+    url,
+    requestBody,
+    FRIENDLY_DETAIL_ERROR_MESSAGES,
+    "The product detail could not be retrieved. Please try again.",
+  );
+
+  const product = data.product;
+  if (!product || typeof product !== "object") {
+    throw new SageError("That product could not be found.", { errNum: 10401 });
+  }
+
+  return toPublicProductDetail(prodEId, product as Record<string, unknown>);
 }

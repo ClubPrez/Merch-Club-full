@@ -1,0 +1,45 @@
+Add ONLY the SAGE "Basic Product Detail" lookup to our existing Express +
+TypeScript API. Build on the patterns already in src/lib/sage.ts and the
+existing /api/search route — match them exactly. No frontend, no quote math yet.
+
+PURPOSE: search returns price as a RANGE string (e.g. "0.66 - 1.42"), which
+can't drive a real calculator. This endpoint fetches the actual price breaks for
+ONE product so later steps can compute an accurate quote.
+
+USE BASIC DETAIL (serviceId 104) ONLY. Do NOT use Full Detail (105) — 105
+returns net cost and supplier identity, which must never reach the client.
+
+FILES:
+1. In src/lib/sage.ts — add async function getProductDetail(prodEId) that:
+   - Builds a SAGE Basic Product Detail request: serviceId 104, apiVer 130.
+   - Auth from the same env vars already used by searchProducts
+     (SAGE_ACCT_ID, SAGE_LOGIN_ID, SAGE_AUTH_KEY) — reuse the existing auth
+     helper, don't duplicate it.
+   - Sends prodEId (the product id from search results).
+   - POSTs UTF-8 JSON to process.env.SAGE_CONNECT_URL.
+   - On ok===false or errNum present, throw carrying errNum + errMsg; map
+     10401 (product not found) and 10402 to friendly messages.
+   - NORMALIZES to a PUBLIC-SAFE shape ONLY:
+       {
+         id: prodEId,
+         name, description, category,
+         qty:   [...],   // the quantity breakpoints array
+         prc:   [...],   // CATALOG price per breakpoint (the customer-facing
+                         //   price — NOT net)
+         priceIncludes,  // e.g. "Full color;1 side;1 location"
+         setupChg,       // setup charge
+         pics: [{ url, caption }],
+         prodTime
+       }
+     EXPLICITLY OMIT: net, suppId, supplier, lineName, and anything confidential.
+     Double-check the response object and strip every cost/supplier field.
+2. Add a route GET /api/product/:id (mounted under /api like the others) that
+   calls getProductDetail, returns { ok:true, product } or { ok:false, message }
+   with clean status codes. try/catch; never leak SAGE errors or keys.
+   Add the same 60-second in-memory cache pattern keyed by product id.
+
+Complete, working TypeScript — no placeholders, no ellipses. After generating,
+give me a curl command to test GET /api/product/<id> using a real product id
+from a /api/search result, and show me the exact normalized JSON I should
+expect — so I can confirm qty[] and prc[] come back as real arrays and NO net
+or supplier fields are present.
