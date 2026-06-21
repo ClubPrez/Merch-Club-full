@@ -1,5 +1,6 @@
 - [Source corrupted with literal `[...]`](truncation-corruption.md) — if a build fails with JSX "Expected identifier but found [", suspect a file saved from a truncated view; recover from git.
 - [Supabase DDL access](supabase-ddl-access.md) — `sb_secret_` service key can't run DDL; `DATABASE_URL` is Replit's helium DB not Supabase; create tables via SQL Editor or pooler conn string.
+- [Post-merge drizzle hang](post-merge-drizzle-hang.md) — use `push-force` + fix unique-constraint name drift (`_key`→`_unique`); orphaned :8080 node survives restart (kill it, avoid self-matching pkill).
 - [SAGE image URLs leak supplier identity](sage-image-proxy.md) — promoplace image URLs embed `SN=<suppId>`; proxy ALL of them through `/api/img/<token>`, field-stripping JSON isn't enough.
 - [api-server typecheck pre-broken](api-server-typecheck.md) — `tsc -p` fails on unrelated lib/db Zod + project-ref errors; validate new files via esbuild build + isolated tsc.
 - [String.replace template injection](prerender-string-replace.md) — injecting JSON/HTML via `.replace(marker, str)` corrupts `$$`/`$&`/`` $` ``/`$'`; use a function replacement, and grep the literal value since JSON.parse won't catch it.
