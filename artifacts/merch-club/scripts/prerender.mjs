@@ -297,12 +297,27 @@ async function main() {
   // Using function replacement to guard against "$"-sequence corruption.
   const NOINDEX_ONLY_ROUTES = ['/instant-quote'];
   for (const urlPath of NOINDEX_ONLY_ROUTES) {
-    const noindexHtml = template.replace(
+    let noindexHtml = template;
+    // Replace the template's default "index, follow" directive outright so the
+    // page never ships two conflicting <meta name="robots"> tags.
+    const robotsRe = /<meta name="robots" content="[^"]*"\s*\/?>/;
+    if (robotsRe.test(noindexHtml)) {
+      noindexHtml = noindexHtml.replace(
+        robotsRe,
+        () => '<meta name="robots" content="noindex, nofollow" />',
+      );
+    } else {
+      noindexHtml = noindexHtml.replace(
+        '</head>',
+        () => '  <meta name="robots" content="noindex, nofollow" />\n</head>',
+      );
+    }
+    // googlebot/bingbot directives aren't in the base template — add them.
+    noindexHtml = noindexHtml.replace(
       '</head>',
       () =>
-        '  <meta name="robots" content="noindex, nofollow">\n' +
-        '  <meta name="googlebot" content="noindex, nofollow">\n' +
-        '  <meta name="bingbot" content="noindex, nofollow">\n' +
+        '  <meta name="googlebot" content="noindex, nofollow" />\n' +
+        '  <meta name="bingbot" content="noindex, nofollow" />\n' +
         '</head>',
     );
     writeRoute(urlPath, noindexHtml);
