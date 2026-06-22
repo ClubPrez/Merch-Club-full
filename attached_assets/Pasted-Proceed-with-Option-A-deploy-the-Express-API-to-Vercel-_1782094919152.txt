@@ -1,0 +1,56 @@
+Proceed with Option A: deploy the Express API to Vercel as serverless functions,
+AND re-architect the artwork upload to a direct-to-Supabase signed-upload flow so
+the ~4.5MB Vercel function body cap no longer constrains us (we want to keep the
+25MB limit). Keep all other business logic exactly as-is.
+
+PART 1 — Express on Vercel serverless:
+- Wire the existing app.ts (which cleanly exports the Express app) to run as a
+  Vercel serverless function. Use the standard @vercel/node approach.
+- Update vercel.json so /api/* routes to the function while the static front-end
+  build still serves everything else. IMPORTANT: preserve the existing legacy
+  `routes` rules (the 410 Gone for WordPress paths and the redirects) — you noted
+  these can't be expressed as modern rewrites, so keep the legacy routes model
+  and make /api/* coexist with it.
+- Keep the prod logger (transport-free, already serverless-safe), and remember
+  sharp is unused — don't reintroduce native-binary deps.
+- Confirm all env vars (SAGE_*, SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY,
+  RESEND_API_KEY, EMAIL_FROM) read correctly at runtime in the function. They're
+  already set in Vercel Production.
+
+PART 2 — Direct-to-Supabase upload (removes the body-size cap):
+- Replace the current multer-through-the-server upload with a signed-upload-URL
+  flow:
+  1. New lightweight endpoint (e.g. POST /api/quote-request/upload-url) that,
+     server-side using the SERVICE ROLE key, creates a Supabase Storage signed
+     upload URL for the private quote-artwork bucket with a safe unique object
+     path (uuid + sanitized name + ext). Validate the requested file type and
+     size BEFORE issuing the URL (reject non-allowed types; enforce 25MB).
+  2. The browser uploads the file DIRECTLY to that signed URL (straight to
+     Supabase Storage — never through the Vercel function), so the 4.5MB
+     function cap doesn't apply.
+  3. The client then submits the quote with the resulting storage object
+     id/path as artwork_file_id (same field the quote_requests insert already
+     uses).
+- SECURITY: the bucket stays PRIVATE. The signed upload URL must be short-lived
+  and single-purpose. The service role key stays server-side only — never sent
+  to the browser. Still validate file type server-side when issuing the URL.
+  Confirm the existing signed DOWNLOAD url (for the notification email) still
+  works against the new object paths.
+- Keep client-side validation (type + 25MB) for instant feedback, but server is
+  source of truth.
+
+PART 3 — flag serverless behavior changes:
+- Note that the in-memory rate limiter resets per function instance (weaker
+  across serverless), acceptable for now — flag for future (move to a shared
+  store later).
+- Set sensible function memory/timeout.
+
+After implementing, tell me:
+(a) exactly what changed (vercel.json, new function entry, the new upload-url
+    endpoint, the front-end upload change),
+(b) how the new upload flow works end-to-end in one paragraph,
+(c) precisely how to deploy and how to verify on PRODUCTION: that
+    merchclub.com/api/search returns real JSON, and that a real artwork upload
+    (test a file >5MB to prove the cap is gone) lands in the private bucket and
+    the quote saves with the correct artwork reference.
+Do NOT change the pricing logic, SAGE field-stripping, or the noindex/SEO setup.

@@ -1,0 +1,46 @@
+GOAL: Deploy our Express + TypeScript API server to Vercel as serverless
+functions so /api/* works in PRODUCTION on merchclub.com. Right now Vercel only
+hosts the static front-end, so every /api/* request 404s and the tool shows
+"Search Unavailable." We want everything on Vercel long-term (one deploy, one
+domain). Do NOT rebuild the app in another framework — adapt the EXISTING,
+working Express server to run on Vercel.
+
+CONTEXT (you diagnosed this earlier): the front-end calls /api/search,
+/api/quote-request, /api/quote-request/upload, /api/subscribe as same-origin
+relative URLs. vercel.json currently only builds the front-end and has no
+mapping for /api/*, so those fall through to /404.html.
+
+REQUIREMENTS:
+1. Make the Express api-server run on Vercel as a serverless function (or
+   functions). Use the standard approach for Express-on-Vercel (e.g. an api/
+   entry that exports the Express app as a handler, or @vercel/node). Keep ALL
+   existing route logic, SAGE lib, Supabase, pricing, rate limiting, and email
+   exactly as-is — only change how it's hosted/wired, not the business logic.
+2. Update vercel.json so /api/* routes to the serverless function and the
+   front-end static build still serves everything else. Preserve the existing
+   WordPress redirects and the noindex/robots behavior.
+3. CRITICAL — file uploads: /api/quote-request/upload uses multer + uploads to
+   Supabase Storage. Serverless has constraints (no persistent disk, body-size
+   limits, memory storage only). Make sure the upload path works in the
+   serverless environment — use in-memory handling and stream to Supabase, and
+   confirm the 25MB limit still behaves. Flag explicitly if any upload behavior
+   has to change.
+4. Confirm all env vars the server reads (SAGE_CONNECT_URL, SAGE_ACCT_ID,
+   SAGE_LOGIN_ID, SAGE_AUTH_KEY, SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY,
+   RESEND_API_KEY, EMAIL_FROM) are read correctly at runtime in the serverless
+   functions. They are already set in Vercel for Production.
+5. Watch for serverless gotchas: cold-start timeouts (set sensible function
+   timeout/memory), the in-memory rate-limiter resetting per-invocation (note
+   this — fixed-window in-memory limits are weaker across serverless instances,
+   acceptable for now but flag it), and any Node version / ESM/CJS issues.
+
+After implementing:
+- Tell me exactly what you changed (vercel.json, any new api/ entry file, build
+  config).
+- List anything about uploads or rate limiting that behaves differently
+  serverless vs. the dev server.
+- Tell me precisely how to deploy/redeploy and how I'll verify /api/search
+  returns real JSON on production (a curl or browser check against
+  merchclub.com/api/search).
+Do NOT change the front-end UI, the pricing logic, the SAGE field-stripping, or
+the security model.
