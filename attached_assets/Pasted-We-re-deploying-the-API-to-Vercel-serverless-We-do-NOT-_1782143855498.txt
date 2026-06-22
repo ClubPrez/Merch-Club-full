@@ -1,0 +1,35 @@
+We're deploying the API to Vercel serverless. We do NOT want to set DATABASE_URL
+in Vercel — it currently points at Replit's dev Postgres (helium), and we don't
+want production depending on a dev database. The ONLY thing using DATABASE_URL is
+the legacy /api/subscribe newsletter route (writes to the subscribers table via
+@workspace/db).
+
+PROBLEM: @workspace/db throws at IMPORT time if DATABASE_URL is missing, which
+crashes the ENTIRE /api/* serverless function at cold start (taking down search,
+quotes, uploads, health — everything). Fix this so a missing DATABASE_URL does
+NOT crash the function.
+
+REQUIREMENTS:
+1. Make the database dependency LAZY: the function and all other routes (search,
+   quote-request, upload-url, healthz, image proxy) must boot and work with
+   DATABASE_URL unset. Do not import @workspace/db at module load in a way that
+   throws. Defer/guard the db import so it only initializes when /api/subscribe
+   is actually called.
+2. /api/subscribe behavior when DATABASE_URL is absent: do NOT crash. Return a
+   clean, friendly response (e.g. 503 {ok:false, message:"Newsletter signup is
+   temporarily unavailable"}) and log a server-side note. The endpoint can be
+   fully wired again later when newsletter moves to Supabase.
+3. Everything else must be 100% unaffected — search, pricing, SAGE
+   field-stripping, the new direct-to-Supabase upload, quote submit, email,
+   rate limiting, noindex all unchanged.
+4. Verify: with DATABASE_URL UNSET, confirm the function boots and /api/healthz,
+   POST /api/search, POST /api/quote-request/upload-url, and quote submit all
+   work. Confirm /api/subscribe returns the friendly 503 instead of crashing.
+
+After implementing, tell me:
+(a) exactly what changed and how the db import is now deferred,
+(b) confirmation that with DATABASE_URL unset, all core routes work and only
+    /api/subscribe degrades gracefully,
+(c) the updated list of env vars Vercel actually needs (DATABASE_URL should now
+    be OPTIONAL/not required).
+Do not change pricing, SAGE, upload security, or SEO logic.

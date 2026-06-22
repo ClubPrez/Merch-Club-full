@@ -16,16 +16,22 @@ catch-all `api/[...path].mjs` that imports a prebuilt bundle and re-exports its 
 sidecars don't get traced into a single Vercel function and break logging/startup. Verify after
 build that `dist/vercel/` contains ONLY `serverless.mjs` + `.map`.
 
-## DATABASE_URL is a hard cold-start requirement, even though only /subscribe uses the DB
-`routes/index.ts` mounts `subscribe.ts` → imports `@workspace/db` → `lib/db/src/index.ts`
-THROWS at module import if `DATABASE_URL` is unset. Because `api/[...path].mjs` imports the
-bundle at module scope, a missing `DATABASE_URL` crashes the ENTIRE function at cold start —
-including `/api/healthz`. **How to apply:** always set `DATABASE_URL` in Vercel env or every
-`/api/*` route 500s, with a confusing error far from the subscribe route.
+## DATABASE_URL is now OPTIONAL — the DB dependency is lazy
+`@workspace/db` (`lib/db/src/index.ts`) used to THROW at module import if `DATABASE_URL` was
+unset, which crashed the ENTIRE serverless function at cold start (because `api/[...path].mjs`
+imports the bundle at module scope). FIXED: the db package no longer creates a pool or throws at
+import — it exposes `getDb()`/`getPool()` that lazily build the pool on first call (throwing only
+then if `DATABASE_URL` is missing). `routes/subscribe.ts` guards on `process.env.DATABASE_URL`
+and returns a 503 ("Newsletter signup is temporarily unavailable.") when unset; it's the ONLY
+route that touches the DB. **Why:** the team intentionally keeps `DATABASE_URL` OUT of Vercel so
+prod never depends on the dev Postgres. **How to apply:** do NOT statically import anything that
+opens a pool at module load, and don't re-add a top-level throw in `lib/db` — that reintroduces
+the cold-start crash. With `DATABASE_URL` unset, every route works except `/subscribe` (503).
 
 ## Full env set the function reads
-Required: `DATABASE_URL`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`,
+Required: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `RESEND_API_KEY`,
 `EMAIL_FROM`, `SAGE_ACCT_ID`, `SAGE_AUTH_KEY`, `SAGE_LOGIN_ID`, `SAGE_CONNECT_URL`.
+Optional: `DATABASE_URL` (only the newsletter `/subscribe` route uses it; absent → 503, no crash).
 Optional: `IMAGE_PROXY_SECRET` (falls back to `SAGE_AUTH_KEY` for HMAC token signing in
 `lib/image-proxy.ts`), `LOG_LEVEL` (default info), `NODE_ENV` (Vercel sets production).
 
