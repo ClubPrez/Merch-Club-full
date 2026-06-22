@@ -1,5 +1,4 @@
-import { Router, type IRouter, type Request, type Response, type NextFunction } from "express";
-import multer from "multer";
+import { Router, type IRouter, type Request, type Response } from "express";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 import { randomUUID } from "node:crypto";
@@ -7,15 +6,6 @@ import { uploadRateLimit, submitRateLimit } from "../lib/rate-limit";
 import { logger } from "../lib/logger";
 
 const router: IRouter = Router();
-
-// ── Internal types ────────────────────────────────────────────────────────────
-
-interface UploadedFile {
-  buffer: Buffer;
-  originalname: string;
-  mimetype: string;
-  size: number;
-}
 
 // ── Service clients ───────────────────────────────────────────────────────────
 
@@ -41,7 +31,12 @@ const FROM_EMAIL = process.env.EMAIL_FROM ?? "Merch Club <quotes@merchclub.com>"
 // Private Supabase Storage bucket (created manually). Service/secret key only.
 const ARTWORK_BUCKET = "quote-artwork";
 
-// ── Multer (memory storage, 20 MB cap) ───────────────────────────────────────
+// ── Artwork upload constraints ───────────────────────────────────────────────
+// Artwork is uploaded DIRECTLY from the browser to the private Supabase Storage
+// bucket via a short-lived signed upload URL (see POST /quote-request/upload-url).
+// The bytes never pass through this function, so the platform request-body cap
+// does not apply. These are the server-side source of truth for type/size when a
+// signed URL is requested.
 
 const ALLOWED_MIME = new Set([
   "image/jpeg",
@@ -56,22 +51,25 @@ const ALLOWED_MIME = new Set([
   "application/x-eps",
 ]);
 const ALLOWED_EXT = /\.(jpg|jpeg|png|gif|webp|svg|pdf|ai|eps)$/i;
+const MAX_UPLOAD_BYTES = 25 * 1024 * 1024; // 25 MB
 
-const upload = multer({
-  storage: multer.memoryStorage(),
-  limits: { fileSize: 20 * 1024 * 1024 },
-  fileFilter: (_req, file, cb) => {
-    if (ALLOWED_MIME.has(file.mimetype) || ALLOWED_EXT.test(file.originalname)) {
-      cb(null, true);
-    } else {
-      cb(
-        new Error(
-          "Unsupported file type. Please upload PNG, JPG, PDF, AI, EPS, or SVG.",
-        ),
-      );
-    }
-  },
-});
+function safeBaseName(name: string): string {
+  // Drop the extension, then slugify. The uuid prefix guarantees uniqueness;
+  // this part only keeps the object path human-readable.
+  const base = name.replace(/\.[^.]+$/, "");
+  return (
+    base
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .slice(0, 60) || "artwork"
+  );
+}
+
+function fileExt(name: string): string {
+  const m = /\.([a-z0-9]+)$/i.exec(name);
+  return m ? m[1].toLowerCase() : "bin";
+}
 
 // ── Validation ────────────────────────────────────────────────────────────────
 
@@ -319,36 +317,52 @@ function buildEmailHtml(
 </html>`;
 }
 
-// ── POST /quote-request/upload ────────────────────────────────────────────────
+// ── POST /quote-request/upload-url ────────────────────────────────────────────
+// Issues a short-lived, single-use Supabase Storage signed upload URL so the
+// browser can upload artwork DIRECTLY to the PRIVATE bucket. The service role
+// key never leaves the server; the browser only ever receives a scoped, expiring
+// upload URL bound to one object path. Type + size are validated here (server is
+// the source of truth) before any URL is handed out.
+
+interface UploadUrlBody {
+  fileName?: unknown;
+  fileType?: unknown;
+  fileSize?: unknown;
+}
 
 router.post(
-  "/quote-request/upload",
+  "/quote-request/upload-url",
   uploadRateLimit,
-  (req: Request, res: Response, next: NextFunction) => {
-    upload.single("file")(req as any, res, (err: unknown) => {
-      if (err instanceof multer.MulterError) {
-        res.status(400).json({
-          ok: false,
-          message:
-            err.code === "LIMIT_FILE_SIZE"
-              ? "File exceeds 20MB limit."
-              : err.message,
-        });
-        return;
-      }
-      if (err) {
-        res
-          .status(400)
-          .json({ ok: false, message: (err as Error).message ?? "Upload error." });
-        return;
-      }
-      next();
-    });
-  },
   async (req: Request, res: Response) => {
-    const file = (req as any).file as UploadedFile | undefined;
-    if (!file) {
-      res.status(400).json({ ok: false, message: "No file provided." });
+    const body = (req.body ?? {}) as UploadUrlBody;
+    const fileName = typeof body.fileName === "string" ? body.fileName.trim() : "";
+    const fileType = typeof body.fileType === "string" ? body.fileType.trim() : "";
+    const fileSize = Number(body.fileSize);
+
+    if (!fileName) {
+      res.status(400).json({ ok: false, message: "Missing file name." });
+      return;
+    }
+
+    // Type: accept if EITHER the extension or the reported MIME is allowed —
+    // mirrors the previous multer fileFilter.
+    if (!ALLOWED_EXT.test(fileName) && !(fileType && ALLOWED_MIME.has(fileType))) {
+      res.status(400).json({
+        ok: false,
+        message:
+          "Unsupported file type. Please upload PNG, JPG, PDF, AI, EPS, or SVG.",
+      });
+      return;
+    }
+
+    // Size: client-reported, validated before issuing the URL. The bucket's own
+    // file_size_limit is the hard backstop against a client that lies.
+    if (!Number.isFinite(fileSize) || fileSize <= 0) {
+      res.status(400).json({ ok: false, message: "Invalid file size." });
+      return;
+    }
+    if (fileSize > MAX_UPLOAD_BYTES) {
+      res.status(400).json({ ok: false, message: "File exceeds 25MB limit." });
       return;
     }
 
@@ -364,15 +378,14 @@ router.post(
     }
 
     try {
-      const ext = file.originalname.split(".").pop()?.toLowerCase() ?? "bin";
-      const fileId = `${randomUUID()}.${ext}`;
+      const objectPath = `${randomUUID()}-${safeBaseName(fileName)}.${fileExt(fileName)}`;
 
-      const { error } = await supabase.storage
+      const { data: signed, error } = await supabase.storage
         .from(ARTWORK_BUCKET)
-        .upload(fileId, file.buffer, { contentType: file.mimetype, upsert: false });
+        .createSignedUploadUrl(objectPath);
 
-      if (error) {
-        logger.error({ err: error }, "Supabase Storage upload failed");
+      if (error || !signed) {
+        logger.error({ err: error }, "Failed to create signed upload URL");
         res.status(502).json({
           ok: false,
           message: "Artwork upload failed. You can proceed without artwork.",
@@ -380,12 +393,21 @@ router.post(
         return;
       }
 
-      res.json({ ok: true, fileId, fileName: file.originalname });
+      // `fileId` is the storage object path; the client echoes it back on submit
+      // as artworkFileId, and the notification email signs a download URL from it.
+      res.json({
+        ok: true,
+        uploadUrl: signed.signedUrl,
+        token: signed.token,
+        fileId: signed.path ?? objectPath,
+        fileName,
+      });
     } catch (err) {
-      logger.error({ err }, "Unexpected error during artwork upload");
-      res
-        .status(500)
-        .json({ ok: false, message: "Artwork upload failed. You can proceed without artwork." });
+      logger.error({ err }, "Unexpected error issuing signed upload URL");
+      res.status(500).json({
+        ok: false,
+        message: "Artwork upload failed. You can proceed without artwork.",
+      });
     }
   },
 );

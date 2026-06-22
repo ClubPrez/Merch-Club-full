@@ -270,36 +270,64 @@ export function QuoteModal({ open, product, onClose }: Props) {
   }, [open, product?.id, fetchTrigger]);
 
   // ── Artwork upload handler ────────────────────────────────────────────────
+  // Two-step, direct-to-storage flow: (1) ask our API for a short-lived signed
+  // upload URL (server validates type + size), then (2) PUT the file straight to
+  // Supabase Storage. The bytes never pass through the serverless function, so
+  // the platform request-body cap doesn't apply and the 25MB limit holds.
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     e.target.value = "";
     if (!file) return;
-    if (file.size > 20 * 1024 * 1024) {
+    if (!/\.(jpg|jpeg|png|gif|webp|svg|pdf|ai|eps)$/i.test(file.name)) {
       setUploadState("error");
-      setUploadError("File is too large (max 20MB).");
+      setUploadError("Unsupported file type. Use PNG, JPG, PDF, AI, EPS, or SVG.");
+      return;
+    }
+    if (file.size > 25 * 1024 * 1024) {
+      setUploadState("error");
+      setUploadError("File is too large (max 25MB).");
       return;
     }
     setUploadState("uploading");
     setUploadError(null);
     setArtworkFileId(null);
     setArtworkFileName(null);
-    const fd = new FormData();
-    fd.append("file", file);
     try {
-      const res = await fetch("/api/quote-request/upload", { method: "POST", body: fd });
-      const json = (await res.json()) as {
+      // 1 ── Request a signed upload URL (server validates type + size).
+      const urlRes = await fetch("/api/quote-request/upload-url", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fileName: file.name,
+          fileType: file.type,
+          fileSize: file.size,
+        }),
+      });
+      const urlJson = (await urlRes.json()) as {
         ok: boolean;
+        uploadUrl?: string;
         fileId?: string;
-        fileName?: string;
         message?: string;
       };
-      if (!json.ok || !json.fileId) {
+      if (!urlJson.ok || !urlJson.uploadUrl || !urlJson.fileId) {
         setUploadState("error");
-        setUploadError(json.message ?? "Upload failed. You can proceed without artwork.");
+        setUploadError(urlJson.message ?? "Upload failed. You can proceed without artwork.");
         return;
       }
-      setArtworkFileId(json.fileId);
-      setArtworkFileName(json.fileName ?? file.name);
+      // 2 ── Upload the bytes DIRECTLY to Supabase Storage (bypasses our function).
+      const putRes = await fetch(urlJson.uploadUrl, {
+        method: "PUT",
+        headers: { "Content-Type": file.type || "application/octet-stream" },
+        body: file,
+      });
+      if (!putRes.ok) {
+        setUploadState("error");
+        setUploadError("Upload failed. You can proceed without artwork.");
+        return;
+      }
+      // 3 ── Remember the storage object path; sent with the quote on submit.
+      setArtworkFileId(urlJson.fileId);
+      setArtworkFileName(file.name);
       setUploadState("done");
     } catch {
       setUploadState("error");
@@ -848,7 +876,7 @@ export function QuoteModal({ open, product, onClose }: Props) {
                           <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
                         </svg>
                         <span className="text-[12px] text-[#aaa]">Upload artwork file</span>
-                        <span className="text-[10px] text-[#bbb]">PNG, JPG, PDF, AI, EPS, SVG · max 20MB</span>
+                        <span className="text-[10px] text-[#bbb]">PNG, JPG, PDF, AI, EPS, SVG · max 25MB</span>
                       </>
                     )}
                   </button>
