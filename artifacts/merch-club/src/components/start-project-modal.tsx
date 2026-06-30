@@ -7,7 +7,6 @@ interface Props {
   onOpenChange?: (open: boolean) => void;
 }
 
-const GHL_WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/5eJhURl3o1Ttqq3IisJ3/webhook-trigger/7918e5ef-d367-43a8-b2b1-7d71ca10c733";
 
 export function StartProjectModal({ open, onClose, onOpenChange }: Props) {
   const [submitted, setSubmitted] = useState(false);
@@ -34,15 +33,19 @@ export function StartProjectModal({ open, onClose, onOpenChange }: Props) {
     fd.forEach((value, key) => { payload[key] = String(value); });
 
     try {
-      await fetch(GHL_WEBHOOK_URL, {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        mode: "no-cors",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      setSubmitted(true);
-      formEl.reset();
-    } catch (err) {
+      const data = await res.json().catch(() => ({})) as { ok?: boolean; message?: string };
+      if (data.ok) {
+        setSubmitted(true);
+        formEl.reset();
+      } else {
+        setError(data.message ?? "Something went wrong. Please email chris@merchclub.com directly.");
+      }
+    } catch {
       setError("Something went wrong. Please email chris@merchclub.com directly.");
     } finally {
       setSubmitting(false);

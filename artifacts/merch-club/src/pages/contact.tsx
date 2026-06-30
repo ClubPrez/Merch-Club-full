@@ -80,13 +80,38 @@ export default function Contact() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [form, setForm] = useState({ name: "", email: "", company: "", phone: "", topic: "Project Inquiry", message: "" });
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (submitting) return;
+    setSubmitting(true);
+    setSubmitError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...form,
+          source: "merchclub.com Contact page",
+          page: window.location.href,
+        }),
+      });
+      const data = await res.json().catch(() => ({})) as { ok?: boolean; message?: string };
+      if (data.ok) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(data.message ?? "Something went wrong. Please email chris@merchclub.com directly.");
+      }
+    } catch {
+      setSubmitError("Network error. Please email chris@merchclub.com directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const PAGE_URL = "https://merchclub.com/contact";
@@ -293,10 +318,13 @@ export default function Contact() {
                     <textarea id="contact-message" name="message" required rows={5} value={form.message} onChange={handleChange}
                       className="w-full bg-[#f5f5f5] border border-black/10 rounded-lg px-4 py-3.5 text-sm text-black placeholder-[#aaa] focus:outline-none focus:border-black/40 focus:bg-white transition-colors resize-none" placeholder="What are you looking to build? Audience, timeline, goal — whatever you've got." />
                   </div>
+                  {submitError && (
+                    <p className="text-xs text-red-600">{submitError}</p>
+                  )}
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
-                    <button type="submit" className="inline-flex items-center justify-center gap-2 bg-black text-white text-sm font-bold uppercase tracking-widest px-7 py-4 rounded-full hover:bg-[#222] transition-colors">
-                      Send Message
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                    <button type="submit" disabled={submitting} className="inline-flex items-center justify-center gap-2 bg-black text-white text-sm font-bold uppercase tracking-widest px-7 py-4 rounded-full hover:bg-[#222] transition-colors disabled:opacity-60 disabled:cursor-not-allowed">
+                      {submitting ? "Sending…" : "Send Message"}
+                      {!submitting && <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>}
                     </button>
                     <p className="text-[11px] text-[#888]">We respond within one business day. No spam, ever.</p>
                   </div>
