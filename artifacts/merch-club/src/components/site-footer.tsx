@@ -7,6 +7,7 @@ const CLIENT_LINKS = [
   { label: "Construction", href: "/industries/construction" },
   { label: "Corporate", href: "/industries/corporate" },
   { label: "Trade Shows & Events", href: "/industries/events" },
+  { label: "Company Stores", href: "https://stores.merchclub.com", external: true },
 ];
 
 const COMPANY_LINKS = [
@@ -88,7 +89,12 @@ export function SiteFooter() {
             <h4 className="text-sm font-bold text-white uppercase tracking-[0.15em] mb-5" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1rem" }}>Clients</h4>
             <ul className="space-y-3">
               {CLIENT_LINKS.map(item => (
-                <li key={item.href}><Link href={item.href} className="text-sm text-[#666] hover:text-white transition-colors">{item.label}</Link></li>
+                <li key={item.href}>
+                  {item.external
+                    ? <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-sm text-[#666] hover:text-white transition-colors">{item.label}</a>
+                    : <Link href={item.href} className="text-sm text-[#666] hover:text-white transition-colors">{item.label}</Link>
+                  }
+                </li>
               ))}
             </ul>
           </div>
