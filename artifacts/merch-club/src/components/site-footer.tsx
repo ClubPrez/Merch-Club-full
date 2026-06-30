@@ -7,7 +7,6 @@ const CLIENT_LINKS = [
   { label: "Construction", href: "/industries/construction" },
   { label: "Corporate", href: "/industries/corporate" },
   { label: "Trade Shows & Events", href: "/industries/events" },
-  { label: "Company Stores", href: "https://stores.merchclub.com", external: true },
 ];
 
 const COMPANY_LINKS = [
@@ -83,18 +82,23 @@ export function SiteFooter() {
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg>
               </a>
             </div>
+
+            <a
+              href="https://stores.merchclub.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 border border-white/20 rounded-full px-5 py-2.5 text-sm font-semibold text-white hover:bg-white hover:text-black transition-all"
+            >
+              Company Stores — Client Login
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
           </div>
 
           <div className="md:col-span-2">
             <h4 className="text-sm font-bold text-white uppercase tracking-[0.15em] mb-5" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1rem" }}>Clients</h4>
             <ul className="space-y-3">
               {CLIENT_LINKS.map(item => (
-                <li key={item.href}>
-                  {item.external
-                    ? <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-sm text-[#666] hover:text-white transition-colors">{item.label}</a>
-                    : <Link href={item.href} className="text-sm text-[#666] hover:text-white transition-colors">{item.label}</Link>
-                  }
-                </li>
+                <li key={item.href}><Link href={item.href} className="text-sm text-[#666] hover:text-white transition-colors">{item.label}</Link></li>
               ))}
             </ul>
           </div>
