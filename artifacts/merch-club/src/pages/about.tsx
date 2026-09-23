@@ -345,12 +345,6 @@ export default function About() {
             proofing, production, kitting, and nationwide distribution for teams that take their
             brand seriously.
           </p>
-          <h2>Our Team</h2>
-          <ul>
-            {teamMembers.map((m) => (
-              <li key={m.email}><strong>{m.name}</strong> — {m.role} (<a href={`mailto:${m.email}`}>{m.email}</a>)</li>
-            ))}
-          </ul>
           <h2>Our Values</h2>
           <ul>
             {values.map((v) => (
@@ -708,45 +702,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      <section className="bg-white py-24 md:py-32 px-8 md:px-16 lg:px-20">
-        <div className="max-w-7xl mx-auto">
-          <RevealItem delay={0}>
-            <div className="text-center mb-20">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#888] block mb-4">The Crew</span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[0.95] text-black" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                Meet the Team
-              </h2>
-            </div>
-          </RevealItem>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12">
-            {teamMembers.map((member, i) => {
-              const parts = member.name.split(" ");
-              const first = parts[0];
-              const last = parts.slice(1).join(" ");
-              return (
-                <RevealItem key={i} delay={i * 100} direction="scale">
-                  <a href={`mailto:${member.email}`} className="text-center group block">
-                    <div className="relative mb-5 mx-auto w-full max-w-[300px] aspect-square rounded-full overflow-hidden bg-[#f5f5f5]">
-                      <img
-                        src={member.img}
-                        alt={member.name}
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
-                      />
-                    </div>
-                    <h3 className="text-2xl md:text-3xl font-black text-black leading-[0.95] tracking-tight text-center" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.01em" }}>
-                      <span className="block text-center">{first}</span>
-                      {last && <span className="block text-center text-[#888]">{last}</span>}
-                    </h3>
-                    <p className="text-[11px] text-[#888] mt-2 uppercase tracking-[0.15em] font-medium text-center">{member.role}</p>
-                  </a>
-                </RevealItem>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
 
       <AlternatingStatsSection />
 
