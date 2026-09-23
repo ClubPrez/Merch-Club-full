@@ -160,55 +160,34 @@ function SendModal({ open, onClose, results, editableQtys, quantity, audienceLab
     if (!name.trim() || !email.trim()) return;
     setStatus("sending");
 
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-    if (serviceId && templateId && publicKey) {
-      try {
-        const res = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            service_id: serviceId,
-            template_id: templateId,
-            user_id: publicKey,
-            template_params: {
-              from_name: name,
-              from_email: email,
-              phone: phone || "Not provided",
-              notes: notes || "None",
-              quantity: quantity.toLocaleString(),
-              audience: audienceLabel,
-              state: stateLabel,
-              size_table: sizeTable,
-              to_email: "chris@merchclub.com",
-            },
-          }),
-        });
-        if (res.ok) {
-          setStatus("sent");
-        } else {
-          throw new Error(`${res.status}`);
-        }
-      } catch (err) {
-        setStatus("error");
-        setErrorMsg("Could not send — please email chris@merchclub.com directly.");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          phone: phone.trim(),
+          topic: "Size breakdown request",
+          source: "Size breakdown calculator",
+          page: CANONICAL_PATH,
+          message: [
+            `Order: ${quantity.toLocaleString()} units`,
+            `Audience: ${audienceLabel}`,
+            `State: ${stateLabel}`,
+            `Sizes: ${sizeTable}`,
+            `Notes: ${notes.trim() || "None"}`,
+          ].join("\n"),
+        }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.message || "Could not send your request. Please email chris@merchclub.com directly.");
       }
-    } else {
-      const body = [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        phone ? `Phone: ${phone}` : null,
-        `\nOrder: ${quantity.toLocaleString()} units · ${audienceLabel} · ${stateLabel}`,
-        `Sizes: ${sizeTable}`,
-        notes ? `\nNotes: ${notes}` : null,
-      ].filter(Boolean).join("\n");
-      window.open(
-        `mailto:chris@merchclub.com?subject=${encodeURIComponent("Size Breakdown — " + name)}&body=${encodeURIComponent(body)}`,
-        "_blank"
-      );
       setStatus("sent");
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg(err instanceof Error ? err.message : "Could not send your request. Please email chris@merchclub.com directly.");
     }
   }
 
@@ -548,7 +527,7 @@ export default function SizeBreakdown() {
       />
 
       <div className="no-print">
-        <SiteHeader />
+        <SiteHeader onStartProject={() => setProjectModalOpen(true)} />
       </div>
 
       {/* Print header — only shown when printing */}

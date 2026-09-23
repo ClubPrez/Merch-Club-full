@@ -341,16 +341,13 @@ async function main() {
       /(<meta name="description" content=")[^"]*"/,
       (_, p) => `${p}The page you're looking for doesn't exist. Head back to the Merch Club homepage."`,
     );
-    // Point canonical + OG URL to the homepage — 404 pages should not be
-    // indexed and have no meaningful self-referential URL.
+    // Unknown URLs must not be indexed or canonicalized to the homepage.
     notFoundHtml = notFoundHtml.replace(
-      /(<link rel="canonical" href=")[^"]*"/,
-      (_, p) => `${p}${BASE_URL}/"`,
+      /<meta name="robots" content="[^"]*"\s*\/?>/,
+      () => '<meta name="robots" content="noindex, nofollow" />',
     );
-    notFoundHtml = notFoundHtml.replace(
-      /(<meta property="og:url" content=")[^"]*"/,
-      (_, p) => `${p}${BASE_URL}/"`,
-    );
+    notFoundHtml = notFoundHtml.replace(/<link rel="canonical" href="[^"]*"\s*\/?>/, '');
+    notFoundHtml = notFoundHtml.replace(/<meta property="og:url" content="[^"]*"\s*\/?>/, '');
     if (nfHtml) {
       notFoundHtml = notFoundHtml.replace(
         '<div id="root"></div>',
