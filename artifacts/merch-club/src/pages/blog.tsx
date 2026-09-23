@@ -9,6 +9,13 @@ import blogCityImg from "@assets/Merch_club_in_the_city_plaza_1775835373159.png"
 import sizeBreakdownPreviewImg from "@assets/Size_Breakdown_Calculator_1780764429438.png";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ResponsivePhoto } from "@/components/responsive-photo";
+
+export const blogImageVariants: Record<string, string> = {
+  "merch-program-strategy": "blog-kitting",
+  "custom-kitting-brand-experience": "blog-packaging",
+  "branded-merchandise-mistakes": "blog-city",
+};
 
 type ContentBlock =
   | { type: "paragraph"; text: string }
@@ -336,7 +343,10 @@ export default function Blog() {
           <Link href={`/blog/${blogPosts[0].slug}`} className="group block mb-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div className="rounded-2xl overflow-hidden border border-black/10">
-                <img
+              <ResponsivePhoto
+                variant={blogImageVariants[blogPosts[0].slug]}
+                loading="eager"
+                fetchPriority="high"
                   src={blogPosts[0].img}
                   alt={blogPosts[0].title}
                   className="w-full h-[300px] md:h-[420px] object-cover group-hover:scale-105 transition-transform duration-700"
@@ -366,7 +376,8 @@ export default function Blog() {
               {blogPosts.slice(1).map((post) => (
                 <Link key={post.slug} href={`/blog/${post.slug}`} className="group block">
                   <div className="rounded-2xl overflow-hidden border border-black/10 mb-5">
-                    <img
+                    <ResponsivePhoto
+                      variant={blogImageVariants[post.slug]}
                       src={post.img}
                       alt={post.title}
                       className="w-full h-[260px] md:h-[300px] object-cover group-hover:scale-105 transition-transform duration-700"
@@ -428,6 +439,8 @@ export default function Blog() {
                 <img
                   src={sizeBreakdownPreviewImg}
                   alt="Stacks of folded t-shirts in graduated sizes — from small to large"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500"
                 />
               </div>

@@ -115,6 +115,8 @@ export function CaseStudiesMenu({ active = false, theme = "dark" }: Props) {
                       className="group relative block rounded-xl overflow-hidden bg-[#0a0a0a] aspect-[16/7] hover:ring-2 hover:ring-black transition-all"
                     >
                       <img
+                        loading="lazy"
+                        decoding="async"
                         src={thumb}
                         alt={`${cs.client} branded merchandise case study — ${cs.title}`}
                         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"

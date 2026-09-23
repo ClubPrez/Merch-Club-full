@@ -9,3 +9,4 @@
 - [Supabase direct signed upload](supabase-direct-signed-upload.md) — browser PUTs straight to private bucket via createSignedUploadUrl; 25MB only enforced by bucket file_size_limit; needs Storage CORS for the prod origin.
 - [Merch Club Resend email](merchclub-resend-email.md) — valid key ≠ sends (custom domain must verify, else 403); onboarding@resend.dev works even with a scoped key; SDK v6 replyTo / REST reply_to; from via EMAIL_FROM.
 - [Instant Quote priceability](instant-quote-priceability.md) — every price surface (main, method cards, summary, footer CTA) must share one canPrice predicate (qty tier + base>0 + finite computed>0), else $0-base+run-charge leaks a fake price.
+- [Vite preview clean URLs](vite-preview-clean-urls.md) — preview serves the homepage fallback for extensionless routes without a slash; use trailing slashes when checking prerendered nested HTML.

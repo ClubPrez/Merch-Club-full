@@ -64,6 +64,31 @@ import logoMcCoy from "@assets/McCoy_Horizontal_Logo_Black_1780543231903.png";
 import blogKittingImg from "@assets/ChatGPT_Image_Apr_8,_2026,_11_27_13_AM_1775835373159.png";
 import blogPackagingImg from "@assets/Professional_promotional_packaging_shot_1775835373158.png";
 import blogCityImg from "@assets/Merch_club_in_the_city_plaza_1775835373159.png";
+import { ResponsivePhoto as OptimizedPhoto } from "@/components/responsive-photo";
+
+// Keep original images as fallbacks, but serve compact mobile/desktop variants
+// to browsers that support modern formats. Only photographic assets are mapped.
+const photoNames = new Map([
+  [constructionApparelImg, "construction"],
+  [healthcareApparelImg, "healthcare"],
+  [kittingNewImg, "kitting"],
+  [onDemandStoreImg, "store"],
+  [industrySpecificImg, "industry"],
+  [employeeGiftsImg, "gifts"],
+  [bulkSourcingImg, "sourcing"],
+  [eventMerchImg, "event"],
+  [onestaffImg, "onestaff"],
+  [blogKittingImg, "blog-kitting"],
+  [blogPackagingImg, "blog-packaging"],
+  [blogCityImg, "blog-city"],
+  [corporateImg, "corporate"],
+]);
+
+function ResponsivePhoto({ src, sizes = "(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 33vw", ...props }: React.ImgHTMLAttributes<HTMLImageElement>) {
+  const name = src && photoNames.get(src);
+  if (!name) return <img src={src} {...props} />;
+  return <OptimizedPhoto variant={name} src={src} sizes={sizes} {...props} />;
+}
 
 function CountUp({ end, prefix = "", suffix = "", duration = 2000 }: { end: number; prefix?: string; suffix?: string; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -388,6 +413,8 @@ function StickyTimeline() {
                           <div className="w-[100px] h-[120px] md:w-[120px] md:h-[150px] rounded-lg overflow-hidden border border-white/10 group-hover:border-white/25 shrink-0 transition-all duration-500">
                             <img
                               src={step.img}
+                              loading="lazy"
+                              decoding="async"
                               alt={`Merch Club ${step.title.toLowerCase()} - branded merchandise ${step.desc.toLowerCase()}`}
                               className="w-full h-full object-cover transition-all duration-700"
                               style={{ filter: isActive ? "grayscale(0)" : "grayscale(1)" }}
@@ -527,6 +554,8 @@ function TrustedBrandsSection() {
         <img
           key={`${rep}-${brand.name}`}
           src={brand.logo}
+          loading="lazy"
+          decoding="async"
           alt={rep === 0 ? brand.name : ""}
           className={`${brand.sizeClass} w-auto object-contain shrink-0 mx-10 md:mx-14`}
           style={{ filter, opacity }}
@@ -547,6 +576,8 @@ function TrustedBrandsSection() {
             <img
               key={brand.name}
               src={brand.logo}
+              loading="lazy"
+              decoding="async"
               alt={brand.name}
               className={`${brand.sizeClass} w-auto object-contain`}
               style={{ filter: "grayscale(1)", opacity: 0.55 }}
@@ -921,7 +952,7 @@ export default function Home() {
 
             <div className="hidden lg:flex relative items-center justify-center shrink-0">
               <div ref={circle1Ref} className="w-[200px] h-[200px] sm:w-[220px] sm:h-[220px] md:w-[240px] md:h-[240px] lg:w-[340px] lg:h-[340px] xl:w-[380px] xl:h-[380px] aspect-square rounded-full overflow-hidden relative z-10 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
-                <img src={constructionApparelImg} alt="Branded Carhartt field jacket with embroidered contractor logo — construction crew apparel program by Merch Club" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                <ResponsivePhoto src={constructionApparelImg} alt="Branded Carhartt field jacket with embroidered contractor logo — construction crew apparel program by Merch Club" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-100 hover:bg-black/40 transition-colors">
                   <Link href="/industries/construction" className="bg-white text-black text-[10px] sm:text-[11px] md:text-xs font-bold px-3 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2 rounded-full hover:bg-gray-200 transition-all hover:scale-105 inline-flex items-center gap-1.5 max-w-[85%] text-center justify-center leading-tight">
                     Construction Apparel
@@ -944,7 +975,7 @@ export default function Home() {
               </div>
 
               <div ref={circle3Ref} className="w-[200px] h-[200px] sm:w-[220px] sm:h-[220px] md:w-[240px] md:h-[240px] lg:w-[340px] lg:h-[340px] xl:w-[380px] xl:h-[380px] aspect-square rounded-full overflow-hidden -ml-8 sm:-ml-10 md:-ml-12 lg:-ml-16 relative z-30 border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500">
-                <img src={healthcareApparelImg} alt="OneStaff Medical branded healthcare staff apparel — nurse and clinical team uniform program by Merch Club" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                <ResponsivePhoto src={healthcareApparelImg} alt="OneStaff Medical branded healthcare staff apparel — nurse and clinical team uniform program by Merch Club" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-100 hover:bg-black/40 transition-colors">
                   <Link href="/industries/healthcare" className="bg-white text-black text-[10px] sm:text-[11px] md:text-xs font-bold px-3 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-2 rounded-full hover:bg-gray-200 transition-all hover:scale-105 inline-flex items-center gap-1.5 max-w-[85%] text-center justify-center leading-tight">
                     Healthcare Apparel
@@ -970,7 +1001,7 @@ export default function Home() {
                   { href: "/industries/events", img: eventsImg, label: "Events" },
                 ].map((c, i) => (
                   <Link key={`${dup}-${i}`} href={c.href} className="group relative shrink-0 w-[200px] h-[200px] sm:w-[220px] sm:h-[220px] aspect-square rounded-full overflow-hidden border-4 border-[#0a0a0a] block">
-                    <img src={c.img} alt={`${c.label} branded apparel and merchandise program — industry-specific merch execution by Merch Club`} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                    <ResponsivePhoto src={c.img} alt={`${c.label} branded apparel and merchandise program — industry-specific merch execution by Merch Club`} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-black/35 flex items-center justify-center">
                       <span className="bg-white text-black text-[11px] font-bold px-3.5 py-2 rounded-full inline-flex items-center gap-1.5 leading-none">
                         {c.label}
@@ -1057,7 +1088,7 @@ export default function Home() {
               ].map((item, i) => (
                 <RevealItem key={item.label} delay={200 + i * 150} className={`${i > 0 ? "sm:-ml-8 md:-ml-12 lg:-ml-16" : ""} relative`}>
                   <div className={`w-[170px] h-[170px] sm:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px] lg:w-[320px] lg:h-[320px] xl:w-[350px] xl:h-[350px] aspect-square rounded-full overflow-hidden border-4 border-[#0a0a0a] hover:scale-105 transition-transform duration-500 relative mx-auto`} style={{ zIndex: i + 10 }}>
-                    <img src={item.img} alt={`${item.label} branded apparel and merchandise programs — Merch Club industry execution`} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                    <ResponsivePhoto src={item.img} alt={`${item.label} branded apparel and merchandise programs — Merch Club industry execution`} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center hover:bg-black/50 transition-colors">
                       <Link href={item.href} className="bg-white text-black text-xs sm:text-sm md:text-sm font-bold px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-2.5 rounded-full inline-flex items-center gap-1.5 sm:gap-2 hover:bg-gray-200 transition-all hover:scale-105" style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.05em" }}>
                         {item.label}
@@ -1151,7 +1182,7 @@ export default function Home() {
             <RevealItem delay={200} className="lg:w-[55%] relative">
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden border border-black/10">
-                  <img src={onestaffImg} alt="OneStaff Medical travel nurse at sunrise with branded blanket — wanderlust-driven nurse gifting" loading="lazy" decoding="async" className="w-full h-[300px] sm:h-[380px] md:h-[500px] object-cover" />
+                  <ResponsivePhoto src={onestaffImg} sizes="(max-width: 640px) 90vw, 800px" alt="OneStaff Medical travel nurse at sunrise with branded blanket — wanderlust-driven nurse gifting" loading="lazy" decoding="async" className="w-full h-[300px] sm:h-[380px] md:h-[500px] object-cover" />
                 </div>
 
                 <div className="hidden md:block absolute bottom-6 left-6 bg-white/95 backdrop-blur-md rounded-xl border border-black/10 p-5 max-w-[280px] shadow-2xl shadow-black/10">
@@ -1246,6 +1277,8 @@ export default function Home() {
                 <img
                   src={dashboardScreenImg}
                   alt="Merch Club Client Portal Dashboard"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto block"
                 />
 
@@ -1384,7 +1417,7 @@ export default function Home() {
                   <div key={idx} className="flex-shrink-0 w-[320px] group">
                     <div className="relative rounded-2xl overflow-hidden bg-[#f5f5f5] border border-black/5 hover:border-black/15 transition-all duration-500 h-full">
                       <div className="relative h-[220px] overflow-hidden">
-                        <img src={card.img} alt={`${card.title} — branded merchandise program by Merch Club`} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <ResponsivePhoto src={card.img} alt={`${card.title} — branded merchandise program by Merch Club`} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#f5f5f5] via-transparent to-transparent" />
                       </div>
                       <div className="p-6">
@@ -1478,7 +1511,7 @@ export default function Home() {
               <RevealItem key={i} delay={200 + i * 150}>
                 <Link href={`/blog/${post.slug}`} className="group block">
                   <div className="rounded-2xl overflow-hidden border border-black/10 mb-5">
-                    <img
+                    <ResponsivePhoto
                       src={post.img}
                       alt={post.title}
                       className="w-full h-[220px] md:h-[260px] object-cover group-hover:scale-105 transition-transform duration-500"

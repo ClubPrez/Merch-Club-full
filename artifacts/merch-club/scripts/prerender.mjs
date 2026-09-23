@@ -256,7 +256,11 @@ async function main() {
     let routeJsonLd = [];
     try {
       const result = render(route);
-      appHtml = result.html;
+      // React 19 emits preload links for every eager <img>, including images
+      // far below the fold. On mobile these cause tens of MB of PNG downloads
+      // before the user scrolls. Keep the rendered images, not their eager
+      // speculative preloads; browser loading/lazy loading still works.
+      appHtml = result.html.replace(/<link rel="preload" as="image"[^>]*\/>/g, '');
       routeJsonLd = result.jsonLd ?? [];
     } catch (err) {
       console.warn(`  ⚠  ${route} — SSR render threw: ${err.message}`);

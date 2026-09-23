@@ -1,32 +1,47 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect, type ComponentType } from "react";
 import { Switch, Route, Router as WouterRouter, useLocation, Redirect } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Home from "@/pages/home";
-import About from "@/pages/about";
-import Blog from "@/pages/blog";
-import BlogPost from "@/pages/blog-post";
-import Healthcare from "@/pages/healthcare";
-import Construction from "@/pages/construction";
-import Corporate from "@/pages/corporate";
-import Events from "@/pages/events";
-import Contact from "@/pages/contact";
-import Services from "@/pages/services";
-import Industries from "@/pages/industries";
-import CaseStudies from "@/pages/case-studies";
-import CaseStudy from "@/pages/case-study";
-import CaseStudyOnestaff from "@/pages/case-study-onestaff";
-import CaseStudyOnestaffEvents from "@/pages/case-study-onestaff-events";
-import CaseStudyBakerConstruction from "@/pages/case-study-baker-construction";
-import CaseStudyAccessBank from "@/pages/case-study-access-bank";
-import CaseStudyJayMoore from "@/pages/case-study-jay-moore";
-import PrivacyPolicy from "@/pages/privacy-policy";
-import Terms from "@/pages/terms";
-import Accessibility from "@/pages/accessibility";
-import SizeBreakdown from "@/pages/size-breakdown";
-import InstantQuote from "@/pages/instant-quote";
-import NotFound from "@/pages/not-found";
+type PageModule = { default: ComponentType<any> };
+// Eager on the server so renderToString includes real page content and JSON-LD.
+// Browser imports remain dynamic; Suspense preserves server HTML until hydration.
+const pages = import.meta.env.SSR
+  ? import.meta.glob<PageModule>("./pages/*.tsx", { eager: true })
+  : import.meta.glob<PageModule>("./pages/*.tsx");
+
+function page(name: string): ComponentType<any> {
+  const module = pages[`./pages/${name}.tsx`];
+  if (!module) throw new Error(`Missing page module: ${name}`);
+  return import.meta.env.SSR
+    ? (module as PageModule).default
+    : lazy(module as () => Promise<PageModule>);
+}
+
+const Home = page("home");
+const About = page("about");
+const Blog = page("blog");
+const BlogPost = page("blog-post");
+const Healthcare = page("healthcare");
+const Construction = page("construction");
+const Corporate = page("corporate");
+const Events = page("events");
+const Contact = page("contact");
+const Services = page("services");
+const Industries = page("industries");
+const CaseStudies = page("case-studies");
+const CaseStudy = page("case-study");
+const CaseStudyOnestaff = page("case-study-onestaff");
+const CaseStudyOnestaffEvents = page("case-study-onestaff-events");
+const CaseStudyBakerConstruction = page("case-study-baker-construction");
+const CaseStudyAccessBank = page("case-study-access-bank");
+const CaseStudyJayMoore = page("case-study-jay-moore");
+const PrivacyPolicy = page("privacy-policy");
+const Terms = page("terms");
+const Accessibility = page("accessibility");
+const SizeBreakdown = page("size-breakdown");
+const InstantQuote = page("instant-quote");
+const NotFound = page("not-found");
 
 const queryClient = new QueryClient();
 
@@ -42,6 +57,7 @@ function ScrollToTop() {
 
 function Router() {
   return (
+    <Suspense fallback={null}>
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
@@ -173,6 +189,7 @@ function Router() {
 
       <Route component={NotFound} />
     </Switch>
+    </Suspense>
   );
 }
 

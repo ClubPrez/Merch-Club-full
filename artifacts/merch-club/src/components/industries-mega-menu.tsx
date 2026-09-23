@@ -117,6 +117,8 @@ export function IndustriesMegaMenu({ active = false, theme = "dark" }: Props) {
                       <img
                         src={industryImages[ind.slug]}
                         alt={ind.name}
+                        loading="lazy"
+                        decoding="async"
                         className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                     )}

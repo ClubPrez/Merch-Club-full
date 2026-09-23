@@ -11,6 +11,7 @@ import team4Img from "@assets/4_1775229252466.png";
 import missionImg from "@assets/0e8baef1-5aa2-4e3d-9acc-6eedba43547b_1776173642639.png";
 import featuredCrewImg from "@assets/image_1776425552216.png";
 import wideTeamImg from "@assets/ChatGPT_Image_Apr_16,_2026,_02_19_45_PM_1776425570204.png";
+import { ResponsivePhoto } from "@/components/responsive-photo";
 import brandAccessBank from "@assets/ACCESSbank_Lettering_Only_1779905854420.png";
 import brandPaylocity from "@assets/brand_paylocity_nobg.png";
 import brandFraserStryker from "@assets/brand_fraserstryker_nobg.png";
@@ -131,10 +132,10 @@ function ParallaxImage({ src, alt, className }: { src: string; alt: string; clas
 }
 
 const teamMembers = [
-  { img: team1Img, name: "Jason Olsen", role: "Sales", email: "jason@merchclub.com" },
-  { img: team2Img, name: "Chris Harwood", role: "CEO", email: "chris@merchclub.com" },
-  { img: team3Img, name: "Chelsea Vogel", role: "Vice President of Sales", email: "chelsea@merchclub.com" },
-  { img: team4Img, name: "Jay Collins", role: "Production Manager", email: "jay@merchclub.com" },
+  { img: team1Img, variant: "team-1", name: "Jason Olsen", role: "Sales", email: "jason@merchclub.com" },
+  { img: team2Img, variant: "team-2", name: "Chris Harwood", role: "CEO", email: "chris@merchclub.com" },
+  { img: team3Img, variant: "team-3", name: "Chelsea Vogel", role: "Vice President of Sales", email: "chelsea@merchclub.com" },
+  { img: team4Img, variant: "team-4", name: "Jay Collins", role: "Production Manager", email: "jay@merchclub.com" },
 ];
 
 const values = [
@@ -371,7 +372,7 @@ export default function About() {
             <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full pl-2 pr-5 py-1.5 mb-8">
               <div className="flex -space-x-2">
                 {teamMembers.map((m) => (
-                  <img key={m.email} src={m.img} alt={m.name} className="w-7 h-7 rounded-full object-cover border-2 border-[#0a0a0a] grayscale" />
+                  <ResponsivePhoto key={m.email} variant={m.variant} sizes="28px" src={m.img} alt={m.name} loading="eager" className="w-7 h-7 rounded-full object-cover border-2 border-[#0a0a0a] grayscale" />
                 ))}
               </div>
               <div className="flex items-center gap-1.5">
@@ -422,6 +423,8 @@ export default function About() {
                     key={`${rep}-${b.name}`}
                     src={b.logo}
                     alt={b.name}
+                    loading="lazy"
+                    decoding="async"
                     className={`${b.sizeClass} w-auto object-contain opacity-70 hover:opacity-100 transition-opacity shrink-0 mx-10 md:mx-14`}
                     style={{
                       filter: b.customFilter ?? (b.noFilter ? "none" : "brightness(0) invert(1)"),
@@ -472,7 +475,7 @@ export default function About() {
             <RevealItem delay={200} className="lg:w-1/2 w-full" direction="right">
               <div className="relative mx-auto w-full max-w-[560px] aspect-square">
                 <div className="absolute inset-0 rounded-full overflow-hidden bg-black">
-                  <img src={missionImg} alt="OneStaff Medical branded merchandise and travel nurse gifting program — client work by Merch Club" className="w-full h-full object-cover" />
+                  <ResponsivePhoto variant="mission" src={missionImg} alt="OneStaff Medical branded merchandise and travel nurse gifting program — client work by Merch Club" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute top-4 left-4 md:top-6 md:left-6 w-28 h-28 md:w-36 md:h-36 rounded-full bg-black text-white flex flex-col items-center justify-center text-center shadow-2xl">
                   <span className="text-2xl md:text-3xl font-black leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
@@ -529,7 +532,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-8 items-stretch">
             <RevealItem delay={100} direction="left" className="lg:col-span-3">
               <div className="relative rounded-2xl overflow-hidden h-[420px] md:h-[560px] bg-black">
-                <img src={featuredCrewImg} alt="Merch Club team executing branded merchandise programs for healthcare, construction, and corporate clients across the U.S." className="w-full h-full object-cover" />
+                <ResponsivePhoto variant="crew" src={featuredCrewImg} alt="Merch Club team executing branded merchandise programs for healthcare, construction, and corporate clients across the U.S." className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
                   <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/80 bg-white/10 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-full">
@@ -611,7 +614,7 @@ export default function About() {
 
             <RevealItem delay={200}>
               <div className="relative rounded-2xl overflow-hidden h-[260px] md:h-[300px] bg-black group">
-                <img src={wideTeamImg} alt="Merch Club branded merchandise production and kitting in action — custom apparel decoration and fulfillment for client programs" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <ResponsivePhoto variant="wide-team" src={wideTeamImg} alt="Merch Club branded merchandise production and kitting in action — custom apparel decoration and fulfillment for client programs" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-black/20" />
                 <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
                   <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white">In the field</span>

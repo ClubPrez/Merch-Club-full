@@ -4,7 +4,8 @@ import SEO from "@/components/seo";
 import Breadcrumbs from "@/components/breadcrumbs";
 import RelatedContent, { type RelatedItem } from "@/components/related-content";
 import { StartProjectModal } from "@/components/start-project-modal";
-import { blogPosts } from "./blog";
+import { blogPosts, blogImageVariants } from "./blog";
+import { ResponsivePhoto } from "@/components/responsive-photo";
 import { caseStudies as siteCaseStudies } from "@/lib/site-data";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -123,7 +124,11 @@ export default function BlogPost() {
       <article>
         <div className="relative">
           <div className="w-full h-[300px] md:h-[500px] lg:h-[600px] overflow-hidden">
-            <img
+            <ResponsivePhoto
+              variant={blogImageVariants[post.slug]}
+              sizes="(max-width: 640px) 100vw, 960px"
+              loading="eager"
+              fetchPriority="high"
               src={post.img}
               alt={post.title}
               className="w-full h-full object-cover"
@@ -258,7 +263,8 @@ export default function BlogPost() {
             {otherPosts.map((p) => (
               <Link key={p.slug} href={`/blog/${p.slug}`} className="group block">
                 <div className="rounded-2xl overflow-hidden border border-black/10 mb-5">
-                  <img
+                  <ResponsivePhoto
+                    variant={blogImageVariants[p.slug]}
                     src={p.img}
                     alt={p.title}
                     className="w-full h-[240px] md:h-[280px] object-cover group-hover:scale-105 transition-transform duration-700"
