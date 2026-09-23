@@ -5,9 +5,8 @@ description: How the Express api-server runs as a Vercel function and the env/bu
 
 # api-server on Vercel (serverless function)
 
-The Express app is deployed to Vercel as a single serverless function via a committed
-catch-all `api/[...path].mjs` that imports a prebuilt bundle and re-exports its default
-(the Express app, exported by `src/serverless.ts` which does NOT call `listen`).
+The Express app is deployed to Vercel as a single serverless function via an API
+entry that imports a prebuilt bundle (the Express app does NOT call `listen`).
 
 ## Build must produce a pino-plugin-FREE bundle for Vercel
 `build.mjs` dual-builds: `dist/index.mjs` (with the esbuild pino plugin, for Replit) and
@@ -36,9 +35,14 @@ Optional: `IMAGE_PROXY_SECRET` (falls back to `SAGE_AUTH_KEY` for HMAC token sig
 `lib/image-proxy.ts`), `LOG_LEVEL` (default info), `NODE_ENV` (Vercel sets production).
 
 ## Routing
-`app.use("/api", router)`; Vercel filesystem routing must run before the SPA 404 rewrite so
-`/api/*` hits the function. Health is `/api/healthz` (NOT `/api/health`); search is POST
-`/api/search` (a GET 404s).
+**Rule:** In this framework-null Vercel project, a bracketed API filename is a
+literal function path, NOT an automatic catch-all; a rewrite from `/api/*` to
+the function must come before the filesystem handler and static 404 fallback.
+**Why:** A live request to the literal bracketed path reached Express, while
+`/api/healthz` returned the prerendered 404 even though the function was built.
+**How to apply:** When API requests get branded static 404s, check the Vercel
+function route before investigating credentials or Express handlers. Health is
+`/api/healthz` (NOT `/api/health`); search is POST `/api/search` (a GET 404s).
 
 ## merch-club vite build guards are REPL_ID-gated
 `vite.config.ts` throws on missing `PORT`/`BASE_PATH` ONLY when `process.env.REPL_ID` is set

@@ -4,8 +4,8 @@
 - [SAGE image URLs leak supplier identity](sage-image-proxy.md) — promoplace image URLs embed `SN=<suppId>`; proxy ALL of them through `/api/img/<token>`, field-stripping JSON isn't enough.
 - [api-server typecheck pre-broken](api-server-typecheck.md) — `tsc -p` fails on unrelated lib/db Zod + project-ref errors; validate new files via esbuild build + isolated tsc.
 - [String.replace template injection](prerender-string-replace.md) — injecting JSON/HTML via `.replace(marker, str)` corrupts `$$`/`$&`/`` $` ``/`$'`; use a function replacement, and grep the literal value since JSON.parse won't catch it.
-- [Merch Club prerender + Vercel deploy](prerender-deploy.md) — apex 307→www (verify live with `curl -L`); never gate prerender on pnpm `postbuild`; prerender must fail build on empty renders.
-- [api-server Vercel serverless](api-server-vercel-serverless.md) — bundle WITHOUT pino plugin (no worker sidecars); DB import is LAZY (getDb()) so missing DATABASE_URL no longer crashes — only /subscribe degrades to 503; vite build guards are REPL_ID-gated.
+- [Merch Club prerender + Vercel deploy](prerender-deploy.md) — use non-www canonical; verify live redirects with `curl -L`; never gate prerender on pnpm `postbuild`; fail build on empty renders.
+- [api-server Vercel serverless](api-server-vercel-serverless.md) — bracketed API function is literal in framework-null Vercel; rewrite /api/* explicitly. Bundle without pino sidecars; DB import lazy.
 - [Supabase direct signed upload](supabase-direct-signed-upload.md) — browser PUTs straight to private bucket via createSignedUploadUrl; 25MB only enforced by bucket file_size_limit; needs Storage CORS for the prod origin.
 - [Merch Club Resend email](merchclub-resend-email.md) — valid key ≠ sends (custom domain must verify, else 403); onboarding@resend.dev works even with a scoped key; SDK v6 replyTo / REST reply_to; from via EMAIL_FROM.
 - [Instant Quote priceability](instant-quote-priceability.md) — every price surface (main, method cards, summary, footer CTA) must share one canPrice predicate (qty tier + base>0 + finite computed>0), else $0-base+run-charge leaks a fake price.

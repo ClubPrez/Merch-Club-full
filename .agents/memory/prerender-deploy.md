@@ -19,9 +19,10 @@ The marketing site (`artifacts/merch-club`) deploys to **Vercel** via the repo-r
   `<div id="root">`" reports are often just a stale CDN/browser cache or a
   pre-propagation deploy — verify with `curl -L -A <browser-UA>` per route first.
 
-- **Vercel serves static files before applying `rewrites`.** The SPA catch-all
-  `{ source:"/(.*)", destination:"/index.html" }` does NOT clobber per-route
-  prerendered files — `/about` serves `about/index.html`, not the homepage. Leave it.
+- **Vercel serves prerendered files before the static 404 fallback.** A route
+  after the filesystem handler catches paths without a matching file and
+  serves `404.html`; it must not intercept API functions (see the serverless
+  routing note). `/about` serves its own prerendered HTML, not the homepage.
 
 ## Build pitfalls (the reason prod can silently ship empty HTML)
 **Why:** a previous "empty body" panic traced to these two latent footguns, not an actual outage.
