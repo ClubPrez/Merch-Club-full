@@ -8,6 +8,7 @@
     "api/[...path].mjs": { "maxDuration": 30, "memory": 1024 }
   },
   "routes": [
+    { "src": "/images/email/.*", "headers": { "X-Robots-Tag": "noindex, noimageindex" }, "continue": true },
     { "src": "/wp-content/.*", "dest": "/404.html", "status": 410 },
     { "src": "/wp-admin/.*", "dest": "/404.html", "status": 410 },
     { "src": "/wp-includes/.*", "dest": "/404.html", "status": 410 },
